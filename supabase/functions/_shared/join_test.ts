@@ -2,9 +2,12 @@ import { langueTraduite } from "./traduction_email.ts";
 import { assert, assertEquals, assertMatch } from "jsr:@std/assert@1";
 
 import {
+  codesVerifies,
+  codeWhatsappActif,
   langueEmailJoin,
   type CandidatureJoin,
   CONTRAT_AJOUTS_V4,
+  CONTRAT_RESUME_V5,
   CONTRAT_RESUME,
   CONTRAT_TEXTE,
   cohorteASignature,
@@ -12,6 +15,16 @@ import {
   dateLimiteSignature,
   decider,
   deciderAvecReglage,
+  deciderJoin,
+  type EtatChecklist,
+  etatChecklist,
+  type EtatOS,
+  lireJoinReel,
+  raisonSimulation,
+  rappelsDus,
+  signatureVendrediDue,
+  texteRappel,
+  typeWhatsappRappel,
   decisionsAdminPossibles,
   emailAutorise,
   estEtapeJoin,
@@ -38,6 +51,7 @@ import {
   reponsesOS,
   sha256Hex,
   SOCIETE,
+  texteContratComplet,
   texteMessage,
   TYPES_MESSAGE_JOIN,
   validerCandidature,
@@ -87,7 +101,11 @@ Deno.test("candidature : validation v2 (18+, canal, parrain, tarif, engagement, 
   assertEquals(erreurs({ entendu: "referral" }), ["parrain"]);
   assertEquals(erreurs({ entendu: "tv" }), ["entendu"]);
   assertEquals(erreurs({ site: "http://spam" }), ["site"]);
-  assertEquals(erreurs({ deux_telephones: undefined }), ["deux_telephones"]);
+  // 25/11 (Max) : la question « deux téléphones » n'est plus posée (facultative, null quand absente).
+  assertEquals(erreurs({ deux_telephones: undefined }), []);
+  assertEquals(erreurs({ deux_telephones: "oui" }), ["deux_telephones"]);
+  const sansTel = validerCandidature({ ...saisie, deux_telephones: undefined });
+  assert(sansTel.ok && sansTel.valeurs.deux_telephones === null);
   const p = validerCandidature({ ...saisie, entendu: "referral", parrain: " Ana " });
   assert(p.ok && p.valeurs.parrain === "Ana" && p.valeurs.reponses.contenu.includes("Ana"));
   // Le nom du parrain n'est gardé que si le canal est « referral ».
@@ -132,7 +150,10 @@ Deno.test("décision : règles de l'OS (manquesCandidature)", () => {
   assertEquals(decider(cand({ age: null, majeur: false }), ouverts).decision, "a_traiter");
   assertEquals(decider(cand({ age: null, majeur: null }), ouverts).decision, "a_traiter");
   assertEquals(decider(cand({ pays: "PT" }), ouverts).decision, "a_traiter");
-  assertEquals(decider(cand({ deux_telephones: false }), ouverts).decision, "a_traiter");
+  // 25/11 (Max) : Join n'exige plus de deuxième téléphone (la règle de l'OS reste dans ruul.ts, pour l'OS et le Hub).
+  assertEquals(decider(cand({ deux_telephones: false }), ouverts).decision, "auto");
+  assertEquals(decider(cand({ deux_telephones: null }), ouverts).decision, "auto");
+  assertEquals(versCandidatureRuul(cand({ deux_telephones: null })).deux_telephones, true);
   assertEquals(decider(cand({ whatsapp_verifie_at: null }), ouverts).decision, "a_traiter");
   const r = versCandidatureRuul(cand());
   assertEquals(r.adulte, true);
@@ -181,16 +202,25 @@ Deno.test("premier post : lundi suivant, +7 si warm-up pas fini avant dimanche 2
   assertEquals(lundiLisible("2026-11-30"), "Monday 30 November");
 });
 
-Deno.test("contrat v4 = v3 + frais Ruul + non-exclusivité, le reste identique", async () => {
-  assert(CONTRAT_TEXTE.includes("join-v4"));
+Deno.test("contrat v5 = v4 + 1re ligne du résumé (compte TikTok créé par le posteur), le reste identique", async () => {
+  assert(CONTRAT_TEXTE.includes("join-v5"));
   assert(CONTRAT_TEXTE.includes("given at signature. Ruul fees are paid by the Company. The Company's payment obligation"));
   assert(CONTRAT_TEXTE.includes("uses their own devices. This agreement is not exclusive.\n"));
-  // Les deux phrases retirées et la version remise : exactement le texte join-v3 (empreinte du texte v3 publié).
-  const v3 = CONTRAT_TEXTE.replace(` ${CONTRAT_AJOUTS_V4.frais_ruul}`, "").replace(` ${CONTRAT_AJOUTS_V4.exclusivite}`, "")
+  assertEquals(CONTRAT_RESUME[0], CONTRAT_RESUME_V5.apres);
+  // join-v4 reconstitué (version remise, ancienne 1re ligne) : exactement les empreintes publiées de join-v4.
+  const v4Texte = CONTRAT_TEXTE.replace("(version join-v5)", "(version join-v4)");
+  const v4Resume = [CONTRAT_RESUME_V5.avant, ...CONTRAT_RESUME.slice(1)];
+  assertEquals(await sha256Hex(v4Texte), "aed5196c671b136d0faeb1733a2eda71c1da6f5a0e4a57b6340c0369e9c2afee");
+  assertEquals(await sha256Hex(JSON.stringify(v4Resume)), "0d649acca27b58fe95843a0482c1454cd88503ee946837fcb6c6b7f62bbbee98");
+  assertEquals(
+    await sha256Hex(`${v4Resume.map((l) => `- ${l}`).join("\n")}\n\n${v4Texte}`),
+    "890876acdbd36ef0d4587f6cf82ba3aab68571b6af895c3b6ba1852c30afbe96",
+  );
+  // Et join-v3 sous join-v4 (frais Ruul et non-exclusivité retirés).
+  const v3 = v4Texte.replace(` ${CONTRAT_AJOUTS_V4.frais_ruul}`, "").replace(` ${CONTRAT_AJOUTS_V4.exclusivite}`, "")
     .replace("(version join-v4)", "(version join-v3)");
   assertEquals(await sha256Hex(v3), "3b26b134a70966d251b8485e772c0c5d475493d2623ead6e72567b39d06bd8ff");
-  // Le résumé est inchangé.
-  assertEquals(await sha256Hex(JSON.stringify(CONTRAT_RESUME)), "0d649acca27b58fe95843a0482c1454cd88503ee946837fcb6c6b7f62bbbee98");
+  assert(texteContratComplet().startsWith(`- ${CONTRAT_RESUME_V5.apres}\n`));
 });
 
 Deno.test("contrat : identité complète de la société en tête, plus de cases vides, clauses gardées", () => {
@@ -241,8 +271,8 @@ Deno.test("automatisation : relances J+1 / J+3, expiration J+7, relance des code
   assert(!relanceCodeDue(acc, true, false, a(2)));
   assert(!relanceCodeDue(acc, false, true, a(2)));
   assert(!relanceCodeDue(acc, false, false, a(24 * 8)));
-  assertEquals(etapesRestantes([]), ["compte_os", "slack", "ruul", "acces"]);
-  assertEquals(etapesRestantes(["compte_os", "slack"]), ["ruul", "acces"]);
+  assertEquals(etapesRestantes([]), ["compte_os", "slack", "acces", "ruul"]);
+  assertEquals(etapesRestantes(["compte_os", "slack"]), ["acces", "ruul"]);
   assertEquals(etapesRestantes(["compte_os", "slack", "ruul", "acces", "code"]), []);
 });
 
@@ -312,4 +342,145 @@ Deno.test("join : les emails partent dans la langue du candidat, nouvelles langu
     assert(langueTraduite(langueEmailJoin(l)), l);
   }
   assert(!langueTraduite(langueEmailJoin("en")));
+});
+
+Deno.test("25/11 : sans modèle de code WhatsApp, le code par email suffit", () => {
+  const sans = lireModeJoin({ mode: "live" });
+  const avec = lireModeJoin({ mode: "live", modele_code: "join_code" });
+  const c = { email_verifie_at: "x", whatsapp_verifie_at: null };
+  assertEquals(codeWhatsappActif(sans), false);
+  assertEquals(codesVerifies(c, sans), true);
+  assertEquals(codesVerifies(c, avec), false);
+  assertEquals(codesVerifies({ ...c, email_verifie_at: null }, sans), false);
+  const base = { decision: null, manques: [], expire_at: null, ...c };
+  assertEquals(etapeAdmin(base, false, false), "verifiee");
+  assertEquals(etapeAdmin(base, false, true), "codes");
+});
+
+// ---------------------------------------------------------------------------------------------------------------
+// 0858 (25/11, Max) : join_reel, décision, checklist et rappels
+// ---------------------------------------------------------------------------------------------------------------
+
+Deno.test("join_reel : tout simulé par défaut ; seul true rend une étape réelle ; une candidature de test ne crée rien", () => {
+  const rien = lireJoinReel(null);
+  assertEquals(rien, { compte_os: false, acces: false, ruul: false, rappels: false, whatsapp: false });
+  assertEquals(lireJoinReel({ compte_os: "true", rappels: 1 }).compte_os, false);
+  const tout = lireJoinReel({ compte_os: true, acces: true, ruul: true, rappels: true, whatsapp: true });
+  assertEquals(raisonSimulation("acces", rien, { test: false }), "drapeau join_reel.acces à false");
+  assertEquals(raisonSimulation("acces", tout, { test: false }), null);
+  assertEquals(raisonSimulation("acces", tout, { test: false, simuler: true }), "simulation (horloge simulée)");
+  assert(raisonSimulation("compte_os", tout, { test: true })?.startsWith("candidature de test"));
+  assertEquals(raisonSimulation("compte_os", tout, { test: false }), null);
+  assertEquals(raisonSimulation("ruul", tout, { test: false, profil: false }), "pas de fiche OS (compte OS simulé)");
+  assertEquals(raisonSimulation("ruul", tout, { test: false, profil: true }), null);
+});
+
+Deno.test("décision : langue gérée par l'OS et doublons, en clair", () => {
+  const ouverts = new Set(["FR", "ES"]);
+  const ok = { langue: { geree: true, code: "fr" }, doublons: [] };
+  assertEquals(deciderJoin(cand(), ouverts, true, ok), { decision: "auto", manques: [] });
+  assertEquals(deciderJoin(cand(), ouverts, true, { ...ok, langue: { geree: false, code: "ca" } }).manques, ["langue non gérée par l'OS (ca)"]);
+  assertEquals(deciderJoin(cand(), ouverts, true, { ...ok, langue: { geree: null, code: null } }).manques, ["langue non vérifiée (OS injoignable)"]);
+  const d = deciderJoin(cand(), ouverts, true, { ...ok, doublons: ["doublon : email déjà sur une fiche de l'OS"] });
+  assertEquals(d, { decision: "a_traiter", manques: ["doublon : email déjà sur une fiche de l'OS"] });
+  // Pays fermé : la langue n'est pas ajoutée (un seul manque, le vrai).
+  assertEquals(deciderJoin(cand({ pays: "PT" }), ouverts, true, { ...ok, langue: { geree: false, code: "pt" } }).manques, ["pays fermé (PT)"]);
+  // 18 ans ou plus : toujours la règle de l'OS.
+  assertEquals(deciderJoin(cand({ age: null, majeur: false }), ouverts, true, ok).decision, "a_traiter");
+  // Avec l'interrupteur OFF : éligible, mais l'admin décide.
+  assertEquals(deciderAvecReglage(deciderJoin(cand(), ouverts, true, ok), false), { decision: "a_traiter", manques: [], eligible: true });
+});
+
+const osVide = (o: Partial<EtatOS> = {}): EtatOS => ({
+  profile_id: "p", is_active: true, relances_stop_at: null, cohorte_lundi: "2026-11-30", premiere_connexion_at: null, ruul_email: null,
+  ruul_onboarding: null, ruul_ready_at: null, ruul_retire_at: null, ruul_jeton: null, handle: "max.daily123", tiktok: false,
+  warmup_started_at: null, slack: false, premier_post_at: null, posts_prevus: false, arrete: false, desinscrit: false,
+  paie_reportee: false, email_jour: false, ...o,
+});
+
+Deno.test("checklist : cochée par ce que l'OS voit (Ruul READY, TikTok, warm-up, Slack, premier post), et ce que Join a noté", () => {
+  assertEquals(etatChecklist({ signee: true, etapes: [] }, null), {
+    contrat: true, ruul: false, tiktok: false, warmup: false, slack: false, premier_post: false,
+  });
+  assertEquals(etatChecklist({ signee: true, etapes: [{ etape: "tiktok", statut: "ok" }] }, null).tiktok, true);
+  const os = osVide({ ruul_onboarding: "READY", warmup_started_at: "2026-11-27T10:00:00Z", slack: true, premier_post_at: "2026-11-30T10:00:00Z" });
+  assertEquals(etatChecklist({ signee: true, etapes: [] }, os), { contrat: true, ruul: true, tiktok: true, warmup: true, slack: true, premier_post: true });
+  assertEquals(etatChecklist({ signee: true, etapes: [] }, osVide({ ruul_ready_at: "2026-11-28T10:00:00Z" })).ruul, true);
+  assertEquals(etatChecklist({ signee: true, etapes: [] }, osVide({ tiktok: true })).tiktok, true);
+  // Une étape cochée le reste.
+  assertEquals(etatChecklist({ signee: true, etapes: [{ etape: "slack", statut: "fait" }] }, osVide()).slack, true);
+});
+
+Deno.test("rappels : J+1, J+3, vendredi avant le lundi, premier post (lundi, J+1, J+3), Ruul le jeudi", () => {
+  // Signé le mercredi 25/11 à 19 h (Paris), départ le lundi 30/11, France.
+  const base = { signeAt: "2026-11-25T18:00:00Z", lundi: "2026-11-30", pays: "FR" };
+  const rien: EtatChecklist = { contrat: true, ruul: false, tiktok: false, warmup: false, slack: false, premier_post: false };
+  const a = (jour: string) => new Date(`${jour}T09:00:00Z`); // 10 h à Paris
+  const cles = (jour: string, deja: string[] = [], faites = rien, o: Record<string, unknown> = {}) =>
+    rappelsDus({ ...base, faites, deja, maintenant: a(jour), ...o }).map((d) => d.cle);
+  assertEquals(cles("2026-11-25"), []); // le jour de la signature
+  assertEquals(cles("2026-11-26"), ["rappel:tiktok:j1", "rappel:warmup:j1", "rappel:ruul:j1", "rappel:slack:j1"]);
+  const j1 = cles("2026-11-26");
+  assertEquals(cles("2026-11-27", j1), ["rappel:tiktok:vendredi:2026-11-30", "rappel:warmup:vendredi:2026-11-30", "rappel:ruul:vendredi:2026-11-30", "rappel:slack:vendredi:2026-11-30"]);
+  const ven = [...j1, ...cles("2026-11-27", j1)];
+  assertEquals(cles("2026-11-28", ven), ["rappel:tiktok:j3", "rappel:warmup:j3", "rappel:ruul:j3", "rappel:slack:j3"]);
+  const j3 = [...ven, ...cles("2026-11-28", ven)];
+  assertEquals(cles("2026-11-29", j3), []);
+  // Une étape faite n'est plus rappelée.
+  assertEquals(cles("2026-11-26", [], { ...rien, tiktok: true, warmup: true, slack: true }), ["rappel:ruul:j1"]);
+  // Premier post : seulement warm-up lancé (sinon l'OS reporte le départ) et des posts prévus.
+  const prets = { ...rien, tiktok: true, warmup: true, slack: true, ruul: true };
+  assertEquals(cles("2026-11-30", j3), []);
+  assertEquals(cles("2026-11-30", j3, prets), ["rappel:premier_post:lundi:2026-11-30"]);
+  assertEquals(cles("2026-11-30", j3, prets, { postsPrevus: false }), []);
+  assertEquals(cles("2026-12-01", j3, prets), ["rappel:premier_post:j1:2026-11-30"]);
+  assertEquals(cles("2026-12-03", j3, prets), ["rappel:premier_post:j3:2026-11-30"]);
+  assertEquals(cles("2026-12-03", j3, { ...prets, premier_post: true }), []);
+  // Ruul pas READY après le départ : le jeudi (4 au plus), pas si la paie est reportée (l'OS en parle), et 3 jours après le 1er post.
+  const ruulKo = { ...prets, ruul: false, premier_post: true };
+  assertEquals(cles("2026-12-03", j3, ruulKo), ["rappel:ruul:jeudi:2026-12-03"]);
+  assertEquals(cles("2026-12-03", j3, ruulKo, { paieReportee: true }), []);
+  const quatre = [...j3, "rappel:ruul:jeudi:a", "rappel:ruul:jeudi:b", "rappel:ruul:jeudi:c", "rappel:ruul:jeudi:d"];
+  assertEquals(cles("2026-12-03", quatre, ruulKo), []);
+  assertEquals(cles("2026-12-04", j3, ruulKo, { premierPostAt: "2026-11-30T12:00:00Z" }), ["rappel:ruul:apres_post"]);
+  // Départ reporté par l'OS (nouveau lundi) : un nouveau vendredi.
+  assertEquals(rappelsDus({ ...base, lundi: "2026-12-07", faites: rien, deja: j3, maintenant: a("2026-12-04") }).map((d) => d.rang),
+    ["vendredi:2026-12-07", "vendredi:2026-12-07", "vendredi:2026-12-07", "vendredi:2026-12-07"]);
+});
+
+Deno.test("rappels : un email par jour (toutes les étapes), WhatsApp des relances de l'OS, jamais de mot interdit", () => {
+  const dus = rappelsDus({
+    signeAt: "2026-11-25T18:00:00Z", lundi: "2026-11-30", pays: "FR", deja: [], maintenant: new Date("2026-11-26T09:00:00Z"),
+    faites: { contrat: true, ruul: false, tiktok: false, warmup: false, slack: false, premier_post: false },
+  });
+  const m = texteRappel(dus, { prenom: "Max", lundi: "Monday 30 November", limite: "Sunday 29 November", avantDepart: true, handle: "max.daily123", ruulEmail: "x@example.invalid" });
+  assertEquals(m.objet, "Next step: create your TikTok account");
+  for (const x of ["@max.daily123", "Start warmup", "x@example.invalid", LIEN_SLACK, "Sunday 29 November", "Monday 30 November"]) assert(m.corps.includes(x), x);
+  assert(!/\b(bot|AI|automatic|automated)\b/i.test(`${m.objet} ${m.corps} ${m.bouton}`));
+  assertEquals(typeWhatsappRappel(dus[0]), "warmup_start");
+  assertEquals(typeWhatsappRappel({ etape: "ruul", rang: "j1", cle: "" }), "ruul_payment_setup");
+  assertEquals(typeWhatsappRappel({ etape: "slack", rang: "j1", cle: "" }), null);
+  assertEquals(typeWhatsappRappel({ etape: "premier_post", rang: "lundi:2026-11-30", cle: "" }), "start_posting_today");
+  assertEquals(typeWhatsappRappel({ etape: "premier_post", rang: "j1:2026-11-30", cle: "" }), null);
+  assertEquals(typeWhatsappRappel({ etape: "premier_post", rang: "j3:2026-11-30", cle: "" }), "no_posts_week");
+  const debut = texteRappel([{ etape: "premier_post", rang: "lundi:2026-11-30", cle: "" }], { prenom: "Max", lundi: "", limite: "", avantDepart: false });
+  assertEquals(debut.objet, "You start posting today");
+  assert(!debut.corps.includes("Here's what's left"));
+});
+
+Deno.test("contrat : rappel du vendredi avant le lundi offert, une fois, pas le jour de l'acceptation", () => {
+  const o = { decisionAt: "2026-11-25T10:00:00Z", lundi: "2026-11-30", faites: [] as string[], pays: "FR", dejaAujourdhui: false };
+  assert(signatureVendrediDue({ ...o, maintenant: new Date("2026-11-27T10:00:00Z") }));
+  assert(!signatureVendrediDue({ ...o, maintenant: new Date("2026-11-26T10:00:00Z") }));
+  assert(!signatureVendrediDue({ ...o, faites: ["signature_vendredi"], maintenant: new Date("2026-11-27T10:00:00Z") }));
+  assert(!signatureVendrediDue({ ...o, decisionAt: "2026-11-27T08:00:00Z", maintenant: new Date("2026-11-27T10:00:00Z") }));
+  assert(texteMessage("signature_vendredi", { prenom: "A", lien: "x", lundi: "Monday 30 November", limite: "Sunday 29 November" }).corps.includes("Monday 30 November"));
+});
+
+Deno.test("bienvenue : avec l'invitation Ruul à part, une ligne courte à la place du guide", () => {
+  const v = { prenom: "Léa", lien: "https://join.example", lundi: "Monday 30 November", limite: "Sunday 29 November", ruulEmail: "lea@example.com" };
+  const avec = texteMessage("acces", { ...v, ruulParEmail: true });
+  assert(avec.corps.includes("separate email") && avec.corps.includes("lea@example.com"));
+  assert(!avec.corps.includes("app.ruul.io/register"));
+  assert(texteMessage("acces", v).corps.includes("app.ruul.io/register"));
 });

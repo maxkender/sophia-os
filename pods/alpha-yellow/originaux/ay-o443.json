@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o443",
+ "type_bleo": "full_test",
+ "titre": "Things a man learns after his first real failure #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Things a man learns after his first real failure » (retenue), « Failure made me stronger » (écartée : cliché), « How to handle failure » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5a8d8d2c-f0a4-4a2e-b5b4-7567a60440c8",
+   "texte_overlay": "Things a man learns\nafter his first real failure",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Failure is an event, not your identity. A business that closed or an exam you failed doesn't define who you are.",
+   "media_id": "cf6c9f3d-5335-4156-9df3-2bde19d65dce"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Your real friends show themselves. The people who call after a failure are the ones worth keeping close for life.",
+   "media_id": "cf6e1faf-f025-4288-9478-875033e472fb"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "You can survive more than you thought. The fear of failing was often worse than the failure itself. Remember that next time.",
+   "media_id": "d009c576-dc59-4078-afc8-e131f82771c2"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Every failure has a lesson. Write down what went wrong and what you'd change. That list is worth a fortune later.",
+   "media_id": "d1110e4e-2502-430c-8853-44396757b0b8"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. History is full of great men who failed many times first.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. History is full of great men who failed many times first.",
+   "media_id": "27d34a80-1707-4665-b85d-ae6b7c357f65"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Pride heals slower than the problem. Ask for help early, admit mistakes, move on. Humility speeds everything up.",
+   "media_id": "d1148b11-6c38-43b4-ad7c-9b52acc2692b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "The next attempt is stronger. With experience and less fear, men often succeed the second or third time. Keep going.",
+   "media_id": "d18708c5-9857-4e9a-8766-03b029a2d1f9"
+  }
+ ]
+}

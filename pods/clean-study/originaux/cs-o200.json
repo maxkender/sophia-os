@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o200",
+  "type_bleo": "full_test",
+  "titre": "how i study with friends without just copying their homework #studytok #studytips #school",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Rien de méprisant. Gestes vrais : chacun fait l'exercice seul d'abord, on compare les méthodes, celui qui comprend explique, on se pose des questions, on partage des faits curieux à la pause (slide Sophia, 5), chacun repart avec une chose à refaire seul. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "71028a52",
+      "texte_overlay": "how i study with friends\nwithout just copying their homework",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "fff955b1",
+      "texte_overlay": "everyone does the exercise alone first.\n20 minutes, no talking.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "08fd6a0e",
+      "texte_overlay": "then we compare methods, not just answers.\n\"how did you get that?\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "5b66517e",
+      "texte_overlay": "whoever gets it explains it.\nexplaining is learning twice.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6a47ebcc",
+      "texte_overlay": "we quiz each other with the notes closed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "5ae8d2ff",
+      "texte_overlay": "on the break, we swap random facts.\nthe weirdest one wins.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "on the break, we swap random facts\nfrom a micro-learning app like the Sophia app.\nthe weirdest one wins."
+    },
+    {
+      "position": 7,
+      "media_id": "1a5bfbf5",
+      "texte_overlay": "everyone leaves with one thing to redo alone.\nthat's where it sticks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -3,7 +3,7 @@ import { type ReactNode, useState } from "react";
 import type { PaysPaie } from "../api";
 import ChoixPays from "../ChoixPays";
 import type { T } from "../i18n";
-import { VIDEO_GUIDE_FORMAT, VIDEO_GUIDE_PREVIEW, VIDEO_GUIDE_URL } from "../video";
+import { VideoGuide } from "../video";
 
 /** Le texte avec **gras** et ==surligné== (comme les textes du site Lovable). */
 export function Riche({ texte }: { texte: string }) {
@@ -55,16 +55,16 @@ export default function Arrivee({ t, langue, pays, onPostuler, faq }: {
             <span className="label">{t("land.label")}</span>
             <h1 className="h1">{t("land.title1")} <em>{t("land.title2")}</em></h1>
             <p className="lede">{t("land.lead")}</p>
+            {/* 25/11 (Max) : qui est Vik Studios (« Sophia » apparaît dans le contrat et sur Slack). */}
+            <p className="hero__apropos">{t("land.about")}</p>
             <div className="hero__cta">
               <button type="button" className="btn" onClick={onPostuler}>{t("land.cta")}</button>
             </div>
           </div>
-          {/* 23/11 (Max) : la vidéo guide en haut, à droite du titre (en dessous sur téléphone). */}
+          {/* 23/11 (Max) : la vidéo guide en haut, à droite du titre (en dessous sur téléphone) ; 25/11 : un aperçu, la
+              vidéo ne se charge qu'au clic. */}
           <div className="video video--hero">
-            <div className="video__cadre" style={{ aspectRatio: VIDEO_GUIDE_FORMAT }}>
-              <iframe src={VIDEO_GUIDE_PREVIEW} title={t("video.title")} allow="autoplay" allowFullScreen loading="lazy" />
-            </div>
-            <a href={VIDEO_GUIDE_URL} target="_blank" rel="noopener noreferrer">{t("video.watch")}</a>
+            <VideoGuide t={t} />
           </div>
         </div>
       </section>

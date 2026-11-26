@@ -1,0 +1,298 @@
+{
+ "post_id": "var-ruin20s-8",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 ways to ruin your 20s"
+     ],
+     "fr": "top 5 pour foirer ta vingtaine",
+     "texte": "comment regretter tes 20 ans à coup sûr"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça pique)",
+     "alignement": "droite",
+     "texte": "(méthode éprouvée)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_10635893.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never travel"
+     ],
+     "fr": "ne pars jamais",
+     "texte": "arrive toujours 15 min en retard"
+    },
+    "T2": {
+     "en": [
+      "there's nothing out there you need to experience",
+      "yourself"
+     ],
+     "fr": "y'a [[rien là-dehors]] qui mérite que tu le vives en vrai",
+     "texte": "être à l'heure ? c'est pour les gens [[qui ont un plan]]"
+    },
+    "T3": {
+     "en": [
+      "you can see mountains,",
+      "cities, cultures and people",
+      "through a 6-inch screen",
+      "anyway"
+     ],
+     "fr": "montagnes, villes, cultures, gens : tu vois tout [[sur un écran de 15 cm, de toute façon]]",
+     "texte": "le cours, l'entretien, l'anniv de ta meilleure pote : débarque toujours [[en plein milieu]]"
+    },
+    "T4": {
+     "en": [
+      "stay where it's",
+      "comfortable"
+     ],
+     "fr": "reste [[dans ta zone de confort]]",
+     "texte": "écris [[« j'arrive !! »]] depuis ton lit"
+    },
+    "T5": {
+     "en": [
+      "why risk discovering that",
+      "the world is much bigger",
+      "than the life you've built?"
+     ],
+     "fr": "pourquoi risquer de découvrir que le monde est [[bien plus grand]] que ta petite vie ?",
+     "texte": "on comptera plus sur toi, et t'auras enfin [[plus de temps libre]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_2e15aecf.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       1600
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel ready"
+     ],
+     "fr": "attendre [[d'être prête]]",
+     "texte": "gagne toutes tes disputes"
+    },
+    "T2": {
+     "en": [
+      "putting things off feels harmless in the moment,",
+      "but it slowly becomes your default response to",
+      "anything difficult"
+     ],
+     "fr": "repousser les choses, [[ça paraît pas grave]] sur le moment, mais petit à petit ça devient [[ton réflexe dès que c'est dur]]",
+     "texte": "quelqu'un te contredit ? monte le ton, change de sujet et dis [[jamais « t'as raison »]]. l'avouer une seule fois, ce serait la fin"
+    },
+    "T3": {
+     "en": [
+      "the longer you",
+      "avoid something,",
+      "the heavier it feels"
+     ],
+     "fr": "plus tu repousses un truc, plus il [[pèse lourd]]",
+     "texte": "des faits ? [[t'as ton ressenti]], c'est pareil"
+    },
+    "T4": {
+     "en": [
+      "start before you feel ready. your 20s disappear",
+      "quickly when everything important keeps getting",
+      "pushed to “tomorrow”"
+     ],
+     "fr": "commence [[avant d'être prête]]. [[tes 20 ans passent à toute vitesse]] si tout ce qui compte est toujours remis à “demain”",
+     "texte": "à 30 ans t'auras raison sur tout, avec [[plus personne pour te contredire]]. victoire totale"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_028f6734.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "garde tout pour toi"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "un coup de blues, la colère, le doute ? réponds [[« ça va mdr »]] et change de sujet"
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "en parle jamais, ni à tes potes, ni à ta famille, et surtout [[pas à un psy]]"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "tout ressortira d'un coup un jour, [[de préférence au supermarché]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_5ad3cf2f.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "vis dans un bazar total"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "des fringues sur la chaise, des tasses sur le bureau, [[3 semaines de linge]] par terre"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "une chambre en bazar, c'est [[un esprit créatif]], évidemment"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "puis demande-toi pourquoi tu trouves jamais tes clés, ton chargeur ou [[l'énergie de commencer quoi que ce soit]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_984cc77a.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never stop scrolling"
+     ],
+     "fr": "scrolle non-stop",
+     "texte": "le tel d'abord, les yeux après"
+    },
+    "T2": {
+     "en": [
+      "maybe the next tiktok will finally",
+      "solve your problems"
+     ],
+     "fr": "le [[prochain tiktok]] va [[enfin]] régler tes problèmes, qui sait",
+     "texte": "réveil coupé, [[direct sur le feed]], encore sous la couette"
+    },
+    "T3": {
+     "en": [
+      "don’t limit your screen time,",
+      "don’t start reading, don’t give",
+      "your brain a chance to get",
+      "bored"
+     ],
+     "fr": "limite pas ton temps d'écran, ouvre surtout pas [[l'appli Sophia]] 5 min, laisse jamais ton cerveau [[s'ennuyer]]",
+     "texte": "et surtout, remplace jamais ce scroll par un livre sur la table de nuit, un podcast sous la douche ou 5 min sur [[l'appli Sophia]]"
+    },
+    "T4": {
+     "en": [
+      "just keep feeding the algorithm",
+      "until it knows what you want",
+      "better than you do"
+     ],
+     "fr": "continue de [[nourrir l'algo]] jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]",
+     "texte": "commence chaque journée avec [[l'avis de 40 inconnus]] avant le tien"
+    },
+    "T5": {
+     "en": [
+      "keep giving them your data,",
+      "they deserve it!"
+     ],
+     "fr": "file-leur [[tes données]], ils le méritent !",
+     "texte": "bonne humeur garantie, [[évidemment]] !"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  }
+ }
+}

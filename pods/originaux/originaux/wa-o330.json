@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o330",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4b50d3b1-25bd-4cbf-841e-53d090d10b71",
+ "titre": "random healthy hacks that actually help #health #wellness #hacks #selfcare #habits",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "dc65211f-db60-4764-80a1-cc17d64c2c16"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, dc65211f). déclinaison G1 de « random healthy hacks that actually help » (parent 4b50d3b1). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "963aea72-4835-4b98-bfa5-9b3370999e33",
+   "texte_overlay": "random healthy hacks\nthat actually help",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8f287292-bdf0-4aba-9da6-03911bbf28e8",
+   "texte_overlay": "get morning sun\n\nstep into daylight for ten minutes soon after you wake up. it boosts your serotonin, sets your body clock and helps you fall asleep much more easily at night too.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4554efd5-894b-4327-98bb-394a6d3eccb3",
+   "texte_overlay": "water before coffee\n\ndrink a full glass of water before your first coffee of the day. you often wake up dehydrated rather than tired, and that one glass can make a surprising difference.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a3fb6f40-98cd-40d0-9553-de994e384940",
+   "texte_overlay": "eat alone sometimes\n\nenjoy a meal on your own now and then, without your phone. being comfortable in your own company is a small habit that quietly builds real, lasting confidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "60391633-9c66-49f5-91ed-da926adc3b18",
+   "texte_overlay": "look after your mind\n\nyou take care of your body, so take care of your mind too, with a few calm minutes of learning each day. a curious mind is a calmer, healthier mind, and it costs you almost nothing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/5.jpg",
+   "texte_sophia": "look after your mind\n\nlook after your mind like your body. the Sophia app turns learning into one short lesson a day, and 5 minutes keeps my mind calm and curious instead of endlessly scrolling."
+  },
+  {
+   "position": 6,
+   "media_id": "5d71a1c2-5730-4140-a998-49a80f742615",
+   "texte_overlay": "walk after meals\n\ntake a short walk after your biggest meal. even ten minutes helps your digestion, steadies your energy and clears your head before you go back to work or study.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,430 @@
+{
+ "id": "at-023",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@katrina.run/photo/7698491321337597215",
+  "vues": 175700,
+  "publie_le": "2026-10-19",
+  "accroche": "beginner runner / do and don’ts"
+ },
+ "titre": {
+  "en": "running shoes do and don’ts",
+  "fr": "baskets de running : les do & don’ts",
+  "de": "laufschuhe: die do & don’ts",
+  "it": "scarpe running: i do & don’ts",
+  "es-419": "tenis de running: los do & don’ts",
+  "hu": "futócipő: a do & don’ts",
+  "ro": "adidași de alergat: do & don’ts",
+  "tr": "koşu ayakkabısı: do & don’ts",
+  "el": "running παπούτσια: τα do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #runningshoes #runningtips #girlswhorun #beginnerrunner",
+  "fr": "#courseapied #baskets #running #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
+ },
+ "musique": {
+  "titre": "La Mentira",
+  "url": "https://www.tiktok.com/music/la-mentira-6705056394258679809"
+ },
+ "notes": "Preuve : « beginner runner / do and don’ts » de @katrina.run (176 k vues, 19/10) ; même gabarit (objets), un sujet voisin (bien choisir et user ses baskets). Aucun objet neuf ; couverture : coureuse-profil-1. Logo d'Atala au milieu des « Do » de la slide 3 (les premières semaines). Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec le mot pour « appli », jamais « AI »). Aucune page d'appli. Livré dans les 9 langues du label.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-profil-1.png",
+   "en": {
+    "titre": "running shoes\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "baskets de running :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "laufschuhe:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "scarpe running:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "tenis de running:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "futócipő:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "adidași de alergat:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "koşu ayakkabısı:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "running παπούτσια:\nτα do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/chaussures.png",
+    "images/objets/boite-chaussures.png",
+    "images/objets/chaussures-trail.png"
+   ],
+   "dont": [
+    "images/objets/legging.png",
+    "images/objets/telephone.png"
+   ],
+   "en": {
+    "titre": "buying",
+    "do": [
+     "try them\nin the evening",
+     "a thumb of\nroom up front",
+     "the right type\nfor your runs"
+    ],
+    "dont": [
+     "buying\nfor the look",
+     "buying\nwithout trying"
+    ]
+   },
+   "fr": {
+    "titre": "à l’achat",
+    "do": [
+     "essaie-les\nle soir",
+     "un pouce\nde marge",
+     "le bon modèle\npour toi"
+    ],
+    "dont": [
+     "choisir\npour le look",
+     "acheter\nsans essayer"
+    ]
+   },
+   "de": {
+    "titre": "beim kauf",
+    "do": [
+     "probier sie\nabends an",
+     "daumenbreit\nplatz vorne",
+     "passend zu\ndeinen läufen"
+    ],
+    "dont": [
+     "nur nach\noptik kaufen",
+     "ungetestet\nonline kaufen"
+    ]
+   },
+   "it": {
+    "titre": "all’acquisto",
+    "do": [
+     "provale\ndi sera",
+     "un dito\ndi spazio",
+     "il modello\ngiusto per te"
+    ],
+    "dont": [
+     "scelte\nper il look",
+     "online\nsenza provarle"
+    ]
+   },
+   "es-419": {
+    "titre": "al comprar",
+    "do": [
+     "pruébalos\nen la tarde",
+     "un dedo\nde espacio",
+     "el modelo\nque necesitas"
+    ],
+    "dont": [
+     "solo\npor el look",
+     "en línea\nsin probarlos"
+    ]
+   },
+   "hu": {
+    "titre": "vásárláskor",
+    "do": [
+     "délután\npróbáld fel",
+     "egy ujjnyi\nhely elöl",
+     "a futásodhoz\nillő modell"
+    ],
+    "dont": [
+     "csak a\nkinézet miatt",
+     "vakon\nonline venni"
+    ]
+   },
+   "ro": {
+    "titre": "la cumpărare",
+    "do": [
+     "probă seara",
+     "un deget\nloc în față",
+     "modelul\npotrivit ție"
+    ],
+    "dont": [
+     "doar\npentru look",
+     "online,\nfără probă"
+    ]
+   },
+   "tr": {
+    "titre": "alırken",
+    "do": [
+     "akşam dene",
+     "önde bir\nparmak boşluk",
+     "doğru model"
+    ],
+    "dont": [
+     "sadece\ngörünüş için",
+     "denemeden\nonline almak"
+    ]
+   },
+   "el": {
+    "titre": "στην αγορά",
+    "do": [
+     "δοκίμασέ τα\nτο απόγευμα",
+     "ένα δάχτυλο\nχώρο μπροστά",
+     "σωστό μοντέλο"
+    ],
+    "dont": [
+     "μόνο\nγια το look",
+     "online\nχωρίς δοκιμή"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/chaussures.png",
+    "atala",
+    "images/objets/rouleau.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/montre.png"
+   ],
+   "en": {
+    "titre": "the first weeks",
+    "do": [
+     "short runs\nto break in",
+     "a plan from an\napp like atala",
+     "a foam roller"
+    ],
+    "dont": [
+     "a race in\nnew shoes",
+     "a long run\nright away"
+    ]
+   },
+   "fr": {
+    "titre": "les débuts",
+    "do": [
+     "rode-les\nen douceur",
+     "appli de coach\ncomme atala",
+     "ton rouleau"
+    ],
+    "dont": [
+     "une course\nen neuves",
+     "du long\ntout de suite"
+    ]
+   },
+   "de": {
+    "titre": "die ersten wochen",
+    "do": [
+     "kurze läufe\nzum einlaufen",
+     "coach-app\nwie atala",
+     "faszienrolle"
+    ],
+    "dont": [
+     "rennen in\nneuen schuhen",
+     "gleich ein\nlanger lauf"
+    ]
+   },
+   "it": {
+    "titre": "le prime settimane",
+    "do": [
+     "uscite brevi\nper rodarle",
+     "app coach\ncome atala",
+     "un foam roller"
+    ],
+    "dont": [
+     "una gara\ncon le nuove",
+     "subito\nun lungo"
+    ]
+   },
+   "es-419": {
+    "titre": "al principio",
+    "do": [
+     "salidas cortas\npara domarlos",
+     "app con coach\ncomo atala",
+     "un rodillo"
+    ],
+    "dont": [
+     "estrenarlos\nen carrera",
+     "un fondo\nde una vez"
+    ]
+   },
+   "hu": {
+    "titre": "az első hetek",
+    "do": [
+     "bejáratás\nrövid futással",
+     "edzős app,\nmint az atala",
+     "masszázshenger"
+    ],
+    "dont": [
+     "verseny\núj cipőben",
+     "rögtön\nhosszú futás"
+    ]
+   },
+   "ro": {
+    "titre": "primele săptămâni",
+    "do": [
+     "ieșiri scurte\nla început",
+     "aplicație de\ncoach ca atala",
+     "rola de masaj"
+    ],
+    "dont": [
+     "cursă\ncu adidași noi",
+     "lungă\ndin prima"
+    ]
+   },
+   "tr": {
+    "titre": "ilk haftalar",
+    "do": [
+     "alışmak için\nkısa koşular",
+     "atala gibi\nkoç uygulaması",
+     "köpük rulo"
+    ],
+    "dont": [
+     "yarışta\nyeni ayakkabı",
+     "hemen\nuzun koşu"
+    ]
+   },
+   "el": {
+    "titre": "στην αρχή",
+    "do": [
+     "μικρές έξοδοι\nγια στρώσιμο",
+     "εφαρμογή coach\nσαν το atala",
+     "ρολό μασάζ"
+    ],
+    "dont": [
+     "αγώνας\nμε καινούργια",
+     "αμέσως\nμεγάλη έξοδος"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/journal.png",
+    "images/objets/chaussures.png",
+    "images/objets/boite-chaussures.png"
+   ],
+   "dont": [
+    "images/objets/seche-cheveux.png",
+    "images/objets/sac-sport.png"
+   ],
+   "en": {
+    "titre": "care",
+    "do": [
+     "newspaper\nwhen wet",
+     "keep them\nfor running",
+     "a new pair\nafter ~700 km"
+    ],
+    "dont": [
+     "hair dryer\non your shoes",
+     "left wet in\nyour bag"
+    ]
+   },
+   "fr": {
+    "titre": "l’entretien",
+    "do": [
+     "du journal\nsi mouillées",
+     "rien que\npour courir",
+     "une nouvelle\npaire à 700 km"
+    ],
+    "dont": [
+     "sèche-cheveux\nsur baskets",
+     "oubliées\ndans le sac"
+    ]
+   },
+   "de": {
+    "titre": "pflege",
+    "do": [
+     "zeitung rein,\nwenn nass",
+     "nur zum laufen",
+     "neue nach\nca. 700 km"
+    ],
+    "dont": [
+     "föhn auf\nden schuhen",
+     "nass in\nder tasche"
+    ]
+   },
+   "it": {
+    "titre": "la cura",
+    "do": [
+     "giornale\nse bagnate",
+     "solo\nper correre",
+     "nuove\ndopo ~700 km"
+    ],
+    "dont": [
+     "il phon\nsulle scarpe",
+     "bagnate\nnella borsa"
+    ]
+   },
+   "es-419": {
+    "titre": "el cuidado",
+    "do": [
+     "periódico\nsi se mojan",
+     "solo\npara correr",
+     "nuevos\na los ~700 km"
+    ],
+    "dont": [
+     "secadora en\nlos tenis",
+     "mojados\nen la maleta"
+    ]
+   },
+   "hu": {
+    "titre": "ápolás",
+    "do": [
+     "újság,\nha vizes",
+     "csak futáshoz",
+     "új pár\n700 km után"
+    ],
+    "dont": [
+     "hajszárító\na cipőn",
+     "vizesen\na táskában"
+    ]
+   },
+   "ro": {
+    "titre": "îngrijire",
+    "do": [
+     "ziare\ndacă-s uzi",
+     "doar\npentru alergat",
+     "pereche nouă\nla ~700 km"
+    ],
+    "dont": [
+     "uscător de păr\npe pantofi",
+     "uzi\nîn geantă"
+    ]
+   },
+   "tr": {
+    "titre": "bakım",
+    "do": [
+     "ıslaksa\ngazete kâğıdı",
+     "sadece\nkoşu için",
+     "~700 km’de\nyeni çift"
+    ],
+    "dont": [
+     "ayakkabıya fön",
+     "çantada\nıslak kalması"
+    ]
+   },
+   "el": {
+    "titre": "φροντίδα",
+    "do": [
+     "εφημερίδα\nαν βραχούν",
+     "μόνο\nγια τρέξιμο",
+     "νέο ζευγάρι\nστα ~700 χλμ"
+    ],
+    "dont": [
+     "πιστολάκι\nστα παπούτσια",
+     "βρεγμένα\nστην τσάντα"
+    ]
+   }
+  }
+ ]
+}

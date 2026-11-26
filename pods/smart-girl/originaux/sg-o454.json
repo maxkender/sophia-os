@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o454",
+ "type_bleo": "full_test",
+ "titre": "the most famous diaries in history #journaling #history #diary #smartgirl #literature",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 3/8 (la jauge en demande 8 sur 29) : accroche jamais faite chez nous (« diaries » absent des accroches de donnees/label.json). Accroches écrites : « the most famous diaries in history » (retenue : journal intime + histoire, très « that girl »), « why you should keep a diary » (écartée : conseil banal), « famous journals » (écartée : plate). Faits vérifiés : Sei Shōnagon (Notes de chevet, vers l'an 1000), Samuel Pepys (le grand incendie de Londres, 1666), Anne Frank, Virginia Woolf (journal de 1915 à 1941), Frida Kahlo (journal illustré), Marie Bashkirtseff (peintre du XIXe siècle). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "04ae1908",
+   "texte_overlay": "the most famous diaries\nin history",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e0800950",
+   "texte_overlay": "sei shōnagon, around 1000\n\n\"the pillow book\": lists of things\nthat make the heart beat faster.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c8a90e22",
+   "texte_overlay": "samuel pepys, 1666\n\nhe watched the great fire\nof london and wrote it down.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a4755274",
+   "texte_overlay": "anne frank\n\nthe diary that the whole\nworld has read.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4531191c",
+   "texte_overlay": "virginia woolf\n\nshe kept a diary for\nmore than 25 years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "82c9577f",
+   "texte_overlay": "frida kahlo\n\na diary full of colour\nand drawings.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3d3970f7",
+   "texte_overlay": "marie bashkirtseff\n\na young painter who wrote everything.\ni discovered her in a morning lesson.",
+   "texte_sophia": "marie bashkirtseff\n\na young painter who wrote everything. i\ndiscovered her on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "29a37791",
+   "texte_overlay": "do you keep a diary?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o478",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4db234ae-e060-4c4c-a095-aaa441320edd",
+ "titre": "where our strangest superstitions come from #superstitions #history #folklore #smartgirl #didyouknow",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 82 de la boîte (parent 4db234ae, langue source es-419) : accroche du parent (notre sg-o261) mot pour mot ; superstitions neuves face à sg-o261 et sg-o385 (la coccinelle, toucher du bois en italien « toccare ferro », le chiffre 13 à table, les bougies d'anniversaire, le marié qui ne voit pas la robe, le pain retourné en France), présentées comme des légendes. Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "217df059",
+   "texte_overlay": "where our strangest\nsuperstitions come from",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d07ce099",
+   "texte_overlay": "13 at the table\n\nlinked to the last supper.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4617d70f",
+   "texte_overlay": "birthday candles\n\nthe smoke was said to carry\nyour wish to the gods.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7b857aec",
+   "texte_overlay": "the groom can't see the dress\n\nso he couldn't change his mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2288f3cb",
+   "texte_overlay": "bread upside down in france\n\nonce linked to the\nexecutioner's loaf.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "282de328",
+   "texte_overlay": "touching iron in italy\n\nitalians \"touch iron\",\nnot wood.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "08fd6a0e",
+   "texte_overlay": "one curious story a day beats\nten minutes of scrolling.",
+   "texte_sophia": "one curious story a day on an app like\nSophia beats ten minutes of scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  }
+ ]
+}

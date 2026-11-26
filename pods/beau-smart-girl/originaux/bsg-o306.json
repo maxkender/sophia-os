@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o306",
+  "type_bleo": "full_test",
+  "titre": "comment j'organise une soirée culture avec mes amies #amies #culture #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Récit « je », aucun fait daté. Routine du 26/11 sur BLEO (par_jour passé à 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 15 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14, 15 et 16 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "d9fe38d8",
+      "texte_overlay": "comment j'organise une soirée culture\navec mes amies",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "75d76539",
+      "texte_overlay": "1. un thème par soirée\n\nl'italie, les années 20, le japon.\nla cuisine suit le thème.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9f6de171",
+      "texte_overlay": "2. chacune apporte une anecdote\n\nune histoire vraie sur le thème.\nla meilleure gagne le dessert.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "95fe3baa",
+      "texte_overlay": "3. un film pour finir\n\nchoisi ensemble,\nen version originale.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "128fcbb9",
+      "texte_overlay": "4. un quiz maison\n\ndix questions préparées par l'une de nous.\nles rires sont garantis.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "d71b04b5",
+      "texte_overlay": "5. j'arrive toujours avec une histoire\n\navant, je ne savais jamais quoi raconter.\nmaintenant, j'apprends un truc sur le monde chaque matin. et c'est moi qui lance les débats.",
+      "texte_sophia": "5. j'arrive toujours avec une histoire\n\navant, je ne savais jamais quoi raconter.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qui lance les débats.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "8a50b82f",
+      "texte_overlay": "tu inviterais qui ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o453",
+ "type_bleo": "full_test",
+ "titre": "the most magical christmas markets in europe #christmasmarket #europe #travel #smartgirl #winter",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta C. Full test 2/8 (la jauge en demande 8 sur 29) : accroche jamais faite chez nous (« market » absent des accroches de donnees/label.json). Accroches écrites : « the most magical christmas markets in europe » (retenue : de saison, voyage), « where to go in december » (écartée : vague), « christmas in europe » (écartée : large). Faits vérifiés : Strasbourg (Christkindelsmärik depuis 1570), Dresde (Striezelmarkt, 1434, l'un des plus anciens), Nuremberg (ouvert par le Christkind), Vienne (Rathausplatz), Prague (place de la Vieille-Ville), Tallinn (place de l'Hôtel-de-Ville). Sophia à la fin comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8c6fed50",
+   "texte_overlay": "the most magical christmas\nmarkets in europe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b796c9a4",
+   "texte_overlay": "dresden, germany\n\nthe striezelmarkt, since 1434.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "dcc4ac43",
+   "texte_overlay": "strasbourg, france\n\nthe \"christkindelsmärik\",\nsince 1570.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "beeff47d",
+   "texte_overlay": "nuremberg, germany\n\nopened each year by\nthe christkind herself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ce2ab480",
+   "texte_overlay": "vienna, austria\n\nlights and mulled wine\nin front of city hall.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9a3c3627",
+   "texte_overlay": "prague, czechia\n\nthe old town square\nunder the astronomical clock.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a18208f1",
+   "texte_overlay": "tallinn, estonia\n\na medieval square\nunder snow.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "501b051b",
+   "texte_overlay": "one place a day, learned instead\nof scrolled past.",
+   "texte_sophia": "one place a day, learned on an app like\nSophia instead of scrolled past.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

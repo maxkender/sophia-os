@@ -6,8 +6,9 @@
  * jamais copiées).
  */
 import { type CandidatureRuul, lundiSuivant, manquesCandidature } from "./ruul.ts";
-import { guideRuul, PHRASE_QUESTION_OS } from "./parcours_ruul.ts";
+import { guideRuul, LIEN_RUUL, PHRASE_QUESTION_OS } from "./parcours_ruul.ts";
 import { DASHBOARD_V2, SLACK_V2 } from "./whatsapp_modeles_v2.ts";
+import { dateLocale, joursEntre, jourSemaineLocal, type TypeRelance } from "./whatsapp_relances.ts";
 
 /** 23/11 (Max) : l'identité légale de la société, affichée sur le site, en tête du contrat et dans les mentions légales. */
 export const SOCIETE = {
@@ -31,6 +32,12 @@ export const VIDEO_GUIDE_URL = "https://drive.google.com/file/d/10SuGjYGgOtLuW8W
 export const LIEN_SLACK = SLACK_V2;
 /** Le dashboard de l'OS (là où le posteur se connecte une fois son compte créé). */
 export const LIEN_DASHBOARD_OS = DASHBOARD_V2;
+/** La page Join (sa checklist personnelle). La fonction peut la remplacer (JOIN_URL) pour les liens des emails. */
+export const JOIN_URL_PUBLIC = "https://join.vikstudios.com";
+/** 25/11 : l'inscription Ruul quand il n'y a pas de lien personnel (le bouton « Create my Ruul account »). */
+export const LIEN_INSCRIPTION_RUUL = LIEN_RUUL;
+/** La création d'un compte TikTok (le bouton de l'étape TikTok). */
+export const LIEN_TIKTOK = "https://www.tiktok.com/signup";
 
 export const ETAPES_JOIN = ["tiktok", "profil", "warmup", "slack", "ruul"] as const;
 export type EtapeJoin = (typeof ETAPES_JOIN)[number];
@@ -100,7 +107,8 @@ export interface SaisieCandidature {
   whatsapp_optin: boolean;
   pays: string;
   majeur: true;
-  deux_telephones: boolean;
+  /** 25/11 (Max) : la question n'est plus posée par Join (null) ; une réponse d'un ancien formulaire est gardée. */
+  deux_telephones: boolean | null;
   entendu: Entendu;
   parrain: string | null;
   reponses: Record<string, string>;
@@ -118,15 +126,15 @@ export function reponsesOS(pays: string, entendu: Entendu, parrain: string | nul
   return {
     pays_actuel: pays,
     heures: "Agreed: 2 slideshows a day, 7 days a week",
-    tiktok: "Agreed: creates and runs the TikTok account we provide",
+    tiktok: "Agreed: creates a new TikTok account with the username, photo and bio we give (it belongs to Vik Studios)",
     contenu: `Heard about us: ${entendu}${parrain ? ` (referred by ${parrain})` : ""}`,
   };
 }
 
 /**
  * Valide le formulaire v2 : champs requis, email, WhatsApp E.164, pays ISO2, 18 ans ou plus (oui obligatoire),
- * deux téléphones (oui/non : règle de l'OS), canal d'arrivée (+ nom du parrain), tarif accepté, engagement,
- * consentement. Le champ piège `site` doit rester vide.
+ * canal d'arrivée (+ nom du parrain), tarif accepté, engagement, consentement. Le champ piège `site` doit rester vide.
+ * 25/11 (Max) : plus de question « deux téléphones » (facultative : absente = null, sinon un booléen).
  */
 export function validerCandidature(b: Record<string, unknown>): Validation {
   const t = (k: string, max = 200) => String(b[k] ?? "").trim().slice(0, max);
@@ -145,7 +153,7 @@ export function validerCandidature(b: Record<string, unknown>): Validation {
   if (!whatsapp) erreurs.push("whatsapp");
   if (!/^[A-Z]{2}$/.test(pays)) erreurs.push("pays");
   if (b.majeur !== true) erreurs.push("majeur");
-  if (typeof b.deux_telephones !== "boolean") erreurs.push("deux_telephones");
+  if (b.deux_telephones != null && typeof b.deux_telephones !== "boolean") erreurs.push("deux_telephones");
   if (!(ENTENDU as readonly string[]).includes(entendu)) erreurs.push("entendu");
   if (entendu === "referral" && !parrain) erreurs.push("parrain");
   if (b.accord_tarif !== true) erreurs.push("accord_tarif");
@@ -157,7 +165,7 @@ export function validerCandidature(b: Record<string, unknown>): Validation {
     ok: true,
     valeurs: {
       prenom, nom, email, whatsapp_e164: whatsapp!, whatsapp_optin: b.whatsapp_optin === true, pays, majeur: true,
-      deux_telephones: b.deux_telephones as boolean, entendu, parrain: parrainGarde,
+      deux_telephones: typeof b.deux_telephones === "boolean" ? b.deux_telephones : null, entendu, parrain: parrainGarde,
       reponses: reponsesOS(pays, entendu, parrainGarde),
       langue: t("langue", 5).toLowerCase() || "en",
     },
@@ -195,14 +203,36 @@ export interface CandidatureJoin {
   deux_telephones: boolean | null;
   reponses: Record<string, string | null | undefined>;
   whatsapp_verifie_at: string | null;
+  /** Le numéro donné (E.164) : il suffit quand le code WhatsApp n'est pas demandé (codeWhatsappActif). */
+  whatsapp_e164?: string | null;
 }
 
-export function versCandidatureRuul(c: CandidatureJoin): CandidatureRuul {
+/**
+ * 25/11 (Max) : pas de code de vérification par WhatsApp. Le code WhatsApp n'est demandé que si un modèle
+ * d'authentification est configuré (join_mode.modele_code) ; sinon le code reçu par email suffit.
+ */
+export function codeWhatsappActif(mode: Pick<ModeJoin, "modele_code">): boolean {
+  return !!mode.modele_code;
+}
+
+/** Les codes demandés sont vérifiés : l'email toujours, le WhatsApp seulement s'il est demandé. */
+export function codesVerifies(
+  c: { email_verifie_at: string | null; whatsapp_verifie_at: string | null },
+  mode: Pick<ModeJoin, "modele_code">,
+): boolean {
+  return !!c.email_verifie_at && (!codeWhatsappActif(mode) || !!c.whatsapp_verifie_at);
+}
+
+/**
+ * La candidature Join vue par les règles de l'OS. 25/11 (Max) : Join n'exige plus de deuxième téléphone, la condition
+ * « 2 téléphones » de manquesCandidature (ruul.ts, partagée avec l'OS et le Hub, inchangée) est donc remplie ici.
+ */
+export function versCandidatureRuul(c: CandidatureJoin, whatsappExige = true): CandidatureRuul {
   return {
     adulte: c.majeur === true ? true : c.age == null ? (c.majeur === false ? false : null) : c.age >= 18,
     pays: c.pays || null,
-    deux_telephones: c.deux_telephones,
-    a_telephone: !!c.whatsapp_verifie_at,
+    deux_telephones: true,
+    a_telephone: !!c.whatsapp_verifie_at || (!whatsappExige && !!c.whatsapp_e164),
     nom: `${c.prenom ?? ""} ${c.nom ?? ""}`.trim() || null,
     email: c.email || null,
     reponses: c.reponses ?? {},
@@ -213,8 +243,28 @@ export function versCandidatureRuul(c: CandidatureJoin): CandidatureRuul {
 export const MESSAGE_A_TRAITER = "We'll get back to you within 48h";
 
 /** Les règles de l'OS : rien ne manque → acceptée automatiquement, sinon à traiter (réponse sous 48 h). */
-export function decider(c: CandidatureJoin, paysOuverts: Set<string>): { decision: "auto" | "a_traiter"; manques: string[] } {
-  const manques = manquesCandidature(versCandidatureRuul(c), paysOuverts);
+export function decider(
+  c: CandidatureJoin, paysOuverts: Set<string>, whatsappExige = true,
+): { decision: "auto" | "a_traiter"; manques: string[] } {
+  const manques = manquesCandidature(versCandidatureRuul(c, whatsappExige), paysOuverts);
+  return { decision: manques.length ? "a_traiter" : "auto", manques };
+}
+
+/**
+ * 25/11 (Max) : la décision de Join = les règles de l'OS (decider : 18 ans ou plus, pays ouvert, 2 téléphones,
+ * réponses) + la langue du pays gérée par l'OS (`langue_os` de hub-posteurs « zones » : langue connue et publiée par
+ * des comptes actifs ; null = l'OS n'a pas répondu) + aucun doublon (join_doublons : email, téléphone, nom). Tout ce
+ * qui manque est écrit en clair dans `manques` (liste de l'admin, page Aujourd'hui de l'OS).
+ */
+export function deciderJoin(
+  c: CandidatureJoin, paysOuverts: Set<string>, whatsappExige: boolean,
+  extra: { langue: { geree: boolean | null; code: string | null }; doublons: string[] },
+): { decision: "auto" | "a_traiter"; manques: string[] } {
+  const manques = [...decider(c, paysOuverts, whatsappExige).manques];
+  const paysKo = manques.some((m) => m.startsWith("pays fermé") || m === "pays inconnu");
+  if (!paysKo && extra.langue.geree === false) manques.push(`langue non gérée par l'OS (${extra.langue.code ?? "?"})`);
+  if (!paysKo && extra.langue.geree === null) manques.push("langue non vérifiée (OS injoignable)");
+  for (const d of extra.doublons) if (d && !manques.includes(d)) manques.push(d);
   return { decision: manques.length ? "a_traiter" : "auto", manques };
 }
 
@@ -252,6 +302,7 @@ export function etapeAdmin(
     expire_at?: string | null;
   },
   signee: boolean,
+  whatsappExige = true,
 ): EtapeAdmin {
   if (signee) return "signee";
   if (c.expire_at) return "expiree";
@@ -259,7 +310,7 @@ export function etapeAdmin(
   if (c.decision === "auto") return "acceptee";
   if (c.decision === "a_traiter") return "a_traiter";
   if (c.manques?.some((m) => m.startsWith("pays fermé"))) return "ferme";
-  if (c.email_verifie_at && c.whatsapp_verifie_at) return "verifiee";
+  if (c.email_verifie_at && (c.whatsapp_verifie_at || !whatsappExige)) return "verifiee";
   return "codes";
 }
 
@@ -427,18 +478,244 @@ export function relanceCodeDue(creeAt: string, toutVerifie: boolean, dejaFaite: 
   return h >= 1 && h < 24 * 7;
 }
 
-/** Après la signature, dans l'ordre : compte OS, Slack, Ruul, puis le message d'accès. */
-export const ETAPES_APRES_SIGNATURE = ["compte_os", "slack", "ruul", "acces"] as const;
+/**
+ * Après la signature, dans l'ordre : compte OS, Slack (le lien seulement), la bienvenue (accès), puis l'invitation
+ * Ruul. 25/11 : la bienvenue passe avant l'invitation Ruul (l'email Ruul arrive après celui des accès).
+ */
+export const ETAPES_APRES_SIGNATURE = ["compte_os", "slack", "acces", "ruul"] as const;
 export type EtapeApresSignature = (typeof ETAPES_APRES_SIGNATURE)[number];
 
 export function etapesRestantes(faites: string[]): EtapeApresSignature[] {
   return ETAPES_APRES_SIGNATURE.filter((e) => !faites.includes(e));
 }
 
-export type TypeMessageJoin = "code_rappel" | "signature_j1" | "signature_j3" | "expiree" | "acces" | "acceptee" | "refusee";
+// ---------------------------------------------------------------------------------------------------------------
+// 25/11 (Max) : réglage `join_reel` (0858) — un drapeau par étape d'après la signature, tous à false par défaut
+// ---------------------------------------------------------------------------------------------------------------
+
+/**
+ * compte_os : le posteur créé dans l'OS · acces : la bienvenue · ruul : l'invitation Ruul · rappels : les rappels de
+ * la checklist (Join devient la seule voix de ces étapes) · whatsapp : les WhatsApp d'après la signature. Slack n'a
+ * pas de drapeau : rien n'est envoyé (le lien d'invitation est affiché).
+ */
+export const DRAPEAUX_REEL = ["compte_os", "acces", "ruul", "rappels", "whatsapp"] as const;
+export type DrapeauReel = (typeof DRAPEAUX_REEL)[number];
+export type JoinReel = Record<DrapeauReel, boolean>;
+
+/** Le réglage : seul `true` (booléen) rend une étape réelle ; absent ou illisible : tout simulé. */
+export function lireJoinReel(v: unknown): JoinReel {
+  const o = (v && typeof v === "object" ? v : {}) as Record<string, unknown>;
+  return Object.fromEntries(DRAPEAUX_REEL.map((d) => [d, o[d] === true])) as JoinReel;
+}
+
+/**
+ * Pourquoi une étape est simulée (null : elle est réelle). `test` : candidature créée en mode test — l'OS n'a pas de
+ * « posteur TEST » pour un posteur payé par Ruul (contrats_test = contrats Upwork), donc la création OS reste simulée ;
+ * `profil` : une fiche OS existe (l'invitation Ruul en a besoin).
+ */
+export function raisonSimulation(
+  drapeau: DrapeauReel, reel: JoinReel, o: { test: boolean; simuler?: boolean; profil?: boolean },
+): string | null {
+  if (o.simuler) return "simulation (horloge simulée)";
+  if (!reel[drapeau]) return `drapeau join_reel.${drapeau} à false`;
+  if (drapeau === "compte_os" && o.test) {
+    return "candidature de test : pas de posteur TEST possible pour un posteur Ruul (contrats_test ne couvre que les contrats Upwork)";
+  }
+  if (drapeau === "ruul" && !o.profil) return "pas de fiche OS (compte OS simulé)";
+  return null;
+}
+
+// ---------------------------------------------------------------------------------------------------------------
+// La checklist de la page personnelle (join_etapes) et ses rappels
+// ---------------------------------------------------------------------------------------------------------------
+
+export const ETAPES_CHECKLIST = ["contrat", "ruul", "tiktok", "warmup", "slack", "premier_post"] as const;
+export type EtapeChecklist = (typeof ETAPES_CHECKLIST)[number];
+export type EtatChecklist = Record<EtapeChecklist, boolean>;
+export type EtapeRappel = Exclude<EtapeChecklist, "contrat">;
+
+/** Une ligne de join_etat_os (0858) : ce que l'OS sait du posteur. */
+export interface EtatOS {
+  profile_id: string;
+  is_active: boolean | null;
+  relances_stop_at: string | null;
+  cohorte_lundi: string | null;
+  premiere_connexion_at: string | null;
+  ruul_email: string | null;
+  ruul_onboarding: string | null;
+  ruul_ready_at: string | null;
+  ruul_retire_at: string | null;
+  ruul_jeton: string | null;
+  handle: string | null;
+  tiktok: boolean | null;
+  warmup_started_at: string | null;
+  slack: boolean | null;
+  premier_post_at: string | null;
+  posts_prevus: boolean | null;
+  arrete: boolean | null;
+  desinscrit: boolean | null;
+  paie_reportee: boolean | null;
+  email_jour: boolean | null;
+}
+
+/**
+ * La checklist : une étape est faite quand l'OS la voit faite (Ruul READY, compte TikTok vu / déclaré / warm-up lancé,
+ * warm-up lancé, Slack relié, premier post publié), ou quand Join l'a déjà notée faite (« ok » de la vérification du
+ * @ TikTok, « fait »). Une étape cochée le reste.
+ */
+export function etatChecklist(j: { signee: boolean; etapes: { etape: string; statut: string }[] }, os: EtatOS | null): EtatChecklist {
+  const notee = (e: string) => j.etapes.some((x) => x.etape === e && (x.statut === "fait" || x.statut === "ok"));
+  return {
+    contrat: j.signee,
+    ruul: notee("ruul") || (!!os && (os.ruul_onboarding === "READY" || !!os.ruul_ready_at)),
+    tiktok: notee("tiktok") || os?.tiktok === true || !!os?.warmup_started_at,
+    warmup: notee("warmup") || !!os?.warmup_started_at,
+    slack: notee("slack") || os?.slack === true,
+    premier_post: notee("premier_post") || !!os?.premier_post_at,
+  };
+}
+
+/** L'événement du QG noté quand une étape se coche (une fois). */
+export const EVENEMENT_ETAPE: Partial<Record<EtapeChecklist, string>> = {
+  ruul: "ruul_ready", tiktok: "tiktok_ok", warmup: "warmup", slack: "slack", premier_post: "premier_post",
+};
+
+/** Un rappel dû : `cle` = la ligne de join_relances (`rappel:<étape>:<rang>`), jamais deux fois. */
+export interface RappelDu {
+  etape: EtapeRappel;
+  rang: string;
+  cle: string;
+}
+
+/** Les rappels Ruul du jeudi après le lundi de départ (Ruul pas READY), au plus. */
+export const RUUL_JEUDIS_MAX = 4;
+
+/** L'ordre des étapes dans un rappel (l'objet de l'email est celui de la première). */
+export const PRIORITE_RAPPELS: readonly EtapeRappel[] = ["premier_post", "tiktok", "warmup", "ruul", "slack"];
+
+/**
+ * Les rappels dus maintenant pour les étapes pas faites (25/11, Max). Jours du calendrier dans le fuseau du pays.
+ *  - Ruul, TikTok, warm-up, Slack : J+1 puis J+3 après la signature (J+1 manquée : J+3 seulement ; rien après J+6),
+ *    puis le vendredi (ou samedi, dimanche) avant le lundi de départ — une fois par lundi (un départ reporté par
+ *    l'OS en redonne un).
+ *  - Ruul, après le départ : le jeudi (4 au plus), sauf paie reportée (l'OS en parle déjà, rappel_reportes) ; et
+ *    3 jours après le premier post (le WhatsApp ruul_payment_setup de l'OS).
+ *  - Premier post (warm-up lancé, posts prévus) : le lundi de départ, J+1, J+3 (3 semaines au plus).
+ */
+export function rappelsDus(o: {
+  signeAt: string;
+  lundi: string;
+  faites: EtatChecklist;
+  deja: readonly string[];
+  pays: string | null;
+  premierPostAt?: string | null;
+  postsPrevus?: boolean;
+  paieReportee?: boolean;
+  maintenant: Date;
+}): RappelDu[] {
+  const auj = dateLocale(o.pays, o.maintenant);
+  const j = joursEntre(dateLocale(o.pays, new Date(o.signeAt)), auj);
+  const avantLundi = joursEntre(auj, o.lundi);
+  const dus: RappelDu[] = [];
+  const ajouter = (etape: EtapeRappel, rang: string) => {
+    const cle = `rappel:${etape}:${rang}`;
+    if (!o.deja.includes(cle) && !dus.some((d) => d.cle === cle)) dus.push({ etape, rang, cle });
+  };
+  for (const e of ["tiktok", "warmup", "ruul", "slack"] as const) {
+    if (o.faites[e]) continue;
+    if (j >= 1 && j < 3) ajouter(e, "j1");
+    else if (j >= 3 && j < 7) ajouter(e, "j3");
+    if (j >= 1 && avantLundi >= 1 && avantLundi <= 3) ajouter(e, `vendredi:${o.lundi}`);
+  }
+  if (!o.faites.ruul && avantLundi <= 0) {
+    const jeudis = o.deja.filter((x) => x.startsWith("rappel:ruul:jeudi:")).length;
+    if (!o.paieReportee && jourSemaineLocal(o.pays, o.maintenant) === 4 && jeudis < RUUL_JEUDIS_MAX) ajouter("ruul", `jeudi:${auj}`);
+    if (o.premierPostAt) {
+      const depuis = (o.maintenant.getTime() - Date.parse(o.premierPostAt)) / 86_400_000;
+      if (depuis >= 3 && depuis < 10) ajouter("ruul", "apres_post");
+    }
+  }
+  if (!o.faites.premier_post && o.faites.warmup && o.postsPrevus !== false && avantLundi <= 0 && -avantLundi <= 21) {
+    const d = -avantLundi;
+    if (d === 0) ajouter("premier_post", `lundi:${o.lundi}`);
+    else if (d < 3) ajouter("premier_post", `j1:${o.lundi}`);
+    else if (d < 7) ajouter("premier_post", `j3:${o.lundi}`);
+  }
+  return PRIORITE_RAPPELS.flatMap((e) => dus.filter((d) => d.etape === e));
+}
+
+/**
+ * Le modèle WhatsApp d'un rappel (les relances de l'OS : mêmes motifs « relance:<type> », mêmes clés), ou null
+ * (Slack, premier post à J+1 : email seulement).
+ */
+export function typeWhatsappRappel(d: RappelDu): TypeRelance | null {
+  if (d.etape === "premier_post") return d.rang.startsWith("lundi:") ? "start_posting_today" : d.rang.startsWith("j3:") ? "no_posts_week" : null;
+  if (d.etape === "tiktok" || d.etape === "warmup") return "warmup_start";
+  if (d.etape === "ruul") return "ruul_payment_setup";
+  return null;
+}
+
+/**
+ * L'email d'un jour de rappels (un seul par jour : toutes les étapes dues dedans, l'objet est celui de la première).
+ * Anglais (traduit à l'envoi dans la langue du candidat), jamais « bot », « IA », « automatique ».
+ */
+export function texteRappel(
+  dus: readonly RappelDu[],
+  v: { prenom: string; lundi: string; limite: string; avantDepart: boolean; handle?: string | null; ruulEmail?: string | null },
+): { objet: string; corps: string; bouton: string } {
+  const etapes = PRIORITE_RAPPELS.filter((e) => dus.some((d) => d.etape === e));
+  const debut = dus.some((d) => d.etape === "premier_post" && d.rang.startsWith("lundi:"));
+  const OBJETS: Record<EtapeRappel, string> = {
+    premier_post: debut ? "You start posting today" : "Your first post is waiting",
+    tiktok: "Next step: create your TikTok account",
+    warmup: "Next step: start your TikTok warm-up",
+    ruul: "Reminder: set up Ruul to get paid",
+    slack: "Join our Slack",
+  };
+  const LIGNES: Record<EtapeRappel, string> = {
+    premier_post: debut
+      ? `You start posting today: your 2 slideshows are ready on your dashboard (${LIEN_DASHBOARD_OS}). Post them on TikTok, then paste the link of each post on your dashboard.`
+      : `We haven't seen your first post yet. Your 2 slideshows a day are ready on your dashboard (${LIEN_DASHBOARD_OS}): post them on TikTok, then paste the link of each post on your dashboard. You're paid for every post you publish.`,
+    tiktok: `Create your new TikTok account${v.handle ? ` with this exact username: @${v.handle}` : ""}, with the photo and bio shown on your checklist.`,
+    warmup: `Log in to your dashboard (${LIEN_DASHBOARD_OS}), click « Start warmup », follow at least 5 accounts and use TikTok normally a few minutes a day.`,
+    ruul: `Set up Ruul to get paid (about 10 minutes): create your account${v.ruulEmail ? ` with ${v.ruulEmail}` : ""}, then add your ID and bank details. Your personal Ruul link is on your checklist.`,
+    slack: `Join our Slack with your personal email and your full name: ${LIEN_SLACK}`,
+  };
+  const intro = v.avantDepart
+    ? `Here's what's left before ${v.limite}, so you can start on ${v.lundi}:`
+    : etapes.length > 1 ? "Here's what's left:" : null;
+  const liste = etapes.length > 1 || intro ? etapes.map((e, i) => `${i + 1}. ${LIGNES[e]}`).join("\n") : LIGNES[etapes[0]];
+  return {
+    objet: OBJETS[etapes[0]] ?? "Your next steps",
+    corps: [
+      `Hi ${v.prenom},`,
+      ...(intro ? [intro] : []),
+      liste,
+      "Each step on your checklist ticks itself as soon as we see it done.",
+      "Any question? Log in to your dashboard and click Help.",
+    ].join("\n\n"),
+    bouton: "Open my checklist",
+  };
+}
+
+export type TypeMessageJoin =
+  | "code_rappel" | "signature_j1" | "signature_j3" | "signature_vendredi" | "expiree" | "acces" | "acceptee" | "refusee";
 export const TYPES_MESSAGE_JOIN: readonly TypeMessageJoin[] = [
-  "code_rappel", "signature_j1", "signature_j3", "expiree", "acces", "acceptee", "refusee",
+  "code_rappel", "signature_j1", "signature_j3", "signature_vendredi", "expiree", "acces", "acceptee", "refusee",
 ];
+
+/**
+ * 25/11 : le rappel du contrat du vendredi (ou samedi, dimanche) avant le lundi offert, après J+1, une fois ; pas le
+ * jour d'une autre relance du contrat. Derrière le drapeau join_reel.rappels (sinon simulé).
+ */
+export function signatureVendrediDue(o: {
+  decisionAt: string; lundi: string; faites: readonly string[]; pays: string | null; maintenant: Date; dejaAujourdhui: boolean;
+}): boolean {
+  const auj = dateLocale(o.pays, o.maintenant);
+  const avant = joursEntre(auj, o.lundi);
+  return !o.dejaAujourdhui && !o.faites.includes("signature_vendredi") && avant >= 1 && avant <= 3 &&
+    joursEntre(dateLocale(o.pays, new Date(o.decisionAt)), auj) >= 1;
+}
 
 /**
  * Les messages aux candidats (anglais). `lien` = l'adresse de Join, sauf pour « acces » (la bienvenue après la
@@ -457,6 +734,8 @@ export function texteMessage(
     handle?: string | null;
     ruulEmail?: string | null;
     compteCree?: boolean;
+    /** acces (25/11) : l'invitation Ruul part dans un email à part (join_reel.ruul) : une ligne courte à la place du guide. */
+    ruulParEmail?: boolean;
   },
 ): { objet: string; corps: string; bouton: string | null } {
   const salut = `Hi ${v.prenom},`;
@@ -464,11 +743,12 @@ export function texteMessage(
     case "code_rappel":
       return {
         objet: "Finish your application",
-        corps: `${salut}\n\nYour application is almost done: you just need to confirm your email and WhatsApp number. Log in with your email and we'll send you a new code.`,
+        corps: `${salut}\n\nYour application is almost done: you just need to confirm your email with the code we sent you. Log in with your email and we'll send you a new code.`,
         bouton: "Finish my application",
       };
     case "signature_j1":
     case "signature_j3":
+    case "signature_vendredi":
       return {
         objet: "Your contract is waiting for your signature",
         corps: `${salut}\n\nYour contract is waiting for your signature. Sign it before ${v.limite ?? "Sunday"}, midnight (Paris time), to start on ${v.lundi ?? "Monday"}. It takes 2 minutes.`,
@@ -515,7 +795,9 @@ export function texteMessage(
           ].join("\n"),
           `Before ${v.limite ?? "Sunday midnight (Paris time)"}:\n1. Set your password and log in to your dashboard.\n2. Create your TikTok account with the exact name above.\n3. Click « Start warmup » on your dashboard, follow at least 5 accounts and use TikTok normally.\n4. Join Slack.`,
           PHRASE_QUESTION_OS,
-          guideRuul(v.ruulEmail ?? null, v.limite ?? null),
+          v.ruulParEmail
+            ? `Set up Ruul — required to get paid: your personal Ruul link arrives in a separate email${v.ruulEmail ? ` (create your account with ${v.ruulEmail})` : ""}, and it's on your checklist: ${JOIN_URL_PUBLIC}`
+            : guideRuul(v.ruulEmail ?? null, v.limite ?? null),
         ].join("\n\n"),
         bouton: v.compteCree ? "Set my password" : "Open my dashboard",
       };
@@ -544,9 +826,17 @@ export function lundiLisible(jour: string): string {
 // ---------------------------------------------------------------------------------------------------------------
 // Contrat. join-v3 : join-v2 + l'identité complète de la société en tête (23/11). join-v4 (23/11, Max) : join-v3 +
 // deux phrases, rien d'autre (vérifié par join_test.ts) : frais Ruul payés par la société, pas d'exclusivité.
+// join-v5 (25/11, Max) : join-v4 + la 1re ligne du résumé alignée sur le site (le posteur CRÉE le compte TikTok avec
+// le pseudo, la photo et la bio qu'on lui donne), rien d'autre (vérifié par join_test.ts).
 // ---------------------------------------------------------------------------------------------------------------
 
-export const CONTRAT_VERSION = "join-v4";
+export const CONTRAT_VERSION = "join-v5";
+
+/** join-v5 : la 1re ligne du résumé, avant (join-v4) et après. */
+export const CONTRAT_RESUME_V5 = {
+  avant: "You post 2 ready-made slideshows a day on a TikTok account we give you.",
+  apres: "You post 2 ready-made slideshows a day on a new TikTok account that you create with the username, photo and bio we give you.",
+} as const;
 
 /** Les deux phrases ajoutées en join-v4 (clause 4 « Payment », clause 2 « Independent status »). */
 export const CONTRAT_AJOUTS_V4 = { frais_ruul: "Ruul fees are paid by the Company.", exclusivite: "This agreement is not exclusive." } as const;
@@ -558,7 +848,7 @@ SIREN ${SOCIETE.siren} · SIRET ${SOCIETE.siret} · ${SOCIETE.rcs} · VAT ${SOCI
 President: ${SOCIETE.president} · Contact: ${SOCIETE.contact}`;
 
 export const CONTRAT_RESUME = [
-  "You post 2 ready-made slideshows a day on a TikTok account we give you.",
+  CONTRAT_RESUME_V5.apres,
   "You are an independent freelancer, not an employee.",
   "You pay your own taxes and social contributions.",
   "You are paid every Monday through Ruul for the week before. Our obligation ends when we pay Ruul; any problem with Ruul goes to Ruul support.",

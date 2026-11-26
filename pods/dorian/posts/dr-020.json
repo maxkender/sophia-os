@@ -10,12 +10,22 @@
  "titre": {
   "en": "5 niche ways to disgustingly improve your focus",
   "de": "5 nischen-methoden für einen absurd guten fokus",
-  "pt-BR": "5 jeitos nichados de deixar seu foco absurdo"
+  "pt-BR": "5 jeitos nichados de deixar seu foco absurdo",
+  "hu": "5 niche módszer a brutálisan jobb fókuszért",
+  "it": "5 trucchi di nicchia per una concentrazione assurda",
+  "nl": "5 niche manieren om je focus extreem te verbeteren",
+  "sv": "5 nischade sätt att förbättra ditt fokus sjukt mycket",
+  "tr": "odağını iğrenç derecede geliştirmenin 5 niş yolu"
  },
  "legendes": {
   "en": "#niche #focus #studytok #lockedin #selfimprovement",
   "de": "#fokus #konzentration #lernen #selbstverbesserung",
-  "pt-BR": "#foco #concentração #estudos #autodesenvolvimento"
+  "pt-BR": "#foco #concentração #estudos #autodesenvolvimento",
+  "hu": "#fókusz #koncentráció #tanulás #önfejlesztés",
+  "it": "#concentrazione #studio #produttività #crescitapersonale",
+  "nl": "#focus #concentratie #studeren #zelfontwikkeling",
+  "sv": "#fokus #koncentration #plugg #självutveckling",
+  "tr": "#odak #konsantrasyon #ders #kişiselgelişim"
  },
  "musique": {
   "titre": "original sound - ale",
@@ -39,6 +49,31 @@
     "titre": "5 jeitos nichados de deixar seu foco absurdo",
     "image": "images/cerveau-irm.jpg",
     "legende": "(sem suplemento)"
+   },
+   "hu": {
+    "titre": "5 niche módszer a brutálisan jobb fókuszért",
+    "image": "images/cerveau-35.jpg",
+    "legende": "(étrend-kiegészítők nélkül)"
+   },
+   "it": {
+    "titre": "5 trucchi di nicchia per una concentrazione assurda",
+    "image": "images/cerveau-36.jpg",
+    "legende": "(senza integratori)"
+   },
+   "nl": {
+    "titre": "5 niche manieren om je focus extreem te verbeteren",
+    "image": "images/cerveau-37.jpg",
+    "legende": "(zonder supplementen)"
+   },
+   "sv": {
+    "titre": "5 nischade sätt att förbättra ditt fokus sjukt mycket",
+    "image": "images/cerveau-38.jpg",
+    "legende": "(utan kosttillskott)"
+   },
+   "tr": {
+    "titre": "odağını iğrenç derecede geliştirmenin 5 niş yolu",
+    "image": "images/cerveau-01.jpg",
+    "legende": "(takviye yok)"
    }
   },
   {
@@ -57,6 +92,31 @@
     "titre": "O timer de 25 minutos",
     "texte": "trabalhe 25 minutos, descanse 5, repita quatro vezes. francesco cirillo batizou o método nos anos 80 por causa do timer de cozinha em forma de tomate",
     "image": "images/minuteur-tomate.jpg"
+   },
+   "hu": {
+    "titre": "A 25 perces időzítő",
+    "texte": "dolgozz 25 percet, pihenj 5-öt, ismételd négyszer. francesco cirillo a 80-as években a paradicsom alakú konyhai időzítőjéről nevezte el a módszert",
+    "image": "images/minuteur-tomate.jpg"
+   },
+   "it": {
+    "titre": "Il timer da 25 minuti",
+    "texte": "lavora 25 minuti, pausa di 5, ripeti quattro volte. francesco cirillo chiamò il metodo come il suo timer da cucina a forma di pomodoro, negli anni '80",
+    "image": "images/minuteur-tomate.jpg"
+   },
+   "nl": {
+    "titre": "De timer van 25 minuten",
+    "texte": "werk 25 minuten, 5 pauze, herhaal vier keer. francesco cirillo noemde de methode in de jaren 80 naar zijn kookwekker in de vorm van een tomaat",
+    "image": "images/minuteur-tomate.jpg"
+   },
+   "sv": {
+    "titre": "25-minuterstimern",
+    "texte": "jobba 25 minuter, paus 5, upprepa fyra gånger. francesco cirillo döpte metoden efter sin tomatformade äggklocka på 80-talet",
+    "image": "images/minuteur-tomate.jpg"
+   },
+   "tr": {
+    "titre": "25 dakikalık zamanlayıcı",
+    "texte": "25 dakika çalış, 5 dakika mola, dört kez tekrarla. francesco cirillo yöntemi 80'lerde domates şeklindeki mutfak zamanlayıcısından adlandırdı",
+    "image": "images/minuteur-tomate.jpg"
    }
   },
   {
@@ -74,6 +134,31 @@
    "pt-BR": {
     "titre": "Celular em outro cômodo",
     "texte": "não virado pra baixo, em outro cômodo. um estudo de 2017 mostrou que só ter o celular na mesa reduz sua memória de trabalho, mesmo no silencioso",
+    "image": "images/telephone-seul.jpg"
+   },
+   "hu": {
+    "titre": "Telefon egy másik szobában",
+    "texte": "nem lefordítva, hanem egy másik szobában. egy 2017-es kutatás szerint már az asztalon fekvő telefon is rontja a munkamemóriát, némítva is",
+    "image": "images/telephone-seul.jpg"
+   },
+   "it": {
+    "titre": "Telefono in un'altra stanza",
+    "texte": "non a faccia in giù, in un'altra stanza. uno studio del 2017 ha visto che anche solo un telefono sulla scrivania riduce la memoria di lavoro, pure in silenzioso",
+    "image": "images/telephone-seul.jpg"
+   },
+   "nl": {
+    "titre": "Telefoon in een andere kamer",
+    "texte": "niet omgedraaid, in een andere kamer. een studie uit 2017 liet zien dat een telefoon die gewoon op je bureau ligt je werkgeheugen verlaagt, ook op stil",
+    "image": "images/telephone-seul.jpg"
+   },
+   "sv": {
+    "titre": "Mobilen i ett annat rum",
+    "texte": "inte upp och ner, i ett annat rum. en studie från 2017 visade att en mobil som bara ligger på skrivbordet sänker arbetsminnet, även på ljudlöst",
+    "image": "images/telephone-seul.jpg"
+   },
+   "tr": {
+    "titre": "Telefon başka odada",
+    "texte": "ters çevrilmiş değil, başka bir odada. 2017'de bir çalışma, masada öylece duran telefonun bile sessizdeyken çalışma belleğini düşürdüğünü buldu",
     "image": "images/telephone-seul.jpg"
    }
   },
@@ -94,6 +179,31 @@
     "titre": "Uma lição por dia no Sophia",
     "texte": "10 minutos, uma lição escrita por um professor de verdade, e depois um quiz pra fixar. um treino rápido pro seu foco",
     "telephone": "accueil"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "10 perc, egy igazi professzor által írt lecke, aztán egy kvíz, hogy megmaradjon. rövid edzés a figyelmednek",
+    "telephone": "accueil"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "10 minuti, una lezione scritta da un vero professore, poi un quiz per fissarla. un piccolo allenamento per l'attenzione",
+    "telephone": "accueil"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "10 minuten, een les geschreven door een echte professor, daarna een quiz zodat het blijft hangen. een korte training voor je aandacht",
+    "telephone": "accueil"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. ett kort träningspass för uppmärksamheten",
+    "telephone": "accueil"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. dikkatin için kısa bir antrenman",
+    "telephone": "accueil"
    }
   },
   {
@@ -112,6 +222,31 @@
     "titre": "Uma aba só",
     "texte": "feche tudo menos o que você está fazendo. cada troca custa ao cérebro um pequeno reinício. os psicólogos chamam isso de custo de troca",
     "image": "images/lectrice-buron.jpg"
+   },
+   "hu": {
+    "titre": "Csak egy fül",
+    "texte": "zárj be mindent, kivéve azt az egyet, amin dolgozol. minden váltás egy kis újraindítás az agynak. a pszichológusok váltási költségnek hívják",
+    "image": "images/lectrice-buron.jpg"
+   },
+   "it": {
+    "titre": "Una sola scheda",
+    "texte": "chiudi tutto tranne la cosa che stai facendo. ogni cambio costa al cervello un piccolo riavvio. gli psicologi lo chiamano costo del passaggio",
+    "image": "images/lectrice-buron.jpg"
+   },
+   "nl": {
+    "titre": "Eén tabblad",
+    "texte": "sluit alles behalve het ene waar je mee bezig bent. elke wissel kost je brein een kleine herstart. psychologen noemen het de wisselkost",
+    "image": "images/lectrice-buron.jpg"
+   },
+   "sv": {
+    "titre": "Bara en flik",
+    "texte": "stäng allt utom det du håller på med. varje byte kostar hjärnan en liten omstart. psykologer kallar det byteskostnad",
+    "image": "images/lectrice-buron.jpg"
+   },
+   "tr": {
+    "titre": "Tek sekme",
+    "texte": "yaptığın şey dışında her şeyi kapat. her geçiş beynine küçük bir yeniden başlatmaya mal olur. psikologlar buna geçiş maliyeti diyor",
+    "image": "images/lectrice-buron.jpg"
    }
   },
   {
@@ -129,6 +264,31 @@
    "pt-BR": {
     "titre": "Caminhe antes",
     "texte": "uma caminhada de 10 minutos antes do trabalho pesado. exercícios curtos comprovadamente afiam a atenção por um tempo",
+    "image": "images/chemin-campagne.jpg"
+   },
+   "hu": {
+    "titre": "Előbb séta",
+    "texte": "10 perc séta a mély munka előtt. kimutatták, hogy a rövid mozgás egy ideig élesíti a figyelmet",
+    "image": "images/chemin-campagne.jpg"
+   },
+   "it": {
+    "titre": "Prima cammina",
+    "texte": "10 minuti a piedi prima del lavoro profondo. brevi sessioni di movimento affinano l'attenzione per un po' di tempo dopo",
+    "image": "images/chemin-campagne.jpg"
+   },
+   "nl": {
+    "titre": "Eerst wandelen",
+    "texte": "10 minuten wandelen voor diep werk. korte stukjes beweging blijken je aandacht een tijdje daarna scherper te maken",
+    "image": "images/chemin-campagne.jpg"
+   },
+   "sv": {
+    "titre": "Gå först",
+    "texte": "en promenad på 10 minuter före djupt arbete. korta pass av rörelse har visat sig skärpa uppmärksamheten en stund efteråt",
+    "image": "images/chemin-campagne.jpg"
+   },
+   "tr": {
+    "titre": "Önce yürü",
+    "texte": "derin çalışmadan önce 10 dakika yürü. kısa egzersizlerin dikkati bir süre keskinleştirdiği gösterildi",
     "image": "images/chemin-campagne.jpg"
    }
   }

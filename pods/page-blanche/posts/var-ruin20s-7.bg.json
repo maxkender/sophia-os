@@ -1,0 +1,298 @@
+{
+ "post_id": "var-ruin20s-7",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 ways to ruin your 20s"
+     ],
+     "fr": "top 5 pour foirer ta vingtaine",
+     "texte": "5 сигурни начина да пропилееш 20-те"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça pique)",
+     "alignement": "droite",
+     "texte": "(гарантирано без съжаление… или не)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0bbe9532.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "зарязвай всичко след 2 седмици"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "китара, испански, бягане, керамика: по [[2 седмици]], после нищо"
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "да започнеш от нулата е неловко. спри точно преди да [[стане забавно]], много по-умно"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "гардеробът ти? пълен с [[неща, ползвани два пъти]]. страхотна колекция!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_096f6be5.jpg",
+      "boite": [
+       200,
+       0,
+       1620,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "никога не моли за помощ"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "стрес в работата, неплатени сметки? [[оправяй всичко без чужда помощ]], естествено"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "да помолиш за помощ значи [[да признаеш границите си]]"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "мъчи се 3 седмици с нещо, което приятел ще ти обясни за 5 мин, и се чуди защо си [[вечно на ръба]]. никой не видя колко ти е трудно"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_982da0c1.jpg",
+      "boite": [
+       541,
+       0,
+       1829,
+       1440
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never stop scrolling"
+     ],
+     "fr": "scrolle non-stop",
+     "texte": "нека алгоритъмът мисли за теб"
+    },
+    "T2": {
+     "en": [
+      "maybe the next tiktok will finally",
+      "solve your problems"
+     ],
+     "fr": "le [[prochain tiktok]] va [[enfin]] régler tes problèmes, qui sait",
+     "texte": "мненията ти, шегите ти? [[всичко е от фийда]], естествено"
+    },
+    "T3": {
+     "en": [
+      "don’t limit your screen time,",
+      "don’t start reading, don’t give",
+      "your brain a chance to get",
+      "bored"
+     ],
+     "fr": "limite pas ton temps d'écran, ouvre surtout pas [[l'appli Sophia]] 5 min, laisse jamais ton cerveau [[s'ennuyer]]",
+     "texte": "и в никакъв случай не сменяй фийда с книга, разходка или кратък урок в [[приложението Sophia]]"
+    },
+    "T4": {
+     "en": [
+      "just keep feeding the algorithm",
+      "until it knows what you want",
+      "better than you do"
+     ],
+     "fr": "continue de [[nourrir l'algo]] jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]",
+     "texte": "идея от собствената ти глава? звучи [[твърде изморително]], честно"
+    },
+    "T5": {
+     "en": [
+      "keep giving them your data,",
+      "they deserve it!"
+     ],
+     "fr": "file-leur [[tes données]], ils le méritent !",
+     "texte": "репостни тренда, [[ето ти личност]]!"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel ready"
+     ],
+     "fr": "attendre [[d'être prête]]",
+     "texte": "пази всяка обида завинаги"
+    },
+    "T2": {
+     "en": [
+      "putting things off feels harmless in the moment,",
+      "but it slowly becomes your default response to",
+      "anything difficult"
+     ],
+     "fr": "repousser les choses, [[ça paraît pas grave]] sur le moment, mais petit à petit ça devient [[ton réflexe dès que c'est dur]]",
+     "texte": "приятел е забравил рождения ти ден през 2019? [[никога не забравяй]]. споменавай го на всяка вечеря, дума по дума, като извънредна новина"
+    },
+    "T3": {
+     "en": [
+      "the longer you",
+      "avoid something,",
+      "the heavier it feels"
+     ],
+     "fr": "plus tu repousses un truc, plus il [[pèse lourd]]",
+     "texte": "искрено извинение? [[твърде малко и твърде късно]]"
+    },
+    "T4": {
+     "en": [
+      "start before you feel ready. your 20s disappear",
+      "quickly when everything important keeps getting",
+      "pushed to “tomorrow”"
+     ],
+     "fr": "commence [[avant d'être prête]]. [[tes 20 ans passent à toute vitesse]] si tout ce qui compte est toujours remis à “demain”",
+     "texte": "пази всяко малко предателство като трофей. на 30: [[пълна колекция]] и никой, на когото да я покажеш. супер!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_5ac41c47.jpg",
+      "boite": [
+       0,
+       100,
+       2048,
+       1452
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never travel"
+     ],
+     "fr": "ne pars jamais",
+     "texte": "снимай всичко"
+    },
+    "T2": {
+     "en": [
+      "there's nothing out there you need to experience",
+      "yourself"
+     ],
+     "fr": "y'a [[rien là-dehors]] qui mérite que tu le vives en vrai",
+     "texte": "концерт, залез, торта за рожден ден? [[телефонът горе]], винаги"
+    },
+    "T3": {
+     "en": [
+      "you can see mountains,",
+      "cities, cultures and people",
+      "through a 6-inch screen",
+      "anyway"
+     ],
+     "fr": "montagnes, villes, cultures, gens : tu vois tout [[sur un écran de 15 cm, de toute façon]]",
+     "texte": "преживей най-хубавите си вечери през 15 см екран и снимай същия кадър 14 пъти"
+    },
+    "T4": {
+     "en": [
+      "stay where it's",
+      "comfortable"
+     ],
+     "fr": "reste [[dans ta zone de confort]]",
+     "texte": "и [[никога не вдигай поглед]]"
+    },
+    "T5": {
+     "en": [
+      "why risk discovering that",
+      "the world is much bigger",
+      "than the life you've built?"
+     ],
+     "fr": "pourquoi risquer de découvrir que le monde est [[bien plus grand]] que ta petite vie ?",
+     "texte": "години по-късно: 9000 видеа и [[нула спомени]] от самия момент. иконично!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_18966a5f.jpg",
+      "boite": [
+       300,
+       0,
+       1654,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

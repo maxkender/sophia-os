@@ -1,0 +1,298 @@
+{
+ "post_id": "var-ruin20s-7",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 ways to ruin your 20s"
+     ],
+     "fr": "top 5 pour foirer ta vingtaine",
+     "texte": "5 tuti módja, hogy elszúrd a 20-as éveid"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça pique)",
+     "alignement": "droite",
+     "texte": "(nulla megbánás… vagy mégsem)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_06090068.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "adj fel mindent 2 hét után"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "gitár, spanyol, futás, kerámia: mindegyik [[2 hét]], aztán vége"
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "nulláról kezdeni ciki. hagyd abba pont mielőtt [[élvezetes lenne]], sokkal okosabb"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "a szekrényed? tele [[kétszer használt cuccokkal]]. szép gyűjtemény!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_096f6be5.jpg",
+      "boite": [
+       200,
+       0,
+       1620,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "soha ne kérj segítséget"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "stressz a melóban, elmaradt számlák? [[oldj meg mindent egyedül]], naná"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "segítséget kérni annyi, mint [[beismerni a határaidat]]"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "szenvedj 3 hétig valamivel, amit egy barátod 5 perc alatt elmagyaráz, aztán csodálkozz, miért vagy [[mindig kimerült]]. senki nem látta, hogy küzdesz"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_982da0c1.jpg",
+      "boite": [
+       541,
+       0,
+       1829,
+       1440
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never stop scrolling"
+     ],
+     "fr": "scrolle non-stop",
+     "texte": "hadd gondolkodjon az algoritmus"
+    },
+    "T2": {
+     "en": [
+      "maybe the next tiktok will finally",
+      "solve your problems"
+     ],
+     "fr": "le [[prochain tiktok]] va [[enfin]] régler tes problèmes, qui sait",
+     "texte": "a véleményed, a poénjaid? [[minden a feedből jön]], naná"
+    },
+    "T3": {
+     "en": [
+      "don’t limit your screen time,",
+      "don’t start reading, don’t give",
+      "your brain a chance to get",
+      "bored"
+     ],
+     "fr": "limite pas ton temps d'écran, ouvre surtout pas [[l'appli Sophia]] 5 min, laisse jamais ton cerveau [[s'ennuyer]]",
+     "texte": "és véletlenül se cseréld le a feedet egy könyvre, egy sétára vagy egy mini leckére [[a Sophia appban]]"
+    },
+    "T4": {
+     "en": [
+      "just keep feeding the algorithm",
+      "until it knows what you want",
+      "better than you do"
+     ],
+     "fr": "continue de [[nourrir l'algo]] jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]",
+     "texte": "egy ötlet a saját fejedből? [[túl fárasztónak]] hangzik, őszintén"
+    },
+    "T5": {
+     "en": [
+      "keep giving them your data,",
+      "they deserve it!"
+     ],
+     "fr": "file-leur [[tes données]], ils le méritent !",
+     "texte": "oszd meg újra a trendet, [[kész is a személyiség]]!"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel ready"
+     ],
+     "fr": "attendre [[d'être prête]]",
+     "texte": "őrizd meg minden sérelmed"
+    },
+    "T2": {
+     "en": [
+      "putting things off feels harmless in the moment,",
+      "but it slowly becomes your default response to",
+      "anything difficult"
+     ],
+     "fr": "repousser les choses, [[ça paraît pas grave]] sur le moment, mais petit à petit ça devient [[ton réflexe dès que c'est dur]]",
+     "texte": "egy barátod 2019-ben elfelejtette a szülinapod? [[soha ne felejtsd el]]. hozd fel minden vacsoránál, szóról szóra, mint egy friss hírt"
+    },
+    "T3": {
+     "en": [
+      "the longer you",
+      "avoid something,",
+      "the heavier it feels"
+     ],
+     "fr": "plus tu repousses un truc, plus il [[pèse lourd]]",
+     "texte": "egy őszinte bocsánatkérés? [[túl kevés, túl késő]]"
+    },
+    "T4": {
+     "en": [
+      "start before you feel ready. your 20s disappear",
+      "quickly when everything important keeps getting",
+      "pushed to “tomorrow”"
+     ],
+     "fr": "commence [[avant d'être prête]]. [[tes 20 ans passent à toute vitesse]] si tout ce qui compte est toujours remis à “demain”",
+     "texte": "gyűjts minden apró árulást, mint egy trófeát. 30 évesen: [[teljes gyűjtemény]], és senki, akinek megmutathatnád. szuper!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_5ac41c47.jpg",
+      "boite": [
+       0,
+       100,
+       2048,
+       1452
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never travel"
+     ],
+     "fr": "ne pars jamais",
+     "texte": "vegyél fel mindent"
+    },
+    "T2": {
+     "en": [
+      "there's nothing out there you need to experience",
+      "yourself"
+     ],
+     "fr": "y'a [[rien là-dehors]] qui mérite que tu le vives en vrai",
+     "texte": "koncert, naplemente, szülinapi torta? [[telefon a magasban]], mindig"
+    },
+    "T3": {
+     "en": [
+      "you can see mountains,",
+      "cities, cultures and people",
+      "through a 6-inch screen",
+      "anyway"
+     ],
+     "fr": "montagnes, villes, cultures, gens : tu vois tout [[sur un écran de 15 cm, de toute façon]]",
+     "texte": "éld át a legjobb estéidet 15 centis kijelzőn át, és vedd fel ugyanazt 14-szer"
+    },
+    "T4": {
+     "en": [
+      "stay where it's",
+      "comfortable"
+     ],
+     "fr": "reste [[dans ta zone de confort]]",
+     "texte": "és [[soha ne nézz fel]]"
+    },
+    "T5": {
+     "en": [
+      "why risk discovering that",
+      "the world is much bigger",
+      "than the life you've built?"
+     ],
+     "fr": "pourquoi risquer de découvrir que le monde est [[bien plus grand]] que ta petite vie ?",
+     "texte": "évekkel később: 9000 videó és [[nulla emlék]] arról, hogy ott voltál. ikonikus!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_18966a5f.jpg",
+      "boite": [
+       300,
+       0,
+       1654,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

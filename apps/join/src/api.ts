@@ -58,6 +58,8 @@ export interface Moi {
     whatsapp: string;
     email_verifie: boolean;
     whatsapp_verifie: boolean;
+    /** 25/11 : faux quand le code WhatsApp n'est pas demandé (code par email seulement). */
+    whatsapp_code?: boolean;
     decision: "auto" | "a_traiter" | "refusee" | null;
     handle_tiktok: string | null;
     ferme?: boolean;
@@ -67,8 +69,15 @@ export interface Moi {
   signature: { signe_at: string } | null;
   etapes: Etape[];
   premier_post: string | null;
-  profil_suggere: { nom: string; bio: string; photo: string };
+  /** Le profil TikTok à créer (25/11 : celui du compte de l'OS quand il existe, photo comprise). */
+  profil_suggere: { nom: string; bio: string; photo: string; photo_url?: string | null };
   ruul_visible: boolean;
+  /** 0858 : la checklist (cochée quand l'OS voit l'étape faite) et les liens de ses boutons. */
+  checklist?: { etape: "contrat" | "ruul" | "tiktok" | "warmup" | "slack" | "premier_post"; fait: boolean }[];
+  liens?: { dashboard: string; slack: string; tiktok: string; ruul: string; ruul_personnel: boolean };
+  handle?: string | null;
+  ruul_email?: string | null;
+  compte_os?: boolean;
 }
 
 // Provenance (?ref=, utm_*, fbclid) : gardée 30 jours dans le navigateur, envoyée avec la candidature.

@@ -1,0 +1,287 @@
+{
+ "id": "dr-068",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696990065343532309",
+  "vues": 1100000,
+  "publie_le": "2026-10-15",
+  "accroche": "Iceberg of ADHD hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of music nerd hobbies",
+  "it": "Iceberg degli hobby da nerd della musica",
+  "tr": "Müzik meraklısı hobileri buzdağı"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #music #musician #selfimprovement",
+  "it": "#iceberg #hobby #musica #crescitapersonale",
+  "tr": "#buzdağı #hobi #müzik #kişiselgelişim"
+ },
+ "musique": {
+  "titre": "Room Full of Strangers - Danny Bluestone",
+  "url": "https://www.tiktok.com/music/original-sound-7689207966263953459"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « music nerd hobbies ». Sophia au 2e étage (icône). Objets Seedream (violon, métronome, diapason, harmonica, synthé, micro, guitare, flûte). En, it, tr ; variantes 0, 1, 2.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "music nerd hobbies",
+    "variante": 0
+   },
+   "it": {
+    "haut": "Iceberg degli",
+    "bas": "hobby da nerd musicali",
+    "variante": 1
+   },
+   "tr": {
+    "haut": "Müzik meraklısı",
+    "bas": "hobileri buzdağı",
+    "variante": 2
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "making playlists",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "learning guitar",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "collecting vinyl",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "playing piano",
+       "image": "images/objets/piano.png"
+      }
+     ],
+     [
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "blues harmonica",
+       "image": "images/objets/harmonica.png"
+      },
+      {
+       "t": "metronome drills",
+       "image": "images/objets/metronome.png"
+      },
+      {
+       "t": "home recording",
+       "image": "images/objets/micro.png"
+      }
+     ],
+     [
+      {
+       "t": "learning violin",
+       "image": "images/objets/violon.png"
+      },
+      {
+       "t": "synthesizers",
+       "image": "images/objets/synthe.png"
+      },
+      {
+       "t": "old radio shows",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "ear training",
+       "image": "images/objets/diapason.png"
+      }
+     ],
+     [
+      {
+       "t": "baroque recorder",
+       "image": "images/objets/flute.png"
+      },
+      {
+       "t": "old concert films",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "music theory",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "your own symphony",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "it": {
+    "etages": [
+     [
+      {
+       "t": "creare playlist",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "chitarra",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "collezionare vinili",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "suonare il piano",
+       "image": "images/objets/piano.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia ogni giorno",
+       "image": "sophia"
+      },
+      {
+       "t": "armonica blues",
+       "image": "images/objets/harmonica.png"
+      },
+      {
+       "t": "metronomo",
+       "image": "images/objets/metronome.png"
+      },
+      {
+       "t": "registrare in casa",
+       "image": "images/objets/micro.png"
+      }
+     ],
+     [
+      {
+       "t": "violino",
+       "image": "images/objets/violon.png"
+      },
+      {
+       "t": "synth",
+       "image": "images/objets/synthe.png"
+      },
+      {
+       "t": "vecchia radio",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "orecchio musicale",
+       "image": "images/objets/diapason.png"
+      }
+     ],
+     [
+      {
+       "t": "flauto barocco",
+       "image": "images/objets/flute.png"
+      },
+      {
+       "t": "vecchi concerti",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "teoria musicale",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "comporre una sinfonia",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "non sei d'accordo?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "çalma listesi",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "gitar öğrenmek",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "plak biriktirmek",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "piyano çalmak",
+       "image": "images/objets/piano.png"
+      }
+     ],
+     [
+      {
+       "t": "her gün sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "blues mızıkası",
+       "image": "images/objets/harmonica.png"
+      },
+      {
+       "t": "metronom",
+       "image": "images/objets/metronome.png"
+      },
+      {
+       "t": "evde kayıt",
+       "image": "images/objets/micro.png"
+      }
+     ],
+     [
+      {
+       "t": "keman",
+       "image": "images/objets/violon.png"
+      },
+      {
+       "t": "synthesizer",
+       "image": "images/objets/synthe.png"
+      },
+      {
+       "t": "eski radyo",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "solfej",
+       "image": "images/objets/diapason.png"
+      }
+     ],
+     [
+      {
+       "t": "barok flüt",
+       "image": "images/objets/flute.png"
+      },
+      {
+       "t": "eski konserler",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "müzik teorisi",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "kendi senfonin",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

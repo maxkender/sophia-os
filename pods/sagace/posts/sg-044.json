@@ -1,0 +1,1797 @@
+{
+ "id": "sg-044",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 pour briller au repas de Noël",
+  "en": "10/10 skills to shine at Christmas dinner",
+  "de": "10/10-Skills, um beim Weihnachtsessen zu glänzen",
+  "it": "Abilità 10/10 per brillare al cenone di Natale",
+  "pt-BR": "Habilidades 10/10 para brilhar na ceia de Natal",
+  "tr": "Yılbaşı sofrasında parlamanı sağlayacak 10/10 beceriler",
+  "ro": "Abilități 10/10 ca să strălucești la masa de Crăciun",
+  "cs": "Dovednosti 10/10, se kterými o Vánocích zazáříš",
+  "hu": "10/10 készségek, hogy ragyogj a karácsonyi asztalnál",
+  "el": "Δεξιότητες 10/10 για να λάμψεις στο γιορτινό τραπέζι",
+  "sr": "Veštine 10/10 da zablistaš za prazničnom trpezom"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 pour briller au repas de Noël #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills to shine at Christmas dinner #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, um beim Weihnachtsessen zu glänzen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 per brillare al cenone di Natale #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 para brilhar na ceia de Natal #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Yılbaşı sofrasında parlamanı sağlayacak 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 ca să strălucești la masa de Crăciun #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, se kterými o Vánocích zazáříš #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10 készségek, hogy ragyogj a karácsonyi asztalnál #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 για να λάμψεις στο γιορτινό τραπέζι #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 da zablistaš za prazničnom trpezom #učinatiktoku #samorazvoj #veštine"
+ },
+ "musique": {
+  "titre": "original sound - rithu",
+  "url": "https://www.tiktok.com/music/original-sound-7514851905760512799"
+ },
+ "notes": "Full test du 26/11, « Compétences 10/10 pour briller au repas de Noël », en 11 langues (« … qui impressionnent ta famille à Noël » écartée, trop proche du thème gagnant « … qui impressionnent tout le monde »). 5 compétences de fêtes : plier les serviettes, découper des flocons en papier, faire des biscuits de Noël, faire une couronne (couronne de l'Avent en de, cs, hu), un vrai chocolat chaud (tour de magie écarté, proche de sg-027 ; décorer le sapin écarté faute de vidéos natives en ro, hu, sr). Vraies vidéos natives par langue, titre natif. Sophia en étape 4 sur 7, cta B, « ANIMER / LE REPAS ». tr : « yılbaşı sofrası », sr : « praznična trpeza » (Noël orthodoxe le 7 janvier).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "POUR BRILLER",
+      "cap": 120
+     },
+     {
+      "t": "AU REPAS DE",
+      "cap": 120
+     },
+     {
+      "t": "NOËL",
+      "couleur": "brun",
+      "cap": 260
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "TO SHINE AT",
+      "cap": 120
+     },
+     {
+      "t": "CHRISTMAS",
+      "couleur": "brun",
+      "cap": 210
+     },
+     {
+      "t": "DINNER",
+      "cap": 150
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "UM BEIM",
+      "cap": 120
+     },
+     {
+      "t": "WEIHNACHTSESSEN",
+      "couleur": "brun",
+      "cap": 110
+     },
+     {
+      "t": "ZU GLÄNZEN",
+      "cap": 130
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "PER BRILLARE AL",
+      "cap": 110
+     },
+     {
+      "t": "CENONE DI",
+      "cap": 120
+     },
+     {
+      "t": "NATALE",
+      "couleur": "brun",
+      "cap": 250
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PARA BRILHAR",
+      "cap": 120
+     },
+     {
+      "t": "NA CEIA DE",
+      "cap": 120
+     },
+     {
+      "t": "NATAL",
+      "couleur": "brun",
+      "cap": 260
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "YILBAŞI",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "SOFRASINDA",
+      "cap": 130
+     },
+     {
+      "t": "PARLAMANI SAĞLAYACAK",
+      "cap": 90
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 150
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "CA SĂ STRĂLUCEȘTI",
+      "cap": 100
+     },
+     {
+      "t": "LA MASA DE",
+      "cap": 120
+     },
+     {
+      "t": "CRĂCIUN",
+      "couleur": "brun",
+      "cap": 230
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "SE KTERÝMI",
+      "cap": 120
+     },
+     {
+      "t": "O VÁNOCÍCH",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "ZAZÁŘÍŠ",
+      "cap": 150
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "HOGY RAGYOGJ A",
+      "cap": 120
+     },
+     {
+      "t": "KARÁCSONYI",
+      "couleur": "brun",
+      "cap": 180
+     },
+     {
+      "t": "ASZTALNÁL",
+      "cap": 150
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "ΓΙΑ ΝΑ ΛΑΜΨΕΙΣ",
+      "cap": 110
+     },
+     {
+      "t": "ΣΤΟ ΓΙΟΡΤΙΝΟ",
+      "cap": 120
+     },
+     {
+      "t": "ΤΡΑΠΕΖΙ",
+      "couleur": "brun",
+      "cap": 220
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "DA ZABLISTAŠ",
+      "cap": 120
+     },
+     {
+      "t": "ZA PRAZNIČNOM",
+      "cap": 110
+     },
+     {
+      "t": "TRPEZOM",
+      "couleur": "brun",
+      "cap": 230
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "PLIER",
+     [
+      {
+       "t": "LES SERVIETTES",
+       "couleur": "#7d9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "81c2ZxIKw-U",
+     "titre": "3 pliages de serviette pour Noël",
+     "chaine": "Le Pays des Gourmandises",
+     "vues": "207 k vues",
+     "date": "il y a 7 ans",
+     "duree": "5:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k24Ou_YYu1hAe5vMHoqRKswEtkVua_L1qejkKqo0MtU9k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "FANCY",
+     [
+      {
+       "t": "NAPKIN FOLDS",
+       "couleur": "#7d9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bUIoqUEs_RY",
+     "titre": "Napkin Folding Tutorial - Christmas Tree Napkin Fold - EASY Folding for Dinner Tables @OrigamiTree",
+     "chaine": "Origami Tree",
+     "vues": "1.7M views",
+     "date": "9 years ago",
+     "duree": "1:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l1fQPE0VMFt8izueOfTT8clfxPXvh8bSoQzWEBURF66pM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SERVIETTEN",
+     [
+      {
+       "t": "FALTEN",
+       "couleur": "#7d9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3ovYJ-Qa5LU",
+     "titre": "Servietten falten Weihnachten: Tannenbaum 🎄 Einfache Weihnachtsdeko selber machen",
+     "chaine": "ideenundanleitungen",
+     "vues": "2,8 Mio. Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "3:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_laqgwYzMBAgLmObsMxY6bZJ1BXahNqNzFyOOQNEVzlpQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PIEGARE",
+     [
+      {
+       "t": "I TOVAGLIOLI",
+       "couleur": "#7d9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "75C9UhwVb5Y",
+     "titre": "5 Modi per piegare Tovaglioli di Carta per Natale | How to fold a Napkin Christmas",
+     "chaine": "ArtPaper",
+     "vues": "2,1 Mln visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "4:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mYe8ztTvwUufgNGMD1pO8KRguZCK4unF6VZlaub4D0hzw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DOBRAR",
+     [
+      {
+       "t": "GUARDANAPOS",
+       "couleur": "#7d9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ymscIB3K5b4",
+     "titre": "Como dobrar guardanapo em forma de árvore de Natal | STUDIO LAB DECOR",
+     "chaine": "STUDIO LAB DECOR",
+     "vues": "122 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "1:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nVlNOa7Y05oDosAEDbvIXisRzCHU2EVMLleOluU1ZiOw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "PEÇETE",
+     [
+      {
+       "t": "KATLAMAK",
+       "couleur": "#7d9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "w3dAmJv-Ysw",
+     "titre": "Kağıt Peçete Sunumları 1 | Peçete Katlama Teknikleri | Şık Peçete Sunumları | Pratik Dokunuşlar",
+     "chaine": "Nalân Erdem",
+     "vues": "3 Mn görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "8:46",
+     "avatar": "https://yt3.ggpht.com/uqJe6UQibdJywepI4-4QENX-AqV9JSfErdCtTqtg9WFUSLAkBAxYOhFg8mYhj2z4uNkXuBWGeVQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎMPĂTUREȘTI",
+     [
+      {
+       "t": "ȘERVEȚELELE",
+       "couleur": "#7d9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1wuMIma4V0Y",
+     "titre": "Servetele decorative - Model 6",
+     "chaine": "Bubu Cuisine",
+     "vues": "120 K vizionări",
+     "date": "acum 8 ani",
+     "duree": "3:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kXB_4IBqLfUZRFJ5H6Jj50yKYpg19Uo-AKJvISeVMZ8JM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SKLÁDAT",
+     [
+      {
+       "t": "UBROUSKY",
+       "couleur": "#7d9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GlNyEhot22o",
+     "titre": "Technika skládání ubrousků č. 12 – Uzel",
+     "chaine": "Prostůl.cz",
+     "vues": "7 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "1:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nd_0wXuWA7NGnWKhWPL1t-LsYBfg9tcOTCEEJIljOrCg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "SZALVÉTÁT",
+     [
+      {
+       "t": "HAJTOGATNI",
+       "couleur": "#7d9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WmL-71WjX0I",
+     "titre": "DIY karácsonyi szalvétahajtogatási technika - FENYŐFA 🎄 | SzalvétaSziget",
+     "chaine": "Szalvéta Sziget",
+     "vues": "15 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "1:11",
+     "avatar": "https://yt3.ggpht.com/cnQN18K1FxvkgRePTBtETpXCkxCCUIASkyRuzZpUX8Nr30_7DGijLrbWiDLYQVlAwoxDleTx=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΔΙΠΛΩΝΕΙΣ",
+     [
+      {
+       "t": "ΠΕΤΣΕΤΕΣ",
+       "couleur": "#7d9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_dGJkSHDIMY",
+     "titre": "2 ΠΑΝΕΥΚΟΛΟΙ ΤΡΟΠΟΙ ΓΙΑ ΔΙΠΛΩΜΑ ΠΕΤΣΕΤΑΣ ΣΕ ΓΙΟΡΤΙΝΟ ΤΡΑΠΕΖΙ",
+     "chaine": "MaMas TV",
+     "vues": "159 χιλ. προβολές",
+     "date": "πριν από 10 έτη",
+     "duree": "1:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPnfFYdDD2ieCUelPPyQFYWB-eFnE2Un1aera65izDR9c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "SLAGATI",
+     [
+      {
+       "t": "SALVETE",
+       "couleur": "#7d9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UtJ6EXvVcIk",
+     "titre": "Top 3 nacina da slozite salvete",
+     "chaine": "Mogu Ja To Sama (MJTS)",
+     "vues": "1,3 mil. pregleda",
+     "date": "pre 12 godina",
+     "duree": "3:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kf8OnHYz5OUE6nschXKh-Jfx5PpD0SHRkU_Tc-Y8Z98Ws=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "DÉCOUPER",
+     [
+      {
+       "t": "DES FLOCONS",
+       "couleur": "#2a45c4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VrtcOQwpacQ",
+     "titre": "Comment Faire un Flocon de neige en papier Facile TUTO",
+     "chaine": "Paper Craft",
+     "vues": "401 k vues",
+     "date": "il y a 7 ans",
+     "duree": "4:12",
+     "avatar": "https://yt3.ggpht.com/7_x2vHJEaToLMCPflZCicIulS_YfU17_JqefzYeDogZgtlUgzzBTLyCFE_Q-FLqzipUod8XeVQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "CUT",
+     [
+      {
+       "t": "PAPER SNOWFLAKES",
+       "couleur": "#2a45c4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7J2FcmWnMA4",
+     "titre": "Paper Snowflakes #02 - Easy Paper Snowflakes - How to make Snowflakes out of paper",
+     "chaine": "Wonder Crafts",
+     "vues": "10M views",
+     "date": "4 years ago",
+     "duree": "3:00",
+     "avatar": "https://yt3.ggpht.com/wbxmUSHP4oxD6Bq-ucM0b1Fprgb6Jrp8r9wXmv2tXiLAfbMATWeDg6lkfglNsGT701Fu9qlR=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SCHNEEFLOCKEN",
+     [
+      {
+       "t": "SCHNEIDEN",
+       "couleur": "#2a45c4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-IkyAC_vX_s",
+     "titre": "Schneeflocken basteln für Weihnachten mit Papier - Weihnachtsdeko selber machen ❄",
+     "chaine": "Basteln mit Papier",
+     "vues": "695.652 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "2:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nfKuOGXUXuXjkq7qI3kRvSatvzcxOduYNABTSAp7hcxXs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RITAGLIARE",
+     [
+      {
+       "t": "FIOCCHI DI NEVE",
+       "couleur": "#2a45c4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "M0veps4yNuE",
+     "titre": "Fiocchi di neve di carta FACILI e BELLISSIMI | Decorazioni natalizie",
+     "chaine": "Laboratorio 45",
+     "vues": "132K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/Aov2oIj1YfYodtKGp2F2rwFDE-7e52GELt4nBMfZSVHj2xS_fJsZweEAwuTPIjqB87uZ9O_-Sg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "RECORTAR",
+     [
+      {
+       "t": "FLOCOS DE NEVE",
+       "couleur": "#2a45c4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hWPjS3wJdtE",
+     "titre": "Como fazer flocos de neve de papel - Diy fácil e divertido | dobraduras de papel ❄️❄️",
+     "chaine": "Veni Arte",
+     "vues": "15 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "2:21",
+     "avatar": "https://yt3.ggpht.com/QD3wD7knfTkkvz2jb2jOPe9mD9SySrpIYSgnh52MhZinDWJm9ICiBVy-md0d4OeNvlaV-Ia1oQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KAĞITTAN",
+     [
+      {
+       "t": "KAR TANESİ YAPMAK",
+       "couleur": "#2a45c4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YASHZxoLKhM",
+     "titre": "Kağıttan Kolay Origami Kar Tanesi Nasıl Yapılır? | Yılbaşı - Noel Süsü Fikirleri | Kendin Yap",
+     "chaine": "Baş Art",
+     "vues": "214 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "2:02",
+     "avatar": "https://yt3.ggpht.com/LwyfdN_vPqufwEaVy4XQpJR6-Nu1EOe3qZL7so7Wu3BT_W-7FGqp1JDK1BrYvVGkexf8ZVUEJg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ DECUPEZI",
+     [
+      {
+       "t": "FULGI DE NEA",
+       "couleur": "#2a45c4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lz2FKHV2N2I",
+     "titre": "Tutorial video: Cum sa faci un fulg 3D?",
+     "chaine": "Kudika.ro",
+     "vues": "424 K vizionări",
+     "date": "acum 9 ani",
+     "duree": "1:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l6IxaTtjOjQShYz12BBPczUswX3T5DERlFzkAaiL5vBf8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "VYSTŘIHNOUT",
+     [
+      {
+       "t": "VLOČKU",
+       "couleur": "#2a45c4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DGTpdmiE_WY",
+     "titre": "Vločky z papíru - jak jsme vyráběli vánoční dekorace",
+     "chaine": "Řeknijak",
+     "vues": "84 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "4:24",
+     "avatar": "https://yt3.ggpht.com/Lm4WbCzJcPfTTLClSP1_7IO3Tx8KAkPjWvflkoRPkOAYZBacCKmhEdn3xFW1KaMlzGiPdBfSTLY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HÓPELYHET",
+     [
+      {
+       "t": "VÁGNI",
+       "couleur": "#2a45c4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zM9O4alNYkc",
+     "titre": "❄Hópehely készítése papírból❄",
+     "chaine": "Dávid László",
+     "vues": "135 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "2:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nYn0ugA80N_qRM8_9gA8BrM1TkZZcOvjErw8zZN8HUCL0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΚΟΒΕΙΣ",
+     [
+      {
+       "t": "ΧΙΟΝΟΝΙΦΑΔΕΣ",
+       "couleur": "#2a45c4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "R5y9i7bw4Co",
+     "titre": "Χιονονιφάδα από χαρτί / Paper Snowflake // Pargie",
+     "chaine": "Argiro P.",
+     "vues": "109 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "2:54",
+     "avatar": "https://yt3.ggpht.com/AT9jo7jNUIm_NhoLLvrUfoy5j9rxSb0bbH1KJQCNtNl2wMie67VXjtTv0BDqII2g-YCI3VYV9w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "SEĆI",
+     [
+      {
+       "t": "PAHULJE OD PAPIRA",
+       "couleur": "#2a45c4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jBDBZrnm65c",
+     "titre": "PAHULJA OD PAPIRA ❄️ / How to make a paper snowflake (easy DIY tutorial)",
+     "chaine": "NAJLA",
+     "vues": "162 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "3:48",
+     "avatar": "https://yt3.ggpht.com/Js9UfPG0dC6dg6db494YR66Dfmt7xtUthoEPzXFvQEjR812u_CgKcL7vS9kKRvrgDaJ-PIqsuys=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "ANIMER",
+     [
+      {
+       "t": "LE REPAS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "OWN THE",
+     [
+      {
+       "t": "DINNER TALK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "BEIM ESSEN",
+     [
+      {
+       "t": "MITREDEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ANIMARE",
+     [
+      {
+       "t": "LA CENA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ANIMAR",
+     [
+      {
+       "t": "A CEIA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "SOFRADA",
+     [
+      {
+       "t": "SOHBETİ ÇEVİRMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ANIMEZI",
+     [
+      {
+       "t": "MASA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "BAVIT",
+     [
+      {
+       "t": "CELÝ STŮL",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "SZÓRAKOZTATNI",
+     [
+      {
+       "t": "AZ ASZTALT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj valami újat",
+      "minden nap."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΚΡΑΤΑΣ",
+     [
+      {
+       "t": "ΤΗΝ ΚΟΥΒΕΝΤΑ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "μάθε κάτι καινούργιο",
+      "κάθε μέρα."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "VODITI",
+     [
+      {
+       "t": "GLAVNU REČ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo",
+      "svaki dan."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE DES",
+     [
+      {
+       "t": "BISCUITS DE NOËL",
+       "couleur": "#d9661f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wub_ShJxvR4",
+     "titre": "🎅 Mes biscuits de Noël",
+     "chaine": "Philippe Etchebest",
+     "vues": "385 k vues",
+     "date": "il y a 11 mois",
+     "duree": "9:14",
+     "avatar": "https://yt3.ggpht.com/TETeWVwZ0hc-qP_wWMN74dFRRcZOipEhGJ4MegZgjgKoo47wv-9igEfwLlf2lVZx2LPCIAOO=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BAKE",
+     [
+      {
+       "t": "CHRISTMAS COOKIES",
+       "couleur": "#d9661f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bPZrWFGamzQ",
+     "titre": "Christmas Cookies! (Cut out sugar cookies)",
+     "chaine": "RecipeTin Eats",
+     "vues": "361K views",
+     "date": "6 years ago",
+     "duree": "1:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mslTz5cp5ZwdBmlEdDOOGAcDW9AHLnsuh2VkoHXYmSfg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "PLÄTZCHEN",
+     [
+      {
+       "t": "BACKEN",
+       "couleur": "#d9661f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "R_Uuw00nu58",
+     "titre": "Butterplätzchen zum Ausstechen →🎄",
+     "chaine": "ReniasBackwelt",
+     "vues": "1,4 Mio. Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "3:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nFmixRs9i2_wPl6lSD5DemmKU8ZwsM14J_50nlh3vu1U0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Std. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE I",
+     [
+      {
+       "t": "BISCOTTI DI NATALE",
+       "couleur": "#d9661f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "18m8jP4C4aE",
+     "titre": "BISCOTTI DI NATALE Ricetta Facile - Fatto in Casa da Benedetta",
+     "chaine": "Fatto in Casa da Benedetta",
+     "vues": "422K visualizzazioni",
+     "date": "11 mesi fa",
+     "duree": "6:33",
+     "avatar": "https://yt3.ggpht.com/9H-mqH7bg3p2YbjgO9kzFmQZhI3RGbne8qmfU8NOQsvWqWmL_4yR2I5swai5lSv8lGeyYFQ-CPw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "BISCOITOS DE NATAL",
+       "couleur": "#d9661f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Z3W3Cpqh6Gk",
+     "titre": "BISCOITO NATALINO SIMPLES E MUITO FÁCIL | Cook'n Enjoy 878",
+     "chaine": "Cook'n Enjoy",
+     "vues": "783 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kPQ7r_sdP2rFTkPq8x19Ixbg3PDFdfMFr6yB6Kh9aynwE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "YILBAŞI",
+     [
+      {
+       "t": "KURABİYESİ YAPMAK",
+       "couleur": "#d9661f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zp1krPA3k0w",
+     "titre": "Şekli Bozulmaz, Bayatlamaz 💯 EN İYİ Zencefilli Kurabiye Tarifi (Gingerbread Cookies)",
+     "chaine": "Nefis Yemek Tarifleri",
+     "vues": "1,3 Mn görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "6:56",
+     "avatar": "https://yt3.ggpht.com/tX0tJPs42-5_5cy9RbtEDs90jzkQuKvgWO3Hj-lzIG8aQdtME1ffs1jloPkNzBtFDZ0GNqY0rA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ COACI",
+     [
+      {
+       "t": "FURSECURI",
+       "couleur": "#d9661f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nu1O7lUJMeA",
+     "titre": "Fursecuri de Craciun cu unt (CC Eng Sub) | JamilaCuisine",
+     "chaine": "JamilaCuisine",
+     "vues": "1,1 mil. vizionări",
+     "date": "acum 7 ani",
+     "duree": "7:55",
+     "avatar": "https://yt3.ggpht.com/s2Fxa4zotL6Fkm8JY4IT62dFuWBbYIZRVm27YvbpkVpv-79b3f9qaesA15ldMAQhI07WjcotwQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PÉCT",
+     [
+      {
+       "t": "CUKROVÍ",
+       "couleur": "#d9661f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WNJI9kkC41U",
+     "titre": "Schwarzwaldská kolečka – dokonalé cukroví / vánoční cukroví / @JanaCJany / @janacvlogy",
+     "chaine": "Jana C.",
+     "vues": "46 tis. zhlédnutí",
+     "date": "před 11 měsíci",
+     "duree": "2:52",
+     "avatar": "https://yt3.ggpht.com/BI4SEsYMOGT4UZx8K7CoOKkj1DbGDVIbV6ZPZSjKDGmNhhKnn76o7jtRXtGKbI6YRt7eSWPc4A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "MÉZESKALÁCSOT",
+     [
+      {
+       "t": "SÜTNI",
+       "couleur": "#d9661f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_qt_O0v2CSY",
+     "titre": "Karácsonyi rögtön puha mézeskalács recept | Nosalty",
+     "chaine": "Nosalty",
+     "vues": "208 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "1:28",
+     "avatar": "https://yt3.ggpht.com/aCM2OzrKY9tnGXJBSDpMpG_YoLpiRLSEnh7La10FkF90ds9SpObVKHwqwc8p-T2PMDHuqtxeQSU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΨΗΝΕΙΣ",
+     [
+      {
+       "t": "ΜΠΙΣΚΟΤΑ",
+       "couleur": "#d9661f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ABcKISuuQlc",
+     "titre": "Χριστουγεννιάτικα μπισκότα | Foodouki",
+     "chaine": "Foodouki",
+     "vues": "163 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "4:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k1EUXqYZ2JJV1uupTYFPZbBaBA-GCEuqTzFeJMO8BoKJs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "PEĆI",
+     [
+      {
+       "t": "PRAZNIČNE KEKSIĆE",
+       "couleur": "#d9661f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2xibQ428kCI",
+     "titre": "Najlepši NOVOGODIŠNJI KEKSIĆI 🎅🤶🧑‍🎄🎄🎁☃️Prhki, čajni keksići od osnovnih sastojaka, mgu dugo da stoje",
+     "chaine": "Ivana u kuhinji",
+     "vues": "5,9 hilj. pregleda",
+     "date": "pre 11 meseci",
+     "duree": "4:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kPJ2maG-yVcRHR9WcxcxhKzw-VWRVVRUez5pA0M5p26w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE UNE",
+     [
+      {
+       "t": "COURONNE DE NOËL",
+       "couleur": "#d22a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "adqz1CbKtc0",
+     "titre": "TUTO : FAIRE UNE COURONNE DE NOËL FACILEMENT AVEC DES BRANCHES DE SAPIN",
+     "chaine": "Pourquoi pas???",
+     "vues": "17 k vues",
+     "date": "il y a 4 ans",
+     "duree": "8:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l9R1jMffxU-yvfB-eAciCBtk0jkJG8JKMHgH2w-r9CwQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE A",
+     [
+      {
+       "t": "CHRISTMAS WREATH",
+       "couleur": "#d22a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "s1kUKXIEouE",
+     "titre": "DIY Christmas Wreath | Easy Holiday Decoration by Proven Winners®",
+     "chaine": "Proven Winners",
+     "vues": "1M views",
+     "date": "10 years ago",
+     "duree": "5:06",
+     "avatar": "https://yt3.ggpht.com/5VS9NBfTPrrMU1HiGR_JTh3rsdGKRYPKnargbef1rSifd3Ua-fKsPG7vZd9HGtCR_wVTZBlRXtg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "ADVENTSKRANZ",
+     [
+      {
+       "t": "BINDEN",
+       "couleur": "#d22a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KcfVPFbLh64",
+     "titre": "Adventskranz selber machen | Advents Kranz binden Schritt für Schritt",
+     "chaine": "Lifehackerin",
+     "vues": "865.404 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "6:21",
+     "avatar": "https://yt3.ggpht.com/tY338w9rJjhxWrPVf7Mnifrqjh5kW4l9xjdkQFgm0pLUvlH8aTDT0dBvEnu6msywa5Pmxo01tQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Std. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE UNA",
+     [
+      {
+       "t": "GHIRLANDA NATALIZIA",
+       "couleur": "#d22a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yHSdrW76-Dk",
+     "titre": "Come fare le ghirlande natalizie in stile nordico",
+     "chaine": "STILE NATURALE",
+     "vues": "285K visualizzazioni",
+     "date": "10 anni fa",
+     "duree": "11:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRBv0f33-iKVHfiODnUdWEdUMlcTVy-LqpVuRZ6-zD084=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER UMA",
+     [
+      {
+       "t": "GUIRLANDA DE NATAL",
+       "couleur": "#d22a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CyCF6uNO0RA",
+     "titre": "Como fazer uma guirlanda de Natal sem gastar muito . #natal #diy",
+     "chaine": "Jaquicelli Liriane",
+     "vues": "680 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "8:26",
+     "avatar": "https://yt3.ggpht.com/6MoJfV-5bvsglzjtQnsFbGBBM0kzZzmx9UHJ3_lPhLmAimGJcVFs3RMR9hND9M_7rs6FlLHrKw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KAPI ÇELENGİ",
+     [
+      {
+       "t": "YAPMAK",
+       "couleur": "#d22a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mCeeDGcCfSg",
+     "titre": "Yılbaşı Kapı Çelengi Yapımı | Billur Saatçi",
+     "chaine": "Billur Saatci",
+     "vues": "5,6 B görüntüleme",
+     "date": "10 yıl önce",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m72jZdHKTMXxem9fOVKJVJBE8vHxCbi41eNmGcHzQMq2E=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI O",
+     [
+      {
+       "t": "CORONIȚĂ DE CRĂCIUN",
+       "couleur": "#d22a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KYIH07takYs",
+     "titre": "Cum sa faci o coronita de Craciun pentru usa",
+     "chaine": "Florăria Magnolia",
+     "vues": "76 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "2:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQY2qzRQMPCaFDKDd5Dq9P_TAE-pBW51nQxsyYKrFFpRc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UVÁZAT",
+     [
+      {
+       "t": "ADVENTNÍ VĚNEC",
+       "couleur": "#d22a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vMGAkcDgqT4",
+     "titre": "Tvoříme adventní věnec z jedle nobilis. Videonávod krok za krokem",
+     "chaine": "KYTKYshop",
+     "vues": "10 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "4:58",
+     "avatar": "https://yt3.ggpht.com/KH-Z0RWDB5v7zC0r8kPP_tuqLAJCQbsGyXzqvk7S-REO8RTsEabH_W-JixVyp1dMbb5Kbsaz=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ADVENTI KOSZORÚT",
+     [
+      {
+       "t": "KÉSZÍTENI",
+       "couleur": "#d22a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2lFiYEInlO4",
+     "titre": "🕯️ Adventi koszorú készítése 🕯️ | Karácsonyi ötlet | Manó kuckó",
+     "chaine": "Manó Kuckó",
+     "vues": "106 E megtekintés",
+     "date": "9 évvel ezelőtt",
+     "duree": "9:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k61rpAuoNYtIInIhZ2h3jevv9gPc_NKTpXBAyVcnWmECE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΦΤΙΑΧΝΕΙΣ",
+     [
+      {
+       "t": "ΓΙΟΡΤΙΝΟ ΣΤΕΦΑΝΙ",
+       "couleur": "#d22a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fPqauL-4SXU",
+     "titre": "Χριστουγεννιάτικο στεφάνι - πως το φτιάχνουμε",
+     "chaine": "Paxxi",
+     "vues": "101 χιλ. προβολές",
+     "date": "πριν από 11 έτη",
+     "duree": "6:43",
+     "avatar": "https://yt3.ggpht.com/LvZmdA6OTgfmANCn3KkDkNoFSEJHxvZZJ556n_PyM3CC_bBHBHgGzYOvYSSxCedYsHuZQ1xipA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAPRAVITI",
+     [
+      {
+       "t": "PRAZNIČNI VENAC",
+       "couleur": "#d22a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1kFAQr59gxY",
+     "titre": "Napravite sami  novogodišnji venčić za vrata od šišarki",
+     "chaine": "Uradi Sama- Ideje za kreativce",
+     "vues": "92 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "7:02",
+     "avatar": "https://yt3.ggpht.com/Elrl7_yFdGLgE1FROiPS0Q3s818ibiSfrSaUhbBEirHJwkOL8nsCYw38DssF1_nVM-wtAjLCQA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE UN VRAI",
+     [
+      {
+       "t": "CHOCOLAT CHAUD",
+       "couleur": "#9a5a43"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AaSK7hEqbN4",
+     "titre": "Chocolat chaud maison : la recette onctueuse et épaisse (vanille et cannelle)",
+     "chaine": "750g",
+     "vues": "974 k vues",
+     "date": "il y a 13 ans",
+     "duree": "2:03",
+     "avatar": "https://yt3.ggpht.com/JcO3vwva6-fbfK_Rm2dIdIRQ4-owfjiYZKQabYPcNMvdsN9ClM0JRf5K9_fgQKhrVl8Qrpn5AHI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE REAL",
+     [
+      {
+       "t": "HOT CHOCOLATE",
+       "couleur": "#9a5a43"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RcywJvBZsY8",
+     "titre": "BEST HOT CHOCOLATE | the ONLY recipe you need",
+     "chaine": "Downshiftology",
+     "vues": "1.5M views",
+     "date": "5 years ago",
+     "duree": "4:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ny-fWRtdlXzNqyAJKys2f9CBzhZXd0JSsjnlgKm6p2tA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "ECHTE",
+     [
+      {
+       "t": "HEISSE SCHOKOLADE",
+       "couleur": "#9a5a43"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nUcAROfoqPI",
+     "titre": "Heiße Schokolade selber machen - super schokoladig & lecker - Trinkschokolade Rezept",
+     "chaine": "Absolute Lebenslust",
+     "vues": "106.405 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "2:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lV5wxwj0b1Aufe7Q-HOwYLJmOkV2EVH7ezpDnaQM8K6YI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "UNA VERA",
+     [
+      {
+       "t": "CIOCCOLATA CALDA",
+       "couleur": "#9a5a43"
+      }
+     ]
+    ],
+    "video": {
+     "id": "v_2Rsmfokww",
+     "titre": "CIOCCOLATA CALDA IN TAZZA FATTA IN CASA: cremosa come quella del bar!",
+     "chaine": "GialloZafferano",
+     "vues": "737K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "2:08",
+     "avatar": "https://yt3.ggpht.com/DIbS5q7AH-sy9nB9K6AfT-4yhagb4h1GI2u-9UQmcQCbtY8kV85MwumcnSGWYmUOl8shxYClsSI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER UM",
+     [
+      {
+       "t": "CHOCOLATE QUENTE",
+       "couleur": "#9a5a43"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4p9nRYBfaEM",
+     "titre": "Chocolate Quente MUITO cremoso!",
+     "chaine": "Paola Carosella",
+     "vues": "1,1 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "12:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kjf86gk7mnUBFuyHRocbhWSW0tnhNnuwYPGwoZPgcpxIk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "EVDE",
+     [
+      {
+       "t": "SICAK ÇİKOLATA",
+       "couleur": "#9a5a43"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bZaO49YhrrE",
+     "titre": "🍫Sıcak Çikolata Tarifi | Kış Akşamı İçinizi Isıtacak Evde Sıcak Çikolata Nasıl Yapılır?",
+     "chaine": "Refika'nın Mutfağı",
+     "vues": "618 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "9:50",
+     "avatar": "https://yt3.ggpht.com/cqoZ06A5fIOfkQOrHQI5xgf7V5uQ2qtm336J9kmaHSHy554jgIUBqHTM6p5fqhHT8QhR3nkU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ PREPARI",
+     [
+      {
+       "t": "CIOCOLATĂ CALDĂ",
+       "couleur": "#9a5a43"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WKr1icxWg3c",
+     "titre": "Rețeta de ciocolată caldă de casă - densă și delicioasă, gata în 5 minute! | Bucate Aromate",
+     "chaine": "Bucate Aromate",
+     "vues": "9 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "3:54",
+     "avatar": "https://yt3.ggpht.com/CjtvKpkB0atNqwLCv98HICKxc0aIyTvEX2mNMmbJDq4pI36QK9sXQ3UCdchf6B-cAX0fClP8rg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UVAŘIT PRAVOU",
+     [
+      {
+       "t": "HORKOU ČOKOLÁDU",
+       "couleur": "#9a5a43"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0S3PkR1m3fY",
+     "titre": "JAK PŘIPRAVIT HUSTOU HORKOU ČOKOLÁDU , HORKÁ ČOKOLÁDA, NÁVOD NA PŘÍPRAVU HORKÉ ČOKOLÁDY, ČOKOLÁDA",
+     "chaine": "Katka My Irish Life",
+     "vues": "19 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "3:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mg87ZGbDa4XqwU3_lPOX4XFyFJZ3CUh1tCDtJUSzSjRwY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "IGAZI",
+     [
+      {
+       "t": "FORRÓ CSOKI",
+       "couleur": "#9a5a43"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RHnrIsyUpxI",
+     "titre": "Forró csoki | Mindmegette.hu",
+     "chaine": "Mindmegette.hu",
+     "vues": "25 E megtekintés",
+     "date": "2 évvel ezelőtt",
+     "duree": "1:11",
+     "avatar": "https://yt3.ggpht.com/ZwTJhDTG2iC1XRY8pa6CE4GfXhB59QVr69UBWmE3gELM-rFB44TFQk_BHrKb-qMSLp3xZf_s2A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΑΛΗΘΙΝΗ",
+     [
+      {
+       "t": "ΖΕΣΤΗ ΣΟΚΟΛΑΤΑ",
+       "couleur": "#9a5a43"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YJtN6ek9wIg",
+     "titre": "Ζεστή Σοκολάτα Ρόφημα (γαλλική συνταγή) | Dimitriοs Makriniotis",
+     "chaine": "Dimitrios Makriniotis",
+     "vues": "70 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "5:14",
+     "avatar": "https://yt3.ggpht.com/x2EBS8JOSjTYGkly18a9f6h5Qt6SXLpTnJp0Jdwcd8HTllfQ4vzWuF3gOl3DIWkKmGTxnSNROA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "PRAVA",
+     [
+      {
+       "t": "TOPLA ČOKOLADA",
+       "couleur": "#9a5a43"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Rce1mxBsML0",
+     "titre": "Topla Čokolada - Recept kao iz kafića",
+     "chaine": "Secerko's Kitchen",
+     "vues": "187 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "3:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mgeqO0dZeVHMJt3JZ7LjpKMjTBKmE3w4j68W4I-SAg4w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   }
+  }
+ ]
+}

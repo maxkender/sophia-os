@@ -11,12 +11,13 @@ export const APPLICATIONS = [
   { slug: "artura", id: "00000000-0000-4000-8000-000000000005", nom: "Artura" },
 ] as const;
 /**
- * Les langues livrées : l'anglais, celle du compte modèle (lancement du
- * 24/11). Déclarée à l'OS à chaque `npm run boite` (0654, 0781 : les langues
- * prêtes) ; une langue s'ajoute ici seulement quand chaque slide est écrite
- * dans cette langue.
+ * Les langues livrées : l'anglais, celle du compte modèle (lancement du 24/11),
+ * puis el, es-419, it, fr, hu, sr (latin), pt-BR, de et bg (demande d'Adrien du
+ * 25/11, un compte du label dans chacune). Déclarée à l'OS à chaque `npm run
+ * boite` (0654, 0781 : les langues prêtes) ; une langue s'ajoute ici seulement
+ * quand chaque slide est écrite dans cette langue.
  */
-export const LANGUES = ["en"] as const;
+export const LANGUES = ["en", "el", "es-419", "it", "fr", "hu", "sr", "pt-BR", "de", "bg"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

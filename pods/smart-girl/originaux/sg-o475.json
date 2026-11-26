@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o475",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c98938ef-3934-43ee-aee5-705ebfc3cbcc",
+ "titre": "trees you should be able to name on a walk #trees #nature #winter #smartgirl #walk",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 88 de la boîte (parent c98938ef, langue source de) : accroche du parent (notre sg-o244) mot pour mot ; arbres neufs face à sg-o244 et sg-o367 (cèdre du Liban, magnolia, tremble, cyprès, olivier, séquoia). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a0282cd2",
+   "texte_overlay": "trees you should be able\nto name on a walk",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1d511d24",
+   "texte_overlay": "cedar of lebanon\n\nwide, flat layers of branches.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8c2fa29b",
+   "texte_overlay": "magnolia\n\nhuge flowers before\nthe leaves.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d085e801",
+   "texte_overlay": "aspen\n\nleaves that tremble\nin the smallest wind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8fe766a4",
+   "texte_overlay": "cypress\n\nthe dark, slender tree\nof italian hills.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7e9b9a3d",
+   "texte_overlay": "olive\n\nsome are more than\n2,000 years old.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "70586cb8",
+   "texte_overlay": "giant sequoia\n\nthe largest trees on earth.\ni learned that this morning.",
+   "texte_sophia": "giant sequoia\n\nthe largest trees on earth. i learned that\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "816a341a",
+   "texte_overlay": "how many can you name?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

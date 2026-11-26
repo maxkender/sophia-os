@@ -2,12 +2,16 @@ import { useEffect, useState } from "react";
 
 import { appeler, type PaysPaie } from "../api";
 import type { T } from "../i18n";
-import Societe from "../Societe";
+import { texteSigne } from "../contrat";
+import Societe, { ResumeTraduit } from "../Societe";
 import { VoirPaie } from "./Arrivee";
 
 type Infos = { version: string; resume: string[]; texte: string };
 
-/** Le contrat, public, AVANT de candidater : le texte signé (même version) et le tarif du pays choisi. */
+/**
+ * Le contrat, public, AVANT de candidater : le texte signé (même version) et le tarif du pays choisi. 25/11 : le
+ * résumé dans la langue du site, l'identité de la société en bas.
+ */
 export default function Modele({ t, langue, pays, onPostuler }: { t: T; langue: string; pays: PaysPaie[]; onPostuler: () => void }) {
   const [c, setC] = useState<Infos | null>(null);
   const [choix, setChoix] = useState("");
@@ -26,8 +30,6 @@ export default function Modele({ t, langue, pays, onPostuler }: { t: T; langue: 
           {c && <p className="discret">{t("ctr.englishOnly")} ({c.version})</p>}
         </div>
 
-        <section className="carte"><Societe t={t} /></section>
-
         <section className="carte" style={{ display: "grid", gap: 10 }}>
           <h2 className="h3">{t("model.rateTitle")}</h2>
           <VoirPaie t={t} langue={langue} pays={pays} valeur={choix} onChoix={setChoix} />
@@ -35,18 +37,17 @@ export default function Modele({ t, langue, pays, onPostuler }: { t: T; langue: 
 
         {c ? (
           <>
-            <section className="carte" style={{ display: "grid", gap: 10 }}>
-              <h2 className="h3">{t("ctr.summary")}</h2>
-              <ul className="resume" lang="en">{c.resume.map((l) => <li key={l}><strong>{l}</strong></li>)}</ul>
-            </section>
+            <ResumeTraduit t={t} langue={langue} />
             <section style={{ display: "grid", gap: 10 }}>
               <h2 className="h3">{t("ctr.full")}</h2>
-              <pre className="contrat" lang="en" tabIndex={0}>{c.texte}</pre>
+              <pre className="contrat" lang="en" tabIndex={0}>{texteSigne(c)}</pre>
             </section>
           </>
         ) : <p className="discret">…</p>}
 
         <div><button type="button" className="btn" onClick={onPostuler}>{t("model.apply")}</button></div>
+
+        <Societe t={t} />
       </div>
     </main>
   );

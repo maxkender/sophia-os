@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o346",
+ "type_bleo": "full_test",
+ "titre": "Rules for coaching a kids' team #men #coaching #kids #sports #leadership",
+ "musique_titre": "Interstellar",
+ "musique_url": "https://www.tiktok.com/music/interstellar-7396002037526710273",
+ "inspirations": [],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 26/11. Full test du jour (3 sur 8, jauge : 8 sur 26). Accroche jamais faite chez nous : aucun « coach » dans donnees/label.json. reference_url : post source de am-o010, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "152167f6",
+   "texte_overlay": "Rules for coaching a kids' team",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "28868059",
+   "texte_overlay": "1. Everyone plays",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "21e9d5e5",
+   "texte_overlay": "2. Praise effort, not just goals",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "00a075d5",
+   "texte_overlay": "3. Practice starts on time",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d0e9b960",
+   "texte_overlay": "4. Talk to parents once,\nclearly, at the start",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f6b9adeb",
+   "texte_overlay": "5. Learn the game's basics\n\nThen teach them simply.",
+   "texte_sophia": "5. Learn the game's basics\n\nI brushed up\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  }
+ ]
+}

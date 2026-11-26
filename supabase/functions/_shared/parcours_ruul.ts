@@ -200,8 +200,20 @@ export function dansFenetre(maintenant: Date, type: TypeParcours): boolean {
   return h >= 9 && h < 20;
 }
 
-export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue: boolean; bienvenueDepuis?: string | null; v2?: boolean }): Decision | null {
+/**
+ * 25/11 (Max, « une seule voix ») : les étapes de la checklist de Join. Pour un posteur créé par Join dont Join fait les
+ * rappels (join_voix_posteurs, drapeau join_reel.rappels), ce moteur ne les envoie plus : invitation et relances Ruul
+ * (invite_a, invite_b, samedi_ruul, ruul_N), TikTok, warm-up, Slack, « you start tomorrow ». Le reste ne change pas
+ * (bienvenue — notée par Join quand il l'envoie —, jamais connecté, report, désactivation, identité refusée).
+ */
+export const TYPES_VOIX_JOIN: readonly TypeParcours[] = ["invite_a", "invite_b", "samedi_ruul", "demain", "tiktok", "warmup", "slack", "ruul"];
+
+export function prochainEnvoi(
+  e: EtatParcours, maintenant: Date, o: { bienvenue: boolean; bienvenueDepuis?: string | null; v2?: boolean; voixJoin?: boolean },
+): Decision | null {
   if (e.relances_stop_at || !e.email) return null;
+  // 25/11 : une étape dont Join est la voix pour ce posteur est sautée (la décision suivante est prise, s'il y en a une).
+  const joinParle = (type: TypeParcours) => !!o.voixJoin && TYPES_VOIX_JOIN.includes(type);
   const t = maintenant.getTime();
   const p = partiesLocales(maintenant, PARIS);
 
@@ -223,18 +235,18 @@ export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue:
     if ((e.identite_refus ?? 0) === 1 && !envoye(e, "identite_refus_1")) return { type: "identite_refusee", cle: "identite_refus_1" };
   }
   // v2 : l'email A (« Invited » dans Ruul) ou B (« Active »), une fois chacun, par ce moteur (plus par `envoyer`).
-  if (o.v2 && !ruulPret(e)) {
+  if (o.v2 && !ruulPret(e) && !joinParle("invite_a")) {
     if (e.ruul_compte === "invited" && !e.ruul_email_a_at && !e.ruul_email_b_at) return { type: "invite_a", cle: "invite_a" };
     if (e.ruul_compte === "active" && !e.ruul_email_b_at) return { type: "invite_b", cle: "invite_b" };
   }
   // 13/11 (Max) : le samedi (Paris), un « Invited » qui a posté : une relance spéciale, une fois par samedi.
-  if (o.v2 && e.ruul_compte === "invited" && e.posts > 0 && p.isoJour === 6) {
+  if (o.v2 && e.ruul_compte === "invited" && e.posts > 0 && p.isoJour === 6 && !joinParle("samedi_ruul")) {
     const cle = `samedi_ruul:${p.date}`;
     if (!envoye(e, cle)) return { type: "samedi_ruul", cle };
   }
 
   // Dimanche 20 h → minuit : « you start tomorrow » à qui est prêt pour le lendemain.
-  if (e.cohorte_lundi && p.isoJour === 7 && p.heure >= 20 && e.cohorte_lundi === ajouterJours(p.date, 1) && estPret(e)) {
+  if (e.cohorte_lundi && p.isoJour === 7 && p.heure >= 20 && e.cohorte_lundi === ajouterJours(p.date, 1) && estPret(e) && !joinParle("demain")) {
     const cle = `demain:${e.cohorte_lundi}`;
     if (!envoye(e, cle)) return { type: "demain", cle };
   }
@@ -246,20 +258,21 @@ export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue:
   if (inactif14(e, maintenant)) return { type: "desactivation", cle: "desactivation" };
 
   // Les relances d'étape ne concernent qu'un posteur qui a un lundi de début (pas les anciens sans cohorte).
-  if (!e.cohorte_lundi) return ruulEnCours && ruul.n < RUUL_MAX && ruul.depuis && t - new Date(ruul.depuis).getTime() >= 2 * JOUR
+  if (!e.cohorte_lundi) return ruulEnCours && !joinParle("ruul") && ruul.n < RUUL_MAX && ruul.depuis && t - new Date(ruul.depuis).getTime() >= 2 * JOUR
     ? { type: "ruul", cle: `ruul_${ruul.n + 1}` } : null;
   const cree = new Date(e.cree_at).getTime();
   if (!e.premiere_connexion_at) {
     if (t - cree >= JOUR && !envoye(e, "jamais_connecte")) return { type: "jamais_connecte", cle: "jamais_connecte" };
   } else {
     const co = new Date(e.premiere_connexion_at).getTime();
-    if (e.tiktok_existe !== true && t - co >= JOUR && !envoye(e, "tiktok")) return { type: "tiktok", cle: "tiktok" };
-    if (e.tiktok_existe === true && (!e.warmup_started_at || (e.abonnements ?? 0) < FOLLOWS_MIN) && t - co >= JOUR && !envoye(e, "warmup")) {
+    if (e.tiktok_existe !== true && t - co >= JOUR && !envoye(e, "tiktok") && !joinParle("tiktok")) return { type: "tiktok", cle: "tiktok" };
+    if (e.tiktok_existe === true && (!e.warmup_started_at || (e.abonnements ?? 0) < FOLLOWS_MIN) && t - co >= JOUR && !envoye(e, "warmup") &&
+      !joinParle("warmup")) {
       return { type: "warmup", cle: "warmup" };
     }
-    if (!e.slack_user_id && t - co >= 2 * JOUR && !envoye(e, "slack")) return { type: "slack", cle: "slack" };
+    if (!e.slack_user_id && t - co >= 2 * JOUR && !envoye(e, "slack") && !joinParle("slack")) return { type: "slack", cle: "slack" };
   }
-  if (ruulEnCours && ruul.n < RUUL_MAX && ruul.depuis && t - new Date(ruul.depuis).getTime() >= 2 * JOUR) {
+  if (ruulEnCours && !joinParle("ruul") && ruul.n < RUUL_MAX && ruul.depuis && t - new Date(ruul.depuis).getTime() >= 2 * JOUR) {
     return { type: "ruul", cle: `ruul_${ruul.n + 1}` };
   }
   return null;
@@ -502,6 +515,8 @@ const LIBELLES_ENVOIS: Record<string, string> = {
   invite_a: "Ruul Invited",
   invite_b: "Ruul Active",
   samedi_ruul: "Ruul avant lundi (samedi)",
+  // 25/11 : les rappels de la checklist de Join (notés ici : un seul email par jour pour les deux).
+  join_rappel: "rappel Join",
 };
 
 export interface PointSoirRuul {

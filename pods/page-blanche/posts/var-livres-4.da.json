@@ -1,0 +1,276 @@
+{
+ "post_id": "var-livres-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "texte": "5 bøger, du kan læse færdig på [[én enkelt weekend]]"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "texte": "(selv hvis du aldrig læser)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_01e851de.jpg",
+      "boite": [
+       0,
+       950,
+       1600,
+       1180
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to tolerate boring repetition"
+     ],
+     "texte": "1. [[Hvide nætter]], Dostojevskij"
+    },
+    "T2": {
+     "en": [
+      "most success is less",
+      "exciting than it looks"
+     ],
+     "texte": "fire nætter og to fremmede på en bro"
+    },
+    "T3": {
+     "en": [
+      "it’s doing the same",
+      "useful things for",
+      "months after the",
+      "novelty disappears"
+     ],
+     "texte": "hun venter på en anden, og du [[håber alligevel på ham på hver side]]"
+    },
+    "T4": {
+     "en": [
+      "consistency gets powerful when other people get bored",
+      "and move on"
+     ],
+     "texte": "omkring 70 sider og [[den korteste hjertesorg, du nogensinde læser]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00da4c5f.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "texte": "2. [[Alkymisten]], Paulo Coelho"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "texte": "en ung hyrde drømmer om en skat ved pyramiderne, sælger sine får og drager af sted, og [[vejen lærer ham mere end guld]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "texte": "under 200 sider, [[én weekend]]"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "texte": "det, der erstattede min scrolling: en bog i tasken, musik på gåture og [[Sophia-appen]], når jeg alligevel tager telefonen"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "texte": "dagens 5 minutters lektion der: hvorfor renæssancen opstod i Italien"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself be bored"
+     ],
+     "texte": "3. [[Perlen]] (1947)"
+    },
+    "T2": {
+     "en": [
+      "every queue, walk and",
+      "bathroom break gets filled",
+      "with input now"
+     ],
+     "texte": "Steinbeck. en fattig perledykker finder den største perle, nogen har set"
+    },
+    "T3": {
+     "en": [
+      "that sounds harmless, but",
+      "you're removing every",
+      "chance your attention has",
+      "to sit still"
+     ],
+     "texte": "lægen, handelsfolkene, hele byen vil have den, og hans drøm [[bliver langsomt til et mareridt]]"
+    },
+    "T4": {
+     "en": [
+      "spend 20–30 minutes a day with no podcast,",
+      "music, scrolling or second screen"
+     ],
+     "texte": "under 100 sider, skrevet som en gammel fabel, færdiglæst på én aften"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "texte": "[[og sikke en slutning]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0014a691.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "texte": "4. [[Et juleeventyr]] (1843)"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "texte": "Dickens. en grådig gammel mand får besøg af tre ånder på én eneste nat"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "texte": "fortid, nutid og fremtid, og om morgenen [[er han slet ikke den samme mand længere]]"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "texte": "omkring 100 sider, [[perfekt til december]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1df07ae0.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "texte": "5. [[Siddhartha]]"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "texte": "af Hermann Hesse, omkring 150 sider"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "texte": "en ung mand forlader sit hjem for at finde meningen med livet, prøver rigdom og kærlighed og [[finder den ved en flod]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "texte": "enkle sætninger, korte kapitler og en ro, der bliver i dagevis. [[den perfekte bog til at slutte en weekend]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0a7a707d.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    }
+   }
+  }
+ }
+}

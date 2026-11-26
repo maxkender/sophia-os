@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o450",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e53a9aec-cdea-4b51-b365-2194dfecd498",
+ "titre": "Les vérités qu'on ne comprend qu'en grandissant #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "e53a9aec-cdea-4b51-b365-2194dfecd498"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 7 de la boîte (e53a9aec, notre ay-o327), 3e et dernière déclinaison après ay-o414 et ay-o433, écrite en français, la langue source du parent (§4.3). Même promesse, autres mots (v3 : la v2 « Ce que la vie t'apprend quand il est presque trop tard » refusée au guichet, voisine d'ay-o447). Leçons neuves, aucune reprise d'ay-o327, o414, o433 ni de 81b924e4. Ton bienveillant.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b01f41bb-6051-4fde-8d65-4e7933330d71",
+   "texte_overlay": "Les vérités qu'on ne comprend\nqu'en grandissant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Les gens changent, et c'est normal. Certains amis s'éloignent, d'autres arrivent. Garde la gratitude pour ce que vous avez partagé.",
+   "media_id": "dbfc72c2-a504-4cab-aab4-5de41ff32114"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Le regret de ne pas avoir essayé dure plus longtemps que l'échec. Ose le voyage, le projet, la déclaration. Maintenant.",
+   "media_id": "dbfeebd6-b928-4668-8c4d-2c058302113f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "La santé mentale compte autant que la santé physique. Parler, se reposer, demander de l'aide. Ce n'est jamais une faiblesse.",
+   "media_id": "dca6cc2f-9fe4-4cbb-b97c-afcdbc11cac0"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Personne n'a tout compris. Même les adultes qui semblent sûrs d'eux doutent. Tu n'es pas en retard, tu avances à ton rythme.",
+   "media_id": "dcc1a75c-9eba-46d2-b179-836a767c43b0"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Avant : je repoussais tout à plus tard. Après : cinq minutes d'histoire, d'art ou de science par jour, et chaque journée compte un peu plus.",
+   "texte_sophia": "Avant : je repoussais tout à plus tard. Après : Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Chaque journée compte un peu plus.",
+   "media_id": "fc686bb1-53e3-4421-a5eb-2e3b9ca4fa46"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "La gentillesse revient toujours. Pas forcément de la même personne, mais elle revient. Sois quelqu'un de bon. Toujours.",
+   "media_id": "dd192ebc-dde6-46dd-ad14-0fa06ebac3a7"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Le présent est le seul moment que tu as vraiment. Profite du repas, de la conversation, de la balade. Maintenant.",
+   "media_id": "dd1c6f3b-e102-49f8-b00b-6d0b89daad8d"
+  }
+ ]
+}

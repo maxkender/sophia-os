@@ -1,0 +1,294 @@
+{
+ "post_id": "original-105",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "filosoffer, der ville løse dine [[2026-problemer]]"
+    },
+    "T2": {
+     "en": [
+      "(in this age of",
+      "short-form content)"
+     ],
+     "fr": "(à l'époque des vidéos de 10 secondes)",
+     "texte": "(døde i århundreder, stadig rigtige)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_501b051b.jpg",
+      "boite": [
+       0,
+       700,
+       1664,
+       1232
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "fr": "passe plus de temps [[à ne rien faire]]",
+     "texte": "seneca: livet er ikke [[for kort]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "fr": "lâche [[les vidéos]] et [[la musique]] pendant tes balades, tes repas, [[tes temps morts]]",
+     "texte": "2026-problem: [[\"ingen tid\"]], men 4 timers skærmtid om dagen"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "fr": "dans le calme, ton cerveau digère ce qu'il a vu, fait des liens et [[se fait ses propres idées]]",
+     "texte": "omkring år 49 skrev han, at livet ikke er kort, [[vi gør det kort]] ved at spilde så meget af det"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "fr": "les vidéos courtes non-stop te [[grillent le cerveau]] et [[flinguent ta concentration!!]]",
+     "texte": "tjek, hvor dine timer faktisk går hen, før du siger [[du ikke har tid]]. svaret er tit i din hånd"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0de46af9.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start reading everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "montaigne: [[bliv nysgerrig]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling feeds you",
+      "constant dopamine and",
+      "burns your dopamine",
+      "receptors"
+     ],
+     "fr": "le scroll t'envoie [[de la dopamine non-stop]] et [[crame tes récepteurs]]",
+     "texte": "hans motto, på en medalje han fik lavet i 1576: [[\"hvad ved jeg?\"]]"
+    },
+    "T3": {
+     "en": [
+      "i use readup to block my",
+      "apps for 20 minutes until i",
+      "read"
+     ],
+     "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "han fyldte tårnet på sit slot med bøger og skrev om [[alt, han undrede sig over]]"
+    },
+    "T4": {
+     "en": [
+      "reading forces you to hold",
+      "attention, remember",
+      "details, and follow one",
+      "idea for longer"
+     ],
+     "fr": "apprendre, ça t'oblige à [[te concentrer]], [[retenir des détails]] et suivre une idée jusqu'au bout",
+     "texte": "2026-udgaven: når du alligevel tager telefonen, så [[lær én ægte ting]] i stedet for endnu en video"
+    },
+    "T5": {
+     "en": [
+      "even a little every day is",
+      "enough to start rebuilding",
+      "your attention span"
+     ],
+     "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
+     "texte": "mine 5 min i dag i [[Sophia-appen]]: hvorfor renæssancen startede i italien. meget montaigne"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "challenge your own biases"
+     ],
+     "fr": "méfie-toi de [[tes propres biais]]",
+     "texte": "epiktet: [[sortér dine bekymringer]]"
+    },
+    "T2": {
+     "en": [
+      "your brain loves evidence that proves what you",
+      "already believe"
+     ],
+     "fr": "ton cerveau adore tout ce qui confirme [[ce que tu penses déjà]]",
+     "texte": "2026-problem: [[doomscrolling i dårlige nyheder]], du intet kan gøre ved"
+    },
+    "T3": {
+     "en": [
+      "actively look for the",
+      "strongest argument",
+      "against your opinion"
+     ],
+     "fr": "va chercher exprès [[le meilleur argument contre]] ton avis",
+     "texte": "hans håndbog starter sådan: [[nogle ting er op til os]], andre ikke"
+    },
+    "T4": {
+     "en": [
+      "getting smarter",
+      "means getting better",
+      "at noticing when your",
+      "own thinking is wrong"
+     ],
+     "fr": "être plus intelligente, c'est surtout mieux voir [[quand ton raisonnement est faux]]",
+     "texte": "født som slave brugte han kun energi på [[sine egne valg]] og gav slip på resten"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0f15e8fd.jpg",
+      "boite": [
+       120,
+       0,
+       2030,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "pascal: lær at [[sidde stille]]"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "2026-problem: du kan ikke vente 2 minutter uden at gribe efter telefonen"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "han skrev, at al menneskelig ulykke kommer af, at vi [[ikke kan blive roligt i et værelse]]"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "prøv 10 minutter, ingen telefon, ingen musik. [[kedsomheden går over]], og idéerne kommer"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00497a88.jpg",
+      "boite": [
+       350,
+       0,
+       1830,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "explain what you learn out loud"
+     ],
+     "fr": "dis [[à voix haute]] ce que t'as appris",
+     "texte": "aristoteles: [[handl først]], føl bagefter"
+    },
+    "T2": {
+     "en": [
+      "close the book, article, or",
+      "video and explain the idea",
+      "from memory"
+     ],
+     "fr": "ferme le livre, l'article ou la vidéo et réexplique l'idée [[de tête]]",
+     "texte": "2026-problem: [[at vente på motivationen]], før du går i gang med noget"
+    },
+    "T3": {
+     "en": [
+      "the moment you get vague",
+      "or confused, you’ve found",
+      "the gap"
+     ],
+     "fr": "dès que tu t'embrouilles, t'as trouvé ce que t'as pas compris",
+     "texte": "han skrev, at vi bliver modige [[ved at gøre modige handlinger]]"
+    },
+    "T4": {
+     "en": [
+      "teaching exposes weak",
+      "understanding faster than",
+      "rereading does"
+     ],
+     "fr": "[[expliquer fait ressortir tes lacunes]] plus vite que relire",
+     "texte": "følelsen følger vanen. [[gør det én gang i dag]], så kommer motivationen bagefter"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_001d31ba.jpg",
+      "boite": [
+       0,
+       250,
+       1760,
+       1830
+      ]
+     }
+    }
+   }
+  }
+ }
+}

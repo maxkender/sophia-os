@@ -62,6 +62,8 @@ Les podz :
 | 26 · Originaux @traceygreen589 (Atala + Artura) | `tracey` | `session_017c8FRWdVXJBUC8LAiA88q3` | tracey (Atala et Artura, le premier podz multi-applis ; images finies, en anglais ; les listes « 10/10 hobbies that actually work if you have adhd », Arial, IRM en couverture, un loisir par slide ; dans chaque post une slide « running » avec le logo d'Atala et une slide « learning to look at art » avec le logo d'Artura ; lancé par Adrien le 24/11, pilote tg-001 ; Atala et Artura encore inactives) |
 | 27 · Originaux @raretheory_ (Sophia) | `raretheory` | `session_017c8FRZP1iZoUWdJczMxfk7` | raretheory (Sophia seule, images finies, en anglais ; les listes « topic to research when u're bored » de @raretheory_, fond bordeaux, Arial Narrow crème, une catégorie et ses sujets par slide ; Sophia en point du milieu avec son logo, jamais une capture ; lancé par Adrien le 24/11, pilote rt-001) |
 | 28 · Originaux @charl.focus (Sophia) | `charl` | `session_017c8FRYkYyk43fsbULXx8pZ` | charl (Sophia seule, images finies, en espagnol d'Espagne ; les guides « cómo arreglar tu DOPAMINA » de @charl.focus, slides noires carrées en Montserrat, couverture en six images, un point par slide avec des faits vérifiés ; Sophia à la place de sa slide d'appli, avec son logo, jamais une capture ; lancé par Adrien le 24/11, pilote ch-001) |
+| 29 · Originaux @mariadianatudor (Artura) | `mariadiana_art` | `session_017c8FRWawV7aKkbeobkb5YZ` | mariadiana_art (Artura seule, images finies, en anglais ; « Paintings That Devour My Soul » de @mariadianatudor, couverture sombre au musée, un tableau du domaine public par slide (Met), titre, paragraphe, artiste ; Artura citée dans le paragraphe d'une œuvre, son logo dessous, jamais une capture ; lancé par Adrien le 25/11, pilote md-001 ; Artura encore inactive) |
+| 30 · Originaux @highlevelgame_ (Artura) | `highlevel_art` | `session_017c8FRWWvtFm3JqMeCH4kDF` | highlevel_art (Artura seule, images finies, en anglais, genre homme ; les conseils de séduction pour hommes de @highlevelgame_ en cartes de texte, papier et serif bordeaux, « HOW TO … » en capitales ; une carte « Know how to talk about art. » avec un vrai tableau du domaine public et le logo d'Artura, jamais une capture ; lancé par Adrien le 25/11, pilote hl-001 ; Artura encore inactive) |
 
 ## Règles absolues
 
@@ -96,8 +98,8 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   la jauge le demande (`pods/ROUTINE.md` §4). Les règles 5 (le rythme ne
   baisse jamais) et 6 ci-dessous ne valent plus pour eux : leur rythme suit
   la jauge (plus bas).
-- **La voie 2** (podz 1, 10, 11, 13, 15 à 28 ; le 6, relancé le 15/11, y
-  revient à son premier remake validé ; 16 à 22 et 24 à 28 sont des originaux
+- **La voie 2** (podz 1, 10, 11, 13, 15 à 30 ; le 6, relancé le 15/11, y
+  revient à son premier remake validé ; 16 à 22 et 24 à 30 sont des originaux
   en images finies, 23 des remakes en images finies) a aussi sa boîte et
   sa jauge depuis le 5/11 (0653) : ses podz refont les posts neufs de leur
   compte modèle, déclinent leur boîte dans l'ordre et déposent les full tests

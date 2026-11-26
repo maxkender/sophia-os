@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o325",
+ "type_bleo": "full_test",
+ "titre": "how to be productive without burning out #burnout #productivity #balance #selfcare #habits",
+ "musique_titre": "worry (ultra slowed)",
+ "musique_url": "https://www.tiktok.com/music/worry-ultra-slowed-7654785567999739913",
+ "inspirations": [
+  "9474b26f-d26f-4af5-9adf-75db7767f3b3"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9474b26f). full test BLEO : accroche jamais faite (format « how to be X without Y »). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "07eca42e-574c-4460-951d-463d37e225de",
+   "texte_overlay": "how to be productive\nwithout burning out",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "07b9b2d2-26e3-4dcc-acbf-447e924715ed",
+   "texte_overlay": "work in short sprints\n\nwork for forty five minutes, then take a real ten minute break away from screens. short, focused sprints get more done than a whole day of tired, distracted effort.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d8572679-73dc-4c8f-8784-0e53a2dfbd38",
+   "texte_overlay": "rest your mind with something gentle\n\na few calm minutes of learning something beautiful gives your brain a real break from work stress. a calm, curious pause recharges you far better than another round of scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/3.jpg",
+   "texte_sophia": "rest your mind with something gentle\n\nmy breaks used to be more scrolling. now i spend 5 minutes on one lesson in the Sophia app, a star or a painting, and i go back to work calm instead of even more drained."
+  },
+  {
+   "position": 4,
+   "media_id": "346e4e36-a1c2-4354-b718-7a9e77942439",
+   "texte_overlay": "choose three tasks\n\nwrite down only three tasks that truly matter today. a short list is finishable, and finishing it gives you real satisfaction instead of the guilt of a list that never ends.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ec68770d-e684-471b-a4e6-cc675073097a",
+   "texte_overlay": "protect your evenings\n\npick a time when work stops, and keep it. evenings that belong to you, your people and your hobbies are what give you the energy you need for the next morning.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "63235300-0807-4dae-b29a-4c0ded7b1237",
+   "texte_overlay": "sleep like it matters\n\ntreat sleep as part of your work, not a reward for finishing it. a rested brain does in one hour what a tired one struggles to do in three long, frustrating hours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/6.jpg"
+  }
+ ]
+}

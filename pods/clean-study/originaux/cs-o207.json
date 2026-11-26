@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o207",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "6484befc-160b-4f54-9dbd-8a2aaa15e534",
+  "titre": "your favorite school subjects and the career opportunities that go with them #studytok #school #career",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [
+    "6484befc-160b-4f54-9dbd-8a2aaa15e534"
+  ],
+  "notes": "Déclinaison G1 de 6484befc (notre cs-o130), ligne 10 de la boîte, 3e et dernière déclinaison de la famille. Accroche du parent mot pour mot, avec « ୨୧ ». Matières et métiers neufs, aucun du parent, de cs-o130 ni de cs-o193 : biologie et chimie (vétérinaire), économie, informatique, arts et histoire (restaurateur), langues et géographie (logistique internationale). Métiers réels et courants. Slide Sophia sur la curiosité (6). Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "d27bc6b9",
+      "texte_overlay": "୨୧ your favorite school subjects\nand the career opportunities\nthat go with them",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3fbb1313",
+      "texte_overlay": "subjects: biology, chemistry\nprofessions:\n- veterinarian\n- biologist\n- food scientist",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "cfd8ac89",
+      "texte_overlay": "subjects: economics, maths\nprofessions:\n- accountant\n- economist\n- financial analyst",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "e94ee535",
+      "texte_overlay": "subjects: computer science\nprofessions:\n- web developer\n- data analyst\n- game designer",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6f67720e",
+      "texte_overlay": "subjects: art, history\nprofessions:\n- art restorer\n- museum guide\n- art historian",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1d1bbca4",
+      "texte_overlay": "still exploring?\nlearn a little about everything. one subject will grab you.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "still exploring?\nlearn a little about everything on a micro-learning app\nlike the Sophia app. one subject will grab you."
+    },
+    {
+      "position": 7,
+      "media_id": "2b564b71",
+      "texte_overlay": "subjects: languages, geography\nprofessions:\n- flight attendant\n- international logistics\n- translator",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

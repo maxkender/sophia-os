@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o205",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "85aa39af-c14b-45e7-ab55-0b3198829ff6",
+  "titre": "habits of the BEST student in class (the ones nobody sees) #studytok #studytips #school",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [
+    "85aa39af-c14b-45e7-ab55-0b3198829ff6"
+  ],
+  "notes": "Déclinaison G1 de 85aa39af (notre cs-o018), ligne 8 de la boîte, 2e déclinaison de la famille. Accroche du parent mot pour mot. Habitudes neuves, aucune de cs-o018 ni de cs-o189 : lire la leçon suivante avant le cours, refaire les exercices réussis plus vite, garder un carnet de questions, une curiosité hors programme le week-end (slide Sophia, 5), réviser en marchant, demander l'avis du prof sur sa méthode. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "e2c8a371",
+      "texte_overlay": "habits of the BEST student in class\n(the ones nobody sees)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "94d1d688",
+      "texte_overlay": "she reads tomorrow's lesson tonight.\nclass is her second time seeing it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ac2644ec",
+      "texte_overlay": "she redoes exercises she got right, faster.\nspeed comes from repetition.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "a1ce1be4",
+      "texte_overlay": "she keeps a notebook of questions.\nand gets every one answered.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "52c9c7b7",
+      "texte_overlay": "she revises some things while walking.\ndefinitions, dates, out loud.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "c7f93078",
+      "texte_overlay": "on weekends, she learns things nobody asked her to.\nhistory, art, science.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "on weekends, she learns things nobody asked her to\non a micro-learning app like the Sophia app.\nhistory, art, science."
+    },
+    {
+      "position": 7,
+      "media_id": "78effbfb",
+      "texte_overlay": "she asks the teacher about her method, not just her grade.\n\"how could i study this better?\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+{
+  "id": "md-006",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "titre": {
+    "en": "Paintings That Haunt Me",
+    "fr": "Les tableaux qui me hantent",
+    "es-419": "Pinturas que me persiguen",
+    "it": "Dipinti che mi perseguitano",
+    "el": "Πίνακες που με στοιχειώνουν",
+    "hu": "Festmények, amelyek kísértenek",
+    "sr": "Slike koje me progone",
+    "hr": "Slike koje me progone",
+    "lv": "Gleznas, kas mani vajā",
+    "ro": "Picturi care mă bântuie"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #klimt #elgreco #museum",
+    "fr": "#histoiredelart #peinture #klimt #elgreco #musee",
+    "es-419": "#historiadelarte #pintura #klimt #elgreco #museo",
+    "it": "#storiadellarte #pittura #klimt #elgreco #museo",
+    "el": "#ιστορίατέχνης #ζωγραφική #τέχνη #klimt #elgreco #μουσείο",
+    "hu": "#művészettörténet #festészet #klimt #elgreco #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #klimt #elgreco #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #klimt #elgreco #muzej",
+    "lv": "#mākslasvēsture #glezniecība #klimt #elgreco #muzejs",
+    "ro": "#istoriaartei #pictura #klimt #elgreco #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/tolede.jpg": {
+      "musee": "The Met",
+      "id": "436575",
+      "titre": "View of Toledo",
+      "artiste": "El Greco (Domenikos Theotokopoulos)",
+      "date": "ca. 1599–1600",
+      "url": "https://www.metmuseum.org/art/collection/search/436575"
+    },
+    "images/oeuvres/hammershoi-lune.jpg": {
+      "musee": "The Met",
+      "id": "441933",
+      "titre": "Moonlight, Strandgade 30",
+      "artiste": "Vilhelm Hammershøi",
+      "date": "1900–1906",
+      "url": "https://www.metmuseum.org/art/collection/search/441933"
+    },
+    "images/oeuvres/serena-lederer.jpg": {
+      "musee": "The Met",
+      "id": "436820",
+      "titre": "Serena Pulitzer Lederer (1867–1943)",
+      "artiste": "Gustav Klimt",
+      "date": "1899",
+      "url": "https://www.metmuseum.org/art/collection/search/436820"
+    },
+    "images/oeuvres/moissonneurs.jpg": {
+      "musee": "The Met",
+      "id": "435809",
+      "titre": "The Harvesters",
+      "artiste": "Pieter Bruegel the Elder",
+      "date": "1565",
+      "url": "https://www.metmuseum.org/art/collection/search/435809"
+    }
+  },
+  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : Vue de Tolède : un des deux seuls paysages d'El Greco conservés (avec Vue et plan de Tolède) ; né en Crète, à Tolède de 1577 à sa mort en 1614. Hammershøi : appartement du Strandgade 30 (1898-1909), peint une soixantaine de fois, souvent Ida de dos. Serena Lederer (1867-1943) : les Lederer, grands mécènes de Klimt ; collection saisie par les nazis ; incendie du château d'Immendorf en mai 1945 ; acheté par le Met en 1980. Les Moissonneurs : 1565, série des saisons pour Niclaes Jongelinck (Anvers), six tableaux, cinq conservés ; l'homme endormi sous le poirier. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (une foule ou des visiteurs de dos, le tableau n'est qu'une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-couloir.jpg",
+      "en": {
+        "titre": "Paintings That Haunt Me"
+      },
+      "fr": {
+        "titre": "Les tableaux qui me hantent"
+      },
+      "es-419": {
+        "titre": "Pinturas que me persiguen"
+      },
+      "it": {
+        "titre": "Dipinti che mi perseguitano"
+      },
+      "el": {
+        "titre": "Πίνακες που με στοιχειώνουν"
+      },
+      "hu": {
+        "titre": "Festmények, amelyek kísértenek"
+      },
+      "sr": {
+        "titre": "Slike koje me progone"
+      },
+      "hr": {
+        "titre": "Slike koje me progone"
+      },
+      "lv": {
+        "titre": "Gleznas, kas mani vajā"
+      },
+      "ro": {
+        "titre": "Picturi care mă bântuie"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/tolede.jpg",
+      "en": {
+        "titre": "View of Toledo",
+        "texte": "is one of only two landscapes El Greco left behind. Born on Crete, he lived in Toledo for nearly forty years and painted the city under a green, stormy sky. It feels less like a view than a premonition.",
+        "artiste": "El Greco"
+      },
+      "fr": {
+        "titre": "Vue de Tolède",
+        "texte": "est l'un des deux seuls paysages laissés par le Greco. Né en Crète, il a vécu près de quarante ans à Tolède et a peint la ville sous un ciel vert et orageux. On dirait moins une vue qu'un présage.",
+        "artiste": "Le Greco"
+      },
+      "es-419": {
+        "titre": "Vista de Toledo",
+        "texte": "es uno de los dos únicos paisajes que dejó El Greco. Nacido en Creta, vivió casi cuarenta años en Toledo y pintó la ciudad bajo un cielo verde y tormentoso. Parece menos una vista que un presagio.",
+        "artiste": "El Greco"
+      },
+      "it": {
+        "titre": "Veduta di Toledo",
+        "texte": "è uno dei soli due paesaggi lasciati da El Greco. Nato a Creta, visse quasi quarant'anni a Toledo e dipinse la città sotto un cielo verde e tempestoso. Più che una veduta, sembra un presagio.",
+        "artiste": "El Greco"
+      },
+      "el": {
+        "titre": "Άποψη του Τολέδο",
+        "texte": "είναι ένα από τα μόλις δύο τοπία που άφησε ο Ελ Γκρέκο. Γεννημένος στην Κρήτη, έζησε σχεδόν σαράντα χρόνια στο Τολέδο και ζωγράφισε την πόλη κάτω από έναν πράσινο, θυελλώδη ουρανό. Μοιάζει λιγότερο με θέα και περισσότερο με προαίσθημα.",
+        "artiste": "Ελ Γκρέκο"
+      },
+      "hu": {
+        "titre": "Toledo látképe",
+        "texte": "egyike annak a mindössze két tájképnek, amelyet El Greco hátrahagyott. Krétán született, csaknem negyven évig élt Toledóban, és a várost zöld, viharos ég alatt festette meg. Inkább balsejtelem, mint látkép.",
+        "artiste": "El Greco"
+      },
+      "sr": {
+        "titre": "Pogled na Toledo",
+        "texte": "je jedan od samo dva pejzaža koja je El Greko ostavio za sobom. Rođen na Kritu, živeo je u Toledu skoro četrdeset godina i naslikao grad pod zelenim, olujnim nebom. Više liči na predskazanje nego na pogled.",
+        "artiste": "El Greko"
+      },
+      "hr": {
+        "titre": "Pogled na Toledo",
+        "texte": "jedan je od samo dva krajolika koja je El Greco ostavio iza sebe. Rođen na Kreti, živio je u Toledu gotovo četrdeset godina i naslikao grad pod zelenim, olujnim nebom. Više nalikuje predskazanju nego pogledu.",
+        "artiste": "El Greco"
+      },
+      "lv": {
+        "titre": "Toledo skats",
+        "texte": "ir viena no tikai divām ainavām, ko atstāja El Greko. Dzimis Krētā, viņš gandrīz četrdesmit gadus dzīvoja Toledo un gleznoja pilsētu zem zaļām, vētrainām debesīm. Tas vairāk līdzinās priekšnojautai nekā skatam.",
+        "artiste": "El Greko"
+      },
+      "ro": {
+        "titre": "Vedere din Toledo",
+        "texte": "este unul dintre cele doar două peisaje lăsate de El Greco. Născut în Creta, a trăit aproape patruzeci de ani la Toledo și a pictat orașul sub un cer verde, furtunos. Pare mai puțin o priveliște, cât o premoniție.",
+        "artiste": "El Greco"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/hammershoi-lune.jpg",
+      "en": {
+        "titre": "Moonlight, Strandgade 30",
+        "texte": "is an empty room in Hammershøi's own apartment in Copenhagen. He painted these rooms dozens of times, often with his wife Ida turned away from us. Here even she is gone, and only the moonlight crosses the floor.",
+        "artiste": "Vilhelm Hammershøi"
+      },
+      "fr": {
+        "titre": "Clair de lune, Strandgade 30",
+        "texte": "est une pièce vide de l'appartement de Hammershøi à Copenhague. Il a peint ces pièces des dizaines de fois, souvent avec sa femme Ida qui nous tourne le dos. Ici, même elle est partie, et seul le clair de lune traverse le parquet.",
+        "artiste": "Vilhelm Hammershøi"
+      },
+      "es-419": {
+        "titre": "Claro de luna, Strandgade 30",
+        "texte": "es una habitación vacía del propio departamento de Hammershøi en Copenhague. Pintó esas habitaciones decenas de veces, a menudo con su esposa Ida de espaldas. Aquí hasta ella se ha ido, y solo la luz de la luna cruza el piso.",
+        "artiste": "Vilhelm Hammershøi"
+      },
+      "it": {
+        "titre": "Chiaro di luna, Strandgade 30",
+        "texte": "è una stanza vuota dell'appartamento di Hammershøi a Copenaghen. Dipinse quelle stanze decine di volte, spesso con la moglie Ida di spalle. Qui se n'è andata anche lei, e solo la luce della luna attraversa il pavimento.",
+        "artiste": "Vilhelm Hammershøi"
+      },
+      "el": {
+        "titre": "Σεληνόφως, Strandgade 30",
+        "texte": "είναι ένα άδειο δωμάτιο στο διαμέρισμα του Χάμερσχοϊ στην Κοπεγχάγη. Ζωγράφισε αυτά τα δωμάτια δεκάδες φορές, συχνά με τη γυναίκα του, την Ίντα, γυρισμένη πλάτη. Εδώ έχει φύγει κι εκείνη, και μόνο το φως του φεγγαριού διασχίζει το πάτωμα.",
+        "artiste": "Βίλχελμ Χάμερσχοϊ"
+      },
+      "hu": {
+        "titre": "Holdfény, Strandgade 30",
+        "texte": "egy üres szoba Hammershøi saját koppenhágai lakásában. Ezeket a szobákat több tucatszor megfestette, gyakran feleségével, Idával, aki hátat fordít nekünk. Itt már ő sincs, csak a holdfény vonul át a padlón.",
+        "artiste": "Vilhelm Hammershøi"
+      },
+      "sr": {
+        "titre": "Mesečina, Strandgade 30",
+        "texte": "je prazna soba u Hamershojevom stanu u Kopenhagenu. Te sobe je slikao desetine puta, često sa suprugom Idom okrenutom leđima. Ovde je otišla i ona, i samo mesečina prelazi preko poda.",
+        "artiste": "Vilhelm Hamershoj"
+      },
+      "hr": {
+        "titre": "Mjesečina, Strandgade 30",
+        "texte": "prazna je soba u Hammershøijevu stanu u Kopenhagenu. Te je sobe slikao desetke puta, često sa suprugom Idom okrenutom leđima. Ovdje je otišla i ona, a samo mjesečina prelazi preko poda.",
+        "artiste": "Vilhelm Hammershøi"
+      },
+      "lv": {
+        "titre": "Mēness gaisma, Strandgade 30",
+        "texte": "ir tukša istaba paša mākslinieka dzīvoklī Kopenhāgenā. Viņš šīs istabas gleznoja desmitiem reižu, bieži ar sievu Idu, kas pagriezusies ar muguru. Te aizgājusi arī viņa, un pāri grīdai slīd tikai mēness gaisma.",
+        "artiste": "Vilhelms Hammershøi"
+      },
+      "ro": {
+        "titre": "Lumina lunii, Strandgade 30",
+        "texte": "este o cameră goală din apartamentul lui Hammershøi din Copenhaga. A pictat aceste camere de zeci de ori, adesea cu soția lui, Ida, întoarsă cu spatele. Aici a plecat și ea, și doar lumina lunii trece peste podea.",
+        "artiste": "Vilhelm Hammershøi"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/serena-lederer.jpg",
+      "en": {
+        "titre": "Serena Lederer",
+        "texte": "was one of Klimt's greatest patrons. The Nazis seized her family's collection, and many of their Klimts burned in a castle in 1945; her portrait survived. Artura gives me one painting a day and the story behind it; this one stayed with me.",
+        "artiste": "Gustav Klimt"
+      },
+      "fr": {
+        "titre": "Serena Lederer",
+        "texte": "était l'une des plus grandes mécènes de Klimt. Les nazis ont saisi la collection de sa famille, et beaucoup de leurs Klimt ont brûlé dans un château en 1945 ; son portrait a survécu. Artura me donne un tableau par jour et l'histoire qui va avec ; celui-ci m'est resté.",
+        "artiste": "Gustav Klimt"
+      },
+      "es-419": {
+        "titre": "Serena Lederer",
+        "texte": "fue una de las grandes mecenas de Klimt. Los nazis confiscaron la colección de su familia, y muchos de sus Klimt ardieron en un castillo en 1945; su retrato sobrevivió. Artura me da una pintura al día y la historia detrás; esta se quedó conmigo.",
+        "artiste": "Gustav Klimt"
+      },
+      "it": {
+        "titre": "Serena Lederer",
+        "texte": "fu una delle più grandi mecenati di Klimt. I nazisti sequestrarono la collezione della sua famiglia e molti dei loro Klimt bruciarono in un castello nel 1945; il suo ritratto si salvò. Artura mi dà un dipinto al giorno e la storia che c'è dietro; questo mi è rimasto dentro.",
+        "artiste": "Gustav Klimt"
+      },
+      "el": {
+        "titre": "Σερένα Λέντερερ",
+        "texte": "ήταν από τις μεγαλύτερες προστάτιδες του Κλιμτ. Οι ναζί κατέσχεσαν τη συλλογή της οικογένειάς της και πολλά έργα του Κλιμτ κάηκαν σε ένα κάστρο το 1945· το πορτρέτο της σώθηκε. Η Artura μού δίνει έναν πίνακα τη μέρα και την ιστορία του· αυτός μου έμεινε.",
+        "artiste": "Γκούσταβ Κλιμτ"
+      },
+      "hu": {
+        "titre": "Serena Lederer",
+        "texte": "Klimt egyik legnagyobb mecénása volt. A nácik elkobozták a családja gyűjteményét, és sok Klimt-képük 1945-ben elégett egy kastélyban; az ő portréja megmaradt. Az Artura app minden nap ad egy festményt és a mögötte álló történetet; ez megmaradt bennem.",
+        "artiste": "Gustav Klimt"
+      },
+      "sr": {
+        "titre": "Serena Lederer",
+        "texte": "je bila jedna od najvećih Klimtovih mecena. Nacisti su zaplenili zbirku njene porodice, a mnoge njihove Klimtove slike izgorele su u jednom zamku 1945; njen portret je preživeo. Aplikacija Artura mi svakog dana daje jednu sliku i priču iza nje; ova mi je ostala u srcu.",
+        "artiste": "Gustav Klimt"
+      },
+      "hr": {
+        "titre": "Serena Lederer",
+        "texte": "bila je jedna od najvećih Klimtovih mecena. Nacisti su zaplijenili zbirku njezine obitelji, a mnoge njihove Klimtove slike izgorjele su u jednom dvorcu 1945.; njezin je portret preživio. Aplikacija Artura svaki mi dan daje jednu sliku i priču iza nje; ova mi je ostala u srcu.",
+        "artiste": "Gustav Klimt"
+      },
+      "lv": {
+        "titre": "Serēna Lederere",
+        "texte": "bija viena no Klimta lielākajām mecenātēm. Nacisti konfiscēja viņas ģimenes kolekciju, un daudzi viņu Klimta darbi 1945. gadā sadega kādā pilī; viņas portrets izdzīvoja. Lietotne Artura man katru dienu dod vienu gleznu un stāstu aiz tās; šī palika ar mani.",
+        "artiste": "Gustavs Klimts"
+      },
+      "ro": {
+        "titre": "Serena Lederer",
+        "texte": "a fost una dintre cele mai mari mecene ale lui Klimt. Naziștii au confiscat colecția familiei sale, iar multe dintre tablourile lor de Klimt au ars într-un castel în 1945; portretul ei a supraviețuit. Aplicația Artura îmi dă câte o pictură pe zi și povestea din spatele ei; aceasta mi-a rămas în minte.",
+        "artiste": "Gustav Klimt"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/moissonneurs.jpg",
+      "en": {
+        "titre": "The Harvesters",
+        "texte": "is one of six paintings of the seasons that Bruegel made for an Antwerp merchant in 1565. Only five survive. In the late summer heat, one man sleeps under a pear tree while the others eat in the shade.",
+        "artiste": "Pieter Bruegel the Elder"
+      },
+      "fr": {
+        "titre": "Les Moissonneurs",
+        "texte": "est l'un des six tableaux des saisons que Bruegel a peints pour un marchand d'Anvers en 1565. Seuls cinq ont survécu. Dans la chaleur de la fin d'été, un homme dort sous un poirier pendant que les autres mangent à l'ombre.",
+        "artiste": "Pieter Brueghel l'Ancien"
+      },
+      "es-419": {
+        "titre": "Los segadores",
+        "texte": "es una de las seis pinturas de las estaciones que Bruegel hizo para un comerciante de Amberes en 1565. Solo sobreviven cinco. En el calor de fines del verano, un hombre duerme bajo un peral mientras los demás comen a la sombra.",
+        "artiste": "Pieter Brueghel el Viejo"
+      },
+      "it": {
+        "titre": "I mietitori",
+        "texte": "è uno dei sei dipinti delle stagioni che Bruegel realizzò per un mercante di Anversa nel 1565. Ne sopravvivono solo cinque. Nel caldo di fine estate, un uomo dorme sotto un pero mentre gli altri mangiano all'ombra.",
+        "artiste": "Pieter Bruegel il Vecchio"
+      },
+      "el": {
+        "titre": "Οι θεριστές",
+        "texte": "είναι ένας από τους έξι πίνακες των εποχών που έκανε ο Μπρίγκελ για έναν έμπορο της Αμβέρσας το 1565. Σώζονται μόνο πέντε. Στη ζέστη του τέλους του καλοκαιριού, ένας άντρας κοιμάται κάτω από μια αχλαδιά ενώ οι άλλοι τρώνε στη σκιά.",
+        "artiste": "Μπρίγκελ ο Πρεσβύτερος"
+      },
+      "hu": {
+        "titre": "Aratók",
+        "texte": "egyike annak a hat évszakképnek, amelyet Bruegel 1565-ben festett egy antwerpeni kereskedőnek. Csak öt maradt fenn. A nyár végi hőségben egy férfi alszik egy körtefa alatt, a többiek az árnyékban esznek.",
+        "artiste": "id. Pieter Bruegel"
+      },
+      "sr": {
+        "titre": "Žeteoci",
+        "texte": "je jedna od šest slika godišnjih doba koje je Brojgel naslikao za jednog antverpenskog trgovca 1565. Sačuvano je samo pet. Na vrelini kasnog leta, jedan čovek spava pod kruškom dok ostali jedu u hladu.",
+        "artiste": "Piter Brojgel Stariji"
+      },
+      "hr": {
+        "titre": "Žeteoci",
+        "texte": "jedna je od šest slika godišnjih doba koje je Bruegel naslikao za jednog antwerpenskog trgovca 1565. Sačuvano je samo pet. Na vrućini kasnog ljeta jedan čovjek spava pod kruškom dok ostali jedu u hladu.",
+        "artiste": "Pieter Bruegel Stariji"
+      },
+      "lv": {
+        "titre": "Pļāvēji",
+        "texte": "ir viena no sešām gadalaiku gleznām, ko Brēgels 1565. gadā radīja kādam Antverpenes tirgotājam. Saglabājušās tikai piecas. Vēlās vasaras karstumā viens vīrs guļ zem bumbieres, kamēr pārējie ēd ēnā.",
+        "artiste": "Pīters Brēgels Vecākais"
+      },
+      "ro": {
+        "titre": "Secerătorii",
+        "texte": "este unul dintre cele șase tablouri ale anotimpurilor pe care Bruegel le-a pictat pentru un negustor din Anvers în 1565. Doar cinci au supraviețuit. În arșița de la sfârșitul verii, un om doarme sub un păr, în timp ce ceilalți mănâncă la umbră.",
+        "artiste": "Pieter Bruegel cel Bătrân"
+      }
+    }
+  ]
+}

@@ -27,7 +27,8 @@
   "no": "10/10 ferdigheter å lære før du fyller 30",
   "et": "10/10 oskust, mida õppida enne 30",
   "fi": "10/10 taitoa, jotka kannattaa oppia ennen 30:tä",
-  "ro": "10/10 abilități de învățat înainte de 30 de ani"
+  "ro": "10/10 abilități de învățat înainte de 30 de ani",
+  "sr": "10/10 veština koje treba naučiti pre 30."
  },
  "legendes": {
   "en": "10/10 Skills To Learn Before You Are 30 #skills #learnontiktok #selfimprovement",
@@ -50,13 +51,14 @@
   "no": "10/10 ferdigheter å lære før du fyller 30 #ferdigheter #selvutvikling #læring",
   "et": "10/10 oskust, mida õppida enne 30 #oskused #eneseareng #õppimine",
   "fi": "10/10 taitoa, jotka kannattaa oppia ennen 30:tä #taidot #itsensäkehittäminen #oppiminen",
-  "ro": "10/10 abilități de învățat înainte de 30 de ani #abilități #dezvoltarepersonală #învățare"
+  "ro": "10/10 abilități de învățat înainte de 30 de ani #abilități #dezvoltarepersonală #învățare",
+  "sr": "10/10 veština koje treba naučiti pre 30. #veštine #ličnirazvoj #učenje"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7636068211729599264"
  },
- "notes": "Variante de l'accroche de fa-004 (« Before You Are 25 »), « 30 » au lieu de « 25 ». cta C (1re personne). Sophia à l'étape 3 « WHAT I DO INSTEAD OF SCROLLING ». Pas d'UnSwipe. Autres compétences (budget, prise de parole, massage cardiaque, gestion du temps), autres vidéos. en, de et pt (Portugal). 22/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, sv, tr, lt, no, et et fi (titre et couverture de fa-047, même famille) ; faute de vidéo native, la prise de parole devient le langage corporel en sl, et la gestion du temps devient « dire non » en nl, sv et no. 25/11 : ajouté en ro.",
+ "notes": "Variante de l'accroche de fa-004 (« Before You Are 25 »), « 30 » au lieu de « 25 ». cta C (1re personne). Sophia à l'étape 3 « WHAT I DO INSTEAD OF SCROLLING ». Pas d'UnSwipe. Autres compétences (budget, prise de parole, massage cardiaque, gestion du temps), autres vidéos. en, de et pt (Portugal). 22/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, sv, tr, lt, no, et et fi (titre et couverture de fa-047, même famille) ; faute de vidéo native, la prise de parole devient le langage corporel en sl, et la gestion du temps devient « dire non » en nl, sv et no. 25/11 : ajouté en ro. 26/11 : ajouté en sr.",
  "slides": [
   {
    "type": "couverture",
@@ -426,6 +428,23 @@
       }
      ]
     ]
+   },
+   "sr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VEŠTINA KOJE TREBA",
+     [
+      {
+       "t": "NAUČITI PRE 30.",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -743,6 +762,21 @@
      "date": "acum 5 ani",
      "duree": "7:39",
      "avatar": "https://yt3.ggpht.com/cvjBQ4CJ_RDxwenu6Z7LMy1fF_j1IE3TwcERBGnZlnJMeqEqB56rmwQpsTCxe7qO8guIcysj=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "NAPRAVI",
+     "BUDŽET"
+    ],
+    "video": {
+     "id": "-TBJgTN-I1o",
+     "titre": "Osnove Budžeta | Budžetiranje za početnike | Kako napraviti kućni budžet?",
+     "chaine": "Lične Finansije",
+     "vues": "8 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "7.07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kY1aNdZ1f69JR35wXAEAJsJaHCMQRJcB6NIStnXcCHlw=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -1062,6 +1096,21 @@
      "duree": "6:41",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nV6dOnmPphiSixRz3ozCHWvF2liy0qjqK3jgBZ-3MHUQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "sr": {
+    "titre": [
+     "GOVORI U",
+     "JAVNOSTI"
+    ],
+    "video": {
+     "id": "54lzhod9Myw",
+     "titre": "Javni nastup - sve što morate da znate",
+     "chaine": "Centar za javni govor Radovan Perović",
+     "vues": "2,1 hilj. pregleda",
+     "date": "pre 1 godinu",
+     "duree": "31.47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l6ypEK1D8Xy8e0j5tgs2-wauwS_Hs---ti9C81SyUCW3A=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1337,6 +1386,19 @@
      "texte": [
       "ce deschid",
       "în loc să dau scroll."
+     ]
+    }
+   },
+   "sr": {
+    "titre": [
+     "NEŠTO NOVO",
+     "SVAKI DAN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ono što otvaram",
+      "umesto skrolovanja."
      ]
     }
    }
@@ -1652,6 +1714,21 @@
      "date": "acum 11 ani",
      "duree": "3:21",
      "avatar": "https://yt3.ggpht.com/OSNLgT2tGM24Gko0ekcbTXJk2VYtad8X2IsDUnjcmqnnu0AXuyQzkSJRHj8b6pUyfM1k2KR5=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "NAUČI",
+     "REANIMACIJU"
+    ],
+    "video": {
+     "id": "0Rjfxhkt1r0",
+     "titre": "Postupak reanimacije - Svetski dan oživljavanja",
+     "chaine": "Crveni krst Inđija",
+     "vues": "1 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "5.52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nl0wNAiw-4K92g4dnPuB35iLBYZQLff6AcU_LQZNI8-_w=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -1970,6 +2047,21 @@
      "date": "acum 3 ani",
      "duree": "35:14",
      "avatar": "https://yt3.ggpht.com/U5NV4hYAgYTy4EmUrykWKZmmC8MyWA1iHpL1sM63tnniUz6c5OjWmMI20gkWGU5vtcwFzH-7ZIM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "ORGANIZUJ",
+     "SVOJE VREME"
+    ],
+    "video": {
+     "id": "CunL5mvGNNw",
+     "titre": "Upravljanje Vremenom: Kako Organizovati Svoje Obaveze",
+     "chaine": "Dejan Savić - Sistemi su Rešenje",
+     "vues": "4,9 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "7.44",
+     "avatar": "https://yt3.ggpht.com/_Bp0RtUzuAaCrFYXsaGYwk4CwdePbjLkSg9Rdc_qirm0XWjFhpikaVoAm05pcBuZGF7g50iy=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

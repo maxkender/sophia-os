@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o303",
+  "type_bleo": "full_test",
+  "titre": "comment je choisis un livre en librairie sans me tromper #livres #librairie #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Récit « je », aucun fait daté. Routine du 26/11 sur BLEO (par_jour passé à 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 15 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14, 15 et 16 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b269328e",
+      "texte_overlay": "comment je choisis un livre en librairie\nsans me tromper",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d446a507",
+      "texte_overlay": "1. je lis la première page\n\npas la quatrième de couverture.\nla vraie voix est là.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "aedb3a14",
+      "texte_overlay": "2. j'ouvre au hasard au milieu\n\nsi la page me retient,\nle livre aussi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "e01c9fd9",
+      "texte_overlay": "3. je demande au libraire\n\n« qu'est-ce que vous avez aimé ce mois-ci ? »\nla meilleure question.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d6f8159a",
+      "texte_overlay": "4. je regarde les petites étiquettes\n\nles coups de cœur écrits à la main.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "d60cc9cc",
+      "texte_overlay": "5. je choisis aussi pour apprendre\n\navant, je ne lisais que des romans.\nmaintenant, j'apprends un truc sur le monde chaque matin. et un livre d'histoire sur deux.",
+      "texte_sophia": "5. je choisis aussi pour apprendre\n\navant, je ne lisais que des romans.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et un livre d'histoire sur deux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "a909f1a6",
+      "texte_overlay": "c'est quoi ton dernier achat ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

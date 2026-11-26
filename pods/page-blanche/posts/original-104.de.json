@@ -1,0 +1,316 @@
+{
+ "post_id": "original-104",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 neuroscientist habits to",
+      "make you smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "berühmte gemälde und die [[schrägen geschichten]] dahinter"
+    },
+    "T2": {
+     "en": [
+      "(neuroscientist approved)"
+     ],
+     "fr": "(validé par les neurosciences)",
+     "alignement": "droite",
+     "texte": "(steht nicht auf dem schild)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_5a822ca7.jpg",
+      "boite": [
+       0,
+       700,
+       1664,
+       1150
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write things down by hand"
+     ],
+     "fr": "note tout [[à la main]]",
+     "texte": "napoleon überquert die alpen"
+    },
+    "T2": {
+     "en": [
+      "typing is faster, but that's not always better"
+     ],
+     "fr": "taper, c'est plus rapide, mais pas forcément [[mieux]]",
+     "texte": "das wilde pferd, der wehende umhang: [[nichts davon war echt]]"
+    },
+    "T3": {
+     "en": [
+      "handwriting forces you to",
+      "slow down, compress",
+      "ideas, and actually process",
+      "what matters"
+     ],
+     "fr": "écrire à la main te force à [[ralentir]], à résumer et à vraiment capter ce qui compte",
+     "texte": "1800 ging er wirklich [[auf einem maultier]] über den verschneiten pass, mit einem führer"
+    },
+    "T4": {
+     "en": [
+      "use a notebook for",
+      "anything you genuinely",
+      "want to remember"
+     ],
+     "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
+     "texte": "er [[wollte nicht modell sitzen]], also stand davids sohn auf einer leiter"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_07184dfe.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       2208
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself get bored",
+      "every day"
+     ],
+     "fr": "laisse-toi [[t'ennuyer chaque jour]]",
+     "texte": "der letzte tag von [[pompeji]], 1833"
+    },
+    "T2": {
+     "en": [
+      "leave one part of your day with no podcast, no",
+      "music, and no phone"
+     ],
+     "fr": "garde [[un moment par jour]] sans podcast, sans musique, sans tel",
+     "texte": "karl brjullow malte [[rund sechs jahre]] an dieser riesigen leinwand, 6,5 m breit"
+    },
+    "T3": {
+     "en": [
+      "boredom is",
+      "when your brain",
+      "sorts what it",
+      "took in and links",
+      "ideas together",
+      "on its own"
+     ],
+     "fr": "l'ennui, c'est quand ton cerveau range ce qu'il a absorbé et [[relie les idées]] tout seul",
+     "texte": "siehst du den mann mit dem farbkasten auf dem kopf? [[das ist brjullow selbst]]"
+    },
+    "T4": {
+     "en": [
+      "that’s where your best ideas",
+      "actually show up"
+     ],
+     "fr": "c'est là que tes [[meilleures idées]] te [[viennent]]",
+     "texte": "er malte sich [[auf der flucht vorm vulkan]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_3b375395.jpg",
+      "boite": [
+       80,
+       650,
+       1600,
+       1150
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]",
+     "texte": "die geschichten sind [[das beste]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content destroys your attention span"
+     ],
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "ein bild wird zehnmal besser, [[wenn du sie kennst]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to stay with",
+      "one idea, remember what",
+      "came before, and actually",
+      "think"
+     ],
+     "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
+     "texte": "wer modell stand, wer bezahlt hat, warum es ein skandal war, genau das lässt dich [[stehen bleiben]]"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "doomscrolling too much"
+     ],
+     "fr": "[[avant, je doomscrollais]] beaucoup trop",
+     "texte": "früher hab ich jeden abend [[stundenlang gescrollt]]"
+    },
+    "T5": {
+     "en": [
+      "until i found this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "wenn ich jetzt eh am handy bin, mach ich [[eine 5-min-lektion in der Sophia-App]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "die freiheit führt das volk"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "frankreich kaufte es 1831 und [[versteckte es dann jahrelang]] vor dem publikum"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "die regierung hatte angst, es könnte [[einen neuen aufstand auslösen]]"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "erst 1874 kam es für immer in den louvre, [[44 jahre nachdem es gemalt wurde]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_c79404cc.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       1830
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take walks in silence"
+     ],
+     "fr": "fais des balades [[en silence]]",
+     "texte": "die römer der verfallszeit"
+    },
+    "T2": {
+     "en": [
+      "if you instantly put music on every time you go for a walk,",
+      "you're never giving your brain time to think for itself"
+     ],
+     "fr": "si tu mets de la musique [[dès que tu sors marcher]], tu laisses jamais à ton cerveau [[le temps de penser tout seul]]",
+     "texte": "thomas couture malte [[drei jahre]] an diesem riesigen römischen gelage, der hit des pariser salons 1847"
+    },
+    "T3": {
+     "en": [
+      "you keep drowning out",
+      "your own thoughts with",
+      "someone else's voice,"
+     ],
+     "fr": "tu couvres [[tes propres pensées]] avec la voix de quelqu'un d'autre,",
+     "texte": "eigentlich war es ein seitenhieb auf [[die reichen seiner zeit]],"
+    },
+    "T4": {
+     "en": [
+      "leaving no room to",
+      "process your emotions,",
+      "reflect on your life, or",
+      "come up with new ideas"
+     ],
+     "fr": "plus de place pour digérer [[tes émotions]], penser à [[ta vie]] ou avoir des idées",
+     "texte": "und sein berühmtester schüler, édouard manet, hat später [[jede regel gebrochen]], die er bei ihm gelernt hat"
+    },
+    "T5": {
+     "en": [
+      "let yourself be bored. your mind needs space to think"
+     ],
+     "fr": "ennuie-toi un peu. [[ton cerveau a besoin d'air]]",
+     "texte": "jedes bild hat [[eine geschichte]], du musst nur fragen"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_b10fe621.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       1300
+      ]
+     }
+    }
+   }
+  }
+ }
+}

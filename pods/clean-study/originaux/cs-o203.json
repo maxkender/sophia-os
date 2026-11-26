@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o203",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "1eb10ee1-5672-4baf-9de6-53cc4e586921",
+  "titre": "more toxic study motivation that works a little TOO well #studytok #studymotivation #school",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [
+    "1eb10ee1-5672-4baf-9de6-53cc4e586921"
+  ],
+  "notes": "Déclinaison G1 de 1eb10ee1, ligne 2 de la boîte. Accroche du parent mot pour mot. Rivalité avec soi-même, jamais le mépris des autres. Phrases neuves, aucune du parent (8h14, la version de ce soir, relire ce n'est pas apprendre, 3 épisodes, les reels, le plan, le semestre dernier) ni de nos toxic : le chapitre ne va pas s'apprendre seul, « je verrai demain » n'est pas une date, la pause qui rend plus malin (slide Sophia, 5), 20 minutes valent mieux que zéro, ton futur bulletin te regarde. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6dfc76ab",
+      "texte_overlay": "more toxic study motivation\nthat works a little TOO well",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "8caad3c9",
+      "texte_overlay": "the chapter is not going to learn itself.\nsadly. i checked.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "4d2801d8",
+      "texte_overlay": "\"i'll see tomorrow\" is not a date.\nopen the book.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "171390b5",
+      "texte_overlay": "20 minutes now beats 0 minutes of a perfect plan.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "13733e35",
+      "texte_overlay": "even your breaks can be smart.\nscrolling for an hour never made anyone interesting.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "even your breaks can be smart.\n5 minutes on a micro-learning app like the Sophia app.\nscrolling never made anyone interesting."
+    },
+    {
+      "position": 6,
+      "media_id": "eef4391b",
+      "texte_overlay": "your future report card is watching you right now.\nmake it proud.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6e275ce4",
+      "texte_overlay": "you don't need motivation.\nyou need to sit down. motivation shows up after.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

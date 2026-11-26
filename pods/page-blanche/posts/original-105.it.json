@@ -1,0 +1,294 @@
+{
+ "post_id": "original-105",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "filosofi che risolverebbero i tuoi [[problemi del 2026]]"
+    },
+    "T2": {
+     "en": [
+      "(in this age of",
+      "short-form content)"
+     ],
+     "fr": "(à l'époque des vidéos de 10 secondes)",
+     "texte": "(morti da secoli, ancora attuali)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_07fbf5f4.jpg",
+      "boite": [
+       0,
+       650,
+       1760,
+       1300
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "fr": "passe plus de temps [[à ne rien faire]]",
+     "texte": "seneca: la vita non è [[troppo breve]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "fr": "lâche [[les vidéos]] et [[la musique]] pendant tes balades, tes repas, [[tes temps morts]]",
+     "texte": "problema 2026: [[\"non ho tempo\"]], ma 4 ore al giorno sul telefono"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "fr": "dans le calme, ton cerveau digère ce qu'il a vu, fait des liens et [[se fait ses propres idées]]",
+     "texte": "verso il 49 d.C. scriveva che la vita non è breve, [[siamo noi a renderla breve]] sprecandone tanta"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "fr": "les vidéos courtes non-stop te [[grillent le cerveau]] et [[flinguent ta concentration!!]]",
+     "texte": "guarda dove finiscono davvero le tue ore prima di dire [[non ho tempo]]. la risposta di solito ce l'hai in mano"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0de46af9.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start reading everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "montaigne: [[coltiva la curiosità]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling feeds you",
+      "constant dopamine and",
+      "burns your dopamine",
+      "receptors"
+     ],
+     "fr": "le scroll t'envoie [[de la dopamine non-stop]] et [[crame tes récepteurs]]",
+     "texte": "il suo motto, su una medaglia fatta coniare nel 1576: [[\"che cosa so?\"]]"
+    },
+    "T3": {
+     "en": [
+      "i use readup to block my",
+      "apps for 20 minutes until i",
+      "read"
+     ],
+     "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "riempì di libri la torre del suo castello e scriveva di [[tutto ciò che lo incuriosiva]]"
+    },
+    "T4": {
+     "en": [
+      "reading forces you to hold",
+      "attention, remember",
+      "details, and follow one",
+      "idea for longer"
+     ],
+     "fr": "apprendre, ça t'oblige à [[te concentrer]], [[retenir des détails]] et suivre une idée jusqu'au bout",
+     "texte": "versione 2026: quando prendi il telefono comunque, [[impara una cosa vera]] invece di un altro video"
+    },
+    "T5": {
+     "en": [
+      "even a little every day is",
+      "enough to start rebuilding",
+      "your attention span"
+     ],
+     "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
+     "texte": "i miei 5 min di oggi su [[l'app Sophia]]: perché la porpora era il colore dei re. molto montaigne"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "challenge your own biases"
+     ],
+     "fr": "méfie-toi de [[tes propres biais]]",
+     "texte": "epitteto: [[fai ordine nelle ansie]]"
+    },
+    "T2": {
+     "en": [
+      "your brain loves evidence that proves what you",
+      "already believe"
+     ],
+     "fr": "ton cerveau adore tout ce qui confirme [[ce que tu penses déjà]]",
+     "texte": "problema 2026: [[doomscrolling di brutte notizie]] su cui non puoi fare nulla"
+    },
+    "T3": {
+     "en": [
+      "actively look for the",
+      "strongest argument",
+      "against your opinion"
+     ],
+     "fr": "va chercher exprès [[le meilleur argument contre]] ton avis",
+     "texte": "il suo manuale si apre così: [[alcune cose dipendono da noi]], altre no"
+    },
+    "T4": {
+     "en": [
+      "getting smarter",
+      "means getting better",
+      "at noticing when your",
+      "own thinking is wrong"
+     ],
+     "fr": "être plus intelligente, c'est surtout mieux voir [[quand ton raisonnement est faux]]",
+     "texte": "nato schiavo, metteva energia solo nelle [[sue scelte]] e lasciava andare il resto"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0f15e8fd.jpg",
+      "boite": [
+       120,
+       0,
+       2030,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "pascal: impara a [[restare immobile]]"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "problema 2026: non riesci ad aspettare 2 minuti senza prendere il telefono"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "scrisse che l'infelicità umana nasce dal [[non saper restare tranquilli in una stanza]]"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "prova 10 minuti, niente telefono, niente musica. [[la noia passa]] e arrivano le idee"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00497a88.jpg",
+      "boite": [
+       350,
+       0,
+       1830,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "explain what you learn out loud"
+     ],
+     "fr": "dis [[à voix haute]] ce que t'as appris",
+     "texte": "aristotele: [[prima agisci]], poi senti"
+    },
+    "T2": {
+     "en": [
+      "close the book, article, or",
+      "video and explain the idea",
+      "from memory"
+     ],
+     "fr": "ferme le livre, l'article ou la vidéo et réexplique l'idée [[de tête]]",
+     "texte": "problema 2026: [[aspettare la motivazione]] prima di iniziare qualsiasi cosa"
+    },
+    "T3": {
+     "en": [
+      "the moment you get vague",
+      "or confused, you’ve found",
+      "the gap"
+     ],
+     "fr": "dès que tu t'embrouilles, t'as trouvé ce que t'as pas compris",
+     "texte": "scrisse che si diventa coraggiosi [[compiendo atti coraggiosi]]"
+    },
+    "T4": {
+     "en": [
+      "teaching exposes weak",
+      "understanding faster than",
+      "rereading does"
+     ],
+     "fr": "[[expliquer fait ressortir tes lacunes]] plus vite que relire",
+     "texte": "la voglia segue l'abitudine. [[fallo una volta oggi]] e la motivazione arriverà dopo"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_001d31ba.jpg",
+      "boite": [
+       0,
+       250,
+       1760,
+       1830
+      ]
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o302",
+  "type_bleo": "full_test",
+  "titre": "pourquoi j'écris quelques lignes chaque soir avant de dormir #ecriture #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "Accroche réécrite après refus du guichet (theme_gagnant). full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta C. Récit « je », aucun fait daté. Routine du 26/11 sur BLEO (par_jour passé à 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 15 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14, 15 et 16 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "cdfbe078",
+      "texte_overlay": "pourquoi j'écris quelques lignes\nchaque soir avant de dormir",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "a247c8ac",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "dbe8db6d",
+      "texte_overlay": "1. mes soucis se répètent\n\nen relisant, je vois les mêmes.\net je les règle enfin.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d2a03905",
+      "texte_overlay": "2. j'écris mieux\n\nun peu chaque soir,\nles phrases viennent plus vite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c16fd654",
+      "texte_overlay": "3. les petits bonheurs comptent\n\nun café, un fou rire, un rayon de soleil.\nils remplissent les pages.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "d23817b3",
+      "texte_overlay": "4. je me connais mieux\n\nce qui me rend heureuse,\nce qui me fatigue.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "c998a9e9",
+      "texte_overlay": "5. relire, c'est voyager\n\nla fille d'il y a un an\nme fait sourire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "e335df1d",
+      "texte_overlay": "tu tiens un journal ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

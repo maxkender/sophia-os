@@ -1,0 +1,324 @@
+{
+  "id": "md-005",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "titre": {
+    "en": "Paintings With The Darkest Stories",
+    "el": "Πίνακες με τις πιο σκοτεινές ιστορίες",
+    "es-419": "Pinturas con las historias más oscuras",
+    "it": "Quadri con le storie più oscure",
+    "fr": "Les tableaux aux histoires les plus sombres",
+    "hu": "A legsötétebb történetű festmények",
+    "sr": "Slike sa najmračnijim pričama",
+    "hr": "Slike s najmračnijim pričama",
+    "lv": "Gleznas ar vistumšākajiem stāstiem",
+    "ro": "Picturi cu cele mai întunecate povești"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #caravaggio #delacroix #museum",
+    "el": "#ιστορίατηςτέχνης #ζωγραφική #caravaggio #delacroix #μουσείο",
+    "es-419": "#historiadelarte #pintura #caravaggio #delacroix #museo",
+    "it": "#storiadellarte #pittura #caravaggio #delacroix #museo",
+    "fr": "#histoiredelart #peinture #caravage #delacroix #musee",
+    "hu": "#művészettörténet #festészet #caravaggio #delacroix #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #caravaggio #delacroix #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #caravaggio #delacroix #muzej",
+    "lv": "#mākslasvēsture #glezniecība #caravaggio #delacroix #muzejs",
+    "ro": "#istoriaartei #pictura #caravaggio #delacroix #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/reniement-pierre.jpg": {
+      "musee": "The Met",
+      "id": "437986",
+      "titre": "The Denial of Saint Peter",
+      "artiste": "Caravaggio (Michelangelo Merisi)",
+      "date": "1610",
+      "url": "https://www.metmuseum.org/art/collection/search/437986"
+    },
+    "images/oeuvres/madeleine.jpg": {
+      "musee": "The Met",
+      "id": "436839",
+      "titre": "The Penitent Magdalen",
+      "artiste": "Georges de La Tour",
+      "date": "ca. 1640",
+      "url": "https://www.metmuseum.org/art/collection/search/436839"
+    },
+    "images/oeuvres/salome.jpg": {
+      "musee": "The Met",
+      "id": "437384",
+      "titre": "Salome",
+      "artiste": "Henri Regnault",
+      "date": "1870",
+      "url": "https://www.metmuseum.org/art/collection/search/437384"
+    },
+    "images/oeuvres/christ-tempete.jpg": {
+      "musee": "The Met",
+      "id": "436176",
+      "titre": "Christ Asleep during the Tempest",
+      "artiste": "Eugène Delacroix",
+      "date": "ca. 1853",
+      "url": "https://www.metmuseum.org/art/collection/search/436176"
+    }
+  },
+  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : Le Reniement de saint Pierre : 1610, une des dernières œuvres ; Caravage mort en juillet 1610, en fuite depuis le meurtre de Ranuccio Tomassoni à Rome (1606). La Madeleine à la veilleuse (« aux deux flammes ») : main sur le crâne, bijoux posés, la flamme reflétée dans le miroir. Salomé : Salon de 1870 ; Regnault tué à Buzenval le 19 janvier 1871, à 27 ans ; couteau et plat vide sur les genoux. Delacroix : sujet peint plusieurs fois dans les années 1850 (Marc 4, 35-41). Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (une foule ou des visiteurs de dos, le tableau n'est qu'une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-bougie.jpg",
+      "en": {
+        "titre": "Paintings With The Darkest Stories"
+      },
+      "el": {
+        "titre": "Πίνακες με τις πιο σκοτεινές ιστορίες"
+      },
+      "es-419": {
+        "titre": "Pinturas con las historias más oscuras"
+      },
+      "it": {
+        "titre": "Quadri con le storie più oscure"
+      },
+      "fr": {
+        "titre": "Les tableaux aux histoires les plus sombres"
+      },
+      "hu": {
+        "titre": "A legsötétebb történetű\nfestmények"
+      },
+      "sr": {
+        "titre": "Slike sa najmračnijim pričama"
+      },
+      "hr": {
+        "titre": "Slike s najmračnijim pričama"
+      },
+      "lv": {
+        "titre": "Gleznas ar vistumšākajiem stāstiem"
+      },
+      "ro": {
+        "titre": "Picturi cu cele mai întunecate povești"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/reniement-pierre.jpg",
+      "en": {
+        "titre": "The Denial of Saint Peter",
+        "texte": "is one of the last paintings Caravaggio made before he died in 1610, still on the run for killing a man in Rome. A soldier and a servant point at Peter, who swears he never knew Jesus. Only their faces escape the dark.",
+        "artiste": "Caravaggio"
+      },
+      "el": {
+        "titre": "Η άρνηση του Πέτρου",
+        "texte": "είναι από τους τελευταίους πίνακες που έφτιαξε ο Καραβάτζιο πριν πεθάνει το 1610, ακόμη φυγάς επειδή είχε σκοτώσει έναν άνθρωπο στη Ρώμη. Ένας στρατιώτης και μια υπηρέτρια δείχνουν τον Πέτρο, που ορκίζεται ότι δεν γνώρισε ποτέ τον Ιησού. Μόνο τα πρόσωπά τους ξεφεύγουν από το σκοτάδι.",
+        "artiste": "Καραβάτζιο"
+      },
+      "es-419": {
+        "titre": "La negación de San Pedro",
+        "texte": "es una de las últimas pinturas que Caravaggio hizo antes de morir en 1610, todavía prófugo por haber matado a un hombre en Roma. Un soldado y una sirvienta señalan a Pedro, que jura que nunca conoció a Jesús. Solo sus rostros escapan de la oscuridad.",
+        "artiste": "Caravaggio"
+      },
+      "it": {
+        "titre": "Il rinnegamento di san Pietro",
+        "texte": "è uno degli ultimi quadri dipinti da Caravaggio prima di morire nel 1610, ancora in fuga per aver ucciso un uomo a Roma. Un soldato e una serva indicano Pietro, che giura di non aver mai conosciuto Gesù. Solo i loro volti sfuggono al buio.",
+        "artiste": "Caravaggio"
+      },
+      "fr": {
+        "titre": "Le Reniement de saint Pierre",
+        "texte": "est l'un des derniers tableaux du Caravage avant sa mort en 1610, alors qu'il fuyait encore pour avoir tué un homme à Rome. Un soldat et une servante désignent Pierre, qui jure n'avoir jamais connu Jésus. Seuls leurs visages échappent à l'ombre.",
+        "artiste": "Le Caravage"
+      },
+      "hu": {
+        "titre": "Szent Péter tagadása",
+        "texte": "Caravaggio egyik utolsó festménye 1610-es halála előtt, amikor még mindig menekült, mert megölt egy embert Rómában. Egy katona és egy szolgálólány Péterre mutat, aki esküszik, hogy sosem ismerte Jézust. Csak az arcuk szökik ki a sötétből.",
+        "artiste": "Caravaggio"
+      },
+      "sr": {
+        "titre": "Petrovo odricanje",
+        "texte": "jedna je od poslednjih slika koje je Karavađo naslikao pre smrti 1610, dok je još bežao jer je ubio čoveka u Rimu. Vojnik i sluškinja pokazuju na Petra, koji se kune da nikada nije poznavao Isusa. Samo njihova lica izmiču tami.",
+        "artiste": "Karavađo"
+      },
+      "hr": {
+        "titre": "Petrovo zatajenje",
+        "texte": "jedna je od posljednjih slika koje je Caravaggio naslikao prije smrti 1610., dok je još bježao jer je ubio čovjeka u Rimu. Vojnik i sluškinja pokazuju na Petra, koji se kune da nikad nije poznavao Isusa. Samo njihova lica izmiču tami.",
+        "artiste": "Caravaggio"
+      },
+      "lv": {
+        "titre": "Pētera noliegšanās",
+        "texte": "ir viena no pēdējām gleznām, ko Karavadžo uzgleznoja pirms nāves 1610. gadā, joprojām bēgot, jo bija nogalinājis cilvēku Romā. Karavīrs un kalpone norāda uz Pēteri, kurš zvēr, ka nekad nav pazinis Jēzu. Tikai viņu sejas izraujas no tumsas.",
+        "artiste": "Karavadžo"
+      },
+      "ro": {
+        "titre": "Lepădarea Sfântului Petru",
+        "texte": "este unul dintre ultimele tablouri pictate de Caravaggio înainte să moară, în 1610, încă fugar pentru că ucisese un om la Roma. Un soldat și o servitoare arată spre Petru, care jură că nu l-a cunoscut niciodată pe Iisus. Doar chipurile lor scapă din întuneric.",
+        "artiste": "Caravaggio"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/madeleine.jpg",
+      "en": {
+        "titre": "The Penitent Magdalen",
+        "texte": "is Mary Magdalen on the night she gives up her old life. Her jewels lie on the table and her hand rests on a skull. I only noticed the candle burning a second time in the mirror because of Artura, which zooms into the details you'd miss.",
+        "artiste": "Georges de La Tour"
+      },
+      "el": {
+        "titre": "Η μετανοούσα Μαγδαληνή",
+        "texte": "είναι η Μαρία η Μαγδαληνή τη νύχτα που αφήνει πίσω την παλιά της ζωή. Τα κοσμήματά της είναι στο τραπέζι και το χέρι της ακουμπά σε ένα κρανίο. Πρόσεξα το κερί να καίει για δεύτερη φορά στον καθρέφτη μόνο χάρη στο Artura, που κάνει ζουμ στις λεπτομέρειες που θα σου ξέφευγαν.",
+        "artiste": "Ζορζ ντε Λα Τουρ"
+      },
+      "es-419": {
+        "titre": "La Magdalena penitente",
+        "texte": "es María Magdalena la noche en que deja atrás su antigua vida. Sus joyas están sobre la mesa y su mano descansa sobre una calavera. Solo noté que la vela arde por segunda vez en el espejo gracias a Artura, que hace zoom en los detalles que se te escaparían.",
+        "artiste": "Georges de La Tour"
+      },
+      "it": {
+        "titre": "La Maddalena penitente",
+        "texte": "è Maria Maddalena nella notte in cui rinuncia alla sua vecchia vita. I gioielli sono sul tavolo e la sua mano poggia su un teschio. Ho notato la candela che brucia una seconda volta nello specchio solo grazie ad Artura, che fa lo zoom sui dettagli che ti sfuggirebbero.",
+        "artiste": "Georges de La Tour"
+      },
+      "fr": {
+        "titre": "La Madeleine pénitente",
+        "texte": "est Marie-Madeleine la nuit où elle renonce à son ancienne vie. Ses bijoux sont posés sur la table et sa main repose sur un crâne. Je n'ai remarqué la bougie qui brûle une seconde fois dans le miroir que grâce à Artura, qui zoome sur les détails qu'on raterait.",
+        "artiste": "Georges de La Tour"
+      },
+      "hu": {
+        "titre": "A bűnbánó Magdolna",
+        "texte": "maga Mária Magdolna azon az éjszakán, amikor felhagy régi életével. Ékszerei az asztalon hevernek, keze egy koponyán nyugszik. A gyertyát, amely a tükörben másodszor is ég, csak az Artura appnak köszönhetően vettem észre, ami ráközelít a részletekre, amelyek elkerülnék a figyelmedet.",
+        "artiste": "Georges de La Tour"
+      },
+      "sr": {
+        "titre": "Pokajnica Magdalena",
+        "texte": "je Marija Magdalena one noći kada se odriče starog života. Njen nakit leži na stolu, a ruka joj počiva na lobanji. Sveću koja u ogledalu gori i drugi put primetila sam tek zahvaljujući aplikaciji Artura, koja zumira detalje koji bi ti inače promakli.",
+        "artiste": "Žorž de La Tur"
+      },
+      "hr": {
+        "titre": "Pokajnica Magdalena",
+        "texte": "je Marija Magdalena one noći kad se odriče starog života. Njezin nakit leži na stolu, a ruka joj počiva na lubanji. Svijeću koja u zrcalu gori i drugi put primijetila sam tek zahvaljujući aplikaciji Artura, koja zumira detalje koji bi ti inače promakli.",
+        "artiste": "Georges de La Tour"
+      },
+      "lv": {
+        "titre": "Grēku nožēlotāja Magdalēna",
+        "texte": "ir Marija Magdalēna naktī, kad viņa atsakās no savas agrākās dzīves. Viņas rotaslietas guļ uz galda, un roka atdusas uz galvaskausa. Sveci, kas spogulī deg otrreiz, pamanīju tikai pateicoties lietotnei Artura, kas pietuvina detaļas, kuras tu citādi palaistu garām.",
+        "artiste": "Žoržs de Latūrs"
+      },
+      "ro": {
+        "titre": "Magdalena penitentă",
+        "texte": "este Maria Magdalena în noaptea în care renunță la vechea ei viață. Bijuteriile ei stau pe masă, iar mâna i se sprijină pe un craniu. Am observat lumânarea care arde a doua oară în oglindă doar datorită aplicației Artura, care face zoom pe detaliile pe care le-ai rata.",
+        "artiste": "Georges de La Tour"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/salome.jpg",
+      "en": {
+        "titre": "Salome",
+        "texte": "made Henri Regnault the star of the 1870 Salon. She smiles, a knife and an empty platter on her lap, waiting for the head of John the Baptist. Less than a year later, Regnault was killed in the war, at 27.",
+        "artiste": "Henri Regnault"
+      },
+      "el": {
+        "titre": "Σαλώμη",
+        "texte": "έκανε τον Ανρί Ρενιό το αστέρι του Σαλονιού του 1870. Χαμογελά, με ένα μαχαίρι και μια άδεια πιατέλα στα γόνατα, περιμένοντας το κεφάλι του Ιωάννη του Βαπτιστή. Λιγότερο από έναν χρόνο αργότερα, ο Ρενιό σκοτώθηκε στον πόλεμο, στα 27 του.",
+        "artiste": "Ανρί Ρενιό"
+      },
+      "es-419": {
+        "titre": "Salomé",
+        "texte": "convirtió a Henri Regnault en la estrella del Salón de 1870. Sonríe, con un cuchillo y una bandeja vacía en el regazo, esperando la cabeza de Juan el Bautista. Menos de un año después, Regnault murió en la guerra, a los 27 años.",
+        "artiste": "Henri Regnault"
+      },
+      "it": {
+        "titre": "Salomè",
+        "texte": "fece di Henri Regnault la star del Salon del 1870. Sorride, con un coltello e un vassoio vuoto in grembo, in attesa della testa di Giovanni Battista. Meno di un anno dopo, Regnault morì in guerra, a 27 anni.",
+        "artiste": "Henri Regnault"
+      },
+      "fr": {
+        "titre": "Salomé",
+        "texte": "a fait d'Henri Regnault la star du Salon de 1870. Elle sourit, un couteau et un plat vide sur les genoux, en attendant la tête de Jean-Baptiste. Moins d'un an plus tard, Regnault était tué à la guerre, à 27 ans.",
+        "artiste": "Henri Regnault"
+      },
+      "hu": {
+        "titre": "Salome",
+        "texte": "tette Henri Regnault-t az 1870-es Szalon sztárjává. Mosolyog, ölében kés és üres tál, Keresztelő János fejére vár. Kevesebb mint egy évvel később Regnault elesett a háborúban, 27 évesen.",
+        "artiste": "Henri Regnault"
+      },
+      "sr": {
+        "titre": "Saloma",
+        "texte": "je od Anrija Renjoa napravila zvezdu Salona 1870. godine. Smeši se, s nožem i praznim tanjirom u krilu, čekajući glavu Jovana Krstitelja. Manje od godinu dana kasnije Renjo je poginuo u ratu, sa 27 godina.",
+        "artiste": "Anri Renjo"
+      },
+      "hr": {
+        "titre": "Saloma",
+        "texte": "učinila je Henrija Regnaulta zvijezdom Salona 1870. Smiješi se, s nožem i praznim pladnjem u krilu, čekajući glavu Ivana Krstitelja. Manje od godinu dana poslije Regnault je poginuo u ratu, u 27. godini.",
+        "artiste": "Henri Regnault"
+      },
+      "lv": {
+        "titre": "Salome",
+        "texte": "padarīja Anrī Reņo par 1870. gada Salona zvaigzni. Viņa smaida, klēpī nazis un tukša pāplāte, gaidot Jāņa Kristītāja galvu. Nepilnu gadu vēlāk Reņo krita karā, 27 gadu vecumā.",
+        "artiste": "Anrī Reņo"
+      },
+      "ro": {
+        "titre": "Salomeea",
+        "texte": "l-a transformat pe Henri Regnault în vedeta Salonului din 1870. Zâmbește, cu un cuțit și o tavă goală în poală, așteptând capul lui Ioan Botezătorul. Nici un an mai târziu, Regnault murea în război, la 27 de ani.",
+        "artiste": "Henri Regnault"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/christ-tempete.jpg",
+      "en": {
+        "titre": "Christ Asleep during the Tempest",
+        "texte": "shows the apostles fighting the waves while Jesus sleeps in the middle of the boat. Delacroix painted this storm again and again in his last years. Only one figure on board is calm.",
+        "artiste": "Eugène Delacroix"
+      },
+      "el": {
+        "titre": "Ο Χριστός κοιμάται στην τρικυμία",
+        "texte": "δείχνει τους αποστόλους να παλεύουν με τα κύματα ενώ ο Ιησούς κοιμάται στη μέση της βάρκας. Ο Ντελακρουά ζωγράφισε αυτή την καταιγίδα ξανά και ξανά τα τελευταία του χρόνια. Μόνο μία μορφή στη βάρκα είναι ήρεμη.",
+        "artiste": "Εζέν Ντελακρουά"
+      },
+      "es-419": {
+        "titre": "Cristo dormido durante la tempestad",
+        "texte": "muestra a los apóstoles luchando contra las olas mientras Jesús duerme en medio de la barca. Delacroix pintó esta tormenta una y otra vez en sus últimos años. Solo una figura a bordo está en calma.",
+        "artiste": "Eugène Delacroix"
+      },
+      "it": {
+        "titre": "Cristo addormentato durante la tempesta",
+        "texte": "mostra gli apostoli che lottano contro le onde mentre Gesù dorme in mezzo alla barca. Delacroix dipinse questa tempesta più e più volte negli ultimi anni. Solo una figura a bordo è calma.",
+        "artiste": "Eugène Delacroix"
+      },
+      "fr": {
+        "titre": "Le Christ endormi pendant la tempête",
+        "texte": "montre les apôtres luttant contre les vagues pendant que Jésus dort au milieu de la barque. Delacroix a peint cette tempête encore et encore dans ses dernières années. Une seule silhouette à bord reste calme.",
+        "artiste": "Eugène Delacroix"
+      },
+      "hu": {
+        "titre": "Krisztus alszik a viharban",
+        "texte": "az apostolokat mutatja, akik a hullámokkal küzdenek, miközben Jézus a csónak közepén alszik. Delacroix utolsó éveiben újra és újra megfestette ezt a vihart. A fedélzeten csak egyetlen alak nyugodt.",
+        "artiste": "Eugène Delacroix"
+      },
+      "sr": {
+        "titre": "Hrist spava tokom oluje",
+        "texte": "prikazuje apostole kako se bore s talasima dok Isus spava nasred čamca. Delakroa je ovu oluju slikao iznova i iznova poslednjih godina života. Samo je jedna figura u čamcu mirna.",
+        "artiste": "Ežen Delakroa"
+      },
+      "hr": {
+        "titre": "Krist spava za vrijeme oluje",
+        "texte": "prikazuje apostole kako se bore s valovima dok Isus spava nasred lađe. Delacroix je tu oluju slikao iznova i iznova u posljednjim godinama života. Samo je jedan lik u lađi miran.",
+        "artiste": "Eugène Delacroix"
+      },
+      "lv": {
+        "titre": "Kristus guļ vētras laikā",
+        "texte": "rāda apustuļus cīnāmies ar viļņiem, kamēr Jēzus guļ laivas vidū. Delakruā šo vētru gleznoja atkal un atkal savos pēdējos gados. Tikai viens tēls laivā ir mierīgs.",
+        "artiste": "Ežēns Delakruā"
+      },
+      "ro": {
+        "titre": "Hristos dormind în timpul furtunii",
+        "texte": "îi arată pe apostoli luptându-se cu valurile în timp ce Iisus doarme în mijlocul bărcii. Delacroix a pictat această furtună iar și iar în ultimii ani de viață. O singură siluetă din barcă e liniștită.",
+        "artiste": "Eugène Delacroix"
+      }
+    }
+  ]
+}

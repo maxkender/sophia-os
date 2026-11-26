@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o351",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6d0dafdb-db0c-40ff-8181-e357839f905b",
+ "titre": "les phrases calmes qui ont changé ma place en réunion #travail #reunion #confiance #carriere #jobtips",
+ "musique_titre": "Reflection on Peace",
+ "musique_url": "https://www.tiktok.com/music/reflection-on-peace-7449413744872032272",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 26/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Déclinaison G2 de la ligne #3 (parent 6d0dafdb), 3e et dernière : même promesse, autres mots, phrases différentes de rh-o265, rh-o327 et rh-o339. Inspirations reprises de rh-o265. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "abe8518b",
+   "texte_overlay": "les phrases calmes\nqui ont changé ma place\nen réunion",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "49281c7f",
+   "texte_overlay": "« laisse-moi finir, j'ai presque terminé »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "77a8c1dc",
+   "texte_overlay": "« c'était mon idée tout à l'heure, je la complète »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "91441cd1",
+   "texte_overlay": "« on note qui fait quoi ? »\ncelle qui organise, on la respecte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ad39d48f",
+   "texte_overlay": "« je n'ai pas compris, tu peux redire ? »\nposer la question, c'est aussi prendre sa place",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "94cb615d",
+   "texte_overlay": "« j'ai lu un chiffre là-dessus »\nmes 3 sources : un rapport, un podcast, 5 minutes par jour",
+   "texte_sophia": "« j'ai lu un chiffre là-dessus »\nmes 3 sources : un rapport, un podcast, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "654d24f1",
+   "texte_overlay": "laquelle tu dis demain ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  }
+ ]
+}

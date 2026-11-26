@@ -1,0 +1,298 @@
+{
+ "post_id": "var-ruin20s-8",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 ways to ruin your 20s"
+     ],
+     "fr": "top 5 pour foirer ta vingtaine",
+     "texte": "kako da sigurno žališ za dvadesetim"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça pique)",
+     "alignement": "droite",
+     "texte": "(proverena metoda)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_03d3cfd2.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never travel"
+     ],
+     "fr": "ne pars jamais",
+     "texte": "uvek kasni 15 minuta"
+    },
+    "T2": {
+     "en": [
+      "there's nothing out there you need to experience",
+      "yourself"
+     ],
+     "fr": "y'a [[rien là-dehors]] qui mérite que tu le vives en vrai",
+     "texte": "tačnost? to je za ljude [[koji imaju plan]]"
+    },
+    "T3": {
+     "en": [
+      "you can see mountains,",
+      "cities, cultures and people",
+      "through a 6-inch screen",
+      "anyway"
+     ],
+     "fr": "montagnes, villes, cultures, gens : tu vois tout [[sur un écran de 15 cm, de toute façon]]",
+     "texte": "predavanje, intervju, rođendan najbolje drugarice: uvek upadni [[usred rečenice]]"
+    },
+    "T4": {
+     "en": [
+      "stay where it's",
+      "comfortable"
+     ],
+     "fr": "reste [[dans ta zone de confort]]",
+     "texte": "piši [[„stižem!!“]] iz kreveta"
+    },
+    "T5": {
+     "en": [
+      "why risk discovering that",
+      "the world is much bigger",
+      "than the life you've built?"
+     ],
+     "fr": "pourquoi risquer de découvrir que le monde est [[bien plus grand]] que ta petite vie ?",
+     "texte": "ljudi će prestati da računaju na tebe, a ti ćeš konačno imati [[više slobodnog vremena]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_2e15aecf.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       1600
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel ready"
+     ],
+     "fr": "attendre [[d'être prête]]",
+     "texte": "pobedi u svakoj svađi"
+    },
+    "T2": {
+     "en": [
+      "putting things off feels harmless in the moment,",
+      "but it slowly becomes your default response to",
+      "anything difficult"
+     ],
+     "fr": "repousser les choses, [[ça paraît pas grave]] sur le moment, mais petit à petit ça devient [[ton réflexe dès que c'est dur]]",
+     "texte": "neko se ne slaže? podigni ton, promeni temu i nikad ne reci [[„u pravu si“]]. da to priznaš samo jednom, bio bi kraj"
+    },
+    "T3": {
+     "en": [
+      "the longer you",
+      "avoid something,",
+      "the heavier it feels"
+     ],
+     "fr": "plus tu repousses un truc, plus il [[pèse lourd]]",
+     "texte": "činjenice? [[imaš svoj osećaj]], isto je"
+    },
+    "T4": {
+     "en": [
+      "start before you feel ready. your 20s disappear",
+      "quickly when everything important keeps getting",
+      "pushed to “tomorrow”"
+     ],
+     "fr": "commence [[avant d'être prête]]. [[tes 20 ans passent à toute vitesse]] si tout ce qui compte est toujours remis à “demain”",
+     "texte": "u 30-im ćeš biti u pravu za sve, a [[niko neće ostati da ti protivreči]]. potpuna pobeda"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_028f6734.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "drži sve u sebi"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "tuga, bes, strah? odgovori [[„sve ok haha“]] i promeni temu"
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "nikad ne pričaj o tome, ni sa drugarima, ni sa porodicom, a pogotovo [[ne sa psihologom]]"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "jednog dana će sve izaći odjednom, [[najbolje u supermarketu]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_5ad3cf2f.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "živi u potpunom haosu"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "garderoba na stolici, šolje na stolu, [[veš od 3 nedelje]] na podu"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "neuredna soba znači [[kreativan um]], naravno"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "a onda se pitaj zašto nikad ne možeš da nađeš ključeve, punjač ili [[snagu da bilo šta započneš]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_984cc77a.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never stop scrolling"
+     ],
+     "fr": "scrolle non-stop",
+     "texte": "prvo telefon, pa onda oči"
+    },
+    "T2": {
+     "en": [
+      "maybe the next tiktok will finally",
+      "solve your problems"
+     ],
+     "fr": "le [[prochain tiktok]] va [[enfin]] régler tes problèmes, qui sait",
+     "texte": "ugasi alarm i [[pravo na fid]], još ispod ćebeta"
+    },
+    "T3": {
+     "en": [
+      "don’t limit your screen time,",
+      "don’t start reading, don’t give",
+      "your brain a chance to get",
+      "bored"
+     ],
+     "fr": "limite pas ton temps d'écran, ouvre surtout pas [[l'appli Sophia]] 5 min, laisse jamais ton cerveau [[s'ennuyer]]",
+     "texte": "i nikako ne menjaj taj skrol za knjigu na noćnom stočiću, podkast pod tušem ili 5 min u [[aplikaciji Sophia]]"
+    },
+    "T4": {
+     "en": [
+      "just keep feeding the algorithm",
+      "until it knows what you want",
+      "better than you do"
+     ],
+     "fr": "continue de [[nourrir l'algo]] jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]",
+     "texte": "počni svaki dan sa [[mišljenjem 40 neznanaca]] pre svog"
+    },
+    "T5": {
+     "en": [
+      "keep giving them your data,",
+      "they deserve it!"
+     ],
+     "fr": "file-leur [[tes données]], ils le méritent !",
+     "texte": "dobro raspoloženje zagarantovano, [[naravno]]!"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  }
+ }
+}

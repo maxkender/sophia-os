@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o448",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b83b70e2-e668-438c-b7d1-73dccaa38b8e",
+ "titre": "How to get ahead of most men your age #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "addiction - Slowed",
+ "musique_url": "https://www.tiktok.com/music/addiction-slowed-7631225786641336336",
+ "inspirations": [
+  "b83b70e2-e668-438c-b7d1-73dccaa38b8e"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 5 de la boîte (b83b70e2, notre ay-o349), 2e déclinaison après ay-o431. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o349, o431 ni de 9d0e60f6.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "afc7b143-e592-4695-a025-679b82c2289d",
+   "texte_overlay": "How to get ahead of most men\nyour age",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Wake up early on weekdays. An extra hour in the morning, five days a week, adds up to more than 250 hours a year.",
+   "media_id": "d6717109-62de-4dc7-8fde-2e40397ad738"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Learn one valuable skill deeply. Writing, sales, design, a trade. Real expertise beats being average at many things.",
+   "media_id": "d6c59909-8c7e-48eb-b532-e0496fc330c4"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Spend less than you earn, always. Even on a small salary. Money discipline gives you freedom while others stay stuck.",
+   "media_id": "d735b4da-28e6-4f21-bddd-50ca8ecd1df6"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Take care of your body daily. Training, sleep, real food. Health is the advantage that makes every other goal easier.",
+   "media_id": "d78d00d7-0415-47a7-9b4e-b84a7d7facf9"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Small daily learning puts you ahead without anyone noticing.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Small daily learning puts you ahead without anyone noticing.",
+   "media_id": "f41b290c-2d21-4c48-8768-7a30f43330e0"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Find people who are ahead of you. Ask questions, listen, learn. A good mentor can save you a decade of mistakes.",
+   "media_id": "d82ee24c-865f-4382-92a4-ebb31f1f5fb6"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Be patient and consistent. Most men give up after a few months. Those who keep going are the ones who win. Stay in the game.",
+   "media_id": "d9bc62a9-5233-43f1-81d1-cc5baa1760f8"
+  }
+ ]
+}

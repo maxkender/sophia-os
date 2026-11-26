@@ -105,7 +105,8 @@ export function traductionValide(source: Record<string, string>, sortie: unknown
   return true;
 }
 
-export function consigne(langue: string, champs: Record<string, string>): string {
+/** `regles` : des règles en plus (25/11 : les modèles WhatsApp), ajoutées après celles des emails. */
+export function consigne(langue: string, champs: Record<string, string>, regles: string[] = []): string {
   const l = normaliserLangue(langue);
   return [
     `Translate the values of this JSON object from English into ${NOMS[l] ?? l} (language code "${l}").`,
@@ -116,12 +117,13 @@ export function consigne(langue: string, champs: Record<string, string>): string
     '- Keep "Vik Studios", "Ruul", "TikTok", "Slack", "Sophia OS" and the button name "Help" as they are.',
     "- Use the informal you (like tu / du / ti). Simple, short and friendly, the same meaning: nothing added, nothing removed.",
     "- Never use the words bot, AI, artificial intelligence, automatic or automated.",
+    ...regles,
     "",
     JSON.stringify(champs),
   ].join("\n");
 }
 
-function lireJson(texte: string): unknown {
+export function lireJson(texte: string): unknown {
   const t = texte.trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "");
   try {
     return JSON.parse(t);
@@ -137,7 +139,7 @@ function lireJson(texte: string): unknown {
   }
 }
 
-async function empreinte(v: unknown): Promise<string> {
+export async function empreinte(v: unknown): Promise<string> {
   const octets = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(JSON.stringify(v)));
   return [...new Uint8Array(octets)].map((b) => b.toString(16).padStart(2, "0")).join("");
 }

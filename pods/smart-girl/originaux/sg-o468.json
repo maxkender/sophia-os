@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o468",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a70b8a9c-f063-4d45-9994-958bf1739308",
+ "titre": "୨୧ 5 words to help expand your vocabulary (oxford core) #vocabulary #words #smartgirl #english #wordoftheday",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "a70b8a9c-f063-4d45-9994-958bf1739308"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 59 de la boîte (parent a70b8a9c, langue source ro) : accroche du parent mot pour mot avec ୨୧. Mots du parent (veracity, redolent, effulgent, munificent) et polymath à la place de « culture générale ». Sophia au milieu comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "138936c1",
+   "texte_overlay": "୨୧ 5 words to help expand\nyour vocabulary (oxford core)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598572622993018134/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "45b0b5f4",
+   "texte_overlay": "veracity\n\ntruthfulness, accuracy.\n\nher account was praised\nfor its veracity.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598572622993018134/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "81039ddf",
+   "texte_overlay": "redolent\n\nstrongly evocative.\n\nthe kitchen was redolent\nof cinnamon.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598572622993018134/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6b66beb4",
+   "texte_overlay": "polymath\n\nsomeone who knows a lot\nabout many subjects.",
+   "texte_sophia": "polymath\n\nsomeone who knows a lot about many\nsubjects, one lesson a day on Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598572622993018134/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "00b3be1d",
+   "texte_overlay": "effulgent\n\nshining brilliantly.\n\nan effulgent sunrise.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598572622993018134/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9d73ad39",
+   "texte_overlay": "munificent\n\nextremely generous.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598572622993018134/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "18d4e66d",
+   "texte_overlay": "follow for more\ndaily words",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598572622993018134/7.jpg"
+  }
+ ]
+}

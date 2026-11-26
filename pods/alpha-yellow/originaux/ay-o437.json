@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o437",
+ "type_bleo": "full_test",
+ "titre": "How to build a simple wardrobe that always looks good #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to build a simple wardrobe that always looks good » (retenue), « Capsule wardrobe for men » (écartée : jargon), « Stop buying clothes you never wear » (écartée : négatif).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1944cad4-3208-43dd-b648-cadd4ce0cabc",
+   "texte_overlay": "How to build a simple wardrobe\nthat always looks good",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Start with neutral colours. Navy, grey, white, black, olive. Everything matches everything, so getting dressed takes seconds and always looks put together.",
+   "media_id": "059b0418-c0c7-4ab2-8aec-7a3cae3447ab"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Own a few great basics. Plain t-shirts, a white shirt, dark jeans, chinos. Simple pieces that fit well beat trendy pieces that don't.",
+   "media_id": "08cf4624-e560-45ae-8682-7f5aa157ea98"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Invest in one good jacket. A wool coat for winter or a clean bomber for spring. Outerwear is what people see first and remember.",
+   "media_id": "10e12e44-1c91-46d8-855a-214ac31312ae"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Keep two pairs of shoes in perfect shape. Clean white sneakers and leather boots or loafers cover almost every situation.",
+   "media_id": "148be1d9-7a81-4267-b7a3-bc3518b2f3f8"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I spent money on clothes to feel better. After: five minutes a day of history, art or science, and I feel sharp without new things.",
+   "texte_sophia": "Before: I spent money on clothes to feel better. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I feel sharp without new things.",
+   "media_id": "34ef908d-1b1a-49f2-b71d-311e8bddc6f7"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Get things tailored. A small adjustment on sleeves or trousers makes cheap clothes look expensive. It costs little and changes a lot.",
+   "media_id": "18956c4c-31d5-4622-8c7e-c7a9694c72d2"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Give away what you haven't worn in a year. A smaller wardrobe is easier to manage and makes every piece you own feel like a good choice.",
+   "media_id": "204e3035-7794-45d8-b6b1-099e385ab873"
+  }
+ ]
+}

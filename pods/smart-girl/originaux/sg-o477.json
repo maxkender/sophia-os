@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o477",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "523ba35e-e70e-484e-a1ca-93fb6ba2c134",
+ "titre": "the european art of doing nothing #slowliving #europe #smartgirl #words #dolcefarniente",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 96 de la boîte (parent 523ba35e, langue source pl) : accroche du parent mot pour mot ; mots neufs face à sg-o274 (sobremesa, flâneur, gezelligheid, fika, kalsarikänni, siesta). Sophia au milieu comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "527c1166",
+   "texte_overlay": "the european art\nof doing nothing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c8f4f2bc",
+   "texte_overlay": "sobremesa\n\nspanish: lingering at the\ntable after the meal.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c7a5e37d",
+   "texte_overlay": "fika\n\nswedish: the sacred\ncoffee break.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "409e3bac",
+   "texte_overlay": "every culture has a word for it",
+   "texte_sophia": "every culture has a word for it. i learn\none a day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "efc1ba2d",
+   "texte_overlay": "gezelligheid\n\ndutch: warm togetherness.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "50807ad2",
+   "texte_overlay": "kalsarikänni\n\nfinnish: a quiet evening\nat home, in pyjamas.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b7be69f0",
+   "texte_overlay": "siesta\n\nthe spanish afternoon rest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5a8b139a",
+   "texte_overlay": "which one do you need\nthis weekend?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

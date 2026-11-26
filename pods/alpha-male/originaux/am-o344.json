@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o344",
+ "type_bleo": "full_test",
+ "titre": "Rules for game night with the boys #men #gamenight #friends #brotherhood #fun",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 26/11. Full test du jour (1 sur 8, jauge : 8 sur 26). Accroche jamais faite chez nous : aucun « game night » dans donnees/label.json. reference_url : post source de am-o034, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0d29efa7",
+   "texte_overlay": "Rules for game night\nwith the boys",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5a8e8b79",
+   "texte_overlay": "1. Host provides the table,\nguests bring the food",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "11323bc8",
+   "texte_overlay": "2. Phones in a pile",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9b270d9f",
+   "texte_overlay": "3. Read the rules before,\nnot during",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6a1d64f8",
+   "texte_overlay": "4. Winners clean up",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "14288f0d",
+   "texte_overlay": "5. Last game at midnight",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8c9feb24",
+   "texte_overlay": "6. Bring a trivia round\n\nTen questions, real prizes.",
+   "texte_sophia": "6. Bring a trivia round\n\nI get my questions\nfrom the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o438",
+ "type_bleo": "full_test",
+ "titre": "What happens when you stop drinking for a month #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « What happens when you stop drinking for a month » (retenue), « Why I quit drinking » (écartée : récit personnel trop fort), « Sober month for men » (écartée : plat). Ton neutre, sans moralisme ni promesse médicale.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "39a6fb6a-a74d-4004-a149-f31836e66173",
+   "texte_overlay": "What happens when you\nstop drinking for a month",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Your sleep gets deeper. Many men notice within a week that they wake up more rested and need less coffee to get going.",
+   "media_id": "28ef4ecd-76ee-4869-adf4-5fbd863ca5a7"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Your mornings come back. No more lost Sundays. Weekends suddenly have two full days for sport, friends and projects.",
+   "media_id": "38b9b110-db2a-4fb8-986e-2d780a526c11"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "You save more than you expect. Drinks, taxis, late-night food. Add it up for a month and the number often surprises people.",
+   "media_id": "3fddfc38-8da1-40a8-9a72-6ddcc31dac9d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Your mood feels more stable. Fewer low days after big nights out. Energy feels more even across the week. Fewer crashes, more calm.",
+   "media_id": "44cd5629-455a-4198-8a10-3d45806bb474"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Clear mornings are perfect for learning something new.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Clear mornings are perfect for learning something new.",
+   "media_id": "d5b100ed-b1d5-4a99-a987-af6a39525d6c"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "You find out which friendships need a drink. Some evenings get better, some feel strange. Both teach you something useful.",
+   "media_id": "4cdf165d-ecf5-45d8-934a-449b69e8b38b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "You learn what you actually enjoy. After a month, you decide calmly how much drinking you really want in your life.",
+   "media_id": "4e91058f-928a-432e-8c05-b2882188a78b"
+  }
+ ]
+}

@@ -61,28 +61,54 @@ export function traducteur(langue: string): T {
   };
 }
 
+/** 25/11 : la locale d'Intl pour une langue de Join (le serbe de Join s'écrit en alphabet latin). */
+export function localeIntl(langue: string): string {
+  return langue === "sr" ? "sr-Latn" : langue;
+}
+
 export function nomPays(code: string, langue: string): string {
   try {
-    return new Intl.DisplayNames([langue, "en"], { type: "region" }).of(code) ?? code;
+    return new Intl.DisplayNames([localeIntl(langue), "en"], { type: "region" }).of(code) ?? code;
   } catch {
     return code;
   }
 }
 
-export function dateLongue(jour: string, langue: string): string {
-  const d = new Date(`${jour}T12:00:00Z`);
+/**
+ * 25/11 : un jour (AAAA-MM-JJ) sans jour de la semaine : « 30 November », « 30 listopada », « 11月30日 ». Les textes
+ * écrivent eux-mêmes « lundi » à la bonne forme de leur langue (« w poniedziałek », « od poniedziałku », « na
+ * segunda-feira ») : le jour de la semaine tout seul, tiré d'Intl, n'a jamais la bonne préposition ni le bon cas.
+ */
+export function jourMois(jour: string, langue: string): string {
+  const d = new Date(`${jour.slice(0, 10)}T12:00:00Z`);
   try {
-    return d.toLocaleDateString(langue, { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
+    return d.toLocaleDateString(localeIntl(langue), { day: "numeric", month: "long", timeZone: "UTC" });
   } catch {
-    return jour;
+    return jour.slice(0, 10);
   }
 }
 
-/** La date limite (instant ISO) lue à Paris : « Sunday 29 November ». */
-export function heureLimite(iso: string, langue: string): string {
+/** L'instant de minuit (00:00, heure de Paris) au début du jour donné (comme minuitParis de _shared/join.ts). */
+export function minuitParis(jour: string): Date {
+  const utc = new Date(`${jour.slice(0, 10)}T00:00:00Z`);
+  const h = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hourCycle: "h23" }).format(utc));
+  return new Date(utc.getTime() - h * 3_600_000);
+}
+
+/** La date limite avant un lundi de départ : la veille à 23:59, heure de Paris (le dimanche à minuit). */
+export function limiteAvantLundi(lundi: string): Date {
+  return new Date(minuitParis(lundi).getTime() - 60_000);
+}
+
+/**
+ * 25/11 : une date limite lue dans le fuseau du candidat, avec l'heure : « Sunday 29 November, 19:59 » à São Paulo,
+ * « niedziela, 29 listopada, 23:59 » à Varsovie. Les textes ajoutent « (minuit, heure de Paris) ».
+ */
+export function limiteLocale(instant: string | Date, langue: string): string {
+  const d = new Date(instant);
   try {
-    return new Date(iso).toLocaleDateString(langue, { weekday: "long", day: "numeric", month: "long", timeZone: "Europe/Paris" });
+    return d.toLocaleString(localeIntl(langue), { weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
   } catch {
-    return iso.slice(0, 10);
+    return d.toISOString().slice(0, 16).replace("T", " ");
   }
 }

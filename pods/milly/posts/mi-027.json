@@ -1,0 +1,765 @@
+{
+ "id": "mi-027",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7669161866979069214",
+  "vues": 228400,
+  "publie_le": "2026-08-01",
+  "accroche": "How to / Focus / for / 20+ hours"
+ },
+ "fond": "vert_fonce",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "241b1b3e-54a6-4a39-be01-a8f876228d64",
+ "musique": {
+  "titre": "825 hp",
+  "url": "https://www.tiktok.com/music/825-hp-6891746453606123521"
+ },
+ "notes": "Déclinaison G1 de mi-005 « How to Focus for Longer » (ligne 1 de la boîte du 26/11, passages es-419 3,4 k vues r 4,6 et tr 1,5 k r 2,5) : titre et couverture du parent mot pour mot dans chaque langue, autres conseils, autres images, autre fond, autre CTA. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta C. Faits vérifiés : des milliers d'adultes sondés sur leur téléphone à des moments au hasard avaient l'esprit ailleurs environ 47 % du temps éveillé et étaient alors moins heureux (Killingsworth et Gilbert, Science 2010) ; deux semaines d'entraînement à la pleine conscience ont réduit l'esprit vagabond et amélioré la mémoire de travail et la compréhension écrite du GRE chez des étudiants (Mrazek, Franklin, Phillips, Baird et Schooler, Psychological Science 2013) ; 20 minutes de marche sur tapis font mieux réussir un test d'attention juste après chez des enfants, avec une activité cérébrale liée à l'attention plus forte (Hillman et al., Neuroscience 2009) ; une marche dans un parc fait mieux réussir un test d'attention qu'une marche en ville (Berman, Jonides et Kaplan, Psychological Science 2008). 11 langues. Images : banque (cerveau-frontal, irmf-axiale, tractographie), sans texte.",
+ "titre": {
+  "en": "How to Focus for Longer",
+  "fr": "Comment te concentrer plus longtemps",
+  "es": "Cómo concentrarte durante más tiempo",
+  "es-419": "Cómo concentrarte por más tiempo",
+  "it": "Come concentrarti più a lungo",
+  "tr": "Daha uzun süre nasıl odaklanırsın",
+  "pt-BR": "Como se concentrar por mais tempo",
+  "sl": "Kako se dlje zbrati",
+  "hr": "Kako se dulje koncentrirati",
+  "de": "Wie du dich länger konzentrierst",
+  "hu": "Hogyan koncentrálj tovább"
+ },
+ "legendes": {
+  "en": "bring it back, every time #focus #attention #brain #studytips #mindwandering",
+  "fr": "ramène-la, à chaque fois #concentration #attention #cerveau #méthodedetravail #pleineconscience",
+  "es": "tráela de vuelta, cada vez #concentración #atención #cerebro #técnicasdeestudio #mindfulness",
+  "es-419": "regrésala, cada vez #concentración #atención #cerebro #tipsdeestudio #mindfulness",
+  "it": "riportala indietro, ogni volta #concentrazione #attenzione #cervello #metododistudio #mindfulness",
+  "tr": "her seferinde geri getir #odaklanma #dikkat #beyin #dersçalışma #farkındalık",
+  "pt-BR": "traga de volta, toda vez #foco #atencao #cerebro #dicasdeestudo #mindfulness",
+  "sl": "vsakič jo pripelji nazaj #zbranost #pozornost #možgani #učenje #čuječnost",
+  "hr": "svaki put je vrati #koncentracija #pažnja #mozak #učenje #mindfulness",
+  "de": "hol sie zurück, jedes mal #fokus #konzentration #gehirn #lerntipps #achtsamkeit",
+  "hu": "hozd vissza, minden alkalommal #fókusz #figyelem #agy #tanulás #tudatosjelenlét"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/cerveau-frontal.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to",
+      "taille": "petit"
+     },
+     {
+      "t": "Focus",
+      "taille": "grand"
+     },
+     {
+      "t": "for",
+      "taille": "petit"
+     },
+     {
+      "t": "Longer",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment",
+      "taille": "petit"
+     },
+     {
+      "t": "Te concentrer",
+      "taille": "grand"
+     },
+     {
+      "t": "plus",
+      "taille": "petit"
+     },
+     {
+      "t": "Longtemps",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Concentrarte",
+      "taille": "grand"
+     },
+     {
+      "t": "durante",
+      "taille": "petit"
+     },
+     {
+      "t": "más tiempo",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Concentrarte",
+      "taille": "grand"
+     },
+     {
+      "t": "por",
+      "taille": "petit"
+     },
+     {
+      "t": "más tiempo",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come",
+      "taille": "petit"
+     },
+     {
+      "t": "Concentrarti",
+      "taille": "grand"
+     },
+     {
+      "t": "più",
+      "taille": "petit"
+     },
+     {
+      "t": "a lungo",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Daha uzun",
+      "taille": "petit"
+     },
+     {
+      "t": "süre nasıl",
+      "taille": "petit"
+     },
+     {
+      "t": "Odaklanırsın",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como se",
+      "taille": "petit"
+     },
+     {
+      "t": "Concentrar",
+      "taille": "grand"
+     },
+     {
+      "t": "por",
+      "taille": "petit"
+     },
+     {
+      "t": "mais tempo",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako se",
+      "taille": "petit"
+     },
+     {
+      "t": "Dlje",
+      "taille": "grand"
+     },
+     {
+      "t": "zbrati",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako se",
+      "taille": "petit"
+     },
+     {
+      "t": "Dulje",
+      "taille": "grand"
+     },
+     {
+      "t": "koncentrirati",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du dich",
+      "taille": "petit"
+     },
+     {
+      "t": "länger",
+      "taille": "grand"
+     },
+     {
+      "t": "Konzentrierst",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan",
+      "taille": "petit"
+     },
+     {
+      "t": "Koncentrálj",
+      "taille": "grand"
+     },
+     {
+      "t": "Tovább",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Catch Your Wandering Mind",
+    "blocs": [
+     {
+      "p": "In a study that pinged thousands of adults on their phones at random moments, their minds were somewhere else about 47% of the time, and they felt less happy when it happened."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Noticing it can be trained. Students who practised two weeks of mindfulness, simply bringing their attention back each time it drifted, wandered less and scored higher on a reading test."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Rattrape ton esprit qui s'égare",
+    "blocs": [
+     {
+      "p": "Dans une étude qui sondait des milliers d'adultes sur leur téléphone à des moments au hasard, leur esprit était ailleurs environ 47 % du temps, et ils se sentaient alors moins heureux."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Le remarquer, ça s'entraîne. Des étudiants qui ont pratiqué deux semaines de pleine conscience, en ramenant simplement leur attention à chaque fois qu'elle partait, s'égaraient moins et réussissaient mieux un test de lecture."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Atrapa a tu mente cuando se va",
+    "blocs": [
+     {
+      "p": "En un estudio que preguntaba a miles de adultos por el móvil en momentos al azar, su mente estaba en otra parte cerca del 47 % del tiempo, y en esos momentos se sentían menos felices."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Darse cuenta se puede entrenar. Estudiantes que practicaron dos semanas de mindfulness, simplemente devolviendo la atención cada vez que se iba, se distraían menos y sacaban mejor nota en una prueba de lectura."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Atrapa tu mente cuando se va",
+    "blocs": [
+     {
+      "p": "En un estudio que les preguntaba a miles de adultos por el celular en momentos al azar, su mente estaba en otro lado cerca del 47 % del tiempo, y en esos momentos se sentían menos felices."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Darte cuenta se puede entrenar. Estudiantes que practicaron dos semanas de mindfulness, simplemente regresando la atención cada vez que se iba, se distraían menos y sacaron mejor calificación en una prueba de lectura."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Riprendi la mente che vaga",
+    "blocs": [
+     {
+      "p": "In uno studio che contattava migliaia di adulti sul telefono in momenti casuali, la loro mente era altrove circa il 47 % del tempo, e in quei momenti si sentivano meno felici."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Accorgersene si può allenare. Studenti che hanno praticato due settimane di mindfulness, riportando semplicemente l'attenzione ogni volta che scappava, si distraevano meno e ottenevano punteggi migliori in un test di lettura."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Dalıp giden zihnini yakala",
+    "blocs": [
+     {
+      "p": "Binlerce yetişkine rastgele anlarda telefondan soru soran bir çalışmada, zihinleri zamanın yaklaşık %47'sinde başka bir yerdeydi ve o anlarda kendilerini daha az mutlu hissediyorlardı."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Bunu fark etmek çalışılabilir. İki hafta boyunca farkındalık pratiği yapan, dikkati her dağıldığında onu sadece geri getiren öğrenciler daha az daldı ve bir okuma testinde daha yüksek puan aldı."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Pegue a mente quando ela sai",
+    "blocs": [
+     {
+      "p": "Num estudo que mandava perguntas a milhares de adultos pelo celular em momentos aleatórios, a mente deles estava em outro lugar cerca de 47 % do tempo, e nesses momentos eles se sentiam menos felizes."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Perceber isso dá para treinar. Estudantes que praticaram duas semanas de mindfulness, só trazendo a atenção de volta toda vez que ela escapava, se distraíram menos e tiraram nota maior num teste de leitura."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Ujemi um, ki odtava",
+    "blocs": [
+     {
+      "p": "V raziskavi, ki je tisoče odraslih ob naključnih trenutkih spraševala prek telefona, so bile njihove misli drugje približno 47 % časa, takrat pa so se počutili manj srečne."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "To opaziti se da natrenirati. Študenti, ki so dva tedna vadili čuječnost in pozornost preprosto vračali, kadar je odtavala, so manj odtavali in dosegli več točk na bralnem testu."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Uhvati um koji luta",
+    "blocs": [
+     {
+      "p": "U istraživanju koje je tisuće odraslih u nasumičnim trenucima ispitivalo preko mobitela, misli su im bile negdje drugdje otprilike 47 % vremena, a tada su se osjećali manje sretnima."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Primjećivanje se može trenirati. Studenti koji su dva tjedna vježbali mindfulness, samo vraćajući pažnju svaki put kad bi odlutala, manje su lutali i postigli više bodova na testu čitanja."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Fang deine wandernden Gedanken ein",
+    "blocs": [
+     {
+      "p": "In einer Studie, die Tausende Erwachsene zu zufälligen Momenten über ihr Handy befragte, waren ihre Gedanken etwa 47 % der Zeit woanders, und in diesen Momenten fühlten sie sich weniger glücklich."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Das Bemerken lässt sich trainieren. Studierende, die zwei Wochen Achtsamkeit übten und ihre Aufmerksamkeit einfach jedes Mal zurückholten, schweiften weniger ab und schnitten in einem Lesetest besser ab."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Kapd el a kalandozó elmét",
+    "blocs": [
+     {
+      "p": "Egy vizsgálatban, amely több ezer felnőttet kérdezett meg véletlenszerű pillanatokban a telefonján, a gondolataik az idő nagyjából 47 %-ában máshol jártak, és ilyenkor kevésbé érezték magukat boldognak."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Észrevenni ezt edzhető. Azok a diákok, akik két hétig tudatos jelenlétet gyakoroltak, és egyszerűen visszahozták a figyelmüket, valahányszor elkalandozott, kevesebbet kalandoztak, és jobb eredményt értek el egy olvasási teszten."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Train Focus Every Night",
+    "blocs": [
+     {
+      "p": "Attention gets stronger with practice. Reading one thing from beginning to end, with nothing else open, is one of the simplest focus exercises there is."
+     },
+     {
+      "p": "Do it every night like a training session: one short lesson before bed, one subject, nothing else on the screen."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "My nightly rep is one lesson on Sophia before I sleep."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Entraîne ta concentration chaque soir",
+    "blocs": [
+     {
+      "p": "L'attention se renforce avec la pratique. Lire une seule chose du début à la fin, sans rien d'autre d'ouvert, est l'un des exercices de concentration les plus simples qui soient."
+     },
+     {
+      "p": "Fais-le chaque soir comme une séance d'entraînement : une courte leçon avant de dormir, un seul sujet, rien d'autre à l'écran."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ma répétition du soir, c'est une leçon sur Sophia avant de dormir."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Entrena tu concentración cada noche",
+    "blocs": [
+     {
+      "p": "La atención se fortalece con la práctica. Leer una sola cosa de principio a fin, sin nada más abierto, es uno de los ejercicios de concentración más sencillos que existen."
+     },
+     {
+      "p": "Hazlo cada noche como una sesión de entrenamiento: una lección corta antes de dormir, un solo tema, nada más en la pantalla."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Entrena tu concentración cada noche",
+    "blocs": [
+     {
+      "p": "La atención se fortalece con la práctica. Leer una sola cosa de principio a fin, sin nada más abierto, es uno de los ejercicios de concentración más simples que hay."
+     },
+     {
+      "p": "Hazlo cada noche como una sesión de entrenamiento: una lección corta antes de dormir, un solo tema, nada más en la pantalla."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Allena la concentrazione ogni sera",
+    "blocs": [
+     {
+      "p": "L'attenzione si rafforza con la pratica. Leggere una sola cosa dall'inizio alla fine, senza nient'altro aperto, è uno degli esercizi di concentrazione più semplici che esistano."
+     },
+     {
+      "p": "Fallo ogni sera come un allenamento: una breve lezione prima di dormire, un solo argomento, nient'altro sullo schermo."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "La mia ripetizione serale è una lezione su Sophia prima di dormire."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Odağını her akşam çalıştır",
+    "blocs": [
+     {
+      "p": "Dikkat pratikle güçlenir. Başka hiçbir şey açık değilken tek bir şeyi baştan sona okumak, en basit odak egzersizlerinden biridir."
+     },
+     {
+      "p": "Bunu her akşam bir antrenman gibi yap: yatmadan önce kısa bir ders, tek bir konu, ekranda başka hiçbir şey yok."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Benim akşam tekrarım, uyumadan önce Sophia'da bir ders."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Treine o foco toda noite",
+    "blocs": [
+     {
+      "p": "A atenção fica mais forte com a prática. Ler uma coisa só do começo ao fim, sem mais nada aberto, é um dos exercícios de foco mais simples que existem."
+     },
+     {
+      "p": "Faça isso toda noite como um treino: uma lição curta antes de dormir, um assunto só, mais nada na tela."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Minha repetição da noite é uma lição na Sophia antes de dormir."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Vsak večer treniraj zbranost",
+    "blocs": [
+     {
+      "p": "Pozornost se z vajo krepi. Prebrati eno stvar od začetka do konca, ne da bi imel odprto kar koli drugega, je ena najpreprostejših vaj za zbranost."
+     },
+     {
+      "p": "Delaj to vsak večer kot trening: kratka lekcija pred spanjem, ena tema, nič drugega na zaslonu."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moja večerna ponovitev je ena lekcija na Sophii pred spanjem."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Svake večeri treniraj koncentraciju",
+    "blocs": [
+     {
+      "p": "Pažnja jača vježbom. Pročitati jednu stvar od početka do kraja, bez ičega drugog otvorenog, jedna je od najjednostavnijih vježbi koncentracije."
+     },
+     {
+      "p": "Radi to svake večeri kao trening: kratka lekcija prije spavanja, jedna tema, ništa drugo na ekranu."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moje večernje ponavljanje je jedna lekcija na Sophiji prije spavanja."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Trainiere deinen Fokus jeden Abend",
+    "blocs": [
+     {
+      "p": "Aufmerksamkeit wird durch Übung stärker. Eine einzige Sache von Anfang bis Ende zu lesen, ohne dass etwas anderes offen ist, ist eine der einfachsten Fokusübungen überhaupt."
+     },
+     {
+      "p": "Mach es jeden Abend wie eine Trainingseinheit: eine kurze Lektion vor dem Schlafen, ein Thema, nichts anderes auf dem Bildschirm."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Meine Abendwiederholung ist eine Lektion auf Sophia vor dem Schlafen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Edzd a fókuszod minden este",
+    "blocs": [
+     {
+      "p": "A figyelem gyakorlással erősödik. Egyetlen dolgot elolvasni az elejétől a végéig úgy, hogy semmi más nincs megnyitva, az egyik legegyszerűbb fókuszgyakorlat."
+     },
+     {
+      "p": "Csináld minden este, mint egy edzést: egy rövid lecke lefekvés előtt, egyetlen téma, semmi más a képernyőn."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Az én esti ismétlésem egy lecke a Sophián lefekvés előtt."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Move Before You Focus",
+    "blocs": [
+     {
+      "p": "In one study, children who walked on a treadmill for 20 minutes did better on an attention test straight after than when they had sat still, and their brain activity linked to attention was stronger."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Where you walk matters too. Adults who walked through a park scored higher on an attention test afterwards than those who walked down busy city streets."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Bouge avant de te concentrer",
+    "blocs": [
+     {
+      "p": "Dans une étude, des enfants qui avaient marché 20 minutes sur un tapis réussissaient mieux un test d'attention juste après que lorsqu'ils étaient restés assis, avec une activité cérébrale liée à l'attention plus forte."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "L'endroit compte aussi. Des adultes qui avaient marché dans un parc réussissaient mieux un test d'attention ensuite que ceux qui avaient marché dans des rues animées."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Muévete antes de concentrarte",
+    "blocs": [
+     {
+      "p": "En un estudio, niños que caminaron 20 minutos en una cinta rindieron mejor en una prueba de atención justo después que cuando habían estado sentados, y su actividad cerebral ligada a la atención era más fuerte."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "También importa dónde caminas. Adultos que pasearon por un parque puntuaron más alto después en una prueba de atención que quienes caminaron por calles concurridas."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Muévete antes de concentrarte",
+    "blocs": [
+     {
+      "p": "En un estudio, niños que caminaron 20 minutos en una caminadora rindieron mejor en una prueba de atención justo después que cuando habían estado sentados, y su actividad cerebral ligada a la atención era más fuerte."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "También importa dónde caminas. Adultos que caminaron por un parque sacaron mejores resultados después en una prueba de atención que quienes caminaron por calles con mucho tráfico."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Muoviti prima di concentrarti",
+    "blocs": [
+     {
+      "p": "In uno studio, bambini che avevano camminato 20 minuti sul tapis roulant andavano meglio in un test di attenzione subito dopo rispetto a quando erano rimasti seduti, con un'attività cerebrale legata all'attenzione più forte."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Conta anche dove cammini. Adulti che avevano passeggiato in un parco ottenevano poi punteggi più alti in un test di attenzione rispetto a chi aveva camminato in strade trafficate."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Odaklanmadan önce hareket et",
+    "blocs": [
+     {
+      "p": "Bir çalışmada koşu bandında 20 dakika yürüyen çocuklar, hemen ardından bir dikkat testinde oturdukları zamana göre daha iyi sonuç aldı ve dikkatle ilgili beyin etkinlikleri daha güçlüydü."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Nerede yürüdüğün de önemli. Bir parkta yürüyen yetişkinler, kalabalık şehir sokaklarında yürüyenlere göre ardından bir dikkat testinde daha yüksek puan aldı."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Mexa-se antes de focar",
+    "blocs": [
+     {
+      "p": "Num estudo, crianças que caminharam 20 minutos na esteira foram melhor num teste de atenção logo depois do que quando tinham ficado sentadas, e a atividade cerebral ligada à atenção estava mais forte."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Onde você caminha também conta. Adultos que caminharam num parque tiveram nota maior num teste de atenção depois do que quem caminhou por ruas movimentadas."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Premikaj se, preden se zbereš",
+    "blocs": [
+     {
+      "p": "V eni raziskavi so otroci, ki so 20 minut hodili po tekoči preprogi, takoj zatem bolje opravili test pozornosti kot takrat, ko so sedeli, njihova možganska dejavnost, povezana s pozornostjo, pa je bila močnejša."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Pomembno je tudi, kje hodiš. Odrasli, ki so se sprehodili po parku, so nato dosegli več točk na testu pozornosti kot tisti, ki so hodili po prometnih mestnih ulicah."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Pokreni se prije fokusa",
+    "blocs": [
+     {
+      "p": "U jednom istraživanju djeca koja su 20 minuta hodala po traci odmah su potom bolje riješila test pažnje nego kad su sjedila, a njihova moždana aktivnost povezana s pažnjom bila je jača."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Važno je i gdje hodaš. Odrasli koji su se prošetali parkom poslije su postigli više bodova na testu pažnje od onih koji su hodali prometnim gradskim ulicama."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Beweg dich vor dem Fokus",
+    "blocs": [
+     {
+      "p": "In einer Studie schnitten Kinder, die 20 Minuten auf dem Laufband gegangen waren, direkt danach in einem Aufmerksamkeitstest besser ab als nach dem Sitzen, und ihre mit Aufmerksamkeit verbundene Hirnaktivität war stärker."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Auch der Ort zählt. Erwachsene, die durch einen Park spaziert waren, erzielten danach in einem Aufmerksamkeitstest mehr Punkte als jene, die durch belebte Stadtstraßen gegangen waren."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Mozogj, mielőtt fókuszálsz",
+    "blocs": [
+     {
+      "p": "Egy vizsgálatban azok a gyerekek, akik 20 percet sétáltak futópadon, közvetlenül utána jobban teljesítettek egy figyelmi teszten, mint amikor ültek, és a figyelemhez kötődő agyi aktivitásuk erősebb volt."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Az is számít, hol sétálsz. Azok a felnőttek, akik egy parkban sétáltak, utána jobb eredményt értek el egy figyelmi teszten, mint akik forgalmas városi utcákon jártak."
+     }
+    ]
+   }
+  }
+ ]
+}

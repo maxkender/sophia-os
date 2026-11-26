@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o309",
+  "type_bleo": "full_test",
+  "titre": "les sujets à creuser quand tu t'ennuies #curiosite #culture #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Fait vérifié le 9/11 sur https://en.wikipedia.org/wiki/Mona_Lisa : volée en 1911, retrouvée en 1913. Routine du 26/11 sur BLEO (par_jour passé à 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 15 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14, 15 et 16 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b0860d83",
+      "texte_overlay": "les sujets à creuser\nquand tu t'ennuies",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "aa43f1d9",
+      "texte_overlay": "1. les grandes énigmes de l'histoire\n\ndes disparitions,\ndes cités perdues.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "b31f2293",
+      "texte_overlay": "2. les vols d'œuvres d'art\n\nce matin, j'ai appris que la joconde a été volée au louvre en 1911 et retrouvée seulement en 1913.\nj'ai passé la soirée à lire l'histoire.",
+      "texte_sophia": "2. les vols d'œuvres d'art\n\nce matin, l'appli Sophia m'a appris que la joconde a été volée au louvre en 1911 et retrouvée seulement en 1913.\nj'ai passé la soirée à lire l'histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d0730b25",
+      "texte_overlay": "3. l'origine des mots\n\nchaque mot a une histoire.\ncertaines sont incroyables.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "34356fcb",
+      "texte_overlay": "4. les reines oubliées\n\ndes femmes puissantes\nque les manuels ont laissées de côté.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "9c63f9c1",
+      "texte_overlay": "5. l'espace\n\nles planètes, les étoiles.\non se sent tout petit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "78f7a50f",
+      "texte_overlay": "tu commences par lequel ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

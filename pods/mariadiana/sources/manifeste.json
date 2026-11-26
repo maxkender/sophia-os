@@ -1,0 +1,29 @@
+{
+ "compte": "mariadianatudor",
+ "releve_le": "2026-11-25",
+ "abonnes": 253,
+ "posts_releves": 1,
+ "posts": [
+  {
+   "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+   "publie_le": "2026-10-29",
+   "vues": 36900,
+   "likes": 5085,
+   "enregistrements": 1087,
+   "partages": 156,
+   "slides": 5,
+   "legende": "#vangogh#claudemonet#gustavklimt#painting#fyp",
+   "musique": {
+    "id": "7315897876817824558",
+    "titre": "la petite fille de la mer",
+    "auteur": "daniella"
+   },
+   "oeuvres": [
+    "The Kiss (Gustav Klimt)",
+    "Water Lilies, Willow Reflection (Claude Monet)",
+    "The Accolade (Edmund Blair Leighton)",
+    "Starry Night Over the Rhône (Van Gogh)"
+   ]
+  }
+ ]
+}

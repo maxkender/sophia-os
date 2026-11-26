@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o196",
+  "type_bleo": "full_test",
+  "titre": "how i turn a video lesson into notes i can actually use #studytok #studytips #notetaking",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 26/11 : 5 full tests sur 12, plus 1 car la boîte n'a que 6 lignes utilisables). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Gestes vrais : regarder une fois sans écrire, une deuxième fois en pause à chaque idée, ses propres mots, un schéma par partie, la curiosité pour aller plus loin (slide Sophia, 5), se tester le lendemain. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "f6af6db4",
+      "texte_overlay": "how i turn a video lesson\ninto notes i can actually use",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "1a15acc0",
+      "texte_overlay": "first watch: no notes. i just listen.\ni get the big picture.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "1415cc82",
+      "texte_overlay": "second watch: i pause after every idea.\nand write it in my own words.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "3ee26f7c",
+      "texte_overlay": "one small diagram per part.\narrows beat paragraphs.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "8a8f744d",
+      "texte_overlay": "then i dig a little deeper on one thing that surprised me.\n5 minutes, just for fun.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "then i dig a little deeper on one thing that surprised me\non a micro-learning app like the Sophia app.\n5 minutes, just for fun."
+    },
+    {
+      "position": 6,
+      "media_id": "92327e02",
+      "texte_overlay": "next day, i quiz myself from my notes.\nif i can't answer, the notes need fixing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6e6b8994",
+      "texte_overlay": "never copy the subtitles.\nthat's typing, not learning.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

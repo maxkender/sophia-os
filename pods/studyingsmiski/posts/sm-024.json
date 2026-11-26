@@ -1,0 +1,432 @@
+{
+ "id": "sm-024",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "the way things go",
+  "url": "https://www.tiktok.com/music/the-way-things-go-7247627511276980225"
+ },
+ "notes": "Full test du 26/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, son ciel, stickers, bulle) : « apps i wish i downloaded freshman year ». Sophia en 3e carte (cta B), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Folderly (dossiers par cours, sous-tâches, rappels), Structured (agenda visuel en frise), Sleep Cycle (réveil intelligent). Toutes sur l'App Store des 10 pays (lookup iTunes du 20 et du 21/11) ; Folderly en iOS seul. Musique : la sienne de sa version verte de « 4 apps » (340 k).",
+ "titre": {
+  "en": "apps i wish i downloaded freshman year",
+  "fr": "les applis que j'aurais aimé télécharger en première année",
+  "es": "apps que ojalá hubiera descargado en primero",
+  "es-419": "apps que ojalá hubiera descargado en primer año",
+  "it": "app che vorrei aver scaricato al primo anno",
+  "tr": "keşke birinci sınıfta indirseydim dediğim uygulamalar",
+  "pt-BR": "apps que eu queria ter baixado no primeiro ano",
+  "de": "apps fürs erste semester, die ich gern früher gehabt hätte",
+  "sl": "aplikacije, ki bi si jih želela že v prvem letniku",
+  "hu": "appok, amiket bárcsak már elsőben letöltöttem volna"
+ },
+ "legendes": {
+  "en": "dear freshman me, please get these 💌🎓 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "chère moi de première année, télécharge-les 💌🎓 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "querida yo de primero, descárgalas 💌🎓 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "querida yo de primer año, descárgalas 💌🎓 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "cara me del primo anno, scaricale 💌🎓 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "sevgili birinci sınıf ben, bunları indir 💌🎓 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "querida eu do primeiro ano, baixa esses 💌🎓 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "liebes erstsemester-ich, bitte lade die runter 💌🎓 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "draga jaz iz prvega letnika, naloži si jih 💌🎓 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "kedves elsős énem, töltsd le ezeket 💌🎓 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/toque.png",
+     "x": 50,
+     "y": 140,
+     "l": 240,
+     "rotation": -12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/washi.png",
+     "x": 810,
+     "y": 160,
+     "l": 210,
+     "rotation": 12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 230,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps i wish i\ndownloaded\nfreshman year",
+    "sous": "learn from\nmy mistakes"
+   },
+   "fr": {
+    "titre": "les applis que\nj'aurais voulu\nen 1re année",
+    "sous": "apprends de\nmes erreurs"
+   },
+   "es": {
+    "titre": "apps que ojalá\nhubiera tenido\nen primero",
+    "sous": "aprende de\nmis errores"
+   },
+   "es-419": {
+    "titre": "apps que ojalá\nhubiera tenido\nen primer año",
+    "sous": "aprende de\nmis errores"
+   },
+   "it": {
+    "titre": "app che vorrei\naver avuto al\nprimo anno",
+    "sous": "impara dai\nmiei errori"
+   },
+   "tr": {
+    "titre": "keşke birinci\nsınıfta\nindirseydim",
+    "sous": "hatalarımdan\nders çıkar"
+   },
+   "pt-BR": {
+    "titre": "apps que eu\nqueria ter no\nprimeiro ano",
+    "sous": "aprende com\nos meus erros"
+   },
+   "de": {
+    "titre": "apps fürs\nerste\nsemester",
+    "sous": "lern aus\nmeinen fehlern"
+   },
+   "sl": {
+    "titre": "aplikacije za\nprvi letnik,\nki sem jih\npogrešala",
+    "sous": "uči se iz\nmojih napak"
+   },
+   "hu": {
+    "titre": "appok, amik\nbárcsak már\nelsőben\nmegvoltak",
+    "sous": "tanulj a\nhibáimból"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/folderly/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 780,
+     "y": 700,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "one folder per course for files, to-dos and reminders. i spent a whole year losing syllabi before finding this."
+   },
+   "fr": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "un dossier par matière pour les fichiers, les to-do et les rappels. j'ai perdu mes plans de cours pendant un an avant de la trouver."
+   },
+   "es": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "una carpeta por asignatura para archivos, tareas y recordatorios. perdí programas de asignatura un año entero antes de encontrarla."
+   },
+   "es-419": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "una carpeta por materia para archivos, pendientes y recordatorios. perdí temarios un año entero antes de encontrarla."
+   },
+   "it": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "una cartella per ogni corso con file, to-do e promemoria. ho perso programmi per un anno intero prima di trovarla."
+   },
+   "tr": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "her ders için dosyalar, yapılacaklar ve hatırlatıcılarla bir klasör. bulana kadar bir yıl boyunca ders planlarımı kaybettim."
+   },
+   "pt-BR": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "uma pasta pra cada matéria com arquivos, tarefas e lembretes. passei um ano perdendo ementas antes de achar ele."
+   },
+   "de": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "ein ordner pro kurs für dateien, to-dos und erinnerungen. ich habe ein jahr lang modulpläne verloren, bevor ich sie fand."
+   },
+   "sl": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "mapa za vsak predmet z datotekami, opravili in opomniki. preden sem jo našla, sem eno leto izgubljala učne načrte."
+   },
+   "hu": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "minden tárgynak egy mappa fájlokkal, teendőkkel és emlékeztetőkkel. egy évig veszítettem el tantervakat, mire rátaláltam."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/structured/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/pince.png",
+     "x": 70,
+     "y": 730,
+     "l": 220,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 800,
+     "y": 740,
+     "l": 220,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "my day on one visual timeline: classes, study blocks and breaks. i finally stopped double-booking myself."
+   },
+   "fr": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "ma journée sur une seule frise visuelle : cours, révisions et pauses. j'ai enfin arrêté de me caler deux trucs en même temps."
+   },
+   "es": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "mi día en una línea de tiempo visual: clases, bloques de estudio y descansos. por fin dejé de quedar dos veces a la vez."
+   },
+   "es-419": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "mi día en una línea de tiempo visual: clases, bloques de estudio y descansos. por fin dejé de empalmar cosas."
+   },
+   "it": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "la mia giornata su un'unica linea del tempo: lezioni, studio e pause. finalmente ho smesso di sovrappormi gli impegni."
+   },
+   "tr": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "günüm tek bir görsel zaman çizelgesinde: dersler, çalışma blokları ve molalar. sonunda iki işi aynı saate koymayı bıraktım."
+   },
+   "pt-BR": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "meu dia numa linha do tempo visual: aulas, blocos de estudo e pausas. finalmente parei de marcar duas coisas no mesmo horário."
+   },
+   "de": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "mein tag auf einer visuellen zeitleiste: vorlesungen, lernblöcke und pausen. endlich keine doppelt gebuchten termine mehr."
+   },
+   "sl": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "moj dan na eni vizualni časovnici: predavanja, učni bloki in odmori. končno nimam več dveh stvari ob isti uri."
+   },
+   "hu": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "a napom egy vizuális idővonalon: órák, tanulás és szünetek. végre nem foglalok be két dolgot egyszerre."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bureau.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 850,
+     "y": 100,
+     "l": 170,
+     "rotation": 14
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "short lessons written by actual professors, so you learn something new every day in 10 minutes!",
+    "bulle": "i would have learned so much more!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes !",
+    "bulle": "j'aurais appris tellement plus !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡habría aprendido muchísimo más!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡habría aprendido muchísimo más!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti!",
+    "bulle": "avrei imparato molto di più!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için!",
+    "bulle": "çok daha fazlasını öğrenirdim!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aulas curtas escritas por professores de verdade, pra aprender algo novo todo dia em 10 minutos!",
+    "bulle": "eu teria aprendido muito mais!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kurze lektionen von echten profs, damit du jeden tag in 10 minuten etwas neues lernst!",
+    "bulle": "ich hätte so viel mehr gelernt!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kratke lekcije, ki jih pišejo pravi profesorji, da se vsak dan v 10 minutah naučiš nekaj novega!",
+    "bulle": "naučila bi se toliko več!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "rövid leckék, amiket igazi tanárok írnak, hogy minden nap 10 perc alatt tanulj valami újat!",
+    "bulle": "sokkal többet tanultam volna!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/sleep-cycle/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 40,
+     "y": 730,
+     "l": 300,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 830,
+     "y": 750,
+     "l": 180,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "a smart alarm that wakes me in my lightest sleep phase. 8am classes went from torture to doable."
+   },
+   "fr": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "un réveil intelligent qui me réveille dans mon sommeil le plus léger. les cours de 8 h sont passés de torture à faisable."
+   },
+   "es": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "un despertador inteligente que me despierta en mi sueño más ligero. las clases de las 8 pasaron de tortura a posibles."
+   },
+   "es-419": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "una alarma inteligente que me despierta en mi sueño más ligero. las clases de las 7 pasaron de tortura a posibles."
+   },
+   "it": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "una sveglia intelligente che mi sveglia nel sonno più leggero. le lezioni delle 8 sono passate da tortura a fattibili."
+   },
+   "tr": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "beni en hafif uykumda uyandıran akıllı alarm. sabah 8 dersleri işkenceden yapılabilir hale geldi."
+   },
+   "pt-BR": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "um despertador inteligente que me acorda no sono mais leve. a aula das 7 deixou de ser tortura."
+   },
+   "de": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "ein smarter wecker, der mich in der leichtesten schlafphase weckt. 8-uhr-vorlesungen wurden von folter zu machbar."
+   },
+   "sl": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "pametna budilka, ki me zbudi v najlažjem spanju. predavanja ob 8h so iz mučenja postala izvedljiva."
+   },
+   "hu": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "okos ébresztő, ami a legkönnyebb alvásomban ébreszt. a reggel 8-as órák kínzásból elviselhetővé váltak."
+   }
+  }
+ ]
+}

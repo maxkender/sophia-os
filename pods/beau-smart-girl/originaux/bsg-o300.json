@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o300",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "928062b1-bef2-463d-b49c-4acef1234c18",
+  "titre": "les phrases latines à glisser dans une conversation #latin #culture #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [
+    "928062b1-bef2-463d-b49c-4acef1234c18"
+  ],
+  "notes": "G1, déclinaison de 928062b1 (« les phrases latines à glisser dans une conversation », génération 0 ; meilleur passage nl 101 k vues, r 31,48), en français. Famille de mon full test bsg-o225, gagnante. 1re déclinaison. cta A. Phrases neuves (rien de bsg-o225). Attributions classiques : veni vidi vici (César), errare humanum est (proverbe latin), panem et circenses et mens sana in corpore sano (Juvénal), cogito ergo sum (Descartes). Routine du 26/11 sur BLEO (par_jour passé à 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 15 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14, 15 et 16 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "a5e39a09",
+      "texte_overlay": "les phrases latines\nà glisser dans une conversation",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "9540c7e5",
+      "texte_overlay": "1. veni, vidi, vici\n\nje suis venu, j'ai vu, j'ai vaincu.\nparfait après un examen réussi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "cebef4ad",
+      "texte_overlay": "2. errare humanum est\n\nl'erreur est humaine.\nà dire avec un sourire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "929aa8e4",
+      "texte_overlay": "3. panem et circenses\n\ndu pain et des jeux.\njuvénal parlait déjà de nos écrans.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "cc209b63",
+      "texte_overlay": "4. mens sana in corpore sano\n\nun esprit sain dans un corps sain.\nsignée juvénal aussi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "dbace75d",
+      "texte_overlay": "5. cogito, ergo sum\n\nje pense, donc je suis.\ndescartes, pour finir en beauté.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "a42c5a58",
+      "texte_overlay": "6. et on veut en apprendre d'autres\n\navant, je croyais que le latin était une langue morte.\nmaintenant, j'apprends un truc sur le monde chaque matin. et chaque phrase a son histoire.",
+      "texte_sophia": "6. et on veut en apprendre d'autres\n\navant, je croyais que le latin était une langue morte.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et chaque phrase a son histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "d94e44a0",
+      "texte_overlay": "tu en connais une autre ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

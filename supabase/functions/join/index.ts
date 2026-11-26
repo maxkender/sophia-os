@@ -118,6 +118,7 @@ import {
   type ModeJoin,
   nettoyerHandle,
   nettoyerSource,
+  paieSignee,
   paysEtPaie,
   PROFIL_TIKTOK_VIDE,
   type CompteOS,
@@ -475,7 +476,8 @@ async function creeParJoin(db: Db, c: Candidature): Promise<boolean> {
  */
 async function relierOS(db: Db, c: Candidature, lundi: string): Promise<boolean> {
   if (c.profile_id) return true;
-  const { data: sig } = await db.from("join_signatures").select("ruul_email, signe_at").eq("candidature_id", c.id).limit(1).maybeSingle();
+  const { data: sig } = await db.from("join_signatures").select("ruul_email, signe_at, zone, tarif_semaine").eq("candidature_id", c.id)
+    .limit(1).maybeSingle();
   const existant = await posteurExistant(db, [c.email, sig?.ruul_email ?? ""]);
   if (existant) {
     // 26/11 : le @ est celui du compte de l'OS de cette fiche (ou rien).
@@ -489,20 +491,24 @@ async function relierOS(db: Db, c: Candidature, lundi: string): Promise<boolean>
     await evenement(db, "compte_os", c.id, c.test, { ok: true, lie: true, profile_id: existant.id });
     return true;
   }
-  const cree = await creerCompteOS(db, c, lundi, sig?.ruul_email ?? "");
+  const cree = await creerCompteOS(db, c, lundi, sig?.ruul_email ?? "", sig);
   if (!cree) return false;
   await copierDansOS(db, c, lundi, sig?.ruul_email ?? null, sig?.signe_at ?? new Date().toISOString());
   return true;
 }
 
-async function creerCompteOS(db: Db, c: Candidature, lundi: string, ruulEmail: string): Promise<boolean> {
+async function creerCompteOS(
+  db: Db, c: Candidature, lundi: string, ruulEmail: string,
+  sig: { zone?: string | null; tarif_semaine?: number | string | null } | null,
+): Promise<boolean> {
   const url = Deno.env.get("SUPABASE_URL");
   const secret = Deno.env.get("OS_HUB_SECRET");
   if (!url || !secret) {
     console.error("join compte_os : SUPABASE_URL ou OS_HUB_SECRET manquant");
     return false;
   }
-  const p = (await paysOuverts(db)).pays.find((x) => x.pays === c.pays);
+  // 0867 : la zone et le tarif notés à la signature (ceux affichés à ce moment-là), sinon ceux du pays aujourd'hui.
+  const p = paieSignee(sig, (await paysOuverts(db)).pays.find((x) => x.pays === c.pays));
   const source = ((c as unknown as { source?: Record<string, string> }).source ?? {});
   try {
     const r = await fetch(`${url}/functions/v1/hub-posteurs`, {
@@ -510,8 +516,8 @@ async function creerCompteOS(db: Db, c: Candidature, lundi: string, ruulEmail: s
       headers: { "content-type": "application/json", "x-hub-secret": secret },
       body: JSON.stringify({
         action: "creer_posteur", hub_id: c.id, prenom: c.prenom, nom: c.nom, email_perso: c.email, pays_code: c.pays,
-        ruul_email: ruulEmail, ref: source.ref ?? null, plateforme_paie: "ruul", zone: p?.zone ?? null,
-        tarif_semaine: p?.tarif ?? null, start_monday: lundi, application_id: `join:${c.id}`,
+        ruul_email: ruulEmail, ref: source.ref ?? null, plateforme_paie: "ruul", zone: p.zone,
+        tarif_semaine: p.tarif, start_monday: lundi, application_id: `join:${c.id}`,
       }),
       signal: AbortSignal.timeout(100_000),
     });
@@ -1477,9 +1483,13 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       let lundi = cohorteASignature(c.cohorte);
       if (!deja) {
         const texte = `${texteContratComplet()}\n\nSigned by: ${nomLegal}\nRuul email: ${ruulEmail}`;
+        // 0867 (26/11) : la zone et le tarif de la semaine affichés à cet instant pour son pays, gardés avec la
+        // signature (le contrat renvoie au tarif « shown on the Join page at the time of signing ») ; l'OS les reçoit
+        // à la création de la fiche. Une lecture ratée ne bloque jamais la signature (le pays du jour sera pris).
+        const paie = await paysOuverts(db).then((x) => x.pays.find((y) => y.pays === c.pays) ?? null).catch(() => null);
         const { error } = await db.from("join_signatures").insert({
           candidature_id: c.id, version: CONTRAT_VERSION, texte, sha256: await sha256Hex(texte),
-          nom_legal: nomLegal, ruul_email: ruulEmail,
+          nom_legal: nomLegal, ruul_email: ruulEmail, zone: paie?.zone ?? null, tarif_semaine: paie?.tarif ?? null,
           ip: ipDe(request), user_agent: (request.headers.get("user-agent") ?? "").slice(0, 500) || null,
         });
         if (error) return erreur("signature impossible", 500);

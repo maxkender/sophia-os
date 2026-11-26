@@ -629,9 +629,11 @@ async function doubleJeudi(supabase: Supabase, id: string): Promise<{ ok: boolea
     // quel compte, quel label, quand il démarre (lundi, après le warm-up), ce qu'il gagne en plus.
     const lundi = ajouterJours(String(d.jeudi), 4);
     const { data: langue } = await supabase.rpc("parrainage_langue_pays", { p_pays: ancien.pays });
-    const { data: profil } = await supabase.from("profiles").select("tarif_hebdo, ruul_tarif_semaine, canal_paie").eq("id", d.poster_id).maybeSingle();
+    const { data: profil } = await supabase.from("profiles").select("canal_paie").eq("id", d.poster_id).maybeSingle();
     const { data: nomLabel } = await supabase.from("labels").select("nom").eq("id", labelId).maybeSingle();
-    const tarif = Number((profil?.canal_paie === "ruul" ? profil?.ruul_tarif_semaine : null) ?? profil?.tarif_hebdo ?? 0) || null;
+    // 0867 : le tarif d'un compte selon la même règle que la paie (contrat figé, tarif signé, sinon zone du pays).
+    const { data: tarifLu } = await supabase.rpc("posteur_tarif_semaine", { p_poster: d.poster_id });
+    const tarif = Number(tarifLu ?? 0) || null;
     const en = texteDeuxiemeCompte({ handle: ancien.handle_tiktok, label: (nomLabel?.nom as string | undefined) ?? null, lundi, tarif, canal: (profil?.canal_paie as string | null | undefined) ?? null });
     const lg = typeof langue === "string" ? langue : null;
     const texte = await traduireDouble(en, lg);

@@ -368,6 +368,21 @@ export function paysEtPaie(
   return { zones: [...tarif].map(([zone, t]) => ({ zone, tarif: t })).sort((a, b) => a.zone.localeCompare(b.zone)), pays };
 }
 
+/**
+ * 0867 (26/11, États-Unis à 30 $ pour les nouvelles recrues) : la zone et le tarif de la semaine transmis à l'OS à la
+ * création de la fiche. Le contrat dit « at the rate of their country's pay zone shown on the Join page at the time of
+ * signing » : ceux notés sur la signature (`join_signatures.zone`, `tarif_semaine`) passent avant ceux du pays
+ * aujourd'hui (une signature d'avant 0867 n'a rien de noté : le pays aujourd'hui).
+ */
+export function paieSignee(
+  sig: { zone?: string | null; tarif_semaine?: number | string | null } | null | undefined,
+  actuel: PaysPaie | null | undefined,
+): { zone: string | null; tarif: number | null } {
+  const t = sig?.tarif_semaine == null || sig.tarif_semaine === "" ? NaN : Number(sig.tarif_semaine);
+  if (Number.isFinite(t) && t > 0) return { zone: sig?.zone ?? actuel?.zone ?? null, tarif: t };
+  return { zone: actuel?.zone ?? null, tarif: actuel?.tarif ?? null };
+}
+
 // ---------------------------------------------------------------------------------------------------------------
 // Codes, jetons, empreintes
 // ---------------------------------------------------------------------------------------------------------------

@@ -86,7 +86,7 @@ d'identifiants).
 |---|---|---|
 | `ping` | — | `{ ok, version }` |
 | `zones` | — | `{ ok, ouverts: [{ pays_code, langue, langue_os, zone, hm_id }], fermes: [{ pays_code, raison, langue }], inconnus }` : `ouverts` = tous les pays à zone de paie active ; `langue_os` = la langue du pays est connue (pas l'anglais par défaut) et des comptes actifs publient dans cette langue (bouton « Accept all valid » du site) |
-| `creer_posteur` | `hub_id, prenom, nom, email_perso, pays_code, pays_nom, applications, start_monday`, `ref` facultatif (code de parrainage) (le reste est ignoré) | `{ ok, existed, profile_id, compte_id, email_os, password, langue, manager: { id, prenom, nom, email } }` |
+| `creer_posteur` | `hub_id, prenom, nom, email_perso, pays_code, pays_nom, applications, start_monday`, `ref` facultatif (code de parrainage), `ruul_email`, `zone` et `tarif_semaine` facultatifs (ceux affichés à la signature ; absents : la zone du pays dans l'OS et son tarif au moment de la création sont figés sur la fiche, 0867) (le reste est ignoré, dont `zone_paiement`) | `{ ok, existed, profile_id, compte_id, email_os, password, langue, manager: { id, prenom, nom, email } }` |
 | `posts_semaine` | `profile_ids` (≤ 500), `lundi` | `{ ok, rows: [{ profile_id, prevus, publies, manques, dernier_post_at, is_active }] }` |
 | `stats_pays` | — | `{ ok, by_langue: [{ langue, actifs }] }` |
 | `candidature` | `email, ref` (code `?ref=` gardé depuis la page creators) | `{ ok, relie, parrain_id?, invitation_id? }` : arrête les relances de parrainage (0561) |

@@ -511,3 +511,31 @@ export function corpsRejeu(
   if (!start) manques.push("start_monday");
   return { corps, manques };
 }
+
+/** Un tarif de la semaine plausible (USD) : > 0 et ≤ 100 (comme contrat_tarif_fixer). */
+const tarifValide = (v: unknown): number | null => {
+  if (v === null || v === undefined || v === "") return null;
+  const n = Number(v);
+  return Number.isFinite(n) && n > 0 && n <= 100 ? n : null;
+};
+
+/**
+ * 0867 (26/11, États-Unis à 30 $ pour les nouvelles recrues) : la zone et le tarif de la semaine gardés sur la fiche
+ * d'un nouveau posteur (`profiles.ruul_zone`, `ruul_tarif_semaine`), c'est-à-dire ceux de sa signature.
+ *  - Join envoie `zone` et `tarif_semaine` (ceux affichés à la signature) : ils sont gardés tels quels.
+ *  - L'ancien site (Hub) n'envoie ni l'un ni l'autre (seulement son propre `zone_paiement`, jamais lu ici) : c'est la
+ *    zone du pays dans l'OS (`zones_paie_pays`) et son tarif (`zones_paie`) au moment de la création qui sont figés.
+ * Une zone inconnue de l'OS est remplacée par celle du pays ; sans tarif valide, celui de la zone retenue. Ainsi un
+ * changement de zone plus tard ne touche jamais la paie d'un posteur déjà signé.
+ */
+export function zoneEtTarifSignes(
+  envoye: { zone?: unknown; tarif_semaine?: unknown },
+  zonePays: string | null,
+  tarifs: Readonly<Record<string, number | null>>,
+): { zone: string | null; tarif: number | null } {
+  const connue = (z: string | null): z is string => !!z && Object.prototype.hasOwnProperty.call(tarifs, z);
+  const demandee = String(envoye.zone ?? "").trim().toUpperCase();
+  const zone = connue(demandee) ? demandee : connue(zonePays) ? zonePays : null;
+  const tarif = tarifValide(envoye.tarif_semaine) ?? (zone ? tarifValide(tarifs[zone]) : null);
+  return { zone, tarif };
+}

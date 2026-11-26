@@ -17,9 +17,11 @@
  *   { action: "creer_posteur", hub_id, prenom, nom, email_perso, pays_code,
  *     pays_nom, applications, ruul_email?, ref?, plateforme_paie?, zone?,
  *     tarif_semaine?, start_monday?, application_id? }
- *       0589 : plateforme_paie (« ruul »), zone (A/B/C), tarif de la semaine
+ *       0589 : plateforme_paie (« ruul »), zone (A/B/C/US), tarif de la semaine
  *       (USD), email Ruul (peut être vide) et application du site sont gardés
- *       sur le profil. Un posteur Ruul n'a jamais de contrat Upwork.
+ *       sur le profil. Un posteur Ruul n'a jamais de contrat Upwork. 0867 :
+ *       sans zone ni tarif (ancien site), ceux du pays dans l'OS à la création
+ *       sont figés sur la fiche (zoneEtTarifSignes).
  *       `applications` : gardé pour mémoire (`hub_posteurs.applications`) ;
  *       depuis le 19/11 c'est le moteur de l'OS qui choisit l'application du
  *       compte, comme pour toute autre recrue (cible de la page Allocation).
@@ -91,6 +93,7 @@ import {
   type ReservationBloquee,
   resoudreAffectationSite,
   secretValide,
+  zoneEtTarifSignes,
 } from "../_shared/hub_posteurs.ts";
 import { actionPourJournal, appelReussi, erreurPourJournal } from "../_shared/hub_pont.ts";
 import { lireParLots, lireTout } from "../_shared/lots.ts";
@@ -289,6 +292,15 @@ async function lireRecruteurs(supabase: Supabase): Promise<Recruteur[]> {
   }));
 }
 
+/** Le tarif de la semaine (USD) de chaque zone de paie (`zones_paie` : A, B, C, US…). */
+async function lireTarifsZones(supabase: Supabase): Promise<Record<string, number | null>> {
+  const { data, error } = await supabase.from("zones_paie").select("zone, tarif");
+  if (error) throw error;
+  return Object.fromEntries(
+    ((data ?? []) as { zone: string; tarif: number | string | null }[]).map((z) => [z.zone, z.tarif == null ? null : Number(z.tarif)]),
+  );
+}
+
 /** Pays ouverts dans l'OS : zone de paie active (`zones_paie_pays`, `retire_at` nul). */
 async function lirePaysOuverts(supabase: Supabase): Promise<PaysOuvert[]> {
   const { data, error } = await supabase.from("zones_paie_pays").select("pays, zone").is("retire_at", null);
@@ -381,6 +393,8 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     await lireLanguesComptes(supabase, [pays]),
   );
   if (!affectation.ok) return json({ ok: false, error: affectation.raison, pays_code: pays }, 422);
+  // 0867 : les tarifs des zones, lus AVANT toute création (une panne ici ne laisse rien à moitié fait).
+  const tarifsZones = await lireTarifsZones(supabase);
   // Le poster est rattaché à la cohorte Ruul ; la HM de la zone n'est qu'une
   // information (page Posters), et le rattachement de repli sans cohorte.
   const { hm, langue } = affectation;
@@ -494,8 +508,10 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
   // 0589 : il peut être vide (le site l'enverra par maj_ruul, ou le posteur l'ajoute sur son dashboard) ;
   // zone, tarif de la semaine (USD) et application du site sont gardés sur le profil.
   const emailRuul = String(body.ruul_email ?? "").trim().toLowerCase();
-  const tarifSemaine = Number(body.tarif_semaine);
-  const zone = String(body.zone ?? "").trim().toUpperCase();
+  // 0867 (26/11) : la zone et le tarif de la signature sont figés sur la fiche (Join les envoie ; pour l'ancien site,
+  // ceux du pays dans l'OS à cette heure) : un changement de zone plus tard (États-Unis à 30 $) ne touche que les
+  // nouvelles recrues. Zones lues dans zones_paie (A, B, C, US…), plus de liste en dur.
+  const signes = zoneEtTarifSignes(body, affectation.zone, tarifsZones);
   const { error: errProfil } = await supabase
     .from("profiles")
     .update({
@@ -503,8 +519,8 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
       canal_paie: "ruul",
       ruul_statut: "a_ajouter",
       ruul_email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailRuul) ? emailRuul : null,
-      ruul_zone: ["A", "B", "C"].includes(zone) ? zone : null,
-      ruul_tarif_semaine: Number.isFinite(tarifSemaine) && tarifSemaine > 0 ? tarifSemaine : null,
+      ruul_zone: signes.zone,
+      ruul_tarif_semaine: signes.tarif,
       site_application_id: body.application_id ? String(body.application_id).slice(0, 120) : null,
       ruul_jeton: crypto.randomUUID(),
     })
@@ -566,11 +582,7 @@ async function rejouerBloques(supabase: Supabase, body: any): Promise<Response> 
   const parId = new Map(((cands ?? []) as CandidatureBloquee[]).map((c) => [String(c.site_id).toLowerCase(), c]));
 
   const ouverts = await lirePaysOuverts(supabase);
-  const { data: zones, error: errZones } = await supabase.from("zones_paie").select("zone, tarif");
-  if (errZones) throw errZones;
-  const tarifs: Record<string, number | null> = Object.fromEntries(
-    ((zones ?? []) as { zone: string; tarif: number | string | null }[]).map((z) => [z.zone, z.tarif == null ? null : Number(z.tarif)]),
-  );
+  const tarifs = await lireTarifsZones(supabase);
   const aujourdhui = aujourdhuiParis();
 
   const aTraiter = perimes.filter((l) => parId.has(l.hub_id.toLowerCase()));

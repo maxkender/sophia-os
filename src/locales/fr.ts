@@ -7278,6 +7278,7 @@ export const fr = {
       genre: "Genre",
       genreHomme: "Homme",
       genreFemme: "Femme",
+      genreAChoisir: "À choisir",
       genreAide:
         "Le genre du label fixe les prénoms / noms TikTok des créateurs qui portent ce label.",
       creer: "Créer",

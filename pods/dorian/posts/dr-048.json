@@ -10,12 +10,22 @@
  "titre": {
   "en": "5 niche habits of people who seem to know everything",
   "tr": "her şeyi biliyor gibi görünenlerin 5 niş alışkanlığı",
-  "it": "5 abitudini di nicchia di chi sembra sapere tutto"
+  "it": "5 abitudini di nicchia di chi sembra sapere tutto",
+  "de": "5 nischige gewohnheiten von allwissenden leuten",
+  "hu": "5 niche szokás azoktól, akik mindent tudni látszanak",
+  "nl": "5 niche gewoontes van mensen die alles weten",
+  "pt-BR": "5 hábitos nichados de quem parece saber tudo",
+  "sv": "5 nischade vanor hos folk som verkar veta allt"
  },
  "legendes": {
   "en": "#niche #superintelligence #lockedin #selfimprovement",
   "tr": "#bilgi #öğrenmek #alışkanlık #kişiselgelişim",
-  "it": "#cultura #imparare #abitudini #crescitapersonale"
+  "it": "#cultura #imparare #abitudini #crescitapersonale",
+  "de": "#wissen #gewohnheiten #lernen #selbstverbesserung",
+  "hu": "#tudás #szokások #tanulás #önfejlesztés",
+  "nl": "#kennis #gewoontes #leren #zelfontwikkeling",
+  "pt-BR": "#conhecimento #hábitos #aprender #autodesenvolvimento",
+  "sv": "#kunskap #vanor #lärande #självutveckling"
  },
  "musique": {
   "titre": "original sound - ale",
@@ -39,6 +49,31 @@
     "titre": "5 abitudini di nicchia di chi sembra sapere tutto",
     "image": "images/cerveau-20.jpg",
     "legende": "(rubale)"
+   },
+   "de": {
+    "titre": "5 nischige gewohnheiten von allwissenden leuten",
+    "image": "images/cerveau-03.jpg",
+    "legende": "(klau sie dir)"
+   },
+   "hu": {
+    "titre": "5 niche szokás azoktól, akik mindent tudni látszanak",
+    "image": "images/cerveau-05.jpg",
+    "legende": "(lopd el őket)"
+   },
+   "nl": {
+    "titre": "5 niche gewoontes van mensen die alles weten",
+    "image": "images/cerveau-07.jpg",
+    "legende": "(steel ze)"
+   },
+   "pt-BR": {
+    "titre": "5 hábitos nichados de quem parece saber tudo",
+    "image": "images/cerveau-09.jpg",
+    "legende": "(pode copiar)"
+   },
+   "sv": {
+    "titre": "5 nischade vanor hos folk som verkar veta allt",
+    "image": "images/cerveau-11.jpg",
+    "legende": "(sno dem)"
    }
   },
   {
@@ -57,6 +92,31 @@
     "titre": "Dicono \"non lo so\"",
     "texte": "e poi lo cercano. chi ammette di non sapere finisce per sapere di più, perché va davvero a controllare",
     "image": "images/objets/mots-croises.png"
+   },
+   "de": {
+    "titre": "Sie sagen \"weiß ich nicht\"",
+    "texte": "und dann schlagen sie es nach. wer zugibt, was er nicht weiß, weiß am ende mehr, weil er wirklich nachschaut",
+    "image": "images/objets/mots-croises.png"
+   },
+   "hu": {
+    "titre": "Kimondják: \"nem tudom\"",
+    "texte": "aztán utánanéznek. aki beismeri, amit nem tud, végül többet tud, mert tényleg ellenőrzi",
+    "image": "images/objets/mots-croises.png"
+   },
+   "nl": {
+    "titre": "Ze zeggen \"ik weet het niet\"",
+    "texte": "en dan zoeken ze het op. wie toegeeft wat hij niet weet, weet uiteindelijk meer, omdat hij het echt nagaat",
+    "image": "images/objets/mots-croises.png"
+   },
+   "pt-BR": {
+    "titre": "Eles dizem \"não sei\"",
+    "texte": "e depois pesquisam. quem admite o que não sabe acaba sabendo mais, porque vai lá e confere",
+    "image": "images/objets/mots-croises.png"
+   },
+   "sv": {
+    "titre": "De säger \"jag vet inte\"",
+    "texte": "sen kollar de upp det. den som erkänner vad den inte vet slutar med att veta mer, för att den faktiskt kollar",
+    "image": "images/objets/mots-croises.png"
    }
   },
   {
@@ -74,6 +134,31 @@
    "it": {
     "titre": "Leggono l'originale",
     "texte": "non il thread sul libro, il libro. non il titolo, lo studio. i dettagli che nessuno ripete sono lì",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "de": {
+    "titre": "Sie lesen das original",
+    "texte": "nicht den thread über das buch, das buch. nicht die schlagzeile, die studie. die details, die keiner wiederholt, stehen da drin",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "hu": {
+    "titre": "Az eredetit olvassák",
+    "texte": "nem a könyvről szóló threadet, hanem a könyvet. nem a címet, hanem a tanulmányt. a részletek, amiket senki nem ismétel, ott vannak",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "nl": {
+    "titre": "Ze lezen het origineel",
+    "texte": "niet de thread over het boek, het boek. niet de kop, het onderzoek. de details die niemand herhaalt staan daarin",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "pt-BR": {
+    "titre": "Eles leem o original",
+    "texte": "não a thread sobre o livro, o livro. não a manchete, o estudo. os detalhes que ninguém repete estão lá",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "sv": {
+    "titre": "De läser originalet",
+    "texte": "inte tråden om boken, boken. inte rubriken, studien. detaljerna som ingen upprepar finns där",
     "image": "images/lectrice-fenetre.jpg"
    }
   },
@@ -94,6 +179,31 @@
     "titre": "Una lezione al giorno su Sophia",
     "texte": "quello che apro invece di scrollare: una lezione, un quiz, fine. un po' di tutto, ogni giorno",
     "telephone": "quiz"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "was ich statt scrollen öffne: eine lektion, ein quiz, fertig. von allem ein bisschen, jeden einzelnen tag",
+    "telephone": "quiz"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "amit görgetés helyett megnyitok: egy lecke, egy kvíz, kész. mindenből egy kicsit, minden egyes nap",
+    "telephone": "quiz"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "wat ik open in plaats van scrollen: één les, één quiz, klaar. van alles een beetje, elke dag weer",
+    "telephone": "quiz"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "o que eu abro em vez de rolar o feed: uma lição, um quiz, pronto. um pouco de tudo, todo santo dia",
+    "telephone": "quiz"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "det jag öppnar i stället för att scrolla: en lektion, ett quiz, klart. lite av allt, varenda dag",
+    "telephone": "quiz"
    }
   },
   {
@@ -112,6 +222,31 @@
     "titre": "Chiedono \"rispetto a cosa?\"",
     "texte": "un numero da solo non dice niente. \"10.000 morti\" su quanti? da quando? il contesto trasforma i fatti in comprensione",
     "image": "images/philosophe-manet.jpg"
+   },
+   "de": {
+    "titre": "Sie fragen \"im vergleich wozu?\"",
+    "texte": "eine zahl allein sagt nichts. \"10.000 tote\" von wie vielen? seit wann? kontext macht aus fakten verständnis",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "hu": {
+    "titre": "Megkérdezik: \"mihez képest?\"",
+    "texte": "egy szám önmagában semmit sem jelent. \"tízezer halott\", de hányból? mióta? a kontextus a tényekből megértést csinál",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "nl": {
+    "titre": "Ze vragen \"vergeleken met wat?\"",
+    "texte": "een getal alleen zegt niets. \"10.000 doden\" op hoeveel? sinds wanneer? context maakt van feiten begrip",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "pt-BR": {
+    "titre": "Eles perguntam \"comparado a quê?\"",
+    "texte": "um número sozinho não diz nada. \"10 mil mortes\" de quantas? desde quando? contexto transforma fatos em entendimento",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "sv": {
+    "titre": "De frågar \"jämfört med vad?\"",
+    "texte": "en siffra ensam säger ingenting. \"10 000 döda\" av hur många? sedan när? sammanhang gör fakta till förståelse",
+    "image": "images/philosophe-manet.jpg"
    }
   },
   {
@@ -129,6 +264,31 @@
    "it": {
     "titre": "Rileggono",
     "texte": "un grande libro letto tre volte batte tre libri letti una volta. noti quello che ti era sfuggito",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "de": {
+    "titre": "Sie lesen nochmal",
+    "texte": "ein großartiges buch dreimal gelesen schlägt drei bücher einmal gelesen. du siehst, was du beim ersten mal übersehen hast",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "hu": {
+    "titre": "Újraolvasnak",
+    "texte": "egy nagyszerű könyv háromszor elolvasva többet ér, mint három könyv egyszer. észreveszed, ami elsőre elkerülte a figyelmed",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "nl": {
+    "titre": "Ze herlezen",
+    "texte": "één geweldig boek drie keer lezen wint van drie boeken één keer. je ziet wat je de eerste keer miste",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "pt-BR": {
+    "titre": "Eles releem",
+    "texte": "um ótimo livro lido três vezes vale mais que três livros lidos uma vez. você nota o que passou batido na primeira",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "sv": {
+    "titre": "De läser om",
+    "texte": "en riktigt bra bok läst tre gånger slår tre böcker lästa en gång. du ser det du missade första gången",
     "image": "images/vieil-homme-livre.jpg"
    }
   }

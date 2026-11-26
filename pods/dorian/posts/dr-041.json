@@ -10,12 +10,22 @@
  "titre": {
   "en": "10/10 skills to learn if you get bored easily",
   "tr": "çabuk sıkılıyorsan öğrenmen gereken 10/10 beceriler",
-  "it": "skill 10/10 da imparare se ti annoi facilmente"
+  "it": "skill 10/10 da imparare se ti annoi facilmente",
+  "de": "10/10 skills für alle, die sich schnell langweilen",
+  "hu": "10/10 készség, ha könnyen unatkozol",
+  "nl": "10/10 skills om te leren als je je snel verveelt",
+  "pt-BR": "habilidades 10/10 pra aprender se você se entedia fácil",
+  "sv": "10/10 färdigheter att lära sig om du har lätt för att bli uttråkad"
  },
  "legendes": {
   "en": "#niche #skills #selfimprovement #lockedin",
   "tr": "#beceri #hobi #öğrenmek #kişiselgelişim",
-  "it": "#skill #hobby #imparare #crescitapersonale"
+  "it": "#skill #hobby #imparare #crescitapersonale",
+  "de": "#skills #selbstverbesserung #lernen #hobbys",
+  "hu": "#készségek #önfejlesztés #tanulás #hobbi",
+  "nl": "#skills #zelfontwikkeling #leren #hobbys",
+  "pt-BR": "#habilidades #autodesenvolvimento #aprender #hobbies",
+  "sv": "#färdigheter #självutveckling #lärande #hobby"
  },
  "musique": {
   "titre": "original sound - mel - mel",
@@ -39,6 +49,31 @@
     "titre": "skill 10/10 da imparare se ti annoi facilmente",
     "image": "images/cerveau-29.jpg",
     "legende": "(una sera ciascuna)"
+   },
+   "de": {
+    "titre": "10/10 skills für alle, die sich schnell langweilen",
+    "image": "images/cerveau-30.jpg",
+    "legende": "(je ein abend)"
+   },
+   "hu": {
+    "titre": "10/10 készség, ha könnyen unatkozol",
+    "image": "images/cerveau-31.jpg",
+    "legende": "(mindegyik egy este)"
+   },
+   "nl": {
+    "titre": "10/10 skills om te leren als je je snel verveelt",
+    "image": "images/cerveau-32.jpg",
+    "legende": "(elk één avond)"
+   },
+   "pt-BR": {
+    "titre": "habilidades 10/10 pra aprender se você se entedia fácil",
+    "image": "images/cerveau-33.jpg",
+    "legende": "(uma noite cada)"
+   },
+   "sv": {
+    "titre": "10/10 färdigheter att lära sig om du har lätt för att bli uttråkad",
+    "image": "images/cerveau-34.jpg",
+    "legende": "(en kväll var)"
    }
   },
   {
@@ -57,6 +92,31 @@
     "titre": "Cinque nodi",
     "texte": "nodo savoia, gassa d'amante, parlato, nodo piano, nodo di scotta. una sera con un pezzo di corda e li userai per sempre",
     "image": "images/objets/corde-noeud.png"
+   },
+   "de": {
+    "titre": "Fünf knoten",
+    "texte": "achterknoten, palstek, mastwurf, kreuzknoten, schotstek. ein abend mit einem seil, und du nutzt sie dein leben lang",
+    "image": "images/objets/corde-noeud.png"
+   },
+   "hu": {
+    "titre": "Öt csomó",
+    "texte": "nyolcas csomó, bakó, szorító, laposcsomó, vitorlás csomó. egy este egy kötéllel, és egész életedben használni fogod őket",
+    "image": "images/objets/corde-noeud.png"
+   },
+   "nl": {
+    "titre": "Vijf knopen",
+    "texte": "achtknoop, paalsteek, mastworp, platte knoop, schootsteek. één avond met een touw en je gebruikt ze je hele leven",
+    "image": "images/objets/corde-noeud.png"
+   },
+   "pt-BR": {
+    "titre": "Cinco nós",
+    "texte": "nó de oito, lais de guia, volta do fiel, nó direito, nó de escota. uma noite com uma corda e você usa pra vida toda",
+    "image": "images/objets/corde-noeud.png"
+   },
+   "sv": {
+    "titre": "Fem knopar",
+    "texte": "åttaknop, pålstek, dubbelt halvslag, råbandsknop, skotstek. en kväll med ett rep och du använder dem hela livet",
+    "image": "images/objets/corde-noeud.png"
    }
   },
   {
@@ -74,6 +134,31 @@
    "it": {
     "titre": "Un trucco con le carte",
     "texte": "inizia con il miscuglio all'americana. curiosità: i matematici hanno dimostrato che sette mescolate così bastano a mischiare bene un mazzo",
+    "image": "images/objets/cartes.png"
+   },
+   "de": {
+    "titre": "Ein kartentrick",
+    "texte": "fang mit dem riffle-shuffle an. fun fact: mathematiker haben gezeigt, dass sieben riffle-shuffles reichen, um ein deck richtig zu mischen",
+    "image": "images/objets/cartes.png"
+   },
+   "hu": {
+    "titre": "Egy kártyatrükk",
+    "texte": "kezdd a riffle-keveréssel. érdekesség: matematikusok kimutatták, hogy hét riffle-keverés elég egy pakli rendes összekeveréséhez",
+    "image": "images/objets/cartes.png"
+   },
+   "nl": {
+    "titre": "Eén kaarttruc",
+    "texte": "begin met de riffle shuffle. leuk weetje: wiskundigen toonden aan dat zeven riffle shuffles genoeg zijn om een stok echt te schudden",
+    "image": "images/objets/cartes.png"
+   },
+   "pt-BR": {
+    "titre": "Um truque de cartas",
+    "texte": "comece pelo riffle shuffle. curiosidade: matemáticos mostraram que sete riffle shuffles bastam pra misturar bem um baralho",
+    "image": "images/objets/cartes.png"
+   },
+   "sv": {
+    "titre": "Ett korttrick",
+    "texte": "börja med riffle-blandningen. kul fakta: matematiker har visat att sju riffle-blandningar räcker för att blanda en kortlek ordentligt",
     "image": "images/objets/cartes.png"
    }
   },
@@ -94,6 +179,31 @@
     "titre": "Una lezione al giorno su Sophia",
     "texte": "10 minuti, una lezione scritta da un vero professore, poi un quiz per fissarla. ogni giorno un argomento nuovo",
     "telephone": "cours"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "10 minuten, eine lektion von einem echten professor, dann ein quiz, damit es hängen bleibt. jeden tag ein neues thema",
+    "telephone": "cours"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "10 perc, egy igazi professzor által írt lecke, aztán egy kvíz, hogy megmaradjon. minden nap új téma",
+    "telephone": "cours"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "10 minuten, een les geschreven door een echte professor, daarna een quiz zodat het blijft hangen. elke dag een nieuw onderwerp",
+    "telephone": "cours"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "10 minutos, uma lição escrita por um professor de verdade, e depois um quiz pra fixar. um assunto novo todo dia",
+    "telephone": "cours"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. ett nytt ämne varje dag",
+    "telephone": "cours"
    }
   },
   {
@@ -112,6 +222,31 @@
     "titre": "Problemi di scacchi",
     "texte": "un problema al giorno. i giocatori forti riconoscono soprattutto schemi già visti, quindi ogni problema è uno schema in più",
     "image": "images/echiquier.jpg"
+   },
+   "de": {
+    "titre": "Schachaufgaben",
+    "texte": "eine aufgabe am tag. starke spieler erkennen vor allem muster, die sie schon gesehen haben, also ist jede aufgabe ein gespeichertes muster",
+    "image": "images/echiquier.jpg"
+   },
+   "hu": {
+    "titre": "Sakkfeladványok",
+    "texte": "napi egy feladvány. az erős játékosok főleg olyan mintákat ismernek fel, amiket már láttak, így minden feladvány egy elmentett minta",
+    "image": "images/echiquier.jpg"
+   },
+   "nl": {
+    "titre": "Schaakpuzzels",
+    "texte": "één puzzel per dag. sterke spelers herkennen vooral patronen die ze al eerder zagen, dus elke puzzel is een opgeslagen patroon",
+    "image": "images/echiquier.jpg"
+   },
+   "pt-BR": {
+    "titre": "Problemas de xadrez",
+    "texte": "um problema por dia. jogadores fortes reconhecem principalmente padrões que já viram, então cada problema é um padrão guardado",
+    "image": "images/echiquier.jpg"
+   },
+   "sv": {
+    "titre": "Schackproblem",
+    "texte": "ett problem om dagen. starka spelare känner mest igen mönster de redan har sett, så varje problem är ett sparat mönster",
+    "image": "images/echiquier.jpg"
    }
   },
   {
@@ -129,6 +264,31 @@
    "it": {
     "titre": "Scassinare lucchetti",
     "texte": "solo su lucchetti tuoi. una semplice serratura a perni ti insegna più meccanica in un'ora della maggior parte dei video",
+    "image": "images/objets/cadenas.png"
+   },
+   "de": {
+    "titre": "Schlösser knacken",
+    "texte": "nur an schlössern, die dir gehören. ein einfaches stiftschloss bringt dir in einer stunde mehr über mechanik bei als die meisten videos",
+    "image": "images/objets/cadenas.png"
+   },
+   "hu": {
+    "titre": "Zárnyitás",
+    "texte": "csak a saját zárjaidon. egy egyszerű hengerzár egy óra alatt többet tanít a mechanikáról, mint a legtöbb videó",
+    "image": "images/objets/cadenas.png"
+   },
+   "nl": {
+    "titre": "Slotjes openen",
+    "texte": "alleen op sloten die van jou zijn. een simpel cilinderslot leert je in een uur meer over mechaniek dan de meeste video's",
+    "image": "images/objets/cadenas.png"
+   },
+   "pt-BR": {
+    "titre": "Abrir cadeados",
+    "texte": "só nos que são seus. um cadeado simples de pinos te ensina mais sobre mecânica em uma hora do que a maioria dos vídeos",
+    "image": "images/objets/cadenas.png"
+   },
+   "sv": {
+    "titre": "Dyrka lås",
+    "texte": "bara på lås du själv äger. ett enkelt stiftlås lär dig mer om mekanik på en timme än de flesta videor",
     "image": "images/objets/cadenas.png"
    }
   }

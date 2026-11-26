@@ -10,12 +10,22 @@
  "titre": {
   "en": "5 languages that will humble you fast",
   "hu": "5 nyelv, ami gyorsan a földre küld",
-  "sv": "5 språk som snabbt sätter dig på plats"
+  "sv": "5 språk som snabbt sätter dig på plats",
+  "de": "5 sprachen, die dich schnell demütig machen",
+  "it": "5 lingue che ti rendono umile in fretta",
+  "nl": "5 talen die je snel nederig maken",
+  "pt-BR": "5 idiomas que vão te deixar humilde rapidinho",
+  "tr": "seni çabucak alçakgönüllü yapacak 5 dil"
  },
  "legendes": {
   "en": "#niche #languagelearning #polyglot #lockedin",
   "hu": "#nyelvtanulás #nyelvek #poliglott #niche",
-  "sv": "#språkinlärning #språk #polyglott #lärande"
+  "sv": "#språkinlärning #språk #polyglott #lärande",
+  "de": "#sprachenlernen #sprachen #polyglott #lernen",
+  "it": "#lingue #imparare #poliglotta #nicchia",
+  "nl": "#talenleren #talen #polyglot #leren",
+  "pt-BR": "#idiomas #aprender #poliglota #nicho",
+  "tr": "#dilöğrenmek #yabancıdil #poliglot #niş"
  },
  "musique": {
   "titre": "original sound - KRIS",
@@ -39,6 +49,31 @@
     "titre": "5 språk som snabbt sätter dig på plats",
     "image": "images/cerveau-19.jpg",
     "legende": "(rangordnade efter smärta)"
+   },
+   "de": {
+    "titre": "5 sprachen, die dich schnell demütig machen",
+    "image": "images/cerveau-21.jpg",
+    "legende": "(nach schmerz sortiert)"
+   },
+   "it": {
+    "titre": "5 lingue che ti rendono umile in fretta",
+    "image": "images/cerveau-22.jpg",
+    "legende": "(in ordine di dolore)"
+   },
+   "nl": {
+    "titre": "5 talen die je snel nederig maken",
+    "image": "images/cerveau-23.jpg",
+    "legende": "(gerangschikt op pijn)"
+   },
+   "pt-BR": {
+    "titre": "5 idiomas que vão te deixar humilde rapidinho",
+    "image": "images/cerveau-24.jpg",
+    "legende": "(em ordem de sofrimento)"
+   },
+   "tr": {
+    "titre": "seni çabucak alçakgönüllü yapacak 5 dil",
+    "image": "images/cerveau-25.jpg",
+    "legende": "(acıya göre sıralı)"
    }
   },
   {
@@ -60,6 +95,36 @@
     "difficulte": "30/50",
     "texte": "sju kasus och konsonantkluster som \"szczęście\", som betyder lycka. usa:s diplomatinstitut räknar med ungefär 1 100 lektionstimmar",
     "image": "images/cracovie.jpg"
+   },
+   "de": {
+    "titre": "Polnisch",
+    "difficulte": "30/50",
+    "texte": "sieben fälle und konsonantenhaufen wie \"szczęście\", das heißt glück. das foreign service institute der usa rechnet mit etwa 1.100 unterrichtsstunden",
+    "image": "images/cracovie.jpg"
+   },
+   "it": {
+    "titre": "Polacco",
+    "difficulte": "30/50",
+    "texte": "sette casi e gruppi di consonanti come \"szczęście\", che significa felicità. il foreign service institute americano calcola circa 1.100 ore di lezione",
+    "image": "images/cracovie.jpg"
+   },
+   "nl": {
+    "titre": "Pools",
+    "difficulte": "30/50",
+    "texte": "zeven naamvallen en medeklinkerclusters zoals \"szczęście\", dat geluk betekent. het amerikaanse foreign service institute rekent op zo'n 1.100 lesuren",
+    "image": "images/cracovie.jpg"
+   },
+   "pt-BR": {
+    "titre": "Polonês",
+    "difficulte": "30/50",
+    "texte": "sete casos e grupos de consoantes como \"szczęście\", que quer dizer felicidade. o foreign service institute dos eua calcula umas 1.100 horas de aula",
+    "image": "images/cracovie.jpg"
+   },
+   "tr": {
+    "titre": "Lehçe",
+    "difficulte": "30/50",
+    "texte": "yedi hâl ve \"mutluluk\" demek olan \"szczęście\" gibi ünsüz kümeleri. abd dışişleri enstitüsü yaklaşık 1.100 ders saati hesaplıyor",
+    "image": "images/cracovie.jpg"
    }
   },
   {
@@ -80,6 +145,36 @@
     "titre": "Isländska",
     "difficulte": "33/50",
     "texte": "språket har ändrats så lite att islänningar fortfarande kan läsa de medeltida sagorna. nya ord byggs av gamla rötter: dator heter \"tölva\", sifferspåkvinna",
+    "image": "images/islande.jpg"
+   },
+   "de": {
+    "titre": "Isländisch",
+    "difficulte": "33/50",
+    "texte": "es hat sich so wenig verändert, dass isländer noch die mittelalterlichen sagas lesen können. neue wörter entstehen aus alten wurzeln: computer heißt \"tölva\", zahlen-seherin",
+    "image": "images/islande.jpg"
+   },
+   "it": {
+    "titre": "Islandese",
+    "difficulte": "33/50",
+    "texte": "è cambiato così poco che gli islandesi leggono ancora le saghe medievali. le parole nuove nascono da radici antiche: computer si dice \"tölva\", profetessa dei numeri",
+    "image": "images/islande.jpg"
+   },
+   "nl": {
+    "titre": "IJslands",
+    "difficulte": "33/50",
+    "texte": "het is zo weinig veranderd dat ijslanders de middeleeuwse sagen nog kunnen lezen. nieuwe woorden komen van oude wortels: een computer is \"tölva\", getallen-zieneres",
+    "image": "images/islande.jpg"
+   },
+   "pt-BR": {
+    "titre": "Islandês",
+    "difficulte": "33/50",
+    "texte": "mudou tão pouco que os islandeses ainda conseguem ler as sagas medievais. palavras novas vêm de raízes antigas: computador é \"tölva\", profetisa dos números",
+    "image": "images/islande.jpg"
+   },
+   "tr": {
+    "titre": "İzlandaca",
+    "difficulte": "33/50",
+    "texte": "o kadar az değişti ki izlandalılar ortaçağ destanlarını hâlâ okuyabiliyor. yeni kelimeler eski köklerden türüyor: bilgisayar \"tölva\", yani sayı kâhini",
     "image": "images/islande.jpg"
    }
   },
@@ -103,6 +198,36 @@
     "difficulte": "4/50",
     "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. det lättaste på den här listan",
     "telephone": "cours"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minuten, eine lektion von einem echten professor, dann ein quiz, damit es hängen bleibt. das leichteste auf dieser liste",
+    "telephone": "cours"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minuti, una lezione scritta da un vero professore, poi un quiz per fissarla. la cosa più facile di questa lista",
+    "telephone": "cours"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minuten, een les geschreven door een echte professor, daarna een quiz zodat het blijft hangen. het makkelijkste op deze lijst",
+    "telephone": "cours"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minutos, uma lição escrita por um professor de verdade, e depois um quiz pra fixar. a coisa mais fácil desta lista",
+    "telephone": "cours"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "difficulte": "4/50",
+    "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. bu listedeki en kolay şey",
+    "telephone": "cours"
    }
   },
   {
@@ -123,6 +248,36 @@
     "titre": "Ungerska",
     "difficulte": "38/50",
     "texte": "brukar räknas till 18 kasus, plus vokalharmoni: ändelserna anpassar sig efter ordet. språket är inte alls släkt med grannländernas",
+    "image": "images/budapest.jpg"
+   },
+   "de": {
+    "titre": "Ungarisch",
+    "difficulte": "38/50",
+    "texte": "meist mit 18 fällen gezählt, dazu vokalharmonie: endungen passen sich dem wort an. mit seinen nachbarn ist es gar nicht verwandt",
+    "image": "images/budapest.jpg"
+   },
+   "it": {
+    "titre": "Ungherese",
+    "difficulte": "38/50",
+    "texte": "di solito si contano 18 casi, più l'armonia vocalica: le desinenze cambiano per accordarsi alla parola. non è affatto imparentato con le lingue vicine",
+    "image": "images/budapest.jpg"
+   },
+   "nl": {
+    "titre": "Hongaars",
+    "difficulte": "38/50",
+    "texte": "meestal geteld met 18 naamvallen, plus klinkerharmonie: uitgangen passen zich aan het woord aan. het is helemaal niet verwant aan de buurtalen",
+    "image": "images/budapest.jpg"
+   },
+   "pt-BR": {
+    "titre": "Húngaro",
+    "difficulte": "38/50",
+    "texte": "costuma ter 18 casos, mais a harmonia vocálica: as terminações mudam pra combinar com a palavra. não tem parentesco nenhum com os vizinhos",
+    "image": "images/budapest.jpg"
+   },
+   "tr": {
+    "titre": "Macarca",
+    "difficulte": "38/50",
+    "texte": "genelde 18 hâlle sayılıyor, bir de ünlü uyumu var: ekler kelimeye uyacak şekilde değişiyor. komşu dillerin hiçbiriyle akraba değil",
     "image": "images/budapest.jpg"
    }
   },
@@ -145,6 +300,36 @@
     "difficulte": "42/50",
     "texte": "nordlig standard har sex toner. \"ma\" kan betyda spöke, mamma, men, häst, risplanta eller grav beroende på tonen",
     "image": "images/halong.jpg"
+   },
+   "de": {
+    "titre": "Vietnamesisch",
+    "difficulte": "42/50",
+    "texte": "der nördliche standard hat sechs töne. \"ma\" kann je nach ton geist, mutter, aber, pferd, reissetzling oder grab heißen",
+    "image": "images/halong.jpg"
+   },
+   "it": {
+    "titre": "Vietnamita",
+    "difficulte": "42/50",
+    "texte": "lo standard del nord ha sei toni. \"ma\" può voler dire fantasma, madre, ma, cavallo, piantina di riso o tomba a seconda del tono",
+    "image": "images/halong.jpg"
+   },
+   "nl": {
+    "titre": "Vietnamees",
+    "difficulte": "42/50",
+    "texte": "de noordelijke standaard heeft zes tonen. \"ma\" kan spook, moeder, maar, paard, rijstplantje of graf betekenen, afhankelijk van de toon",
+    "image": "images/halong.jpg"
+   },
+   "pt-BR": {
+    "titre": "Vietnamita",
+    "difficulte": "42/50",
+    "texte": "o padrão do norte tem seis tons. \"ma\" pode ser fantasma, mãe, mas, cavalo, muda de arroz ou túmulo, dependendo do tom",
+    "image": "images/halong.jpg"
+   },
+   "tr": {
+    "titre": "Vietnamca",
+    "difficulte": "42/50",
+    "texte": "kuzey standardında altı ton var. \"ma\" tona göre hayalet, anne, ama, at, pirinç fidesi ya da mezar demek olabiliyor",
+    "image": "images/halong.jpg"
    }
   },
   {
@@ -165,6 +350,36 @@
     "titre": "Kantonesiska",
     "difficulte": "47/50",
     "texte": "lärs oftast ut med sex toner, och vardagsspråket skiljer sig från standardskriven kinesiska. ungefär 2 200 lektionstimmar",
+    "image": "images/canton.jpg"
+   },
+   "de": {
+    "titre": "Kantonesisch",
+    "difficulte": "47/50",
+    "texte": "meist mit sechs tönen unterrichtet, und die gesprochene alltagssprache weicht vom geschriebenen standardchinesisch ab. etwa 2.200 unterrichtsstunden",
+    "image": "images/canton.jpg"
+   },
+   "it": {
+    "titre": "Cantonese",
+    "difficulte": "47/50",
+    "texte": "di solito si insegna con sei toni, e la lingua parlata di tutti i giorni è diversa dal cinese scritto standard. circa 2.200 ore di lezione",
+    "image": "images/canton.jpg"
+   },
+   "nl": {
+    "titre": "Kantonees",
+    "difficulte": "47/50",
+    "texte": "meestal onderwezen met zes tonen, en de gesproken taal van elke dag verschilt van het geschreven standaardchinees. zo'n 2.200 lesuren",
+    "image": "images/canton.jpg"
+   },
+   "pt-BR": {
+    "titre": "Cantonês",
+    "difficulte": "47/50",
+    "texte": "geralmente ensinado com seis tons, e a língua falada do dia a dia é diferente do chinês escrito padrão. umas 2.200 horas de aula",
+    "image": "images/canton.jpg"
+   },
+   "tr": {
+    "titre": "Kantonca",
+    "difficulte": "47/50",
+    "texte": "genelde altı tonla öğretiliyor, günlük konuşma dili de yazılı standart çinceden farklı. yaklaşık 2.200 ders saati",
     "image": "images/canton.jpg"
    }
   }

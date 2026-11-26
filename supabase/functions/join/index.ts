@@ -267,9 +267,10 @@ async function emailDansSaLangue(db: Db, c: Candidature, e: EmailRuul, secrets: 
   return { objet: t.objet, ...r };
 }
 
-/** L'email du code : en test, seulement vers un testeur. Renvoie l'état pour le journal. */
+/** L'email du code : en live, à tout candidat ; en test, seulement vers un testeur. Renvoie l'état pour le journal. */
 async function envoyerCodeEmail(db: Db, mode: ModeJoin, c: Candidature, code: string): Promise<"envoye" | "bloque"> {
-  if (!emailAutorise(mode, c.email)) return "bloque";
+  // 26/11 : en live, le code part à tout le monde (avant : seulement aux testeurs, même en live).
+  if (mode.mode !== "live" && !emailAutorise(mode, c.email)) return "bloque";
   const { objet, html, texte } = await emailDansSaLangue(db, c, {
     objet: `Your Vik Studios code: ${code}`,
     corps: `Hi ${c.prenom},\n\nYour verification code is ${code}\n\nIt expires in ${CODE_DUREE_MIN} minutes. If you didn't ask for it, ignore this email.`,

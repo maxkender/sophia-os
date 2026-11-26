@@ -1,0 +1,294 @@
+{
+ "post_id": "original-105",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "[[2026 dertlerini]] çözecek filozoflar"
+    },
+    "T2": {
+     "en": [
+      "(in this age of",
+      "short-form content)"
+     ],
+     "fr": "(à l'époque des vidéos de 10 secondes)",
+     "texte": "(yüzyıllardır ölüler, hâlâ haklılar)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0acfe446.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "fr": "passe plus de temps [[à ne rien faire]]",
+     "texte": "seneca: hayat [[kısa değil]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "fr": "lâche [[les vidéos]] et [[la musique]] pendant tes balades, tes repas, [[tes temps morts]]",
+     "texte": "2026 derdi: [[\"hiç vaktim yok\"]] ama günde 4 saat ekran süresi"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "fr": "dans le calme, ton cerveau digère ce qu'il a vu, fait des liens et [[se fait ses propres idées]]",
+     "texte": "MS 49 civarında şunu yazdı: hayat kısa değil, [[onu boşa harcayarak]] biz kısaltıyoruz"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "fr": "les vidéos courtes non-stop te [[grillent le cerveau]] et [[flinguent ta concentration!!]]",
+     "texte": "\"vaktim yok\" demeden önce saatlerinin [[gerçekte nereye gittiğine]] bak. cevap genelde elinde"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0de46af9.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start reading everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "montaigne: [[meraklı kal]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling feeds you",
+      "constant dopamine and",
+      "burns your dopamine",
+      "receptors"
+     ],
+     "fr": "le scroll t'envoie [[de la dopamine non-stop]] et [[crame tes récepteurs]]",
+     "texte": "1576'da bastırdığı madalyadaki sözü: [[\"ne biliyorum ki?\"]]"
+    },
+    "T3": {
+     "en": [
+      "i use readup to block my",
+      "apps for 20 minutes until i",
+      "read"
+     ],
+     "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "şatosunun kulesini kitaplarla doldurdu ve [[merak ettiği her şeyi]] yazdı"
+    },
+    "T4": {
+     "en": [
+      "reading forces you to hold",
+      "attention, remember",
+      "details, and follow one",
+      "idea for longer"
+     ],
+     "fr": "apprendre, ça t'oblige à [[te concentrer]], [[retenir des détails]] et suivre une idée jusqu'au bout",
+     "texte": "2026 versiyonu: telefonu nasılsa eline aldığında, bir video daha yerine [[gerçek bir şey öğren]]"
+    },
+    "T5": {
+     "en": [
+      "even a little every day is",
+      "enough to start rebuilding",
+      "your attention span"
+     ],
+     "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
+     "texte": "bugünkü 5 dakikam [[Sophia uygulamasında]]: rönesans neden italya'da başladı. tam montaigne'lik"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "challenge your own biases"
+     ],
+     "fr": "méfie-toi de [[tes propres biais]]",
+     "texte": "epiktetos: [[dertlerini ayıkla]]"
+    },
+    "T2": {
+     "en": [
+      "your brain loves evidence that proves what you",
+      "already believe"
+     ],
+     "fr": "ton cerveau adore tout ce qui confirme [[ce que tu penses déjà]]",
+     "texte": "2026 derdi: hiçbir şey yapamayacağın [[kötü haberlerde doomscroll]]"
+    },
+    "T3": {
+     "en": [
+      "actively look for the",
+      "strongest argument",
+      "against your opinion"
+     ],
+     "fr": "va chercher exprès [[le meilleur argument contre]] ton avis",
+     "texte": "el kitabı şöyle başlar: [[bazı şeyler bize bağlı]], bazıları değil"
+    },
+    "T4": {
+     "en": [
+      "getting smarter",
+      "means getting better",
+      "at noticing when your",
+      "own thinking is wrong"
+     ],
+     "fr": "être plus intelligente, c'est surtout mieux voir [[quand ton raisonnement est faux]]",
+     "texte": "köle olarak doğdu, enerjisini sadece [[kendi seçimlerine]] verdi, gerisini bıraktı"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0f15e8fd.jpg",
+      "boite": [
+       120,
+       0,
+       2030,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "pascal: [[yerinde durmayı]] öğren"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "2026 derdi: telefona uzanmadan 2 dakika bile bekleyemiyorsun"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "insanların tüm mutsuzluğunun [[bir odada sakince oturamamaktan]] geldiğini yazdı"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "10 dakika dene, telefon yok, müzik yok. [[sıkıntı geçer]], fikirler gelir"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00497a88.jpg",
+      "boite": [
+       350,
+       0,
+       1830,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "explain what you learn out loud"
+     ],
+     "fr": "dis [[à voix haute]] ce que t'as appris",
+     "texte": "aristoteles: [[önce yap]], sonra hisset"
+    },
+    "T2": {
+     "en": [
+      "close the book, article, or",
+      "video and explain the idea",
+      "from memory"
+     ],
+     "fr": "ferme le livre, l'article ou la vidéo et réexplique l'idée [[de tête]]",
+     "texte": "2026 derdi: bir şeye başlamak için [[motivasyonu beklemek]]"
+    },
+    "T3": {
+     "en": [
+      "the moment you get vague",
+      "or confused, you’ve found",
+      "the gap"
+     ],
+     "fr": "dès que tu t'embrouilles, t'as trouvé ce que t'as pas compris",
+     "texte": "cesur olmanın yolunun [[cesur işler yapmaktan]] geçtiğini yazdı"
+    },
+    "T4": {
+     "en": [
+      "teaching exposes weak",
+      "understanding faster than",
+      "rereading does"
+     ],
+     "fr": "[[expliquer fait ressortir tes lacunes]] plus vite que relire",
+     "texte": "his alışkanlığın peşinden gelir. [[bugün bir kere yap]], motivasyon arkadan yetişir"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_001d31ba.jpg",
+      "boite": [
+       0,
+       250,
+       1760,
+       1830
+      ]
+     }
+    }
+   }
+  }
+ }
+}

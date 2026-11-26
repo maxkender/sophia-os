@@ -1,0 +1,461 @@
+{
+ "post_id": "7712084997800332567",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits that are secretly",
+      "ruining your memory"
+     ],
+     "fr": "10/10 habitudes qui flinguent ta mémoire en douce",
+     "texte": "10/10 habitudes qui flinguent ta mémoire en douce"
+    },
+    "T4": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(la science est d'accord)",
+     "alignement": "droite"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": ""
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder",
+    "I3": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listening to music all the time"
+     ],
+     "fr": "écouter de la musique [[tout le temps]]",
+     "texte": "écouter de la musique [[tout le temps]]"
+    },
+    "T2": {
+     "en": [
+      "on walks, in the shower, while you study, before",
+      "you sleep"
+     ],
+     "fr": "en marchant, sous la douche, en révisant, avant de dormir",
+     "texte": "en marchant, sous la douche, en révisant, avant de dormir"
+    },
+    "T5": {
+     "en": [
+      "your brain uses quiet",
+      "moments to replay and",
+      "store what happened in",
+      "your day"
+     ],
+     "fr": "ton cerveau profite des moments calmes pour [[rejouer et ranger]] ta journée",
+     "texte": "ton cerveau profite des moments calmes pour [[rejouer et ranger]] ta journée"
+    },
+    "T6": {
+     "en": [
+      "give it 10 minutes of",
+      "silence and you'll",
+      "remember so much more"
+     ],
+     "fr": "offre-lui 10 minutes de silence et [[tu retiendras bien plus]]",
+     "texte": "offre-lui 10 minutes de silence et [[tu retiendras bien plus]]"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T7": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": ""
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "watching everything at 2x speed"
+     ],
+     "fr": "tout regarder [[en vitesse x2]]",
+     "texte": "tout regarder [[en vitesse x2]]"
+    },
+    "T2": {
+     "en": [
+      "lectures, podcasts and",
+      "youtube videos go in so",
+      "fast that your brain never",
+      "gets time to store them"
+     ],
+     "fr": "cours, podcasts et vidéos défilent si vite que ton cerveau [[a jamais le temps de les ranger]]",
+     "texte": "cours, podcasts et vidéos défilent si vite que ton cerveau [[a jamais le temps de les ranger]]"
+    },
+    "T3": {
+     "en": [
+      "it feels like learning, but",
+      "a week later it's gone"
+     ],
+     "fr": "tu crois apprendre, mais [[8 jours après, plus rien]]",
+     "texte": "tu crois apprendre, mais [[8 jours après, plus rien]]"
+    },
+    "T4": {
+     "en": [
+      "slow it down and",
+      "actually think about",
+      "what you hear"
+     ],
+     "fr": "ralentis et [[réfléchis vraiment]] à ce que t'entends",
+     "texte": "ralentis et [[réfléchis vraiment]] à ce que t'entends"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": ""
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "doomscrolling everyday"
+     ],
+     "fr": "doomscroller [[tous les jours]]",
+     "texte": "doomscroller [[tous les jours]]"
+    },
+    "T2": {
+     "en": [
+      "you watch hundreds of videos",
+      "a day and can't remember a",
+      "single one by dinner. that is",
+      "frying your memory"
+     ],
+     "fr": "tu regardes des centaines de vidéos par jour et le soir [[t'en as plus une seule en tête]]. ça grille ta mémoire",
+     "texte": "tu regardes des centaines de vidéos par jour et le soir [[t'en as plus une seule en tête]]. ça grille ta mémoire"
+    },
+    "T3": {
+     "en": [
+      "you can try using willpower",
+      "to stop, but i use a thing",
+      "that blocks tiktok until i read",
+      "a book for 20 minutes"
+     ],
+     "fr": "ce qui a remplacé mon scroll, c'est un livre le soir, des balades sans musique et [[l'appli Sophia]], hier sur Camus",
+     "texte": "ce qui a remplacé mon scroll, c'est un livre le soir, des balades sans musique et [[l'appli Sophia]], hier sur Camus"
+    },
+    "T4": {
+     "en": [
+      "don't become illiterate!!"
+     ],
+     "fr": "[[protège ta mémoire !!]]",
+     "texte": "[[protège ta mémoire !!]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": ""
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "googling things before you try",
+      "to remember"
+     ],
+     "fr": "googler un truc [[avant même d'essayer de t'en souvenir]]",
+     "texte": "googler un truc [[avant même d'essayer de t'en souvenir]]"
+    },
+    "T2": {
+     "en": [
+      "a name, a word, a movie you watched, you look",
+      "it up the second you forget it"
+     ],
+     "fr": "un nom, un mot, un film que t'as vu, tu cherches [[dès que ça t'échappe]]",
+     "texte": "un nom, un mot, un film que t'as vu, tu cherches [[dès que ça t'échappe]]"
+    },
+    "T3": {
+     "en": [
+      "your brain stops",
+      "storing things it",
+      "knows it can just",
+      "find"
+     ],
+     "fr": "ton cerveau arrête de stocker ce qu'il [[sait pouvoir retrouver]]",
+     "texte": "ton cerveau arrête de stocker ce qu'il [[sait pouvoir retrouver]]"
+    },
+    "T4": {
+     "en": [
+      "try to remember for 30 seconds",
+      "first, that's what makes it stick"
+     ],
+     "fr": "fouille ta mémoire 30 secondes avant, c'est ce qui [[l'ancre]]",
+     "texte": "fouille ta mémoire 30 secondes avant, c'est ce qui [[l'ancre]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": ""
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 205,
+      "l": 765,
+      "h": 122
+     },
+     "lignes": [
+      {
+       "x": 41,
+       "y": 205,
+       "l": 764,
+       "h": 58,
+       "base": 258
+      },
+      {
+       "x": 40,
+       "y": 275,
+       "l": 330,
+       "h": 52,
+       "base": 326
+      }
+     ],
+     "pas": 68,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 46,
+      "y": 376,
+      "l": 772,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 46,
+       "y": 376,
+       "l": 772,
+       "h": 36,
+       "base": 403
+      },
+      {
+       "x": 47,
+       "y": 416,
+       "l": 469,
+       "h": 40,
+       "base": 453
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 657,
+      "y": 561,
+      "l": 274,
+      "h": 165
+     },
+     "lignes": [
+      {
+       "x": 658,
+       "y": 561,
+       "l": 263,
+       "h": 39,
+       "base": 588
+      },
+      {
+       "x": 660,
+       "y": 604,
+       "l": 252,
+       "h": 37,
+       "base": 631
+      },
+      {
+       "x": 657,
+       "y": 648,
+       "l": 274,
+       "h": 36,
+       "base": 681
+      },
+      {
+       "x": 657,
+       "y": 690,
+       "l": 65,
+       "h": 36,
+       "base": 725
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 44,
+      "y": 598,
+      "l": 568,
+      "h": 174
+     }
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 929,
+      "l": 519,
+      "h": 79
+     },
+     "lignes": [
+      {
+       "x": 40,
+       "y": 929,
+       "l": 519,
+       "h": 37,
+       "base": 957
+      },
+      {
+       "x": 40,
+       "y": 971,
+       "l": 495,
+       "h": 37,
+       "base": 1007
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 1040,
+      "y": 1302,
+      "l": 40,
+      "h": 40
+     },
+     "lignes": [
+      {
+       "x": 1040,
+       "y": 1302,
+       "l": 40,
+       "h": 40,
+       "base": 1304
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "typing notes on your laptop"
+     ],
+     "fr": "prendre tes notes [[sur ton ordi]]",
+     "texte": "prendre tes notes [[sur ton ordi]]"
+    },
+    "T2": {
+     "en": [
+      "typing is so fast that you",
+      "copy everything word for",
+      "word without thinking",
+      "about it"
+     ],
+     "fr": "tu tapes si vite que tu recopies tout [[mot pour mot]] sans y réfléchir",
+     "texte": "tu tapes si vite que tu recopies tout [[mot pour mot]] sans y réfléchir"
+    },
+    "T3": {
+     "en": [
+      "writing by hand forces you",
+      "to put it in your own words,",
+      "so it actually sticks"
+     ],
+     "fr": "écrire à la main t'oblige à [[le dire avec tes mots]], du coup ça reste vraiment",
+     "texte": "écrire à la main t'oblige à [[le dire avec tes mots]], du coup ça reste vraiment"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": ""
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -1,0 +1,294 @@
+{
+ "post_id": "original-105",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "philosophers who'd fix your [[2026 problems]]"
+    },
+    "T2": {
+     "en": [
+      "(in this age of",
+      "short-form content)"
+     ],
+     "fr": "(à l'époque des vidéos de 10 secondes)",
+     "texte": "(dead for centuries, still right)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_05661402.jpg",
+      "boite": [
+       0,
+       380,
+       1888,
+       1400
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "fr": "passe plus de temps [[à ne rien faire]]",
+     "texte": "seneca: life isn't [[too short]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "fr": "lâche [[les vidéos]] et [[la musique]] pendant tes balades, tes repas, [[tes temps morts]]",
+     "texte": "2026 problem: [[\"no time\"]], yet 4 hours of screen time a day"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "fr": "dans le calme, ton cerveau digère ce qu'il a vu, fait des liens et [[se fait ses propres idées]]",
+     "texte": "around 49 AD he wrote that life isn't short, [[we make it short]] by wasting so much of it"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "fr": "les vidéos courtes non-stop te [[grillent le cerveau]] et [[flinguent ta concentration!!]]",
+     "texte": "check where your hours really go before you say [[you don't have time]]. the answer is usually in your hand"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0de46af9.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start reading everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "montaigne: [[stay curious]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling feeds you",
+      "constant dopamine and",
+      "burns your dopamine",
+      "receptors"
+     ],
+     "fr": "le scroll t'envoie [[de la dopamine non-stop]] et [[crame tes récepteurs]]",
+     "texte": "his motto, on a medal he had made in 1576: [[\"what do i know?\"]]"
+    },
+    "T3": {
+     "en": [
+      "i use readup to block my",
+      "apps for 20 minutes until i",
+      "read"
+     ],
+     "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "he filled the tower of his castle with books and wrote about [[whatever made him wonder]]"
+    },
+    "T4": {
+     "en": [
+      "reading forces you to hold",
+      "attention, remember",
+      "details, and follow one",
+      "idea for longer"
+     ],
+     "fr": "apprendre, ça t'oblige à [[te concentrer]], [[retenir des détails]] et suivre une idée jusqu'au bout",
+     "texte": "2026 version: when you grab your phone anyway, [[learn one real thing]] instead of another video"
+    },
+    "T5": {
+     "en": [
+      "even a little every day is",
+      "enough to start rebuilding",
+      "your attention span"
+     ],
+     "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
+     "texte": "today's 5 min on [[the Sophia app]]: why the renaissance began in italy. very montaigne of me"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "challenge your own biases"
+     ],
+     "fr": "méfie-toi de [[tes propres biais]]",
+     "texte": "epictetus: [[sort your worries]]"
+    },
+    "T2": {
+     "en": [
+      "your brain loves evidence that proves what you",
+      "already believe"
+     ],
+     "fr": "ton cerveau adore tout ce qui confirme [[ce que tu penses déjà]]",
+     "texte": "2026 problem: [[doomscrolling bad news]] you can't do anything about"
+    },
+    "T3": {
+     "en": [
+      "actively look for the",
+      "strongest argument",
+      "against your opinion"
+     ],
+     "fr": "va chercher exprès [[le meilleur argument contre]] ton avis",
+     "texte": "his handbook opens with it: [[some things are up to us]], some aren't"
+    },
+    "T4": {
+     "en": [
+      "getting smarter",
+      "means getting better",
+      "at noticing when your",
+      "own thinking is wrong"
+     ],
+     "fr": "être plus intelligente, c'est surtout mieux voir [[quand ton raisonnement est faux]]",
+     "texte": "born a slave, he put his energy only into [[his own choices]] and let the rest go"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0f15e8fd.jpg",
+      "boite": [
+       120,
+       0,
+       2030,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "pascal: learn to [[sit still]]"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "2026 problem: you can't wait 2 minutes without reaching for your phone"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "he wrote that all human unhappiness comes from [[not staying quietly in a room]]"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "try 10 minutes, no phone, no music. [[the boredom passes]] and the ideas come"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00497a88.jpg",
+      "boite": [
+       350,
+       0,
+       1830,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "explain what you learn out loud"
+     ],
+     "fr": "dis [[à voix haute]] ce que t'as appris",
+     "texte": "aristotle: [[act first]], feel later"
+    },
+    "T2": {
+     "en": [
+      "close the book, article, or",
+      "video and explain the idea",
+      "from memory"
+     ],
+     "fr": "ferme le livre, l'article ou la vidéo et réexplique l'idée [[de tête]]",
+     "texte": "2026 problem: [[waiting to feel motivated]] before you start anything"
+    },
+    "T3": {
+     "en": [
+      "the moment you get vague",
+      "or confused, you’ve found",
+      "the gap"
+     ],
+     "fr": "dès que tu t'embrouilles, t'as trouvé ce que t'as pas compris",
+     "texte": "he wrote that we become brave [[by doing brave acts]]"
+    },
+    "T4": {
+     "en": [
+      "teaching exposes weak",
+      "understanding faster than",
+      "rereading does"
+     ],
+     "fr": "[[expliquer fait ressortir tes lacunes]] plus vite que relire",
+     "texte": "the feeling follows the habit. [[do it once today]] and let the motivation catch up"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_001d31ba.jpg",
+      "boite": [
+       0,
+       250,
+       1760,
+       1830
+      ]
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o204",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "c6a791b1-eee7-4aa1-9754-d9f030734285",
+  "titre": "what i do the day a teacher hands back a test #studytok #studytips #school",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [
+    "c6a791b1-eee7-4aa1-9754-d9f030734285"
+  ],
+  "notes": "Déclinaison G1 de c6a791b1 (notre cs-o122), ligne 3 de la boîte. Accroche du parent mot pour mot. Gestes neufs, aucun de cs-o122 (lire chaque commentaire, refaire les questions ratées, trier les erreurs, une question au prof, le dossier examen final) : comparer avec le barème, réécrire la meilleure réponse en entier, ne pas comparer sa note à celle des autres, noter les points faciles perdus, une vraie pause le soir (slide Sophia, 5), fixer un objectif pour le prochain. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b717f033",
+      "texte_overlay": "what i do the day a teacher\nhands back a test",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c9504d2d",
+      "texte_overlay": "i compare my answers with the marking scheme.\nwhere exactly did the points go?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "b89f0eb9",
+      "texte_overlay": "i rewrite my weakest answer in full.\nthe way it should have been.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "078d88e1",
+      "texte_overlay": "i don't compare my grade with anyone's.\nonly with my last one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1856eb97",
+      "texte_overlay": "i circle the easy points i lost.\nthose are the cheapest to win back.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "a2351e3a",
+      "texte_overlay": "then a real break, whatever the grade.\nsomething that has nothing to do with school.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "then a real break, whatever the grade.\n10 minutes on a micro-learning app like the Sophia app,\nnothing to do with school."
+    },
+    {
+      "position": 7,
+      "media_id": "a9779da7",
+      "texte_overlay": "one goal for the next test.\nwritten on the first page of my notebook.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o202",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "a539055d-45bb-43ac-8a9c-2c7ef55202a0",
+  "titre": "how to truly understand every subject and the personal tricks that helped me #studytok #studytips #school",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [
+    "a539055d-45bb-43ac-8a9c-2c7ef55202a0"
+  ],
+  "notes": "Déclinaison G2 de a539055d (la famille de notre cs-o056), ligne 1 de la boîte, 2e déclinaison de la famille. Même promesse, autres mots que la famille et que cs-o188 : « how to truly understand every subject and the personal tricks that helped me ». Matières et conseils neufs, aucun de cs-o056 ni de cs-o188 : physique, langues, philosophie, biologie, art, géographie. Slide Sophia sur l'art (5). Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6879cba4",
+      "texte_overlay": "how to truly understand every subject\nand the personal tricks that helped me",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b10fe621",
+      "texte_overlay": "Physics\nimagine it before you calculate it.\nmy trick: describe the situation in one sentence first.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0e0e59d0",
+      "texte_overlay": "Languages\nthink in the language for 5 minutes a day.\nmy trick: narrate what you're doing, in your head.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "44920c48",
+      "texte_overlay": "Philosophy\none real-life example for every concept.\nmy trick: argue against yourself.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "bde1ea88",
+      "texte_overlay": "Biology\nfollow the journey: where does it start, where does it go?\nmy trick: draw it like a map.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "637d2ed8",
+      "texte_overlay": "Art\nlearn the story behind each work.\nmy trick: one painting a day, just looking.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "Art\nlearn the story behind each work.\nmy trick: one painting a day on a micro-learning app\nlike the Sophia app."
+    },
+    {
+      "position": 7,
+      "media_id": "c6ceaf3f",
+      "texte_overlay": "Geography\nlink every map to the news.\nmy trick: find the place of every headline.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

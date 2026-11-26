@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o199",
+  "type_bleo": "full_test",
+  "titre": "how i made my desk a place i actually want to study at #studytok #studytips #deskaesthetic",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Ni marque ni prix. Gestes vrais : tout vider puis ne remettre que l'utile, une lampe chaude, une plante, rien de l'école sur le lit, un carnet de curiosités sur le bureau (slide Sophia, 5), ranger en 2 minutes à la fin de chaque séance. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6f73c246",
+      "texte_overlay": "how i made my desk a place\ni actually want to study at",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "f3a2e18e",
+      "texte_overlay": "i emptied everything, then put back only what i use.\npens, notebook, lamp. that's it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "5698c6ba",
+      "texte_overlay": "a warm lamp instead of the ceiling light.\ncozy, but awake.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ee10c6ac",
+      "texte_overlay": "one small plant.\nit makes the corner feel alive.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "3e348137",
+      "texte_overlay": "my desk is for work, my bed is for rest.\nno books in bed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "7e3aa846",
+      "texte_overlay": "a little notebook of things i'm curious about.\nfor my breaks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "a little notebook of things i'm curious about,\nfilled from a micro-learning app like the Sophia app.\nfor my breaks."
+    },
+    {
+      "position": 7,
+      "media_id": "5770dfde",
+      "texte_overlay": "2 minutes of tidying after every session.\ntomorrow-me sits down to a clean desk.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

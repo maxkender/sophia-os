@@ -40,7 +40,7 @@
       "never take risks"
      ],
      "fr": "ne tente jamais rien",
-     "texte": "отказвай се от всичко след 2 седмици"
+     "texte": "зарязвай всичко след 2 седмици"
     },
     "T2": {
      "en": [
@@ -142,7 +142,7 @@
       "never stop scrolling"
      ],
      "fr": "scrolle non-stop",
-     "texte": "остави алгоритъма да мисли вместо теб"
+     "texte": "нека алгоритъмът мисли за теб"
     },
     "T2": {
      "en": [
@@ -169,7 +169,7 @@
       "better than you do"
      ],
      "fr": "continue de [[nourrir l'algo]] jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]",
-     "texte": "идея от собствената ти глава? звучи [[прекалено изморително]], честно"
+     "texte": "идея от собствената ти глава? звучи [[твърде изморително]], честно"
     },
     "T5": {
      "en": [

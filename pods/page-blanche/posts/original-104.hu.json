@@ -33,10 +33,10 @@
      "remplacer": {
       "source": "sources/os_a254621d.jpg",
       "boite": [
-       0,
-       0,
-       1664,
-       2496
+       250,
+       1250,
+       1350,
+       930
       ]
      }
     }
@@ -229,7 +229,7 @@
       "thinking more clearly"
      ],
      "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
-     "texte": "csak [[1874-ben]] került végleg a louvre-ba, 44 évvel azután, hogy elkészült"
+     "texte": "csak 1874-ben került végleg a louvre-ba, [[44 évvel azután, hogy elkészült]]"
     }
    },
    "images": {
@@ -261,7 +261,7 @@
       "you're never giving your brain time to think for itself"
      ],
      "fr": "si tu mets de la musique [[dès que tu sors marcher]], tu laisses jamais à ton cerveau [[le temps de penser tout seul]]",
-     "texte": "thomas couture [[három évig]] festette ezt az óriási római dorbézolást, és ez lett az 1847-es párizsi szalon nagy durranása"
+     "texte": "thomas couture [[három évig]] festette ezt az óriási római dorbézolást, az 1847-es párizsi szalon slágerét"
     },
     "T3": {
      "en": [

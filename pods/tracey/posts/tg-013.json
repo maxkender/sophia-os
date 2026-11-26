@@ -2,10 +2,28 @@
  "id": "tg-013",
  "type_bleo": "full_test",
  "titre": {
-  "en": "10/10 outdoor hobbies that actually work if you have adhd"
+  "en": "10/10 outdoor hobbies that actually work if you have adhd",
+  "bg": "10/10 хобита навън, които наистина работят, ако имаш адхд",
+  "de": "10/10 outdoor-hobbys, die bei adhs wirklich funktionieren",
+  "el": "10/10 υπαίθρια χόμπι που δουλεύουν αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies al aire libre que sí funcionan si tienes tdah",
+  "fr": "10/10 loisirs en plein air qui marchent quand on a un tdah",
+  "hu": "10/10 szabadtéri hobbi, ami tényleg működik, ha adhd-s vagy",
+  "it": "10/10 hobby all'aperto che funzionano se hai l'adhd",
+  "pt-BR": "10/10 hobbies ao ar livre que funcionam de verdade se você tem tdah",
+  "sr": "10/10 hobija napolju koji stvarno pomažu ako imaš adhd"
  },
  "legendes": {
-  "en": "#adhd #hobbies #outdoors #focus #brain"
+  "en": "#adhd #hobbies #outdoors #focus #brain",
+  "bg": "#адхд #хобита #навън #фокус #мозък",
+  "de": "#adhs #hobbys #draußen #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #ύπαιθρος #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #airelibre #enfoque #cerebro",
+  "fr": "#tdah #loisirs #pleinair #concentration #cerveau",
+  "hu": "#adhd #hobbi #szabadban #fókusz #agy",
+  "it": "#adhd #hobby #allaperto #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #arlivre #foco #cerebro",
+  "sr": "#adhd #hobi #priroda #fokus #mozak"
  },
  "musique": {
   "titre": "original sound",
@@ -23,6 +41,42 @@
    "en": {
     "titre": "10/10 outdoor hobbies that\nactually work if you have adhd",
     "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 хобита навън, които\nнаистина работят при адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 outdoor-hobbys, die bei\nadhs wirklich funktionieren",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 υπαίθρια χόμπι που\nδουλεύουν αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies al aire libre\nque sí funcionan si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs en plein air\nqui marchent quand on a un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 szabadtéri hobbi, ami\ntényleg működik, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby all'aperto che\nfunzionano se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies ao ar livre que\nfuncionam de verdade com tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 hobija napolju koji\nstvarno pomažu ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
    }
   },
   {
@@ -38,6 +92,78 @@
      "balancing on water needs your whole body, and the calm lake does the rest for a _noisy brain_"
     ],
     "chute": "rent one for an hour on a calm morning"
+   },
+   "bg": {
+    "nom": "падъл борд",
+    "accroche": "падаш във водата, щом _се разсееш_",
+    "colonne": [
+     "балансът на водата иска цялото тяло, а спокойното езеро прави останалото за _шумния ум_"
+    ],
+    "chute": "наеми дъска за час в тиха сутрин"
+   },
+   "de": {
+    "nom": "stand-up-paddeln",
+    "accroche": "du _fällst rein_, sobald du _abschweifst_",
+    "colonne": [
+     "auf dem wasser balancieren braucht den ganzen körper, und der ruhige see erledigt den rest für einen _lauten kopf_"
+    ],
+    "chute": "leih dir ein board für eine stunde am morgen"
+   },
+   "el": {
+    "nom": "sup",
+    "accroche": "πέφτεις μόλις _σταματήσεις να προσέχεις_",
+    "colonne": [
+     "η ισορροπία στο νερό θέλει όλο το σώμα, και η ήρεμη λίμνη κάνει τα υπόλοιπα για ένα _θορυβώδες μυαλό_"
+    ],
+    "chute": "νοίκιασε μία για μια ώρα ένα ήσυχο πρωί"
+   },
+   "es-419": {
+    "nom": "paddle board",
+    "accroche": "te caes en cuanto _dejas de poner atención_",
+    "colonne": [
+     "mantener el equilibrio en el agua pide todo tu cuerpo, y el lago tranquilo hace el resto por un _cerebro ruidoso_"
+    ],
+    "chute": "renta uno por una hora en una mañana tranquila"
+   },
+   "fr": {
+    "nom": "le paddle",
+    "accroche": "tu tombes dès que tu _arrêtes de faire attention_",
+    "colonne": [
+     "tenir en équilibre sur l'eau demande tout ton corps, et le lac calme fait le reste pour un _cerveau bruyant_"
+    ],
+    "chute": "loue-en un pour une heure un matin calme"
+   },
+   "hu": {
+    "nom": "sup",
+    "accroche": "_beleesel_, amint _nem figyelsz_",
+    "colonne": [
+     "a vízen egyensúlyozás az egész tested kéri, a nyugodt tó pedig elvégzi a többit a _zajos agyért_"
+    ],
+    "chute": "bérelj egyet egy órára egy nyugodt reggelen"
+   },
+   "it": {
+    "nom": "il sup",
+    "accroche": "cadi appena _smetti di stare attento_",
+    "colonne": [
+     "stare in equilibrio sull'acqua chiede tutto il corpo, e il lago calmo fa il resto per un _cervello rumoroso_"
+    ],
+    "chute": "noleggiane uno per un'ora in una mattina calma"
+   },
+   "pt-BR": {
+    "nom": "stand up paddle",
+    "accroche": "você _cai na água_ no segundo que _se distrai_",
+    "colonne": [
+     "se equilibrar na água exige o corpo todo, e o lago calmo faz o resto por um _cérebro barulhento_"
+    ],
+    "chute": "alugue uma prancha por uma hora numa manhã calma"
+   },
+   "sr": {
+    "nom": "sap",
+    "accroche": "_upadneš u vodu_ čim _prestaneš da paziš_",
+    "colonne": [
+     "balans na vodi traži celo telo, a mirno jezero uradi ostalo za _bučan mozak_"
+    ],
+    "chute": "iznajmi jednu na sat jednog mirnog jutra"
    }
   },
   {
@@ -54,6 +180,87 @@
      "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
     ],
     "chute": "pick a 5k and sign up together"
+   },
+   "bg": {
+    "nom": "бягане с приятелка",
+    "accroche": "_приятелка_ и _цел_ го правят _лесно_",
+    "colonne": [
+     "бягането рамо до рамо те държи, а общото състезание дава и на двете _финална линия_",
+     "_съвет_: ползвам atala, ai треньор по бягане, който планира седмицата ми около целта ми"
+    ],
+    "chute": "изберете 5 км и се запишете заедно"
+   },
+   "de": {
+    "nom": "laufen mit einer freundin",
+    "accroche": "eine _freundin_ und ein _ziel_ machen es _leicht_",
+    "colonne": [
+     "seite an seite laufen hält dich am ball, und dasselbe rennen gibt euch beiden eine _ziellinie_",
+     "_pro tipp_: ich nutze atala, einen ki-laufcoach, der meine woche um mein ziel herum plant"
+    ],
+    "chute": "sucht euch einen 5-km-lauf und meldet euch an"
+   },
+   "el": {
+    "nom": "τρέξιμο με φίλη",
+    "accroche": "μια _φίλη_ και ένας _στόχος_ το κάνουν _εύκολο_",
+    "colonne": [
+     "δίπλα δίπλα συνεχίζετε, και ο ίδιος αγώνας σάς δίνει _τερματισμό_",
+     "_μικρό tip_: χρησιμοποιώ το atala, έναν ai προπονητή τρεξίματος που οργανώνει την εβδομάδα μου γύρω από τον στόχο μου"
+    ],
+    "chute": "διαλέξτε ένα 5άρι και γραφτείτε μαζί"
+   },
+   "es-419": {
+    "nom": "correr con una amiga",
+    "accroche": "una _amiga_ y una _meta_ lo hacen _fácil_",
+    "colonne": [
+     "correr lado a lado las mantiene en marcha, y entrenar para la misma carrera les da una _meta final_",
+     "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
+    ],
+    "chute": "elijan una carrera de 5 km y inscríbanse juntas"
+   },
+   "fr": {
+    "nom": "courir avec une amie",
+    "accroche": "une _amie_ et un _objectif_ rendent tout _facile_",
+    "colonne": [
+     "courir côte à côte vous fait tenir, et préparer la même course vous donne une _ligne d'arrivée_",
+     "_petite astuce_: j'utilise atala, un coach de course par ia qui planifie ma semaine selon mon objectif"
+    ],
+    "chute": "choisissez un 5 km et inscrivez-vous ensemble"
+   },
+   "hu": {
+    "nom": "futás egy baráttal",
+    "accroche": "egy _barát_ és egy _cél_, és _könnyű_",
+    "colonne": [
+     "egymás mellett futva kitartasz, és ugyanarra a versenyre készülni mindkettőtöknek _célvonalat_ ad",
+     "_pro tip_: az atala appot használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+    ],
+    "chute": "válasszatok egy 5 km-t, és nevezzetek együtt"
+   },
+   "it": {
+    "nom": "correre con un'amica",
+    "accroche": "un'_amica_ e un _obiettivo_ rendono tutto _facile_",
+    "colonne": [
+     "correre fianco a fianco vi fa tenere duro, e preparare la stessa gara vi dà un _traguardo_",
+     "_piccolo consiglio_: uso atala, un coach di corsa con l'ia che organizza la mia settimana intorno al mio obiettivo"
+    ],
+    "chute": "scegliete una 5 km e iscrivetevi insieme"
+   },
+   "pt-BR": {
+    "nom": "correr com uma amiga",
+    "accroche": "uma _amiga_ e uma _meta_ deixam tudo _fácil_",
+    "colonne": [
+     "correr lado a lado te mantém firme, e treinar pra mesma prova dá às duas uma _linha de chegada_",
+     "_dica_: eu uso o atala, um coach de corrida com ia que planeja minha semana em torno do meu objetivo"
+    ],
+    "chute": "escolham uma prova de 5 km e se inscrevam juntas"
+   },
+   "sr": {
+    "nom": "trčanje sa drugaricom",
+    "accroche": "_drugarica_ i _cilj_ i sve je _lako_",
+    "colonne": [
+     "trčanje rame uz rame te drži, a trening za istu trku vam obema daje _ciljnu liniju_",
+     "_pro tip_: koristim aplikaciju atala, ai trenera za trčanje koji mi planira nedelju prema cilju"
+    ],
+    "chute": "izaberite trku od 5 km i prijavite se zajedno"
    }
   },
   {
@@ -69,6 +276,78 @@
      "fast passes and quick turns keep your attention on the game, and a team keeps you _coming back_"
     ],
     "chute": "most cities have a casual pickup game"
+   },
+   "bg": {
+    "nom": "ултимейт фризби",
+    "accroche": "дискът е _винаги в движение_, _ти също_",
+    "colonne": [
+     "бързите подавания и завои държат вниманието в играта, а отборът те кара да се _връщаш_"
+    ],
+    "chute": "в много градове има свободни игри"
+   },
+   "de": {
+    "nom": "ultimate frisbee",
+    "accroche": "die scheibe ist _immer in bewegung_, _du auch_",
+    "colonne": [
+     "schnelle pässe und wendungen halten dich im spiel, und ein team bringt dich _immer wieder_ zurück"
+    ],
+    "chute": "viele städte haben offene freizeitspiele"
+   },
+   "el": {
+    "nom": "ultimate frisbee",
+    "accroche": "ο δίσκος _κινείται συνέχεια_, κι εσύ _επίσης_",
+    "colonne": [
+     "γρήγορες πάσες και στροφές κρατούν την προσοχή στο παιχνίδι, και η ομάδα σε κάνει να _ξαναέρχεσαι_"
+    ],
+    "chute": "πολλές πόλεις έχουν ανοιχτά παιχνίδια"
+   },
+   "es-419": {
+    "nom": "ultimate frisbee",
+    "accroche": "el disco _siempre se mueve_, y tú _también_",
+    "colonne": [
+     "pases rápidos y giras de golpe mantienen tu atención en el juego, y un equipo te hace _volver_"
+    ],
+    "chute": "muchas ciudades tienen partidos abiertos"
+   },
+   "fr": {
+    "nom": "l'ultimate frisbee",
+    "accroche": "le disque _bouge tout le temps_, et toi _aussi_",
+    "colonne": [
+     "passes rapides et changements de direction gardent ton attention sur le jeu, et l'équipe te fait _revenir_"
+    ],
+    "chute": "beaucoup de villes ont des matchs ouverts à tous"
+   },
+   "hu": {
+    "nom": "ultimate frizbi",
+    "accroche": "a korong _folyton mozog_, így _te is_",
+    "colonne": [
+     "a gyors passzok és fordulók a játékon tartják a figyelmed, a csapat pedig _visszahív_"
+    ],
+    "chute": "a legtöbb városban van laza közös játék"
+   },
+   "it": {
+    "nom": "l'ultimate frisbee",
+    "accroche": "il disco _si muove sempre_, e tu _pure_",
+    "colonne": [
+     "passaggi veloci e cambi di direzione tengono l'attenzione sul gioco, e la squadra ti fa _tornare_"
+    ],
+    "chute": "molte città hanno partite aperte a tutti"
+   },
+   "pt-BR": {
+    "nom": "ultimate frisbee",
+    "accroche": "o disco _não para_, então _você também não_",
+    "colonne": [
+     "passes rápidos e viradas mantêm a atenção no jogo, e um time faz você _voltar sempre_"
+    ],
+    "chute": "muitas cidades têm jogos casuais abertos"
+   },
+   "sr": {
+    "nom": "alti frizbi",
+    "accroche": "disk se _stalno kreće_, pa i _ti_",
+    "colonne": [
+     "brza dodavanja i okreti drže pažnju na igri, a tim te _vraća_"
+    ],
+    "chute": "većina gradova ima opuštenu zajedničku igru"
    }
   },
   {
@@ -85,6 +364,87 @@
      "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
     ],
     "chute": "pick one painting a week and go look for it"
+   },
+   "bg": {
+    "nom": "разходки по картина",
+    "accroche": "гледаш картина, после _намираш сцената_ навън",
+    "colonne": [
+     "картина на улица нощем те кара да забележиш истинската светлина по пътя към дома",
+     "_съвет_: ползвам artura, по едно произведение на ден с историята му и зуум върху детайлите, които иначе пропускаш"
+    ],
+    "chute": "една картина седмично, после я търси навън"
+   },
+   "de": {
+    "nom": "gemälde-spaziergänge",
+    "accroche": "schau ein gemälde an, dann _such die szene_ draußen",
+    "colonne": [
+     "ein gemälde einer straße bei nacht lässt dich das echte licht auf dem heimweg sehen",
+     "_pro tipp_: ich nutze artura, jeden tag ein kunstwerk mit seiner geschichte, mit zoom auf details, die man sonst übersieht"
+    ],
+    "chute": "ein gemälde pro woche, dann geh es suchen"
+   },
+   "el": {
+    "nom": "βόλτες με πίνακες",
+    "accroche": "κοίτα έναν πίνακα και _βρες τη σκηνή_ έξω",
+    "colonne": [
+     "ένας πίνακας με δρόμο τη νύχτα σε κάνει να προσέξεις το αληθινό φως",
+     "_μικρό tip_: χρησιμοποιώ το artura, ένα έργο τέχνης τη μέρα με την ιστορία του, με ζουμ στις λεπτομέρειες που θα έχανες"
+    ],
+    "chute": "ένας πίνακας τη βδομάδα, και πήγαινε να τον βρεις"
+   },
+   "es-419": {
+    "nom": "paseos de pintura",
+    "accroche": "mira una pintura y luego _busca la escena_ afuera",
+    "colonne": [
+     "una pintura de una calle de noche te hace notar la luz real camino a casa",
+     "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
+    ],
+    "chute": "una pintura por semana, y sal a buscarla"
+   },
+   "fr": {
+    "nom": "balades tableau",
+    "accroche": "regarde un tableau, puis _trouve la scène_ dehors",
+    "colonne": [
+     "un tableau de rue la nuit te fait remarquer la vraie lumière sur le chemin du retour",
+     "_petite astuce_: j'utilise artura, une œuvre par jour avec son histoire, en zoomant sur les détails qu'on raterait"
+    ],
+    "chute": "un tableau par semaine, puis pars le chercher"
+   },
+   "hu": {
+    "nom": "festményséták",
+    "accroche": "nézz meg egy képet, aztán _keresd meg kint_",
+    "colonne": [
+     "egy éjszakai utcát ábrázoló festmény miatt észreveszed a valódi fényeket hazafelé",
+     "_pro tip_: az artura appot használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+    ],
+    "chute": "válassz hetente egy festményt, és keresd meg"
+   },
+   "it": {
+    "nom": "passeggiate d'arte",
+    "accroche": "guarda un dipinto, poi _trova la scena_ fuori",
+    "colonne": [
+     "un dipinto di una via di notte ti fa notare la luce vera mentre torni a casa",
+     "_piccolo consiglio_: uso artura, un'opera al giorno con la sua storia, zoomando sui dettagli che ti sfuggirebbero"
+    ],
+    "chute": "un dipinto a settimana, poi vai a cercarlo"
+   },
+   "pt-BR": {
+    "nom": "caminhadas da pintura",
+    "accroche": "olhe uma pintura e _ache a cena_ lá fora",
+    "colonne": [
+     "uma pintura de uma rua à noite faz você notar a luz de verdade no caminho pra casa",
+     "_dica_: eu uso o artura, uma obra por dia com a sua história, com zoom nos detalhes que você perderia"
+    ],
+    "chute": "escolha uma pintura por semana e vá procurar"
+   },
+   "sr": {
+    "nom": "šetnje sa slikom",
+    "accroche": "pogledaj sliku, pa _nađi scenu_ napolju",
+    "colonne": [
+     "slika noćne ulice natera te da primetiš pravo svetlo na putu kući",
+     "_pro tip_: koristim aplikaciju artura, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+    ],
+    "chute": "izaberi jednu sliku nedeljno i potraži je"
    }
   },
   {
@@ -100,6 +460,78 @@
      "you watch the water, wait and react, and that small chance keeps your attention _right there_"
     ],
     "chute": "most places sell a day permit, ask at the shop"
+   },
+   "bg": {
+    "nom": "риболов",
+    "accroche": "влакното може да _трепне_ всяка _секунда_",
+    "colonne": [
+     "гледаш водата, чакаш и реагираш, а този малък шанс държи вниманието ти _точно там_"
+    ],
+    "chute": "повечето места продават еднодневно разрешително"
+   },
+   "de": {
+    "nom": "angeln",
+    "accroche": "die schnur kann sich _jede sekunde_ _bewegen_",
+    "colonne": [
+     "du beobachtest das wasser, wartest und reagierst, und diese kleine chance hält deinen fokus _genau da_"
+    ],
+    "chute": "die meisten orte verkaufen tageskarten"
+   },
+   "el": {
+    "nom": "ψάρεμα",
+    "accroche": "η πετονιά μπορεί να _κουνηθεί_ _ανά πάσα στιγμή_",
+    "colonne": [
+     "κοιτάς το νερό, περιμένεις, αντιδράς, και αυτή η μικρή πιθανότητα κρατά την προσοχή _εκεί_"
+    ],
+    "chute": "συνήθως αρκεί μια ημερήσια άδεια, ρώτα στο μαγαζί"
+   },
+   "es-419": {
+    "nom": "pescar",
+    "accroche": "la línea puede _moverse_ en _cualquier segundo_",
+    "colonne": [
+     "miras el agua, esperas y reaccionas, y esa pequeña posibilidad mantiene tu atención _justo ahí_"
+    ],
+    "chute": "casi siempre basta un permiso de un día, pregunta en la tienda"
+   },
+   "fr": {
+    "nom": "la pêche",
+    "accroche": "le fil peut _bouger_ à chaque _seconde_",
+    "colonne": [
+     "tu regardes l'eau, tu attends, tu réagis, et cette petite chance garde ton attention _juste là_"
+    ],
+    "chute": "souvent, un permis à la journée suffit, demande au magasin"
+   },
+   "hu": {
+    "nom": "horgászat",
+    "accroche": "a zsinór _bármelyik pillanatban_ _megmozdulhat_",
+    "colonne": [
+     "figyeled a vizet, vársz és reagálsz, és ez a kis esély _ott tartja_ a figyelmed"
+    ],
+    "chute": "a legtöbb helyen van napijegy, kérdezz a boltban"
+   },
+   "it": {
+    "nom": "la pesca",
+    "accroche": "la lenza può _muoversi_ in _qualsiasi momento_",
+    "colonne": [
+     "guardi l'acqua, aspetti e reagisci, e quella piccola possibilità tiene l'attenzione _proprio lì_"
+    ],
+    "chute": "di solito basta un permesso giornaliero, chiedi in negozio"
+   },
+   "pt-BR": {
+    "nom": "pescar",
+    "accroche": "a linha _pode mexer_ a _qualquer segundo_",
+    "colonne": [
+     "você olha a água, espera e reage, e essa pequena chance prende sua atenção _ali mesmo_"
+    ],
+    "chute": "a maioria dos lugares vende licença diária"
+   },
+   "sr": {
+    "nom": "pecanje",
+    "accroche": "struna se može _pomeriti_ _svakog trena_",
+    "colonne": [
+     "gledaš vodu, čekaš i reaguješ, a ta mala šansa drži pažnju _baš tu_"
+    ],
+    "chute": "većina mesta prodaje dnevnu dozvolu, pitaj u radnji"
    }
   }
  ]

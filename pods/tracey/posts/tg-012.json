@@ -2,10 +2,28 @@
  "id": "tg-012",
  "type_bleo": "full_test",
  "titre": {
-  "en": "10/10 hobbies for adhd brains that hate routines"
+  "en": "10/10 hobbies for adhd brains that hate routines",
+  "bg": "10/10 хобита за мозъци с адхд, които мразят рутина",
+  "de": "10/10 hobbys für adhs-gehirne, die routinen hassen",
+  "el": "10/10 χόμπι για μυαλά με ΔΕΠΥ που μισούν τη ρουτίνα",
+  "es-419": "10/10 hobbies para cerebros con tdah que odian la rutina",
+  "fr": "10/10 loisirs pour les tdah qui détestent la routine",
+  "hu": "10/10 hobbi adhd-s agyaknak, amik utálják a rutint",
+  "it": "10/10 hobby per cervelli adhd che odiano la routine",
+  "pt-BR": "10/10 hobbies para cérebros com tdah que odeiam rotina",
+  "sr": "10/10 hobija za adhd mozak koji mrzi rutinu"
  },
  "legendes": {
-  "en": "#adhd #hobbies #focus #brain #selfimprovement"
+  "en": "#adhd #hobbies #focus #brain #selfimprovement",
+  "bg": "#адхд #хобита #фокус #мозък #самоусъвършенстване",
+  "de": "#adhs #hobbys #fokus #gehirn #selbstverbesserung",
+  "el": "#δεπυ #χόμπι #συγκέντρωση #εγκέφαλος #αυτοβελτίωση",
+  "es-419": "#tdah #hobbies #enfoque #cerebro #crecimientopersonal",
+  "fr": "#tdah #loisirs #concentration #cerveau #developpementpersonnel",
+  "hu": "#adhd #hobbi #fókusz #agy #önfejlesztés",
+  "it": "#adhd #hobby #concentrazione #cervello #crescitapersonale",
+  "pt-BR": "#tdah #hobbies #foco #cerebro #autodesenvolvimento",
+  "sr": "#adhd #hobi #fokus #mozak #samorazvoj"
  },
  "musique": {
   "titre": "original sound",
@@ -23,6 +41,42 @@
    "en": {
     "titre": "10/10 hobbies for adhd brains\nthat hate routines",
     "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 хобита за мозъци с адхд,\nкоито мразят рутина",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 hobbys für adhs-gehirne,\ndie routinen hassen",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι για μυαλά με ΔΕΠΥ\nπου μισούν τη ρουτίνα",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies para cerebros\ncon tdah que odian la rutina",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs pour les tdah\nqui détestent la routine",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 hobbi adhd-s agyaknak,\namik utálják a rutint",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby per cervelli adhd\nche odiano la routine",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies para cérebros\ncom tdah que odeiam rotina",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 hobija za adhd mozak\nkoji mrzi rutinu",
+    "note": "(potvrđeno neuronaukom)"
    }
   },
   {
@@ -38,6 +92,78 @@
      "every scene is new, you react in real time, and a brain that hates routines gets _pure novelty_"
     ],
     "chute": "most theaters run a drop-in beginner class"
+   },
+   "bg": {
+    "nom": "импровизация",
+    "accroche": "_няма сценарий_, затова _не се разсейваш_",
+    "colonne": [
+     "всяка сцена е нова, реагираш на момента, а мозък, който мрази рутина, получава _чисто ново_"
+    ],
+    "chute": "много театри имат отворен клас за начинаещи"
+   },
+   "de": {
+    "nom": "impro-theater",
+    "accroche": "_kein skript_, also _kein abschalten_",
+    "colonne": [
+     "jede szene ist neu, du reagierst sofort, und ein gehirn, das routinen hasst, bekommt _pure neuheit_"
+    ],
+    "chute": "viele theater haben einen offenen anfängerkurs"
+   },
+   "el": {
+    "nom": "μαθήματα αυτοσχεδιασμού",
+    "accroche": "_χωρίς σενάριο_, άρα _δεν αφαιρείσαι_",
+    "colonne": [
+     "κάθε σκηνή είναι νέα, αντιδράς ζωντανά, και ένα μυαλό που μισεί τη ρουτίνα παίρνει _καθαρή καινοτομία_"
+    ],
+    "chute": "πολλά θέατρα έχουν ανοιχτό μάθημα για αρχάριους"
+   },
+   "es-419": {
+    "nom": "clases de impro",
+    "accroche": "_no hay guion_, así que _no te desconectas_",
+    "colonne": [
+     "cada escena es nueva, reaccionas en vivo, y un cerebro que odia la rutina recibe _pura novedad_"
+    ],
+    "chute": "muchos teatros tienen una clase abierta para principiantes"
+   },
+   "fr": {
+    "nom": "l'impro",
+    "accroche": "_pas de texte_, donc _impossible de décrocher_",
+    "colonne": [
+     "chaque scène est nouvelle, tu réagis en direct, et un cerveau qui déteste la routine a de la _nouveauté pure_"
+    ],
+    "chute": "la plupart des théâtres ont un cours débutant ouvert"
+   },
+   "hu": {
+    "nom": "impro órák",
+    "accroche": "_nincs forgatókönyv_, így _nem kapcsolsz ki_",
+    "colonne": [
+     "minden jelenet új, valós időben reagálsz, és a rutint utáló agy _tiszta újdonságot_ kap"
+    ],
+    "chute": "a legtöbb színházban van kezdő drop-in óra"
+   },
+   "it": {
+    "nom": "l'improvvisazione",
+    "accroche": "_nessun copione_, quindi _non ti distrai_",
+    "colonne": [
+     "ogni scena è nuova, reagisci dal vivo, e un cervello che odia la routine ha _pura novità_"
+    ],
+    "chute": "molti teatri hanno un corso base aperto"
+   },
+   "pt-BR": {
+    "nom": "aulas de improviso",
+    "accroche": "_sem roteiro_, então você _não se distrai_",
+    "colonne": [
+     "cada cena é nova, você reage na hora, e um cérebro que odeia rotina ganha _pura novidade_"
+    ],
+    "chute": "muitos teatros têm aula aberta pra iniciantes"
+   },
+   "sr": {
+    "nom": "časovi improvizacije",
+    "accroche": "_nema scenarija_, pa _ne možeš da odlutaš_",
+    "colonne": [
+     "svaka scena je nova, reaguješ u trenutku, a mozak koji mrzi rutinu dobija _čistu novost_"
+    ],
+    "chute": "većina pozorišta ima otvoren čas za početnike"
    }
   },
   {
@@ -53,6 +179,78 @@
      "every hidden box is a new place and a small puzzle, so you never walk the _same route_ twice"
     ],
     "chute": "look up the nearest hidden box and go find it"
+   },
+   "bg": {
+    "nom": "геокешинг",
+    "accroche": "_истински лов_ на съкровища в _твоя град_",
+    "colonne": [
+     "всяка скрита кутийка е ново място и малка загадка, затова никога не вървиш по _същия път_"
+    ],
+    "chute": "намери най-близката кутийка и тръгвай"
+   },
+   "de": {
+    "nom": "geocaching",
+    "accroche": "eine _echte schatzsuche_ in _deiner stadt_",
+    "colonne": [
+     "jede versteckte box ist ein neuer ort und ein kleines rätsel, also gehst du nie den _gleichen weg_"
+    ],
+    "chute": "such die nächste box raus und finde sie"
+   },
+   "el": {
+    "nom": "geocaching",
+    "accroche": "ένα _αληθινό κυνήγι θησαυρού_ στην πόλη σου",
+    "colonne": [
+     "κάθε κρυμμένο κουτί είναι νέο μέρος και μικρός γρίφος, δεν κάνεις ποτέ την _ίδια διαδρομή_"
+    ],
+    "chute": "βρες το πιο κοντινό κρυμμένο κουτί και πήγαινε"
+   },
+   "es-419": {
+    "nom": "geocaching",
+    "accroche": "una _búsqueda del tesoro_ en _tu ciudad_",
+    "colonne": [
+     "cada caja escondida es un lugar nuevo y un pequeño acertijo, así nunca haces la _misma ruta_"
+    ],
+    "chute": "busca la caja escondida más cercana y ve"
+   },
+   "fr": {
+    "nom": "le géocaching",
+    "accroche": "une _vraie chasse au trésor_ dans _ta ville_",
+    "colonne": [
+     "chaque boîte cachée est un nouvel endroit et une petite énigme, tu ne fais jamais le _même trajet_"
+    ],
+    "chute": "cherche la boîte cachée la plus proche et vas-y"
+   },
+   "hu": {
+    "nom": "geoládázás",
+    "accroche": "_valódi_ kincsvadászat a _saját városodban_",
+    "colonne": [
+     "minden elrejtett doboz új hely és kis rejtvény, így sosem jársz _ugyanott_ kétszer"
+    ],
+    "chute": "keresd meg a legközelebbi ládát, és indulj"
+   },
+   "it": {
+    "nom": "il geocaching",
+    "accroche": "una _caccia al tesoro_ nella _tua città_",
+    "colonne": [
+     "ogni scatola nascosta è un posto nuovo e un piccolo enigma, così non fai mai la _stessa strada_"
+    ],
+    "chute": "cerca la scatola nascosta più vicina e vai"
+   },
+   "pt-BR": {
+    "nom": "geocaching",
+    "accroche": "uma _caça ao tesouro_ na _sua cidade_",
+    "colonne": [
+     "cada caixinha escondida é um lugar novo e um pequeno enigma, então você nunca faz o _mesmo caminho_"
+    ],
+    "chute": "procure a caixa mais perto e vá achar"
+   },
+   "sr": {
+    "nom": "geokeširanje",
+    "accroche": "_pravi_ lov na blago u _svom gradu_",
+    "colonne": [
+     "svaka skrivena kutija je novo mesto i mala zagonetka, pa nikad ne ideš _istim putem_ dvaput"
+    ],
+    "chute": "nađi najbližu skrivenu kutiju i kreni"
    }
   },
   {
@@ -69,6 +267,87 @@
      "_pro tip_: atala builds my runs around my goal and adjusts them every week"
     ],
     "chute": "pick a different direction every time"
+   },
+   "bg": {
+    "nom": "бягане по нов маршрут",
+    "accroche": "същото бягане, _нови улици_ всеки път",
+    "colonne": [
+     "новият маршрут не дава бягането да стане задължение, а планът те държи, когато новото _избледнее_",
+     "_съвет_: atala нагласява бяганията ми около целта ми и ги променя всяка седмица"
+    ],
+    "chute": "всеки път в различна посока"
+   },
+   "de": {
+    "nom": "neue laufstrecken",
+    "accroche": "gleicher lauf, _neue straßen_, jedes mal",
+    "colonne": [
+     "eine neue strecke macht den lauf nicht zur pflicht, und ein plan hält dich _dran_, wenn das neue nachlässt",
+     "_pro tipp_: atala baut meine läufe um mein ziel herum und passt sie jede woche an"
+    ],
+    "chute": "lauf jedes mal in eine andere richtung"
+   },
+   "el": {
+    "nom": "τρέξιμο σε νέα διαδρομή",
+    "accroche": "ίδιο τρέξιμο, _νέοι δρόμοι_ κάθε φορά",
+    "colonne": [
+     "η νέα διαδρομή δεν το αφήνει να γίνει αγγαρεία, και το πλάνο σε κρατά _σε ρυθμό_",
+     "_μικρό tip_: το atala χτίζει τα τρεξίματά μου γύρω από τον στόχο μου και τα προσαρμόζει κάθε εβδομάδα"
+    ],
+    "chute": "διάλεξε άλλη κατεύθυνση κάθε φορά"
+   },
+   "es-419": {
+    "nom": "correr una ruta nueva",
+    "accroche": "la misma carrera, _calles nuevas_ cada vez",
+    "colonne": [
+     "cambiar la ruta evita que correr se vuelva una obligación, y un plan te hace _seguir_ cuando pasa la novedad",
+     "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
+    ],
+    "chute": "elige una dirección distinta cada vez"
+   },
+   "fr": {
+    "nom": "courir un nouveau parcours",
+    "accroche": "même sortie, _nouvelles rues_ à chaque fois",
+    "colonne": [
+     "changer de parcours évite que la course devienne une corvée, et un plan te fait _continuer_ quand l'effet nouveauté passe",
+     "_petite astuce_: atala construit mes sorties autour de mon objectif et les ajuste chaque semaine"
+    ],
+    "chute": "prends une direction différente à chaque fois"
+   },
+   "hu": {
+    "nom": "futás új útvonalon",
+    "accroche": "ugyanaz a futás, _új utcák_ minden alkalommal",
+    "colonne": [
+     "az útvonal váltása miatt a futás nem lesz kötelesség, a terv pedig _visz tovább_, amikor elmúlik az újdonság",
+     "_pro tip_: az atala a célomhoz igazítja a futásaimat, és minden héten finomít rajtuk"
+    ],
+    "chute": "minden alkalommal más irányba indulj"
+   },
+   "it": {
+    "nom": "correre su un percorso nuovo",
+    "accroche": "stessa corsa, _strade nuove_ ogni volta",
+    "colonne": [
+     "cambiare percorso evita che la corsa diventi un peso, e un piano ti fa _andare avanti_ quando la novità passa",
+     "_piccolo consiglio_: atala costruisce le mie corse intorno al mio obiettivo e le adatta ogni settimana"
+    ],
+    "chute": "scegli una direzione diversa ogni volta"
+   },
+   "pt-BR": {
+    "nom": "correr por um caminho novo",
+    "accroche": "mesma corrida, _ruas novas_ toda vez",
+    "colonne": [
+     "mudar o caminho impede a corrida de virar obrigação, e um plano te mantém _firme_ quando a novidade passa",
+     "_dica_: o atala monta minhas corridas em torno do meu objetivo e ajusta toda semana"
+    ],
+    "chute": "vá numa direção diferente a cada vez"
+   },
+   "sr": {
+    "nom": "trčanje novom rutom",
+    "accroche": "isto trčanje, _nove ulice_ svaki put",
+    "colonne": [
+     "nova ruta čini da trčanje ne bude obaveza, a plan te _drži_ kad novost izbledi",
+     "_pro tip_: atala pravi moja trčanja prema mom cilju i prilagođava ih svake nedelje"
+    ],
+    "chute": "svaki put kreni na drugu stranu"
    }
   },
   {
@@ -85,6 +364,87 @@
      "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
     ],
     "chute": "look at it with your coffee, not your feed"
+   },
+   "bg": {
+    "nom": "една картина на ден",
+    "accroche": "_нова картина_ и _нова история_ всяка сутрин",
+    "colonne": [
+     "нито един ден не е същият, точно от това има нужда мозък, който мрази рутина",
+     "_съвет_: artura ми дава по една картина на ден и историята зад нея, за няколко минути"
+    ],
+    "chute": "гледай я с кафето, не с фийда"
+   },
+   "de": {
+    "nom": "ein gemälde am tag",
+    "accroche": "ein _neues bild_ und eine _neue geschichte_ jeden morgen",
+    "colonne": [
+     "kein tag ist gleich, genau das, was ein gehirn braucht, das routinen hasst",
+     "_pro tipp_: artura zeigt mir jeden tag ein gemälde und die geschichte dahinter, in ein paar minuten"
+    ],
+    "chute": "schau es dir zum kaffee an, nicht den feed"
+   },
+   "el": {
+    "nom": "ένας πίνακας τη μέρα",
+    "accroche": "μια _νέα εικόνα_ και μια _νέα ιστορία_ κάθε πρωί",
+    "colonne": [
+     "καμία μέρα ίδια, ακριβώς ό,τι χρειάζεται ένα μυαλό που μισεί τη ρουτίνα",
+     "_μικρό tip_: το artura μου δίνει έναν πίνακα τη μέρα και την ιστορία του, σε λίγα λεπτά"
+    ],
+    "chute": "κοίτα τον με τον καφέ, όχι με το feed"
+   },
+   "es-419": {
+    "nom": "una pintura al día",
+    "accroche": "una _imagen nueva_ y una _historia nueva_ cada mañana",
+    "colonne": [
+     "ningún día es igual, justo lo que necesita un cerebro que odia la rutina",
+     "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
+    ],
+    "chute": "mírala con tu café, no con tu feed"
+   },
+   "fr": {
+    "nom": "un tableau par jour",
+    "accroche": "une _nouvelle image_ et une _nouvelle histoire_ chaque matin",
+    "colonne": [
+     "aucun jour ne ressemble au précédent, exactement ce qu'il faut à un cerveau qui déteste la routine",
+     "_petite astuce_: artura me donne un tableau par jour et son histoire, en quelques minutes"
+    ],
+    "chute": "regarde-le avec ton café, pas avec ton feed"
+   },
+   "hu": {
+    "nom": "napi egy festmény",
+    "accroche": "minden reggel _új kép_ és _új történet_",
+    "colonne": [
+     "nincs két egyforma nap, és pont erre van szüksége a rutint utáló agynak",
+     "_pro tip_: az artura minden nap ad egy festményt és a mögötte lévő történetet, pár perc alatt"
+    ],
+    "chute": "a kávéd mellett nézd, ne a feeded mellett"
+   },
+   "it": {
+    "nom": "un dipinto al giorno",
+    "accroche": "un'_immagine nuova_ e una _storia nuova_ ogni mattina",
+    "colonne": [
+     "nessun giorno è uguale all'altro, proprio ciò che serve a un cervello che odia la routine",
+     "_piccolo consiglio_: artura mi dà un dipinto al giorno e la sua storia, in pochi minuti"
+    ],
+    "chute": "guardalo col caffè, non col feed"
+   },
+   "pt-BR": {
+    "nom": "uma pintura por dia",
+    "accroche": "uma _imagem nova_ e uma _história nova_ toda manhã",
+    "colonne": [
+     "nenhum dia é igual, exatamente o que um cérebro que odeia rotina precisa",
+     "_dica_: o artura me dá uma pintura por dia e a história por trás dela, em poucos minutos"
+    ],
+    "chute": "olhe com o café, não com o feed"
+   },
+   "sr": {
+    "nom": "jedna slika dnevno",
+    "accroche": "svako jutro _nova slika_ i _nova priča_",
+    "colonne": [
+     "nijedan dan nije isti, a baš to treba mozgu koji mrzi rutinu",
+     "_pro tip_: artura mi daje jednu sliku dnevno i priču iza nje, za par minuta"
+    ],
+    "chute": "gledaj je uz kafu, ne uz feed"
    }
   },
   {
@@ -100,6 +460,78 @@
      "breathing, strokes and lengths keep your mind busy, and the water blocks out _everything else_"
     ],
     "chute": "one lane, 20 minutes, no target"
+   },
+   "bg": {
+    "nom": "плуване",
+    "accroche": "мозъкът ти _трябва_ да брои _всяка дължина_",
+    "colonne": [
+     "дишането, загребванията и дължините заемат ума, а водата спира _всичко останало_"
+    ],
+    "chute": "един коридор, 20 минути, без цел"
+   },
+   "de": {
+    "nom": "schwimmen",
+    "accroche": "dein gehirn _muss_ jede _bahn zählen_",
+    "colonne": [
+     "atmen, züge und bahnen beschäftigen den kopf, und das wasser blendet _alles andere_ aus"
+    ],
+    "chute": "eine bahn, 20 minuten, kein ziel"
+   },
+   "el": {
+    "nom": "κολύμπι",
+    "accroche": "ο εγκέφαλος _πρέπει να μετρά_ _κάθε πισίνα_",
+    "colonne": [
+     "ανάσα, απλωτές και μήκη κρατούν το μυαλό απασχολημένο, και το νερό κόβει _όλα τα άλλα_"
+    ],
+    "chute": "μία λωρίδα, 20 λεπτά, κανένας στόχος"
+   },
+   "es-419": {
+    "nom": "nadar",
+    "accroche": "tu cerebro _tiene que contar_ _cada largo_",
+    "colonne": [
+     "respiración, brazadas y largos mantienen tu mente ocupada, y el agua bloquea _todo lo demás_"
+    ],
+    "chute": "un carril, 20 minutos, sin meta"
+   },
+   "fr": {
+    "nom": "la natation",
+    "accroche": "ton cerveau _doit compter_ _chaque longueur_",
+    "colonne": [
+     "respiration, mouvements et longueurs occupent ton esprit, et l'eau coupe _tout le reste_"
+    ],
+    "chute": "une ligne d'eau, 20 minutes, aucun objectif"
+   },
+   "hu": {
+    "nom": "úszás",
+    "accroche": "az agyadnak _minden hosszt_ _számolnia kell_",
+    "colonne": [
+     "a légzés, a karcsapások és a hosszok lefoglalják a fejed, a víz pedig _minden mást_ kizár"
+    ],
+    "chute": "egy sáv, 20 perc, semmi cél"
+   },
+   "it": {
+    "nom": "il nuoto",
+    "accroche": "il cervello _deve contare_ _ogni vasca_",
+    "colonne": [
+     "respiro, bracciate e vasche tengono occupata la mente, e l'acqua blocca _tutto il resto_"
+    ],
+    "chute": "una corsia, 20 minuti, nessun obiettivo"
+   },
+   "pt-BR": {
+    "nom": "natação",
+    "accroche": "seu cérebro _precisa_ contar _cada piscina_",
+    "colonne": [
+     "respiração, braçadas e voltas ocupam a mente, e a água bloqueia _todo o resto_"
+    ],
+    "chute": "uma raia, 20 minutos, sem meta"
+   },
+   "sr": {
+    "nom": "plivanje",
+    "accroche": "mozak _mora da broji_ _svaku dužinu_",
+    "colonne": [
+     "disanje, zaveslaji i dužine drže um zauzetim, a voda blokira _sve ostalo_"
+    ],
+    "chute": "jedna staza, 20 minuta, bez cilja"
    }
   }
  ]

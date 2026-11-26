@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o298",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8889918a-4791-4f04-9bfb-1b144b863fba",
+  "titre": "les questions à poser en classe pour devenir l'élève que tes profs n'oublient pas #etudes #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [
+    "8889918a-4791-4f04-9bfb-1b144b863fba"
+  ],
+  "notes": "G2, déclinaison de 8889918a (« les questions à poser en cours pour que tes profs se souviennent de toi », G1 gagnante, génération 1 en français ; meilleur passage it 6,7 k vues, r 4,67), en français, 1re déclinaison. Accroche reformulée : « les questions à poser en classe pour devenir l'élève que tes profs n'oublient pas ». cta C. Questions neuves (rien du parent). Routine du 26/11 sur BLEO (par_jour passé à 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 15 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14, 15 et 16 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1fb19661",
+      "texte_overlay": "les questions à poser en classe\npour devenir l'élève\nque tes profs n'oublient pas",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c8c40da1",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "be26c600",
+      "texte_overlay": "1. « vous conseillez quel livre pour aller plus loin ? »\n\nils adorent recommander.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "cf35917e",
+      "texte_overlay": "2. « ça ressemble à quoi dans la vraie vie ? »\n\nla théorie devient concrète.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "fa9d4c4a",
+      "texte_overlay": "3. « qu'est-ce que les élèves ratent le plus souvent ? »\n\nla meilleure question avant un examen.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "e3f70cf6",
+      "texte_overlay": "4. « pourquoi vous avez choisi cette matière ? »\n\nà la fin du cours.\nils s'en souviennent toujours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "cc4bb160",
+      "texte_overlay": "5. « je peux reformuler pour voir si j'ai compris ? »\n\nça montre que tu réfléchis.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "d90c8f36",
+      "texte_overlay": "garde-la pour lundi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

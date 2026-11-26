@@ -1,0 +1,132 @@
+{
+ "id": "dr-065",
+ "format": "liste",
+ "titre": {
+  "en": "5 philosophy ideas that genuinely rewire your brain",
+  "pt-BR": "5 ideias da filosofia que reprogramam seu cérebro",
+  "sv": "5 filosofiska idéer som programmerar om din hjärna"
+ },
+ "legendes": {
+  "en": "#philosophy #stoicism #mindset #lockedin",
+  "pt-BR": "#filosofia #estoicismo #reflexão #autodesenvolvimento",
+  "sv": "#filosofi #stoicism #tankar #självutveckling"
+ },
+ "musique": {
+  "titre": "оригинальный звук - butazer",
+  "url": "https://www.tiktok.com/music/original-sound-7648276161688062742"
+ },
+ "notes": "Déclinaison G1 de dr-013 (2/3) : titre du parent mot pour mot, autres idées. Faits : Marc Aurèle, Pensées II, 11 ; Nozick, Anarchy, State, and Utopia (1974) ; wu wei (Tao te king, IVe s. av. J.-C.) ; Philippa Foot 1967, variante de la passerelle (Thomson 1976). Tableau : Wang Yuanqi, Paysage d'après Huang Gongwang (1701, domaine public) ; autres images Seedream. En, pt-BR, sv ; une couverture par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 philosophy ideas that genuinely rewire your brain",
+    "image": "images/cerveau-09.jpg",
+    "legende": "(part three)"
+   },
+   "pt-BR": {
+    "titre": "5 ideias da filosofia que reprogramam seu cérebro",
+    "image": "images/cerveau-11.jpg",
+    "legende": "(parte três)"
+   },
+   "sv": {
+    "titre": "5 filosofiska idéer som programmerar om din hjärna",
+    "image": "images/cerveau-13.jpg",
+    "legende": "(del tre)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Memento mori",
+    "texte": "\"remember you will die.\" the stoics used it to stop wasting days. marcus aurelius wrote: you could leave life right now, let that decide what you do and say and think",
+    "image": "images/vanite.jpg"
+   },
+   "pt-BR": {
+    "titre": "Memento mori",
+    "texte": "\"lembre que você vai morrer.\" os estoicos usavam isso pra parar de desperdiçar dias. marco aurélio escreveu: você pode deixar a vida agora mesmo, deixe isso decidir o que você faz, diz e pensa",
+    "image": "images/vanite.jpg"
+   },
+   "sv": {
+    "titre": "Memento mori",
+    "texte": "\"kom ihåg att du ska dö.\" stoikerna använde det för att sluta slösa bort dagar. marcus aurelius skrev: du kan lämna livet just nu, låt det avgöra vad du gör, säger och tänker",
+    "image": "images/vanite.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The experience machine",
+    "texte": "in 1974 robert nozick asked: would you plug into a machine that gives you a perfect fake life forever? most people say no. so we want more than pleasure",
+    "image": "images/machine-experience.jpg"
+   },
+   "pt-BR": {
+    "titre": "A máquina de experiências",
+    "texte": "em 1974 robert nozick perguntou: você se ligaria a uma máquina que te dá uma vida falsa perfeita pra sempre? a maioria diz não. então queremos mais que prazer",
+    "image": "images/machine-experience.jpg"
+   },
+   "sv": {
+    "titre": "Upplevelsemaskinen",
+    "texte": "1974 frågade robert nozick: skulle du koppla in dig i en maskin som ger dig ett perfekt falskt liv för alltid? de flesta säger nej. alltså vill vi ha mer än njutning",
+    "image": "images/machine-experience.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. one big idea a day",
+    "telephone": "cours"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "10 minutos, uma lição escrita por um professor de verdade, e depois um quiz pra fixar. uma grande ideia por dia",
+    "telephone": "cours"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. en stor idé om dagen",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Wu wei",
+    "texte": "the daoist idea of acting without forcing. like water, which beats stone by not fighting it. it's in the tao te ching, more than 2,000 years old",
+    "image": "images/paysage-wang.jpg"
+   },
+   "pt-BR": {
+    "titre": "Wu wei",
+    "texte": "a ideia taoísta de agir sem forçar. como a água, que vence a pedra sem lutar contra ela. está no tao te ching, com mais de 2.000 anos",
+    "image": "images/paysage-wang.jpg"
+   },
+   "sv": {
+    "titre": "Wu wei",
+    "texte": "den daoistiska idén att handla utan att tvinga. som vatten, som vinner över sten genom att inte kämpa emot. den finns i tao te ching, över 2 000 år gammal",
+    "image": "images/paysage-wang.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The trolley problem",
+    "texte": "philippa foot, 1967: a runaway trolley will kill five people unless you pull a lever and kill one. most say pull. in a later version you'd push a man off a bridge. most say no",
+    "image": "images/aiguillage.jpg"
+   },
+   "pt-BR": {
+    "titre": "O dilema do bonde",
+    "texte": "philippa foot, 1967: um bonde desgovernado vai matar cinco pessoas, a não ser que você puxe uma alavanca e mate uma. a maioria puxa. numa versão posterior, você empurraria um homem de uma ponte. a maioria diz não",
+    "image": "images/aiguillage.jpg"
+   },
+   "sv": {
+    "titre": "Spårvagnsproblemet",
+    "texte": "philippa foot, 1967: en skenande spårvagn dödar fem personer om du inte drar i en spak och dödar en. de flesta drar. i en senare version ska du knuffa en man från en bro. de flesta säger nej",
+    "image": "images/aiguillage.jpg"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "92acc3bc-0180-4635-804f-a740fd8d674c"
+}

@@ -1,0 +1,150 @@
+{
+ "id": "dr-067",
+ "format": "liste",
+ "titre": {
+  "en": "5 animals that are genuinely smarter than you think",
+  "de": "5 tiere, die viel klüger sind, als du denkst",
+  "sv": "5 djur som är mycket smartare än du tror"
+ },
+ "legendes": {
+  "en": "#animals #science #facts #smarttok",
+  "de": "#tiere #wissenschaft #wissen #fakten",
+  "sv": "#djur #vetenskap #fakta #kunskap"
+ },
+ "musique": {
+  "titre": "original sound - ale",
+  "url": "https://www.tiktok.com/music/original-sound-7644418890860202765"
+ },
+ "notes": "Déclinaison G1 de dr-038 (meilleur passage de 4,1 k) : titre du parent mot pour mot, autres animaux. Faits : rires des rats (Panksepp, fin des années 1990) ; cochons et miroir (Broom et al. 2009) ; sifflements signatures (King et Janik 2013) ; labres nettoyeurs et test du miroir (Kohda et al. 2019) ; poissons-archers et visages (Newport et al. 2016, 44 visages). Images Seedream. En, de, sv ; une couverture par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 animals that are genuinely smarter than you think",
+    "image": "images/cerveau-21.jpg",
+    "legende": "(science backed)"
+   },
+   "de": {
+    "titre": "5 tiere, die viel klüger sind, als du denkst",
+    "image": "images/cerveau-23.jpg",
+    "legende": "(wissenschaftlich belegt)"
+   },
+   "sv": {
+    "titre": "5 djur som är mycket smartare än du tror",
+    "image": "images/cerveau-25.jpg",
+    "legende": "(vetenskapligt belagt)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Rats",
+    "texte": "they laugh when tickled, at a pitch too high for us to hear. jaak panksepp recorded it in the 1990s. they even chase the hand that tickles them",
+    "image": "images/rat.jpg"
+   },
+   "de": {
+    "titre": "Ratten",
+    "texte": "sie lachen, wenn man sie kitzelt, in einer tonhöhe, die wir nicht hören. jaak panksepp hat das in den 1990ern aufgenommen. sie jagen sogar der hand hinterher, die sie kitzelt",
+    "image": "images/rat.jpg"
+   },
+   "sv": {
+    "titre": "Råttor",
+    "texte": "de skrattar när man kittlar dem, på en tonhöjd som vi inte hör. jaak panksepp spelade in det på 1990-talet. de jagar till och med handen som kittlar dem",
+    "image": "images/rat.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Pigs",
+    "texte": "in a 2009 study, pigs used a mirror to find food hidden behind a wall, after only a few hours of getting used to the mirror",
+    "image": "images/cochon.jpg"
+   },
+   "de": {
+    "titre": "Schweine",
+    "texte": "in einer studie von 2009 nutzten schweine einen spiegel, um futter hinter einer wand zu finden, nach nur ein paar stunden mit dem spiegel",
+    "image": "images/cochon.jpg"
+   },
+   "sv": {
+    "titre": "Grisar",
+    "texte": "i en studie från 2009 använde grisar en spegel för att hitta mat bakom en vägg, efter bara några timmar med spegeln",
+    "image": "images/cochon.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. biology, history, science, a bit every day",
+    "telephone": "accueil"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "was ich statt scrollen öffne: eine lektion, ein quiz, fertig. biologie, geschichte, wissenschaft, jeden tag ein bisschen",
+    "telephone": "accueil"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "det jag öppnar i stället för att scrolla: en lektion, ett quiz, klart. biologi, historia, vetenskap, lite varje dag",
+    "telephone": "accueil"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Dolphins",
+    "texte": "each bottlenose dolphin develops its own signature whistle. in 2013 researchers found dolphins answer when they hear their own whistle copied: basically a name",
+    "image": "images/dauphins.jpg"
+   },
+   "de": {
+    "titre": "Delfine",
+    "texte": "jeder große tümmler entwickelt seinen eigenen pfiff. 2013 fanden forscher heraus, dass delfine antworten, wenn jemand ihren pfiff nachahmt: im grunde ein name",
+    "image": "images/dauphins.jpg"
+   },
+   "sv": {
+    "titre": "Delfiner",
+    "texte": "varje öresvin utvecklar sin egen visselsignatur. 2013 upptäckte forskare att delfiner svarar när någon härmar deras vissling: i princip ett namn",
+    "image": "images/dauphins.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Cleaner wrasse",
+    "texte": "a fish the size of your finger. in 2019, cleaner wrasse tried to scrape off a mark on their body after seeing it in a mirror. that's the mirror test",
+    "image": "images/labre.jpg"
+   },
+   "de": {
+    "titre": "Putzerlippfische",
+    "texte": "ein fisch so groß wie dein finger. 2019 versuchten putzerlippfische, eine markierung an ihrem körper abzuschaben, nachdem sie sie im spiegel gesehen hatten. das ist der spiegeltest",
+    "image": "images/labre.jpg"
+   },
+   "sv": {
+    "titre": "Putsarfiskar",
+    "texte": "en fisk stor som ditt finger. 2019 försökte putsarfiskar skrapa bort ett märke på kroppen efter att ha sett det i en spegel. det är spegeltestet",
+    "image": "images/labre.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Archerfish",
+    "texte": "they shoot down insects with jets of water. in 2016 they learned to pick out one human face among 44 others and spit at it for food",
+    "image": "images/poisson-archer.jpg"
+   },
+   "de": {
+    "titre": "Schützenfische",
+    "texte": "sie schießen insekten mit wasserstrahlen ab. 2016 lernten sie, ein menschliches gesicht unter 44 anderen zu erkennen und es für futter anzuspucken",
+    "image": "images/poisson-archer.jpg"
+   },
+   "sv": {
+    "titre": "Sprutfiskar",
+    "texte": "de skjuter ner insekter med vattenstrålar. 2016 lärde de sig känna igen ett mänskligt ansikte bland 44 andra och spruta på det för mat",
+    "image": "images/poisson-archer.jpg"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e35fc3df-1220-4491-bf29-572f0f269728"
+}

@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o299",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "38a33844-dc14-4daf-b0f3-109b657167f5",
+  "titre": "pourquoi avoir peu d'amis n'est pas un problème (et comment bien le vivre) #amitie #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [
+    "38a33844-dc14-4daf-b0f3-109b657167f5"
+  ],
+  "notes": "G2, déclinaison de 38a33844 (« how to be okay and deal with not having many friends », G1 gagnante, génération 1 en français ; meilleur passage en 621 vues, r 2,25), en français, 3e et dernière déclinaison (après bsg-o267 et o281). Accroche reformulée : « pourquoi avoir peu d'amis n'est pas un problème (et comment bien le vivre) ». cta A. Ton doux, idées neuves. Routine du 26/11 sur BLEO (par_jour passé à 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 15 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14, 15 et 16 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "cdb82bd9",
+      "texte_overlay": "pourquoi avoir peu d'amis\nn'est pas un problème\n(et comment bien le vivre)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c91af1c5",
+      "texte_overlay": "1. tu as plus de temps pour celles qui comptent\n\nmoins de monde,\nplus de vrais moments.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c86fd44c",
+      "texte_overlay": "2. tu apprends à te connaître\n\nce que tu aimes vraiment,\nsans l'avis de dix personnes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "dbb0a2ec",
+      "texte_overlay": "3. tu peux suivre tes passions\n\nun cours de dessin, une chorale, un club.\nles rencontres viennent avec.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ac686003",
+      "texte_overlay": "4. la solitude devient un choix\n\nun café seule, un film seule.\nc'est une liberté.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "d83471e5",
+      "texte_overlay": "5. tu deviens intéressante pour toi-même\n\navant, je m'ennuyais dès que j'étais seule.\nmaintenant, j'apprends un truc sur le monde chaque matin. et mes soirées seules sont mes préférées.",
+      "texte_sophia": "5. tu deviens intéressante pour toi-même\n\navant, je m'ennuyais dès que j'étais seule.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et mes soirées seules sont mes préférées.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "9211c349",
+      "texte_overlay": "tu n'es pas en retard.\ngarde-la pour un soir de doute.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o314",
+  "type_bleo": "full_test",
+  "titre": "mon programme cosy pour un dimanche de pluie #dimanche #pluie #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "Accroche réécrite après refus du guichet (theme_gagnant). full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Récit « je », aucun fait daté. Routine du 26/11 sur BLEO (par_jour passé à 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 15 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14, 15 et 16 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ec0af011",
+      "texte_overlay": "mon programme cosy\npour un dimanche de pluie",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0148a8b9",
+      "texte_overlay": "1. un long petit déjeuner\n\nun livre ouvert à côté du café.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "74d3ad67",
+      "texte_overlay": "2. un musée près de chez soi\n\nles jours de pluie,\nles salles sont à nous.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c40f5274",
+      "texte_overlay": "3. un vieux film\n\nen noir et blanc,\nsous un plaid.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ec21260d",
+      "texte_overlay": "4. un bain avec un roman\n\nle meilleur endroit pour lire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "9a673b7d",
+      "texte_overlay": "5. une chose nouvelle à apprendre\n\navant, les dimanches de pluie me rendaient triste.\nmaintenant, j'apprends un truc sur le monde chaque matin. et ce sont mes préférés.",
+      "texte_sophia": "5. une chose nouvelle à apprendre\n\navant, les dimanches de pluie me rendaient triste.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et ce sont mes préférés.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "e8b10b9b",
+      "texte_overlay": "tu fais quoi quand il pleut ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

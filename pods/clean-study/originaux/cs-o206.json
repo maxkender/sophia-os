@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o206",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "fd571b5d-69b7-4e83-b0bd-84e402deca5d",
+  "titre": "what i do in the 10 minutes before a test starts #studytok #studytips #exams",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "fd571b5d-69b7-4e83-b0bd-84e402deca5d"
+  ],
+  "notes": "Déclinaison G1 de fd571b5d (notre cs-o145), ligne 9 de la boîte, 2e déclinaison de la famille. Accroche du parent mot pour mot. Gestes neufs, aucun de cs-o145 ni de cs-o190 : manger un petit quelque chose avant, éteindre son téléphone et le ranger, regarder l'heure de fin, écrire 3 formules sur un brouillon autorisé, une pensée qui détend (slide Sophia, 5), sourire à quelqu'un. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "54566b7a",
+      "texte_overlay": "what i do in the 10 minutes\nbefore a test starts",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "68d62276",
+      "texte_overlay": "a small snack before.\nan empty stomach is loud.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "80526ac9",
+      "texte_overlay": "phone off and in my bag.\nnot silent. off.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "bbd68972",
+      "texte_overlay": "i check when it ends.\nso i can plan my time per question.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "75ca4560",
+      "texte_overlay": "i smile at someone.\nit sounds silly. it calms me down.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "c40a2d2c",
+      "texte_overlay": "i think about something totally different for a minute.\na fun fact, a place, a painting.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "i think about something totally different for a minute,\na fun fact from a micro-learning app\nlike the Sophia app."
+    },
+    {
+      "position": 7,
+      "media_id": "73cda17d",
+      "texte_overlay": "then: deep breath, first page, easiest question first.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

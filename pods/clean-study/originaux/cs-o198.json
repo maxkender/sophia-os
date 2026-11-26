@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o198",
+  "type_bleo": "full_test",
+  "titre": "how i stay motivated in the middle of the school year when everything feels long #studytok #studymotivation #school",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Santé générale, rien de médical. Gestes vrais : un petit objectif par semaine, regarder le chemin déjà fait, changer de lieu d'étude, une chose nouvelle et amusante chaque jour (slide Sophia, 4), un jour vraiment libre, parler à quelqu'un si c'est lourd. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "be9e70a7",
+      "texte_overlay": "how i stay motivated in the middle\nof the school year when everything feels long",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5e78411a",
+      "texte_overlay": "one small goal per week. not per year.\n\"finish chapter 4\" feels doable.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "22b25f85",
+      "texte_overlay": "i look back at what i've already done.\nseptember-me would be proud.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "dd34a12c",
+      "texte_overlay": "i learn one fun, random thing every day.\nit reminds me learning can feel good.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg",
+      "texte_sophia": "i learn one fun, random thing every day\non a micro-learning app like the Sophia app.\nit reminds me learning can feel good."
+    },
+    {
+      "position": 5,
+      "media_id": "33da4def",
+      "texte_overlay": "i change where i study.\nnew place, new energy.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "87678048",
+      "texte_overlay": "one full day off every week.\nrest is part of the plan.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "5f08bc3e",
+      "texte_overlay": "and when it feels heavy, i talk to someone.\nnobody has to do the middle of the year alone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

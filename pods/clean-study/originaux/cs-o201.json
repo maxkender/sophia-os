@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o201",
+  "type_bleo": "full_test",
+  "titre": "how i use a mistakes notebook to stop losing the same points #studytok #studytips #school",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [],
+  "notes": "Full test (BLEO), 6e du jour : la boîte n'a que 6 lignes utilisables (§4.2). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Gestes vrais : une page par matière, l'erreur, pourquoi, la bonne version, relire avant chaque contrôle, refaire l'exercice une semaine après, une pause qui change les idées (slide Sophia, 5), cocher ce qui ne revient plus. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9a641536",
+      "texte_overlay": "how i use a mistakes notebook\nto stop losing the same points",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "031b1d05",
+      "texte_overlay": "one page per subject.\nevery mistake from every test goes there.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "18881bde",
+      "texte_overlay": "three columns: the mistake, why, the right way.\nthe \"why\" is the important one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "b654b403",
+      "texte_overlay": "i reread it before every test.\n5 minutes. same mistakes, gone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "970d4d8c",
+      "texte_overlay": "a week later, i redo the exercise.\nif it's right, i tick it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "da1a926e",
+      "texte_overlay": "after a session, a real break.\nsomething new and fun, not a feed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "after a session, a real break.\n5 minutes on a micro-learning app like the Sophia app,\nnot a feed."
+    },
+    {
+      "position": 7,
+      "media_id": "145a603c",
+      "texte_overlay": "my notebook gets shorter every month.\nthat's the whole point.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

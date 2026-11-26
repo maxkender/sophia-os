@@ -1,0 +1,432 @@
+{
+ "id": "sm-025",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "original sound - Potato.",
+  "url": "https://www.tiktok.com/music/original-sound-potato-7259665564243905285"
+ },
+ "notes": "Full test du 26/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, papier vert, stickers, bulle) : « apps for students who overthink everything ». Sophia en 3e carte (cta A), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Daylio (micro-journal d'humeur), Headspace (méditations guidées), Finch (soin de soi). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 20 et du 21/11). Musique : la sienne de « how to stop procrastination. » (456 k).",
+ "titre": {
+  "en": "apps for students who overthink everything",
+  "fr": "les applis pour les étudiantes qui réfléchissent trop",
+  "es": "apps para estudiantes que lo piensan todo demasiado",
+  "es-419": "apps para estudiantes que sobrepiensan todo",
+  "it": "app per studentesse che pensano troppo",
+  "tr": "her şeyi fazla düşünen öğrenciler için uygulamalar",
+  "pt-BR": "apps pra estudantes que pensam demais em tudo",
+  "de": "apps für studentinnen, die alles zerdenken",
+  "sl": "aplikacije za študentke, ki vse preveč premlevajo",
+  "hu": "appok az agyalós diákoknak"
+ },
+ "legendes": {
+  "en": "for my fellow overthinkers 🌿💭 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "pour mes copines qui overthinkent 🌿💭 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "para mis compis overthinkers 🌿💭 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "para mis amigas overthinkers 🌿💭 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "per le mie amiche overthinker 🌿💭 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "fazla düşünen arkadaşlarıma 🌿💭 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "pras minhas amigas overthinkers 🌿💭 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "für alle overthinker da draußen 🌿💭 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "za vse, ki preveč razmišljajo 🌿💭 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "minden túlgondolkodó társamnak 🌿💭 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 20,
+     "y": 130,
+     "l": 260,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 830,
+     "y": 150,
+     "l": 180,
+     "rotation": 8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 40,
+     "y": 730,
+     "l": 240,
+     "rotation": -5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps for\nstudents who\noverthink",
+    "sous": "for my fellow\noverthinkers"
+   },
+   "fr": {
+    "titre": "les applis pour\nles étudiantes\nqui cogitent",
+    "sous": "pour mes\ncopines anxieuses"
+   },
+   "es": {
+    "titre": "apps para\nlas que\npiensan\ndemasiado",
+    "sous": "para mis\ncompis ansiosas"
+   },
+   "es-419": {
+    "titre": "apps para\nlas que\nsobrepiensan",
+    "sous": "para mis\namigas ansiosas"
+   },
+   "it": {
+    "titre": "app per chi\npensa troppo",
+    "sous": "per le mie\namiche ansiose"
+   },
+   "tr": {
+    "titre": "fazla düşünen\nöğrenciler için\nuygulamalar",
+    "sous": "fazla düşünen\narkadaşlarıma"
+   },
+   "pt-BR": {
+    "titre": "apps pra quem\npensa demais",
+    "sous": "pras minhas\namigas ansiosas"
+   },
+   "de": {
+    "titre": "apps für alle,\ndie zu viel\ndenken",
+    "sous": "für alle\noverthinker"
+   },
+   "sl": {
+    "titre": "aplikacije za\nvse, ki preveč\nrazmišljajo",
+    "sous": "za vse\npremlevalke"
+   },
+   "hu": {
+    "titre": "appok az\nagyalós\ndiákoknak",
+    "sous": "a túlgondolkodó\ntársaimnak"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/daylio/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "two taps to log how i feel and what i did. seeing it on paper shows me the bad days are rarer than my brain says."
+   },
+   "fr": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "deux clics pour noter mon humeur et ma journée. sur le papier, je vois que les mauvais jours sont plus rares que ce que dit ma tête."
+   },
+   "es": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "dos toques para apuntar cómo me siento y qué hice. verlo escrito me demuestra que los días malos son menos de lo que dice mi cabeza."
+   },
+   "es-419": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "dos toques para anotar cómo me siento y qué hice. verlo escrito me muestra que los días malos son menos de lo que dice mi cabeza."
+   },
+   "it": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "due tocchi per segnare come mi sento e cosa ho fatto. vederlo scritto mi mostra che i giorni brutti sono meno di quanto dica la testa."
+   },
+   "tr": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "nasıl hissettiğimi ve ne yaptığımı iki dokunuşla kaydediyorum. yazılı görünce kötü günlerin kafamın söylediğinden az olduğunu görüyorum."
+   },
+   "pt-BR": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "dois toques pra marcar como eu tô e o que fiz. ver escrito me mostra que os dias ruins são menos do que minha cabeça diz."
+   },
+   "de": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "zwei taps, um gefühl und tag festzuhalten. schwarz auf weiß sehe ich, dass schlechte tage seltener sind, als mein kopf sagt."
+   },
+   "sl": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "z dvema dotikoma zapišem, kako se počutim in kaj sem naredila. napisano mi pokaže, da je slabih dni manj, kot pravi glava."
+   },
+   "hu": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "két koppintással rögzítem, hogy érzem magam és mit csináltam. leírva látom, hogy a rossz napok ritkábbak, mint ahogy a fejem mondja."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/headspace/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 70,
+     "y": 740,
+     "l": 200,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 730,
+     "l": 200,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "short guided meditations, from 3-minute resets to sleep sessions. it turns the volume down on my thoughts."
+   },
+   "fr": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "de courtes méditations guidées, de 3 minutes à des séances pour dormir. ça baisse le volume de mes pensées."
+   },
+   "es": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "meditaciones guiadas cortas, desde pausas de 3 minutos hasta sesiones para dormir. baja el volumen de mis pensamientos."
+   },
+   "es-419": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "meditaciones guiadas cortas, desde pausas de 3 minutos hasta sesiones para dormir. le baja el volumen a mis pensamientos."
+   },
+   "it": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "brevi meditazioni guidate, da pause di 3 minuti a sessioni per dormire. abbassa il volume dei miei pensieri."
+   },
+   "tr": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "3 dakikalık molalardan uyku seanslarına kısa rehberli meditasyonlar. düşüncelerimin sesini kısıyor."
+   },
+   "pt-BR": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "meditações guiadas curtinhas, de pausas de 3 minutos a sessões pra dormir. abaixa o volume dos meus pensamentos."
+   },
+   "de": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "kurze geführte meditationen, von 3-minuten-pausen bis zu schlafsessions. sie drehen meine gedanken leiser."
+   },
+   "sl": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "kratke vodene meditacije, od 3-minutnih premorov do seans za spanje. utišajo moje misli."
+   },
+   "hu": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "rövid vezetett meditációk, 3 perces szünetektől alvós alkalmakig. lehalkítják a gondolataimat."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/cafe.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 840,
+     "y": 100,
+     "l": 180,
+     "rotation": 8
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks!",
+    "bulle": "my mind finally stops spiraling!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment !",
+    "bulle": "ma tête arrête enfin de tourner en boucle !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y luego un quiz para que se te quede de verdad!",
+    "bulle": "¡mi mente por fin deja de dar vueltas!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y después un quiz para que de verdad se te quede!",
+    "bulle": "¡mi mente por fin deja de dar vueltas!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero!",
+    "bulle": "la mia mente smette di girare in tondo!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test!",
+    "bulle": "zihnim sonunda dönüp durmayı bırakıyor!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "uma aula de 10 minutos por dia de história, filosofia ou ciências, e depois um quiz pra fixar de verdade!",
+    "bulle": "minha cabeça finalmente para de girar!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "jeden tag 10 minuten geschichte, philosophie oder wissenschaft, dann ein quiz, damit es wirklich hängen bleibt!",
+    "bulle": "mein kopf hört endlich auf zu kreisen!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan 10-minutna lekcija iz zgodovine, filozofije ali znanosti, nato pa kviz, da ti res ostane v glavi!",
+    "bulle": "moje misli se končno nehajo vrteti!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "napi 10 perc történelem, filozófia vagy tudomány, utána egy kvíz, hogy tényleg megmaradjon!",
+    "bulle": "végre nem pörögnek a gondolataim!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/finch/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 800,
+     "y": 730,
+     "l": 220,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "a little pet that grows with small daily kindnesses to yourself. it reminds me to be softer with myself."
+   },
+   "fr": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "un petit compagnon qui grandit avec de petites attentions envers toi-même. il me rappelle d'être plus douce avec moi."
+   },
+   "es": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "una mascota que crece con pequeños gestos de cariño hacia ti. me recuerda tratarme con más suavidad."
+   },
+   "es-419": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "una mascota que crece con pequeños gestos de cariño hacia ti. me recuerda tratarme con más suavidad."
+   },
+   "it": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "un animaletto che cresce con piccoli gesti gentili verso te stessa. mi ricorda di essere più dolce con me."
+   },
+   "tr": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "kendine küçük iyilikler yaptıkça büyüyen bir dost. bana kendime karşı daha yumuşak olmayı hatırlatıyor."
+   },
+   "pt-BR": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "um bichinho que cresce com pequenos carinhos com você mesma. me lembra de ser mais gentil comigo."
+   },
+   "de": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "ein kleines haustier, das mit kleinen gesten der selbstfürsorge wächst. es erinnert mich, sanfter mit mir zu sein."
+   },
+   "sl": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "ljubljenček, ki raste z majhnimi prijaznostmi do sebe. spomni me, naj bom nežnejša s sabo."
+   },
+   "hu": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "kis kedvenc, ami a magadhoz való kis kedvességekkel nő. emlékeztet, hogy legyek szelídebb magammal."
+   }
+  }
+ ]
+}

@@ -716,7 +716,14 @@ async function synchroniser(
     const ligne = etapes.find((x) => x.etape === e);
     if (ligne && (ligne.statut === "fait" || ligne.statut === "ok")) continue;
     const valeur = { ...(ligne?.valeur ?? {}), fait_at: new Date().toISOString(), source: e === "contrat" ? "signature" : os ? "os" : "join" };
-    await majEtape(db, c.id, e, "fait", valeur);
+    // 26/11 : une ligne refusée par la base (ex. « dashboard » avant la migration 0865) ne casse jamais la page :
+    // l'étape reste cochée d'après l'OS et la ligne sera écrite au passage suivant.
+    try {
+      await majEtape(db, c.id, e, "fait", valeur);
+    } catch (err) {
+      console.error("join synchroniser", e, err instanceof Error ? err.message : String(err));
+      continue;
+    }
     etapes.push({ etape: e, statut: "fait", valeur });
     const ev = EVENEMENT_ETAPE[e];
     if (ev && !(e === "tiktok" && ligne?.statut === "ok")) await evenement(db, ev, c.id, c.test, { source: os ? "os" : "join" });

@@ -1,0 +1,106 @@
+{
+ "id": "tg-009",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies to replace scrolling if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #screentime #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies to replace scrolling if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (1566b9ba), slide Artura sur un tableau ou un musée de la banque (603c3a70), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-tresse.jpg": "1566b9ba-05dc-4268-8c14-793efac97a33",
+  "images/banque/a-bal.jpg": "603c3a70-3146-449e-83a1-56f728f5cffb"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 hobbies to replace\nscrolling if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/motsfleches.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "crosswords",
+    "accroche": "the _same_ quick reward as a feed, but _on paper_",
+    "colonne": [
+     "every word you find is a small hit of satisfaction, and the grid tells you exactly _what's left_"
+    ],
+    "chute": "start with the easy one in the weekend paper"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-bal.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "nom": "one painting instead of one reel",
+    "accroche": "swap _thirty seconds_ for _one story_",
+    "colonne": [
+     "a painting has drama, hidden details and a backstory, the same novelty a feed gives you, in _one picture_",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "look at it for one minute before you scroll"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/croquis.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "sketching what you see",
+    "accroche": "you look at things _properly_ for once",
+    "colonne": [
+     "drawing a street forces your eyes to slow down, and a bad sketch is still a _finished_ thing"
+    ],
+    "chute": "a pencil and a small notebook in your bag"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-tresse.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "running",
+    "accroche": "your hands _can't scroll_ when you're _moving_",
+    "colonne": [
+     "a run gives a restless brain the movement it was looking for in the feed, and a goal gives it a _reason_ to come back",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "put the phone in airplane mode and go"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/rubik.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a puzzle cube",
+    "accroche": "something to _fidget_ with that _isn't a phone_",
+    "colonne": [
+     "learning the steps is a small daily challenge, and getting faster gives your brain a _clear score_"
+    ],
+    "chute": "learn the beginner method in one evening"
+   }
+  }
+ ]
+}

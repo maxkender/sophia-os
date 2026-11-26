@@ -1,0 +1,106 @@
+{
+ "id": "tg-013",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 outdoor hobbies that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #outdoors #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 outdoor hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (2344439a), slide Artura sur un tableau ou un musée de la banque (7f72d967), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-duo.jpg": "2344439a-8b7b-4a63-a130-e10b42c2140d",
+  "images/banque/a-lampadaire.jpg": "7f72d967-1ecd-4525-8cbd-90fb0c5cc1f0"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 outdoor hobbies that\nactually work if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/paddle.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "paddleboarding",
+    "accroche": "you _fall in_ the second you _stop paying attention_",
+    "colonne": [
+     "balancing on water needs your whole body, and the calm lake does the rest for a _noisy brain_"
+    ],
+    "chute": "rent one for an hour on a calm morning"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-duo.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "running with a friend",
+    "accroche": "a _friend_ and a _goal_ make it _easy_",
+    "colonne": [
+     "running side by side keeps you going, and training for the same race gives you both a _finish line_",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "pick a 5k and sign up together"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/frisbee.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "ultimate frisbee",
+    "accroche": "the disc is _always moving_, so _you are too_",
+    "colonne": [
+     "fast passes and quick turns keep your attention on the game, and a team keeps you _coming back_"
+    ],
+    "chute": "most cities have a casual pickup game"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-lampadaire.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "nom": "painting walks",
+    "accroche": "look at a painting, then _find the scene_ outside",
+    "colonne": [
+     "a painting of a street at night makes you notice the real light on your walk home",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "pick one painting a week and go look for it"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/peche.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "fishing",
+    "accroche": "the line _could move_ any _second_",
+    "colonne": [
+     "you watch the water, wait and react, and that small chance keeps your attention _right there_"
+    ],
+    "chute": "most places sell a day permit, ask at the shop"
+   }
+  }
+ ]
+}

@@ -1,0 +1,106 @@
+{
+ "id": "tg-012",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies for adhd brains that hate routines"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #focus #brain #selfimprovement"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies for adhd brains that hate routines », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (c98c9e9a), slide Artura sur un tableau ou un musée de la banque (e5e6aaf2), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/a-paysage.jpg": "e5e6aaf2-d8a1-47e7-9931-8986eab4167c",
+  "images/banque/c-foret.jpg": "c98c9e9a-0651-49e4-b30f-9c0df1a75cbb"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 hobbies for adhd brains\nthat hate routines",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/impro.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "improv classes",
+    "accroche": "there's _no script_, so you _can't zone out_",
+    "colonne": [
+     "every scene is new, you react in real time, and a brain that hates routines gets _pure novelty_"
+    ],
+    "chute": "most theaters run a drop-in beginner class"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/geocache.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "geocaching",
+    "accroche": "a _real-life_ treasure hunt in _your own city_",
+    "colonne": [
+     "every hidden box is a new place and a small puzzle, so you never walk the _same route_ twice"
+    ],
+    "chute": "look up the nearest hidden box and go find it"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-foret.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "running a new route",
+    "accroche": "same run, _new streets_ every time",
+    "colonne": [
+     "changing the route keeps a run from feeling like a chore, and a plan keeps you _going_ when the novelty fades",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "pick a different direction every time"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-paysage.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "one painting a day",
+    "accroche": "a _new picture_ and a _new story_ every morning",
+    "colonne": [
+     "no two days are the same, which is exactly what a brain that hates routines needs",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "look at it with your coffee, not your feed"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/natation.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "swimming",
+    "accroche": "your brain _has to_ count _every length_",
+    "colonne": [
+     "breathing, strokes and lengths keep your mind busy, and the water blocks out _everything else_"
+    ],
+    "chute": "one lane, 20 minutes, no target"
+   }
+  }
+ ]
+}

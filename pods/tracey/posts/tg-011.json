@@ -1,0 +1,106 @@
+{
+ "id": "tg-011",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 weekend hobbies that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #weekend #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 weekend hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (3955cda1), slide Artura sur un tableau ou un musée de la banque (065c5865), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-club.jpg": "3955cda1-90eb-458e-baae-1fc4ff4a1dfa",
+  "images/banque/a-couloir.jpg": "065c5865-a1f1-46bb-b75b-d49000c4c8c3"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 weekend hobbies that\nactually work if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/randonnee.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "hiking",
+    "accroche": "a _summit_ is the _clearest goal_ there is",
+    "colonne": [
+     "the trail changes every step, and reaching the top gives a scattered brain a _real finish line_"
+    ],
+    "chute": "start with a 2 hour loop near you"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-club.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "nom": "a running club",
+    "accroche": "people _waiting for you_ makes you _show up_",
+    "colonne": [
+     "running with a group gives your week structure, and a shared goal keeps a busy brain _accountable_",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "most clubs have a free saturday run"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/brocante.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "flea markets",
+    "accroche": "a _treasure hunt_ every _single stall_",
+    "colonne": [
+     "your eyes keep scanning for the one thing worth finding, the same thrill as a feed, but _offline_"
+    ],
+    "chute": "go early with a little cash"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-couloir.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a gallery morning",
+    "accroche": "coffee, _one exhibition_, _no phone_",
+    "colonne": [
+     "a quiet gallery on a weekend morning gives your brain something new to look at without the noise",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "check what's free this weekend"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/velo.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "cycling",
+    "accroche": "the road _keeps changing_, so you _stay with it_",
+    "colonne": [
+     "you steer, brake and look around all the time, and a new route every weekend keeps it _new_"
+    ],
+    "chute": "pick a river path and ride until you're halfway tired"
+   }
+  }
+ ]
+}

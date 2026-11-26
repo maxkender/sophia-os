@@ -1,0 +1,106 @@
+{
+ "id": "tg-010",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 solo hobbies that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #solo #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 solo hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (09863ee8), slide Artura sur un tableau ou un musée de la banque (0c839a5a), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-colline.jpg": "09863ee8-3a96-4232-8d2c-eb8528ef2e27",
+  "images/banque/a-galerie2.jpg": "0c839a5a-827d-4442-82c1-6e774a3fd4bd"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 solo hobbies that actually\nwork if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/argentique.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "film photography",
+    "accroche": "only _36 shots_, so you _choose_",
+    "colonne": [
+     "a limited roll makes you notice light and stop before you shoot, and waiting for the photos is a _small thrill_"
+    ],
+    "chute": "a cheap secondhand camera and one roll"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-colline.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "nom": "running alone",
+    "accroche": "just you, a _playlist_ and a _plan_",
+    "colonne": [
+     "a solo run lets a busy brain sort its thoughts, and a weekly plan gives it a _clear next step_",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "same time, three days a week"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/cuisine.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "cooking one new recipe",
+    "accroche": "a _clear list_ of steps and a _reward_ at the end",
+    "colonne": [
+     "chopping and timing keep your hands busy, and dinner is proof you _finished_ something"
+    ],
+    "chute": "one new recipe every sunday"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-galerie2.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "going to a museum alone",
+    "accroche": "no one to follow, _your own pace_",
+    "colonne": [
+     "you skip what bores you and stay as long as you want in front of one painting",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "pick one room, one hour, then leave"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/journal.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "journaling",
+    "accroche": "your thoughts _out of your head_ and _onto paper_",
+    "colonne": [
+     "writing slows a racing mind down to the speed of your hand, and the page _doesn't judge_"
+    ],
+    "chute": "three lines before bed is enough"
+   }
+  }
+ ]
+}

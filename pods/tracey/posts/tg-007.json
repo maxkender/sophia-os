@@ -1,0 +1,106 @@
+{
+ "id": "tg-007",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies that cost nothing if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #focus #brain #budget"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies that cost nothing if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (09fe9c5b), slide Artura sur un tableau ou un musée de la banque (316730b2), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-route.jpg": "09fe9c5b-0ca8-49cd-bba9-84d898553afb",
+  "images/banque/a-lune.jpg": "316730b2-c3b9-4e4d-b047-b02a2e6a024f"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 hobbies that cost nothing\nif you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/bibliotheque.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "the library",
+    "accroche": "a _free_ building full of _new things_",
+    "colonne": [
+     "you can grab five books on five topics, drop the boring ones and keep the one your brain _won't let go_"
+    ],
+    "chute": "a library card costs nothing, ask at the desk"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-route.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "nom": "running",
+    "accroche": "the only gear you need is _a pair of shoes_",
+    "colonne": [
+     "steady cardio gives a restless body somewhere to put its energy, and a first 5k gives a wandering mind a _finish line_",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "start with 1 minute running, 1 minute walking"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/promenade.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "walking a new street",
+    "accroche": "your brain loves a _route_ it's _never seen_",
+    "colonne": [
+     "new corners, new shops, new sounds: novelty keeps your attention switched on without a _screen_"
+    ],
+    "chute": "pick a street you've never walked and turn left twice"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-lune.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning to look at art",
+    "accroche": "one painting is _free_ and _endless_",
+    "colonne": [
+     "the longer you look the more you find: the light, the hands, the tiny thing in the corner nobody _notices_",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "most museums have a free day every month"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/echecs.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "chess in the park",
+    "accroche": "every move is a _tiny puzzle_ you _can't skip_",
+    "colonne": [
+     "the board changes every turn, so a brain that bores fast always has a _new problem_ to solve"
+    ],
+    "chute": "bring a board, someone always wants to play"
+   }
+  }
+ ]
+}

@@ -1,0 +1,106 @@
+{
+ "id": "tg-008",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 winter hobbies that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #winter #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 winter hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (231396d9), slide Artura sur un tableau ou un musée de la banque (a159f9ee), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/a-salle-chaude.jpg": "a159f9ee-e822-4a3c-8021-f0c21c8d211d",
+  "images/banque/c-couchant.jpg": "231396d9-2ed5-458a-89e8-1480ab6be172"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 winter hobbies that\nactually work if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/patinage.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "ice skating",
+    "accroche": "you _can't_ check your phone _on ice_",
+    "colonne": [
+     "balance needs all of your attention, and every lap you stay up is a small _win_ for your brain"
+    ],
+    "chute": "most rinks rent skates by the hour"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/tricot.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "knitting",
+    "accroche": "your hands are busy, so your _mind slows down_",
+    "colonne": [
+     "the stitches repeat, the scarf grows a little every night, and you can _see_ the progress"
+    ],
+    "chute": "one ball of chunky wool and big needles to start"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-salle-chaude.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a museum on a cold day",
+    "accroche": "warm rooms, _no rush_, _one painting_",
+    "colonne": [
+     "winter is the best time to wander a gallery slowly and stop wherever something catches your eye",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "pick one room and stay until you're bored"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/puzzle.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "jigsaw puzzles",
+    "accroche": "every piece is a _tiny win_",
+    "colonne": [
+     "your eyes keep scanning for one shape or color, so a scattered brain locks onto _one job_"
+    ],
+    "chute": "start with 500 pieces, not 2000"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-couchant.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "running in the cold",
+    "accroche": "the cold air _wakes up_ your _whole brain_",
+    "colonne": [
+     "a short run on a grey day burns off restless energy and gives your week a _goal_ to chase",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "wear layers and go at lunch when it's light"
+   }
+  }
+ ]
+}

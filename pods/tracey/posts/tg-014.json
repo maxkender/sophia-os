@@ -1,0 +1,106 @@
+{
+ "id": "tg-014",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 creative hobbies that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #creative #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 creative hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (1e3b506a), slide Artura sur un tableau ou un musée de la banque (26052f73), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-allee2.jpg": "1e3b506a-5255-4084-8359-0548d95753fc",
+  "images/banque/a-visiteurs.jpg": "26052f73-9031-4e18-b96a-aafb200650c6"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 creative hobbies that\nactually work if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/broderie.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "embroidery",
+    "accroche": "one _small flower_ at a time",
+    "colonne": [
+     "each stitch is tiny and you see the picture grow, so a scattered brain always knows _what's next_"
+    ],
+    "chute": "a hoop, a needle and a cheap pattern"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-visiteurs.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning to look at art",
+    "accroche": "steal ideas from the _old masters_",
+    "colonne": [
+     "looking closely at how a painter used light and color gives your own projects _new ideas_",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "pick one painting and copy one detail"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/origami.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "origami",
+    "accroche": "one sheet of paper, _no glue_, _no mess_",
+    "colonne": [
+     "every fold is a clear step, and in ten minutes you're holding something you _made_"
+    ],
+    "chute": "start with a paper crane"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-allee2.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "nom": "running",
+    "accroche": "your best ideas show up _halfway_ through a _run_",
+    "colonne": [
+     "a steady run lets your mind wander in a good way, and a weekly plan keeps the habit _going_",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "leave the music off once a week"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/bougie.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "candle making",
+    "accroche": "melt, pour, wait, _done_",
+    "colonne": [
+     "it's short, hands-on and smells good, and you get something you can _actually use_ the next day"
+    ],
+    "chute": "a kit with wax, wicks and jars is enough"
+   }
+  }
+ ]
+}

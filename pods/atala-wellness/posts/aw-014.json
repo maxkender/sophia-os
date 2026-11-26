@@ -7,10 +7,22 @@
   "accroche": "les petites habitudes plus efficaces qu'une séance de sport (wellness edition)"
  },
  "titre": {
-  "en": "small habits that do more than a gym session (wellness edition)"
+  "en": "small habits that do more than a gym session (wellness edition)",
+  "fr": "petites habitudes qui battent une séance de salle (wellness edition)",
+  "de": "kleine habits, die mehr bringen als ein gym-workout (wellness edition)",
+  "it": "piccole abitudini che battono la palestra (wellness edition)",
+  "hu": "kis szokások, amik többet érnek egy gym edzésnél (wellness edition)",
+  "ro": "obiceiuri mici care fac mai mult decât o oră la sală (wellness edition)",
+  "el": "μικρές συνήθειες που κάνουν πιο πολλά από το gym (wellness edition)"
  },
  "legendes": {
-  "en": "no gym membership needed 🤍 #wellness #healthyhabits #thatgirl #selfcare #movement"
+  "en": "no gym membership needed 🤍 #wellness #healthyhabits #thatgirl #selfcare #movement",
+  "fr": "pas besoin d'abonnement à la salle 🤍 #wellness #healthyhabits #thatgirl #selfcare #movement",
+  "de": "kein gym-abo nötig 🤍 #wellness #healthyhabits #thatgirl #selfcare #movement",
+  "it": "nessun abbonamento in palestra 🤍 #wellness #healthyhabits #thatgirl #selfcare #movement",
+  "hu": "nem kell konditerem-bérlet 🤍 #wellness #healthyhabits #thatgirl #selfcare #movement",
+  "ro": "nu ai nevoie de abonament la sală 🤍 #wellness #healthyhabits #thatgirl #selfcare #movement",
+  "el": "δεν χρειάζεσαι συνδρομή σε gym 🤍 #wellness #healthyhabits #thatgirl #selfcare #movement"
  },
  "musique": {
   "titre": "save a prayer",
@@ -45,7 +57,31 @@
     {
      "y": 1
     }
-   ]
+   ],
+   "fr": {
+    "titre": "petites habitudes qui battent une séance de salle (wellness edition)",
+    "note": "(sans salle)"
+   },
+   "de": {
+    "titre": "kleine habits, die mehr bringen als ein gym-workout (wellness edition)",
+    "note": "(ohne gym)"
+   },
+   "it": {
+    "titre": "piccole abitudini che battono la palestra (wellness edition)",
+    "note": "(senza palestra)"
+   },
+   "hu": {
+    "titre": "kis szokások, amik többet érnek egy gym edzésnél (wellness edition)",
+    "note": "(gym nélkül)"
+   },
+   "ro": {
+    "titre": "obiceiuri mici care fac mai mult decât o oră la sală (wellness edition)",
+    "note": "(fără sală)"
+   },
+   "el": {
+    "titre": "μικρές συνήθειες που κάνουν πιο πολλά από το gym (wellness edition)",
+    "note": "(χωρίς gym)"
+   }
   },
   {
    "type": "habitude",
@@ -58,6 +94,60 @@
      "every staircase is _a mini workout_"
     ],
     "chute": "stairs > _elevator_, always"
+   },
+   "fr": {
+    "titre": "_toujours_ par l'escalier",
+    "intro": "l'ascenseur est _l'ennemi_",
+    "paragraphes": [
+     "selon une étude, de courtes montées d'escaliers _amélioraient la forme_ des jeunes adultes",
+     "chaque escalier est _un mini workout_"
+    ],
+    "chute": "escalier > _ascenseur_, à vie"
+   },
+   "de": {
+    "titre": "nimm _immer_ die treppe",
+    "intro": "der aufzug ist _der feind_",
+    "paragraphes": [
+     "eine studie: kurze einheiten treppensteigen _verbesserten die fitness_ junger erwachsener",
+     "jede treppe ist _ein mini-workout_"
+    ],
+    "chute": "treppe > _aufzug_, immer"
+   },
+   "it": {
+    "titre": "prendi _sempre_ le scale",
+    "intro": "l'ascensore è _il nemico_",
+    "paragraphes": [
+     "uno studio: brevi scatti sulle scale _miglioravano la forma_ nei giovani adulti",
+     "ogni scala è _un mini allenamento_"
+    ],
+    "chute": "scale > _ascensore_, sempre"
+   },
+   "hu": {
+    "titre": "_mindig_ a lépcsőt válaszd",
+    "intro": "a lift _az ellenség_",
+    "paragraphes": [
+     "egy kutatás szerint a rövid lépcsőzések _javították az erőnlétet_ fiatal felnőtteknél",
+     "minden lépcső _egy mini edzés_"
+    ],
+    "chute": "lépcső > _lift_, mindig"
+   },
+   "ro": {
+    "titre": "urcă _mereu_ pe scări",
+    "intro": "liftul e _inamicul_",
+    "paragraphes": [
+     "un studiu: urcatul scurt și intens pe scări _a îmbunătățit condiția fizică_ la tinerii adulți",
+     "fiecare scară e _un mini antrenament_"
+    ],
+    "chute": "scări > _lift_, mereu"
+   },
+   "el": {
+    "titre": "παίρνε _πάντα_ τις σκάλες",
+    "intro": "το ασανσέρ είναι _ο εχθρός_",
+    "paragraphes": [
+     "μια έρευνα: σύντομα ανεβάσματα σκάλας _βελτίωσαν τη φυσική κατάσταση_ νέων ενηλίκων",
+     "κάθε σκάλα είναι _μια μίνι προπόνηση_"
+    ],
+    "chute": "σκάλες > _ασανσέρ_, πάντα"
    }
   },
   {
@@ -71,6 +161,60 @@
      "get off one stop early, _take the long way_"
     ],
     "chute": "every step _counts_"
+   },
+   "fr": {
+    "titre": "marche _plus_ par jour",
+    "intro": "pas du sport. _juste des pas_",
+    "paragraphes": [
+     "selon une grosse analyse, plus de pas par jour est lié à _une meilleure santé à long terme_",
+     "descends un arrêt avant, _fais le détour_"
+    ],
+    "chute": "chaque pas _compte_"
+   },
+   "de": {
+    "titre": "geh jeden tag _mehr_",
+    "intro": "kein workout. _nur schritte_",
+    "paragraphes": [
+     "eine große analyse: mehr schritte am tag hingen mit _besserer langzeit-gesundheit_ zusammen",
+     "eine station früher raus, _nimm den umweg_"
+    ],
+    "chute": "jeder schritt _zählt_"
+   },
+   "it": {
+    "titre": "_più passi_ ogni giorno",
+    "intro": "niente workout. _solo passi_",
+    "paragraphes": [
+     "una grande analisi: più passi al giorno erano legati a _una salute migliore nel tempo_",
+     "scendi una fermata prima, _fai il giro lungo_"
+    ],
+    "chute": "ogni passo _conta_"
+   },
+   "hu": {
+    "titre": "sétálj _többet_ naponta",
+    "intro": "nem edzés. _csak lépések_",
+    "paragraphes": [
+     "egy nagy elemzés szerint a több napi lépés _jobb hosszú távú egészséggel_ járt",
+     "egy megállóval előbb le, _a hosszabb úton_"
+    ],
+    "chute": "minden lépés _számít_"
+   },
+   "ro": {
+    "titre": "mergi _mai mult_ zilnic",
+    "intro": "nu un antrenament. _doar pași_",
+    "paragraphes": [
+     "o analiză mare: mai mulți pași zilnic erau legați de _o sănătate mai bună pe termen lung_",
+     "coboară cu o stație mai devreme, _ia drumul lung_"
+    ],
+    "chute": "orice pas _contează_"
+   },
+   "el": {
+    "titre": "περπάτα _πολύ_ κάθε μέρα",
+    "intro": "όχι προπόνηση. _μόνο βήματα_",
+    "paragraphes": [
+     "μια μεγάλη ανάλυση: περισσότερα βήματα τη μέρα συνδέθηκαν με _καλύτερη υγεία μακροπρόθεσμα_",
+     "κατέβα μια στάση πριν, _κάνε τον γύρο_"
+    ],
+    "chute": "κάθε βήμα _μετράει_"
    }
   },
   {
@@ -84,6 +228,60 @@
      "bonus points if _someone joins_"
     ],
     "chute": "dinner with _a soundtrack_"
+   },
+   "fr": {
+    "titre": "danse _en cuisinant_",
+    "intro": "un son, _à fond_, dans la cuisine",
+    "paragraphes": [
+     "tu bouges, tu ris, et ton humeur _change direct_",
+     "bonus si _quelqu'un s'y met_"
+    ],
+    "chute": "un dîner avec _une bande-son_"
+   },
+   "de": {
+    "titre": "tanz _beim kochen_",
+    "intro": "ein song, _volle lautstärke_, in der küche",
+    "paragraphes": [
+     "du bewegst dich, lachst, und deine laune _dreht sich sofort_",
+     "bonuspunkte, wenn _jemand mitmacht_"
+    ],
+    "chute": "abendessen mit _soundtrack_"
+   },
+   "it": {
+    "titre": "balla _mentre cucini_",
+    "intro": "una canzone, _a tutto volume_, in cucina",
+    "paragraphes": [
+     "ti muovi, ridi, e l'umore _cambia subito_",
+     "punti extra se _qualcuno si unisce_"
+    ],
+    "chute": "cena con _colonna sonora_"
+   },
+   "hu": {
+    "titre": "táncolj _főzés közben_",
+    "intro": "egy dal, _teljes hangerőn_, a konyhában",
+    "paragraphes": [
+     "mozogsz, nevetsz, és a hangulatod _azonnal változik_",
+     "plusz pont, ha _valaki csatlakozik_"
+    ],
+    "chute": "vacsora _zenei aláfestéssel_"
+   },
+   "ro": {
+    "titre": "dansează _când gătești_",
+    "intro": "o melodie, _la maxim_, în bucătărie",
+    "paragraphes": [
+     "te miști, râzi și starea ta _se schimbă instant_",
+     "bonus dacă _se alătură cineva_"
+    ],
+    "chute": "cină cu _coloană sonoră_"
+   },
+   "el": {
+    "titre": "χόρευε _ενώ μαγειρεύεις_",
+    "intro": "ένα τραγούδι, _στο τέρμα_, στην κουζίνα",
+    "paragraphes": [
+     "κινείσαι, γελάς και η διάθεσή σου _αλλάζει αμέσως_",
+     "bonus πόντοι αν _μπει κι άλλος_"
+    ],
+    "chute": "δείπνο με _soundtrack_"
    }
   },
   {
@@ -99,6 +297,72 @@
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",
     "legende": "the app:"
+   },
+   "fr": {
+    "titre": "cours _un peu_ par semaine",
+    "intro": "courir m'a donné plus que _n'importe quelle salle_",
+    "paragraphes": [
+     "je courais trop, trop vite, et _je devais toujours arrêter_",
+     "mon tip : une appli de coaching running comme Atala augmente tes semaines _petit à petit_, et tu continues"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "lauf _etwas_ jede woche",
+    "intro": "laufen gab mir mehr als _jedes gym-abo_",
+    "paragraphes": [
+     "ich lief zu viel, zu früh, und _musste immer aufhören_",
+     "mein tipp: eine lauf-coach-app wie Atala baut deine wochen _stück für stück_ auf, so bleibst du dran"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "corri _un po'_ a settimana",
+    "intro": "correre mi ha dato più di _qualsiasi palestra_",
+    "paragraphes": [
+     "correvo troppo e troppo presto, e _dovevo sempre fermarmi_",
+     "il mio consiglio: un'app coach per la corsa come Atala aumenta le tue settimane _poco a poco_, così continui"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "fuss _egy kicsit_ hetente",
+    "intro": "a futás többet adott _bármelyik bérletnél_",
+    "paragraphes": [
+     "túl sokat futottam túl korán, és _mindig le kellett állnom_",
+     "a tippem: egy futóedző app, mint az Atala, _apránként_ építi fel a heteidet, így kitartasz"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "aleargă _puțin_ săptămânal",
+    "intro": "alergatul mi-a dat mai mult ca _orice sală_",
+    "paragraphes": [
+     "alergam prea mult prea repede și _mereu trebuia să mă opresc_",
+     "sfatul meu: o aplicație de running coach ca Atala îți crește săptămânile _puțin câte puțin_, așa continui"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "τρέξε _λίγο_ κάθε εβδομάδα",
+    "intro": "το τρέξιμο μου έδωσε πιο πολλά από _κάθε gym_",
+    "paragraphes": [
+     "έτρεχα πολύ και πολύ νωρίς, και _πάντα έπρεπε να σταματήσω_",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala χτίζει τις εβδομάδες σου _σιγά σιγά_, για να συνεχίζεις"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
@@ -112,6 +376,60 @@
      "shoes, headphones, _jacket on the hook_"
     ],
     "chute": "make it _easy_ to move"
+   },
+   "fr": {
+    "titre": "baskets _à la porte_",
+    "intro": "dès la veille, _prêtes à sortir_",
+    "paragraphes": [
+     "quand tes baskets t'attendent, sortir demande _zéro volonté_",
+     "baskets, écouteurs, _veste au crochet_"
+    ],
+    "chute": "que bouger soit _facile_"
+   },
+   "de": {
+    "titre": "schuhe _an die tür_",
+    "intro": "am abend davor, _startklar_",
+    "paragraphes": [
+     "wenn deine schuhe schon warten, braucht rausgehen _null willenskraft_",
+     "schuhe, kopfhörer, _jacke am haken_"
+    ],
+    "chute": "mach bewegung _leicht_"
+   },
+   "it": {
+    "titre": "scarpe _alla porta_",
+    "intro": "la sera prima, _pronte a partire_",
+    "paragraphes": [
+     "quando le scarpe ti aspettano, uscire richiede _zero forza di volontà_",
+     "scarpe, cuffie, _giacca all'appendiabiti_"
+    ],
+    "chute": "rendi _facile_ muoverti"
+   },
+   "hu": {
+    "titre": "cipő _az ajtónál_",
+    "intro": "már előző este, _indulásra készen_",
+    "paragraphes": [
+     "ha a cipőd már vár, a kimozduláshoz _nulla akaraterő_ kell",
+     "cipő, fülhallgató, _kabát a fogason_"
+    ],
+    "chute": "tedd _könnyűvé_ a mozgást"
+   },
+   "ro": {
+    "titre": "adidașii _lângă ușă_",
+    "intro": "de cu seară, _gata de plecare_",
+    "paragraphes": [
+     "când adidașii te așteaptă, ieșitul cere _zero voință_",
+     "adidași, căști, _geaca în cuier_"
+    ],
+    "chute": "fă mișcarea _ușoară_"
+   },
+   "el": {
+    "titre": "αθλητικά _στην πόρτα_",
+    "intro": "από το προηγούμενο βράδυ, _έτοιμα_",
+    "paragraphes": [
+     "όταν τα αθλητικά σε περιμένουν, το να βγεις θέλει _μηδέν θέληση_",
+     "αθλητικά, ακουστικά, _ζακέτα στην κρεμάστρα_"
+    ],
+    "chute": "κάνε την κίνηση _εύκολη_"
    }
   },
   {
@@ -125,6 +443,60 @@
      "beach, park, _around the block_"
     ],
     "chute": "move without _even trying_"
+   },
+   "fr": {
+    "titre": "marche _quand tu es au tél_",
+    "intro": "un appel avec ta mère ? _va dehors_",
+    "paragraphes": [
+     "20 minutes à parler = _20 minutes à marcher_",
+     "plage, parc, _le tour du quartier_"
+    ],
+    "chute": "bouge _sans même essayer_"
+   },
+   "de": {
+    "titre": "geh _beim telefonieren_",
+    "intro": "ein anruf mit mama? _geh raus_",
+    "paragraphes": [
+     "20 minuten reden = _20 minuten gehen_",
+     "strand, park, _um den block_"
+    ],
+    "chute": "beweg dich _ganz nebenbei_"
+   },
+   "it": {
+    "titre": "cammina _mentre sei al telefono_",
+    "intro": "telefoni a tua mamma? _esci fuori_",
+    "paragraphes": [
+     "20 minuti di chiacchiere = _20 minuti di camminata_",
+     "mare, parco, _giro dell'isolato_"
+    ],
+    "chute": "muoviti _senza sforzo_"
+   },
+   "hu": {
+    "titre": "sétálj _telefonálás közben_",
+    "intro": "anyukáddal beszélsz? _menj ki_",
+    "paragraphes": [
+     "20 perc beszélgetés = _20 perc séta_",
+     "strand, park, _a háztömb körül_"
+    ],
+    "chute": "mozogj _erőlködés nélkül_"
+   },
+   "ro": {
+    "titre": "mergi _când vorbești la telefon_",
+    "intro": "vorbești cu mama? _ieși afară_",
+    "paragraphes": [
+     "20 de minute de vorbit = _20 de minute de mers_",
+     "plajă, parc, _turul blocului_"
+    ],
+    "chute": "mișcă-te _fără să încerci_"
+   },
+   "el": {
+    "titre": "περπάτα _όταν μιλάς στο τηλέφωνο_",
+    "intro": "τηλέφωνο με τη μαμά σου; _βγες έξω_",
+    "paragraphes": [
+     "20 λεπτά κουβέντα = _20 λεπτά περπάτημα_",
+     "παραλία, πάρκο, _γύρο στη γειτονιά_"
+    ],
+    "chute": "κινήσου _χωρίς προσπάθεια_"
    }
   }
  ]

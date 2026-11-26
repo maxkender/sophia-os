@@ -15,7 +15,7 @@ export interface MonSetupRuul {
   email: string | null;
   ready_at: string | null;
   lien_auto: boolean;
-  /** 0864 : le lundi de départ (AAAA-MM-JJ). */
+  /** 0865 : le lundi de départ (AAAA-MM-JJ). */
   cohorte_lundi?: string | null;
 }
 

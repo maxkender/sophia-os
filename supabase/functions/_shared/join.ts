@@ -595,7 +595,7 @@ export interface EtapesRuul {
   kyc: string | null;
 }
 
-/** Une ligne de join_etat_os (0858, 0864) : ce que l'OS sait du posteur. */
+/** Une ligne de join_etat_os (0858, 0865) : ce que l'OS sait du posteur. */
 export interface EtatOS {
   profile_id: string;
   is_active: boolean | null;
@@ -617,7 +617,7 @@ export interface EtatOS {
   desinscrit: boolean | null;
   paie_reportee: boolean | null;
   email_jour: boolean | null;
-  /** 0864 : les statuts Ruul lus par l'API (les mêmes que le dashboard de l'OS), et ses sous-étapes (ruul_etapes). */
+  /** 0865 : les statuts Ruul lus par l'API (les mêmes que le dashboard de l'OS), et ses sous-étapes (ruul_etapes). */
   ruul_statut_api?: string | null;
   ruul_kyc?: string | null;
   ruul_banque?: boolean | null;

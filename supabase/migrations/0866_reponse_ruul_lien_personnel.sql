@@ -1,4 +1,4 @@
--- 0865 : la réponse officielle « How do I set up my Ruul account? » alignée sur le nouveau parcours Ruul (26/11, Max :
+-- 0866 : la réponse officielle « How do I set up my Ruul account? » alignée sur le nouveau parcours Ruul (26/11, Max :
 -- « fais en sorte que ça soit cohérent avec Ruul »). Ruul n'envoie plus d'invitation : nous envoyons un lien personnel
 -- d'inscription (API Ruul POST /connect, ruul_connect.lienRuul) par email, et le même lien est sur le dashboard (et sur la
 -- page Join pour ses posteurs) ; l'OS voit seul quand le compte est prêt (plus de « It's done »). Ruul peut se faire plus tard, avant la

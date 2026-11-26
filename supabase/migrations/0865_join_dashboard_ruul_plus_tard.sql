@@ -1,4 +1,4 @@
--- 0864 : Join, « Ruul plus tard » et la connexion au dashboard (26/11, Max après son test). Additif seulement.
+-- 0865 : Join, « Ruul plus tard » et la connexion au dashboard (26/11, Max après son test). Additif seulement.
 --
 -- 1. join_etapes : la checklist gagne « dashboard » (se connecter au dashboard de l'OS ; cochée à la première
 --    connexion vue par l'OS : profiles.premiere_connexion_at, sinon auth.users.last_sign_in_at). CHECK élargi.

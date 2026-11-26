@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o465",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cac20edc-b57a-475b-aa15-42e9f85b52d6",
+ "titre": "feelings english has no word for #words #languages #smartgirl #vocabulary #feelings",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 7 de la boîte (parent cac20edc, langue source hu) : accroche reformulée (« feelings english has no word for »), différente de sg-o345 ; émotions neuves (fernweh, hygge, ikigai, sobremesa, iktsuarpok, petrichor n'en est pas une…) : fernweh, sobremesa, iktsuarpok, cafuné, mamihlapinatapai, kilig. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d60d5c23",
+   "texte_overlay": "feelings english has\nno word for",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "69aaa4e2",
+   "texte_overlay": "fernweh (german)\n\nhomesickness for places\nyou've never been.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e8c39bcf",
+   "texte_overlay": "sobremesa (spanish)\n\nthe time spent talking at the\ntable after the meal.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8ccb9921",
+   "texte_overlay": "iktsuarpok (inuit)\n\ngoing outside again and again\nto see if someone is coming.",
+   "texte_sophia": "iktsuarpok (inuit)\n\nchecking again and again if someone is\ncoming. i collect words on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1554cc4c",
+   "texte_overlay": "cafuné (portuguese)\n\nrunning your fingers through\nsomeone's hair.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "406eefe3",
+   "texte_overlay": "kilig (tagalog)\n\nbutterflies in your stomach.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "07e21e5c",
+   "texte_overlay": "which one is you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  }
+ ]
+}

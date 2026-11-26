@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o459",
+ "type_bleo": "full_test",
+ "titre": "how medieval cathedrals were built #cathedral #architecture #history #smartgirl #gothic",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Full test 8/8 (la jauge en demande 8 sur 29) : accroche jamais faite chez nous (« cathedral » absent des accroches de donnees/label.json). Accroches écrites : « how medieval cathedrals were built » (retenue : histoire + architecture, émerveillement), « gothic cathedrals » (écartée : proche des styles d'architecture déjà faits), « famous churches » (écartée : plate). Faits vérifiés : Notre-Dame de Paris (commencée en 1163, près de deux siècles), Cologne (1248-1880), Sagrada Família (commencée en 1882, toujours en chantier), les arcs-boutants qui libèrent les murs pour les vitraux, le bleu de Chartres, la flèche de Salisbury (123 m, la plus haute du Royaume-Uni). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "414d2d95",
+   "texte_overlay": "how medieval cathedrals\nwere built",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8f83a1c2",
+   "texte_overlay": "generations, not years\n\nnotre-dame de paris took almost\ntwo centuries, from 1163.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f47380f5",
+   "texte_overlay": "cologne\n\nstarted in 1248,\nfinished in 1880.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "455a9f8c",
+   "texte_overlay": "the flying buttress\n\nit holds the walls from outside,\nso they can be made of glass.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "edbc597e",
+   "texte_overlay": "chartres blue\n\na stained-glass blue no one\nhas ever copied exactly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "521e5f91",
+   "texte_overlay": "salisbury\n\na spire of 123 metres,\nthe tallest in the uk.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "127d3790",
+   "texte_overlay": "and the sagrada família\n\nstarted in 1882, still being built.\ni learned this in a morning lesson.",
+   "texte_sophia": "and the sagrada família\n\nstarted in 1882, still being built. i\nlearned it on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5b9c9f41",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

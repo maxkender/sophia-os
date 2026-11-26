@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o463",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0c06da7a-0396-4d53-8fdf-053ac4a63d2e",
+ "titre": "study habits of the top students nobody mentions #studytok #studytips #smartgirl #straighta #discipline",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 4 de la boîte (parent 0c06da7a, langue source it) : accroche reformulée (« study habits of the top students nobody mentions »), différente de sg-o319 ; habitudes du parent. Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dbaaf79a",
+   "texte_overlay": "study habits of the top\nstudents nobody mentions",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "559fcde5",
+   "texte_overlay": "they start revising\ntwo weeks early",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a0538456",
+   "texte_overlay": "their routine is simple,\nbut they never skip it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "76f81f40",
+   "texte_overlay": "they rest on purpose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d078d50d",
+   "texte_overlay": "they understand instead\nof memorising",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1de3236c",
+   "texte_overlay": "they build systems,\nnot motivation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ebb0314a",
+   "texte_overlay": "five minutes of general knowledge\ninstead of scrolling",
+   "texte_sophia": "five minutes on an app like Sophia\ninstead of scrolling",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "91786a0d",
+   "texte_overlay": "save this before exams",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

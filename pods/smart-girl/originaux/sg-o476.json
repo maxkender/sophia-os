@@ -1,0 +1,63 @@
+{
+  "source_id": "sg-o476",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "23aeebaa-1d46-4f7c-b8bf-9ed1fbe8c613",
+  "titre": "how to talk about art without sounding pretentious #art #arthistory #museum #smartgirl #culture",
+  "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+  "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+  "inspirations": [
+    "905ac33d-906a-4223-9d93-29df2e258b6f"
+  ],
+  "notes": "cta B. Déclinaison G1 de la ligne 95 de la boîte (parent 23aeebaa, langue source en) : accroche du parent mot pour mot ; conseils neufs face à sg-o312 (parler de la lumière, demander ce que l'artiste voulait, comparer avec une œuvre connue, regarder de loin puis de près, dire une question plutôt qu'un avis, avouer ce qu'on ne sait pas). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "f1786f84",
+      "texte_overlay": "how to talk about art without\nsounding pretentious",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c91eb1a0",
+      "texte_overlay": "1. talk about the light",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "4b2e77e2",
+      "texte_overlay": "2. ask what the artist wanted\nto show",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "7e41e86a",
+      "texte_overlay": "3. know one story about it",
+      "texte_sophia": "3. know one story about it: i learn one a\nday on an app like Sophia",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "120e8d0b",
+      "texte_overlay": "4. look from far, then up close",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "4b7ae0e9",
+      "texte_overlay": "5. ask a question instead\nof giving a verdict",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "cf3c563a",
+      "texte_overlay": "6. say \"i don't know\" happily",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "c532b816",
+      "texte_overlay": "save this for your next\nmuseum date",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+    }
+  ]
+}

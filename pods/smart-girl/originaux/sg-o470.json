@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o470",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c6c32359-51e1-4c9b-92fa-901a67b11256",
+ "titre": "6 hobbies that make you more interesting #hobbies #smartgirl #curiosity #slowliving #interesting",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 66 de la boîte (parent c6c32359, langue source el) : accroche du parent mot pour mot. Hobbies du parent (récits de voyage, photos historiques, micro-apprentissage, le café et ses origines, essais personnels, musique de chaque décennie). Sophia en 3 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "59367949",
+   "texte_overlay": "6 hobbies that make you\nmore interesting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e6367b4d",
+   "texte_overlay": "1. travel writing\n\nplaces, traditions, ways of life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f5134355",
+   "texte_overlay": "2. historical photographs\n\nhistory you can see.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e4a7a6a7",
+   "texte_overlay": "3. daily micro-learning",
+   "texte_sophia": "3. daily micro-learning\n\ni read short lessons on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "33294b1c",
+   "texte_overlay": "4. coffee origins\n\nevery bean has a country.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1ca4b4f9",
+   "texte_overlay": "5. personal essays\n\nhow other people think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5881e87e",
+   "texte_overlay": "6. music from every decade",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1cae5753",
+   "texte_overlay": "which one are you trying?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

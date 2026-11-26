@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o479",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "57c7905a-503f-4158-8cdf-9a49c044786f",
+ "titre": "9 subjects women are dangerously under-educated on & why you should master them #learning #women #smartgirl #selfeducation #power",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "57c7905a-503f-4158-8cdf-9a49c044786f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 98 de la boîte (parent 57c7905a, langue source en) : accroche du parent mot pour mot. Sujets du parent (régulation du système nerveux, neuroplasticité, négociation, psychologie de l'argent, psychologie du pouvoir, géopolitique, biais cognitifs, intelligence artificielle, fondements historiques). Sophia sur les fondements historiques comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c07ed517",
+   "texte_overlay": "9 subjects women are dangerously\nunder-educated on\n& why you should master them",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694236889963973908/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3f846980",
+   "texte_overlay": "1. nervous system regulation\n2. neuroplasticity",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694236889963973908/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8d1109bd",
+   "texte_overlay": "3. negotiation\n4. the psychology of money",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694236889963973908/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "77a0091a",
+   "texte_overlay": "5. the psychology of power\n6. geopolitics",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694236889963973908/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4651a491",
+   "texte_overlay": "7. cognitive biases\n8. artificial intelligence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694236889963973908/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f09c7a28",
+   "texte_overlay": "9. historical foundations\n\nyou can't read today without\nknowing yesterday.",
+   "texte_sophia": "9. historical foundations\n\ni learn one a day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694236889963973908/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "84abfd04",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694236889963973908/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o480",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0f9eb012-ca9b-4bc2-8eed-60568385e664",
+ "titre": "things my grandmother taught me about elegance #elegance #grandmother #smartgirl #oldmoney #classy",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 100 de la boîte (parent 0f9eb012, langue source en) : accroche du parent mot pour mot (notre sg-o265 a gagné). Leçons du parent (ne jamais se presser, toujours apporter quelque chose, écrire des lettres, dire moins et écouter plus, un bon manteau, continuer d'apprendre). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "412236df",
+   "texte_overlay": "things my grandmother\ntaught me about elegance",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "20a20fe7",
+   "texte_overlay": "\"never rush. walk, eat and\nspeak slowly.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6a407810",
+   "texte_overlay": "\"always bring something\nwhen you visit.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "77b01573",
+   "texte_overlay": "\"write letters. people\nkeep them.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9de67984",
+   "texte_overlay": "\"say less. listen more.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "df359696",
+   "texte_overlay": "\"have one good coat and\ntake care of it.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "94fbb51f",
+   "texte_overlay": "\"keep learning.\"\n\nher books. my version: five\nminutes every morning.",
+   "texte_sophia": "\"keep learning.\"\n\nher books. my version: five minutes a day\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e85c1280",
+   "texte_overlay": "save this and call\nyour grandmother",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

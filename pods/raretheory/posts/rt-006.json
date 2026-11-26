@@ -1,0 +1,166 @@
+{
+  "id": "rt-006",
+  "source": {
+    "url": "https://www.tiktok.com/@raretheory_/photo/7708411107135753493",
+    "vues": 47200,
+    "publie_le": "2026-11-15",
+    "accroche": "skills i'm glad i started learning at 14, so i could make my own money at 18"
+  },
+  "titre": {
+    "en": "skills i'm glad i started at 14"
+  },
+  "legendes": {
+    "en": "ur teenage years aren't only for grades. they're the cheapest time to get good at things.\n\nnone of these need talent. they need a little time every day, and starting before anyone expects u to.\n\nu'll thank ur younger self for it.\n\nsave this and start one this week.\n\n#selfimprovement #learning #teenagers #studytok #personaldevelopment"
+  },
+  "musique": {
+    "titre": "Mask Off Orchestra Version - 𝕷𝖞𝖗𝖎𝖈𝖘🄱_🄱",
+    "url": "https://www.tiktok.com/music/Mask-Off-Orchestra-Version-7482856022859074359"
+  },
+  "banque": {
+    "images/banque/livre-croissant.jpg": "5f23e254-7424-41f8-b7ef-dd11de794648",
+    "images/banque/main-page.jpg": "1d60a94d-248d-4d3d-860e-b96115f38eb4",
+    "images/banque/mains-clavier.jpg": "0f5a4f62-c32e-45f5-9d8c-cd4c465e207f",
+    "images/banque/casserole.jpg": "6107dbe5-84af-47d6-94d6-3059bf1c1fbe",
+    "images/banque/piano.jpg": "74c2cf09-e998-4842-a13f-cf8f595472a5",
+    "images/banque/main-ecrit.jpg": "0c3314cb-73a9-4715-8e83-cd2f4082896d",
+    "images/banque/pluie.jpg": "09fef3aa-fa00-4b72-94ab-9149068866e8"
+  },
+  "notes": "Preuve : « skills i'm glad i started learning at 14, so i could make my own money at 18 » de @raretheory_ (47,2 k vues, 10,2 % d'enregistrements, 15/11) : même gabarit (« 01 — … », une petite photo à droite, deux paragraphes justifiés), même musique. Points à nous (les siens : prise de parole, etc.), texte à nous. Slide Sophia (5, « 04 — a lesson a day ») : son LOGO à la place de la petite photo, jamais une capture ; cta C. Photos : banques de Sophia, sans visage, sans marque ni texte lisible (couverture : livre près d'une fenêtre de café 5f23e254, fille vue de dessus qui lit 1d60a94d ; points : clavier 0f5a4f62, casserole 6107dbe5, piano 74c2cf09, main qui écrit 0c3314cb, fenêtre sous la pluie 09fef3aa).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/livre-croissant.jpg",
+          "cadrage": {
+            "x": 0.6,
+            "y": 0.5
+          }
+        },
+        {
+          "image": "images/banque/main-page.jpg",
+          "cadrage": {
+            "x": 0.6,
+            "y": 0.9
+          }
+        }
+      ],
+      "en": {
+        "titre": "skills i'm glad i\nstarted at 14",
+        "sous_titre": "wish i'd started earlier"
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/mains-clavier.jpg",
+          "cadrage": {
+            "x": 0.45,
+            "y": 0.4
+          }
+        }
+      ],
+      "en": {
+        "titre": "touch typing",
+        "paragraphes": [
+          "it sounds boring until u realize how much of ur life is spent typing. essays, emails, notes, applications.",
+          "i learned with free typing games for 15 minutes a day. now i write as fast as i think, and every assignment takes half the time."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/casserole.jpg",
+          "cadrage": {
+            "x": 0.55,
+            "y": 0.5
+          }
+        }
+      ],
+      "en": {
+        "titre": "cooking real meals",
+        "paragraphes": [
+          "not fancy food. just pasta, eggs, rice, soup, something with vegetables.",
+          "knowing how to feed urself makes u way more independent. u save money, u eat better, and u're never stuck waiting for someone else to make dinner."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/piano.jpg",
+          "cadrage": {
+            "x": 0.4,
+            "y": 0.45
+          }
+        }
+      ],
+      "en": {
+        "titre": "an instrument",
+        "paragraphes": [
+          "i was bad at it for a long time. that was the whole point.",
+          "learning an instrument teaches u to practice something boring every day until it suddenly isn't. that skill carries into literally everything else."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "a lesson a day",
+        "paragraphes": [
+          "Sophia gives me one lesson a day, written by actual professors, with a little quiz after. history, philosophy, science, geopolitics, literature, economics.",
+          "it's 10 minutes. but 10 minutes every day since 14 adds up to knowing a lot about how the world actually works."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/main-ecrit.jpg",
+          "cadrage": {
+            "x": 0.6,
+            "y": 0.6
+          }
+        }
+      ],
+      "en": {
+        "titre": "writing things down",
+        "paragraphes": [
+          "ideas, plans, what i spent, what i'm worried about. if it stays in my head, it gets messy.",
+          "writing it down makes it smaller and clearer. most of my best decisions started as a messy page in a notebook."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/pluie.jpg",
+          "cadrage": {
+            "x": 0.5,
+            "y": 0.45
+          }
+        }
+      ],
+      "en": {
+        "titre": "quiet time",
+        "paragraphes": [
+          "no music, no phone, no scrolling. just a walk, a window, or a quiet room.",
+          "it felt weird at first. now it's where i actually figure out what i think, instead of borrowing everyone else's opinions."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "u don't have to monetize every skill. u just have to start one before u feel ready. future u is counting on it.",
+        "gras": "OR.. u'll be 18 wishing u had."
+      }
+    }
+  ]
+}

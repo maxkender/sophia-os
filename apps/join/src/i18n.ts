@@ -39,7 +39,10 @@ export const LANGUES: { code: string; nom: string }[] = Object.entries(NOMS_LANG
   .map(([code, nom]) => ({ code, nom }));
 
 export function langueInitiale(): string {
-  const p = new URLSearchParams(location.search).get("lang");
+  // 26/11 : ?lang= vient aussi de l'ancien site (pt-BR, es-419, nb…) : la langue de base de Join si elle existe.
+  const brut = (new URLSearchParams(location.search).get("lang") ?? "").trim().toLowerCase();
+  const base = brut.split(/[-_]/)[0];
+  const p = DISPONIBLES.has(brut) ? brut : base === "nb" || base === "nn" ? "no" : base;
   if (p && DISPONIBLES.has(p)) return p;
   try {
     const g = localStorage.getItem("join_langue");

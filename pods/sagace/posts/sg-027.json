@@ -14,7 +14,9 @@
   "pt-BR": "10 habilidades inúteis mas que te deixam 10x mais legal",
   "tr": "İşe yaramayan ama seni 10 kat daha havalı yapan 10 beceri",
   "ro": "10 abilități inutile, dar care te fac de 10x mai cool",
-  "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool"
+  "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool",
+  "hu": "10 haszontalan készség, amitől 10x menőbb leszel",
+  "sr": "10 veština koje su beskorisne, ali te čine 10x kulijim"
  },
  "legendes": {
   "fr": "10 compétences inutiles mais qui te rendent 10x plus cool #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -24,7 +26,9 @@
   "pt-BR": "10 habilidades inúteis mas que te deixam 10x mais legal #aprendanotiktok #desenvolvimentopessoal #habilidades",
   "tr": "İşe yaramayan ama seni 10 kat daha havalı yapan 10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "10 abilități inutile, dar care te fac de 10x mai cool #invatapetiktok #dezvoltarepersonala #abilitati",
-  "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool #učímesenatiktoku #osobnírozvoj #dovednosti"
+  "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10 haszontalan készség, amitől 10x menőbb leszel #tanuljtiktokon #önfejlesztés #készségek",
+  "sr": "10 veština koje su beskorisne, ali te čine 10x kulijim #učinatiktoku #samorazvoj #veštine"
  },
  "musique": {
   "titre": "original sound - Jacob . P",
@@ -32,7 +36,7 @@
  },
  "type_bleo": "declinaison",
  "parent_contenu_id": "e0e2724c-f37c-49e9-b4d7-cd5d2a2deba7",
- "notes": "Déclinaison G1 de sg-005 (21/11) : titre, légende, musique et couverture de sg-005 mot pour mot. 5 autres tours « inutiles mais cool » (ballon sur le doigt, pièce qui disparaît, avion en papier, moonwalk, tour avec un élastique), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta A : « ÉPATER / TES POTES »).",
+ "notes": "Déclinaison G1 de sg-005 (21/11) : titre, légende, musique et couverture de sg-005 mot pour mot. 5 autres tours « inutiles mais cool » (ballon sur le doigt, pièce qui disparaît, avion en papier, moonwalk, tour avec un élastique), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta A : « ÉPATER / TES POTES »). Deck sr ajouté le 26/11 (rattrapage) : titre et couverture de sg-005. Le moonwalk devient « zviždati prstima » (siffler avec les doigts, Magazinba, chaîne bosnienne), faute de tuto serbe du moonwalk ; avion en papier : NAJLA (chaîne de la région).",
  "slides": [
   {
    "type": "couverture",
@@ -207,6 +211,50 @@
      },
      {
       "t": "10X VÍC COOL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "HASZONTALAN",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "KÉSZSÉGEK, AMIKTŐL",
+      "cap": 93
+     },
+     {
+      "t": "10X MENŐBB",
+      "couleur": "brun",
+      "cap": 146
+     },
+     {
+      "t": "LESZEL",
+      "cap": 111
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 111
+     },
+     {
+      "t": "BESKORISNE",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "ALI TE ČINE",
+      "cap": 93
+     },
+     {
+      "t": "10x KULIJIM",
       "couleur": "brun",
       "cap": 146
      }
@@ -406,6 +454,54 @@
     "sous": [
      "30 min na naučení"
     ]
+   },
+   "hu": {
+    "titre": [
+     "PÖRGESS",
+     [
+      {
+       "t": "EGY LABDÁT",
+       "couleur": "#e07a2e"
+      }
+     ],
+     "AZ UJJADON"
+    ],
+    "sous": [
+     "több napos gyakorlás"
+    ],
+    "video": {
+     "id": "1NnHNjldtmc",
+     "titre": "Megtanultam kosárlabdát pörgetni 11 nap alatt",
+     "chaine": "Atanáz Karsai",
+     "vues": "7,3 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "8:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kquTSeDl1Lnw6U52kV9-NZbGVae03P-xEPyDNNNM1NXRE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "VRTETI",
+     [
+      {
+       "t": "LOPTU",
+       "couleur": "#e07a2e"
+      }
+     ],
+     "NA PRSTU"
+    ],
+    "video": {
+     "id": "4jqMoh4xki8",
+     "titre": "Tricky - Skola Basketa - Kako vrteti loptu kao pravi profesionalac",
+     "chaine": "TheTricky10",
+     "vues": "125 hilj. pregleda",
+     "date": "pre 9 godina",
+     "duree": "6:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n0esi2Lonn-mvM3Fxnlewa1ziihyzHrYnOWJb_an8EdBQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
    }
   },
   {
@@ -593,6 +689,53 @@
     "sous": [
      "1 hodina na naučení"
     ]
+   },
+   "hu": {
+    "titre": [
+     "TÜNTESS EL",
+     [
+      {
+       "t": "EGY ÉRMÉT",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "sous": [
+     "1 óra a tanuláshoz"
+    ],
+    "video": {
+     "id": "4g9v1BMwXCA",
+     "titre": "Trükk Tanulás - Érme eltűntetés tollal (Németh Gábor bűvész)",
+     "chaine": "Németh Gábor bűvész",
+     "vues": "8,8 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "4:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nMsf3gTJL3KZznZjvT18Q95Ii1btXQCdb66gkzvrWcPMk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "NATERAJ",
+     [
+      {
+       "t": "NOVČIĆ",
+       "couleur": "#c9a43a"
+      }
+     ],
+     "DA NESTANE"
+    ],
+    "video": {
+     "id": "VVixQb1Kwm0",
+     "titre": "NEVEROVATAN MADJIONICARSKI TRIK SA NOVCICEM ( objasnjenje / za pocetnike )",
+     "chaine": "Serbian Magic Centre",
+     "vues": "152 hilj. pregleda",
+     "date": "pre 10 godina",
+     "duree": "2:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_loggU50I-VTtfaZiiV-mXeZKG2zbpp0BtxigZn1SEupQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
    }
   },
   {
@@ -764,6 +907,48 @@
     },
     "sous": [
      "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "LENYŰGÖZNI",
+     [
+      {
+       "t": "A HAVEROKAT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "napi 5 perc"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "rövid leckék, valódi",
+      "tanárok tollából."
+     ]
+    }
+   },
+   "sr": {
+    "titre": [
+     "ODUŠEVITI",
+     [
+      {
+       "t": "DRUŠTVO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
     ]
    }
   },
@@ -951,6 +1136,52 @@
     },
     "sous": [
      "15 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "PAPÍRREPÜLŐ,",
+     [
+      {
+       "t": "AMI MESSZIRE SZÁLL",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "sous": [
+     "15 perc a tanuláshoz"
+    ],
+    "video": {
+     "id": "gGNVHHeMQIw",
+     "titre": "Papírrepülő hajtogatás , nagyon könnyű/ How to make paper aeroplane",
+     "chaine": "1001 kreativ",
+     "vues": "379 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "3:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_leTs_W1DA-Vh4od8WCMfIo3qMSc8KvD2OEYGTl-PhBlA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "AVION OD PAPIRA",
+     [
+      {
+       "t": "KOJI LETI DALEKO",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8U5Kbp9dsw0",
+     "titre": "NAJBOLJI AVION OD PAPIRA KOJI LETI JAKO DUGO | How to Make a Paper Airplane that Flies 100 Meters",
+     "chaine": "NAJLA",
+     "vues": "102 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "3:21",
+     "avatar": "https://yt3.ggpht.com/Js9UfPG0dC6dg6db494YR66Dfmt7xtUthoEPzXFvQEjR812u_CgKcL7vS9kKRvrgDaJ-PIqsuys=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
     ]
    }
   },
@@ -1140,6 +1371,52 @@
     "sous": [
      "trénink několik dní"
     ]
+   },
+   "hu": {
+    "titre": [
+     "TANULD MEG A",
+     [
+      {
+       "t": "MOONWALKOT",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "sous": [
+     "több napos gyakorlás"
+    ],
+    "video": {
+     "id": "PhXDzLTESnI",
+     "titre": "HOGYAN KELL? TANULJ VELEM MOONWALK-OLNI |OKTATÓ VIDEÓ - KINGAFITDANCE TÁNCSTÚDIÓ",
+     "chaine": "Szabó Kinga - KingaFitDance",
+     "vues": "1,7 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "2:54",
+     "avatar": "https://yt3.ggpht.com/o9LUwhrtMwQ1luVfPqx2ep60bOFoBrpSKES713tU4n86B1qJe3-vmNmElBNvW-6SWNGRZVhcng=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "ZVIŽDATI",
+     [
+      {
+       "t": "PRSTIMA",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vMytDpJ-GTw",
+     "titre": "TUTORIJAL: Kako naučiti zviždati pomoću prstiju",
+     "chaine": "Magazinba",
+     "vues": "178 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "2:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lvtyK3MWAylUnfNZYSxBdZpvlS09h9HUAQe5UkzKHFIQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Vežbanje nekoliko dana"
+    ]
    }
   },
   {
@@ -1326,6 +1603,52 @@
     },
     "sous": [
      "30 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "BŰVÉSZTRÜKK",
+     [
+      {
+       "t": "BEFŐTTES GUMIVAL",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "sous": [
+     "30 perc a tanuláshoz"
+    ],
+    "video": {
+     "id": "O_RSgZPU1uU",
+     "titre": "EZ BÁRMIN ÁTMEGY | Gumikarikás trükköt tanítok",
+     "chaine": "Damien White",
+     "vues": "180 E megtekintés",
+     "date": "10 évvel ezelőtt",
+     "duree": "5:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lrT4XpwHoN8NwsHviiFSaSJJl6x3JP0-9Pixkk8ml9kdml=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "MAĐIONIČARSKI TRIK",
+     [
+      {
+       "t": "SA GUMICOM",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lndrFH2do8c",
+     "titre": "Najbolji trik sa gumicom, objašnjenje",
+     "chaine": "Magic Angel",
+     "vues": "45 hilj. pregleda",
+     "date": "pre 11 godina",
+     "duree": "1:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mLHapi8c08ze_KrBly0fKyN03TBK_l1_zJYP6-L8XeKw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
     ]
    }
   }

@@ -14,7 +14,9 @@
   "pt-BR": "Habilidades nota 10 que você pode aprender em um dia",
   "tr": "Bir günde öğrenebileceğin 10/10 beceriler",
   "ro": "Abilități de 10/10 pe care le poți învăța într-o zi",
-  "cs": "Dovednosti na 10/10, které se naučíš za jeden den"
+  "cs": "Dovednosti na 10/10, které se naučíš za jeden den",
+  "hu": "10/10-es készségek, amiket egy nap alatt megtanulhatsz",
+  "sr": "Veštine 10/10 koje možeš da naučiš za jedan dan"
  },
  "legendes": {
   "fr": "Les compétences 10/10 que tu peux apprendre en un jour #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -24,13 +26,15 @@
   "pt-BR": "Habilidades nota 10 que você pode aprender em um dia #aprendanotiktok #desenvolvimentopessoal #habilidades",
   "tr": "Bir günde öğrenebileceğin 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "Abilități de 10/10 pe care le poți învăța într-o zi #invatapetiktok #dezvoltarepersonala #abilitati",
-  "cs": "Dovednosti na 10/10, které se naučíš za jeden den #učímesenatiktoku #osobnírozvoj #dovednosti"
+  "cs": "Dovednosti na 10/10, které se naučíš za jeden den #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10-es készségek, amiket egy nap alatt megtanulhatsz #tanuljtiktokon #önfejlesztés #készségek",
+  "sr": "Veštine 10/10 koje možeš da naučiš za jedan dan #učinatiktoku #samorazvoj #veštine"
  },
  "musique": {
   "titre": "sonido original - Lexn🧛🏽",
   "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
  },
- "notes": "Son post à 81,5 k (21/08), refait le 16/11 en 8 langues. Couverture actuelle (la sienne était l'ancienne) avec ses 4 lignes « COMPÉTENCES / QUE TU PEUX / APPRENDRE / EN UNE JOURNÉE », la ligne orange passée en brun. Ses 5 compétences dans son ordre (nuages, calcul mental, forêt, omelette, cravate), d'autres vraies vidéos natives que les siennes (MétéoMédia, LesCoursSimples, Brut, Robb Report, Pratiks). Sophia en étape 4 sur 7 (cta C : « NOURRIR / SON CERVEAU »), sa slide « ENREGISTRE CE POST » retirée.",
+ "notes": "Son post à 81,5 k (21/08), refait le 16/11 en 8 langues. Couverture actuelle (la sienne était l'ancienne) avec ses 4 lignes « COMPÉTENCES / QUE TU PEUX / APPRENDRE / EN UNE JOURNÉE », la ligne orange passée en brun. Ses 5 compétences dans son ordre (nuages, calcul mental, forêt, omelette, cravate), d'autres vraies vidéos natives que les siennes (MétéoMédia, LesCoursSimples, Brut, Robb Report, Pratiks). Sophia en étape 4 sur 7 (cta C : « NOURRIR / SON CERVEAU »), sa slide « ENREGISTRE CE POST » retirée. Deck sr ajouté le 26/11 (rattrapage) : titre et couverture de sg-039 ; vidéos Pravi Trenutak, Mirjana Spajić Buturac, Знање У Пракси (titre natif en cyrillique), Najbolji domaći recepti, e-kako portal (chaîne croate, la seule correcte pour la cravate).",
  "slides": [
   {
    "type": "couverture",
@@ -194,6 +198,44 @@
      },
      {
       "t": "ZA JEDEN DEN",
+      "cap": 118
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK,",
+      "cap": 138
+     },
+     {
+      "t": "AMIKET EGY NAP ALATT",
+      "cap": 120
+     },
+     {
+      "t": "MEGTANULHATSZ",
+      "couleur": "brun",
+      "cap": 190
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 138
+     },
+     {
+      "t": "KOJE MOŽEŠ DA",
+      "cap": 120
+     },
+     {
+      "t": "NAUČIŠ",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "ZA JEDAN DAN",
       "cap": 118
      }
     ]
@@ -383,6 +425,52 @@
     },
     "sous": [
      "2-3 hodiny na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ISMERD FEL",
+     [
+      {
+       "t": "A FELHŐKET",
+       "couleur": "#3a9bd9"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 óra a tanuláshoz"
+    ],
+    "video": {
+     "id": "NJiu9m4Z-os",
+     "titre": "OMSZ felhőatlasz (timelapse)",
+     "chaine": "HungaroMet Zrt. (MET HU)",
+     "vues": "21 E megtekintés",
+     "date": "13 évvel ezelőtt",
+     "duree": "12:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mL3DpngbIEHVmVyuucknb8KLPUWeNbzZkuCejUckmkldI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "KAKO ČITATI",
+     [
+      {
+       "t": "OBLAKE",
+       "couleur": "#3a9bd9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8D_7ItVm7xg",
+     "titre": "Kako nastaje oblak - Vrste oblaka na osnovu visine",
+     "chaine": "Pravi Trenutak",
+     "vues": "4,7 hilj. pregleda",
+     "date": "pre 10 godina",
+     "duree": "1:19",
+     "avatar": "https://yt3.ggpht.com/oerOUEk48imPaYdjoymUBgyQa8V5cwW5-0NiDICy2p0PuPcxbfXnJyLjvTjfMWHGUKCGoNoHMTU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata za učenje"
     ]
    }
   },
@@ -579,6 +667,54 @@
     "sous": [
      "3-4 hodiny na naučení"
     ]
+   },
+   "hu": {
+    "titre": [
+     "LEGYÉL",
+     [
+      {
+       "t": "ZSENI",
+       "couleur": "#e0262b"
+      }
+     ],
+     "FEJSZÁMOLÁSBAN"
+    ],
+    "sous": [
+     "3-4 óra a tanuláshoz"
+    ],
+    "video": {
+     "id": "bwnCBpvMsdU",
+     "titre": "Egyszerű matematika – Kétjegyű számok szorzása fejben",
+     "chaine": "Hétköznapi okosságok",
+     "vues": "15 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "4:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ntSaC5Lo5eZM01Ucih-9s77DK-rlSOj8Wzb_UHUShyCA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "POSTATI",
+     [
+      {
+       "t": "MAŠINA",
+       "couleur": "#e0262b"
+      }
+     ],
+     "U RAČUNANJU NAPAMET"
+    ],
+    "video": {
+     "id": "mt7TIGxDuEs",
+     "titre": "VEDSKA MATEMATIKA: Trikovi za brže množenje",
+     "chaine": "Mirjana Spajić Buturac",
+     "vues": "20 hilj. pregleda",
+     "date": "pre 11 godina",
+     "duree": "2:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mRoRHb7E9uFpUXqx2DocFuQil1ll85ZLPsYvFqz47z=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 sata za učenje"
+    ]
    }
   },
   {
@@ -750,6 +886,48 @@
     },
     "sous": [
      "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TÁPLÁLD",
+     [
+      {
+       "t": "AZ AGYAD",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "napi 5 perc"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    }
+   },
+   "sr": {
+    "titre": [
+     "HRANITI",
+     [
+      {
+       "t": "SVOJ MOZAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ovo otvaram",
+      "umesto skrolovanja."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
     ]
    }
   },
@@ -938,6 +1116,52 @@
     "sous": [
      "1 hodina na naučení"
     ]
+   },
+   "hu": {
+    "titre": [
+     "TÁJÉKOZÓDJ",
+     [
+      {
+       "t": "AZ ERDŐBEN",
+       "couleur": "#2fa84f"
+      }
+     ]
+    ],
+    "sous": [
+     "1 óra a tanuláshoz"
+    ],
+    "video": {
+     "id": "rE_Q4_nchnM",
+     "titre": "Tájékozódás a természet segítségével? Így találd meg a helyes utat!",
+     "chaine": "Erdősuli",
+     "vues": "9,4 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "12:13",
+     "avatar": "https://yt3.ggpht.com/xlNDc8KwmIlkioirnCBeRDddXwrEO0H78tyWh8LHLdNM5Glf1y713tH9okBfDBYyrY4P9Dh_=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "SNAĆI SE",
+     [
+      {
+       "t": "U ŠUMI",
+       "couleur": "#2fa84f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7ScirYpsITE",
+     "titre": "Како пронаћи север без компаса ?",
+     "chaine": "Знање У Пракси",
+     "vues": "5,4 hilj. pregleda",
+     "date": "pre 11 godina",
+     "duree": "1:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kKokEClXCOkeEnIj56m1A5IpY5vIpPxWKIoS2CMgj61g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
    }
   },
   {
@@ -1124,6 +1348,52 @@
     },
     "sous": [
      "30 minut na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "KÉSZÍTS OMLETTET",
+     [
+      {
+       "t": "MINT EGY SÉF",
+       "couleur": "#d9b52c"
+      }
+     ]
+    ],
+    "sous": [
+     "30 perc a tanuláshoz"
+    ],
+    "video": {
+     "id": "zW8TyC9s3Kg",
+     "titre": "A tökéletes 🧀SAJTOS🧀 omlett 🍳",
+     "chaine": "Street Kitchen",
+     "vues": "515 E megtekintés",
+     "date": "9 évvel ezelőtt",
+     "duree": "3:04",
+     "avatar": "https://yt3.ggpht.com/3fJMKfBUrEM8w4WhBqBI-Md-eoeRjHcnuQZ9EGOOtgDa2nRkBRrVRwop9sZ-SlvEBei7E0lT0Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "NAPRAVITI OMLET",
+     [
+      {
+       "t": "KAO KUVAR",
+       "couleur": "#d9b52c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lQ8vvZT_WMc",
+     "titre": "Kako se pravi Omlet - Savršen doručak",
+     "chaine": "Najbolji domaći recepti",
+     "vues": "790 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "3:35",
+     "avatar": "https://yt3.ggpht.com/H9NlYiNskl2FQ3-VnrKjdgEsvEE4Fn6ICNTNP7U4vi3juxGCjD4cHMW2U12SJnN1U7nyK5Gjuw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
     ]
    }
   },
@@ -1315,6 +1585,53 @@
     },
     "sous": [
      "15 minut na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "KÖSS",
+     [
+      {
+       "t": "NYAKKENDŐT",
+       "couleur": "#b77bd6"
+      }
+     ]
+    ],
+    "sous": [
+     "15 perc a tanuláshoz"
+    ],
+    "video": {
+     "id": "d5XoSOCL_9Q",
+     "titre": "Nyakkendő kötés -  windsor csomó",
+     "chaine": "sityak2000",
+     "vues": "1,7 M megtekintés",
+     "date": "13 évvel ezelőtt",
+     "duree": "1:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mhmwHCeXqYElKbz1BP2R68FB75U1TDukBT5LeuL2P8Ig=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "VEZATI",
+     [
+      {
+       "t": "ČVOR",
+       "couleur": "#b77bd6"
+      }
+     ],
+     "NA KRAVATI"
+    ],
+    "video": {
+     "id": "b62Gb-deMsQ",
+     "titre": "Kako zavezati kravatu?",
+     "chaine": "e-kako portal",
+     "vues": "1,3 mil. pregleda",
+     "date": "pre 15 godina",
+     "duree": "1:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m3nrvanl1fBQ5e2hBstn7MLCL1-8oDYsAKgEE-SwRqgMA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
     ]
    }
   }

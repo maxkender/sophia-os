@@ -9,7 +9,9 @@
   "pt-BR": "Habilidades 10/10 que te fazem ganhar tempo",
   "tr": "Zaman kazandıran 10/10 beceriler",
   "ro": "Abilități 10/10 care îți economisesc timp",
-  "cs": "Dovednosti 10/10, které ti ušetří čas"
+  "cs": "Dovednosti 10/10, které ti ušetří čas",
+  "hu": "10/10-es készségek, amikkel időt spórolsz",
+  "sr": "Veštine 10/10 koje ti štede vreme"
  },
  "legendes": {
   "fr": "Compétences 10/10 qui te font gagner du temps #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -19,13 +21,15 @@
   "pt-BR": "Habilidades 10/10 que te fazem ganhar tempo #aprendanotiktok #desenvolvimentopessoal #habilidades",
   "tr": "Zaman kazandıran 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "Abilități 10/10 care îți economisesc timp #invatapetiktok #dezvoltarepersonala #abilitati",
-  "cs": "Dovednosti 10/10, které ti ušetří čas #učímesenatiktoku #osobnírozvoj #dovednosti"
+  "cs": "Dovednosti 10/10, které ti ušetří čas #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10-es készségek, amikkel időt spórolsz #tanuljtiktokon #önfejlesztés #készségek",
+  "sr": "Veštine 10/10 koje ti štede vreme #učinatiktoku #samorazvoj #veštine"
  },
  "musique": {
   "titre": "original sound - m - m",
   "url": "https://www.tiktok.com/music/original-sound-m-7638549822647159565"
  },
- "notes": "Full test du 18/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 qui te font gagner du temps », sa couverture (décor, lignes brun/noir, « DU TEMPS » en brun géant ; 3 lignes en tr), 5 compétences qui font gagner du temps (raccourcis clavier, plier un t-shirt, puis Sophia, faire sa valise, ranger, se lever du premier coup), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta A : « 5 MIN / BIEN INVESTIES »).",
+ "notes": "Full test du 18/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 qui te font gagner du temps », sa couverture (décor, lignes brun/noir, « DU TEMPS » en brun géant ; 3 lignes en tr), 5 compétences qui font gagner du temps (raccourcis clavier, plier un t-shirt, puis Sophia, faire sa valise, ranger, se lever du premier coup), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta A : « 5 MIN / BIEN INVESTIES »). Deck sr ajouté le 26/11 (rattrapage) : Michael Tech, Redberet (« za tri sekunde »), Dragana Nikitovic, Jana Dačović, Online Lekcije.",
  "slides": [
   {
    "type": "couverture",
@@ -196,6 +200,50 @@
      },
      {
       "t": "ČAS",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "AMIKKEL",
+      "cap": 120
+     },
+     {
+      "t": "IDŐT",
+      "cap": 169
+     },
+     {
+      "t": "SPÓROLSZ",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "KOJE TI",
+      "cap": 120
+     },
+     {
+      "t": "ŠTEDE",
+      "cap": 169
+     },
+     {
+      "t": "VREME",
       "cap": 283,
       "couleur": "brun"
      }
@@ -387,6 +435,52 @@
     "sous": [
      "1 hodina na naučení"
     ]
+   },
+   "hu": {
+    "titre": [
+     "TANULD MEG A",
+     [
+      {
+       "t": "GYORSBILLENTYŰKET",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "sous": [
+     "1 óra a tanuláshoz"
+    ],
+    "video": {
+     "id": "0HjIY60jYc8",
+     "titre": "Billentyűzet kobinációk - 10 kombináció 1 videóban",
+     "chaine": "Windows & Pc",
+     "vues": "7,7 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "5:37",
+     "avatar": "https://yt3.ggpht.com/WSQFGgyN9iFVkKUx3O3du7yen2rpdMt1yVo3tqqrm7dqfgHoLJdGkIuRNW19AOnmh71UNDBuuuI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "SAVLADATI",
+     [
+      {
+       "t": "PREČICE",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HfQG02NTT-0",
+     "titre": "Korisne Windows prečice koje morate da znate",
+     "chaine": "Michael Tech",
+     "vues": "17 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "2:51",
+     "avatar": "https://yt3.ggpht.com/WJ7Z6xfbWNXRxYK7S_CZMV4OfvR9DquBp9QEuaqomyt2STG7CEIUJtl8epVetPQB-yoecIJJOg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
    }
   },
   {
@@ -574,6 +668,52 @@
     "sous": [
      "5 min na naučení"
     ]
+   },
+   "hu": {
+    "titre": [
+     "HAJTOGASS PÓLÓT",
+     [
+      {
+       "t": "5 MÁSODPERC ALATT",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "sous": [
+     "5 perc a tanuláshoz"
+    ],
+    "video": {
+     "id": "PjV_GKFtpDc",
+     "titre": "Póló hajtogatás gyorsan és egyszerűen",
+     "chaine": "Partikellékek - KitűzőShop",
+     "vues": "34 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "0:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mY92VJhlA-nXc1NfCEq5ffAvPl84WX9l5Kd7FgxaZ54w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "SLOŽITI MAJICU",
+     [
+      {
+       "t": "ZA 3 SEKUNDE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7sRGn0i3VaU",
+     "titre": "Složiti majicu za tri sekunde (pro. trgovački stil)",
+     "chaine": "Redberet",
+     "vues": "177 hilj. pregleda",
+     "date": "pre 9 godina",
+     "duree": "0:45",
+     "avatar": "https://yt3.ggpht.com/w2G8mxeJRo11Q-EWRS86sxyrNM4WaLznJCHaUFW4c2frCxe1AfSaCC1e8dhR-DIehKA791QW=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
    }
   },
   {
@@ -745,6 +885,48 @@
     },
     "sous": [
      "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "5 PERC,",
+     [
+      {
+       "t": "JÓL BEFEKTETVE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "napi 5 perc"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "rövid leckék, valódi",
+      "tanárok tollából."
+     ]
+    }
+   },
+   "sr": {
+    "titre": [
+     "5 MINUTA",
+     [
+      {
+       "t": "DOBRO ULOŽENIH",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
     ]
    }
   },
@@ -933,6 +1115,52 @@
     "sous": [
      "30 min na naučení"
     ]
+   },
+   "hu": {
+    "titre": [
+     "PAKOLJ BŐRÖNDÖT",
+     [
+      {
+       "t": "10 PERC ALATT",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "sous": [
+     "30 perc a tanuláshoz"
+    ],
+    "video": {
+     "id": "oVJ5upjOyG4",
+     "titre": "15 TIPP ÉS TRÜKK PAKOLÁSHOZ UTAZÁSRA",
+     "chaine": "Alexa Kiss",
+     "vues": "327 E megtekintés",
+     "date": "9 évvel ezelőtt",
+     "duree": "3:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mWuuj4OGXxK_O3WZ7URl2nkN7B8QWkJ7x36Pvhfyyt1w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "SPAKOVATI KOFER",
+     [
+      {
+       "t": "ZA 10 MIN",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Oy6CVJYdqsE",
+     "titre": "Kako spakovati 1.000.000 stvari u jedan kofer",
+     "chaine": "Dragana Nikitovic",
+     "vues": "64 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "12:26",
+     "avatar": "https://yt3.ggpht.com/SNWRQK97koCCicjPp4ZcxeaGW5JDn7K3afFtpkk52IiZ0sWNNpc2AUTdOD_HgMAzxCHjhscu=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
    }
   },
   {
@@ -1120,6 +1348,52 @@
     "sous": [
      "20 min na naučení"
     ]
+   },
+   "hu": {
+    "titre": [
+     "RAKJ RENDET",
+     [
+      {
+       "t": "15 PERC ALATT",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "sous": [
+     "20 perc a tanuláshoz"
+    ],
+    "video": {
+     "id": "W7GlEAsS6Z0",
+     "titre": "7 tipp, és mindig REND lesz nálad | Viszkok Fruzsi",
+     "chaine": "Viszkok Fruzsi",
+     "vues": "285 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "12:03",
+     "avatar": "https://yt3.ggpht.com/4zwSkmo60poyAWOvzQaVWIBMExdVTsH26NA09EVGN2v-EHQVBM2d6xJLaZ0pQmqeFyx1CdNH6w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "SREDITI SOBU",
+     [
+      {
+       "t": "ZA 15 MIN",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tewlLHkZD3Q",
+     "titre": "Sredite sobu sa mnom 🧼🧺🏡",
+     "chaine": "Jana Dačović",
+     "vues": "141 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "6:18",
+     "avatar": "https://yt3.ggpht.com/Krz3XeJI-BQYvvpgH7z_d7D2rZSfoK6NSrPmTENFlpOs15uFODgDJ-yqSYw5fhjhW5USan2xZT8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min za učenje"
+    ]
    }
   },
   {
@@ -1306,6 +1580,52 @@
     },
     "sous": [
      "1 týden na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "KELJ FEL",
+     [
+      {
+       "t": "ELSŐRE",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "sous": [
+     "1 hét a tanuláshoz"
+    ],
+    "video": {
+     "id": "Zdz3aCoEHNA",
+     "titre": "7 tipp, hogyan kelj korán, és mégse legyél fáradt",
+     "chaine": "Tudástár Klub",
+     "vues": "34 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "9:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k9O8l32wzNxCGROpzANlVY7ad0Py_c6yQkL70fkmsIjA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "USTATI",
+     [
+      {
+       "t": "IZ PRVOG PUTA",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pEtsTcN5rM0",
+     "titre": "4 Stvari Koje Će Vam Pomoći Da USTANETE RANO Svaki Dan",
+     "chaine": "Online Lekcije",
+     "vues": "53 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "4:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kndmnvomlEwE9V4uQhJdiJ6yHE9seAWqySGtawHQV--e0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 nedelja za učenje"
     ]
    }
   }

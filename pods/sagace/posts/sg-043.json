@@ -1,0 +1,1798 @@
+{
+ "id": "sg-043",
+ "titre": {
+  "fr": "Compétences 10/10 que les gens cultivés maîtrisent",
+  "en": "10/10 skills cultured people master",
+  "de": "10/10-Skills, die gebildete Menschen beherrschen",
+  "it": "Abilità 10/10 che le persone colte padroneggiano",
+  "pt-BR": "Habilidades 10/10 que pessoas cultas dominam",
+  "tr": "Kültürlü insanların ustalaştığı 10/10 beceriler",
+  "ro": "Abilități 10/10 pe care oamenii culți le stăpânesc",
+  "cs": "Dovednosti 10/10, které ovládají vzdělaní lidé",
+  "hu": "10/10-es készségek, amiket a műveltek mesterien tudnak",
+  "el": "Δεξιότητες 10/10 που κατέχουν οι καλλιεργημένοι άνθρωποι",
+  "sr": "Veštine 10/10 koje poseduju obrazovani ljudi"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 que les gens cultivés maîtrisent #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills cultured people master #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die gebildete Menschen beherrschen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che le persone colte padroneggiano #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que pessoas cultas dominam #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Kültürlü insanların ustalaştığı 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 pe care oamenii culți le stăpânesc #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které ovládají vzdělaní lidé #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10-es készségek, amiket a műveltek mesterien tudnak #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 που κατέχουν οι καλλιεργημένοι άνθρωποι #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 koje poseduju obrazovani ljudi #učinatiktoku #samorazvoj #veštine"
+ },
+ "musique": {
+  "titre": "original sound - クリスティーナ",
+  "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1e2852f6-a334-4671-bd9e-c1c47fe43fd4",
+ "notes": "Déclinaison G1 de sg-026 (26/11) : titre, légende et couverture de sg-026 mot pour mot, hu/el/sr traduits. 5 autres compétences de culture : comprendre la Renaissance, reconnaître l'impressionnisme, Sophia en étape 4 sur 7 (cta A : « VOYAGER / DANS LE TEMPS »), connaître la Rome antique, découvrir l'Égypte antique, situer le Moyen Âge ; vraies vidéos natives (profs, musées, chaînes d'histoire), couleurs prises dans les miniatures. Écartées : les chaînes traduites (Era Umană, Tudástér, Dnevnik Tutankamona…), l'opéra, l'étymologie et la poésie (pas de vidéo native correcte en hu/el/sr).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "QUE LES GENS",
+      "cap": 120
+     },
+     {
+      "t": "CULTIVÉS",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "MAÎTRISENT",
+      "cap": 169
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "THAT",
+      "cap": 169
+     },
+     {
+      "t": "CULTURED",
+      "couleur": "brun",
+      "cap": 250
+     },
+     {
+      "t": "PEOPLE MASTER",
+      "cap": 130
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DIE GEBILDETE",
+      "cap": 120
+     },
+     {
+      "t": "MENSCHEN",
+      "couleur": "brun",
+      "cap": 230
+     },
+     {
+      "t": "BEHERRSCHEN",
+      "cap": 140
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "CHE LE PERSONE",
+      "cap": 110
+     },
+     {
+      "t": "COLTE",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "PADRONEGGIANO",
+      "cap": 120
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "QUE PESSOAS",
+      "cap": 130
+     },
+     {
+      "t": "CULTAS",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "DOMINAM",
+      "cap": 169
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "KÜLTÜRLÜ",
+      "couleur": "brun",
+      "cap": 250
+     },
+     {
+      "t": "İNSANLARIN",
+      "cap": 150
+     },
+     {
+      "t": "USTALAŞTIĞI",
+      "cap": 130
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 144
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 130
+     },
+     {
+      "t": "PE CARE OAMENII",
+      "cap": 105
+     },
+     {
+      "t": "CULȚI",
+      "couleur": "brun",
+      "cap": 250
+     },
+     {
+      "t": "LE STĂPÂNESC",
+      "cap": 130
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "KTERÉ OVLÁDAJÍ",
+      "cap": 115
+     },
+     {
+      "t": "VZDĚLANÍ",
+      "couleur": "brun",
+      "cap": 230
+     },
+     {
+      "t": "LIDÉ",
+      "cap": 169
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "AMIKET A",
+      "cap": 169
+     },
+     {
+      "t": "MŰVELTEK",
+      "couleur": "brun",
+      "cap": 250
+     },
+     {
+      "t": "MESTERIEN TUDNAK",
+      "cap": 110
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "ΠΟΥ ΚΑΤΕΧΟΥΝ ΟΙ",
+      "cap": 110
+     },
+     {
+      "t": "ΚΑΛΛΙΕΡΓΗΜΕΝΟΙ",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "ΑΝΘΡΩΠΟΙ",
+      "cap": 169
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "KOJE POSEDUJU",
+      "cap": 120
+     },
+     {
+      "t": "OBRAZOVANI",
+      "couleur": "brun",
+      "cap": 230
+     },
+     {
+      "t": "LJUDI",
+      "cap": 169
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COMPRENDRE",
+     [
+      {
+       "t": "LA RENAISSANCE",
+       "couleur": "#a8961e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "n9cDB6zW1yc",
+     "titre": "Renaissance, humanisme et réformes religieuses - Histoire-Géographie - Seconde - Les Bons Profs",
+     "chaine": "Les Bons Profs",
+     "vues": "123 k vues",
+     "date": "il y a 4 ans",
+     "duree": "5:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ljl4MlxntMZlo5uOuQKgzFLhCQflxpQ0yNAX5_xvCvnWM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "UNDERSTAND",
+     [
+      {
+       "t": "THE RENAISSANCE",
+       "couleur": "#a8961e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Vufba_ZcoR0",
+     "titre": "The Renaissance: Was it a Thing? - Crash Course World History #22",
+     "chaine": "CrashCourse",
+     "vues": "7.3M views",
+     "date": "14 years ago",
+     "duree": "11:33",
+     "avatar": "https://yt3.ggpht.com/E454zI2spNFZsN_wgJPTHjMsqs1fFqb_qp4PYanWuyaXQJp98wKEV1kIQYlR57epaweO5P8v=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "RENAISSANCE",
+       "couleur": "#a8961e"
+      }
+     ],
+     "VERSTEHEN"
+    ],
+    "video": {
+     "id": "3OnTUTuqC_4",
+     "titre": "Renaissance und Humanismus I musstewissen Geschichte",
+     "chaine": "MrWissen2go Geschichte | Terra X",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "8:41",
+     "avatar": "https://yt3.ggpht.com/FJ5ZVGDLX7teEkJhha2MsLRD1FyM1PFeh1BZGkluBiQdiyDRdK0I29x8fvwdvee_nmWuko6F=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CAPIRE",
+     [
+      {
+       "t": "IL RINASCIMENTO",
+       "couleur": "#a8961e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RdRRmukBiNE",
+     "titre": "Il Rinascimento | Storia dell'arte moderna",
+     "chaine": "Il Ramo d'Oro | Luca Bellinzona",
+     "vues": "7K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "8:39",
+     "avatar": "https://yt3.ggpht.com/-dBB8zHhCIVotpSDBPi_nke8tcyNbDMRlst3dHjb5i9RWPXPCJ-FQ04yrThb2q1Y9C7m2GOS4w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ENTENDER",
+     [
+      {
+       "t": "O RENASCIMENTO",
+       "couleur": "#a8961e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6NbSXIdObDk",
+     "titre": "Renascimento",
+     "chaine": "Descomplica",
+     "vues": "1,6 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "6:06",
+     "avatar": "https://yt3.ggpht.com/ZiSCzk3KAyRy158X7YJ_woIdyPP8LVPf2OT-C67dQeP57T1t6usdNuj8lOKCuscjrS_yPVtiKw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "RÖNESANSI",
+       "couleur": "#a8961e"
+      }
+     ],
+     "ANLAMAK"
+    ],
+    "video": {
+     "id": "C_cFS1z88jE",
+     "titre": "RÖNESANS NEDİR? l AhaliSözlük",
+     "chaine": "AHALİ",
+     "vues": "45 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "3:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n7a4I_AElek1xNiwHdgDNp8ritUlQcvAdV0CrnjZmuu2w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 2 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNȚELEGI",
+     [
+      {
+       "t": "RENAȘTEREA",
+       "couleur": "#a8961e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sNdsxfzwXdQ",
+     "titre": "Ce este Renasterea?",
+     "chaine": "REPRIZA DE ARTA",
+     "vues": "20 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "7:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l302jrfGpQoRTrhsvulvavnR37YKNnppit_nT5vW6V-g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ROZUMĚT",
+     [
+      {
+       "t": "RENESANCI",
+       "couleur": "#a8961e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ml76Eh4_afY",
+     "titre": "RENESANCE A HUMANISMUS – vše co potřebuješ k maturitě | Literatura + Umění",
+     "chaine": "Barevné Dějiny",
+     "vues": "3,5 tis. zhlédnutí",
+     "date": "před 7 měsíci",
+     "duree": "7:57",
+     "avatar": "https://yt3.ggpht.com/H6ZHxqsqzWKoMpBg5rjz58MlyffP4HmGuaHVjObsD-uDWEkzMjN2e2KNmbAidynngUDtunhwEA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hodiny na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "MEGÉRTENI",
+     [
+      {
+       "t": "A RENESZÁNSZT",
+       "couleur": "#a8961e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Lx_ioJVk-Sk",
+     "titre": "A Reneszánsz Kialakulásának Története - Történelem & Mitológia",
+     "chaine": "Wun-Wun",
+     "vues": "154 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "20:57",
+     "avatar": "https://yt3.ggpht.com/CY-X_5OsT81XCzMa44Kb2FZI-VoiK7ofb4XiLRGs7BiOWpCYDV5vInNRucI7_ccwBFh_eZ9C=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΚΑΤΑΛΑΒΕΙΣ",
+     [
+      {
+       "t": "ΤΗΝ ΑΝΑΓΕΝΝΗΣΗ",
+       "couleur": "#a8961e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "z9r_YqRsl1k",
+     "titre": "Η Αναγέννηση και η Θρησκευτική Μεταρρύθμιση - Ιστορία Στ΄ Δημοτικού - 1.1 / SchoolForAll",
+     "chaine": "SchoolForAll",
+     "vues": "92 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "6:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l2BIU9rkLPYIX0p6322YnY0C_FkpU3XR1_4OThlsLRaQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ώρες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "RAZUMETI",
+     [
+      {
+       "t": "RENESANSU",
+       "couleur": "#a8961e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "L8lzPmNb6j4",
+     "titre": "Хуманизам и ренесанса",
+     "chaine": "Југослава Лулић",
+     "vues": "28 hilj. pregleda",
+     "date": "pre 12 godina",
+     "duree": "12:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kyOLL106kbaJnPKLlqLjbYfiioDQC0ByGMSD_KNb6_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 sata za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RECONNAÎTRE",
+     [
+      {
+       "t": "L'IMPRESSIONNISME",
+       "couleur": "#6f86a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5evIBaoR2BQ",
+     "titre": "Impressionnisme",
+     "chaine": "Musée d'Orsay",
+     "vues": "169 k vues",
+     "date": "il y a 7 ans",
+     "duree": "5:14",
+     "avatar": "https://yt3.ggpht.com/Q-CDE-fCEkW7Yj78_pEQRQBxdcQws9EVwG9zJMUX__qaFRefBfi8teJe4tFOGOg8NuyWmSlyCoY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SPOT",
+     [
+      {
+       "t": "IMPRESSIONISM",
+       "couleur": "#6f86a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FfehaHSdpD0",
+     "titre": "How Impressionism Began",
+     "chaine": "National Gallery of Art",
+     "vues": "177K views",
+     "date": "2 years ago",
+     "duree": "9:14",
+     "avatar": "https://yt3.ggpht.com/gc4KSsfNA6UbI7MNV8Kz32wqSZ7DYylLMZ6tFO89AaFWqP87FJbjMKJGmkZNYP8PAALhGsFz0A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "IMPRESSIONISMUS",
+       "couleur": "#6f86a8"
+      }
+     ],
+     "ERKENNEN"
+    ],
+    "video": {
+     "id": "FuayV6Q_-0w",
+     "titre": "Was ist… Impressionismus?",
+     "chaine": "ZeigMal!",
+     "vues": "39.881 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "5:40",
+     "avatar": "https://yt3.ggpht.com/qOjXcV00Z-bfdszqyZSSwj5heSoLXHWxCRcaz-NW7cBjRUoRHuGhdRpN5QPCo7cX7vLAL7BrGOU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RICONOSCERE",
+     [
+      {
+       "t": "L'IMPRESSIONISMO",
+       "couleur": "#6f86a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jQs-0yaVX2U",
+     "titre": "Artesplorazioni: impressionismo",
+     "chaine": "Artesplorando",
+     "vues": "98K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "3:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kRJGSaY1DZ91HqU40DJpItM9knb1yV9SN-AN6Vv6dItD8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "RECONHECER",
+     [
+      {
+       "t": "O IMPRESSIONISMO",
+       "couleur": "#6f86a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "K0IKlIStMD8",
+     "titre": "IMPRESSIONISMO | RESUMÃO",
+     "chaine": "Eu conto a Arte",
+     "vues": "169 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "6:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m_OAQ0yGZ96hd2iV7EcelLsF1kN8lxNUgmRjgHmAOBUg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "EMPRESYONİZMİ",
+       "couleur": "#6f86a8"
+      }
+     ],
+     "TANIMAK"
+    ],
+    "video": {
+     "id": "ZxLZ5hMQXtE",
+     "titre": "Sanat Terimleri | Empresyonizm Akımı | 3. Bölüm",
+     "chaine": "TRT 2",
+     "vues": "45 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "8:03",
+     "avatar": "https://yt3.ggpht.com/nvaPqrfikU8WNsYQgXe3IiUBz-jmU1_KAKSxOSfdjFEUOmI4N48QQZub-V84sxGWdiU7M0Xd=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ RECUNOȘTI",
+     [
+      {
+       "t": "IMPRESIONISMUL",
+       "couleur": "#6f86a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LXQ5jwbYjuI",
+     "titre": "Despre impresionism",
+     "chaine": "Daniel Turliu",
+     "vues": "4,9 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "7:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nvF8IEqScjiJiLSeVhcJK-81D1tegptxqOBu_6QSz1bUc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "POZNAT",
+     [
+      {
+       "t": "IMPRESIONISMUS",
+       "couleur": "#6f86a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "F28Y-o4sl30",
+     "titre": "Impresionismus",
+     "chaine": "Videoeducanet",
+     "vues": "16 tis. zhlédnutí",
+     "date": "před 13 lety",
+     "duree": "2:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lGw1DFAb8BMw72_SiI4BijAdqjS4QM-NXM1BM548hd1EM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "FELISMERNI",
+     [
+      {
+       "t": "AZ IMPRESSZIONIZMUST",
+       "couleur": "#6f86a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "n8hy3bookuo",
+     "titre": "Impresszionizmus",
+     "chaine": "MŰVÉSZETTÖRTÉNET LÉPÉSRŐL LÉPÉSRE",
+     "vues": "888 megtekintés",
+     "date": "2 évvel ezelőtt",
+     "duree": "2:41",
+     "avatar": "https://yt3.ggpht.com/NSWXUeJ_FIFimwu0Q7326fGbdv4-vqf5hJ07qnspu8l5R72CqZzrIrjYVirl7OjdE3nukb1L=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΑΝΑΓΝΩΡΙΖΕΙΣ",
+     [
+      {
+       "t": "ΤΟΝ ΙΜΠΡΕΣΙΟΝΙΣΜΟ",
+       "couleur": "#6f86a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Fk2XiQAMtnc",
+     "titre": "Τι είναι Ιμπρεσιονισμός; (Greek)",
+     "chaine": "A. G. Leventis Gallery",
+     "vues": "593 προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "2:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ngQhECrChJ8tR1FE9Jy7JlDvDP2sBnuI8xNFuy8o10rg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "PREPOZNATI",
+     [
+      {
+       "t": "IMPRESIONIZAM",
+       "couleur": "#6f86a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CpI27WXw4Ps",
+     "titre": "IMPRESIONIZAM - Marija Aranđelović",
+     "chaine": "Istorija umetnosti Marija Arandjelovic",
+     "vues": "597 pregleda",
+     "date": "pre 8 godina",
+     "duree": "1:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4dFal6KtIpL3Is9czcxQVJiqrkJd2T3u8-GT6DHxwOA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "VOYAGER",
+     [
+      {
+       "t": "DANS LE TEMPS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "TRAVEL",
+     [
+      {
+       "t": "THROUGH TIME",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DURCH DIE ZEIT",
+     [
+      {
+       "t": "REISEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "VIAGGIARE",
+     [
+      {
+       "t": "NEL TEMPO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "VIAJAR",
+     [
+      {
+       "t": "NO TEMPO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ZAMANDA",
+     [
+      {
+       "t": "YOLCULUK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CĂLĂTOREȘTI",
+     [
+      {
+       "t": "ÎN TIMP",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "CESTOVAT",
+     [
+      {
+       "t": "ČASEM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "UTAZNI",
+     [
+      {
+       "t": "AZ IDŐBEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "rövid leckék, valódi",
+      "tanárok tollából."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΤΑΞΙΔΕΥΕΙΣ",
+     [
+      {
+       "t": "ΣΤΟ ΧΡΟΝΟ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "σύντομα μαθήματα",
+      "από αληθινούς καθηγητές."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "PUTOVATI",
+     [
+      {
+       "t": "KROZ VREME",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "CONNAÎTRE",
+     [
+      {
+       "t": "LA ROME ANTIQUE",
+       "couleur": "#8c6a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Y0ZqYwf1aj4",
+     "titre": "Origine, expansion et déclin de l'Empire romain (cartes animées)",
+     "chaine": "L'Histoire par les cartes",
+     "vues": "1,2 M de vues",
+     "date": "il y a 10 ans",
+     "duree": "9:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-weNz3tr7vNR4-UTbLObHf_8pd985IxEMEm__w1Do0A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "KNOW",
+     [
+      {
+       "t": "ANCIENT ROME",
+       "couleur": "#8c6a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "x3FFDPdLVNw",
+     "titre": "The Roman Empire Explained in 12 Minutes",
+     "chaine": "Captivating History",
+     "vues": "1M views",
+     "date": "6 years ago",
+     "duree": "12:48",
+     "avatar": "https://yt3.ggpht.com/J3-CnXOdZtusIaGXtJ-ngSy5azWRIZsIlvEgTwpeCvnytxmXbX81hfcgX0iZvI69fvisp6NVmg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "DAS ALTE ROM",
+       "couleur": "#8c6a3c"
+      }
+     ],
+     "KENNEN"
+    ],
+    "video": {
+     "id": "I_sVcubdbf4",
+     "titre": "Die Entstehung von Rom - Der Weg zur Römischen Weltmacht",
+     "chaine": "Geschichte - simpleclub",
+     "vues": "553.124 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "5:04",
+     "avatar": "https://yt3.ggpht.com/SfZW1HBIqXywJLV4HY9z4FgcowKw-7sCIc7A166p7mHjgbYID3BVG__nxPXEinxICgSPFtbOmg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CONOSCERE",
+     [
+      {
+       "t": "L'ANTICA ROMA",
+       "couleur": "#8c6a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "G1xH9xXF0VE",
+     "titre": "La Storia di Roma - Dalle ORIGINI al crollo dell’IMPERO (riassunto dettagliato) 🏟 🇮🇹",
+     "chaine": "LearnAmo",
+     "vues": "171K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "11:54",
+     "avatar": "https://yt3.ggpht.com/Y5QkLEFxTgGez5ieCVbnOI8RAI76XVKlLzCcNzMtzyNWTUyJlAQMdXwL1EZzwTYLZuoqJsH9GA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CONHECER",
+     [
+      {
+       "t": "A ROMA ANTIGA",
+       "couleur": "#8c6a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fjlW4BK-jDo",
+     "titre": "IMPÉRIO ROMANO | Resumo de História para o Enem",
+     "chaine": "Curso Enem Gratuito",
+     "vues": "243 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "9:51",
+     "avatar": "https://yt3.ggpht.com/6NsrkSmcK-tfZ9rxR-8SAgsfI8rlust9gmfaCMmevxrkMIQicFT68kkzaKhFl-0kegUBk9kE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ANTİK ROMA'YI",
+       "couleur": "#8c6a3c"
+      }
+     ],
+     "TANIMAK"
+    ],
+    "video": {
+     "id": "jVNdyfd2T3U",
+     "titre": "10 Dk'da Roma İmparatorluğu - Kuruluştan Yıkılışa",
+     "chaine": "Cavit Pancar",
+     "vues": "291 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "9:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mIYbqPmxf9TCskyxI8MHaws-4JrPZAyyhE38CCfXwD7cQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 3 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CUNOȘTI",
+     [
+      {
+       "t": "ROMA ANTICĂ",
+       "couleur": "#8c6a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HVnksXPuf40",
+     "titre": "Istoria IMPERIULUI ROMAN în 13 minute",
+     "chaine": "IstoriX",
+     "vues": "29 K vizionări",
+     "date": "acum 1 an",
+     "duree": "13:10",
+     "avatar": "https://yt3.ggpht.com/aZw0mmjsvvNRJdz7uFBNGEguqP0vOp2AsIXLiTUYRCmPq2pyXUJ36FJRoF-wr07pX8UKoJvm=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZNÁT",
+     [
+      {
+       "t": "STAROVĚKÝ ŘÍM",
+       "couleur": "#8c6a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "45dvlDA_Kyc",
+     "titre": "Řím 1/5: Etruskové a počátky Říma | Videovýpisky z dějepisu",
+     "chaine": "Edisco",
+     "vues": "230 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "9:37",
+     "avatar": "https://yt3.ggpht.com/eiLtyCPbOJCg_5GMFdsNCa13bOhsH9LENqmLTRrXXuN2Y3RlPFfDkXRicdGc1LR-t4kdez58KA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 hodiny na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ISMERNI",
+     [
+      {
+       "t": "AZ ÓKORI RÓMÁT",
+       "couleur": "#8c6a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "W9Z6sstP_S8",
+     "titre": "Az ókori Róma - Gyorstalpaló",
+     "chaine": "Időutazó",
+     "vues": "119 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "8:40",
+     "avatar": "https://yt3.ggpht.com/lrqp1v65SXxMW2Iu3G_Es-3AUvYw3lNBU54hULf9l12fz_PXOnofbb5qg5_GfjbCl3DFfMOiIDA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΞΕΡΕΙΣ",
+     [
+      {
+       "t": "ΤΗΝ ΑΡΧΑΙΑ ΡΩΜΗ",
+       "couleur": "#8c6a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "w-bZhjHx984",
+     "titre": "Η Ρωμαϊκή Αυτοκρατορία – Μια Υπερδύναμη του Αρχαίου Κόσμου",
+     "chaine": "DoYouKnowThat",
+     "vues": "8,3 χιλ. προβολές",
+     "date": "πριν από 1 έτος",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/E9PVdmcjmorAK7g2b-Upw-M6z1RXY8hneTt_MKRVFMJFH6rboy8lH2yuICexbu3HNDbJxNn7=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 ώρες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "POZNAVATI",
+     [
+      {
+       "t": "STARI RIM",
+       "couleur": "#8c6a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "viAhQ2nopJo",
+     "titre": "Osnivanje Rima",
+     "chaine": "Vera Isailovic",
+     "vues": "50 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "8:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nt5HI6Kn9ETCZN2Z3CdjbWepybyHm4GvRDwZLsHHRiZy8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 sata za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "DÉCOUVRIR",
+     [
+      {
+       "t": "L'ÉGYPTE ANTIQUE",
+       "couleur": "#e39a1c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6dAngWlrIEI",
+     "titre": "Les Égyptiens I Quelle Histoire - TV5 Monde",
+     "chaine": "Quelle Histoire",
+     "vues": "385 k vues",
+     "date": "il y a 7 ans",
+     "duree": "6:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ljYTZq3Wu1f1_zV81hGSIw4I4MsZGipQVFpm5xafs5M7Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "EXPLORE",
+     [
+      {
+       "t": "ANCIENT EGYPT",
+       "couleur": "#e39a1c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hO1tzmi1V5g",
+     "titre": "Ancient Egypt 101 | National Geographic",
+     "chaine": "National Geographic",
+     "vues": "6.5M views",
+     "date": "8 years ago",
+     "duree": "6:14",
+     "avatar": "https://yt3.ggpht.com/4o29ZduZnGmxuRtqNf50bJtzmUtWaeh4W4cYuEXvQBz887R75UMRboX4zbNe71EO4hGgwwnr=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "DAS ALTE ÄGYPTEN",
+       "couleur": "#e39a1c"
+      }
+     ],
+     "ENTDECKEN"
+    ],
+    "video": {
+     "id": "3Oh-ZIc1ZeQ",
+     "titre": "5 Fakten über die Erfolgsstory der Alten Ägypter | MrWissen2go | Terra X",
+     "chaine": "Terra X History",
+     "vues": "664.848 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "16:37",
+     "avatar": "https://yt3.ggpht.com/sdKc3nVNnGQZkAeCklwoNrWMqR10EQ2pMc_NnjjHkLzsICl_FindzbCzCx4MXlUoGPhb9K4F5qQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SCOPRIRE",
+     [
+      {
+       "t": "L'ANTICO EGITTO",
+       "couleur": "#e39a1c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PgbzftsSPcA",
+     "titre": "ANTICO EGITTO - Storia e curiosità",
+     "chaine": "Prof. Daniele Coluzzi",
+     "vues": "4,9K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "16:02",
+     "avatar": "https://yt3.ggpht.com/l1BobsxlsPZGgRPRMvCmy0gwoU4Iq3z_rSBcc1bpDbjcQ-bZ78fv9kLNheROLAkF8y601XBZ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DESCOBRIR",
+     [
+      {
+       "t": "O EGITO ANTIGO",
+       "couleur": "#e39a1c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2T8ereEFd58",
+     "titre": "EGITO ANTIGO | Resumão",
+     "chaine": "Toda Matéria",
+     "vues": "937 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "5:46",
+     "avatar": "https://yt3.ggpht.com/HzNmGq7dz8hluGyGAmMijcUKc_sp-9cynIvm9U41wDVqDmfREuHWjyuphcyajKWkrTfMTvZBgg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ANTİK MISIR'I",
+       "couleur": "#e39a1c"
+      }
+     ],
+     "KEŞFETMEK"
+    ],
+    "video": {
+     "id": "-MvQafrE2gc",
+     "titre": "Antik Mısır ve Firavunlar Tarihi [ M.Ö. 3100 - M.Ö. 30 ]",
+     "chaine": "Anime Tarih",
+     "vues": "1,3 Mn görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "24:54",
+     "avatar": "https://yt3.ggpht.com/orMf7OslgW_mRsXGH6Fa5OLq-3cJoyU60qRP_Ym4VX-tmuGwPma3jvW8rYCvZOwPeQ8y0P8RRQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 2-3 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ DESCOPERI",
+     [
+      {
+       "t": "EGIPTUL ANTIC",
+       "couleur": "#e39a1c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "r2UylzubLwU",
+     "titre": "100 De Lucruri Fascinante despre Egiptul Antic",
+     "chaine": "Stellarium",
+     "vues": "214 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "25:40",
+     "avatar": "https://yt3.ggpht.com/GcTz4pGXl1YxdulCc_9lasVqrQJRD_0cDyU2ibXFxPrEEm9aPaZTpJ9x-TESkQ3Vdil5eYF_Iw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "OBJEVIT",
+     [
+      {
+       "t": "STAROVĚKÝ EGYPT",
+       "couleur": "#e39a1c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lDr0cJUu1Fg",
+     "titre": "Kompas času 05  Starověký Egypt 1",
+     "chaine": "monido2",
+     "vues": "128 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "10:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lop5cNdgxc6oJ0jLSehcqBgG78Rz1X663xxtVgB58=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "FELFEDEZNI",
+     [
+      {
+       "t": "AZ ÓKORI EGYIPTOMOT",
+       "couleur": "#e39a1c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tOknleglhFo",
+     "titre": "Az ókori Egyiptom",
+     "chaine": "Videotanár - digitális tananyag",
+     "vues": "80 E megtekintés",
+     "date": "12 évvel ezelőtt",
+     "duree": "8:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mbbyV2R67o-d_4B-BRJogdx48HDsbtrEpF5xe2BVRv2AA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΑΝΑΚΑΛΥΨΕΙΣ",
+     [
+      {
+       "t": "ΤΗΝ ΑΡΧΑΙΑ ΑΙΓΥΠΤΟ",
+       "couleur": "#e39a1c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "G81lEvv74Gk",
+     "titre": "Αρχαία Αίγυπτος - Το ΘΑΥΜΑ του Νείλου...",
+     "chaine": "Cognosco Team",
+     "vues": "26 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "5:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nG2NsP8_VzJDfrIcfdaI3ZZ6vIoeLpJ6P070IBOVIqrA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ώρες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "OTKRITI",
+     [
+      {
+       "t": "STARI EGIPAT",
+       "couleur": "#e39a1c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nZl0ZDKi5fY",
+     "titre": "Istorija (5) | Stari Egipat",
+     "chaine": "Lako učenje",
+     "vues": "279 pregleda",
+     "date": "pre 8 d.",
+     "duree": "10:27",
+     "avatar": "https://yt3.ggpht.com/u-vhO-b43uv369od-i4AJ8ebBc9ihbx-vOWn-hImfQE4Rl3VVpwSJB_HxSiPslj1fDVtTWC2Rg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "SITUER",
+     [
+      {
+       "t": "LE MOYEN ÂGE",
+       "couleur": "#b4422e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LHtoArNo5qU",
+     "titre": "LE MOYEN ÂGE EN 5 MINUTES",
+     "chaine": "Les Chroniques Historiques",
+     "vues": "54 k vues",
+     "date": "il y a 10 ans",
+     "duree": "7:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l45Budn4ghsmZb_7d7wNElAHyRpTGzRFSzjcRgA86yIg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE SENSE OF",
+     [
+      {
+       "t": "THE MIDDLE AGES",
+       "couleur": "#b4422e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AAXJG45bkVg",
+     "titre": "Middle Ages explained in under 3 minutes",
+     "chaine": "History Skills",
+     "vues": "19K views",
+     "date": "3 years ago",
+     "duree": "2:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-cqJj27fs7P8IjUmw1aeAv1F55u2TJsgJPfNpBhQ_mg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "DAS MITTELALTER",
+       "couleur": "#b4422e"
+      }
+     ],
+     "BEGREIFEN"
+    ],
+    "video": {
+     "id": "y5uAf4ccrtE",
+     "titre": "Eine kurze Geschichte über… das Mittelalter | Terra X | MrWissen2go",
+     "chaine": "Terra X Nature",
+     "vues": "2,7 Mio. Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "43:30",
+     "avatar": "https://yt3.ggpht.com/XLnsUjEStNOyEtGcwZ0zB0tmoGy7AaAlhyDWIipPZvgwHNsKk1n_2S89ya30sjWgbog0mK8nOw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "INQUADRARE",
+     [
+      {
+       "t": "IL MEDIOEVO",
+       "couleur": "#b4422e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "B92XGRC4xy0",
+     "titre": "Il Medioevo: storia e sintesi",
+     "chaine": "Studenti",
+     "vues": "245K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "5:03",
+     "avatar": "https://yt3.ggpht.com/6f9bUSpj4oQRoRiJOhrXrxbq6bOS8pxSNBc3_-YHrr1nc6fG3QUhsewlrW7mrHmHGfvKWy-tUQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DECIFRAR",
+     [
+      {
+       "t": "A IDADE MÉDIA",
+       "couleur": "#b4422e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CTIs_RSPr84",
+     "titre": "Resumo de História: IDADE MÉDIA (tudo que você precisa saber!) - Débora Aladim",
+     "chaine": "Débora Aladim",
+     "vues": "4,2 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "25:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lFEtf74hQTl0uQmbVMrdocLyjP89VDf8t7L6UH963fYLMm=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ORTA ÇAĞ'I",
+       "couleur": "#b4422e"
+      }
+     ],
+     "KAVRAMAK"
+    ],
+    "video": {
+     "id": "JCOHM1ozkTo",
+     "titre": "Orta Çağ Avrupa'sında Günlük Yaşam / Orta Çağda Yaşasaydın Günlerin Nasıl Olurdu?",
+     "chaine": "Kronik Tarih",
+     "vues": "250 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "12:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nr1i3KJBxpo5z9BaVlRdv6uxxuxj7lTef0yHaFagD20rM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 3-4 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ PRICEPI",
+     [
+      {
+       "t": "EVUL MEDIU",
+       "couleur": "#b4422e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rg1n3tYgpCw",
+     "titre": "Documentar - Începuturile Evului Mediu Românesc",
+     "chaine": "ROHistory",
+     "vues": "89 K vizionări",
+     "date": "acum 2 ani",
+     "duree": "39:41",
+     "avatar": "https://yt3.ggpht.com/PV-YSoAUPhWLvp9I8v17XUzRBKrkDFZZ6xwpCQa_1PcOXXjunGJslM4lHkcPJIsWq98e30K94DA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "CHÁPAT",
+     [
+      {
+       "t": "STŘEDOVĚK",
+       "couleur": "#b4422e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JNIoo4TT4AE",
+     "titre": "25 zajímavostí o středověku, které jste pravděpodobně nevěděli | Historie",
+     "chaine": "Nerdopolis",
+     "vues": "196 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "29:14",
+     "avatar": "https://yt3.ggpht.com/FXeNs0UXyuUMGu9zj6Z4oUQ8LttX6ad8h9VTF-6T2aVmQ2p2hzfpEq9rfL_v4kWiNoxz15BYRHA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 hodiny na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ELIGAZODNI",
+     [
+      {
+       "t": "A KÖZÉPKORBAN",
+       "couleur": "#b4422e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8KKaAMOYNUQ",
+     "titre": "A középkor röviden",
+     "chaine": "Időutazó",
+     "vues": "20 E megtekintés",
+     "date": "11 hónappal ezelőtt",
+     "duree": "15:43",
+     "avatar": "https://yt3.ggpht.com/lrqp1v65SXxMW2Iu3G_Es-3AUvYw3lNBU54hULf9l12fz_PXOnofbb5qg5_GfjbCl3DFfMOiIDA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΚΑΤΑΝΟΕΙΣ",
+     [
+      {
+       "t": "ΤΟΝ ΜΕΣΑΙΩΝΑ",
+       "couleur": "#b4422e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "60V1-Ee8WZo",
+     "titre": "Ποιοι ήταν οι ιππότες;",
+     "chaine": "Young HistorianGr",
+     "vues": "26 χιλ. προβολές",
+     "date": "πριν από 1 έτος",
+     "duree": "3:43",
+     "avatar": "https://yt3.ggpht.com/FjcSzjn1xMVmWeyKJiyytAus9c9EKIX9dI7pWMQcB0C3XibasjsE0fIaKBgYJS6hKNfFuseocQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 ώρες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "SHVATITI",
+     [
+      {
+       "t": "SREDNJI VEK",
+       "couleur": "#b4422e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Pn7AS7n5lPA",
+     "titre": "Srednji Vek u par minuta",
+     "chaine": "Vremeplov",
+     "vues": "367 pregleda",
+     "date": "pre 1 godinu",
+     "duree": "2:11",
+     "avatar": "https://yt3.ggpht.com/1ckVqyS5u92AwHhGFoIbKVycXNK7loDS_Bt3D4nGxJDSfc-lueocoFcdKusng_kLWGi1Aiz18A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 sata za učenje"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,152 @@
+{
+  "id": "ch-007",
+  "source": {
+    "url": "https://www.tiktok.com/@charl.focus/photo/7706258701463653664",
+    "vues": 246700,
+    "publie_le": "2026-11-09",
+    "accroche": "cómo dejar de PROCRASTINAR (de verdad)"
+  },
+  "titre": {
+    "es": "cómo recuperar tu motivación (según la neurociencia)"
+  },
+  "legendes": {
+    "es": "#motivacion #disciplina #habitos #productividad #exito"
+  },
+  "musique": {
+    "titre": "original sound - star3d",
+    "url": "https://www.tiktok.com/music/original-sound-7647638316610833174"
+  },
+  "notes": "Preuve : « cómo dejar de PROCRASTINAR (de verdad) » de @charl.focus (246,7 k vues, 09/11), sa famille. Faits vérifiés : Schultz, Dayan et Montague (1997, Science) : les neurones à dopamine du singe réagissent à la prédiction de la récompense (ils s'activent au signal qui l'annonce), pas seulement à la récompense ; Berridge (université du Michigan) : « wanting » contre « liking » ; Amabile et Kramer (2011, « The Progress Principle », Harvard) : près de 12 000 entrées de journal de 238 personnes, avancer dans un travail qui compte est le premier moteur de la motivation ; Gollwitzer et Sheeran (2006, Advances in Experimental Social Psychology) : méta-analyse de 94 études, les intentions « si… alors… » aident nettement à passer à l'action. Rien de médical. Slide Sophia (4) : « 3 · empieza el día ganando », LOGO ; cta A. Images : 6 Seedream et 8 de la banque. 6 slides.",
+  "banque": {
+    "images/banque/b-16a1b80d.jpg": "16a1b80d-4c3a-4afe-9086-5959ea15b865",
+    "images/banque/b-07c01365.jpg": "07c01365-4e1c-4022-907b-de4cf662e631",
+    "images/banque/b-083f8fe3.jpg": "083f8fe3-1fa2-4b7e-9a20-7461dcad8be3",
+    "images/banque/b-1d3ea3ca.jpg": "1d3ea3ca-ae1c-45fd-9437-4f6ab7b2b78f",
+    "images/banque/b-15692881.jpg": "15692881-cb0f-4b1a-903f-29d273485aa5",
+    "images/banque/b-0dda41f9.jpg": "0dda41f9-08cd-4f4d-b5c8-b242dfcff834",
+    "images/banque/b-039e43f9.jpg": "039e43f9-f581-423a-bbe1-4690130c7b75",
+    "images/banque/b-01c1c847.jpg": "01c1c847-a4e8-4bab-bc16-6569a950ee9e"
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/photos/s7-irm.jpg"
+        },
+        {
+          "image": "images/banque/b-16a1b80d.jpg"
+        },
+        {
+          "image": "images/photos/s7-cerveau.jpg"
+        },
+        {
+          "image": "images/banque/b-07c01365.jpg"
+        },
+        {
+          "image": "images/photos/s7-tete.jpg"
+        },
+        {
+          "image": "images/banque/b-083f8fe3.jpg"
+        }
+      ],
+      "es": {
+        "haut": "cómo recuperar tu",
+        "mot": "MOTIVACIÓN",
+        "note": "(según la neurociencia)"
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/banque/b-1d3ea3ca.jpg"
+        },
+        {
+          "image": "images/photos/s7-marche.jpg"
+        }
+      ],
+      "es": {
+        "titre": "no te falta motivación.",
+        "paragraphes": [
+          "esperas a tener ganas para empezar. y las ganas **no llegan nunca**.",
+          "en los años 90, **wolfram schultz** vio que la dopamina se dispara **cuando esperas un premio**, no cuando lo tienes. es la molécula de las ganas, no del placer.",
+          "si todo te aburre, **tu cerebro no espera nada**."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/b-15692881.jpg"
+        },
+        {
+          "image": "images/photos/s7-pousse.jpg"
+        }
+      ],
+      "es": {
+        "titre": "las pequeñas victorias",
+        "paragraphes": [
+          "en harvard, **teresa amabile** leyó casi **12.000 diarios** de 238 trabajadores.",
+          "los días más motivados no eran los de grandes éxitos: eran los días en que **avanzaban un poco** en algo que les importaba.",
+          "busca **una victoria pequeña** antes de las diez de la mañana."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "photos": [
+        {
+          "image": "images/banque/b-0dda41f9.jpg"
+        }
+      ],
+      "es": {
+        "titre": "empieza el día ganando",
+        "paragraphes": [
+          "si tu primera hora es scroll, el resto del día **va cuesta arriba**.",
+          "yo cambié el primer scroll del día por **una lección corta en Sophia**, de 10 minutos y con un quiz al final.",
+          "es pequeño, pero **lo termino**. y esa primera victoria arrastra las demás."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/banque/b-039e43f9.jpg"
+        },
+        {
+          "image": "images/photos/s7-baskets.jpg"
+        }
+      ],
+      "es": {
+        "titre": "decide el cuándo.",
+        "paragraphes": [
+          "**peter gollwitzer** reunió 94 estudios sobre un truco simple: decidir antes **cuándo y dónde** vas a hacer algo.",
+          "«si son las siete, **salgo a correr**». así cumples bastante más que con un simple «tengo que».",
+          "no esperes las ganas: **ponles hora**."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "photos": [
+        {
+          "image": "images/banque/b-01c1c847.jpg"
+        }
+      ],
+      "es": {
+        "titre": "la motivación llega después.",
+        "paragraphes": [
+          "primero haces algo pequeño. luego **vienen las ganas**.",
+          "cada victoria le enseña a tu cerebro que **vale la pena seguir**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo y **empieza mañana temprano**."
+        ]
+      }
+    }
+  ]
+}

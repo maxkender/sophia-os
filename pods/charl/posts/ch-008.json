@@ -1,0 +1,152 @@
+{
+  "id": "ch-008",
+  "source": {
+    "url": "https://www.tiktok.com/@charl.focus/photo/7710972158259858720",
+    "vues": 115900,
+    "publie_le": "2026-11-22",
+    "accroche": "cómo dejar de ser INSEGURO (según la neurociencia)"
+  },
+  "titre": {
+    "es": "cómo despertar tu curiosidad (según la neurociencia)"
+  },
+  "legendes": {
+    "es": "#curiosidad #aprender #cultura #habitos #productividad"
+  },
+  "musique": {
+    "titre": "original sound - Zenoz✞",
+    "url": "https://www.tiktok.com/music/original-sound-7670567724757863171"
+  },
+  "notes": "Preuve : « cómo dejar de ser INSEGURO (según la neurociencia) » de @charl.focus (115,9 k vues, 22/11), sa famille. Faits vérifiés : Loewenstein (1994, Psychological Bulletin, Carnegie Mellon) : la théorie du « trou d'information », la curiosité naît quand on remarque un manque entre ce qu'on sait et ce qu'on veut savoir ; Gruber, Gelman et Ranganath (2014, Neuron, UC Davis) : en état de curiosité, on retient mieux, même des visages sans rapport montrés entre-temps, avec activation du circuit de la récompense et de l'hippocampe ; Kang et al. (2009, Psychological Science, Caltech) : la curiosité est la plus forte quand on est à moitié sûr de la réponse (courbe en U inversé), et les réponses aux questions curieuses sont mieux retenues. Rien de médical. Slide Sophia (4) : « 3 · una pregunta al día », LOGO ; cta B. Images : 6 Seedream et 8 de la banque. 6 slides.",
+  "banque": {
+    "images/banque/b-09854903.jpg": "09854903-4ee0-400d-80b0-d47efebfa148",
+    "images/banque/b-008333b8.jpg": "008333b8-d2da-46ed-9d01-e22c73dfe9dd",
+    "images/banque/b-1142ef26.jpg": "1142ef26-6355-4d24-b2c4-116de98b259b",
+    "images/banque/b-0572dad0.jpg": "0572dad0-1791-4fa6-9259-fa3e7ac288be",
+    "images/banque/b-022ee781.jpg": "022ee781-aef9-40e3-83e3-6ebb8050e9a2",
+    "images/banque/b-150ddebb.jpg": "150ddebb-61be-4a7d-a92c-ba81362263d3",
+    "images/banque/b-02eb4dc4.jpg": "02eb4dc4-0027-4637-9de2-1d98ce6fab23",
+    "images/banque/b-172fd30f.jpg": "172fd30f-7d32-4e45-928d-c4a1fd6f5b6d"
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/photos/s8-irm.jpg"
+        },
+        {
+          "image": "images/banque/b-09854903.jpg"
+        },
+        {
+          "image": "images/photos/s8-cerveau.jpg"
+        },
+        {
+          "image": "images/banque/b-008333b8.jpg"
+        },
+        {
+          "image": "images/photos/s8-coupes.jpg"
+        },
+        {
+          "image": "images/banque/b-1142ef26.jpg"
+        }
+      ],
+      "es": {
+        "haut": "cómo despertar tu",
+        "mot": "CURIOSIDAD",
+        "note": "(según la neurociencia)"
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/banque/b-0572dad0.jpg"
+        },
+        {
+          "image": "images/photos/s8-porte.jpg"
+        }
+      ],
+      "es": {
+        "titre": "el hueco.",
+        "paragraphes": [
+          "de niño lo preguntabas todo. ahora **nada te da curiosidad**.",
+          "el psicólogo **george loewenstein** explicó que la curiosidad nace cuando notas **un hueco** entre lo que sabes y lo que te gustaría saber.",
+          "si nunca aprendes nada nuevo, **no ves los huecos**."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/b-022ee781.jpg"
+        },
+        {
+          "image": "images/photos/s8-telescope.jpg"
+        }
+      ],
+      "es": {
+        "titre": "recuerdas más",
+        "paragraphes": [
+          "en un estudio de la universidad de california en davis, la gente **recordaba mejor una respuesta** cuando la pregunta le daba curiosidad.",
+          "y también cosas que no tenían nada que ver, porque se activaban **el circuito de la recompensa y la memoria**.",
+          "**un cerebro curioso** aprende casi sin esfuerzo."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "photos": [
+        {
+          "image": "images/banque/b-150ddebb.jpg"
+        }
+      ],
+      "es": {
+        "titre": "una pregunta al día",
+        "paragraphes": [
+          "la curiosidad se alimenta con **cosas nuevas**, no con el mismo feed de siempre.",
+          "por la noche, en vez de abrir tiktok, hago **la lección del día en Sophia**: cada día un tema distinto, de la historia a la economía.",
+          "**10 minutos y un quiz**, y casi siempre me quedo con una pregunta nueva."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/banque/b-02eb4dc4.jpg"
+        },
+        {
+          "image": "images/photos/s8-cle.jpg"
+        }
+      ],
+      "es": {
+        "titre": "sabe un poco.",
+        "paragraphes": [
+          "en caltech vieron que la curiosidad es más fuerte cuando **casi sabes la respuesta**: ni nada, ni todo.",
+          "saber un poco de muchos temas **abre más preguntas** que no saber nada.",
+          "apunta cada día **una pregunta** que no sepas responder y búscala."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "photos": [
+        {
+          "image": "images/banque/b-172fd30f.jpg"
+        }
+      ],
+      "es": {
+        "titre": "sigues siendo curioso.",
+        "paragraphes": [
+          "solo hace tiempo que **no le das nada nuevo**.",
+          "cada respuesta abre **otra pregunta**: deja que te lleve.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo y escribe **tu primera pregunta abajo**."
+        ]
+      }
+    }
+  ]
+}

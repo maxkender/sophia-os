@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o356",
+ "type_bleo": "full_test",
+ "titre": "ce que j'ai compris en passant d'une petite boîte à une grande #carriere #travail #emploi #entreprise #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 27/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (petite boîte, grande boîte). Aucune vraie entreprise. Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b1f54a06",
+   "texte_overlay": "ce que j'ai compris\nen passant d'une petite boîte\nà une grande",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b848e340",
+   "texte_overlay": "dans la petite, tu touches à tout\ndans la grande, tu deviens experte d'un truc",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bb13a285",
+   "texte_overlay": "dans la petite, tout le monde te connaît\ndans la grande, il faut te faire connaître",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c6c5d68e",
+   "texte_overlay": "dans la grande, les process ralentissent\nmais ils protègent aussi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b94e543e",
+   "texte_overlay": "dans les deux, ton manager fait tout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "31d533cb",
+   "texte_overlay": "ce qui marche partout\napprendre un peu chaque jour. moi, 5 minutes le matin",
+   "texte_sophia": "ce qui marche partout\napprendre un peu chaque jour. moi, 5 minutes le matin sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b6ed5840",
+   "texte_overlay": "t'es plutôt petite ou grande boîte ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

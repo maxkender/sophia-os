@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o360",
+ "type_bleo": "full_test",
+ "titre": "les phrases pour demander de l'aide à un collègue (sans passer pour nulle) #travail #collegues #confiance #carriere #jobtips",
+ "musique_titre": "Gods creation",
+ "musique_url": "https://www.tiktok.com/music/gods-creation-7122459821244155906",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 27/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (demander de l'aide). Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "06edbb00",
+   "texte_overlay": "les phrases pour demander\nde l'aide à un collègue\n(sans passer pour nulle)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "be90e0ea",
+   "texte_overlay": "« j'ai essayé X et Y, tu ferais comment ? »\nmontre ce que t'as déjà tenté",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b6f49e80",
+   "texte_overlay": "« t'as 10 minutes cette semaine ? »\npas « t'as 2 secondes ? » toutes les heures",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "466fb362",
+   "texte_overlay": "« tu es la meilleure sur ce sujet, tu m'expliques ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a2ac9e7e",
+   "texte_overlay": "« je note pour ne pas te redemander »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1ccdcdd3",
+   "texte_overlay": "« je me forme aussi de mon côté »\nmes 3 sources : la doc, un tuto, 5 minutes par jour",
+   "texte_sophia": "« je me forme aussi de mon côté »\nmes 3 sources : la doc, un tuto, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3e27791a",
+   "texte_overlay": "tu demandes de l'aide facilement ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

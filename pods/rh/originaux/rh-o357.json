@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o357",
+ "type_bleo": "full_test",
+ "titre": "les 5 trucs sur mon bureau au travail (et pourquoi) #bureau #travail #organisation #productivite #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 27/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (le bureau au travail). 2e version : la 1re (notes d'après entretien) a été refusée en theme_gagnant. Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f5ee806e",
+   "texte_overlay": "les 5 trucs\nsur mon bureau au travail\n(et pourquoi)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d360c2a7",
+   "texte_overlay": "un carnet papier\npour les idées qui arrivent en réunion",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d01b3b2b",
+   "texte_overlay": "une gourde\nje bois, je me lève, je la remplis",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b96e4c9f",
+   "texte_overlay": "un post-it avec mes 3 priorités du jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b18e0aa2",
+   "texte_overlay": "une plante\nmême fausse, ça change l'humeur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fd867341",
+   "texte_overlay": "mon téléphone retourné\nsauf pour mes 5 minutes à apprendre, à la pause",
+   "texte_sophia": "mon téléphone retourné\nsauf pour mes 5 minutes sur l'appli Sophia, à la pause",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b8657045",
+   "texte_overlay": "et toi, t'as quoi sur ton bureau ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o359",
+ "type_bleo": "full_test",
+ "titre": "pourquoi je n'envoie plus de mails après 19h #travail #limites #mailpro #santementale #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 27/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (les mails du soir). Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "17bb00d4",
+   "texte_overlay": "pourquoi je n'envoie plus\nde mails\naprès 19h",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d7c7a52b",
+   "texte_overlay": "ça donne l'impression que c'est normal\npour toute l'équipe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d00d89e2",
+   "texte_overlay": "mes mails du soir étaient moins bons\nplus longs, moins clairs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8a807545",
+   "texte_overlay": "je les programme pour 8h30\nmême effet, aucune pression",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "cc818cbf",
+   "texte_overlay": "mon manager ne l'a jamais remarqué\nsauf pour dire que mes mails étaient mieux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b881e350",
+   "texte_overlay": "mon soir, je le garde pour moi\nmes 3 trucs : dîner, sport, 5 minutes à apprendre autre chose",
+   "texte_sophia": "mon soir, je le garde pour moi\nmes 3 trucs : dîner, sport, 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d47efc60",
+   "texte_overlay": "tu réponds aux mails le soir ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

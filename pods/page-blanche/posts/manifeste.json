@@ -6893,6 +6893,33 @@
    "notes": "declinaison G2 de var-weekend-4, cta C",
    "type_bleo": "declinaison",
    "parent_contenu_id": "5e74117a-ae6f-49a2-a593-a5e8a912bae4"
+  },
+  {
+   "post_id": "var-grandv-4",
+   "url": "https://www.tiktok.com/@amayareading/video/7685071416466607382?variante=var-grandv-1?variante=var-grandv-4",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#focus #concentration #study",
+   "musique": {
+    "titre": "som original - strange",
+    "auteur": "strange",
+    "original": true,
+    "id": "7650637490231708437",
+    "url_tiktok": "https://www.tiktok.com/music/x-7650637490231708437"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685071416466607382_1",
+    "2": "7685071416466607382_2",
+    "3": "7685071416466607382_3",
+    "4": "7685071416466607382_4",
+    "5": "7685071416466607382_6",
+    "6": "7685071416466607382_5"
+   },
+   "notes": "declinaison G2 de var-grandv-1, cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "1e5c88ed-02be-4362-91ff-a5f47d042204"
   }
  ]
 }

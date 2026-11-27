@@ -7,10 +7,24 @@
   "accroche": "What you must heal from based on your coping mechanism"
  },
  "titre": {
-  "en": "What your eyes stopped noticing since you started scrolling"
+  "en": "What your eyes stopped noticing since you started scrolling",
+  "de": "Was deine Augen nicht mehr bemerken, seit du scrollst",
+  "fr": "Ce que tes yeux ne remarquent plus depuis que tu scrolles",
+  "it": "Cosa i tuoi occhi non notano più da quando hai iniziato a scrollare",
+  "es": "Lo que tus ojos dejaron de ver desde que empezaste a hacer scroll",
+  "pt-BR": "O que seus olhos pararam de notar desde que você começou a rolar a tela",
+  "nl": "Wat je ogen niet meer opmerken sinds je bent gaan scrollen",
+  "pl": "Czego twoje oczy nie zauważają, odkąd scrollujesz"
  },
  "legendes": {
-  "en": "you don't need a museum ticket to start looking again\n#art #arthistory #paintings #slowliving #attention"
+  "en": "you don't need a museum ticket to start looking again\n#art #arthistory #paintings #slowliving #attention",
+  "de": "du brauchst kein Museumsticket, um wieder hinzusehen\n#kunst #kunstgeschichte #gemälde #slowliving #achtsamkeit",
+  "fr": "pas besoin d'un billet de musée pour réapprendre à regarder\n#art #histoiredelart #peinture #slowliving #attention",
+  "it": "non serve un biglietto del museo per ricominciare a guardare\n#arte #storiadellarte #pittura #slowliving #attenzione",
+  "es": "no necesitas una entrada al museo para volver a mirar\n#arte #historiadelarte #pintura #slowliving #atencion",
+  "pt-BR": "você não precisa de ingresso de museu para voltar a olhar\n#arte #historiadaarte #pintura #slowliving #atencao",
+  "nl": "je hebt geen museumkaartje nodig om weer te leren kijken\n#kunst #kunstgeschiedenis #schilderijen #slowliving #aandacht",
+  "pl": "nie potrzebujesz biletu do muzeum, żeby znów zacząć patrzeć\n#sztuka #historiasztuki #malarstwo #slowliving #uważność"
  },
  "musique": {
   "titre": "Deep in a Wave",
@@ -23,7 +37,17 @@
    "titre": "Study of a Young Woman",
    "artiste": "Johannes Vermeer",
    "date": "ca. 1665–67",
-   "url": "https://www.metmuseum.org/art/collection/search/437879"
+   "url": "https://www.metmuseum.org/art/collection/search/437879",
+   "titres": {
+    "en": "Study of a Young Woman",
+    "de": "Studie einer jungen Frau",
+    "fr": "Étude de jeune femme",
+    "it": "Studio di giovane donna",
+    "es": "Estudio de una joven",
+    "pt-BR": "Estudo de uma jovem",
+    "nl": "Studie van een jonge vrouw",
+    "pl": "Studium młodej kobiety"
+   }
   },
   "images/oeuvres/vermeer-luth.jpg": {
    "musee": "The Met",
@@ -31,7 +55,17 @@
    "titre": "Young Woman with a Lute",
    "artiste": "Johannes Vermeer",
    "date": "ca. 1662–63",
-   "url": "https://www.metmuseum.org/art/collection/search/437880"
+   "url": "https://www.metmuseum.org/art/collection/search/437880",
+   "titres": {
+    "en": "Young Woman with a Lute",
+    "de": "Junge Frau mit Laute",
+    "fr": "Jeune femme au luth",
+    "it": "Giovane donna con liuto",
+    "es": "Joven con laúd",
+    "pt-BR": "Jovem com alaúde",
+    "nl": "Jonge vrouw met luit",
+    "pl": "Młoda kobieta z lutnią"
+   }
   },
   "images/oeuvres/rembrandt-autoportrait.jpg": {
    "musee": "The Met",
@@ -39,7 +73,17 @@
    "titre": "Self-Portrait",
    "artiste": "Rembrandt (Rembrandt van Rijn)",
    "date": "1660",
-   "url": "https://www.metmuseum.org/art/collection/search/437397"
+   "url": "https://www.metmuseum.org/art/collection/search/437397",
+   "titres": {
+    "en": "Self-Portrait",
+    "de": "Selbstbildnis",
+    "fr": "Autoportrait",
+    "it": "Autoritratto",
+    "es": "Autorretrato",
+    "pt-BR": "Autorretrato",
+    "nl": "Zelfportret",
+    "pl": "Autoportret"
+   }
   },
   "images/oeuvres/bruegel-moissonneurs.jpg": {
    "musee": "The Met",
@@ -47,7 +91,17 @@
    "titre": "The Harvesters",
    "artiste": "Pieter Bruegel the Elder",
    "date": "1565",
-   "url": "https://www.metmuseum.org/art/collection/search/435809"
+   "url": "https://www.metmuseum.org/art/collection/search/435809",
+   "titres": {
+    "en": "The Harvesters",
+    "de": "Die Kornernte",
+    "fr": "Les Moissonneurs",
+    "it": "I mietitori",
+    "es": "Los segadores",
+    "pt-BR": "Os ceifeiros",
+    "nl": "De oogst",
+    "pl": "Żniwiarze"
+   }
   },
   "images/oeuvres/friedrich-lune.jpg": {
    "musee": "The Met",
@@ -55,10 +109,20 @@
    "titre": "Two Men Contemplating the Moon",
    "artiste": "Caspar David Friedrich",
    "date": "ca. 1825–30",
-   "url": "https://www.metmuseum.org/art/collection/search/438417"
+   "url": "https://www.metmuseum.org/art/collection/search/438417",
+   "titres": {
+    "en": "Two Men Contemplating the Moon",
+    "de": "Zwei Männer in Betrachtung des Mondes",
+    "fr": "Deux hommes contemplant la lune",
+    "it": "Due uomini che contemplano la luna",
+    "es": "Dos hombres contemplando la luna",
+    "pt-BR": "Dois homens contemplando a lua",
+    "nl": "Twee mannen die de maan beschouwen",
+    "pl": "Dwaj mężczyźni kontemplujący księżyc"
+   }
   }
  },
- "notes": "Preuve : « What you must heal from based on your coping mechanism » de @scilla2047 (1,4 M vues, 60 k enregistrements, 31/10 ; Deep in a Wave) : son format (couverture au titre noir et sa fin en rouge, une image en bas ; puis un titre court, un paragraphe en couleur assortie, une œuvre dessous), sur l'angle d'Adrien : réapprendre à regarder. Ses œuvres contemporaines sont remplacées par de vrais tableaux du domaine public (Met) : la Study of a Young Woman de Vermeer (couverture, cadrée sur les yeux), Young Woman with a Lute (Vermeer : la lumière d'une fenêtre à gauche, qu'il a peinte dans beaucoup de ses intérieurs), l'autoportrait de Rembrandt (1660), The Harvesters (Bruegel, 1565 : plein de petites scènes), Two Men Contemplating the Moon (Friedrich). Slide Artura (4) : « Details », avec le logo d'Artura à côté du Bruegel ; cta A. Aucune promesse de soin.",
+ "notes": "Preuve : « What you must heal from based on your coping mechanism » de @scilla2047 (1,4 M vues, 60 k enregistrements, 31/10 ; Deep in a Wave) : son format (couverture au titre noir et sa fin en rouge, une image en bas ; puis un titre court, un paragraphe en couleur assortie, une œuvre dessous), sur l'angle d'Adrien : réapprendre à regarder. Ses œuvres contemporaines sont remplacées par de vrais tableaux du domaine public (Met) : la Study of a Young Woman de Vermeer (couverture, cadrée sur les yeux), Young Woman with a Lute (Vermeer : la lumière d'une fenêtre à gauche, qu'il a peinte dans beaucoup de ses intérieurs), l'autoportrait de Rembrandt (1660), The Harvesters (Bruegel, 1565 : plein de petites scènes), Two Men Contemplating the Moon (Friedrich). Slide Artura (4) : « Details », avec le logo d'Artura à côté du Bruegel ; cta A. Aucune promesse de soin. Traduit à la main le 27/11 en de, fr, it, es, pt-BR, nl et pl (demande du chef des podz, sur ordre d'Adrien) : le texte anglais déposé reste tel quel ; en polonais, « w aplikacji Artura » garde le nom intact, et les phrases à la première personne évitent le genre.",
  "slides": [
   {
    "type": "couverture",
@@ -68,6 +132,27 @@
    },
    "en": {
     "titre": "What your eyes stopped noticing since you started {scrolling}"
+   },
+   "de": {
+    "titre": "Was deine Augen nicht mehr bemerken, seit du {scrollst}"
+   },
+   "fr": {
+    "titre": "Ce que tes yeux ne remarquent plus depuis que tu {scrolles}"
+   },
+   "it": {
+    "titre": "Cosa i tuoi occhi non notano più da quando hai iniziato a {scrollare}"
+   },
+   "es": {
+    "titre": "Lo que tus ojos dejaron de ver desde que empezaste a {hacer scroll}"
+   },
+   "pt-BR": {
+    "titre": "O que seus olhos pararam de notar desde que você começou a {rolar a tela}"
+   },
+   "nl": {
+    "titre": "Wat je ogen niet meer opmerken sinds je bent gaan {scrollen}"
+   },
+   "pl": {
+    "titre": "Czego twoje oczy nie zauważają, odkąd {scrollujesz}"
    }
   },
   {
@@ -76,6 +161,34 @@
    "en": {
     "titre": "Light",
     "texte": "You used to notice how afternoon light falls across a room. Now it's just background. Vermeer painted the same window light again and again, until you couldn't look away from it."
+   },
+   "de": {
+    "titre": "Licht",
+    "texte": "Früher hast du bemerkt, wie das Nachmittagslicht durch ein Zimmer fällt. Heute ist es nur Hintergrund. Vermeer malte dasselbe Fensterlicht immer wieder, bis man nicht mehr wegsehen konnte."
+   },
+   "fr": {
+    "titre": "Lumière",
+    "texte": "Avant, tu remarquais la lumière de l'après-midi qui traverse une pièce. Aujourd'hui, ce n'est plus qu'un décor. Vermeer a peint la même lumière de fenêtre encore et encore, jusqu'à ce qu'on ne puisse plus la quitter des yeux."
+   },
+   "it": {
+    "titre": "Luce",
+    "texte": "Prima notavi come la luce del pomeriggio attraversa una stanza. Ora è solo sfondo. Vermeer ha dipinto la stessa luce di una finestra ancora e ancora, finché non riuscivi più a distogliere lo sguardo."
+   },
+   "es": {
+    "titre": "Luz",
+    "texte": "Antes notabas cómo la luz de la tarde cruza una habitación. Ahora es solo fondo. Vermeer pintó la misma luz de ventana una y otra vez, hasta que no podías dejar de mirarla."
+   },
+   "pt-BR": {
+    "titre": "Luz",
+    "texte": "Antes você reparava em como a luz da tarde atravessa um cômodo. Agora é só fundo. Vermeer pintou a mesma luz de janela de novo e de novo, até ninguém conseguir desviar o olhar."
+   },
+   "nl": {
+    "titre": "Licht",
+    "texte": "Vroeger zag je hoe het middaglicht door een kamer valt. Nu is het gewoon achtergrond. Vermeer schilderde hetzelfde raamlicht keer op keer, tot je er niet meer van weg kon kijken."
+   },
+   "pl": {
+    "titre": "Światło",
+    "texte": "Kiedyś popołudniowe światło w pokoju coś dla ciebie znaczyło. Dziś to tylko tło. Vermeer malował to samo światło z okna raz za razem, aż nie dało się od niego oderwać wzroku."
    }
   },
   {
@@ -84,6 +197,34 @@
    "en": {
     "titre": "Faces",
     "texte": "You scroll past hundreds of faces a day and remember none of them. Stay with one portrait for two minutes and you'll find a whole person: tired eyes, a held breath, a life."
+   },
+   "de": {
+    "titre": "Gesichter",
+    "texte": "Du scrollst jeden Tag an Hunderten Gesichtern vorbei und erinnerst dich an keins. Bleib zwei Minuten bei einem Porträt und du findest einen ganzen Menschen: müde Augen, einen angehaltenen Atem, ein Leben."
+   },
+   "fr": {
+    "titre": "Visages",
+    "texte": "Tu fais défiler des centaines de visages par jour et tu n'en retiens aucun. Reste deux minutes devant un seul portrait et tu trouves une personne entière : des yeux fatigués, un souffle retenu, une vie."
+   },
+   "it": {
+    "titre": "Volti",
+    "texte": "Scorri centinaia di volti al giorno e non ne ricordi nessuno. Resta due minuti davanti a un solo ritratto e troverai una persona intera: occhi stanchi, un respiro trattenuto, una vita."
+   },
+   "es": {
+    "titre": "Rostros",
+    "texte": "Pasas cientos de caras al día y no recuerdas ninguna. Quédate dos minutos con un solo retrato y encontrarás a una persona entera: ojos cansados, un aliento contenido, una vida."
+   },
+   "pt-BR": {
+    "titre": "Rostos",
+    "texte": "Você passa por centenas de rostos por dia e não lembra de nenhum. Fique dois minutos com um só retrato e vai encontrar uma pessoa inteira: olhos cansados, um fôlego preso, uma vida."
+   },
+   "nl": {
+    "titre": "Gezichten",
+    "texte": "Je scrolt elke dag langs honderden gezichten en onthoudt er geen één. Blijf twee minuten bij één portret en je vindt een heel mens: moeie ogen, een ingehouden adem, een leven."
+   },
+   "pl": {
+    "titre": "Twarze",
+    "texte": "Każdego dnia przewijasz setki twarzy i nie pamiętasz żadnej. Zostań dwie minuty przy jednym portrecie, a znajdziesz całego człowieka: zmęczone oczy, wstrzymany oddech, całe życie."
    }
   },
   {
@@ -92,6 +233,34 @@
    "en": {
     "titre": "Details",
     "texte": "Great paintings hide small things only a slow eye finds. I look at one painting a day on Artura, and now I catch details everywhere."
+   },
+   "de": {
+    "titre": "Details",
+    "texte": "Große Gemälde verstecken kleine Dinge, die nur ein langsamer Blick findet. Ich schaue mir auf Artura jeden Tag ein Gemälde an, und jetzt sehe ich überall Details."
+   },
+   "fr": {
+    "titre": "Détails",
+    "texte": "Les grands tableaux cachent des petites choses que seul un œil lent trouve. Je regarde un tableau par jour sur Artura, et maintenant je vois des détails partout."
+   },
+   "it": {
+    "titre": "Dettagli",
+    "texte": "I grandi quadri nascondono piccole cose che solo uno sguardo lento trova. Guardo un quadro al giorno su Artura, e ora colgo dettagli ovunque."
+   },
+   "es": {
+    "titre": "Detalles",
+    "texte": "Los grandes cuadros esconden cosas pequeñas que solo encuentra una mirada lenta. Miro un cuadro al día en Artura, y ahora veo detalles en todas partes."
+   },
+   "pt-BR": {
+    "titre": "Detalhes",
+    "texte": "Os grandes quadros escondem coisas pequenas que só um olhar lento encontra. Vejo uma pintura por dia no Artura, e agora percebo detalhes em todo lugar."
+   },
+   "nl": {
+    "titre": "Details",
+    "texte": "Grote schilderijen verbergen kleine dingen die alleen een traag oog vindt. Ik kijk elke dag naar één schilderij op Artura, en nu zie ik overal details."
+   },
+   "pl": {
+    "titre": "Szczegóły",
+    "texte": "Wielkie obrazy ukrywają drobiazgi, które znajduje tylko powolne spojrzenie. Codziennie oglądam jeden obraz w aplikacji Artura, a teraz wszędzie dostrzegam szczegóły."
    }
   },
   {
@@ -100,6 +269,34 @@
    "en": {
     "titre": "Stillness",
     "texte": "Your mind forgot how to look at one thing without jumping to the next. A landscape asks for nothing. It just waits until you're ready to see it."
+   },
+   "de": {
+    "titre": "Stille",
+    "texte": "Dein Kopf hat verlernt, eine Sache anzusehen, ohne zur nächsten zu springen. Eine Landschaft verlangt nichts. Sie wartet einfach, bis du sie siehst."
+   },
+   "fr": {
+    "titre": "Immobilité",
+    "texte": "Ton esprit a oublié comment regarder une seule chose sans sauter à la suivante. Un paysage ne demande rien. Il attend, tout simplement, que tu le voies."
+   },
+   "it": {
+    "titre": "Quiete",
+    "texte": "La tua mente ha dimenticato come guardare una cosa sola senza saltare alla successiva. Un paesaggio non chiede niente. Aspetta, semplicemente, che tu lo veda."
+   },
+   "es": {
+    "titre": "Quietud",
+    "texte": "Tu mente olvidó cómo mirar una sola cosa sin saltar a la siguiente. Un paisaje no pide nada. Solo espera a que lo veas."
+   },
+   "pt-BR": {
+    "titre": "Quietude",
+    "texte": "Sua mente esqueceu como olhar para uma coisa só sem pular para a próxima. Uma paisagem não pede nada. Ela só espera você enxergá-la."
+   },
+   "nl": {
+    "titre": "Stilte",
+    "texte": "Je hoofd is vergeten hoe je naar één ding kijkt zonder door te springen naar het volgende. Een landschap vraagt niets. Het wacht gewoon tot je het ziet."
+   },
+   "pl": {
+    "titre": "Bezruch",
+    "texte": "Twój umysł zapomniał, jak patrzeć na jedną rzecz bez skakania do następnej. Krajobraz o nic nie prosi. Po prostu czeka, aż go zobaczysz."
    }
   }
  ]

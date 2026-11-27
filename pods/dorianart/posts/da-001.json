@@ -7,10 +7,24 @@
   "accroche": "Iceberg of ADHD hobbies"
  },
  "titre": {
-  "en": "Iceberg of ADHD hobbies"
+  "en": "Iceberg of ADHD hobbies",
+  "es-419": "Iceberg de hobbies TDAH",
+  "tr": "DEHB hobileri buzdağı",
+  "hu": "ADHD-s hobbik jéghegye",
+  "ro": "Icebergul hobby-urilor ADHD",
+  "cs": "Ledovec ADHD koníčků",
+  "sr": "Santa leda ADHD hobija",
+  "el": "Το παγόβουνο των χόμπι ΔΕΠΥ"
  },
  "legendes": {
-  "en": "#lockedin #adhdtiktok #hobbies #selfimprovement #iceberg"
+  "en": "#lockedin #adhdtiktok #hobbies #selfimprovement #iceberg",
+  "es-419": "#tdah #hobbies #iceberg #superacionpersonal #lockedin",
+  "tr": "#dehb #hobiler #buzdağı #kişiselgelişim #lockedin",
+  "hu": "#adhd #hobbik #jéghegy #önfejlesztés #lockedin",
+  "ro": "#adhd #hobby #iceberg #dezvoltarepersonala #lockedin",
+  "cs": "#adhd #konicky #ledovec #seberozvoj #lockedin",
+  "sr": "#adhd #hobi #santaleda #samorazvoj #lockedin",
+  "el": "#δεπυ #χόμπι #παγόβουνο #αυτοβελτίωση #lockedin"
  },
  "musique": {
   "titre": "original sound",
@@ -137,6 +151,34 @@
    "en": {
     "haut": "Iceberg of",
     "bas": "ADHD hobbies"
+   },
+   "es-419": {
+    "haut": "Iceberg de",
+    "bas": "hobbies TDAH"
+   },
+   "tr": {
+    "haut": "Buzdağı:",
+    "bas": "DEHB hobileri"
+   },
+   "hu": {
+    "haut": "Jéghegy:",
+    "bas": "ADHD-s hobbik"
+   },
+   "ro": {
+    "haut": "Icebergul",
+    "bas": "hobby-urilor ADHD"
+   },
+   "cs": {
+    "haut": "Ledovec",
+    "bas": "ADHD koníčků"
+   },
+   "sr": {
+    "haut": "Santa leda",
+    "bas": "ADHD hobija"
+   },
+   "el": {
+    "haut": "Παγόβουνο:",
+    "bas": "χόμπι ΔΕΠΥ"
    }
   },
   {
@@ -215,6 +257,531 @@
      ]
     ],
     "question": "disagreed?"
+   },
+   "es-419": {
+    "etages": [
+     [
+      {
+       "t": "tocar un instrumento",
+       "image": "images/objets/violon.png"
+      },
+      {
+       "t": "ajedrez",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "rituales de té",
+       "image": "images/objets/theiere.png"
+      },
+      {
+       "t": "bocetos",
+       "image": "images/objets/ours-leonard.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomía",
+       "image": "images/objets/globe-celeste.png"
+      },
+      {
+       "t": "historia del arte (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "historia medieval",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "reparar relojes viejos",
+       "image": "images/objets/horloge-table.png"
+      }
+     ],
+     [
+      {
+       "t": "lenguas muertas",
+       "image": "images/objets/tablette-cuneiforme.png"
+      },
+      {
+       "t": "coleccionar piedras",
+       "image": "images/objets/pierre-lettre.png"
+      },
+      {
+       "t": "egiptología",
+       "image": "images/objets/faucon.png"
+      },
+      {
+       "t": "mitos griegos",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "orientarse con estrellas",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "aprender laúd",
+       "image": "images/objets/luth.png"
+      }
+     ],
+     [
+      {
+       "t": "polimatía",
+       "image": "images/objets/portrait-leonard.png"
+      }
+     ]
+    ],
+    "question": "¿en desacuerdo?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "enstrüman çalmak",
+       "image": "images/objets/violon.png"
+      },
+      {
+       "t": "satranç",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "çay ritüelleri",
+       "image": "images/objets/theiere.png"
+      },
+      {
+       "t": "eskiz çizmek",
+       "image": "images/objets/ours-leonard.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomi",
+       "image": "images/objets/globe-celeste.png"
+      },
+      {
+       "t": "artura'da sanat tarihi",
+       "image": "artura"
+      },
+      {
+       "t": "orta çağ tarihi",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "eski saat tamiri",
+       "image": "images/objets/horloge-table.png"
+      }
+     ],
+     [
+      {
+       "t": "ölü diller",
+       "image": "images/objets/tablette-cuneiforme.png"
+      },
+      {
+       "t": "taş biriktirmek",
+       "image": "images/objets/pierre-lettre.png"
+      },
+      {
+       "t": "mısırbilim",
+       "image": "images/objets/faucon.png"
+      },
+      {
+       "t": "yunan mitleri",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "yıldızlarla yön bulmak",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "lavta öğrenmek",
+       "image": "images/objets/luth.png"
+      }
+     ],
+     [
+      {
+       "t": "polimatlık",
+       "image": "images/objets/portrait-leonard.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "hu": {
+    "etages": [
+     [
+      {
+       "t": "hangszeres zene",
+       "image": "images/objets/violon.png"
+      },
+      {
+       "t": "sakk",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "teaszertartás",
+       "image": "images/objets/theiere.png"
+      },
+      {
+       "t": "vázlatrajz",
+       "image": "images/objets/ours-leonard.png"
+      }
+     ],
+     [
+      {
+       "t": "csillagászat",
+       "image": "images/objets/globe-celeste.png"
+      },
+      {
+       "t": "művészet (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "középkori történelem",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "régi órák javítása",
+       "image": "images/objets/horloge-table.png"
+      }
+     ],
+     [
+      {
+       "t": "holt nyelvek",
+       "image": "images/objets/tablette-cuneiforme.png"
+      },
+      {
+       "t": "kőgyűjtés",
+       "image": "images/objets/pierre-lettre.png"
+      },
+      {
+       "t": "egyiptológia",
+       "image": "images/objets/faucon.png"
+      },
+      {
+       "t": "görög mítoszok",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "tájékozódás csillagokkal",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "lantjáték",
+       "image": "images/objets/luth.png"
+      }
+     ],
+     [
+      {
+       "t": "polihisztorság",
+       "image": "images/objets/portrait-leonard.png"
+      }
+     ]
+    ],
+    "question": "nem értesz egyet?"
+   },
+   "ro": {
+    "etages": [
+     [
+      {
+       "t": "cântat la un instrument",
+       "image": "images/objets/violon.png"
+      },
+      {
+       "t": "șah",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "ritualuri de ceai",
+       "image": "images/objets/theiere.png"
+      },
+      {
+       "t": "schițe",
+       "image": "images/objets/ours-leonard.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomie",
+       "image": "images/objets/globe-celeste.png"
+      },
+      {
+       "t": "istoria artei pe artura",
+       "image": "artura"
+      },
+      {
+       "t": "istorie medievală",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "reparat ceasuri vechi",
+       "image": "images/objets/horloge-table.png"
+      }
+     ],
+     [
+      {
+       "t": "limbi moarte",
+       "image": "images/objets/tablette-cuneiforme.png"
+      },
+      {
+       "t": "colecționat pietre",
+       "image": "images/objets/pierre-lettre.png"
+      },
+      {
+       "t": "egiptologie",
+       "image": "images/objets/faucon.png"
+      },
+      {
+       "t": "mituri grecești",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "navigație după stele",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "învățat lăuta",
+       "image": "images/objets/luth.png"
+      }
+     ],
+     [
+      {
+       "t": "polimatie",
+       "image": "images/objets/portrait-leonard.png"
+      }
+     ]
+    ],
+    "question": "nu ești de acord?"
+   },
+   "cs": {
+    "etages": [
+     [
+      {
+       "t": "hra na nástroj",
+       "image": "images/objets/violon.png"
+      },
+      {
+       "t": "šachy",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "čajové rituály",
+       "image": "images/objets/theiere.png"
+      },
+      {
+       "t": "skicování",
+       "image": "images/objets/ours-leonard.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomie",
+       "image": "images/objets/globe-celeste.png"
+      },
+      {
+       "t": "dějiny umění (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "středověké dějiny",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "opravy hodin",
+       "image": "images/objets/horloge-table.png"
+      }
+     ],
+     [
+      {
+       "t": "mrtvé jazyky",
+       "image": "images/objets/tablette-cuneiforme.png"
+      },
+      {
+       "t": "sbírání kamenů",
+       "image": "images/objets/pierre-lettre.png"
+      },
+      {
+       "t": "egyptologie",
+       "image": "images/objets/faucon.png"
+      },
+      {
+       "t": "řecké mýty",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "navigace podle hvězd",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "hra na loutnu",
+       "image": "images/objets/luth.png"
+      }
+     ],
+     [
+      {
+       "t": "polymatie",
+       "image": "images/objets/portrait-leonard.png"
+      }
+     ]
+    ],
+    "question": "nesouhlasíš?"
+   },
+   "sr": {
+    "etages": [
+     [
+      {
+       "t": "sviranje instrumenta",
+       "image": "images/objets/violon.png"
+      },
+      {
+       "t": "šah",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "rituali uz čaj",
+       "image": "images/objets/theiere.png"
+      },
+      {
+       "t": "skiciranje",
+       "image": "images/objets/ours-leonard.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomija",
+       "image": "images/objets/globe-celeste.png"
+      },
+      {
+       "t": "umetnost (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "srednji vek",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "popravka starih satova",
+       "image": "images/objets/horloge-table.png"
+      }
+     ],
+     [
+      {
+       "t": "mrtvi jezici",
+       "image": "images/objets/tablette-cuneiforme.png"
+      },
+      {
+       "t": "skupljanje kamenja",
+       "image": "images/objets/pierre-lettre.png"
+      },
+      {
+       "t": "egiptologija",
+       "image": "images/objets/faucon.png"
+      },
+      {
+       "t": "grčki mitovi",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "navigacija po zvezdama",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "učenje lauta",
+       "image": "images/objets/luth.png"
+      }
+     ],
+     [
+      {
+       "t": "polimatija",
+       "image": "images/objets/portrait-leonard.png"
+      }
+     ]
+    ],
+    "question": "ne slažeš se?"
+   },
+   "el": {
+    "etages": [
+     [
+      {
+       "t": "μουσικό όργανο",
+       "image": "images/objets/violon.png"
+      },
+      {
+       "t": "σκάκι",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "τελετή τσαγιού",
+       "image": "images/objets/theiere.png"
+      },
+      {
+       "t": "σκίτσο",
+       "image": "images/objets/ours-leonard.png"
+      }
+     ],
+     [
+      {
+       "t": "αστρονομία",
+       "image": "images/objets/globe-celeste.png"
+      },
+      {
+       "t": "τέχνη στο artura",
+       "image": "artura"
+      },
+      {
+       "t": "μεσαιωνική ιστορία",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "παλιά ρολόγια",
+       "image": "images/objets/horloge-table.png"
+      }
+     ],
+     [
+      {
+       "t": "νεκρές γλώσσες",
+       "image": "images/objets/tablette-cuneiforme.png"
+      },
+      {
+       "t": "συλλογή πετρών",
+       "image": "images/objets/pierre-lettre.png"
+      },
+      {
+       "t": "αρχαία αίγυπτος",
+       "image": "images/objets/faucon.png"
+      },
+      {
+       "t": "αρχαίοι μύθοι",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "πλοήγηση με τα άστρα",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "μαθήματα λαούτου",
+       "image": "images/objets/luth.png"
+      }
+     ],
+     [
+      {
+       "t": "πολυμάθεια",
+       "image": "images/objets/portrait-leonard.png"
+      }
+     ]
+    ],
+    "question": "διαφωνείς;"
    }
   }
  ]

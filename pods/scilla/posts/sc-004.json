@@ -1,0 +1,303 @@
+{
+ "id": "sc-004",
+ "source": {
+  "url": "https://www.tiktok.com/@scilla2047/photo/7676533626636487949",
+  "vues": 1400000,
+  "publie_le": "2026-08-21",
+  "accroche": "How your triggers reveal what you must heal from (pt 2)"
+ },
+ "titre": {
+  "en": "How your scrolling habits reveal what your eyes are missing",
+  "de": "Wie deine Scroll-Gewohnheiten zeigen, was deinen Augen entgeht",
+  "fr": "Comment tes habitudes de scroll révèlent ce que tes yeux ratent",
+  "it": "Come le tue abitudini di scroll rivelano cosa si perdono i tuoi occhi",
+  "es": "Cómo tus hábitos de scroll revelan lo que tus ojos se pierden",
+  "pt-BR": "Como seus hábitos de rolagem revelam o que seus olhos estão perdendo",
+  "nl": "Hoe je scrollgewoontes verraden wat je ogen missen",
+  "pl": "Jak twoje nawyki scrollowania zdradzają, co umyka twoim oczom"
+ },
+ "legendes": {
+  "en": "which one is you? 🫣\n#art #paintings #arthistory #screentime #slowliving",
+  "de": "was davon bist du? 🫣\n#kunst #gemälde #kunstgeschichte #bildschirmzeit #slowliving",
+  "fr": "lequel c'est toi ? 🫣\n#art #peinture #histoiredelart #tempsdecran #slowliving",
+  "it": "quale sei tu? 🫣\n#arte #pittura #storiadellarte #screentime #slowliving",
+  "es": "¿cuál eres tú? 🫣\n#arte #pintura #historiadelarte #tiempodepantalla #slowliving",
+  "pt-BR": "qual é você? 🫣\n#arte #pintura #historiadaarte #tempodetela #slowliving",
+  "nl": "welke ben jij? 🫣\n#kunst #schilderijen #kunstgeschiedenis #schermtijd #slowliving",
+  "pl": "który to ty? 🫣\n#sztuka #malarstwo #historiasztuki #czasprzedekranem #slowliving"
+ },
+ "musique": {
+  "titre": "original sound (ibreathemusicallday)",
+  "url": "https://www.tiktok.com/music/original-sound-7332556917664975659"
+ },
+ "oeuvres": {
+  "images/oeuvres/pissarro-tuileries.jpg": {
+   "musee": "The Met",
+   "id": "437314",
+   "titre": "The Garden of the Tuileries on a Winter Afternoon",
+   "artiste": "Camille Pissarro",
+   "date": "1899",
+   "url": "https://www.metmuseum.org/art/collection/search/437314",
+   "titres": {
+    "en": "The Garden of the Tuileries on a Winter Afternoon",
+    "de": "Der Tuileriengarten an einem Winternachmittag",
+    "fr": "Le Jardin des Tuileries, après-midi d'hiver",
+    "it": "Il giardino delle Tuileries in un pomeriggio d'inverno",
+    "es": "El jardín de las Tullerías en una tarde de invierno",
+    "pt-BR": "O Jardim das Tulherias numa tarde de inverno",
+    "nl": "De Tuilerieëntuin op een wintermiddag",
+    "pl": "Ogród Tuileries w zimowe popołudnie"
+   }
+  },
+  "images/oeuvres/degas-classe-danse.jpg": {
+   "musee": "The Met",
+   "id": "438817",
+   "titre": "The Dance Class",
+   "artiste": "Edgar Degas",
+   "date": "1874",
+   "url": "https://www.metmuseum.org/art/collection/search/438817",
+   "titres": {
+    "en": "The Dance Class",
+    "de": "Die Tanzstunde",
+    "fr": "La Classe de danse",
+    "it": "La lezione di danza",
+    "es": "La clase de baile",
+    "pt-BR": "A aula de dança",
+    "nl": "De dansles",
+    "pl": "Lekcja tańca"
+   }
+  },
+  "images/oeuvres/vangogh-oliviers.jpg": {
+   "musee": "The Met",
+   "id": "437998",
+   "titre": "Olive Trees",
+   "artiste": "Vincent van Gogh",
+   "date": "1889",
+   "url": "https://www.metmuseum.org/art/collection/search/437998",
+   "titres": {
+    "en": "Olive Trees",
+    "de": "Olivenbäume",
+    "fr": "Les Oliviers",
+    "it": "Ulivi",
+    "es": "Olivos",
+    "pt-BR": "Oliveiras",
+    "nl": "Olijfbomen",
+    "pl": "Drzewa oliwne"
+   }
+  },
+  "images/oeuvres/canaletto-zobenigo.jpg": {
+   "musee": "The Met",
+   "id": "438101",
+   "titre": "Campo Santa Maria Zobenigo, Venice",
+   "artiste": "Canaletto (Giovanni Antonio Canal)",
+   "date": "1730s",
+   "url": "https://www.metmuseum.org/art/collection/search/438101",
+   "titres": {
+    "en": "Campo Santa Maria Zobenigo, Venice",
+    "de": "Campo Santa Maria Zobenigo, Venedig",
+    "fr": "Campo Santa Maria Zobenigo, Venise",
+    "it": "Campo Santa Maria Zobenigo, Venezia",
+    "es": "Campo Santa Maria Zobenigo, Venecia",
+    "pt-BR": "Campo Santa Maria Zobenigo, Veneza",
+    "nl": "Campo Santa Maria Zobenigo, Venetië",
+    "pl": "Campo Santa Maria Zobenigo, Wenecja"
+   }
+  },
+  "images/oeuvres/vermeer-cruche.jpg": {
+   "musee": "The Met",
+   "id": "437881",
+   "titre": "Young Woman with a Water Pitcher",
+   "artiste": "Johannes Vermeer",
+   "date": "ca. 1662",
+   "url": "https://www.metmuseum.org/art/collection/search/437881",
+   "titres": {
+    "en": "Young Woman with a Water Pitcher",
+    "de": "Junge Frau mit Wasserkrug",
+    "fr": "Jeune femme à l'aiguière",
+    "it": "Giovane donna con brocca",
+    "es": "Joven con jarra de agua",
+    "pt-BR": "Jovem com jarro de água",
+    "nl": "Jonge vrouw met waterkan",
+    "pl": "Młoda kobieta z dzbanem"
+   }
+  }
+ },
+ "notes": "Preuve : « How your triggers reveal what you must heal from (pt 2) » de @scilla2047 (1,4 M vues, 48 k enregistrements, 21/08), la famille « How your … reveal … » : une habitude par slide en « If you … », puis ce qu'elle révèle. Angle Artura : ce que tes yeux ratent, jamais un diagnostic ni une promesse de soin. Couverture : Pissarro, The Garden of the Tuileries on a Winter Afternoon (Met 437314). Faits : The Dance Class de Degas (Met 438817, 1874) montre une leçon menée par Jules Perrot où la plupart des danseuses attendent ou s'étirent ; Olive Trees de Van Gogh (Met 437998, 1889) : ciel et arbres peints en touches épaisses et courbes ; Canaletto remplit le Campo Santa Maria Zobenigo de petits personnages (Met 438101) ; Young Woman with a Water Pitcher de Vermeer (Met 437881, ca. 1662) : une femme, une main sur la fenêtre, l'autre sur la cruche. Slide Artura (4) : Canaletto avec le logo d'Artura ; cta A.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/oeuvres/pissarro-tuileries.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "titre": "How your scrolling habits reveal {what your eyes are missing}"
+   },
+   "de": {
+    "titre": "Wie deine Scroll-Gewohnheiten zeigen, {was deinen Augen entgeht}"
+   },
+   "fr": {
+    "titre": "Comment tes habitudes de scroll révèlent {ce que tes yeux ratent}"
+   },
+   "it": {
+    "titre": "Come le tue abitudini di scroll rivelano {cosa si perdono i tuoi occhi}"
+   },
+   "es": {
+    "titre": "Cómo tus hábitos de scroll revelan {lo que tus ojos se pierden}"
+   },
+   "pt-BR": {
+    "titre": "Como seus hábitos de rolagem revelam {o que seus olhos estão perdendo}"
+   },
+   "nl": {
+    "titre": "Hoe je scrollgewoontes verraden {wat je ogen missen}"
+   },
+   "pl": {
+    "titre": "Jak twoje nawyki scrollowania zdradzają, {co umyka twoim oczom}"
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/degas-classe-danse.jpg",
+   "en": {
+    "titre": "If you skip every video after two seconds",
+    "texte": "Your eyes miss the in-between. Degas painted a ballet class, but most dancers aren't dancing: they wait, stretch, fidget. The real moments are the slow ones."
+   },
+   "de": {
+    "titre": "Wenn du jedes Video nach zwei Sekunden wegwischst",
+    "texte": "Deinen Augen entgeht das Dazwischen. Degas malte eine Ballettstunde, doch die meisten Tänzerinnen tanzen gar nicht: Sie warten, dehnen sich, zappeln. Die echten Momente sind die langsamen."
+   },
+   "fr": {
+    "titre": "Si tu zappes chaque vidéo au bout de deux secondes",
+    "texte": "Tes yeux ratent l'entre-deux. Degas a peint un cours de danse, mais la plupart des danseuses ne dansent pas : elles attendent, s'étirent, gigotent. Les vrais moments sont les plus lents."
+   },
+   "it": {
+    "titre": "Se salti ogni video dopo due secondi",
+    "texte": "I tuoi occhi si perdono il frattempo. Degas ha dipinto una lezione di danza, ma quasi tutte le ballerine non ballano: aspettano, si stirano, si agitano. I momenti veri sono quelli lenti."
+   },
+   "es": {
+    "titre": "Si saltas cada video a los dos segundos",
+    "texte": "Tus ojos se pierden lo que pasa entre medias. Degas pintó una clase de ballet, pero casi ninguna bailarina baila: esperan, se estiran, se impacientan. Los momentos de verdad son los lentos."
+   },
+   "pt-BR": {
+    "titre": "Se você pula todo vídeo depois de dois segundos",
+    "texte": "Seus olhos perdem o meio do caminho. Degas pintou uma aula de balé, mas quase nenhuma bailarina está dançando: elas esperam, se alongam, se mexem. Os momentos de verdade são os lentos."
+   },
+   "nl": {
+    "titre": "Als je elke video na twee seconden wegswipet",
+    "texte": "Je ogen missen alles daartussen. Degas schilderde een balletles, maar de meeste danseressen dansen niet: ze wachten, rekken zich uit, friemelen. De echte momenten zijn de trage."
+   },
+   "pl": {
+    "titre": "Jeśli pomijasz każdy film po dwóch sekundach",
+    "texte": "Twoje oczy przegapiają to, co pomiędzy. Degas namalował lekcję baletu, ale większość tancerek nie tańczy: czekają, rozciągają się, wiercą się. Prawdziwe chwile to te powolne."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/vangogh-oliviers.jpg",
+   "en": {
+    "titre": "If you never look up from your phone",
+    "texte": "Your eyes miss the sky. Van Gogh painted it with the same thick, curling strokes as the olive trees, as if the whole day were breathing."
+   },
+   "de": {
+    "titre": "Wenn du nie vom Handy aufschaust",
+    "texte": "Deinen Augen entgeht der Himmel. Van Gogh malte ihn mit denselben dicken, geschwungenen Pinselstrichen wie die Olivenbäume, als würde der ganze Tag atmen."
+   },
+   "fr": {
+    "titre": "Si tu ne lèves jamais les yeux de ton téléphone",
+    "texte": "Tes yeux ratent le ciel. Van Gogh l'a peint avec les mêmes touches épaisses et ondulées que les oliviers, comme si toute la journée respirait."
+   },
+   "it": {
+    "titre": "Se non alzi mai gli occhi dal telefono",
+    "texte": "I tuoi occhi si perdono il cielo. Van Gogh l'ha dipinto con le stesse pennellate spesse e ondulate degli ulivi, come se tutta la giornata respirasse."
+   },
+   "es": {
+    "titre": "Si nunca levantas la vista del móvil",
+    "texte": "Tus ojos se pierden el cielo. Van Gogh lo pintó con las mismas pinceladas gruesas y onduladas que los olivos, como si todo el día respirara."
+   },
+   "pt-BR": {
+    "titre": "Se você nunca tira os olhos do celular",
+    "texte": "Seus olhos perdem o céu. Van Gogh o pintou com as mesmas pinceladas grossas e onduladas das oliveiras, como se o dia inteiro respirasse."
+   },
+   "nl": {
+    "titre": "Als je nooit opkijkt van je telefoon",
+    "texte": "Je ogen missen de lucht. Van Gogh schilderde die met dezelfde dikke, krullende streken als de olijfbomen, alsof de hele dag ademde."
+   },
+   "pl": {
+    "titre": "Jeśli nigdy nie odrywasz wzroku od telefonu",
+    "texte": "Twoje oczy przegapiają niebo. Van Gogh namalował je tymi samymi grubymi, falującymi pociągnięciami co drzewa oliwne, jakby cały dzień oddychał."
+   }
+  },
+  {
+   "type": "artura",
+   "image": "images/oeuvres/canaletto-zobenigo.jpg",
+   "en": {
+    "titre": "If you only see the big picture",
+    "texte": "Your eyes miss the small stories. Canaletto filled this square with tiny people. I look at one painting a day on Artura, and now I catch details everywhere."
+   },
+   "de": {
+    "titre": "Wenn du nur das große Ganze siehst",
+    "texte": "Deinen Augen entgehen die kleinen Geschichten. Canaletto füllte diesen Platz mit winzigen Menschen. Ich schaue mir auf Artura jeden Tag ein Gemälde an, und jetzt sehe ich überall Details."
+   },
+   "fr": {
+    "titre": "Si tu ne vois que l'ensemble",
+    "texte": "Tes yeux ratent les petites histoires. Canaletto a rempli cette place de minuscules passants. Je regarde un tableau par jour sur Artura, et maintenant je vois des détails partout."
+   },
+   "it": {
+    "titre": "Se vedi solo l'insieme",
+    "texte": "I tuoi occhi si perdono le piccole storie. Canaletto ha riempito questa piazza di persone minuscole. Guardo un quadro al giorno su Artura, e ora colgo dettagli ovunque."
+   },
+   "es": {
+    "titre": "Si solo ves el conjunto",
+    "texte": "Tus ojos se pierden las pequeñas historias. Canaletto llenó esta plaza de personas diminutas. Miro un cuadro al día en Artura, y ahora veo detalles en todas partes."
+   },
+   "pt-BR": {
+    "titre": "Se você só vê o todo",
+    "texte": "Seus olhos perdem as pequenas histórias. Canaletto encheu essa praça de pessoas minúsculas. Vejo uma pintura por dia no Artura, e agora percebo detalhes em todo lugar."
+   },
+   "nl": {
+    "titre": "Als je alleen het geheel ziet",
+    "texte": "Je ogen missen de kleine verhalen. Canaletto vulde dit plein met piepkleine mensen. Ik kijk elke dag naar één schilderij op Artura, en nu zie ik overal details."
+   },
+   "pl": {
+    "titre": "Jeśli widzisz tylko całość",
+    "texte": "Twoje oczy przegapiają małe historie. Canaletto wypełnił ten plac maleńkimi ludźmi. Codziennie oglądam jeden obraz w aplikacji Artura, a teraz wszędzie dostrzegam szczegóły."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/vermeer-cruche.jpg",
+   "en": {
+    "titre": "If you always need something playing",
+    "texte": "Your eyes miss quiet. A woman opens a window and the light does the rest. Vermeer makes silence something you can actually see."
+   },
+   "de": {
+    "titre": "Wenn immer etwas laufen muss",
+    "texte": "Deinen Augen entgeht die Stille. Eine Frau öffnet ein Fenster, und das Licht erledigt den Rest. Vermeer macht Stille zu etwas, das man sehen kann."
+   },
+   "fr": {
+    "titre": "S'il te faut toujours un son en fond",
+    "texte": "Tes yeux ratent le silence. Une femme ouvre une fenêtre et la lumière fait le reste. Vermeer fait du silence quelque chose qu'on peut voir."
+   },
+   "it": {
+    "titre": "Se hai sempre bisogno di qualcosa in sottofondo",
+    "texte": "I tuoi occhi si perdono il silenzio. Una donna apre una finestra e la luce fa il resto. Vermeer rende il silenzio qualcosa che si può vedere."
+   },
+   "es": {
+    "titre": "Si siempre necesitas algo sonando",
+    "texte": "Tus ojos se pierden el silencio. Una mujer abre una ventana y la luz hace el resto. Vermeer convierte el silencio en algo que se puede ver."
+   },
+   "pt-BR": {
+    "titre": "Se você sempre precisa de algo tocando",
+    "texte": "Seus olhos perdem o silêncio. Uma mulher abre uma janela e a luz faz o resto. Vermeer transforma o silêncio em algo que dá para ver."
+   },
+   "nl": {
+    "titre": "Als er altijd iets aan moet staan",
+    "texte": "Je ogen missen stilte. Een vrouw opent een raam en het licht doet de rest. Vermeer maakt van stilte iets wat je kunt zien."
+   },
+   "pl": {
+    "titre": "Jeśli zawsze musi coś grać w tle",
+    "texte": "Twoje oczy przegapiają ciszę. Kobieta otwiera okno, a resztę robi światło. Vermeer sprawia, że ciszę można zobaczyć."
+   }
+  }
+ ]
+}

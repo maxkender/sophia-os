@@ -7,10 +7,22 @@
   "accroche": "Mes petites habitudes bizarres que je fais en cachette (et qui marchent vraiment)"
  },
  "titre": {
-  "en": "my weird little morning habits that actually work"
+  "en": "my weird little morning habits that actually work",
+  "fr": "mes petites manies du matin qui marchent vraiment",
+  "de": "meine schrägen morgen-rituale, die echt wirken",
+  "it": "le mie strane abitudini mattutine che funzionano",
+  "hu": "a fura kis reggeli szokásaim, amik tényleg működnek",
+  "ro": "obiceiurile mele ciudate de dimineață care chiar merg",
+  "el": "οι περίεργες πρωινές μου συνήθειες που όντως πιάνουν"
  },
  "legendes": {
-  "en": "the morning girl era 🌅 #wellness #healthyhabits #thatgirl #selfcare #morningroutine"
+  "en": "the morning girl era 🌅 #wellness #healthyhabits #thatgirl #selfcare #morningroutine",
+  "fr": "l'ère morning girl 🌅 #wellness #healthyhabits #thatgirl #selfcare #morningroutine",
+  "de": "die morning-girl-ära 🌅 #wellness #healthyhabits #thatgirl #selfcare #morningroutine",
+  "it": "l'era della morning girl 🌅 #wellness #healthyhabits #thatgirl #selfcare #morningroutine",
+  "hu": "a morning girl korszak 🌅 #wellness #healthyhabits #thatgirl #selfcare #morningroutine",
+  "ro": "era de morning girl 🌅 #wellness #healthyhabits #thatgirl #selfcare #morningroutine",
+  "el": "η εποχή του morning girl 🌅 #wellness #healthyhabits #thatgirl #selfcare #morningroutine"
  },
  "musique": {
   "titre": "save a prayer",
@@ -37,6 +49,30 @@
    "en": {
     "titre": "my weird little morning habits that actually work",
     "note": "(that actually work)"
+   },
+   "fr": {
+    "titre": "mes petites manies du matin qui marchent vraiment",
+    "note": "(qui marchent vraiment)"
+   },
+   "de": {
+    "titre": "meine schrägen morgen-rituale, die echt wirken",
+    "note": "(die echt wirken)"
+   },
+   "it": {
+    "titre": "le mie strane abitudini mattutine che funzionano",
+    "note": "(che funzionano)"
+   },
+   "hu": {
+    "titre": "a fura kis reggeli szokásaim, amik tényleg működnek",
+    "note": "(amik tényleg működnek)"
+   },
+   "ro": {
+    "titre": "obiceiurile mele ciudate de dimineață care chiar merg",
+    "note": "(care chiar merg)"
+   },
+   "el": {
+    "titre": "οι περίεργες πρωινές μου συνήθειες που όντως πιάνουν",
+    "note": "(που όντως πιάνουν)"
    }
   },
   {
@@ -50,6 +86,60 @@
      "pillows, duvet, _done_. then i wake up"
     ],
     "chute": "one thing done, _before 7am_"
+   },
+   "fr": {
+    "titre": "je fais mon lit _les yeux mi-clos_",
+    "intro": "avant tout le reste, _même avant l'eau_",
+    "paragraphes": [
+     "c'est ma première victoire du jour, _faite en 1 minute_",
+     "oreillers, couette, _fini_. et je m'éveille"
+    ],
+    "chute": "une chose de faite, _avant 7h_"
+   },
+   "de": {
+    "titre": "ich mach mein bett _im halbschlaf_",
+    "intro": "vor allem anderen, _sogar vor dem wasser_",
+    "paragraphes": [
+     "der erste sieg des tages, _in 1 minute erledigt_",
+     "kissen, decke, _fertig_. dann werd ich wach"
+    ],
+    "chute": "eine sache erledigt, _vor 7 uhr_"
+   },
+   "it": {
+    "titre": "rifaccio il letto _a occhi socchiusi_",
+    "intro": "prima di tutto, _anche prima dell'acqua_",
+    "paragraphes": [
+     "è la prima vittoria della giornata, _fatta in 1 minuto_",
+     "cuscini, piumone, _fatto_. poi mi sveglio"
+    ],
+    "chute": "una cosa fatta, _prima delle 7_"
+   },
+   "hu": {
+    "titre": "beágyazok _félig csukott szemmel_",
+    "intro": "mindenek előtt, _még a víz előtt is_",
+    "paragraphes": [
+     "ez a nap első győzelme, _1 perc alatt kész_",
+     "párnák, paplan, _kész_. aztán felébredek"
+    ],
+    "chute": "egy dolog kész, _7 előtt_"
+   },
+   "ro": {
+    "titre": "îmi fac patul _cu ochii întredeschiși_",
+    "intro": "înainte de orice, _chiar și de apă_",
+    "paragraphes": [
+     "e prima victorie a zilei, _gata în 1 minut_",
+     "perne, pilotă, _gata_. apoi mă trezesc"
+    ],
+    "chute": "un lucru făcut, _înainte de 7_"
+   },
+   "el": {
+    "titre": "στρώνω το κρεβάτι _με μισόκλειστα μάτια_",
+    "intro": "πριν από οτιδήποτε, _ακόμα και πριν το νερό_",
+    "paragraphes": [
+     "είναι η πρώτη νίκη της μέρας, _σε 1 λεπτό_",
+     "μαξιλάρια, πάπλωμα, _τέλος_. μετά ξυπνάω"
+    ],
+    "chute": "κάτι έγινε, _πριν τις 7_"
    }
   },
   {
@@ -63,6 +153,60 @@
      "lemon slices, ice, _a pretty glass_"
     ],
     "chute": "weird? maybe. _it works_"
+   },
+   "fr": {
+    "titre": "un verre d'eau _citronnée_",
+    "intro": "je le prépare la veille, _il m'attend au réveil_",
+    "paragraphes": [
+     "c'est le verre froid qui _me réveille vraiment_",
+     "citron, glaçons, _un joli verre_"
+    ],
+    "chute": "chelou ? oui. _ça marche_"
+   },
+   "de": {
+    "titre": "ein glas wasser _mit zitrone_",
+    "intro": "ich mach es am abend vorher, _damit es auf mich wartet_",
+    "paragraphes": [
+     "das kalte glas ist das, was _mich wirklich weckt_",
+     "zitrone, eis, _ein hübsches glas_"
+    ],
+    "chute": "schräg? mag sein. _wirkt_"
+   },
+   "it": {
+    "titre": "un bicchiere d'acqua _col limone_",
+    "intro": "lo preparo la sera prima, _così mi aspetta_",
+    "paragraphes": [
+     "è il bicchiere freddo che _mi sveglia davvero_",
+     "limone, ghiaccio, _un bicchiere carino_"
+    ],
+    "chute": "strano? forse. _funziona_"
+   },
+   "hu": {
+    "titre": "egy pohár víz _citrommal_",
+    "intro": "előző este elkészítem, _így vár rám_",
+    "paragraphes": [
+     "a hideg pohár az, ami _tényleg felébreszt_",
+     "citromkarikák, jég, _egy szép pohár_"
+    ],
+    "chute": "fura? lehet. _de működik_"
+   },
+   "ro": {
+    "titre": "un pahar cu apă _și lămâie_",
+    "intro": "îl pregătesc cu o seară înainte, _ca să mă aștepte_",
+    "paragraphes": [
+     "paharul rece e ce _mă trezește de fapt_",
+     "lămâie, gheață, _un pahar drăguț_"
+    ],
+    "chute": "ciudat? poate. _dar merge_"
+   },
+   "el": {
+    "titre": "ένα ποτήρι νερό _με λεμόνι_",
+    "intro": "το φτιάχνω από το βράδυ, _για να με περιμένει_",
+    "paragraphes": [
+     "το κρύο ποτήρι _με ξυπνάει όντως_",
+     "φέτες λεμόνι, πάγος, _ένα ωραίο ποτήρι_"
+    ],
+    "chute": "περίεργο; ίσως. _πιάνει_"
    }
   },
   {
@@ -76,6 +220,60 @@
      "the book stays _on the pillow_"
     ],
     "chute": "pages before _posts_"
+   },
+   "fr": {
+    "titre": "je lis _avant d'ouvrir tiktok_",
+    "intro": "2 pages, _encore au lit_",
+    "paragraphes": [
+     "mon cerveau se réveille avec _mes pensées_, pas celles des autres",
+     "le livre reste _sur l'oreiller_"
+    ],
+    "chute": "pages avant _posts_"
+   },
+   "de": {
+    "titre": "ich lese _vor tiktok_",
+    "intro": "2 seiten, _noch im bett_",
+    "paragraphes": [
+     "mein hirn wacht mit _meinen gedanken_ auf, nicht mit fremden",
+     "das buch bleibt _auf dem kissen_"
+    ],
+    "chute": "seiten vor _posts_"
+   },
+   "it": {
+    "titre": "leggo _prima di aprire tiktok_",
+    "intro": "2 pagine, _ancora a letto_",
+    "paragraphes": [
+     "la mente si sveglia con _i miei pensieri_, non quelli altrui",
+     "il libro resta _sul cuscino_"
+    ],
+    "chute": "pagine prima _dei post_"
+   },
+   "hu": {
+    "titre": "olvasok _a tiktok előtt_",
+    "intro": "2 oldal, _még az ágyban_",
+    "paragraphes": [
+     "az agyam _a saját gondolataimmal_ ébred, nem másokéval",
+     "a könyv _a párnán_ marad"
+    ],
+    "chute": "lapok _posztok előtt_"
+   },
+   "ro": {
+    "titre": "citesc _înainte de tiktok_",
+    "intro": "2 pagini, _încă în pat_",
+    "paragraphes": [
+     "creierul meu se trezește cu _gândurile mele_, nu ale altora",
+     "cartea stă _pe pernă_"
+    ],
+    "chute": "pagini, _apoi postări_"
+   },
+   "el": {
+    "titre": "διαβάζω _πριν ανοίξω το tiktok_",
+    "intro": "2 σελίδες, _στο κρεβάτι_",
+    "paragraphes": [
+     "ο εγκέφαλός μου ξυπνά με _τις δικές μου σκέψεις_, όχι των άλλων",
+     "το βιβλίο μένει _στο μαξιλάρι_"
+    ],
+    "chute": "σελίδες πριν _τα posts_"
    }
   },
   {
@@ -91,6 +289,72 @@
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",
     "legende": "the app:"
+   },
+   "fr": {
+    "titre": "je cours _quand tous dorment_",
+    "intro": "le run calme du matin, c'est _mon moment préféré_",
+    "paragraphes": [
+     "je me levais sans savoir quoi courir, alors _je restais au lit_",
+     "mon tip : une appli de coaching running comme Atala cale _toute ta semaine_, t'as qu'à y aller"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "ich laufe, _bevor alle wach sind_",
+    "intro": "der stille morgenlauf ist _mein lieblingsding_",
+    "paragraphes": [
+     "ich wachte auf, wusste nicht, was laufen, also _blieb ich liegen_",
+     "mein tipp: eine lauf-coach-app wie Atala plant _deine ganze woche_, du schnürst nur die schuhe"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "corro _quando tutti dormono_",
+    "intro": "la corsa quieta del mattino è _la mia preferita_",
+    "paragraphes": [
+     "mi svegliavo senza sapere che corsa fare, così _restavo a letto_",
+     "il mio consiglio: un'app coach per la corsa come Atala fissa _l'intera settimana_, allacci e via"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "futok, _mielőtt bárki felkel_",
+    "intro": "a csendes reggeli futás _a kedvenc dolgom_",
+    "paragraphes": [
+     "úgy keltem, hogy nem tudtam, mit fussak, így _ágyban maradtam_",
+     "a tippem: egy futóedző app, mint az Atala, kirakja _az egész heted_, te csak befűzöd a cipőd"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "alerg _cât încă toți dorm_",
+    "intro": "alergarea liniștită de dimineață e _preferata mea_",
+    "paragraphes": [
+     "mă trezeam fără să știu ce să alerg, așa că _rămâneam în pat_",
+     "sfatul meu: o aplicație de running coach ca Atala îți face _toată săptămâna_, tu doar te încalți"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "τρέχω _πριν ξυπνήσει κανείς_",
+    "intro": "το ήσυχο πρωινό τρέξιμο είναι _το αγαπημένο μου_",
+    "paragraphes": [
+     "ξυπνούσα χωρίς ιδέα τι να τρέξω, κι έτσι _έμενα στο κρεβάτι_",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala στήνει _όλη σου τη βδομάδα_, εσύ δένεις κορδόνια"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
@@ -104,6 +368,60 @@
      "one song, _full volume_, no talent needed"
     ],
     "chute": "my neighbours _hate me_"
+   },
+   "fr": {
+    "titre": "je chante sous la douche, _fort_",
+    "intro": "oui, _chaque matin_",
+    "paragraphes": [
+     "impossible d'être grognon _en chantant_",
+     "une chanson, _à fond_, zéro talent requis"
+    ],
+    "chute": "mes voisins _me détestent_"
+   },
+   "de": {
+    "titre": "ich singe unter der dusche, _laut_",
+    "intro": "ja, _jeden morgen_",
+    "paragraphes": [
+     "beim singen kann man _nicht grummelig sein_",
+     "ein song, _volle lautstärke_, kein talent nötig"
+    ],
+    "chute": "nachbarn _hassen mich_"
+   },
+   "it": {
+    "titre": "canto sotto la doccia, _forte_",
+    "intro": "sì, _ogni mattina_",
+    "paragraphes": [
+     "impossibile essere di malumore _mentre canti_",
+     "una canzone, _volume al massimo_, zero talento"
+    ],
+    "chute": "i vicini _mi odiano_"
+   },
+   "hu": {
+    "titre": "zuhany alatt _hangosan_ énekelek",
+    "intro": "igen, _minden reggel_",
+    "paragraphes": [
+     "lehetetlen morcosnak lenni _éneklés közben_",
+     "egy dal, _teljes hangerő_, tehetség nem kell"
+    ],
+    "chute": "a szomszédaim _utálnak_"
+   },
+   "ro": {
+    "titre": "cânt la duș, _tare_",
+    "intro": "da, _zi de zi_",
+    "paragraphes": [
+     "e imposibil să fii morocănoasă _când cânți_",
+     "o melodie, _la maximum_, fără talent"
+    ],
+    "chute": "vecinii _mă urăsc_"
+   },
+   "el": {
+    "titre": "τραγουδάω στο ντους, _δυνατά_",
+    "intro": "ναι, _κάθε πρωί_",
+    "paragraphes": [
+     "αδύνατον να είσαι γκρινιάρα _ενώ τραγουδάς_",
+     "ένα τραγούδι, _στη διαπασών_, χωρίς ταλέντο"
+    ],
+    "chute": "οι γείτονες _με μισούν_"
    }
   },
   {
@@ -117,6 +435,60 @@
      "window open, _coffee in hand_"
     ],
     "chute": "weird, cold, _worth it_"
+   },
+   "fr": {
+    "titre": "j'ouvre la fenêtre _même en hiver_",
+    "intro": "5 minutes d'air frais, _sous un plaid_",
+    "paragraphes": [
+     "l'air froid dans ma chambre _me réveille_ mieux qu'un café",
+     "fenêtre ouverte, _café en main_"
+    ],
+    "chute": "chelou, froid, _mais top_"
+   },
+   "de": {
+    "titre": "ich öffne das fenster _auch im winter_",
+    "intro": "5 minuten frische luft, _decke um_",
+    "paragraphes": [
+     "die kalte luft im zimmer _weckt mich_ besser als kaffee",
+     "fenster auf, _kaffee in der hand_"
+    ],
+    "chute": "schräg, kalt, _lohnt sich_"
+   },
+   "it": {
+    "titre": "apro la finestra _anche d'inverno_",
+    "intro": "5 minuti d'aria fresca, _con la coperta_",
+    "paragraphes": [
+     "l'aria fredda in camera _mi sveglia_ meglio del caffè",
+     "finestra aperta, _caffè in mano_"
+    ],
+    "chute": "strano, freddo, _ma top_"
+   },
+   "hu": {
+    "titre": "kinyitom az ablakot _télen is_",
+    "intro": "5 perc friss levegő, _pléddel_",
+    "paragraphes": [
+     "a hideg levegő a szobámban jobban _felébreszt_, mint a kávé",
+     "ablak nyitva, _kávé a kézben_"
+    ],
+    "chute": "fura, hideg, _megéri_"
+   },
+   "ro": {
+    "titre": "deschid geamul _chiar și iarna_",
+    "intro": "5 minute de aer curat, _sub pătură_",
+    "paragraphes": [
+     "aerul rece din cameră _mă trezește_ mai bine ca o cafea",
+     "geamul deschis, _cafeaua în mână_"
+    ],
+    "chute": "ciudat, rece, _merită_"
+   },
+   "el": {
+    "titre": "ανοίγω παράθυρο _και τον χειμώνα_",
+    "intro": "5 λεπτά καθαρός αέρας, _με κουβέρτα_",
+    "paragraphes": [
+     "ο κρύος αέρας στο δωμάτιο _με ξυπνά_ καλύτερα από καφέ",
+     "τζάμι ανοιχτό, _καφές στο χέρι_"
+    ],
+    "chute": "περίεργο, κρύο, _αξίζει_"
    }
   }
  ]

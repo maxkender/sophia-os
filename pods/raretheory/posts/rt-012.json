@@ -7,7 +7,8 @@
     "fr": "sujets scientifiques qui ont l'air inventés mais qui sont vrais",
     "it": "argomenti di scienza che sembrano finti ma sono veri",
     "ro": "teme de știință care sună inventat, dar sunt reale",
-    "tr": "kulağa uydurma gibi gelen ama gerçek bilim konuları"
+    "tr": "kulağa uydurma gibi gelen ama gerçek bilim konuları",
+    "de": "wissenschaft, die erfunden klingt, aber echt ist"
   },
   "legendes": {
     "en": "every single one of these sounds made up. every single one is real.\n\nchemistry that looks like magic, planets that shouldn't exist, living things that ignore the rules, earth doing weird stuff, and math that feels illegal.\n\npick the one u don't believe and look it up.\n\nsave this for ur next science rabbit hole.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok",
@@ -15,7 +16,8 @@
     "fr": "chacun de ces trucs a l'air inventé. chacun est vrai.\n\nde la chimie qui ressemble à de la magie, des planètes qui devraient pas exister, des êtres vivants qui ignorent les règles, la terre qui fait des trucs bizarres, et des maths qui ont l'air illégales.\n\nchoisis celui que tu crois pas et va vérifier.\n\nenregistre ça pour ton prochain rabbit hole de science.\n\n#culturegenerale #science #apprendresurtiktok #studytok #learning",
     "it": "ognuno di questi sembra inventato. ognuno è vero.\n\nchimica che sembra magia, pianeti che non dovrebbero esistere, esseri viventi che ignorano le regole, la terra che fa cose strane e matematica che sembra illegale.\n\nscegli quello a cui non credi e cercalo.\n\nsalvalo per il tuo prossimo rabbit hole scientifico.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok #imparaconte #scienza #perte",
     "ro": "fiecare dintre astea sună inventat. fiecare e reală.\n\nchimie care pare magie, planete care n-ar trebui să existe, viețuitoare care ignoră regulile, pământul care face chestii ciudate și matematică ce pare ilegală.\n\nalege-o pe cea pe care n-o crezi și caut-o.\n\nsalvează asta pt următorul tău rabbit hole științific.\n\n#studytok #learning #stiinta #curiozitati #romania",
-    "tr": "bunların her biri uydurma gibi duruyor. her biri gerçek.\n\nsihir gibi görünen kimya, var olmaması gereken gezegenler, kurallara uymayan canlılar, tuhaflık yapan dünya ve yasa dışıymış gibi hissettiren matematik.\n\ninanmadığın birini seç ve araştır.\n\nbir sonraki bilim tavşan deliğin için kaydet.\n\n#studytok #learning #bilim #keşfet #merak"
+    "tr": "bunların her biri uydurma gibi duruyor. her biri gerçek.\n\nsihir gibi görünen kimya, var olmaması gereken gezegenler, kurallara uymayan canlılar, tuhaflık yapan dünya ve yasa dışıymış gibi hissettiren matematik.\n\ninanmadığın birini seç ve araştır.\n\nbir sonraki bilim tavşan deliğin için kaydet.\n\n#studytok #learning #bilim #keşfet #merak",
+    "de": "jedes einzelne davon klingt ausgedacht. jedes einzelne ist echt.\n\nchemie, die wie magie aussieht, planeten, die es eigentlich nicht geben dürfte, lebewesen, die sich an keine regel halten, eine erde, die komische sachen macht, und mathe, die sich verboten anfühlt.\n\nnimm das, was du nicht glaubst, und schau es nach.\n\nspeicher dir das für dein nächstes wissenschafts-rabbit-hole.\n\n#studytok #learning #wissenschaft #allgemeinwissen #wissen"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -60,6 +62,9 @@
       },
       "tr": {
         "titre": "kulağa uydurma gibi\ngelen ama gerçek\nbilim konuları"
+      },
+      "de": {
+        "titre": "wissenschaft, die\nerfunden klingt,\naber echt ist"
       }
     },
     {
@@ -170,6 +175,24 @@
           "Grafen",
           "Metalik hidrojen",
           "Şekil hafızalı metal"
+        ]
+      },
+      "de": {
+        "titre": "Chemie, die wie Magie aussieht",
+        "sujets": [
+          "Nicht-newtonsche Flüssigkeiten",
+          "Unterkühltes Wasser",
+          "Aerogel",
+          "Ferrofluid",
+          "Gallium",
+          "Bologneser Tränen",
+          "Tribolumineszenz",
+          "Chemilumineszenz",
+          "Suprafluides Helium",
+          "Elefantenzahnpasta",
+          "Graphen",
+          "Metallischer Wasserstoff",
+          "Formgedächtnislegierungen"
         ]
       }
     },
@@ -282,6 +305,24 @@
           "Enceladus'un gayzerleri",
           "Plüton'un kalbi"
         ]
+      },
+      "de": {
+        "titre": "Planeten, die erfunden klingen",
+        "sujets": [
+          "Der Diamantplanet",
+          "Der Planet, auf dem es Glas regnet",
+          "Kepler-16b und seine zwei Sonnen",
+          "Der dunkelste bekannte Planet",
+          "Ein Venustag dauert länger als ihr Jahr",
+          "Uranus rotiert auf der Seite",
+          "Olympus Mons",
+          "Das Sechseck des Saturn",
+          "Die Methanseen auf Titan",
+          "Die Vulkane von Io",
+          "Der verborgene Ozean von Europa",
+          "Die Geysire von Enceladus",
+          "Das Herz von Pluto"
+        ]
       }
     },
     {
@@ -326,6 +367,13 @@
         "paragraphes": [
           "Sophia bana günde bir ders veriyor, gerçek profesörlerin yazdığı, sonunda da küçük bir quiz olan. tarih, felsefe, bilim, jeopolitik, edebiyat, ekonomi.",
           "10 dakika sürüyor ve uydurma sandığım şeylerin yarısının aslında gerçek olduğunu böyle öğrendim."
+        ]
+      },
+      "de": {
+        "titre": "wo ich nachschaue",
+        "paragraphes": [
+          "Sophia gibt mir jeden tag eine lektion, geschrieben von echten professoren, mit einem kleinen quiz danach. geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "das sind 10 minuten, und so hab ich gelernt, dass die hälfte von dem, was ich für erfunden hielt, echt ist."
         ]
       }
     },
@@ -438,6 +486,24 @@
           "Ceset çiçeği",
           "Küstüm otu"
         ]
+      },
+      "de": {
+        "titre": "Leben, das die Regeln bricht",
+        "sujets": [
+          "Die Sonnenenergie-Meeresschnecke",
+          "Zitteraale",
+          "Die Hydra",
+          "Flechten",
+          "Der Knallkrebs",
+          "Der Schützenfisch",
+          "Glasfrösche",
+          "Der Schleim der Schleimaale",
+          "Lungenfische",
+          "Der Frosch, der zu Eis gefriert",
+          "Die Venusfliegenfalle",
+          "Die Titanenwurz",
+          "Die Mimose"
+        ]
       }
     },
     {
@@ -549,6 +615,24 @@
           "Yeşil parıltı",
           "Kaynayan Nehir"
         ]
+      },
+      "de": {
+        "titre": "Die Erde ist seltsam",
+        "sujets": [
+          "Die wandernden Steine",
+          "Singende Sanddünen",
+          "Morning-Glory-Wolken",
+          "Mondregenbögen",
+          "Brinicles",
+          "Büßereis",
+          "Feuerregenbögen",
+          "Die Catatumbo-Blitze",
+          "Die Blood Falls",
+          "Frostblumen",
+          "Lichtsäulen",
+          "Der grüne Blitz",
+          "Der kochende Fluss"
+        ]
       }
     },
     {
@@ -654,6 +738,23 @@
           "Mandelbrot kümesi",
           "Alan dolduran eğriler"
         ]
+      },
+      "de": {
+        "titre": "Mathe, die erfunden klingt",
+        "sujets": [
+          "Grahams Zahl",
+          "Googolplex",
+          "Das Banach-Tarski-Paradoxon",
+          "Gabriels Horn",
+          "0,999... = 1",
+          "Der Satz vom Igel",
+          "Der Vier-Farben-Satz",
+          "Die Monstergruppe",
+          "Die Kaprekar-Konstante",
+          "Das Fleißige-Biber-Problem",
+          "Die Mandelbrot-Menge",
+          "Raumfüllende Kurven"
+        ]
       }
     },
     {
@@ -681,6 +782,10 @@
       "tr": {
         "texte": "bunu kaydet ve bilimin sıkıcı olduğunu söyleyen arkadaşına gönder. bir konu seç ve ona yanıldığını kanıtla.",
         "gras": "YA DA.. hepsinin uydurma olduğunu düşünmeye devam et."
+      },
+      "de": {
+        "texte": "speicher dir das und schick es an die freundin, die sagt, wissenschaft sei langweilig. nimm dir ein thema und beweis ihr das gegenteil.",
+        "gras": "ODER.. glaub weiter, das ist alles erfunden."
       }
     }
   ]

@@ -7,7 +7,8 @@
     "fr": "questions qui vont te retourner le cerveau à 3h du mat",
     "it": "domande che alle 3 di notte ti mandano in tilt il cervello",
     "ro": "întrebări care îți fac praf creierul la 3 noaptea",
-    "tr": "gece 3'te beynini yakacak sorular"
+    "tr": "gece 3'te beynini yakacak sorular",
+    "de": "fragen, die dein hirn um 3 uhr nachts sprengen"
   },
   "legendes": {
     "en": "some questions don't have answers. that's exactly why they're worth thinking about.\n\nthe mind, how we know anything, time, right and wrong, and why anything exists at all.\n\nphilosophers have argued about these for centuries. u get to join in.\n\nsave this for the next night u can't sleep.\n\n#philosophy #deepthoughts #learning #curiosity #studytok",
@@ -15,7 +16,8 @@
     "fr": "certaines questions ont pas de réponse. c'est justement pour ça qu'elles valent le coup d'y réfléchir.\n\nl'esprit, comment on peut savoir quoi que ce soit, le temps, le bien et le mal, et pourquoi quelque chose existe.\n\nles philosophes en débattent depuis des siècles. à toi de te joindre à eux.\n\nenregistre ça pour la prochaine nuit où tu dors pas.\n\n#philosophie #philo #reflexion #studytok #learning",
     "it": "certe domande non hanno risposta. ed è proprio per questo che vale la pena pensarci.\n\nla mente, come facciamo a sapere qualcosa, il tempo, il bene e il male, e perché esiste qualcosa.\n\ni filosofi ne discutono da secoli. puoi unirti anche tu.\n\nsalvalo per la prossima notte in cui non riesci a dormire.\n\n#philosophy #deepthoughts #learning #curiosity #studytok #filosofia #pensieri #perte",
     "ro": "unele întrebări n-au răspuns. exact de asta merită să te gândești la ele.\n\nmintea, cum putem ști ceva, timpul, binele și răul și de ce există ceva până la urmă.\n\nfilozofii se ceartă pe ele de secole. acum poți să intri și tu în discuție.\n\nsalvează asta pt următoarea noapte în care nu poți dormi.\n\n#studytok #learning #filozofie #ganduri #romania",
-    "tr": "bazı soruların cevabı yok. tam da bu yüzden üzerine düşünmeye değerler.\n\nzihin, bir şeyi nasıl bildiğimiz, zaman, doğru ve yanlış, ve neden herhangi bir şeyin var olduğu.\n\nfilozoflar bunları yüzyıllardır tartışıyor. sen de katılabilirsin.\n\nuyuyamadığın bir sonraki gece için kaydet.\n\n#studytok #learning #felsefe #derindüşünceler #keşfet"
+    "tr": "bazı soruların cevabı yok. tam da bu yüzden üzerine düşünmeye değerler.\n\nzihin, bir şeyi nasıl bildiğimiz, zaman, doğru ve yanlış, ve neden herhangi bir şeyin var olduğu.\n\nfilozoflar bunları yüzyıllardır tartışıyor. sen de katılabilirsin.\n\nuyuyamadığın bir sonraki gece için kaydet.\n\n#studytok #learning #felsefe #derindüşünceler #keşfet",
+    "de": "manche fragen haben keine antwort. genau deshalb lohnt es sich, über sie nachzudenken.\n\nder geist, wie wir überhaupt etwas wissen, die zeit, richtig und falsch und warum überhaupt etwas existiert.\n\nphilosophen streiten seit jahrhunderten darüber. du darfst mitmachen.\n\nspeicher dir das für die nächste nacht, in der du nicht schlafen kannst.\n\n#studytok #learning #philosophie #deepthoughts #allgemeinwissen"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -60,6 +62,9 @@
       },
       "tr": {
         "titre": "gece 3'te beynini\nyakacak sorular"
+      },
+      "de": {
+        "titre": "fragen, die dein hirn\num 3 uhr nachts\nsprengen"
       }
     },
     {
@@ -146,6 +151,20 @@
           "Başka zihinler problemi",
           "Kişisel kimlik",
           "Zihin-beden problemi"
+        ]
+      },
+      "de": {
+        "titre": "Der Geist",
+        "sujets": [
+          "Das schwierige Problem des Bewusstseins",
+          "Qualia",
+          "Marys Zimmer",
+          "Philosophische Zombies",
+          "Das Chinesische Zimmer",
+          "Gehirn im Tank",
+          "Das Problem des Fremdpsychischen",
+          "Personale Identität",
+          "Das Leib-Seele-Problem"
         ]
       }
     },
@@ -234,6 +253,20 @@
           "Siyah kuğular",
           "Harita, bölgenin kendisi değildir"
         ]
+      },
+      "de": {
+        "titre": "Wie können wir etwas wissen?",
+        "sujets": [
+          "Das Induktionsproblem",
+          "Gettier-Probleme",
+          "Descartes' böser Dämon",
+          "Das Münchhausen-Trilemma",
+          "Humes Gabel",
+          "Falsifizierbarkeit",
+          "Bayessches Denken",
+          "Schwarze Schwäne",
+          "Die Karte ist nicht das Gebiet"
+        ]
       }
     },
     {
@@ -278,6 +311,13 @@
         "paragraphes": [
           "bir tavşan deliğine dalmadan önce Sophia'da 10 dakikalık dersimi yapıyorum. günde kısa bir ders: tarih, felsefe, bilim, jeopolitik, edebiyat, ekonomi.",
           "her birini gerçek profesörler yazıyor ve sonunda küçük bir quiz var. nefret edeceğimi sandığım şey felsefeydi. şimdi en sevdiğim o."
+        ]
+      },
+      "de": {
+        "titre": "wie ich dazu kam",
+        "paragraphes": [
+          "bevor ich in ein rabbit hole abtauche, mache ich die 10-minuten-lektion bei Sophia. eine kurze lektion am tag: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "jede ist von echten professoren geschrieben und endet mit einem kleinen quiz. bei philosophie dachte ich, ich würde es hassen. jetzt ist es mein lieblingsthema."
         ]
       }
     },
@@ -360,6 +400,19 @@
           "Evrenin ısıl ölümü",
           "Geçmişi hatırlıyoruz da geleceği neden değil?"
         ]
+      },
+      "de": {
+        "titre": "Zeit",
+        "sujets": [
+          "Was ist Zeit?",
+          "Der Zeitpfeil",
+          "Das Blockuniversum",
+          "Präsentismus vs. Eternalismus",
+          "Determinismus",
+          "Geschlossene zeitartige Kurven",
+          "Der Wärmetod des Universums",
+          "Warum wir uns nur an die Vergangenheit erinnern"
+        ]
       }
     },
     {
@@ -440,6 +493,19 @@
           "Kategorik buyruk",
           "Erdem etiği",
           "İtici sonuç"
+        ]
+      },
+      "de": {
+        "titre": "Richtig & Falsch",
+        "sujets": [
+          "Der Ring des Gyges",
+          "Die Erlebnismaschine",
+          "Moralisches Glück",
+          "Das Sein-Sollen-Problem",
+          "Das Euthyphron-Dilemma",
+          "Der kategorische Imperativ",
+          "Tugendethik",
+          "Die abstoßende Schlussfolgerung"
         ]
       }
     },
@@ -528,6 +594,20 @@
           "Wabi-sabi",
           "Ubuntu felsefesi"
         ]
+      },
+      "de": {
+        "titre": "Warum überhaupt etwas existiert",
+        "sujets": [
+          "Warum ist überhaupt etwas und nicht vielmehr nichts?",
+          "Das anthropische Prinzip",
+          "Das Feinabstimmungsproblem",
+          "Nihilismus",
+          "Der Mythos des Sisyphos",
+          "Amor fati",
+          "Memento mori",
+          "Wabi-Sabi",
+          "Ubuntu-Philosophie"
+        ]
       }
     },
     {
@@ -555,6 +635,10 @@
       "tr": {
         "texte": "beyninin susmadığı bir sonraki gece için bunu kaydet. bir soru seç, hakkında oku ve kendi cevabını oluştur.",
         "gras": "YA DA.. yine yatıp kafanda kur dur."
+      },
+      "de": {
+        "texte": "speicher dir das fürs nächste mal, wenn dein hirn nicht abschalten will. such dir eine frage aus, lies darüber und bilde dir deine eigene antwort.",
+        "gras": "ODER.. lieg da und denk trotzdem zu viel nach."
       }
     }
   ]

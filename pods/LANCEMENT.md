@@ -30,6 +30,13 @@ Les comptes viennent des nouveaux comptes : une langue ouverte où le label a
 moins de comptes que son palier n'en donne passe **avant tout** à la création
 d'un compte. Un compte qui arrive dans une langue que le podz n'a pas encore
 livrée n'a rien à poster : **les 7 langues doivent être livrées**.
+Un label au palier ne dépasse jamais le total de son palier (7, 14 ou 28
+comptes, 0876), même s'il a plus de langues ouvertes.
+
+Les labels 100 % podz d'avant le 27/11 gardent l'ancien test (Adrien, 27/11 :
+« rien pour l'instant, ouvre juste pour les prochains »). Le bouton « Passer
+en paliers » de la page Allocation existe, mais on ne s'en sert pas sans
+l'accord d'Adrien.
 
 Vérifier après la migration : `select * from podz_paliers_etat() where pod = '<slug>';`
 (palier 1, 7 langues ouvertes).

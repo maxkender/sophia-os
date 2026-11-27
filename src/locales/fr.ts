@@ -8307,6 +8307,7 @@ export const fr = {
       rPostsNouveau: "Posts/jour d'un nouveau compte",
       rPartMax: "Part maximale d'un label",
       rRafale: "Anti-rafale (derniers comptes)",
+      rContenusParCompteLangue: "Contenus valides par compte dans une langue (minimum)",
       rRelabels: "Comptes déplacés au plus par nuit",
       rPartMaxPays: "Part max d'un label dans un pays",
       rTestPodComptes: "Comptes de test d'un label 100 % podz",

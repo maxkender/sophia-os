@@ -28,8 +28,9 @@
 import { connecter, lienRuul } from "../_shared/ruul_connect.ts";
 import { TEXTES_SETUP_EN } from "../_shared/ruul_setup.ts";
 import { normaliserLangue, traduireChamps } from "../_shared/traduction_email.ts";
-import { appelRuul, BASES, descriptionLigne, descriptionLot, type EnvRuul } from "../_shared/ruul_api.ts";
+import { appelRuul, BASES, descriptionLigne, descriptionLot, type EnvRuul, pageSuivanteWorkmates, PAGE_WORKMATES } from "../_shared/ruul_api.ts";
 import { assertAuthorised, assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { alerterSlack } from "../_shared/slack.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -93,12 +94,30 @@ async function societe(supabase: Supabase, reglage: ReglageRuulApi): Promise<{ i
   return { id: liste[0]!.id, erreur: null };
 }
 
+/**
+ * Tous les workmates de la société, par pages (27/11 : Ruul pagine `/workmates` avec page et limit et rend
+ * total, page, limit). Sans `total` dans la réponse (pagination absente), la première réponse est la liste
+ * complète, comme avant. Au premier échec, on s'arrête : `r` est l'appel raté, `liste` ce qui a été lu.
+ */
+async function workmatesTous(env: EnvRuul, companyId: number) {
+  const liste: unknown[] = [];
+  let r = await appelRuul<{ data: unknown[]; total?: number }>(env, "GET", "/workmates", { query: { companyId, page: 1, limit: PAGE_WORKMATES } });
+  for (let page = 1; ; page++) {
+    if (!r.ok) return { r, liste };
+    const lot = Array.isArray(r.data?.data) ? r.data!.data : [];
+    liste.push(...lot);
+    const total = typeof r.data?.total === "number" ? r.data.total : null;
+    if (!pageSuivanteWorkmates(total, lot.length, liste.length, page)) break;
+    r = await appelRuul<{ data: unknown[]; total?: number }>(env, "GET", "/workmates", { query: { companyId, page: page + 1, limit: PAGE_WORKMATES } });
+  }
+  return { r, liste };
+}
+
 async function sync(supabase: Supabase) {
   const reglage = await lireReglage(supabase);
   const soc = await societe(supabase, reglage);
   if (!soc.id) return { ok: false, env: reglage.env, error: soc.erreur };
-  const r = await appelRuul<{ data: unknown[] }>(reglage.env, "GET", "/workmates", { query: { companyId: soc.id } });
-  const liste = Array.isArray(r.data?.data) ? r.data!.data : [];
+  const { r, liste } = await workmatesTous(reglage.env, soc.id);
   if (!r.ok) {
     await noterAppel(supabase, reglage.env, "workmates", r);
     return { ok: false, env: reglage.env, error: r.erreur };
@@ -126,9 +145,10 @@ async function connect(supabase: Supabase, corps: Record<string, unknown>) {
     if (error) throw new Error(error.message);
     liste = (data ?? []) as typeof liste;
   }
-  const bilan = { ok: 0, erreurs: [] as string[], par_statut: {} as Record<string, number> };
+  const bilan = { ok: 0, erreurs: [] as string[], par_statut: {} as Record<string, number>, emails_refuses: [] as string[] };
   for (const p of liste) {
     const r = await connecter(supabase, reglage.env, p);
+    if (r.emailRefuse) bilan.emails_refuses.push(`${p.prenom} ${p.nom === "-" ? "" : p.nom}`.trim());
     if (r.url) {
       bilan.ok++;
       bilan.par_statut[r.statut ?? "?"] = (bilan.par_statut[r.statut ?? "?"] ?? 0) + 1;
@@ -138,9 +158,17 @@ async function connect(supabase: Supabase, corps: Record<string, unknown>) {
     if (r.erreur && /throttl|too many|rate.?limit|429/i.test(r.erreur)) break;
     await pause(220); // Ruul : 5 connect par seconde au plus.
   }
+  // 27/11 : un email lié à un compte business Ruul ne peut pas être payé. Le posteur est noté (plus d'essai) ;
+  // l'admin doit lui demander un autre email : une alerte, sans l'adresse (prénoms seulement).
+  if (bilan.emails_refuses.length > 0 && reglage.env === "prod") {
+    await alerterSlack(
+      `⚠️ Ruul refuse l'email de ${bilan.emails_refuses.length} posteur(s) (déjà lié à un compte business Ruul) : ` +
+        `${bilan.emails_refuses.join(", ")}. Leur demander un autre email Ruul ; l'OS les réinvitera dès qu'il sera saisi.`,
+    );
+  }
   // Le journal : des compteurs, jamais les liens.
   await noterAppel(supabase, reglage.env, "connect", { http: 200, code: null, erreur: bilan.erreurs[0] ?? null, duree_ms: 0 },
-    { a_faire: liste.length, ok: bilan.ok, erreurs: bilan.erreurs.length, par_statut: bilan.par_statut });
+    { a_faire: liste.length, ok: bilan.ok, erreurs: bilan.erreurs.length, par_statut: bilan.par_statut, emails_refuses: bilan.emails_refuses.length });
   return { ok: bilan.erreurs.length === 0, env: reglage.env, a_faire: liste.length, liens: bilan.ok, par_statut: bilan.par_statut, erreurs: bilan.erreurs.slice(0, 10) };
 }
 

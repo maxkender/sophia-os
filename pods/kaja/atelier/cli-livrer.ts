@@ -31,7 +31,9 @@ const completes = languesCompletes(post);
 // déjà validé), seulement les langues demandées, sans la langue source.
 const complement = args.includes("--complement");
 const os = await languesDuLabel();
-const utiles = os?.a_livrer ? new Set<string>(os.a_livrer) : null;
+// Adrien 27/11 : on livre dans TOUTES les langues ouvertes du podz (sa liste LANGUES),
+// même là où le label n'a pas encore de compte : le deck attend le compte dans la file.
+const utiles = os?.a_livrer ? new Set<string>([...LANGUES]) : null;
 const demandees = opt("--langues")?.split(",").map((l) => l.trim()).filter(Boolean) ?? [...LANGUES];
 const sansCompte = utiles ? demandees.filter((l) => l !== LANGUE_SOURCE && !utiles.has(l)) : [];
 if (sansCompte.length) console.log(`${id} : pas de compte du label en ${sansCompte.join(", ")} : non livré`);

@@ -11,7 +11,7 @@ Les mots (label, podz, modèle, source, format) sont définis dans
 Ce fichier vaut pour tous les podz. Ton `AGENT.md` dit **quoi** livrer et
 **comment** ; ce fichier dit **quand** et **combien**. Il a deux parties :
 
-- **Voie 1**, les podz d'originaux (2, 4, 5, 7, 8, 9, 12 et 14) : ils déclinent
+- **Voie 1**, les podz d'originaux (2, 4, 5, 7, 8, 9, 12, 14, 35 et 36) : ils déclinent
   les familles gagnantes de leur boîte BLEO et ajoutent des full tests (§4).
 - **Voie 2**, les podz de remakes (1, 10, 11 et 13 ; le 6 est arrêté) : ils
   refont les posts neufs de leur compte modèle, déclinent les familles

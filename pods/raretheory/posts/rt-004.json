@@ -2,10 +2,24 @@
   "id": "rt-004",
   "type_bleo": "full_test",
   "titre": {
-    "en": "topics that make u sound smart in any conversation"
+    "en": "topics that make u sound smart in any conversation",
+    "de": "themen, die dich in jedem gespräch klug klingen lassen",
+    "it": "cose da sapere per sembrare smart in ogni conversazione",
+    "sv": "ämnen som får dig att låta smart i alla samtal",
+    "fr": "des sujets qui te font briller dans toutes les conversations",
+    "tr": "her sohbette zeki görünmeni sağlayan konular",
+    "ro": "subiecte cu care faci impresie în orice conversație",
+    "hu": "témák, amikről ha beszélsz, mindenki okosnak fog tartani"
   },
   "legendes": {
-    "en": "u don't need to know everything. u just need to actually understand a few things well.\n\ncognitive biases, how money moves, the laws people quote at work, experiments that changed science, the philosophers everyone name-drops, and how the world is put together.\n\nlearn one properly and u'll hear it everywhere.\n\nsave this before ur next long conversation.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok"
+    "en": "u don't need to know everything. u just need to actually understand a few things well.\n\ncognitive biases, how money moves, the laws people quote at work, experiments that changed science, the philosophers everyone name-drops, and how the world is put together.\n\nlearn one properly and u'll hear it everywhere.\n\nsave this before ur next long conversation.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok",
+    "de": "du musst nicht alles wissen. du musst nur ein paar dinge wirklich gut verstehen.\n\nkognitive verzerrungen, wie geld sich bewegt, die gesetze, die alle im job zitieren, experimente, die die wissenschaft verändert haben, die philosophen, die jeder erwähnt, und wie die welt zusammengesetzt ist.\n\nlern eins richtig und du hörst es plötzlich überall.\n\nspeicher dir das vor deinem nächsten langen gespräch.\n\n#studytok #learning #lernen #allgemeinwissen #wissen",
+    "it": "non devi sapere tutto. ti basta capire davvero bene poche cose.\n\ni bias cognitivi, come si muovono i soldi, le leggi che la gente cita al lavoro, gli esperimenti che hanno cambiato la scienza, i filosofi che tutti nominano e come è fatto il mondo.\n\nimparane uno come si deve e lo sentirai ovunque.\n\nsalvalo prima della tua prossima lunga chiacchierata.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok #imparaconte #cultura #perte",
+    "sv": "du behöver inte kunna allt. du behöver bara förstå några saker på riktigt.\n\nkognitiva biaser, hur pengar rör sig, lagarna folk citerar på jobbet, experiment som förändrade vetenskapen, filosoferna alla namedroppar och hur världen hänger ihop.\n\nlär dig en ordentligt så kommer du höra den överallt.\n\nspara det här innan ditt nästa långa samtal.\n\n#learning #studytok #plugga #allmänbildning #fördig",
+    "fr": "t'as pas besoin de tout savoir. t'as juste besoin de vraiment bien comprendre quelques trucs.\n\nles biais cognitifs, comment l'argent circule, les lois que les gens citent au boulot, les expériences qui ont changé la science, les philosophes que tout le monde cite, et comment le monde est organisé.\n\napprends-en un correctement et tu vas l'entendre partout.\n\nenregistre ça avant ta prochaine longue conversation.\n\n#culturegenerale #apprendresurtiktok #curiosite #studytok #learning",
+    "tr": "her şeyi bilmen gerekmiyor. sadece birkaç şeyi gerçekten iyi anlaman yeterli.\n\nbilişsel önyargılar, paranın nasıl döndüğü, iş yerinde herkesin alıntıladığı yasalar, bilimi değiştiren deneyler, herkesin adını geçirdiği filozoflar ve dünyanın nasıl kurulduğu.\n\nbirini düzgünce öğren, her yerde duymaya başlarsın.\n\nbir sonraki uzun sohbetinden önce kaydet.\n\n#studytok #learning #keşfet #bilgi #kendinigeliştir",
+    "ro": "nu trebuie să știi tot. trebuie doar să înțelegi cu adevărat câteva lucruri.\n\nerori cognitive, cum circulă banii, legile pe care oamenii le citează la muncă, experimente care au schimbat știința, filozofii pe care îi pomenește toată lumea și cum e construită lumea.\n\ninvață unul ca lumea și o să-l auzi peste tot.\n\nsalvează asta înainte de următoarea conversație lungă.\n\n#studytok #learning #invatare #curiozitati #romania",
+    "hu": "nem kell mindent tudnod. csak pár dolgot kell tényleg jól értened.\n\nkognitív torzítások, hogyan mozog a pénz, a törvények, amiket mindenki idéz a munkahelyen, kísérletek, amik megváltoztatták a tudományt, a filozófusok, akiket mindenki emleget, és hogy hogyan áll össze a világ.\n\ntanulj meg egyet rendesen, és utána mindenhol hallani fogod.\n\nmentsd el a következő hosszú beszélgetés előtt.\n\n#tanulás #önfejlesztés #magyartiktok #studytok #learning"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -35,6 +49,27 @@
       ],
       "en": {
         "titre": "topics that make u\nsound smart in any\nconversation"
+      },
+      "de": {
+        "titre": "themen, die dich\nin jedem gespräch\nklug klingen lassen"
+      },
+      "it": {
+        "titre": "cose da sapere per\nsembrare smart in\nogni conversazione"
+      },
+      "sv": {
+        "titre": "ämnen som får dig\natt låta smart i alla\nsamtal"
+      },
+      "fr": {
+        "titre": "des sujets qui te font\nbriller dans toutes\nles conversations"
+      },
+      "tr": {
+        "titre": "her sohbette zeki\ngörünmeni sağlayan\nkonular"
+      },
+      "ro": {
+        "titre": "subiecte cu care faci\nimpresie în orice\nconversație"
+      },
+      "hu": {
+        "titre": "témák, amikről ha\nbeszélsz, mindenki\nokosnak fog tartani"
       }
     },
     {
@@ -56,6 +91,139 @@
           "The Frequency Illusion",
           "Hindsight Bias",
           "The Pygmalion Effect"
+        ]
+      },
+      "de": {
+        "titre": "Kognitive Verzerrungen",
+        "sujets": [
+          "Der Bestätigungsfehler",
+          "Der Dunning-Kruger-Effekt",
+          "Die Sunk-Cost-Falle",
+          "Der Spotlight-Effekt",
+          "Der Ankereffekt",
+          "Der Halo-Effekt",
+          "Der Zuschauereffekt",
+          "Der Survivorship Bias",
+          "Der Barnum-Effekt",
+          "Die Verlustaversion",
+          "Der Mere-Exposure-Effekt",
+          "Die Frequenzillusion",
+          "Der Rückschaufehler",
+          "Der Pygmalion-Effekt"
+        ]
+      },
+      "it": {
+        "titre": "Bias cognitivi",
+        "sujets": [
+          "Il bias di conferma",
+          "L'effetto Dunning-Kruger",
+          "La fallacia dei costi irrecuperabili",
+          "L'effetto riflettore",
+          "L'effetto ancoraggio",
+          "L'effetto alone",
+          "L'effetto spettatore",
+          "Il bias del sopravvissuto",
+          "L'effetto Barnum",
+          "L'avversione alla perdita",
+          "L'effetto esposizione",
+          "L'illusione di frequenza",
+          "Il bias del senno di poi",
+          "L'effetto Pigmalione"
+        ]
+      },
+      "sv": {
+        "titre": "Kognitiva biaser",
+        "sujets": [
+          "Bekräftelsebias",
+          "Dunning–Kruger-effekten",
+          "Sunk cost-fällan",
+          "Spotlighteffekten",
+          "Förankringseffekten",
+          "Haloeffekten",
+          "Åskådareffekten",
+          "Överlevnadsbias",
+          "Barnumeffekten",
+          "Förlustaversion",
+          "Exponeringseffekten",
+          "Frekvensillusionen",
+          "Efterhandsbias",
+          "Pygmalioneffekten"
+        ]
+      },
+      "fr": {
+        "titre": "Biais cognitifs",
+        "sujets": [
+          "Biais de confirmation",
+          "Effet Dunning-Kruger",
+          "Coûts irrécupérables",
+          "Effet projecteur",
+          "Biais d'ancrage",
+          "Effet de halo",
+          "Effet du témoin",
+          "Biais du survivant",
+          "Effet Barnum",
+          "Aversion à la perte",
+          "Effet de simple exposition",
+          "Illusion de fréquence",
+          "Biais rétrospectif",
+          "Effet Pygmalion"
+        ]
+      },
+      "tr": {
+        "titre": "Bilişsel önyargılar",
+        "sujets": [
+          "Doğrulama yanlılığı",
+          "Dunning-Kruger etkisi",
+          "Batık maliyet yanılgısı",
+          "Spot ışığı etkisi",
+          "Çıpalama etkisi",
+          "Hale etkisi",
+          "Seyirci etkisi",
+          "Hayatta kalan yanlılığı",
+          "Barnum etkisi",
+          "Kayıptan kaçınma",
+          "Salt maruz kalma etkisi",
+          "Sıklık yanılsaması",
+          "Geri görüş yanlılığı",
+          "Pygmalion etkisi"
+        ]
+      },
+      "ro": {
+        "titre": "Erori cognitive",
+        "sujets": [
+          "Eroarea de confirmare",
+          "Efectul Dunning-Kruger",
+          "Eroarea costurilor irecuperabile",
+          "Efectul reflectorului",
+          "Ancorarea",
+          "Efectul de halou",
+          "Efectul spectatorului",
+          "Eroarea supraviețuitorului",
+          "Efectul Barnum",
+          "Aversiunea față de pierdere",
+          "Efectul simplei expuneri",
+          "Iluzia frecvenței",
+          "Eroarea retrospectivă",
+          "Efectul Pygmalion"
+        ]
+      },
+      "hu": {
+        "titre": "Kognitív torzítások",
+        "sujets": [
+          "Megerősítési torzítás",
+          "A Dunning–Kruger-hatás",
+          "Az elsüllyedt költségek csapdája",
+          "A reflektorfény-hatás",
+          "Horgonyhatás",
+          "A glóriahatás",
+          "A bámészkodóhatás",
+          "Túlélési torzítás",
+          "A Barnum-hatás",
+          "Veszteségkerülés",
+          "A puszta expozíció hatása",
+          "A gyakorisági illúzió",
+          "Visszatekintési torzítás",
+          "A Pygmalion-hatás"
         ]
       }
     },
@@ -79,6 +247,139 @@
           "The Paradox of Thrift",
           "Keynes vs Hayek"
         ]
+      },
+      "de": {
+        "titre": "Wirtschaft im echten Leben",
+        "sujets": [
+          "Opportunitätskosten",
+          "Angebot und Nachfrage",
+          "Inflation",
+          "Der Zinseszins",
+          "Der komparative Vorteil",
+          "Die unsichtbare Hand",
+          "Die Tragik der Allmende",
+          "Netzwerkeffekte",
+          "Goodharts Gesetz",
+          "Die Tulpenmanie",
+          "Die Weltwirtschaftskrise",
+          "Verhaltensökonomik",
+          "Das Sparparadoxon",
+          "Keynes vs. Hayek"
+        ]
+      },
+      "it": {
+        "titre": "L'economia nella vita reale",
+        "sujets": [
+          "Il costo opportunità",
+          "Domanda e offerta",
+          "L'inflazione",
+          "L'interesse composto",
+          "Il vantaggio comparato",
+          "La mano invisibile",
+          "La tragedia dei beni comuni",
+          "L'effetto rete",
+          "La legge di Goodhart",
+          "La bolla dei tulipani",
+          "La Grande depressione",
+          "L'economia comportamentale",
+          "Il paradosso del risparmio",
+          "Keynes contro Hayek"
+        ]
+      },
+      "sv": {
+        "titre": "Ekonomi i vardagen",
+        "sujets": [
+          "Alternativkostnad",
+          "Utbud och efterfrågan",
+          "Inflation",
+          "Ränta på ränta",
+          "Komparativa fördelar",
+          "Den osynliga handen",
+          "Allmänningens tragedi",
+          "Nätverkseffekter",
+          "Goodharts lag",
+          "Tulpanmanin",
+          "Den stora depressionen",
+          "Beteendeekonomi",
+          "Sparparadoxen",
+          "Keynes vs Hayek"
+        ]
+      },
+      "fr": {
+        "titre": "L'économie dans la vraie vie",
+        "sujets": [
+          "Coût d'opportunité",
+          "Offre et demande",
+          "Inflation",
+          "Intérêts composés",
+          "Avantage comparatif",
+          "Main invisible",
+          "Tragédie des biens communs",
+          "Effet de réseau",
+          "Loi de Goodhart",
+          "Tulipomanie",
+          "Grande Dépression",
+          "Économie comportementale",
+          "Paradoxe de l'épargne",
+          "Keynes contre Hayek"
+        ]
+      },
+      "tr": {
+        "titre": "Gerçek hayatta ekonomi",
+        "sujets": [
+          "Fırsat maliyeti",
+          "Arz ve talep",
+          "Enflasyon",
+          "Bileşik faiz",
+          "Karşılaştırmalı üstünlük",
+          "Görünmez el",
+          "Ortak malların trajedisi",
+          "Ağ etkisi",
+          "Goodhart yasası",
+          "Lale çılgınlığı",
+          "Büyük Buhran",
+          "Davranışsal ekonomi",
+          "Tutumluluk paradoksu",
+          "Keynes ve Hayek"
+        ]
+      },
+      "ro": {
+        "titre": "Economie în viața reală",
+        "sujets": [
+          "Costul de oportunitate",
+          "Cererea și oferta",
+          "Inflația",
+          "Dobânda compusă",
+          "Avantajul comparativ",
+          "Mâna invizibilă",
+          "Tragedia bunurilor comune",
+          "Efectele de rețea",
+          "Legea lui Goodhart",
+          "Mania lalelelor",
+          "Marea Criză",
+          "Economia comportamentală",
+          "Paradoxul economisirii",
+          "Keynes vs Hayek"
+        ]
+      },
+      "hu": {
+        "titre": "Közgazdaságtan a való életben",
+        "sujets": [
+          "Alternatív költség",
+          "Kereslet és kínálat",
+          "Infláció",
+          "Kamatos kamat",
+          "Komparatív előny",
+          "A láthatatlan kéz",
+          "A közlegelők tragédiája",
+          "Hálózati hatás",
+          "Goodhart törvénye",
+          "A tulipánmánia",
+          "A nagy gazdasági világválság",
+          "Viselkedési közgazdaságtan",
+          "A takarékosság paradoxona",
+          "Keynes vs. Hayek"
+        ]
       }
     },
     {
@@ -101,6 +402,139 @@
           "Chesterton's Fence",
           "Cunningham's Law"
         ]
+      },
+      "de": {
+        "titre": "Gesetze & Prinzipien",
+        "sujets": [
+          "Murphys Gesetz",
+          "Parkinsonsche Gesetze",
+          "Das Pareto-Prinzip",
+          "Hanlons Rasiermesser",
+          "Das Mooresche Gesetz",
+          "Sturgeons Gesetz",
+          "Hofstadters Gesetz",
+          "Das Peter-Prinzip",
+          "Brandolinis Gesetz",
+          "Der Lindy-Effekt",
+          "Das Metcalfesche Gesetz",
+          "Das Benfordsche Gesetz",
+          "Chestertons Zaun",
+          "Cunninghams Gesetz"
+        ]
+      },
+      "it": {
+        "titre": "Leggi e principi",
+        "sujets": [
+          "La legge di Murphy",
+          "La legge di Parkinson",
+          "Il principio di Pareto",
+          "Il rasoio di Hanlon",
+          "La legge di Moore",
+          "La legge di Sturgeon",
+          "La legge di Hofstadter",
+          "Il principio di Peter",
+          "La legge di Brandolini",
+          "L'effetto Lindy",
+          "La legge di Metcalfe",
+          "La legge di Benford",
+          "La staccionata di Chesterton",
+          "La legge di Cunningham"
+        ]
+      },
+      "sv": {
+        "titre": "Lagar och principer",
+        "sujets": [
+          "Murphys lag",
+          "Parkinsons lag",
+          "Paretoprincipen",
+          "Hanlons rakkniv",
+          "Moores lag",
+          "Sturgeons lag",
+          "Hofstadters lag",
+          "Peterprincipen",
+          "Brandolinis lag",
+          "Lindyeffekten",
+          "Metcalfes lag",
+          "Benfords lag",
+          "Chestertons staket",
+          "Cunninghams lag"
+        ]
+      },
+      "fr": {
+        "titre": "Lois et principes",
+        "sujets": [
+          "Loi de Murphy",
+          "Loi de Parkinson",
+          "Principe de Pareto",
+          "Rasoir de Hanlon",
+          "Loi de Moore",
+          "Loi de Sturgeon",
+          "Loi de Hofstadter",
+          "Principe de Peter",
+          "Loi de Brandolini",
+          "Effet Lindy",
+          "Loi de Metcalfe",
+          "Loi de Benford",
+          "Barrière de Chesterton",
+          "Loi de Cunningham"
+        ]
+      },
+      "tr": {
+        "titre": "Yasalar ve ilkeler",
+        "sujets": [
+          "Murphy yasası",
+          "Parkinson yasası",
+          "Pareto ilkesi",
+          "Hanlon'un usturası",
+          "Moore yasası",
+          "Sturgeon yasası",
+          "Hofstadter yasası",
+          "Peter ilkesi",
+          "Brandolini yasası",
+          "Lindy etkisi",
+          "Metcalfe yasası",
+          "Benford yasası",
+          "Chesterton'ın çiti",
+          "Cunningham yasası"
+        ]
+      },
+      "ro": {
+        "titre": "Legi și principii",
+        "sujets": [
+          "Legea lui Murphy",
+          "Legea lui Parkinson",
+          "Principiul lui Pareto",
+          "Briciul lui Hanlon",
+          "Legea lui Moore",
+          "Legea lui Sturgeon",
+          "Legea lui Hofstadter",
+          "Principiul lui Peter",
+          "Legea lui Brandolini",
+          "Efectul Lindy",
+          "Legea lui Metcalfe",
+          "Legea lui Benford",
+          "Gardul lui Chesterton",
+          "Legea lui Cunningham"
+        ]
+      },
+      "hu": {
+        "titre": "Törvények és elvek",
+        "sujets": [
+          "Murphy törvénye",
+          "Parkinson törvénye",
+          "A Pareto-elv",
+          "Hanlon borotvája",
+          "Moore törvénye",
+          "Sturgeon törvénye",
+          "Hofstadter törvénye",
+          "A Peter-elv",
+          "Brandolini törvénye",
+          "A Lindy-hatás",
+          "Metcalfe törvénye",
+          "Benford törvénye",
+          "Chesterton kerítése",
+          "Cunningham törvénye"
+        ]
       }
     },
     {
@@ -110,6 +544,55 @@
         "paragraphes": [
           "i don't research all of this from scratch. every night i do one short lesson on Sophia: history, philosophy, science, geopolitics, literature, economics.",
           "they're written by actual professors and there's a little quiz after, so i can actually explain things instead of just dropping names."
+        ]
+      },
+      "de": {
+        "titre": "eine lektion pro abend",
+        "paragraphes": [
+          "ich recherchiere das alles nicht von null auf. jeden abend mache ich eine kurze lektion bei Sophia: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "die lektionen sind von echten professoren geschrieben und danach gibt's ein kleines quiz, also kann ich dinge wirklich erklären, statt nur namen fallen zu lassen."
+        ]
+      },
+      "it": {
+        "titre": "una lezione ogni sera",
+        "paragraphes": [
+          "non faccio ricerche su tutto partendo da zero. ogni sera faccio una lezione breve su Sophia: storia, filosofia, scienze, geopolitica, letteratura, economia.",
+          "sono scritte da veri professori e alla fine c'è un piccolo quiz, così so spiegare davvero le cose invece di buttare lì qualche nome."
+        ]
+      },
+      "sv": {
+        "titre": "en lektion varje kväll",
+        "paragraphes": [
+          "jag researchar inte allt det här från noll. varje kväll gör jag en kort lektion på Sophia: historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
+          "de är skrivna av riktiga professorer och det kommer ett litet quiz efteråt, så jag kan faktiskt förklara saker i stället för att bara slänga ur mig namn."
+        ]
+      },
+      "fr": {
+        "titre": "une leçon par soir",
+        "paragraphes": [
+          "je fais pas toutes ces recherches de zéro. chaque soir je fais une courte leçon sur Sophia: histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "elles sont écrites par de vrais profs et il y a un petit quiz après, donc je peux vraiment expliquer les choses au lieu de juste balancer des noms."
+        ]
+      },
+      "tr": {
+        "titre": "her gece bir ders",
+        "paragraphes": [
+          "bunların hepsini sıfırdan araştırmıyorum. her gece Sophia'da kısa bir ders yapıyorum: tarih, felsefe, bilim, jeopolitik, edebiyat, ekonomi.",
+          "dersleri gerçek profesörler yazıyor ve sonunda küçük bir quiz var, böylece sadece isim saymak yerine olayları gerçekten anlatabiliyorum."
+        ]
+      },
+      "ro": {
+        "titre": "o lecție pe seară",
+        "paragraphes": [
+          "nu caut toate astea de la zero. în fiecare seară fac o lecție scurtă pe Sophia: istorie, filozofie, științe, geopolitică, literatură, economie.",
+          "sunt scrise de profesori adevărați și au un mic quiz la final, așa că chiar pot explica lucrurile, nu doar să arunc cu nume."
+        ]
+      },
+      "hu": {
+        "titre": "esténként egy lecke",
+        "paragraphes": [
+          "nem mindennek a nulláról nézek utána. minden este csinálok egy rövid leckét a Sophia appban: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "igazi professzorok írják, és utána van egy kis kvíz, így tényleg el tudom magyarázni a dolgokat, nem csak dobálózom a nevekkel."
         ]
       }
     },
@@ -133,6 +616,139 @@
           "The Marshmallow Test",
           "The Asch Conformity Experiment"
         ]
+      },
+      "de": {
+        "titre": "Experimente, die die Wissenschaft prägten",
+        "sujets": [
+          "Eratosthenes vermisst die Erde",
+          "Galileis Fallversuche",
+          "Newtons Prisma",
+          "Das Foucaultsche Pendel",
+          "Mendels Erbsen",
+          "Die Darwinfinken",
+          "Das Michelson-Morley-Experiment",
+          "Rutherfords Goldfolienversuch",
+          "Der Millikan-Versuch",
+          "Das Cavendish-Experiment",
+          "Pasteurs Schwanenhalskolben",
+          "Pawlows Hunde",
+          "Der Marshmallow-Test",
+          "Das Konformitätsexperiment von Asch"
+        ]
+      },
+      "it": {
+        "titre": "Esperimenti che hanno cambiato la scienza",
+        "sujets": [
+          "Eratostene misura la Terra",
+          "Galileo e la caduta dei gravi",
+          "Il prisma di Newton",
+          "Il pendolo di Foucault",
+          "I piselli di Mendel",
+          "I fringuelli di Darwin",
+          "L'esperimento di Michelson-Morley",
+          "La lamina d'oro di Rutherford",
+          "La goccia d'olio di Millikan",
+          "L'esperimento di Cavendish",
+          "I palloni a collo di cigno di Pasteur",
+          "Il cane di Pavlov",
+          "Il test del marshmallow",
+          "L'esperimento di Asch"
+        ]
+      },
+      "sv": {
+        "titre": "Experiment som ändrade vetenskapen",
+        "sujets": [
+          "Eratosthenes mäter jorden",
+          "Galileis fallförsök",
+          "Newtons prisma",
+          "Foucaults pendel",
+          "Mendels ärtplantor",
+          "Darwins finkar",
+          "Michelson–Morleys experiment",
+          "Rutherfords guldfolieförsök",
+          "Millikans oljedroppsförsök",
+          "Cavendishs experiment",
+          "Pasteurs svanhalskolvar",
+          "Pavlovs hundar",
+          "Marshmallowtestet",
+          "Aschs konformitetsexperiment"
+        ]
+      },
+      "fr": {
+        "titre": "Expériences qui ont changé la science",
+        "sujets": [
+          "Ératosthène mesure la Terre",
+          "Chute des corps de Galilée",
+          "Prisme de Newton",
+          "Pendule de Foucault",
+          "Petits pois de Mendel",
+          "Pinsons de Darwin",
+          "Expérience de Michelson-Morley",
+          "Expérience de Rutherford",
+          "Expérience de Millikan",
+          "Expérience de Cavendish",
+          "Ballons à col de cygne de Pasteur",
+          "Chiens de Pavlov",
+          "Test du marshmallow",
+          "Expérience de Asch"
+        ]
+      },
+      "tr": {
+        "titre": "Bilimi değiştiren deneyler",
+        "sujets": [
+          "Eratosthenes'in Dünya'yı ölçmesi",
+          "Galileo'nun düşen cisimleri",
+          "Newton'ın prizması",
+          "Foucault sarkacı",
+          "Mendel'in bezelyeleri",
+          "Darwin'in ispinozları",
+          "Michelson-Morley deneyi",
+          "Rutherford'un altın levhası",
+          "Millikan'ın yağ damlası",
+          "Cavendish deneyi",
+          "Pasteur'ün kuğu boyunlu şişeleri",
+          "Pavlov'un köpekleri",
+          "Marshmallow testi",
+          "Asch uyma deneyi"
+        ]
+      },
+      "ro": {
+        "titre": "Experimente care au schimbat știința",
+        "sujets": [
+          "Eratostene măsoară Pământul",
+          "Galilei și căderea corpurilor",
+          "Prisma lui Newton",
+          "Pendulul lui Foucault",
+          "Mazărea lui Mendel",
+          "Cintezele lui Darwin",
+          "Experimentul Michelson-Morley",
+          "Foița de aur a lui Rutherford",
+          "Picătura de ulei a lui Millikan",
+          "Experimentul Cavendish",
+          "Baloanele lui Pasteur",
+          "Câinii lui Pavlov",
+          "Testul marshmallow",
+          "Experimentul lui Asch"
+        ]
+      },
+      "hu": {
+        "titre": "Kísérletek, amik megváltoztatták a tudományt",
+        "sujets": [
+          "Eratoszthenész megméri a Földet",
+          "Galilei és a szabadesés",
+          "Newton prizmája",
+          "A Foucault-inga",
+          "Mendel borsói",
+          "Darwin pintyei",
+          "A Michelson–Morley-kísérlet",
+          "Rutherford aranyfólia-kísérlete",
+          "Millikan olajcsepp-kísérlete",
+          "A Cavendish-kísérlet",
+          "Pasteur hattyúnyakú lombikjai",
+          "Pavlov kutyái",
+          "A mályvacukor-teszt",
+          "Asch konformitáskísérlete"
+        ]
       }
     },
     {
@@ -145,6 +761,139 @@
           "Aristotle",
           "Confucius",
           "Laozi",
+          "Marcus Aurelius",
+          "Descartes",
+          "Spinoza",
+          "David Hume",
+          "Immanuel Kant",
+          "Kierkegaard",
+          "Nietzsche",
+          "Simone de Beauvoir",
+          "Hannah Arendt"
+        ]
+      },
+      "de": {
+        "titre": "Philosophen, die man kennen sollte",
+        "sujets": [
+          "Sokrates",
+          "Platon",
+          "Aristoteles",
+          "Konfuzius",
+          "Laozi",
+          "Mark Aurel",
+          "Descartes",
+          "Spinoza",
+          "David Hume",
+          "Immanuel Kant",
+          "Kierkegaard",
+          "Nietzsche",
+          "Simone de Beauvoir",
+          "Hannah Arendt"
+        ]
+      },
+      "it": {
+        "titre": "Filosofi da conoscere",
+        "sujets": [
+          "Socrate",
+          "Platone",
+          "Aristotele",
+          "Confucio",
+          "Laozi",
+          "Marco Aurelio",
+          "Cartesio",
+          "Spinoza",
+          "David Hume",
+          "Immanuel Kant",
+          "Kierkegaard",
+          "Nietzsche",
+          "Simone de Beauvoir",
+          "Hannah Arendt"
+        ]
+      },
+      "sv": {
+        "titre": "Filosofer värda att känna till",
+        "sujets": [
+          "Sokrates",
+          "Platon",
+          "Aristoteles",
+          "Konfucius",
+          "Laozi",
+          "Marcus Aurelius",
+          "Descartes",
+          "Spinoza",
+          "David Hume",
+          "Immanuel Kant",
+          "Kierkegaard",
+          "Nietzsche",
+          "Simone de Beauvoir",
+          "Hannah Arendt"
+        ]
+      },
+      "fr": {
+        "titre": "Philosophes à connaître",
+        "sujets": [
+          "Socrate",
+          "Platon",
+          "Aristote",
+          "Confucius",
+          "Laozi",
+          "Marc Aurèle",
+          "Descartes",
+          "Spinoza",
+          "David Hume",
+          "Emmanuel Kant",
+          "Kierkegaard",
+          "Nietzsche",
+          "Simone de Beauvoir",
+          "Hannah Arendt"
+        ]
+      },
+      "tr": {
+        "titre": "Bilinmesi gereken filozoflar",
+        "sujets": [
+          "Sokrates",
+          "Platon",
+          "Aristoteles",
+          "Konfüçyüs",
+          "Laozi",
+          "Marcus Aurelius",
+          "Descartes",
+          "Spinoza",
+          "David Hume",
+          "Immanuel Kant",
+          "Kierkegaard",
+          "Nietzsche",
+          "Simone de Beauvoir",
+          "Hannah Arendt"
+        ]
+      },
+      "ro": {
+        "titre": "Filozofi care merită știuți",
+        "sujets": [
+          "Socrate",
+          "Platon",
+          "Aristotel",
+          "Confucius",
+          "Lao Zi",
+          "Marcus Aurelius",
+          "Descartes",
+          "Spinoza",
+          "David Hume",
+          "Immanuel Kant",
+          "Kierkegaard",
+          "Nietzsche",
+          "Simone de Beauvoir",
+          "Hannah Arendt"
+        ]
+      },
+      "hu": {
+        "titre": "Filozófusok, akiket érdemes ismerni",
+        "sujets": [
+          "Szókratész",
+          "Platón",
+          "Arisztotelész",
+          "Konfuciusz",
+          "Lao-ce",
           "Marcus Aurelius",
           "Descartes",
           "Spinoza",
@@ -177,6 +926,139 @@
           "Maritime Chokepoints",
           "Globalization"
         ]
+      },
+      "de": {
+        "titre": "Geopolitik 101",
+        "sujets": [
+          "Der Westfälische Friede",
+          "Souveränität",
+          "Soft Power",
+          "Der Goldstandard",
+          "Das Bretton-Woods-System",
+          "Der Marshallplan",
+          "Die Vereinten Nationen",
+          "Der Kalte Krieg",
+          "Der Mauerfall",
+          "Die Europäische Union",
+          "Der Sueskanal",
+          "Der Panamakanal",
+          "Maritime Engpässe",
+          "Globalisierung"
+        ]
+      },
+      "it": {
+        "titre": "Geopolitica 101",
+        "sujets": [
+          "La pace di Vestfalia",
+          "La sovranità",
+          "Il soft power",
+          "Il gold standard",
+          "Il sistema di Bretton Woods",
+          "Il piano Marshall",
+          "Le Nazioni Unite",
+          "La guerra fredda",
+          "La caduta del muro di Berlino",
+          "L'Unione europea",
+          "Il canale di Suez",
+          "Il canale di Panama",
+          "Gli stretti strategici",
+          "La globalizzazione"
+        ]
+      },
+      "sv": {
+        "titre": "Geopolitik 101",
+        "sujets": [
+          "Westfaliska freden",
+          "Suveränitet",
+          "Mjuk makt",
+          "Guldmyntfoten",
+          "Bretton Woods-systemet",
+          "Marshallplanen",
+          "Förenta nationerna",
+          "Kalla kriget",
+          "Berlinmurens fall",
+          "Europeiska unionen",
+          "Suezkanalen",
+          "Panamakanalen",
+          "Strategiska sund",
+          "Globalisering"
+        ]
+      },
+      "fr": {
+        "titre": "Les bases de la géopolitique",
+        "sujets": [
+          "Traités de Westphalie",
+          "Souveraineté",
+          "Soft power",
+          "Étalon-or",
+          "Accords de Bretton Woods",
+          "Plan Marshall",
+          "Nations unies",
+          "Guerre froide",
+          "Chute du mur de Berlin",
+          "Union européenne",
+          "Canal de Suez",
+          "Canal de Panama",
+          "Détroits stratégiques",
+          "Mondialisation"
+        ]
+      },
+      "tr": {
+        "titre": "Jeopolitiğe giriş",
+        "sujets": [
+          "Vestfalya Barışı",
+          "Egemenlik",
+          "Yumuşak güç",
+          "Altın standardı",
+          "Bretton Woods sistemi",
+          "Marshall Planı",
+          "Birleşmiş Milletler",
+          "Soğuk Savaş",
+          "Berlin Duvarı'nın yıkılışı",
+          "Avrupa Birliği",
+          "Süveyş Kanalı",
+          "Panama Kanalı",
+          "Deniz darboğazları",
+          "Küreselleşme"
+        ]
+      },
+      "ro": {
+        "titre": "Geopolitică 101",
+        "sujets": [
+          "Pacea Westfalică",
+          "Suveranitatea",
+          "Puterea blândă",
+          "Etalonul aur",
+          "Sistemul Bretton Woods",
+          "Planul Marshall",
+          "Organizația Națiunilor Unite",
+          "Războiul Rece",
+          "Căderea Zidului Berlinului",
+          "Uniunea Europeană",
+          "Canalul Suez",
+          "Canalul Panama",
+          "Strâmtorile maritime strategice",
+          "Globalizarea"
+        ]
+      },
+      "hu": {
+        "titre": "Geopolitika alapok",
+        "sujets": [
+          "A vesztfáliai béke",
+          "Szuverenitás",
+          "Puha hatalom",
+          "Az aranystandard",
+          "A Bretton Woods-i rendszer",
+          "A Marshall-terv",
+          "Az ENSZ",
+          "A hidegháború",
+          "A berlini fal leomlása",
+          "Az Európai Unió",
+          "A Szuezi-csatorna",
+          "A Panama-csatorna",
+          "Tengeri szűkületek",
+          "Globalizáció"
+        ]
       }
     },
     {
@@ -184,6 +1066,34 @@
       "en": {
         "texte": "save this before ur next dinner, date or group project. learn one topic properly, then bring it up like it's nothing.",
         "gras": "OR.. keep nodding like u know."
+      },
+      "de": {
+        "texte": "speicher dir das vor deinem nächsten date, essen oder gruppenprojekt. lern ein thema richtig und bring es dann ganz locker ins gespräch.",
+        "gras": "ODER.. nick weiter und tu so, als wüsstest du's."
+      },
+      "it": {
+        "texte": "salvalo prima di una cena, di un appuntamento o di un lavoro di gruppo. impara bene un argomento, poi tiralo fuori come se niente fosse.",
+        "gras": "O.. continua ad annuire facendo finta di sapere."
+      },
+      "sv": {
+        "texte": "spara det här innan din nästa middag, dejt eller grupparbete. lär dig ett ämne ordentligt och ta sen upp det som om det vore ingenting.",
+        "gras": "ELLER.. fortsätt nicka som om du fattar."
+      },
+      "fr": {
+        "texte": "enregistre ça avant ton prochain dîner, date ou projet de groupe. apprends un sujet correctement, puis sors-le comme si de rien n'était.",
+        "gras": "OU.. continue de hocher la tête comme si tu savais."
+      },
+      "tr": {
+        "texte": "sonraki akşam yemeğinden, buluşmandan ya da grup ödevinden önce bunu kaydet. bir konuyu adam akıllı öğren, sonra hiçbir şey değilmiş gibi lafını aç.",
+        "gras": "YA DA.. biliyormuş gibi kafa sallamaya devam et."
+      },
+      "ro": {
+        "texte": "salvează asta înainte de următoarea cină, întâlnire sau proiect de grup. învață bine un subiect, apoi adu-l în discuție de parcă n-ar fi nimic.",
+        "gras": "SAU.. dă din cap în continuare de parcă știi."
+      },
+      "hu": {
+        "texte": "mentsd el a következő vacsora, randi vagy csoportmunka előtt. tanulj meg egy témát rendesen, aztán hozd szóba, mintha semmi se lenne.",
+        "gras": "VAGY.. bólogass tovább, mintha értenéd."
       }
     }
   ]

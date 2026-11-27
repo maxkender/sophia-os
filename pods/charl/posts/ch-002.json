@@ -7,10 +7,24 @@
     "accroche": "cómo dejar de PROCRASTINAR (de verdad)"
   },
   "titre": {
-    "es": "cómo entrenar tu memoria (de verdad)"
+    "es": "cómo entrenar tu memoria (de verdad)",
+    "fr": "comment entraîner ta mémoire (pour de vrai)",
+    "it": "come allenare la tua memoria (davvero)",
+    "pt-BR": "como treinar a sua memória (de verdade)",
+    "de": "so trainierst du dein gedächtnis (wirklich)",
+    "ro": "cum să-ți antrenezi memoria (pe bune)",
+    "hu": "hogyan eddzd a memóriád (tényleg)",
+    "es-419": "cómo entrenar tu memoria (de verdad)"
   },
   "legendes": {
-    "es": "#memoria #estudiar #concentracion #productividad #disciplina"
+    "es": "#memoria #estudiar #concentracion #productividad #disciplina",
+    "fr": "#memoire #etudier #concentration #productivite #discipline",
+    "it": "#memoria #studiare #concentrazione #produttivita #disciplina",
+    "pt-BR": "#memoria #estudos #foco #produtividade #disciplina",
+    "de": "#gedaechtnis #lernen #konzentration #produktivitaet #disziplin",
+    "ro": "#memorie #invatat #concentrare #productivitate #disciplina",
+    "hu": "#memoria #tanulas #koncentracio #produktivitas #fegyelem",
+    "es-419": "#memoria #estudiar #concentracion #productividad #disciplina"
   },
   "musique": {
     "titre": "original sound - ridgeclub",
@@ -21,14 +35,61 @@
     {
       "type": "couverture",
       "photos": [
-        { "image": "images/photos/irm-profil.jpg" },
-        { "image": "images/photos/silhouette-bibliotheque.jpg" },
-        { "image": "images/photos/cerveau-reseau.jpg" },
-        { "image": "images/photos/couloir-ombre.jpg" },
-        { "image": "images/photos/irm-coupes.jpg" },
-        { "image": "images/photos/brouillard-rue.jpg" }
+        {
+          "image": "images/photos/irm-profil.jpg"
+        },
+        {
+          "image": "images/photos/silhouette-bibliotheque.jpg"
+        },
+        {
+          "image": "images/photos/cerveau-reseau.jpg"
+        },
+        {
+          "image": "images/photos/couloir-ombre.jpg"
+        },
+        {
+          "image": "images/photos/irm-coupes.jpg"
+        },
+        {
+          "image": "images/photos/brouillard-rue.jpg"
+        }
       ],
       "es": {
+        "haut": "cómo entrenar tu",
+        "mot": "MEMORIA",
+        "note": "(de verdad)"
+      },
+      "fr": {
+        "haut": "comment entraîner ta",
+        "mot": "MÉMOIRE",
+        "note": "(pour de vrai)"
+      },
+      "it": {
+        "haut": "come allenare la tua",
+        "mot": "MEMORIA",
+        "note": "(davvero)"
+      },
+      "pt-BR": {
+        "haut": "como treinar a sua",
+        "mot": "MEMÓRIA",
+        "note": "(de verdade)"
+      },
+      "de": {
+        "haut": "so trainierst du dein",
+        "mot": "GEDÄCHTNIS",
+        "note": "(wirklich)"
+      },
+      "ro": {
+        "haut": "cum să-ți antrenezi",
+        "mot": "MEMORIA",
+        "note": "(pe bune)"
+      },
+      "hu": {
+        "haut": "hogyan eddzd a",
+        "mot": "MEMÓRIÁD",
+        "note": "(tényleg)"
+      },
+      "es-419": {
         "haut": "cómo entrenar tu",
         "mot": "MEMORIA",
         "note": "(de verdad)"
@@ -38,10 +99,70 @@
       "type": "point",
       "mise": "bas",
       "photos": [
-        { "image": "images/photos/cahier-ferme.jpg" },
-        { "image": "images/photos/tableau-vide.jpg" }
+        {
+          "image": "images/photos/cahier-ferme.jpg"
+        },
+        {
+          "image": "images/photos/tableau-vide.jpg"
+        }
       ],
       "es": {
+        "titre": "no es mala memoria.",
+        "paragraphes": [
+          "estudias algo, lo entiendes, y a los dos días no queda nada. y piensas que **tienes mala memoria**.",
+          "en 1885, **hermann ebbinghaus** se puso a medir cuánto olvidaba: al día siguiente ya había perdido **más de la mitad**. es lo normal.",
+          "tu cerebro **borra lo que no usas**. la buena noticia: se le puede decir qué guardar."
+        ]
+      },
+      "fr": {
+        "titre": "oublier, c'est normal.",
+        "paragraphes": [
+          "tu étudies un truc, tu le comprends, et deux jours après il ne reste rien. et tu te dis que **tu as une mauvaise mémoire**.",
+          "en 1885, **hermann ebbinghaus** a mesuré ce qu'il oubliait: dès le lendemain, il avait perdu **plus de la moitié**. c'est normal.",
+          "ton cerveau **efface ce que tu n'utilises pas**. la bonne nouvelle: tu peux lui dire quoi garder."
+        ]
+      },
+      "it": {
+        "titre": "si dimentica e basta.",
+        "paragraphes": [
+          "studi una cosa, la capisci, e dopo due giorni non resta niente. e pensi di **avere una pessima memoria**.",
+          "nel 1885 **hermann ebbinghaus** misurò quanto dimenticava: il giorno dopo aveva già perso **più della metà**. è normale.",
+          "il tuo cervello **cancella ciò che non usi**. la buona notizia: puoi dirgli cosa tenere."
+        ]
+      },
+      "pt-BR": {
+        "titre": "esquecer é normal.",
+        "paragraphes": [
+          "você estuda algo, entende, e dois dias depois não sobra nada. e acha que **tem memória ruim**.",
+          "em 1885, **hermann ebbinghaus** mediu o quanto esquecia: no dia seguinte já tinha perdido **mais da metade**. é normal.",
+          "seu cérebro **apaga o que você não usa**. a boa notícia: dá pra dizer a ele o que guardar."
+        ]
+      },
+      "de": {
+        "titre": "vergessen ist normal.",
+        "paragraphes": [
+          "du lernst etwas, verstehst es, und zwei tage später ist nichts mehr da. und du denkst, **du hast ein schlechtes gedächtnis**.",
+          "1885 hat **hermann ebbinghaus** gemessen, wie viel er vergisst: am nächsten tag war schon **mehr als die hälfte** weg. das ist normal.",
+          "dein gehirn **löscht, was du nicht nutzt**. die gute nachricht: du kannst ihm sagen, was es behalten soll."
+        ]
+      },
+      "ro": {
+        "titre": "e normal să uiți.",
+        "paragraphes": [
+          "înveți ceva, înțelegi, și după două zile nu mai rămâne nimic. și crezi că **ai memoria proastă**.",
+          "în 1885, **hermann ebbinghaus** a măsurat cât uita: a doua zi pierduse deja **mai mult de jumătate**. e normal.",
+          "creierul tău **șterge ce nu folosești**. vestea bună: poți să-i spui ce să păstreze."
+        ]
+      },
+      "hu": {
+        "titre": "felejteni normális.",
+        "paragraphes": [
+          "megtanulsz valamit, megérted, két nap múlva pedig semmi sem marad. és azt hiszed, **rossz a memóriád**.",
+          "1885-ben **hermann ebbinghaus** megmérte, mennyit felejt: másnapra már **több mint a felét** elvesztette. ez normális.",
+          "az agyad **törli, amit nem használsz**. a jó hír: megmondhatod neki, mit tartson meg."
+        ]
+      },
+      "es-419": {
         "titre": "no es mala memoria.",
         "paragraphes": [
           "estudias algo, lo entiendes, y a los dos días no queda nada. y piensas que **tienes mala memoria**.",
@@ -53,10 +174,70 @@
     {
       "type": "point",
       "photos": [
-        { "image": "images/photos/pupitre-nuit.jpg" },
-        { "image": "images/photos/crayon-papier.jpg" }
+        {
+          "image": "images/photos/pupitre-nuit.jpg"
+        },
+        {
+          "image": "images/photos/crayon-papier.jpg"
+        }
       ],
       "es": {
+        "titre": "releer no sirve",
+        "paragraphes": [
+          "en un experimento en san luis (estados unidos), unos estudiantes **releían un texto** y otros **se preguntaban a sí mismos** qué recordaban.",
+          "una semana después, los que se habían preguntado recordaban **un 61%**. los que releían, un 40%.",
+          "cierra el libro y **intenta recordarlo**. cuesta más, y por eso funciona."
+        ]
+      },
+      "fr": {
+        "titre": "relire ne sert à rien",
+        "paragraphes": [
+          "dans une expérience à saint-louis (états-unis), des étudiants **relisaient un texte** et d'autres **s'interrogeaient eux-mêmes** sur ce qu'ils retenaient.",
+          "une semaine après, ceux qui s'étaient interrogés se souvenaient de **61%**. ceux qui relisaient, de 40%.",
+          "ferme le livre et **essaie de t'en souvenir**. c'est plus dur, et c'est pour ça que ça marche."
+        ]
+      },
+      "it": {
+        "titre": "rileggere non serve",
+        "paragraphes": [
+          "in un esperimento a saint louis (stati uniti), alcuni studenti **rileggevano un testo** e altri **si facevano domande** su cosa ricordavano.",
+          "una settimana dopo, chi si era interrogato ricordava il **61%**. chi rileggeva, il 40%.",
+          "chiudi il libro e **prova a ricordare**. costa più fatica, ed è per questo che funziona."
+        ]
+      },
+      "pt-BR": {
+        "titre": "reler não funciona",
+        "paragraphes": [
+          "num experimento em saint louis (estados unidos), alguns alunos **reliam um texto** e outros **se faziam perguntas** sobre o que lembravam.",
+          "uma semana depois, quem se testou lembrava **61%**. quem releu, 40%.",
+          "fecha o livro e **tenta lembrar**. é mais difícil, e é por isso que funciona."
+        ]
+      },
+      "de": {
+        "titre": "abfragen statt lesen",
+        "paragraphes": [
+          "in einem experiment in st. louis (usa) haben einige studierende **einen text nochmal gelesen**, andere **sich selbst abgefragt**.",
+          "eine woche später wussten die, die sich abgefragt hatten, noch **61%**. die anderen 40%.",
+          "klapp das buch zu und **versuch dich zu erinnern**. das ist anstrengender, und genau deshalb wirkt es."
+        ]
+      },
+      "ro": {
+        "titre": "recititul nu ajută",
+        "paragraphes": [
+          "într-un experiment din saint louis (sua), unii studenți **reciteau un text**, alții **se întrebau singuri** ce rețineau.",
+          "după o săptămână, cei care se testaseră își aminteau **61%**. cei care reciteau, 40%.",
+          "închide cartea și **încearcă să-ți amintești**. e mai greu, și tocmai de asta merge."
+        ]
+      },
+      "hu": {
+        "titre": "az újraolvasás nem segít",
+        "paragraphes": [
+          "egy saint louis-i (usa) kísérletben néhány diák **újraolvasott egy szöveget**, mások **kikérdezték magukat**, mire emlékeznek.",
+          "egy hét múlva, akik kikérdezték magukat, **61%-ra** emlékeztek. akik újraolvastak, 40%-ra.",
+          "csukd be a könyvet, és **próbálj visszaemlékezni**. nehezebb, és pont ezért működik."
+        ]
+      },
+      "es-419": {
         "titre": "releer no sirve",
         "paragraphes": [
           "en un experimento en san luis (estados unidos), unos estudiantes **releían un texto** y otros **se preguntaban a sí mismos** qué recordaban.",
@@ -68,10 +249,70 @@
     {
       "type": "point",
       "photos": [
-        { "image": "images/photos/train-fenetre.jpg" },
-        { "image": "images/photos/sablier.jpg" }
+        {
+          "image": "images/photos/train-fenetre.jpg"
+        },
+        {
+          "image": "images/photos/sablier.jpg"
+        }
       ],
       "es": {
+        "titre": "poco y a menudo",
+        "paragraphes": [
+          "estudiar cinco horas la noche antes **parece eficaz**, pero se olvida rápido.",
+          "en 2006, unos investigadores revisaron **más de 300 experimentos**: repartir el repaso en **varios días** gana casi siempre.",
+          "mejor **10 minutos cada día** que una tarde entera una vez a la semana."
+        ]
+      },
+      "fr": {
+        "titre": "peu mais souvent",
+        "paragraphes": [
+          "réviser cinq heures la veille **a l'air efficace**, mais on oublie vite.",
+          "en 2006, des chercheurs ont repris **plus de 300 expériences**: répartir les révisions sur **plusieurs jours** gagne presque toujours.",
+          "mieux vaut **10 minutes par jour** qu'un après-midi entier une fois par semaine."
+        ]
+      },
+      "it": {
+        "titre": "poco e spesso",
+        "paragraphes": [
+          "studiare cinque ore la sera prima **sembra efficace**, ma si dimentica in fretta.",
+          "nel 2006 alcuni ricercatori hanno analizzato **più di 300 esperimenti**: ripassare in **più giorni** vince quasi sempre.",
+          "meglio **10 minuti al giorno** che un pomeriggio intero una volta a settimana."
+        ]
+      },
+      "pt-BR": {
+        "titre": "pouco e sempre",
+        "paragraphes": [
+          "estudar cinco horas na véspera **parece eficaz**, mas a gente esquece rápido.",
+          "em 2006, pesquisadores revisaram **mais de 300 experimentos**: espalhar a revisão em **vários dias** ganha quase sempre.",
+          "melhor **10 minutos por dia** do que uma tarde inteira uma vez por semana."
+        ]
+      },
+      "de": {
+        "titre": "wenig und oft",
+        "paragraphes": [
+          "fünf stunden am abend vorher lernen **wirkt effektiv**, aber man vergisst schnell.",
+          "2006 haben forschende **über 300 experimente** ausgewertet: wiederholen über **mehrere tage** gewinnt fast immer.",
+          "lieber **10 minuten am tag** als einen ganzen nachmittag pro woche."
+        ]
+      },
+      "ro": {
+        "titre": "puțin și des",
+        "paragraphes": [
+          "să înveți cinci ore cu o seară înainte **pare eficient**, dar uiți repede.",
+          "în 2006, niște cercetători au analizat **peste 300 de experimente**: repetarea în **mai multe zile** câștigă aproape mereu.",
+          "mai bine **10 minute pe zi** decât o după-amiază întreagă o dată pe săptămână."
+        ]
+      },
+      "hu": {
+        "titre": "keveset, de gyakran",
+        "paragraphes": [
+          "az előző este öt órát tanulni **hatékonynak tűnik**, de gyorsan elfelejted.",
+          "2006-ban kutatók **több mint 300 kísérletet** néztek át: ha **több napra** osztod az ismétlést, szinte mindig az nyer.",
+          "jobb **napi 10 perc**, mint hetente egy egész délután."
+        ]
+      },
+      "es-419": {
         "titre": "poco y a menudo",
         "paragraphes": [
           "estudiar cinco horas la noche antes **parece eficaz**, pero se olvida rápido.",
@@ -83,9 +324,67 @@
     {
       "type": "sophia",
       "photos": [
-        { "image": "images/photos/lampe-chevet-livre.jpg" }
+        {
+          "image": "images/photos/lampe-chevet-livre.jpg"
+        }
       ],
       "es": {
+        "titre": "dale algo que recordar",
+        "paragraphes": [
+          "la memoria se entrena como un músculo: **un poco cada día**.",
+          "por la noche, en vez de abrir tiktok, hago **la lección del día en Sophia**: historia, filosofía, ciencia, geopolítica, literatura, economía.",
+          "10 minutos y **un quiz al final**, justo lo que pide el punto 2: **recordar, no releer**."
+        ]
+      },
+      "fr": {
+        "titre": "donne-lui de quoi retenir",
+        "paragraphes": [
+          "la mémoire s'entraîne comme un muscle: **un peu chaque jour**.",
+          "le soir, au lieu d'ouvrir tiktok, je fais **la leçon du jour sur Sophia**: histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "10 minutes et **un quiz à la fin**, exactement ce que demande le point 2: **se souvenir, pas relire**."
+        ]
+      },
+      "it": {
+        "titre": "dagli cose da ricordare",
+        "paragraphes": [
+          "la memoria si allena come un muscolo: **un po' ogni giorno**.",
+          "la sera, invece di aprire tiktok, faccio **la lezione del giorno su Sophia**: storia, filosofia, scienza, geopolitica, letteratura, economia.",
+          "10 minuti e **un quiz alla fine**, proprio quello che chiede il punto 2: **ricordare, non rileggere**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "dá algo pra lembrar",
+        "paragraphes": [
+          "a memória se treina como um músculo: **um pouco todo dia**.",
+          "à noite, em vez de abrir o tiktok, faço **a lição do dia no Sophia**: história, filosofia, ciência, geopolítica, literatura, economia.",
+          "10 minutos e **um quiz no final**, exatamente o que pede o ponto 2: **lembrar, não reler**."
+        ]
+      },
+      "de": {
+        "titre": "gib ihm was zum merken",
+        "paragraphes": [
+          "das gedächtnis trainierst du wie einen muskel: **jeden tag ein bisschen**.",
+          "abends mache ich statt tiktok **die lektion des tages in Sophia**: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "10 minuten und **ein quiz am ende**, genau das, was punkt 2 sagt: **erinnern statt nochmal lesen**."
+        ]
+      },
+      "ro": {
+        "titre": "dă-i ceva de reținut",
+        "paragraphes": [
+          "memoria se antrenează ca un mușchi: **puțin în fiecare zi**.",
+          "seara, în loc să deschid tiktok, fac **lecția zilei în Sophia**: istorie, filozofie, știință, geopolitică, literatură, economie.",
+          "10 minute și **un quiz la final**, exact ce cere punctul 2: **să-ți amintești, nu să recitești**."
+        ]
+      },
+      "hu": {
+        "titre": "adj neki mit megjegyezni",
+        "paragraphes": [
+          "a memóriát úgy edzed, mint egy izmot: **minden nap egy kicsit**.",
+          "este a tiktok helyett **megcsinálom a napi leckét a Sophia appban**: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "10 perc és **egy kvíz a végén**, pont amit a 2. pont kér: **felidézni, nem újraolvasni**."
+        ]
+      },
+      "es-419": {
         "titre": "dale algo que recordar",
         "paragraphes": [
           "la memoria se entrena como un músculo: **un poco cada día**.",
@@ -98,10 +397,70 @@
       "type": "point",
       "mise": "bas",
       "photos": [
-        { "image": "images/photos/lit-sombre.jpg" },
-        { "image": "images/photos/lune-fenetre.jpg" }
+        {
+          "image": "images/photos/lit-sombre.jpg"
+        },
+        {
+          "image": "images/photos/lune-fenetre.jpg"
+        }
       ],
       "es": {
+        "titre": "duerme encima.",
+        "paragraphes": [
+          "en 1924, en la universidad de cornell, vieron que **se olvida menos** si te duermes después de aprender que si sigues despierto.",
+          "mientras duermes, tu cerebro **repasa y ordena** lo del día.",
+          "repasa algo corto antes de dormir y **no recortes horas de sueño** para estudiar más."
+        ]
+      },
+      "fr": {
+        "titre": "dors dessus.",
+        "paragraphes": [
+          "en 1924, à l'université cornell, on a vu qu'**on oublie moins** quand on dort après avoir appris que quand on reste éveillé.",
+          "pendant que tu dors, ton cerveau **revoit et range** ta journée.",
+          "révise un petit truc avant de dormir et **ne rogne pas sur ton sommeil** pour étudier plus."
+        ]
+      },
+      "it": {
+        "titre": "dormici sopra.",
+        "paragraphes": [
+          "nel 1924, alla cornell university, si vide che **si dimentica meno** se si dorme dopo aver studiato che se si resta svegli.",
+          "mentre dormi, il tuo cervello **ripassa e mette in ordine** la giornata.",
+          "ripassa qualcosa di breve prima di dormire e **non tagliare il sonno** per studiare di più."
+        ]
+      },
+      "pt-BR": {
+        "titre": "dorme em cima.",
+        "paragraphes": [
+          "em 1924, na universidade cornell, viram que **se esquece menos** quando se dorme depois de aprender do que ficando acordado.",
+          "enquanto você dorme, o cérebro **revisa e organiza** o seu dia.",
+          "revisa algo curto antes de dormir e **não corta horas de sono** pra estudar mais."
+        ]
+      },
+      "de": {
+        "titre": "schlaf drüber.",
+        "paragraphes": [
+          "1924 sah man an der cornell university, dass **man weniger vergisst**, wenn man nach dem lernen schläft, als wenn man wach bleibt.",
+          "während du schläfst, **wiederholt und sortiert** dein gehirn den tag.",
+          "wiederhol vor dem schlafen etwas kurzes und **spar nicht am schlaf**, um mehr zu lernen."
+        ]
+      },
+      "ro": {
+        "titre": "dormi pe ea.",
+        "paragraphes": [
+          "în 1924, la universitatea cornell, s-a văzut că **uiți mai puțin** dacă dormi după ce înveți decât dacă rămâi treaz.",
+          "cât dormi, creierul tău **repetă și ordonează** ziua.",
+          "repetă ceva scurt înainte de culcare și **nu tăia din somn** ca să înveți mai mult."
+        ]
+      },
+      "hu": {
+        "titre": "aludj rá egyet.",
+        "paragraphes": [
+          "1924-ben a cornell egyetemen kiderült, hogy **kevesebbet felejtesz**, ha tanulás után alszol, mint ha ébren maradsz.",
+          "alvás közben az agyad **átismétli és rendezi** a napot.",
+          "ismételj át valami rövidet lefekvés előtt, és **ne vegyél el az alvásból**, hogy többet tanulj."
+        ]
+      },
+      "es-419": {
         "titre": "duerme encima.",
         "paragraphes": [
           "en 1924, en la universidad de cornell, vieron que **se olvida menos** si te duermes después de aprender que si sigues despierto.",
@@ -113,9 +472,74 @@
     {
       "type": "fin",
       "photos": [
-        { "image": "images/photos/montagne-sentier.jpg" }
+        {
+          "image": "images/photos/montagne-sentier.jpg"
+        }
       ],
       "es": {
+        "titre": "tu memoria no es mala.",
+        "paragraphes": [
+          "solo guarda lo que **usas a menudo**.",
+          "pregúntate, repasa en días distintos y duerme: **lo demás lo hace ella**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo para tu próximo examen y **empieza esta noche**."
+        ]
+      },
+      "fr": {
+        "titre": "ta mémoire va bien.",
+        "paragraphes": [
+          "elle garde juste ce que **tu utilises souvent**.",
+          "interroge-toi, révise sur plusieurs jours et dors: **elle fait le reste**.",
+          "laquelle tu vas tester en premier? commente le numéro.",
+          "enregistre-le pour ton prochain exam et **commence ce soir**."
+        ]
+      },
+      "it": {
+        "titre": "la tua memoria non è scarsa.",
+        "paragraphes": [
+          "tiene solo quello che **usi spesso**.",
+          "interrogati, ripassa in giorni diversi e dormi: **al resto pensa lei**.",
+          "quale provi per primo? scrivi il numero nei commenti.",
+          "salvalo per il prossimo esame e **inizia stasera**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "sua memória não é ruim.",
+        "paragraphes": [
+          "ela só guarda o que **você usa sempre**.",
+          "se testa, revisa em dias diferentes e dorme: **o resto ela faz**.",
+          "qual você vai testar primeiro? comenta o número.",
+          "salva pra próxima prova e **começa hoje à noite**."
+        ]
+      },
+      "de": {
+        "titre": "dein gedächtnis ist gut.",
+        "paragraphes": [
+          "es behält nur, **was du oft nutzt**.",
+          "frag dich ab, wiederhol an verschiedenen tagen und schlaf: **den rest macht es selbst**.",
+          "welchen probierst du zuerst? kommentier die nummer.",
+          "speicher es für die nächste prüfung und **fang heute abend an**."
+        ]
+      },
+      "ro": {
+        "titre": "memoria ta e bună.",
+        "paragraphes": [
+          "doar păstrează ce **folosești des**.",
+          "testează-te, repetă în zile diferite și dormi: **restul îl face ea**.",
+          "pe care îl încerci primul? scrie numărul în comentarii.",
+          "salvează-l pentru următorul examen și **începe diseară**."
+        ]
+      },
+      "hu": {
+        "titre": "a memóriád nem rossz.",
+        "paragraphes": [
+          "csak azt tartja meg, **amit gyakran használsz**.",
+          "kérdezd ki magad, ismételj különböző napokon, és aludj: **a többit elintézi**.",
+          "melyiket próbálod ki először? írd meg kommentben a számot.",
+          "mentsd el a következő vizsgádra, és **kezdd el ma este**."
+        ]
+      },
+      "es-419": {
         "titre": "tu memoria no es mala.",
         "paragraphes": [
           "solo guarda lo que **usas a menudo**.",

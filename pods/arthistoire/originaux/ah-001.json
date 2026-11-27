@@ -1,0 +1,65 @@
+{
+  "source_id": "ah-001",
+  "type_bleo": "full_test",
+  "titre": "Une bretelle. C'est tout ce qu'il a fallu pour faire scandale dans tout Paris en 1884. 🖤 #art #histoire #peinture #sargent",
+  "musique_titre": "Einaudi: Experience",
+  "musique_url": "https://www.tiktok.com/music/einaudi-experience-6749405407854200834",
+  "inspirations": ["1caf3295-4d52-449c-9d0f-174e5c75a123"],
+  "notes": "Pilote du podz 36 (27/11). Format de @glacis1 « un tableau, une histoire » (son 1,9 M : Lady Jane Grey, 1caf3295, dont les slides servent de modèle de mise en page et dont on reprend le son) : l'accroche en capitales qui finit en « ET POURTANT ... », une phrase courte par détail, le titre et l'année sur le tableau entier. Tableau : Madame X (Virginie Amélie Avegno Gautreau), John Singer Sargent, 1883-84, The Met 16.53, domaine public (Open Access, objet 12127), 9 détails 9:16 ajoutés à la banque (npm run tableau). Faits (Wikipédia « Portrait of Madame X », Ormond et Kilmurray 1998 p. 114) : exposé au Salon de 1884 sous le titre « Portrait de Mme *** » ; la bretelle droite peinte glissée de l'épaule, repeinte droite après le Salon ; sa mère demande à Sargent de retirer le tableau, il refuse ; Sargent s'installe à Londres en 1886 ; vendu au Met en 1916, lettre au directeur : « I suppose it is the best thing I have ever done ». Accroches écartées : « CE TABLEAU A FAIT SCANDALE À CAUSE D'UNE BRETELLE », « TOUT PARIS S'EST MOQUÉ D'ELLE ».",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "f28371f9",
+      "texte_overlay": "ELLE ÉTAIT LA FEMME\nLA PLUS ADMIRÉE DE PARIS\nET POURTANT ...",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "93fc4a0e",
+      "texte_overlay": "Paris, 1884.\nAu Salon, tout le monde la reconnaît.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "00fcdb48",
+      "texte_overlay": "Virginie Gautreau.\nLa beauté dont parle tout Paris.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "fc27eba5",
+      "texte_overlay": "Mais ce jour-là,\non ne regarde que sa bretelle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "59979ae4",
+      "texte_overlay": "Le peintre l'avait peinte\nglissée de son épaule.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "45a4503a",
+      "texte_overlay": "Le scandale est immédiat.\nSa mère supplie le peintre\nde retirer le tableau.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/7.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "a45c5fa7",
+      "texte_overlay": "Il refuse.\nPuis il repeint la bretelle.\nTrop tard : il finit par quitter Paris pour Londres.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/9.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "81b9b06a",
+      "texte_overlay": "Il garde le tableau plus de 30 ans.\nEn le vendant, il écrit :\n« c'est sans doute ce que j'ai fait de mieux ».",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/11.jpg"
+    },
+    {
+      "position": 9,
+      "media_id": "c87a1a18",
+      "texte_overlay": "Madame X\nJohn Singer Sargent\n1884",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/12.jpg"
+    }
+  ]
+}

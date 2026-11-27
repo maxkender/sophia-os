@@ -7,10 +7,24 @@
     "accroche": "cómo arreglar tu DOPAMINA"
   },
   "titre": {
-    "es": "cómo aprender cualquier cosa (más rápido)"
+    "es": "cómo aprender cualquier cosa (más rápido)",
+    "fr": "comment apprendre n'importe quoi (plus vite)",
+    "it": "come imparare qualsiasi cosa (più in fretta)",
+    "pt-BR": "como aprender qualquer coisa (mais rápido)",
+    "de": "so lernst du alles (schneller)",
+    "ro": "cum să înveți orice (mai repede)",
+    "hu": "hogyan tanulj meg bármit (gyorsabban)",
+    "es-419": "cómo aprender cualquier cosa (más rápido)"
   },
   "legendes": {
-    "es": "#aprender #estudiar #memoria #productividad #disciplina"
+    "es": "#aprender #estudiar #memoria #productividad #disciplina",
+    "fr": "#apprendre #etudier #memoire #productivite #discipline",
+    "it": "#imparare #studiare #memoria #produttivita #disciplina",
+    "pt-BR": "#aprender #estudos #memoria #produtividade #disciplina",
+    "de": "#lernen #studium #gedaechtnis #produktivitaet #disziplin",
+    "ro": "#invatat #studiu #memorie #productivitate #disciplina",
+    "hu": "#tanulas #tanulmanyok #memoria #produktivitas #fegyelem",
+    "es-419": "#aprender #estudiar #memoria #productividad #disciplina"
   },
   "musique": {
     "titre": "original sound",
@@ -54,6 +68,41 @@
         "haut": "cómo aprender",
         "mot": "CUALQUIER COSA",
         "note": "(más rápido)"
+      },
+      "fr": {
+        "haut": "comment apprendre",
+        "mot": "N'IMPORTE QUOI",
+        "note": "(plus vite)"
+      },
+      "it": {
+        "haut": "come imparare",
+        "mot": "QUALSIASI COSA",
+        "note": "(più in fretta)"
+      },
+      "pt-BR": {
+        "haut": "como aprender",
+        "mot": "QUALQUER COISA",
+        "note": "(mais rápido)"
+      },
+      "de": {
+        "haut": "so lernst du",
+        "mot": "ALLES",
+        "note": "(schneller)"
+      },
+      "ro": {
+        "haut": "cum să înveți",
+        "mot": "ORICE",
+        "note": "(mai repede)"
+      },
+      "hu": {
+        "haut": "hogyan tanulj meg",
+        "mot": "BÁRMIT",
+        "note": "(gyorsabban)"
+      },
+      "es-419": {
+        "haut": "cómo aprender",
+        "mot": "CUALQUIER COSA",
+        "note": "(más rápido)"
       }
     },
     {
@@ -68,6 +117,62 @@
         }
       ],
       "es": {
+        "titre": "explícalo.",
+        "paragraphes": [
+          "lees algo, te parece clarísimo y a los dos días no sabrías **explicarlo**.",
+          "en un estudio de la universidad de washington en san luis, a unos estudiantes les dijeron que luego **tendrían que enseñarlo**. lo recordaron **mejor y más ordenado**.",
+          "estudia como si mañana tuvieras que **explicárselo a alguien**."
+        ]
+      },
+      "fr": {
+        "titre": "explique-le.",
+        "paragraphes": [
+          "tu lis un truc, ça te paraît super clair et, deux jours après, tu ne saurais pas **l'expliquer**.",
+          "dans une étude de l'université washington à saint-louis, on a dit à des étudiants qu'ils **devraient l'enseigner** ensuite. ils s'en sont souvenus **mieux et de façon plus organisée**.",
+          "étudie comme si demain tu devais **l'expliquer à quelqu'un**."
+        ]
+      },
+      "it": {
+        "titre": "spiegalo.",
+        "paragraphes": [
+          "leggi una cosa, ti sembra chiarissima e dopo due giorni non sapresti **spiegarla**.",
+          "in uno studio della washington university di saint louis, ad alcuni studenti dissero che dopo **avrebbero dovuto insegnarlo**. lo ricordarono **meglio e in modo più ordinato**.",
+          "studia come se domani dovessi **spiegarlo a qualcuno**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "explica.",
+        "paragraphes": [
+          "você lê algo, parece claríssimo e dois dias depois não saberia **explicar**.",
+          "num estudo da universidade washington em saint louis, disseram a alguns alunos que depois **teriam que ensinar**. eles lembraram **melhor e de forma mais organizada**.",
+          "estuda como se amanhã tivesse que **explicar pra alguém**."
+        ]
+      },
+      "de": {
+        "titre": "erklär es.",
+        "paragraphes": [
+          "du liest etwas, es wirkt total klar, und zwei tage später könntest du es nicht **erklären**.",
+          "in einer studie der washington university in st. louis sagte man studierenden, sie müssten es danach **anderen beibringen**. sie behielten es **besser und geordneter**.",
+          "lern so, als müsstest du es morgen **jemandem erklären**."
+        ]
+      },
+      "ro": {
+        "titre": "explică-l.",
+        "paragraphes": [
+          "citești ceva, ți se pare super clar și după două zile n-ai ști **să-l explici**.",
+          "într-un studiu de la washington university din saint louis, unor studenți li s-a spus că apoi **vor trebui să-l predea**. și l-au reținut **mai bine și mai ordonat**.",
+          "învață ca și cum mâine ar trebui **să-l explici cuiva**."
+        ]
+      },
+      "hu": {
+        "titre": "magyarázd el.",
+        "paragraphes": [
+          "elolvasol valamit, teljesen világosnak tűnik, két nap múlva pedig nem tudnád **elmagyarázni**.",
+          "a saint louis-i washington university egyik kutatásában néhány diáknak azt mondták, hogy utána **tanítaniuk kell majd**. **jobban és rendezettebben** emlékeztek rá.",
+          "úgy tanulj, mintha holnap **el kellene magyaráznod valakinek**."
+        ]
+      },
+      "es-419": {
         "titre": "explícalo.",
         "paragraphes": [
           "lees algo, te parece clarísimo y a los dos días no sabrías **explicarlo**.",
@@ -93,6 +198,62 @@
           "en la universidad del sur de florida probaron a **mezclarlos**. una semana después, acertaban **un 63%**. los que practicaron por bloques, un 20%.",
           "mezcla temas: **cuesta más**, pero se queda."
         ]
+      },
+      "fr": {
+        "titre": "mélange tout",
+        "paragraphes": [
+          "on s'entraîne souvent sur **un seul type d'exercice** jusqu'à le maîtriser, puis on passe au suivant.",
+          "à l'université de floride du sud, ils ont essayé de **les mélanger**. une semaine après, ils réussissaient **63%**. ceux qui avaient fait des blocs, 20%.",
+          "mélange les sujets: **c'est plus dur**, mais ça reste."
+        ]
+      },
+      "it": {
+        "titre": "mescola tutto",
+        "paragraphes": [
+          "di solito ci alleniamo su **un solo tipo di esercizio** finché non lo padroneggiamo, poi passiamo al successivo.",
+          "alla university of south florida hanno provato a **mescolarli**. una settimana dopo azzeccavano il **63%**. chi si era allenato a blocchi, il 20%.",
+          "mescola gli argomenti: **costa di più**, ma resta."
+        ]
+      },
+      "pt-BR": {
+        "titre": "mistura tudo",
+        "paragraphes": [
+          "a gente costuma praticar **um tipo de exercício** até dominar e depois passar pro próximo.",
+          "na universidade do sul da flórida testaram **misturar**. uma semana depois, acertavam **63%**. quem praticou em blocos, 20%.",
+          "mistura os temas: **é mais difícil**, mas fica."
+        ]
+      },
+      "de": {
+        "titre": "misch alles",
+        "paragraphes": [
+          "meist üben wir **eine aufgabenart**, bis wir sie können, und gehen dann zur nächsten.",
+          "an der university of south florida haben sie sie **gemischt**. eine woche später lösten sie **63%** richtig. die in blöcken geübt hatten, 20%.",
+          "misch die themen: **es ist anstrengender**, aber es bleibt."
+        ]
+      },
+      "ro": {
+        "titre": "amestecă tot",
+        "paragraphes": [
+          "de obicei exersăm **un singur tip de exercițiu** până îl stăpânim, apoi trecem la următorul.",
+          "la university of south florida au încercat **să le amestece**. după o săptămână, nimereau **63%**. cei care exersaseră pe blocuri, 20%.",
+          "amestecă temele: **e mai greu**, dar rămâne."
+        ]
+      },
+      "hu": {
+        "titre": "keverj mindent",
+        "paragraphes": [
+          "általában **egyfajta feladatot** gyakorlunk, amíg nem megy, aztán jön a következő.",
+          "a dél-floridai egyetemen **összekeverték őket**. egy hét múlva **63%-ot** találtak el. akik blokkokban gyakoroltak, 20%-ot.",
+          "keverd a témákat: **nehezebb**, de megmarad."
+        ]
+      },
+      "es-419": {
+        "titre": "mézclalo todo",
+        "paragraphes": [
+          "solemos practicar **un tipo de ejercicio** hasta dominarlo y luego pasar al siguiente.",
+          "en la universidad del sur de florida probaron a **mezclarlos**. una semana después, acertaban **un 63%**. los que practicaron por bloques, un 20%.",
+          "mezcla temas: **cuesta más**, pero se queda."
+        ]
       }
     },
     {
@@ -103,6 +264,62 @@
         }
       ],
       "es": {
+        "titre": "un tema cada día",
+        "paragraphes": [
+          "no hace falta tener horas libres. hace falta **un poco cada día**.",
+          "en el metro hago **una lección de 10 minutos en Sophia**, con un quiz al final: hoy historia, mañana economía.",
+          "cambiar de tema cada día es justo **lo que pide el punto 2**."
+        ]
+      },
+      "fr": {
+        "titre": "un sujet par jour",
+        "paragraphes": [
+          "pas besoin d'avoir des heures libres. il faut **un peu chaque jour**.",
+          "dans le métro, je fais **une leçon de 10 minutes sur Sophia**, avec un quiz à la fin: aujourd'hui histoire, demain économie.",
+          "changer de sujet chaque jour, c'est exactement **ce que demande le point 2**."
+        ]
+      },
+      "it": {
+        "titre": "un tema al giorno",
+        "paragraphes": [
+          "non servono ore libere. serve **un po' ogni giorno**.",
+          "in metro faccio **una lezione di 10 minuti su Sophia**, con un quiz alla fine: oggi storia, domani economia.",
+          "cambiare tema ogni giorno è proprio **quello che chiede il punto 2**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "um tema por dia",
+        "paragraphes": [
+          "não precisa ter horas livres. precisa de **um pouco todo dia**.",
+          "no metrô eu faço **uma lição de 10 minutos no Sophia**, com um quiz no final: hoje história, amanhã economia.",
+          "mudar de tema todo dia é exatamente **o que pede o ponto 2**."
+        ]
+      },
+      "de": {
+        "titre": "jeden tag ein thema",
+        "paragraphes": [
+          "du brauchst keine freien stunden. du brauchst **jeden tag ein bisschen**.",
+          "in der u-bahn mache ich **eine 10-minuten-lektion in Sophia**, mit einem quiz am ende: heute geschichte, morgen wirtschaft.",
+          "jeden tag das thema wechseln ist genau **das, was punkt 2 sagt**."
+        ]
+      },
+      "ro": {
+        "titre": "o temă pe zi",
+        "paragraphes": [
+          "nu ai nevoie de ore libere. ai nevoie de **puțin în fiecare zi**.",
+          "la metrou fac **o lecție de 10 minute în Sophia**, cu un quiz la final: azi istorie, mâine economie.",
+          "să schimbi tema în fiecare zi e exact **ce cere punctul 2**."
+        ]
+      },
+      "hu": {
+        "titre": "napi egy téma",
+        "paragraphes": [
+          "nem kellenek szabad órák. **minden nap egy kicsi** kell.",
+          "a metrón **egy 10 perces leckét csinálok a Sophia appban**, a végén egy kvízzel: ma történelem, holnap közgazdaságtan.",
+          "minden nap témát váltani pont **az, amit a 2. pont kér**."
+        ]
+      },
+      "es-419": {
         "titre": "un tema cada día",
         "paragraphes": [
           "no hace falta tener horas libres. hace falta **un poco cada día**.",
@@ -129,6 +346,62 @@
           "el error deja **un hueco** que tu cerebro quiere llenar.",
           "antes de leer un tema, **adivina la respuesta**. fallar también es aprender."
         ]
+      },
+      "fr": {
+        "titre": "trompe-toi avant.",
+        "paragraphes": [
+          "à ucla, ils ont vu qu'**essayer de répondre avant d'étudier**, même en se trompant, aide à mieux retenir la réponse ensuite.",
+          "l'erreur laisse **un trou** que ton cerveau veut combler.",
+          "avant de lire un sujet, **devine la réponse**. se tromper, c'est aussi apprendre."
+        ]
+      },
+      "it": {
+        "titre": "sbaglia prima.",
+        "paragraphes": [
+          "alla ucla hanno visto che **provare a rispondere prima di studiare**, anche sbagliando, aiuta a ricordare meglio la risposta dopo.",
+          "l'errore lascia **un vuoto** che il cervello vuole riempire.",
+          "prima di leggere un argomento, **indovina la risposta**. sbagliare è anche imparare."
+        ]
+      },
+      "pt-BR": {
+        "titre": "erra antes.",
+        "paragraphes": [
+          "na ucla viram que **tentar responder antes de estudar**, mesmo errando, ajuda a lembrar melhor a resposta depois.",
+          "o erro deixa **um buraco** que o cérebro quer preencher.",
+          "antes de ler um tema, **chuta a resposta**. errar também é aprender."
+        ]
+      },
+      "de": {
+        "titre": "lieg vorher falsch.",
+        "paragraphes": [
+          "an der ucla sah man: wer **vor dem lernen versucht zu antworten**, auch falsch, merkt sich die antwort danach besser.",
+          "der fehler hinterlässt **eine lücke**, die dein gehirn füllen will.",
+          "bevor du ein thema liest, **rate die antwort**. falsch liegen ist auch lernen."
+        ]
+      },
+      "ro": {
+        "titre": "greșește înainte.",
+        "paragraphes": [
+          "la ucla au văzut că **să încerci să răspunzi înainte să înveți**, chiar dacă greșești, te ajută să reții mai bine răspunsul apoi.",
+          "greșeala lasă **un gol** pe care creierul vrea să-l umple.",
+          "înainte să citești o temă, **ghicește răspunsul**. și greșeala e tot învățare."
+        ]
+      },
+      "hu": {
+        "titre": "tévedj előbb.",
+        "paragraphes": [
+          "az ucla-n azt látták, hogy **ha tanulás előtt megpróbálsz válaszolni**, akkor is, ha tévedsz, utána jobban emlékszel a válaszra.",
+          "a hiba **egy lyukat** hagy, amit az agyad be akar tölteni.",
+          "mielőtt elolvasol egy témát, **tippeld meg a választ**. a tévedés is tanulás."
+        ]
+      },
+      "es-419": {
+        "titre": "equivócate antes.",
+        "paragraphes": [
+          "en ucla vieron que **intentar responder antes de estudiar**, aunque falles, hace que luego recuerdes mejor la respuesta.",
+          "el error deja **un hueco** que tu cerebro quiere llenar.",
+          "antes de leer un tema, **adivina la respuesta**. fallar también es aprender."
+        ]
       }
     },
     {
@@ -139,6 +412,69 @@
         }
       ],
       "es": {
+        "titre": "puedes aprenderlo todo.",
+        "paragraphes": [
+          "no te falta talento: te falta **un método**.",
+          "explica, mezcla y equivócate pronto: **así aprende tu cerebro**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo y elige **qué vas a aprender este mes**."
+        ]
+      },
+      "fr": {
+        "titre": "tu peux tout apprendre.",
+        "paragraphes": [
+          "il ne te manque pas de talent: il te manque **une méthode**.",
+          "explique, mélange et trompe-toi tôt: **c'est comme ça qu'apprend ton cerveau**.",
+          "laquelle tu vas tester en premier? commente le numéro.",
+          "enregistre-le et choisis **ce que tu vas apprendre ce mois-ci**."
+        ]
+      },
+      "it": {
+        "titre": "puoi imparare tutto.",
+        "paragraphes": [
+          "non ti manca il talento: ti manca **un metodo**.",
+          "spiega, mescola e sbaglia presto: **così impara il cervello**.",
+          "quale provi per primo? scrivi il numero nei commenti.",
+          "salvalo e scegli **cosa imparerai questo mese**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "você pode aprender tudo.",
+        "paragraphes": [
+          "não te falta talento: te falta **um método**.",
+          "explica, mistura e erra cedo: **é assim que o cérebro aprende**.",
+          "qual você vai testar primeiro? comenta o número.",
+          "salva e escolhe **o que você vai aprender este mês**."
+        ]
+      },
+      "de": {
+        "titre": "du kannst alles lernen.",
+        "paragraphes": [
+          "dir fehlt kein talent: dir fehlt **eine methode**.",
+          "erklären, mischen, früh falsch liegen: **so lernt dein gehirn**.",
+          "welchen probierst du zuerst? kommentier die nummer.",
+          "speicher es und wähl, **was du diesen monat lernst**."
+        ]
+      },
+      "ro": {
+        "titre": "poți învăța orice.",
+        "paragraphes": [
+          "nu-ți lipsește talentul: îți lipsește **o metodă**.",
+          "explică, amestecă și greșește devreme: **așa învață creierul**.",
+          "pe care îl încerci primul? scrie numărul în comentarii.",
+          "salvează-l și alege **ce înveți luna asta**."
+        ]
+      },
+      "hu": {
+        "titre": "bármit megtanulhatsz.",
+        "paragraphes": [
+          "nem tehetséged nincs: **módszered** nincs.",
+          "magyarázz, keverj és tévedj korán: **így tanul az agyad**.",
+          "melyiket próbálod ki először? írd meg kommentben a számot.",
+          "mentsd el, és válaszd ki, **mit tanulsz meg ebben a hónapban**."
+        ]
+      },
+      "es-419": {
         "titre": "puedes aprenderlo todo.",
         "paragraphes": [
           "no te falta talento: te falta **un método**.",

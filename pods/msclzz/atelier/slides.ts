@@ -47,6 +47,8 @@ export type Slide = {
   type: TypeSlide;
   /** Son image (images/compte/<nom>.jpg, provenance dans `compte` du post) ou une photo de la banque (images/banque/, id dans `banque`). La slide Sophia n'en a pas (son logo). */
   image?: string;
+  /** Hauteur maximale de l'image (repère 1170), quand le texte (une langue plus longue) ne tient pas avec l'image à sa taille chez lui ; jamais sous 300. */
+  hauteur?: number;
   [langue: string]: unknown;
 };
 export type TexteCouverture = { titre: string };
@@ -118,7 +120,8 @@ type Mot = { t: string; c: keyof typeof COULEURS };
 function mots(t: string): Mot[] {
   const sortie: Mot[] = [];
   let c: keyof typeof COULEURS = "blanc";
-  for (const brut of t.split(/\s+/).filter(Boolean)) {
+  // Les espaces insécables (U+00A0, U+202F : « … », « ? ») restent dans le mot.
+  for (const brut of t.split(/[ \t\n]+/).filter(Boolean)) {
     let m = brut;
     let couleur = c;
     if (m.startsWith("{")) (couleur = "violet"), (c = "violet"), (m = m.slice(1));
@@ -169,7 +172,7 @@ function paragraphes(ctx: Ctx, ps: string[], y: number): number {
 }
 
 /** L'image au centre, à sa taille chez lui (bornée) ; rend son bas. */
-async function poserImage(ctx: Ctx, chemin: string | null, haut: number): Promise<number> {
+async function poserImage(ctx: Ctx, chemin: string | null, haut: number, hauteur?: number): Promise<number> {
   if (!chemin) {
     const x = (REPERE - LOGO) / 2;
     ctx.save();
@@ -181,7 +184,8 @@ async function poserImage(ctx: Ctx, chemin: string | null, haut: number): Promis
   }
   const img = await image(chemin);
   // Ses découpes sont gardées à leur taille chez lui (repère 1170) : on les pose telles quelles, bornées.
-  const k = Math.min(1, IMAGE.l / img.width, IMAGE.h / img.height);
+  if (hauteur !== undefined && !(hauteur >= 300)) throw new Error(`${chemin} : hauteur ${hauteur} (300 au moins)`);
+  const k = Math.min(1, IMAGE.l / img.width, Math.min(IMAGE.h, hauteur ?? IMAGE.h) / img.height);
   const l = img.width * k;
   const h = img.height * k;
   ctx.drawImage(img, (REPERE - l) / 2, haut, l, h);
@@ -208,7 +212,7 @@ export async function rendreSlide(post: Post, s: Slide, langue: string): Promise
     if (!c?.titre) throw new Error(`${ou} : le titre de la couverture en ${langue}`);
     if (!s.image) throw new Error(`${ou} : la couverture a son image`);
     const fin = bloc(ctx, c.titre, POLICE.titre, COUV.taille, COUV.pas, COUV.base);
-    bas = await poserImage(ctx, s.image, Math.max(COUV.image, fin + 200));
+    bas = await poserImage(ctx, s.image, Math.max(COUV.image, fin + 200), s.hauteur);
   } else if (s.type === "avertissement" || s.type === "etape" || s.type === "sophia") {
     const c = contenu<TexteEtape>(s, langue);
     if (!c?.titre) throw new Error(`${ou} : le titre en ${langue}`);
@@ -226,7 +230,7 @@ export async function rendreSlide(post: Post, s: Slide, langue: string): Promise
     if (c.avant?.length) y = paragraphes(ctx, c.avant, y) + ECARTS.avant_image;
     else y -= 33;
     if (s.image || s.type === "sophia") {
-      const fin = await poserImage(ctx, s.type === "sophia" ? null : s.image!, y);
+      const fin = await poserImage(ctx, s.type === "sophia" ? null : s.image!, y, s.hauteur);
       y = fin + ECARTS.image_apres;
     } else y += 2 * TEXTE.pas - ECARTS.avant_image;
     bas = c.apres?.length ? paragraphes(ctx, c.apres, y) : y - ECARTS.image_apres;

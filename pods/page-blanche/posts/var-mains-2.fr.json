@@ -88,12 +88,12 @@
    "images": {
     "I1": {
      "remplacer": {
-      "source": "sources/os_7ec38bc5.jpg",
+      "source": "sources/os_9ab48d01.jpg",
       "boite": [
-       300,
        0,
-       2068,
-       1760
+       700,
+       1504,
+       1900
       ]
      }
     }

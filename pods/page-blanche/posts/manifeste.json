@@ -6785,6 +6785,32 @@
    },
    "notes": "full test BLEO, cta C",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "original-107",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#lunchbreak #productivity #selfcare",
+   "musique": {
+    "titre": "retire (final)",
+    "auteur": "Alvedon",
+    "original": false,
+    "id": "6991133033583609857",
+    "url_tiktok": "https://www.tiktok.com/music/x-6991133033583609857"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685736268617059616_1",
+    "2": "7699939278847085857_6",
+    "3": "7683630825610513686_4",
+    "4": "7699523873712164128_3",
+    "5": "7691336990419209505_4",
+    "6": "7698667830635400470_5"
+   },
+   "notes": "full test BLEO, cta B",
+   "type_bleo": "full_test"
   }
  ]
 }

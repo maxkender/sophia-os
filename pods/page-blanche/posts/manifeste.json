@@ -6920,6 +6920,33 @@
    "notes": "declinaison G2 de var-grandv-1, cta A",
    "type_bleo": "declinaison",
    "parent_contenu_id": "1e5c88ed-02be-4362-91ff-a5f47d042204"
+  },
+  {
+   "post_id": "var-grille-2",
+   "url": "https://www.tiktok.com/@amayareading/video/7704304928449121568?variante=var-grille-1?variante=var-grille-2",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#cerveau #habitudes #neuroscience",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "big sound selecta",
+    "original": true,
+    "id": "7239212554831104814",
+    "url_tiktok": "https://www.tiktok.com/music/x-7239212554831104814"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7704304928449121568_1",
+    "2": "7708456205689113889_2",
+    "3": "7699899851747659041_4",
+    "4": "7708456205689113889_5",
+    "5": "7699899851747659041_6",
+    "6": "7708456205689113889_6"
+   },
+   "notes": "declinaison G2 de var-grille-1, cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "dc0ff750-fbd0-4c3a-bdb8-cfccf8744c9d"
   }
  ]
 }

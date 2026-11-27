@@ -6,14 +6,16 @@
     "sv": "frågor som kommer knäcka din hjärna kl. 3 på natten",
     "fr": "questions qui vont te retourner le cerveau à 3h du mat",
     "it": "domande che alle 3 di notte ti mandano in tilt il cervello",
-    "ro": "întrebări care îți fac praf creierul la 3 noaptea"
+    "ro": "întrebări care îți fac praf creierul la 3 noaptea",
+    "tr": "gece 3'te beynini yakacak sorular"
   },
   "legendes": {
     "en": "some questions don't have answers. that's exactly why they're worth thinking about.\n\nthe mind, how we know anything, time, right and wrong, and why anything exists at all.\n\nphilosophers have argued about these for centuries. u get to join in.\n\nsave this for the next night u can't sleep.\n\n#philosophy #deepthoughts #learning #curiosity #studytok",
     "sv": "vissa frågor har inga svar. det är precis därför de är värda att tänka på.\n\nmedvetandet, hur vi kan veta något alls, tiden, rätt och fel och varför något existerar överhuvudtaget.\n\nfilosofer har bråkat om de här i århundraden. nu får du hänga på.\n\nspara det här till nästa natt du inte kan sova.\n\n#filosofi #djupatankar #learning #studytok #fördig",
     "fr": "certaines questions ont pas de réponse. c'est justement pour ça qu'elles valent le coup d'y réfléchir.\n\nl'esprit, comment on peut savoir quoi que ce soit, le temps, le bien et le mal, et pourquoi quelque chose existe.\n\nles philosophes en débattent depuis des siècles. à toi de te joindre à eux.\n\nenregistre ça pour la prochaine nuit où tu dors pas.\n\n#philosophie #philo #reflexion #studytok #learning",
     "it": "certe domande non hanno risposta. ed è proprio per questo che vale la pena pensarci.\n\nla mente, come facciamo a sapere qualcosa, il tempo, il bene e il male, e perché esiste qualcosa.\n\ni filosofi ne discutono da secoli. puoi unirti anche tu.\n\nsalvalo per la prossima notte in cui non riesci a dormire.\n\n#philosophy #deepthoughts #learning #curiosity #studytok #filosofia #pensieri #perte",
-    "ro": "unele întrebări n-au răspuns. exact de asta merită să te gândești la ele.\n\nmintea, cum putem ști ceva, timpul, binele și răul și de ce există ceva până la urmă.\n\nfilozofii se ceartă pe ele de secole. acum poți să intri și tu în discuție.\n\nsalvează asta pt următoarea noapte în care nu poți dormi.\n\n#studytok #learning #filozofie #ganduri #romania"
+    "ro": "unele întrebări n-au răspuns. exact de asta merită să te gândești la ele.\n\nmintea, cum putem ști ceva, timpul, binele și răul și de ce există ceva până la urmă.\n\nfilozofii se ceartă pe ele de secole. acum poți să intri și tu în discuție.\n\nsalvează asta pt următoarea noapte în care nu poți dormi.\n\n#studytok #learning #filozofie #ganduri #romania",
+    "tr": "bazı soruların cevabı yok. tam da bu yüzden üzerine düşünmeye değerler.\n\nzihin, bir şeyi nasıl bildiğimiz, zaman, doğru ve yanlış, ve neden herhangi bir şeyin var olduğu.\n\nfilozoflar bunları yüzyıllardır tartışıyor. sen de katılabilirsin.\n\nuyuyamadığın bir sonraki gece için kaydet.\n\n#studytok #learning #felsefe #derindüşünceler #keşfet"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -55,6 +57,9 @@
       },
       "ro": {
         "titre": "întrebări care îți fac\npraf creierul la 3\nnoaptea"
+      },
+      "tr": {
+        "titre": "gece 3'te beynini\nyakacak sorular"
       }
     },
     {
@@ -127,6 +132,20 @@
           "Problema celorlalte minți",
           "Identitatea personală",
           "Problema minte-corp"
+        ]
+      },
+      "tr": {
+        "titre": "Zihin",
+        "sujets": [
+          "Bilincin zor problemi",
+          "Qualia",
+          "Mary'nin odası",
+          "Felsefi zombiler",
+          "Çin odası",
+          "Fıçıdaki beyin",
+          "Başka zihinler problemi",
+          "Kişisel kimlik",
+          "Zihin-beden problemi"
         ]
       }
     },
@@ -201,6 +220,20 @@
           "Lebedele negre",
           "Harta nu este teritoriul"
         ]
+      },
+      "tr": {
+        "titre": "Bir şeyi nasıl bilebiliriz?",
+        "sujets": [
+          "Tümevarım problemi",
+          "Gettier problemleri",
+          "Descartes'ın kötü cini",
+          "Münchhausen üçlemi",
+          "Hume'un çatalı",
+          "Yanlışlanabilirlik",
+          "Bayesçi akıl yürütme",
+          "Siyah kuğular",
+          "Harita, bölgenin kendisi değildir"
+        ]
       }
     },
     {
@@ -238,6 +271,13 @@
         "paragraphes": [
           "înainte să intru într-un rabbit hole, fac lecția de 10 minute pe Sophia. o lecție scurtă pe zi: istorie, filozofie, științe, geopolitică, literatură, economie.",
           "fiecare e scrisă de profesori adevărați și se termină cu un mic quiz. credeam că o să urăsc filozofia. acum e preferata mea."
+        ]
+      },
+      "tr": {
+        "titre": "bu işe nasıl girdim",
+        "paragraphes": [
+          "bir tavşan deliğine dalmadan önce Sophia'da 10 dakikalık dersimi yapıyorum. günde kısa bir ders: tarih, felsefe, bilim, jeopolitik, edebiyat, ekonomi.",
+          "her birini gerçek profesörler yazıyor ve sonunda küçük bir quiz var. nefret edeceğimi sandığım şey felsefeydi. şimdi en sevdiğim o."
         ]
       }
     },
@@ -307,6 +347,19 @@
           "Moartea termică a universului",
           "De ce ne amintim trecutul, dar nu viitorul"
         ]
+      },
+      "tr": {
+        "titre": "Zaman",
+        "sujets": [
+          "Zaman nedir?",
+          "Zamanın oku",
+          "Blok evren",
+          "Şimdicilik ve ebedicilik",
+          "Determinizm",
+          "Kapalı zamansı eğriler",
+          "Evrenin ısıl ölümü",
+          "Geçmişi hatırlıyoruz da geleceği neden değil?"
+        ]
       }
     },
     {
@@ -374,6 +427,19 @@
           "Imperativul categoric",
           "Etica virtuții",
           "Concluzia respingătoare"
+        ]
+      },
+      "tr": {
+        "titre": "Doğru ve yanlış",
+        "sujets": [
+          "Gyges'in yüzüğü",
+          "Deneyim makinesi",
+          "Ahlaki şans",
+          "Olan-olması gereken problemi",
+          "Euthyphron ikilemi",
+          "Kategorik buyruk",
+          "Erdem etiği",
+          "İtici sonuç"
         ]
       }
     },
@@ -448,6 +514,20 @@
           "Wabi-sabi",
           "Filozofia Ubuntu"
         ]
+      },
+      "tr": {
+        "titre": "Neden bir şey var?",
+        "sujets": [
+          "Neden hiçbir şey yerine bir şey var?",
+          "Antropik ilke",
+          "İnce ayar problemi",
+          "Nihilizm",
+          "Sisifos Söyleni",
+          "Amor fati",
+          "Memento mori",
+          "Wabi-sabi",
+          "Ubuntu felsefesi"
+        ]
       }
     },
     {
@@ -471,6 +551,10 @@
       "ro": {
         "texte": "salvează asta pt data viitoare când creierul nu vrea să se oprească. alege o întrebare, citește despre ea și găsește-ți propriul răspuns.",
         "gras": "SAU.. stai acolo și gândește-te prea mult oricum."
+      },
+      "tr": {
+        "texte": "beyninin susmadığı bir sonraki gece için bunu kaydet. bir soru seç, hakkında oku ve kendi cevabını oluştur.",
+        "gras": "YA DA.. yine yatıp kafanda kur dur."
       }
     }
   ]

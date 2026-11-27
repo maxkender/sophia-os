@@ -1,0 +1,616 @@
+{
+ "id": "pt-025",
+ "titre": {
+  "en": "habits of girls who sound well-read without trying",
+  "fr": "habitudes des filles qui ont l'air cultivées sans forcer",
+  "es": "hábitos de chicas que suenan cultas sin esforzarse",
+  "es-419": "hábitos de chicas que suenan cultas sin esforzarse",
+  "it": "abitudini delle ragazze che sembrano colte senza sforzo",
+  "tr": "zorlamadan çok okumuş gibi görünen kızların alışkanlıkları",
+  "pt-BR": "hábitos de meninas que parecem cultas sem esforço",
+  "sl": "navade punc, ki brez truda zvenijo načitano",
+  "de": "gewohnheiten von mädchen, die belesen klingen, ohne es zu versuchen",
+  "sk": "zvyky dievčat, ktoré znejú sčítane bez námahy",
+  "sv": "vanor hos tjejer som låter belästa utan att försöka"
+ },
+ "legendes": {
+  "en": "it's not about reading more, it's about little habits. steal one this week <3 #girlblogger #booktok #wellread #learning #thatgirl",
+  "fr": "ce n'est pas lire plus, c'est des petites habitudes. pique-en une cette semaine <3 #girlblogger #booktok #lecture #apprendre #thatgirl",
+  "es": "no se trata de leer más, sino de pequeños hábitos. róbate uno esta semana <3 #girlblogger #booktok #lectura #aprender #thatgirl",
+  "es-419": "no se trata de leer más, sino de pequeños hábitos. llévate uno esta semana <3 #girlblogger #booktok #lectura #aprender #thatgirl",
+  "it": "non si tratta di leggere di più, ma di piccole abitudini. rubane una questa settimana <3 #girlblogger #booktok #lettura #imparare #thatgirl",
+  "tr": "mesele daha çok okumak değil, küçük alışkanlıklar. bu hafta birini dene <3 #girlblogger #booktok #kitap #öğrenmek #thatgirl",
+  "pt-BR": "não é sobre ler mais, é sobre pequenos hábitos. rouba um essa semana <3 #girlblogger #booktok #leitura #aprender #thatgirl",
+  "sl": "ne gre za več branja, ampak za majhne navade. ta teden ukradi eno <3 #girlblogger #booktok #branje #učenje #thatgirl",
+  "de": "es geht nicht ums mehr lesen, sondern um kleine gewohnheiten. klau dir diese woche eine <3 #girlblogger #booktok #lesen #lernen #thatgirl",
+  "sk": "nejde o to čítať viac, ale o malé zvyky. tento týždeň si jeden ukradni <3 #girlblogger #booktok #citanie #ucenie #thatgirl",
+  "sv": "det handlar inte om att läsa mer, utan om små vanor. sno en den här veckan <3 #girlblogger #booktok #läsning #lärande #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7600125086699391774"
+ },
+ "notes": "Full test (BLEO, 27/11) : accroche neuve chez nous, proche de la promesse de son 162 k (« sound like she reads everything ») sans en être une reformulation (habitudes, pas ressources). Éléments à nous : un livre dans le sac, la première page des classiques en librairie, Sophia, les livres audio en marchant, trois citations par cœur. Slide Sophia (4) : « 3. a lesson every night », cta B (reformulé). Aucune ressource nommée. Photos neuves de la banque.",
+ "banque": {
+  "images/banque/couv-bonsai.jpg": "a01a6210-88b3-4ea9-9f33-a769b0d37bef",
+  "images/banque/couv-tasse-verte.jpg": "8794181d-e399-4fa7-8520-f5992982d86a",
+  "images/banque/tasse-ecouteurs-livre.jpg": "651c193d-f6e8-4e77-8c8f-78548a8c6814",
+  "images/banque/bougie-verre-carnet.jpg": "41415d38-7174-4364-b179-5d7ad7bffd6a",
+  "images/banque/notes-surligneurs.jpg": "8e1ac696-a311-450a-8f2d-1866df69b9b9",
+  "images/banque/ordi-calendrier.jpg": "965b610b-1a53-4d6a-abfa-c4aea020db74",
+  "images/banque/coucher-rose.jpg": "3826d686-0507-4470-bfc1-32f5d802190d",
+  "images/banque/ombre-marche.jpg": "0a9252db-657b-4d70-a47c-ce81a4775f23",
+  "images/banque/champ-moutons.jpg": "72d74250-cb83-4d76-9c8d-a102ef04d662",
+  "images/banque/carte-cachet-gant.jpg": "01a8e777-2ebe-4223-9496-7a84666ae362",
+  "images/banque/main-tasse-ongles.jpg": "88599f2d-5196-4692-a4d8-1a44ea355966"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-bonsai.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-tasse-verte.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "habits of girls who\nsound well-read\nwithout trying"
+   },
+   "fr": {
+    "titre": "habitudes des filles\nqui ont l'air\ncultivées\nsans forcer"
+   },
+   "es": {
+    "titre": "hábitos de chicas\nque suenan cultas\nsin esforzarse"
+   },
+   "es-419": {
+    "titre": "hábitos de chicas\nque suenan cultas\nsin esforzarse"
+   },
+   "it": {
+    "titre": "abitudini delle\nragazze che\nsembrano colte\nsenza sforzo"
+   },
+   "tr": {
+    "titre": "zorlamadan çok\nokumuş gibi görünen\nkızların\nalışkanlıkları"
+   },
+   "pt-BR": {
+    "titre": "hábitos de meninas\nque parecem cultas\nsem esforço"
+   },
+   "sl": {
+    "titre": "navade punc,\nki brez truda\nzvenijo načitano"
+   },
+   "de": {
+    "titre": "gewohnheiten von\nmädchen, die belesen\nklingen, ohne es\nzu versuchen"
+   },
+   "sk": {
+    "titre": "zvyky dievčat,\nktoré znejú\nsčítane\nbez námahy"
+   },
+   "sv": {
+    "titre": "vanor hos tjejer\nsom låter belästa\nutan att försöka"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/tasse-ecouteurs-livre.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/bougie-verre-carnet.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. a book in her bag",
+    "paragraphes": [
+     "She always carries a small book. waiting rooms, trains, queues: ten pages here and there.",
+     "That's how she finishes twenty books a year without ever 'finding time'"
+    ]
+   },
+   "fr": {
+    "titre": "1. un livre dans son sac",
+    "paragraphes": [
+     "Elle a toujours un petit livre sur elle. salles d'attente, trains, files : dix pages par-ci, par-là.",
+     "C'est comme ça qu'elle finit vingt livres par an sans jamais « trouver le temps »"
+    ]
+   },
+   "es": {
+    "titre": "1. un libro en el bolso",
+    "paragraphes": [
+     "Siempre lleva un libro pequeño. salas de espera, trenes, colas: diez páginas aquí y allá.",
+     "Así termina veinte libros al año sin «encontrar tiempo» nunca"
+    ]
+   },
+   "es-419": {
+    "titre": "1. un libro en la bolsa",
+    "paragraphes": [
+     "Siempre trae un libro pequeño. salas de espera, camiones, filas: diez páginas aquí y allá.",
+     "Así termina veinte libros al año sin nunca «encontrar tiempo»"
+    ]
+   },
+   "it": {
+    "titre": "1. un libro in borsa",
+    "paragraphes": [
+     "Ha sempre con sé un libro piccolo. sale d'attesa, treni, code: dieci pagine qua e là.",
+     "È così che finisce venti libri l'anno senza mai «trovare il tempo»"
+    ]
+   },
+   "tr": {
+    "titre": "1. çantasında bir kitap",
+    "paragraphes": [
+     "Yanında hep küçük bir kitap olur. bekleme salonları, trenler, kuyruklar: orada burada on sayfa.",
+     "Hiç 'vakit bulmadan' yılda yirmi kitap böyle biter"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. um livro na bolsa",
+    "paragraphes": [
+     "Ela sempre carrega um livro pequeno. salas de espera, metrô, filas: dez páginas aqui e ali.",
+     "É assim que ela termina vinte livros por ano sem nunca 'arranjar tempo'"
+    ]
+   },
+   "sl": {
+    "titre": "1. knjiga v torbici",
+    "paragraphes": [
+     "Vedno ima s sabo majhno knjigo. čakalnice, vlaki, vrste: deset strani tu in tam.",
+     "Tako prebere dvajset knjig na leto, ne da bi kdaj »našla čas«"
+    ]
+   },
+   "de": {
+    "titre": "1. ein buch in der tasche",
+    "paragraphes": [
+     "Sie hat immer ein kleines buch dabei. wartezimmer, züge, schlangen: zehn seiten hier und da.",
+     "So schafft sie zwanzig bücher im jahr, ohne je „zeit zu finden“"
+    ]
+   },
+   "sk": {
+    "titre": "1. kniha v kabelke",
+    "paragraphes": [
+     "Vždy má pri sebe malú knihu. čakárne, vlaky, rady: desať strán tu a tam.",
+     "Takto prečíta dvadsať kníh ročne bez toho, aby niekedy „našla čas“"
+    ]
+   },
+   "sv": {
+    "titre": "1. en bok i väskan",
+    "paragraphes": [
+     "Hon har alltid en liten bok med sig. väntrum, tåg, köer: tio sidor här och där.",
+     "Så läser hon ut tjugo böcker om året utan att någonsin 'hitta tid'"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/notes-surligneurs.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/ordi-calendrier.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. the first page in bookshops",
+    "paragraphes": [
+     "In a bookshop, she reads the first page of three classics she hasn't read. she buys the one that won't let her go.",
+     "She knows how a hundred great books begin, and always picks one she'll actually finish"
+    ]
+   },
+   "fr": {
+    "titre": "2. la première page en librairie",
+    "paragraphes": [
+     "En librairie, elle lit la première page de trois classiques qu'elle n'a pas lus. elle achète celui qui ne la lâche pas.",
+     "Elle sait comment commencent cent grands livres, et choisit toujours un qu'elle finira vraiment"
+    ]
+   },
+   "es": {
+    "titre": "2. la primera página en librerías",
+    "paragraphes": [
+     "En una librería, lee la primera página de tres clásicos que no ha leído. compra el que no la suelta.",
+     "Sabe cómo empiezan cien grandes libros, y siempre elige uno que de verdad terminará"
+    ]
+   },
+   "es-419": {
+    "titre": "2. la primera página en librerías",
+    "paragraphes": [
+     "En una librería, lee la primera página de tres clásicos que no ha leído. compra el que no la suelta.",
+     "Sabe cómo empiezan cien grandes libros, y siempre elige uno que de verdad va a terminar"
+    ]
+   },
+   "it": {
+    "titre": "2. la prima pagina in libreria",
+    "paragraphes": [
+     "In libreria, legge la prima pagina di tre classici che non ha letto. compra quello che non la lascia andare.",
+     "Sa come iniziano cento grandi libri, e sceglie sempre uno che finirà davvero"
+    ]
+   },
+   "tr": {
+    "titre": "2. kitapçıda ilk sayfa",
+    "paragraphes": [
+     "Kitapçıda, okumadığı üç klasiğin ilk sayfasını okur. onu bırakmayanı satın alır.",
+     "Yüz büyük kitabın nasıl başladığını bilir, ve hep gerçekten bitireceği birini seçer"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. a primeira página na livraria",
+    "paragraphes": [
+     "Na livraria, ela lê a primeira página de três clássicos que não leu. compra o que não larga dela.",
+     "Ela sabe como começam cem grandes livros, e sempre escolhe um que vai terminar de verdade"
+    ]
+   },
+   "sl": {
+    "titre": "2. prva stran v knjigarni",
+    "paragraphes": [
+     "V knjigarni prebere prvo stran treh klasik, ki jih še ni brala. kupi tisto, ki je ne izpusti.",
+     "Ve, kako se začne sto velikih knjig, in vedno izbere tisto, ki jo bo res prebrala"
+    ]
+   },
+   "de": {
+    "titre": "2. die erste seite im buchladen",
+    "paragraphes": [
+     "Im buchladen liest sie die erste seite von drei klassikern, die sie nicht kennt. sie kauft den, der sie nicht loslässt.",
+     "Sie weiß, wie hundert große bücher anfangen, und wählt immer eins, das sie wirklich beendet"
+    ]
+   },
+   "sk": {
+    "titre": "2. prvá strana v kníhkupectve",
+    "paragraphes": [
+     "V kníhkupectve si prečíta prvú stranu troch klasík, ktoré nečítala. kúpi tú, ktorá ju nepustí.",
+     "Vie, ako začína sto veľkých kníh, a vždy si vyberie takú, ktorú naozaj dočíta"
+    ]
+   },
+   "sv": {
+    "titre": "2. första sidan i bokaffären",
+    "paragraphes": [
+     "I en bokaffär läser hon första sidan av tre klassiker hon inte läst. hon köper den som inte släpper henne.",
+     "Hon vet hur hundra stora böcker börjar, och väljer alltid en hon faktiskt läser ut"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/coucher-rose.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. a lesson every night",
+    "paragraphes": [
+     "Sophia gives me one lesson a day, written by actual professors. history, philosophy, literature, with a little quiz after.",
+     "Ten minutes, and the big names stop being just names"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon chaque soir",
+    "paragraphes": [
+     "Sophia me donne une leçon par jour, écrite par de vrais profs. histoire, philo, littérature, avec un petit quiz après.",
+     "Dix minutes, et les grands noms ne sont plus juste des noms"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección cada noche",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. historia, filosofía, literatura, con un pequeño quiz al final.",
+     "Diez minutos, y los grandes nombres dejan de ser solo nombres"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección cada noche",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. historia, filosofía, literatura, con un pequeño quiz al final.",
+     "Diez minutos, y los grandes nombres dejan de ser solo nombres"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione ogni sera",
+    "paragraphes": [
+     "Sophia mi dà una lezione al giorno, scritta da veri professori. storia, filosofia, letteratura, con un piccolo quiz alla fine.",
+     "Dieci minuti, e i grandi nomi smettono di essere solo nomi"
+    ]
+   },
+   "tr": {
+    "titre": "3. her akşam bir ders",
+    "paragraphes": [
+     "Sophia bana her gün gerçek profesörlerin yazdığı bir ders veriyor. tarih, felsefe, edebiyat, sonunda küçük bir test.",
+     "On dakika, ve büyük isimler artık sadece isim olmaktan çıkar"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula toda noite",
+    "paragraphes": [
+     "O Sophia me dá uma aula por dia, escrita por professores de verdade. história, filosofia, literatura, com um quiz no final.",
+     "Dez minutos, e os grandes nomes deixam de ser só nomes"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija vsak večer",
+    "paragraphes": [
+     "Sophia mi da eno lekcijo na dan, ki jo napišejo pravi profesorji. zgodovina, filozofija, književnost, na koncu pa kratek kviz.",
+     "Deset minut, in velika imena niso več samo imena"
+    ]
+   },
+   "de": {
+    "titre": "3. jeden abend eine lektion",
+    "paragraphes": [
+     "Sophia gibt mir eine lektion am tag, geschrieben von echten professoren. geschichte, philosophie, literatur, mit einem kleinen quiz danach.",
+     "Zehn minuten, und große namen sind nicht mehr nur namen"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia každý večer",
+    "paragraphes": [
+     "Sophia mi dáva jednu lekciu denne od skutočných profesorov. história, filozofia, literatúra, a na konci malý kvíz.",
+     "Desať minút a veľké mená už nie sú len mená"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion varje kväll",
+    "paragraphes": [
+     "Sophia ger mig en lektion om dagen, skriven av riktiga professorer. historia, filosofi, litteratur, med ett litet quiz efteråt.",
+     "Tio minuter, och de stora namnen slutar vara bara namn"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/ombre-marche.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/champ-moutons.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. audiobooks on walks",
+    "paragraphes": [
+     "Every walk, she listens to twenty minutes of a book she'd never sit down to read. history, biographies, the classics.",
+     "Ten walks, one book. her steps literally make her smarter"
+    ]
+   },
+   "fr": {
+    "titre": "4. des livres audio en marchant",
+    "paragraphes": [
+     "À chaque balade, elle écoute vingt minutes d'un livre qu'elle ne s'assiérait jamais pour lire. histoire, biographies, classiques.",
+     "Dix balades, un livre. ses pas la rendent littéralement plus cultivée"
+    ]
+   },
+   "es": {
+    "titre": "4. audiolibros al caminar",
+    "paragraphes": [
+     "En cada paseo, escucha veinte minutos de un libro que nunca se sentaría a leer. historia, biografías, clásicos.",
+     "Diez paseos, un libro. sus pasos literalmente la hacen más culta"
+    ]
+   },
+   "es-419": {
+    "titre": "4. audiolibros al caminar",
+    "paragraphes": [
+     "En cada caminata, escucha veinte minutos de un libro que nunca se sentaría a leer. historia, biografías, clásicos.",
+     "Diez caminatas, un libro. sus pasos literalmente la hacen más culta"
+    ]
+   },
+   "it": {
+    "titre": "4. audiolibri camminando",
+    "paragraphes": [
+     "A ogni passeggiata, ascolta venti minuti di un libro che non si siederebbe mai a leggere. storia, biografie, classici.",
+     "Dieci passeggiate, un libro. i suoi passi la rendono letteralmente più colta"
+    ]
+   },
+   "tr": {
+    "titre": "4. yürürken sesli kitap",
+    "paragraphes": [
+     "Her yürüyüşte, oturup asla okumayacağı bir kitabın yirmi dakikasını dinler. tarih, biyografiler, klasikler.",
+     "On yürüyüş, bir kitap. adımları onu gerçekten daha bilgili yapar"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. audiolivros na caminhada",
+    "paragraphes": [
+     "Em toda caminhada, ela ouve vinte minutos de um livro que nunca sentaria pra ler. história, biografias, clássicos.",
+     "Dez caminhadas, um livro. os passos dela literalmente a deixam mais culta"
+    ]
+   },
+   "sl": {
+    "titre": "4. zvočne knjige na sprehodih",
+    "paragraphes": [
+     "Na vsakem sprehodu posluša dvajset minut knjige, ki je nikoli ne bi sedla brat. zgodovina, biografije, klasike.",
+     "Deset sprehodov, ena knjiga. njeni koraki jo dobesedno delajo pametnejšo"
+    ]
+   },
+   "de": {
+    "titre": "4. hörbücher beim spazieren",
+    "paragraphes": [
+     "Bei jedem spaziergang hört sie zwanzig minuten eines buches, für das sie sich nie hinsetzen würde. geschichte, biografien, klassiker.",
+     "Zehn spaziergänge, ein buch. ihre schritte machen sie buchstäblich klüger"
+    ]
+   },
+   "sk": {
+    "titre": "4. audioknihy na prechádzkach",
+    "paragraphes": [
+     "Na každej prechádzke počúva dvadsať minút knihy, ku ktorej by si nikdy nesadla. história, životopisy, klasika.",
+     "Desať prechádzok, jedna kniha. jej kroky ju doslova robia múdrejšou"
+    ]
+   },
+   "sv": {
+    "titre": "4. ljudböcker på promenader",
+    "paragraphes": [
+     "På varje promenad lyssnar hon på tjugo minuter av en bok hon aldrig skulle sätta sig ner och läsa. historia, biografier, klassiker.",
+     "Tio promenader, en bok. hennes steg gör henne bokstavligen klokare"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/carte-cachet-gant.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/main-tasse-ongles.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. three quotes she knows by heart",
+    "paragraphes": [
+     "She learns three lines she loves, from a poem, a novel, a philosopher, and knows exactly who said them.",
+     "One well-placed line, and people assume she's read everything"
+    ]
+   },
+   "fr": {
+    "titre": "5. trois citations par cœur",
+    "paragraphes": [
+     "Elle apprend trois phrases qu'elle aime, d'un poème, d'un roman, d'un philosophe, et sait exactement qui les a dites.",
+     "Une phrase bien placée, et tout le monde croit qu'elle a tout lu"
+    ]
+   },
+   "es": {
+    "titre": "5. tres citas de memoria",
+    "paragraphes": [
+     "Aprende tres frases que le encantan, de un poema, una novela, un filósofo, y sabe exactamente quién las dijo.",
+     "Una frase bien puesta, y todos creen que lo ha leído todo"
+    ]
+   },
+   "es-419": {
+    "titre": "5. tres citas de memoria",
+    "paragraphes": [
+     "Se aprende tres frases que le encantan, de un poema, una novela, un filósofo, y sabe exactamente quién las dijo.",
+     "Una frase bien puesta, y todos creen que lo ha leído todo"
+    ]
+   },
+   "it": {
+    "titre": "5. tre citazioni a memoria",
+    "paragraphes": [
+     "Impara tre frasi che ama, da una poesia, un romanzo, un filosofo, e sa esattamente chi le ha dette.",
+     "Una frase al posto giusto, e tutti pensano che abbia letto tutto"
+    ]
+   },
+   "tr": {
+    "titre": "5. ezbere üç alıntı",
+    "paragraphes": [
+     "Sevdiği üç cümleyi ezberler, bir şiirden, bir romandan, bir filozoftan, ve kimin söylediğini tam bilir.",
+     "Yerinde tek bir cümle, ve herkes her şeyi okuduğunu sanır"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. três citações de cor",
+    "paragraphes": [
+     "Ela decora três frases que ama, de um poema, um romance, um filósofo, e sabe exatamente quem disse.",
+     "Uma frase no lugar certo, e todo mundo acha que ela leu tudo"
+    ]
+   },
+   "sl": {
+    "titre": "5. trije citati na pamet",
+    "paragraphes": [
+     "Nauči se tri stavke, ki jih ima rada, iz pesmi, romana, od filozofa, in točno ve, kdo jih je rekel.",
+     "En dobro postavljen stavek, in vsi mislijo, da je prebrala vse"
+    ]
+   },
+   "de": {
+    "titre": "5. drei zitate auswendig",
+    "paragraphes": [
+     "Sie lernt drei zeilen, die sie liebt, aus einem gedicht, einem roman, von einem philosophen, und weiß genau, wer sie gesagt hat.",
+     "Eine gut platzierte zeile, und alle denken, sie hat alles gelesen"
+    ]
+   },
+   "sk": {
+    "titre": "5. tri citáty naspamäť",
+    "paragraphes": [
+     "Naučí sa tri vety, ktoré má rada, z básne, románu, od filozofa, a presne vie, kto ich povedal.",
+     "Jedna dobre umiestnená veta a všetci si myslia, že prečítala všetko"
+    ]
+   },
+   "sv": {
+    "titre": "5. tre citat utantill",
+    "paragraphes": [
+     "Hon lär sig tre rader hon älskar, ur en dikt, en roman, från en filosof, och vet exakt vem som sa dem.",
+     "En välplacerad rad, och alla tror att hon har läst allt"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

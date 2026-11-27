@@ -7,8 +7,8 @@
     "it": "cose da sapere per sembrare smart in ogni conversazione",
     "sv": "ämnen som får dig att låta smart i alla samtal",
     "fr": "des sujets qui te font briller dans toutes les conversations",
-    "tr": "her sohbette seni zeki gösterecek konular",
-    "ro": "subiecte cu care impresionezi în orice conversație",
+    "tr": "her sohbette zeki görünmeni sağlayan konular",
+    "ro": "subiecte cu care faci impresie în orice conversație",
     "hu": "témák, amiktől okosnak tűnsz minden társaságban"
   },
   "legendes": {
@@ -63,10 +63,10 @@
         "titre": "des sujets qui te font\nbriller dans toutes\nles conversations"
       },
       "tr": {
-        "titre": "her sohbette seni\nzeki gösterecek\nkonular"
+        "titre": "her sohbette zeki\ngörünmeni sağlayan\nkonular"
       },
       "ro": {
-        "titre": "subiecte cu care\nimpresionezi în\norice conversație"
+        "titre": "subiecte cu care faci\nimpresie în orice\nconversație"
       },
       "hu": {
         "titre": "témák, amiktől\nokosnak tűnsz\nminden társaságban"
@@ -1072,7 +1072,7 @@
         "gras": "ODER.. nick weiter, als wüsstest du's."
       },
       "it": {
-        "texte": "salvalo prima della tua prossima cena, appuntamento o lavoro di gruppo. impara bene un argomento, poi tiralo fuori come se niente fosse.",
+        "texte": "salvalo prima di una cena, di un appuntamento o di un lavoro di gruppo. impara bene un argomento, poi tiralo fuori come se niente fosse.",
         "gras": "O.. continua ad annuire facendo finta di sapere."
       },
       "sv": {

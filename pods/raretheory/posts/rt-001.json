@@ -9,7 +9,7 @@
   "titre": {
     "en": "topics to research when u're bored",
     "de": "googel das, wenn dir langweilig ist",
-    "it": "cose da cercare quando ti annoi",
+    "it": "cose da cercare se ti annoi",
     "sv": "ämnen att researcha när du har tråkigt",
     "fr": "des sujets à creuser quand tu t'ennuies",
     "tr": "canın sıkılınca bu konuları araştır",
@@ -61,7 +61,7 @@
         "sous_titre": "tag für tag etwas schlauer"
       },
       "it": {
-        "titre": "cose da cercare\nquando ti annoi",
+        "titre": "cose da cercare se\nti annoi",
         "sous_titre": "e imparare qualcosa in più ogni giorno"
       },
       "sv": {
@@ -73,12 +73,12 @@
         "sous_titre": "et te cultiver un peu plus chaque jour"
       },
       "tr": {
-        "titre": "canın sıkılınca\nbu konuları araştır",
-        "sous_titre": "ve her gün biraz daha akıllan"
+        "titre": "canın sıkılınca bu\nkonuları araştır",
+        "sous_titre": "ve her gün biraz akıllan"
       },
       "ro": {
         "titre": "subiecte de cercetat\ncând te plictisești",
-        "sous_titre": "și te deștepți puțin, zi după zi"
+        "sous_titre": "și te deștepți puțin zi de zi"
       },
       "hu": {
         "titre": "témák, amiknek\nutánanézhetsz, ha\nunatkozol",

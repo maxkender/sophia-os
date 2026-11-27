@@ -8,7 +8,7 @@
     "sv": "saker skolan aldrig lärde dig",
     "fr": "ce que l'école ne t'a jamais appris",
     "tr": "okulun sana hiç öğretmediği şeyler",
-    "ro": "ce nu ți-a predat școala niciodată",
+    "ro": "ce nu te-a învățat școala niciodată",
     "hu": "dolgok, amiket a suli sosem tanított meg"
   },
   "legendes": {
@@ -72,8 +72,8 @@
         "sous_titre": "o zaman kendin öğren"
       },
       "ro": {
-        "titre": "ce nu ți-a predat\nșcoala niciodată",
-        "sous_titre": "deci învață-le pe cont propriu"
+        "titre": "ce nu te-a învățat\nșcoala niciodată",
+        "sous_titre": "învață-le pe cont propriu"
       },
       "hu": {
         "titre": "dolgok, amiket a suli\nsosem tanított meg",
@@ -837,8 +837,8 @@
         "gras": "ODER.. warte weiter, bis es dir jemand erklärt."
       },
       "it": {
-        "texte": "salvalo e scegli un argomento a settimana. entro l'anno prossimo saprai più della maggior parte degli adulti su come funzionano davvero le cose.",
-        "gras": "O.. continua ad aspettare che qualcuno te lo spieghi."
+        "texte": "salvalo e scegli un argomento a settimana. tra un anno saprai più della maggior parte degli adulti su come funzionano davvero le cose.",
+        "gras": "O.. aspetta pure che qualcuno te lo spieghi."
       },
       "sv": {
         "texte": "spara det här och välj ett ämne i veckan. nästa år vet du mer än de flesta vuxna om hur saker faktiskt funkar.",

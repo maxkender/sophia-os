@@ -12,7 +12,7 @@
     "it": "skill che sono felice di aver iniziato a 14 anni",
     "sv": "skills jag är glad att jag lärde mig vid 14",
     "fr": "trucs que j'ai appris dès 14 ans",
-    "tr": "14 yaşımda başladığıma sevindiğim beceriler",
+    "tr": "14 yaşında başlayıp iyi ki dediğim beceriler",
     "ro": "ce mă bucur că am învățat de la 14 ani",
     "hu": "skillek, amiket jó, hogy 14 évesen elkezdtem"
   },
@@ -80,12 +80,12 @@
         "sous_titre": "j'aurais aimé commencer plus tôt"
       },
       "tr": {
-        "titre": "14'te başladığıma\nsevindiğim beceriler",
-        "sous_titre": "keşke daha erken başlasaydım"
+        "titre": "14'te başlayıp iyi ki\ndediğim beceriler",
+        "sous_titre": "keşke daha erken başlasam"
       },
       "ro": {
         "titre": "ce mă bucur că am\nînvățat de la 14 ani",
-        "sous_titre": "aș fi vrut să încep mai devreme"
+        "sous_titre": "aș fi vrut mai devreme"
       },
       "hu": {
         "titre": "skillek, amiket\njó, hogy 14 évesen\nelkezdtem",
@@ -510,8 +510,8 @@
         "gras": "ELLER.. du fyller 18 och önskar att du hade gjort det."
       },
       "fr": {
-        "texte": "pas besoin de rentabiliser chaque compétence. il faut juste en commencer une sans attendre d'être prêt. le toi du futur compte dessus.",
-        "gras": "OU.. t'auras 18 ans et tu regretteras de pas l'avoir fait."
+        "texte": "pas besoin de rentabiliser chaque truc que t'apprends. commence-en juste un sans attendre d'être prêt. le toi du futur compte dessus.",
+        "gras": "OU.. tu vas le regretter à 18 ans."
       },
       "tr": {
         "texte": "her beceriyi paraya çevirmek zorunda değilsin. sadece kendini hazır hissetmeden birine başlaman lazım. gelecekteki sen buna güveniyor.",

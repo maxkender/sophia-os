@@ -4,11 +4,11 @@
   "titre": {
     "en": "things to learn about when u're bored",
     "de": "dinge zum lernen bei langeweile",
-    "it": "cose da imparare quando ti annoi",
+    "it": "cose da imparare se ti annoi",
     "sv": "saker att lära dig om när du har tråkigt",
     "fr": "des trucs à apprendre quand tu t'ennuies",
-    "tr": "canın sıkılınca öğrenilecek şeyler",
-    "ro": "lucruri de învățat când te plictisești",
+    "tr": "canın sıkılınca bu konuları öğren",
+    "ro": "ce poți învăța când te plictisești",
     "hu": "dolgok, amikről tanulhatsz, ha unatkozol"
   },
   "legendes": {
@@ -56,7 +56,7 @@
         "sous_titre": "statt doomscrolling"
       },
       "it": {
-        "titre": "cose da imparare\nquando ti annoi",
+        "titre": "cose da imparare se\nti annoi",
         "sous_titre": "invece di fare doomscrolling"
       },
       "sv": {
@@ -68,12 +68,12 @@
         "sous_titre": "au lieu de doomscroller"
       },
       "tr": {
-        "titre": "canın sıkılınca\nöğrenilecek şeyler",
+        "titre": "canın sıkılınca bu\nkonuları öğren",
         "sous_titre": "sonsuz scroll yerine"
       },
       "ro": {
-        "titre": "lucruri de învățat\ncând te plictisești",
-        "sous_titre": "în loc să dai scroll la nesfârșit"
+        "titre": "ce poți învăța când\nte plictisești",
+        "sous_titre": "în loc de scroll la nesfârșit"
       },
       "hu": {
         "titre": "dolgok, amikről\ntanulhatsz, ha\nunatkozol",
@@ -917,7 +917,7 @@
         "gras": "ODER.. morgen ist dir wieder langweilig."
       },
       "it": {
-        "texte": "salvalo per il tuo prossimo pomeriggio noioso. scegli un argomento, imparalo abbastanza da spiegarlo a un'amica, poi passa al prossimo.",
+        "texte": "salvalo per il tuo prossimo pomeriggio noioso. scegli un argomento e imparalo bene quanto basta per spiegarlo a un'amica, poi passa a quello dopo.",
         "gras": "O.. domani ti annoierai di nuovo."
       },
       "sv": {

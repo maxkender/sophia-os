@@ -9,7 +9,7 @@
   "titre": {
     "en": "topics to research when u're bored pt.2",
     "de": "googel das, wenn dir langweilig ist pt.2",
-    "it": "cose da cercare quando ti annoi pt.2",
+    "it": "cose da cercare se ti annoi pt.2",
     "sv": "ämnen att researcha när du har tråkigt del 2",
     "fr": "des sujets à creuser si tu t'ennuies pt.2",
     "tr": "canın sıkılınca bu konuları araştır pt.2",
@@ -61,7 +61,7 @@
         "sous_titre": "rabbit hole für rabbit hole"
       },
       "it": {
-        "titre": "cose da cercare\nquando ti annoi pt.2",
+        "titre": "cose da cercare se\nti annoi pt.2",
         "sous_titre": "un rabbit hole alla volta"
       },
       "sv": {
@@ -78,7 +78,7 @@
       },
       "ro": {
         "titre": "subiecte de cercetat\ncând te plictisești",
-        "sous_titre": "pt.2: câte un rabbit hole pe rând"
+        "sous_titre": "pt.2, un rabbit hole pe rând"
       },
       "hu": {
         "titre": "témák, amiknek\nutánanézhetsz, ha\nunatkozol 2. rész",
@@ -1085,7 +1085,7 @@
         "gras": "ODER.. morgen ist dir wieder langweilig."
       },
       "it": {
-        "texte": "salvalo per la prossima volta che ti annoi. scegli un argomento, dagli 20 minuti e vedi quanto è profondo il rabbit hole.",
+        "texte": "salvalo per quando ti annoierai di nuovo. scegli un argomento, dagli 20 minuti e guarda quanto è profondo il rabbit hole.",
         "gras": "O.. domani ti annoierai di nuovo."
       },
       "sv": {

@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o208",
+  "type_bleo": "full_test",
+  "titre": "how i make the most of a free period at school #studytok #studytips #school",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 27/11 : 6 full tests sur 13, plus 1 car la boîte n'a que 6 lignes utilisables). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Gestes vrais : une tâche choisie à l'avance, la plus courte d'abord, un coin calme, une vraie pause sur un sujet de culture générale (slide Sophia, 5), ranger ses affaires pour le cours suivant. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "948de68a",
+      "texte_overlay": "how i make the most of\na free period at school",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "bef9ff22",
+      "texte_overlay": "i decide what i'll do before it starts.\nno 10 minutes lost choosing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c5b4b33e",
+      "texte_overlay": "the shortest task first.\none thing done feels great.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "05a2fd6c",
+      "texte_overlay": "i find the quietest corner i can.\nnot the spot where my friends are.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "851fe54f",
+      "texte_overlay": "last 5 minutes: a real break.\ni learn one random thing about history or art.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "last 5 minutes: a real break.\ni learn one random thing about history or art\non a micro-learning app like the Sophia app."
+    },
+    {
+      "position": 6,
+      "media_id": "32075319",
+      "texte_overlay": "then i pack for the next class.\nso i walk in ready.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "fc6eac5a",
+      "texte_overlay": "one free period a day = one less hour of homework tonight.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

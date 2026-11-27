@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o209",
+  "type_bleo": "full_test",
+  "titre": "how i learn maths when i'm convinced i'm bad at maths #studytok #studytips #maths",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 27/11 : 6 full tests sur 13, plus 1 car la boîte n'a que 6 lignes utilisables). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Gestes vrais : refaire les exemples du cours, écrire chaque étape, demander tôt, des exercices courts tous les jours plutôt qu'un long, une pause sur l'histoire des maths (slide Sophia, 6), garder les exercices réussis pour se rassurer. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "058d488a",
+      "texte_overlay": "how i learn maths when i'm convinced\ni'm bad at maths",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3bb4f482",
+      "texte_overlay": "i redo the examples from class first.\nbefore any new exercise.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "455e3090",
+      "texte_overlay": "every step on paper.\nno steps in my head.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "f348a08f",
+      "texte_overlay": "i ask the moment i'm lost.\nnot three chapters later.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "245d124b",
+      "texte_overlay": "15 minutes every day beats 2 hours on sunday.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "e387dd22",
+      "texte_overlay": "on breaks, i read about the people behind the maths.\nit turns out they got stuck too.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "on breaks, i read about the people behind the maths\non a micro-learning app like the Sophia app.\nit turns out they got stuck too."
+    },
+    {
+      "position": 7,
+      "media_id": "378b1caa",
+      "texte_overlay": "i keep the exercises i got right.\nproof that i can.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

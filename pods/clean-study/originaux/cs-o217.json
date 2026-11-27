@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o217",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "c6a791b1-eee7-4aa1-9754-d9f030734285",
+  "titre": "what i do the day a teacher hands back a test #studytok #studytips #school",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [
+    "c6a791b1-eee7-4aa1-9754-d9f030734285"
+  ],
+  "notes": "Déclinaison G1 de c6a791b1, ligne 7 de la boîte, 2e déclinaison de la famille. Accroche du parent mot pour mot. Gestes neufs, aucun de cs-o204 : lire les commentaires du prof en entier, trier les erreurs en deux colonnes, poser une question au prof, une pause de culture générale (slide Sophia, 6), ranger la copie avec le chapitre. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "5ba09e75",
+      "texte_overlay": "what i do the day a teacher\nhands back a test",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "07f2af30",
+      "texte_overlay": "i read every comment, not just the grade.\nthe comments are the real feedback.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f4d40c45",
+      "texte_overlay": "two columns: \"didn't know\" and \"knew but messed up\".\nthey need different fixes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "626cbfb3",
+      "texte_overlay": "one question for the teacher before i leave.\nabout the part i really don't get.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "02b448db",
+      "texte_overlay": "i redo one exercise i got wrong.\nthe same evening.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "b6fe3451",
+      "texte_overlay": "then i switch my brain off school.\na short story from history or art, just for me.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "then i switch my brain off school.\na short story from history or art\non a micro-learning app like the Sophia app."
+    },
+    {
+      "position": 7,
+      "media_id": "66895d57",
+      "texte_overlay": "the test goes in my folder with the chapter.\nit's my best revision sheet.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o218",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "85aa39af-c14b-45e7-ab55-0b3198829ff6",
+  "titre": "habits of the BEST student in class (the ones nobody sees) #studytok #studytips #school",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "85aa39af-c14b-45e7-ab55-0b3198829ff6"
+  ],
+  "notes": "Déclinaison G1 de 85aa39af, ligne 8 de la boîte, 3e et dernière déclinaison de la famille. Accroche du parent mot pour mot. Habitudes neuves, aucune du parent, de cs-o189 ni de cs-o205. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "7169d60b",
+      "texte_overlay": "habits of the BEST student in class\n(the ones nobody sees)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "da077fa5",
+      "texte_overlay": "she writes the date and title on every page.\nher notes are easy to find again.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "eff9b4fa",
+      "texte_overlay": "she starts homework the day it's given.\neven just 10 minutes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0f60de98",
+      "texte_overlay": "she reads the instructions twice.\nshe never loses points on what was asked.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "a235fc91",
+      "texte_overlay": "she reads one short lesson on something new every evening.\nher general knowledge shows in every essay.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "she reads one short lesson on something new every evening\non a micro-learning app like the Sophia app.\nher general knowledge shows in every essay."
+    },
+    {
+      "position": 6,
+      "media_id": "8eba0fae",
+      "texte_overlay": "she packs her bag before bed.\nmornings are calm.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "79db4bcb",
+      "texte_overlay": "she says \"i don't know yet\".\nnot \"i'm bad at this\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

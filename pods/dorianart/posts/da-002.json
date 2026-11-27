@@ -1,0 +1,788 @@
+{
+ "id": "da-002",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698126851037875477",
+  "vues": 2100000,
+  "publie_le": "2026-10-18",
+  "accroche": "Iceberg of Autistic hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of Autistic hobbies",
+  "es-419": "Iceberg de hobbies autistas",
+  "tr": "Otistik hobiler buzdağı",
+  "hu": "Autista hobbik jéghegye",
+  "ro": "Icebergul hobby-urilor autiste",
+  "cs": "Ledovec autistických koníčků",
+  "sr": "Santa leda autističnih hobija",
+  "el": "Το παγόβουνο των αυτιστικών χόμπι"
+ },
+ "legendes": {
+  "en": "#autismtok #iceberg #hobbies #lockedin #selfimprovement",
+  "es-419": "#autismo #hobbies #iceberg #superacionpersonal #lockedin",
+  "tr": "#otizm #hobiler #buzdağı #kişiselgelişim #lockedin",
+  "hu": "#autizmus #hobbik #jéghegy #önfejlesztés #lockedin",
+  "ro": "#autism #hobby #iceberg #dezvoltarepersonala #lockedin",
+  "cs": "#autismus #konicky #ledovec #seberozvoj #lockedin",
+  "sr": "#autizam #hobi #santaleda #samorazvoj #lockedin",
+  "el": "#αυτισμός #χόμπι #παγόβουνο #αυτοβελτίωση #lockedin"
+ },
+ "musique": {
+  "titre": "оригинальный звук",
+  "url": "https://www.tiktok.com/music/original-sound-7695439871377722133"
+ },
+ "oeuvres": {
+  "images/objets/piano-carre.png": {
+   "musee": "The Met",
+   "id": "501783",
+   "titre": "Square Piano",
+   "artiste": "Anton Vatter",
+   "date": "ca. 1800",
+   "url": "https://www.metmuseum.org/art/collection/search/501783"
+  },
+  "images/objets/piece-monnaie.png": {
+   "musee": "The Met",
+   "id": "444866",
+   "titre": "Coin",
+   "artiste": "",
+   "date": "dated 1028 AH/1619 CE",
+   "url": "https://www.metmuseum.org/art/collection/search/444866"
+  },
+  "images/objets/harpe-pedale.png": {
+   "musee": "The Met",
+   "id": "503991",
+   "titre": "Pedal Harp",
+   "artiste": "Lyon & Healy",
+   "date": "1891–95",
+   "url": "https://www.metmuseum.org/art/collection/search/503991"
+  },
+  "images/objets/grenouille.png": {
+   "musee": "The Met",
+   "id": "59229",
+   "titre": "Netsuke of Frog",
+   "artiste": "",
+   "date": "18th century",
+   "url": "https://www.metmuseum.org/art/collection/search/59229"
+  },
+  "images/objets/microscope.png": {
+   "musee": "The Met",
+   "id": "207549",
+   "titre": "Microscope",
+   "artiste": "Claude-Siméon Passemant",
+   "date": "ca. 1750",
+   "url": "https://www.metmuseum.org/art/collection/search/207549"
+  },
+  "images/objets/carte-brodee.png": {
+   "musee": "The Met",
+   "id": "226539",
+   "titre": "Embroidered map sampler",
+   "artiste": "",
+   "date": "1835",
+   "url": "https://www.metmuseum.org/art/collection/search/226539"
+  },
+  "images/objets/cadran-solaire.png": {
+   "musee": "The Met",
+   "id": "188849",
+   "titre": "Portable diptych sundial",
+   "artiste": "Hans Tröschel the Elder",
+   "date": "ca. 1598",
+   "url": "https://www.metmuseum.org/art/collection/search/188849"
+  },
+  "images/objets/carte-a-jouer.png": {
+   "musee": "The Met",
+   "id": "475534",
+   "titre": "5 of Horns, from The Cloisters Playing Cards",
+   "artiste": "",
+   "date": "ca. 1475–80",
+   "url": "https://www.metmuseum.org/art/collection/search/475534"
+  },
+  "images/objets/cerf-volant.png": {
+   "musee": "The Met",
+   "id": "54541",
+   "titre": "Kite Flying",
+   "artiste": "Suzuki Harunobu",
+   "date": "ca. 1766",
+   "url": "https://www.metmuseum.org/art/collection/search/54541"
+  },
+  "images/objets/epee.png": {
+   "musee": "The Met",
+   "id": "27458",
+   "titre": "Sword",
+   "artiste": "",
+   "date": "ca. 1450",
+   "url": "https://www.metmuseum.org/art/collection/search/27458"
+  },
+  "images/objets/insectes.png": {
+   "musee": "The Met",
+   "id": "385463",
+   "titre": "Studies of a Blue Beetle and Insects",
+   "artiste": "Pieter Holsteyn II",
+   "date": "ca. 1650–60",
+   "url": "https://www.metmuseum.org/art/collection/search/385463"
+  },
+  "images/objets/marc-aurele.png": {
+   "musee": "The Met",
+   "id": "195735",
+   "titre": "Marcus Aurelius",
+   "artiste": "",
+   "date": "late 16th century",
+   "url": "https://www.metmuseum.org/art/collection/search/195735"
+  },
+  "images/objets/manuscrit.png": {
+   "musee": "The Met",
+   "id": "469041",
+   "titre": "Manuscript Leaf",
+   "artiste": "",
+   "date": "14th century",
+   "url": "https://www.metmuseum.org/art/collection/search/469041"
+  },
+  "images/objets/encyclopedie.png": {
+   "musee": "The Met",
+   "id": "591843",
+   "titre": "Encyclopédie, ou Dictionnaire raisonné des sciences, des arts et des métiers",
+   "artiste": "Denis Diderot",
+   "date": "1751–65",
+   "url": "https://www.metmuseum.org/art/collection/search/591843"
+  }
+ },
+ "notes": "Original sur son iceberg « Iceberg of Autistic hobbies » (2,1 M vues, 18/10 ; ses hashtags, sa musique) : même format (sa couverture à l'ovale, puis l'iceberg en 5 étages, 4, 4, 3, 3 et 1 loisirs, « disagreed? »), des loisirs autistes de plus en plus pointus. Sans IA, aucun objet de da-001 : piano carré (vers 1800), pièce d'or (1619), harpe à pédales (1891-95), crapaud netsuke, microscope de Passemant (vers 1750), carte brodée (1835), cadran solaire diptyque (vers 1598), carte à jouer des Cloisters (vers 1475-80), estampe ukiyo-e « Kite Flying » (vers 1766), épée (vers 1450), études d'insectes (vers 1650-60), buste de Marc Aurèle, feuillet enluminé (XIVe s.), planche de l'Encyclopédie de Diderot. Loisir Artura au 3e étage (3 loisirs) : « one artura painting a day », le logo d'Artura ; cta B. Traduit à la main en es-419, tr, hu, ro, cs, sr, el (demande du chef des podz du 27/11).",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "Autistic hobbies"
+   },
+   "es-419": {
+    "haut": "Iceberg de",
+    "bas": "hobbies autistas"
+   },
+   "tr": {
+    "haut": "Buzdağı:",
+    "bas": "Otistik hobiler"
+   },
+   "hu": {
+    "haut": "Jéghegy:",
+    "bas": "Autista hobbik"
+   },
+   "ro": {
+    "haut": "Icebergul",
+    "bas": "hobby-urilor autiste"
+   },
+   "cs": {
+    "haut": "Ledovec",
+    "bas": "autistických koníčků"
+   },
+   "sr": {
+    "haut": "Santa leda",
+    "bas": "autističnih hobija"
+   },
+   "el": {
+    "haut": "Παγόβουνο:",
+    "bas": "αυτιστικά χόμπι"
+   }
+  },
+  {
+   "type": "iceberg",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "playing piano",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "coin collecting",
+       "image": "images/objets/piece-monnaie.png"
+      },
+      {
+       "t": "learning the harp",
+       "image": "images/objets/harpe-pedale.png"
+      },
+      {
+       "t": "amphibian facts",
+       "image": "images/objets/grenouille.png"
+      }
+     ],
+     [
+      {
+       "t": "microscopy",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "cartography",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "sundials",
+       "image": "images/objets/cadran-solaire.png"
+      },
+      {
+       "t": "old playing cards",
+       "image": "images/objets/carte-a-jouer.png"
+      }
+     ],
+     [
+      {
+       "t": "one artura painting a day",
+       "image": "artura"
+      },
+      {
+       "t": "ukiyo-e prints",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "historical fencing",
+       "image": "images/objets/epee.png"
+      }
+     ],
+     [
+      {
+       "t": "entomology",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "stoic philosophy",
+       "image": "images/objets/marc-aurele.png"
+      },
+      {
+       "t": "illuminated manuscripts",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "reading encyclopedias",
+       "image": "images/objets/encyclopedie.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "es-419": {
+    "etages": [
+     [
+      {
+       "t": "tocar el piano",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "coleccionar monedas",
+       "image": "images/objets/piece-monnaie.png"
+      },
+      {
+       "t": "aprender arpa",
+       "image": "images/objets/harpe-pedale.png"
+      },
+      {
+       "t": "anfibios",
+       "image": "images/objets/grenouille.png"
+      }
+     ],
+     [
+      {
+       "t": "microscopía",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "cartografía",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "relojes de sol",
+       "image": "images/objets/cadran-solaire.png"
+      },
+      {
+       "t": "naipes antiguos",
+       "image": "images/objets/carte-a-jouer.png"
+      }
+     ],
+     [
+      {
+       "t": "un cuadro de artura al día",
+       "image": "artura"
+      },
+      {
+       "t": "grabados ukiyo-e",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "esgrima histórica",
+       "image": "images/objets/epee.png"
+      }
+     ],
+     [
+      {
+       "t": "entomología",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "filosofía estoica",
+       "image": "images/objets/marc-aurele.png"
+      },
+      {
+       "t": "manuscritos iluminados",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "leer enciclopedias",
+       "image": "images/objets/encyclopedie.png"
+      }
+     ]
+    ],
+    "question": "¿en desacuerdo?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "piyano çalmak",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "para koleksiyonu",
+       "image": "images/objets/piece-monnaie.png"
+      },
+      {
+       "t": "arp öğrenmek",
+       "image": "images/objets/harpe-pedale.png"
+      },
+      {
+       "t": "amfibiler",
+       "image": "images/objets/grenouille.png"
+      }
+     ],
+     [
+      {
+       "t": "mikroskopi",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "haritacılık",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "güneş saatleri",
+       "image": "images/objets/cadran-solaire.png"
+      },
+      {
+       "t": "eski oyun kartları",
+       "image": "images/objets/carte-a-jouer.png"
+      }
+     ],
+     [
+      {
+       "t": "günlük tablo (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "ukiyo-e baskıları",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "tarihi eskrim",
+       "image": "images/objets/epee.png"
+      }
+     ],
+     [
+      {
+       "t": "entomoloji",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "stoa felsefesi",
+       "image": "images/objets/marc-aurele.png"
+      },
+      {
+       "t": "tezhipli el yazmaları",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "ansiklopedi okumak",
+       "image": "images/objets/encyclopedie.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "hu": {
+    "etages": [
+     [
+      {
+       "t": "zongorázás",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "érmegyűjtés",
+       "image": "images/objets/piece-monnaie.png"
+      },
+      {
+       "t": "hárfázás",
+       "image": "images/objets/harpe-pedale.png"
+      },
+      {
+       "t": "kétéltűek",
+       "image": "images/objets/grenouille.png"
+      }
+     ],
+     [
+      {
+       "t": "mikroszkópia",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "térképészet",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "napórák",
+       "image": "images/objets/cadran-solaire.png"
+      },
+      {
+       "t": "régi kártyák",
+       "image": "images/objets/carte-a-jouer.png"
+      }
+     ],
+     [
+      {
+       "t": "napi festmény (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "ukiyo-e nyomatok",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "történelmi vívás",
+       "image": "images/objets/epee.png"
+      }
+     ],
+     [
+      {
+       "t": "rovartan",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "sztoikus filozófia",
+       "image": "images/objets/marc-aurele.png"
+      },
+      {
+       "t": "díszes kódexek",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "lexikonok olvasása",
+       "image": "images/objets/encyclopedie.png"
+      }
+     ]
+    ],
+    "question": "nem értesz egyet?"
+   },
+   "ro": {
+    "etages": [
+     [
+      {
+       "t": "cântat la pian",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "colecționat monede",
+       "image": "images/objets/piece-monnaie.png"
+      },
+      {
+       "t": "învățat harpa",
+       "image": "images/objets/harpe-pedale.png"
+      },
+      {
+       "t": "amfibieni",
+       "image": "images/objets/grenouille.png"
+      }
+     ],
+     [
+      {
+       "t": "microscopie",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "cartografie",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "cadrane solare",
+       "image": "images/objets/cadran-solaire.png"
+      },
+      {
+       "t": "cărți de joc vechi",
+       "image": "images/objets/carte-a-jouer.png"
+      }
+     ],
+     [
+      {
+       "t": "un tablou pe zi pe artura",
+       "image": "artura"
+      },
+      {
+       "t": "stampe ukiyo-e",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "scrimă istorică",
+       "image": "images/objets/epee.png"
+      }
+     ],
+     [
+      {
+       "t": "entomologie",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "filozofie stoică",
+       "image": "images/objets/marc-aurele.png"
+      },
+      {
+       "t": "manuscrise iluminate",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "citit enciclopedii",
+       "image": "images/objets/encyclopedie.png"
+      }
+     ]
+    ],
+    "question": "nu ești de acord?"
+   },
+   "cs": {
+    "etages": [
+     [
+      {
+       "t": "hra na klavír",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "sbírání mincí",
+       "image": "images/objets/piece-monnaie.png"
+      },
+      {
+       "t": "hra na harfu",
+       "image": "images/objets/harpe-pedale.png"
+      },
+      {
+       "t": "obojživelníci",
+       "image": "images/objets/grenouille.png"
+      }
+     ],
+     [
+      {
+       "t": "mikroskopie",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "kartografie",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "sluneční hodiny",
+       "image": "images/objets/cadran-solaire.png"
+      },
+      {
+       "t": "staré hrací karty",
+       "image": "images/objets/carte-a-jouer.png"
+      }
+     ],
+     [
+      {
+       "t": "jeden obraz denně (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "dřevořezy ukiyo-e",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "historický šerm",
+       "image": "images/objets/epee.png"
+      }
+     ],
+     [
+      {
+       "t": "entomologie",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "stoická filozofie",
+       "image": "images/objets/marc-aurele.png"
+      },
+      {
+       "t": "iluminované rukopisy",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "čtení encyklopedií",
+       "image": "images/objets/encyclopedie.png"
+      }
+     ]
+    ],
+    "question": "nesouhlasíš?"
+   },
+   "sr": {
+    "etages": [
+     [
+      {
+       "t": "sviranje klavira",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "skupljanje novčića",
+       "image": "images/objets/piece-monnaie.png"
+      },
+      {
+       "t": "učenje harfe",
+       "image": "images/objets/harpe-pedale.png"
+      },
+      {
+       "t": "vodozemci",
+       "image": "images/objets/grenouille.png"
+      }
+     ],
+     [
+      {
+       "t": "mikroskopija",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "kartografija",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "sunčani satovi",
+       "image": "images/objets/cadran-solaire.png"
+      },
+      {
+       "t": "stare karte",
+       "image": "images/objets/carte-a-jouer.png"
+      }
+     ],
+     [
+      {
+       "t": "slika dnevno (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "ukiyo-e grafike",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "istorijsko mačevanje",
+       "image": "images/objets/epee.png"
+      }
+     ],
+     [
+      {
+       "t": "entomologija",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "stoička filozofija",
+       "image": "images/objets/marc-aurele.png"
+      },
+      {
+       "t": "iluminirani rukopisi",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "čitanje enciklopedija",
+       "image": "images/objets/encyclopedie.png"
+      }
+     ]
+    ],
+    "question": "ne slažeš se?"
+   },
+   "el": {
+    "etages": [
+     [
+      {
+       "t": "πιάνο",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "συλλογή νομισμάτων",
+       "image": "images/objets/piece-monnaie.png"
+      },
+      {
+       "t": "μαθήματα άρπας",
+       "image": "images/objets/harpe-pedale.png"
+      },
+      {
+       "t": "αμφίβια",
+       "image": "images/objets/grenouille.png"
+      }
+     ],
+     [
+      {
+       "t": "μικροσκόπια",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "χαρτογραφία",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "ηλιακά ρολόγια",
+       "image": "images/objets/cadran-solaire.png"
+      },
+      {
+       "t": "παλιές τράπουλες",
+       "image": "images/objets/carte-a-jouer.png"
+      }
+     ],
+     [
+      {
+       "t": "πίνακας τη μέρα (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "χαρακτικά ukiyo-e",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "ιστορική ξιφασκία",
+       "image": "images/objets/epee.png"
+      }
+     ],
+     [
+      {
+       "t": "εντομολογία",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "στωική φιλοσοφία",
+       "image": "images/objets/marc-aurele.png"
+      },
+      {
+       "t": "μεσαιωνικά χειρόγραφα",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "ανάγνωση λεξικών",
+       "image": "images/objets/encyclopedie.png"
+      }
+     ]
+    ],
+    "question": "διαφωνείς;"
+   }
+  }
+ ]
+}

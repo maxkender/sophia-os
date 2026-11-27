@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o339",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a6e4805f-e1ef-4fee-98b4-a8976aa1051b",
+ "titre": "things that instantly make you more interesting #interesting #conversation #socialskills #curiosity #selfimprovement",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "dc65211f-db60-4764-80a1-cc17d64c2c16"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, dc65211f). déclinaison G1 de « things that instantly make you more interesting » (parent a6e4805f). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a4bc8f9e-cf90-407a-a855-9f0a7cfc7015",
+   "texte_overlay": "things that instantly make\nyou more interesting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4938618a-ad37-4b79-bb4e-122bc729b4f1",
+   "texte_overlay": "a hobby nobody expects\n\ntake up something unusual, like fencing, pottery or beekeeping. people are always curious about someone with a hobby they've never heard anyone talk about before.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "105afc90-c7f7-48fb-8ebf-83cc7371df43",
+   "texte_overlay": "real opinions about books\n\nread a few books that truly move you and form real thoughts about them. people love talking to someone who reads widely and actually thinks about what they read.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a7fe939b-2d0c-49f5-a60e-728895904d0f",
+   "texte_overlay": "telling stories well\n\npractise telling short stories with a beginning, a twist and an ending. a good storyteller is magnetic at any table, and it's a skill absolutely anyone can learn.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a473ffcf-6379-4f26-99f3-e078ce3348fa",
+   "texte_overlay": "knowing strange facts\n\nodd facts are the fastest way to become interesting, and collecting one a day takes only minutes. one strange fact can carry an entire conversation when things go quiet.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/5.jpg",
+   "texte_sophia": "knowing strange facts\n\ncollect odd facts, like why cats purr. the Sophia app turns it into one short lesson a day, and 5 minutes of strange facts is the fastest way to become interesting to anyone."
+  },
+  {
+   "position": 6,
+   "media_id": "908b2138-46fc-4743-af23-4f2b20631c93",
+   "texte_overlay": "curiosity about others\n\nask people about their lives and really listen to their answers. the most interesting people are almost always the ones most genuinely interested in everyone else.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,100 @@
+{
+  "id": "md-013",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings People Laughed At"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #cezanne #manet #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/demoiselles-village.jpg": {
+      "musee": "The Met",
+      "id": "438820",
+      "titre": "Young Ladies of the Village",
+      "artiste": "Gustave Courbet",
+      "date": "1851–52",
+      "url": "https://www.metmuseum.org/art/collection/search/438820"
+    },
+    "images/oeuvres/mlle-v.jpg": {
+      "musee": "The Met",
+      "id": "436945",
+      "titre": "Mademoiselle V. . . in the Costume of an Espada",
+      "artiste": "Edouard Manet",
+      "date": "1862",
+      "url": "https://www.metmuseum.org/art/collection/search/436945"
+    },
+    "images/oeuvres/sainte-victoire.jpg": {
+      "musee": "The Met",
+      "id": "435878",
+      "titre": "Mont Sainte-Victoire",
+      "artiste": "Paul Cézanne",
+      "date": "ca. 1902–6",
+      "url": "https://www.metmuseum.org/art/collection/search/435878"
+    },
+    "images/oeuvres/bievre-rousseau.jpg": {
+      "musee": "The Met",
+      "id": "437512",
+      "titre": "The Banks of the Bièvre near Bicêtre",
+      "artiste": "Henri Rousseau (le Douanier)",
+      "date": "ca. 1908–09",
+      "url": "https://www.metmuseum.org/art/collection/search/437512"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Courbet, Les Demoiselles de village (1851-52) : ses trois sœurs, Ornans ; Salon de 1852, critiques sur les vaches minuscules et les « demoiselles » jugées vulgaires (notice du Met). Manet, Mlle V. en costume d'espada (1862) : Victorine Meurent ; Salon des Refusés 1863 avec Le Déjeuner sur l'herbe ; la corrida du fond hors d'échelle, critiquée. Cézanne, Mont Sainte-Victoire (vers 1902-06) : plus de 80 œuvres sur la montagne ; moqué aux expositions impressionnistes de 1874 et 1877 ; « faire du Poussin sur nature », « rendre l'impressionnisme solide comme l'art des musées ». Rousseau, Les Bords de la Bièvre près de Bicêtre (vers 1908-09) : employé de l'octroi, autodidacte ; banquet Rousseau au Bateau-Lavoir chez Picasso en novembre 1908. Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-rire.jpg",
+      "en": {
+        "titre": "Paintings People Laughed At"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/demoiselles-village.jpg",
+      "en": {
+        "titre": "Young Ladies of the Village",
+        "texte": "shows Courbet's three sisters giving alms to a little cowherd near Ornans. At the 1852 Salon, critics laughed at the tiny cows and called the sisters vulgar. Courbet answered by painting even bigger.",
+        "artiste": "Gustave Courbet"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/mlle-v.jpg",
+      "en": {
+        "titre": "Mademoiselle V. as a Bullfighter",
+        "texte": "is the model Victorine Meurent dressed as a matador. Shown at the Salon des Refusés in 1863, next to Manet's Luncheon on the Grass, it was mocked for its flat colors and its bullfight floating in the background.",
+        "artiste": "Édouard Manet"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/sainte-victoire.jpg",
+      "en": {
+        "titre": "Mont Sainte-Victoire",
+        "texte": "is the mountain Cézanne painted over and over at the end of his life, after decades of being mocked in Paris. He wanted to make painting as solid as museum art. I learned to see how the whole mountain is built from small blocks of color on Artura, one artwork a day with its story.",
+        "artiste": "Paul Cézanne"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/bievre-rousseau.jpg",
+      "en": {
+        "titre": "The Banks of the Bièvre",
+        "texte": "was painted by a former toll collector who taught himself to paint. For years Henri Rousseau was a joke to critics. In 1908, Picasso gave a banquet in his honor, half homage, half prank.",
+        "artiste": "Henri Rousseau"
+      }
+    }
+  ]
+}

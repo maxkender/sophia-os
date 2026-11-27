@@ -1,0 +1,100 @@
+{
+  "id": "md-014",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Feel Like Silence"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #vermeer #corot #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/ville-davray.jpg": {
+      "musee": "The Met",
+      "id": "435988",
+      "titre": "Ville-d'Avray",
+      "artiste": "Camille Corot",
+      "date": "1870",
+      "url": "https://www.metmuseum.org/art/collection/search/435988"
+    },
+    "images/oeuvres/vermeer-pichet.jpg": {
+      "musee": "The Met",
+      "id": "437881",
+      "titre": "Young Woman with a Water Pitcher",
+      "artiste": "Johannes Vermeer",
+      "date": "ca. 1662",
+      "url": "https://www.metmuseum.org/art/collection/search/437881"
+    },
+    "images/oeuvres/fleurs-fantin.jpg": {
+      "musee": "The Met",
+      "id": "438031",
+      "titre": "Summer Flowers",
+      "artiste": "Henri Fantin-Latour",
+      "date": "1880",
+      "url": "https://www.metmuseum.org/art/collection/search/438031"
+    },
+    "images/oeuvres/tuileries-hiver.jpg": {
+      "musee": "The Met",
+      "id": "437314",
+      "titre": "The Garden of the Tuileries on a Winter Afternoon",
+      "artiste": "Camille Pissarro",
+      "date": "1899",
+      "url": "https://www.metmuseum.org/art/collection/search/437314"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Corot, Ville-d'Avray (1870) : maison de campagne des parents de Corot achetée en 1817 ; il y peint jusqu'à sa mort (1875). Vermeer, Jeune femme à l'aiguière (vers 1662) : acheté par Henry G. Marquand en 1887, premier Vermeer aux États-Unis, donné au Met en 1889 ; carte des Pays-Bas au mur. Fantin-Latour, Fleurs d'été (1880) : vendues surtout en Angleterre (Edwin et Ruth Edwards) ; épouse Victoria Dubourg, peintre de fleurs. Pissarro, Le Jardin des Tuileries, après-midi d'hiver (1899) : depuis l'appartement du 204 rue de Rivoli ; infection oculaire, peinture aux fenêtres (notice du Met). Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-silence.jpg",
+      "en": {
+        "titre": "Paintings That Feel Like Silence"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/ville-davray.jpg",
+      "en": {
+        "titre": "Ville-d'Avray",
+        "texte": "is the pond near Paris where Corot's family had a country house. He painted these grey trees and still water for almost fifty years, until it felt less like a place than a memory. This one dates from 1870.",
+        "artiste": "Camille Corot"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/vermeer-pichet.jpg",
+      "en": {
+        "titre": "Young Woman with a Water Pitcher",
+        "texte": "is a woman opening a window, one hand on a pitcher, in a room where nothing else moves. It was the first Vermeer to reach America, in 1887. I only noticed the map glowing on the wall behind her because of Artura, which zooms into the details you'd miss.",
+        "artiste": "Johannes Vermeer"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/fleurs-fantin.jpg",
+      "en": {
+        "titre": "Summer Flowers",
+        "texte": "was painted by Fantin-Latour in 1880. He sold most of his flower pieces in England, where collectors couldn't get enough of them. His wife, Victoria Dubourg, was a flower painter too.",
+        "artiste": "Henri Fantin-Latour"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/tuileries-hiver.jpg",
+      "en": {
+        "titre": "The Tuileries on a Winter Afternoon",
+        "texte": "was painted from an apartment window on the rue de Rivoli in 1899. An eye infection kept Pissarro from working outdoors, so he painted Paris from above. The garden is empty, and the city seems to hold its breath.",
+        "artiste": "Camille Pissarro"
+      }
+    }
+  ]
+}

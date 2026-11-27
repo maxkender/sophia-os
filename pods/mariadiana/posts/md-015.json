@@ -1,0 +1,100 @@
+{
+  "id": "md-015",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Look Like Photographs"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #ingres #holbein #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/holbein-wedigh.jpg": {
+      "musee": "The Met",
+      "id": "436658",
+      "titre": "Hermann von Wedigh III (died 1560)",
+      "artiste": "Hans Holbein the Younger",
+      "date": "1532",
+      "url": "https://www.metmuseum.org/art/collection/search/436658"
+    },
+    "images/oeuvres/haverman-fleurs.jpg": {
+      "musee": "The Met",
+      "id": "436634",
+      "titre": "A Vase of Flowers",
+      "artiste": "Margareta Haverman",
+      "date": "1716",
+      "url": "https://www.metmuseum.org/art/collection/search/436634"
+    },
+    "images/oeuvres/princesse-broglie.jpg": {
+      "musee": "The Met",
+      "id": "459106",
+      "titre": "Joséphine-Éléonore-Marie-Pauline de Galard de Brassac de Béarn (1825–1860), Princesse de Broglie",
+      "artiste": "Jean Auguste Dominique Ingres",
+      "date": "1851–53",
+      "url": "https://www.metmuseum.org/art/collection/search/459106"
+    },
+    "images/oeuvres/friedland.jpg": {
+      "musee": "The Met",
+      "id": "437052",
+      "titre": "1807, Friedland",
+      "artiste": "Ernest Meissonier",
+      "date": "ca. 1861–75",
+      "url": "https://www.metmuseum.org/art/collection/search/437052"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Holbein, Hermann von Wedigh III (1532) : marchand hanséatique du Steelyard à Londres ; inscription « ANNO 1532 AETATIS SVAE 29 ». Margareta Haverman, Vase de fleurs (1716) : seule élève de Jan van Huysum ; reçue à l'Académie royale de Paris en 1722, exclue en 1723 sur le soupçon que son morceau de réception était de Van Huysum (notice du Met). Ingres, Princesse de Broglie (1851-53) : morte de tuberculose en 1860 à 35 ans. Meissonier, 1807, Friedland (vers 1861-75) : plus de dix ans de travail ; Meissonier fit poser un petit rail à Poissy pour suivre les chevaux au galop dans un chariot. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-detail.jpg",
+      "en": {
+        "titre": "Paintings That Look Like Photographs"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/holbein-wedigh.jpg",
+      "en": {
+        "titre": "Hermann von Wedigh",
+        "texte": "was a German merchant in London when Holbein painted him in 1532. The inscription says he was 29. The black coat, the gloves, the paper slipped into the book: you could almost touch them.",
+        "artiste": "Hans Holbein the Younger"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/haverman-fleurs.jpg",
+      "en": {
+        "titre": "A Vase of Flowers",
+        "texte": "was painted in 1716 by Margareta Haverman, the only pupil of the great flower painter Jan van Huysum. In 1722 she joined the French Academy, then was thrown out when people claimed her teacher had painted her work.",
+        "artiste": "Margareta Haverman"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/princesse-broglie.jpg",
+      "en": {
+        "titre": "Princesse de Broglie",
+        "texte": "took Ingres almost three years: the satin, the lace, the gold of the chair, every reflection on her pearls. She died of tuberculosis seven years later, at 35. Artura gives me one painting a day and the story behind it; this one stayed with me.",
+        "artiste": "Ingres"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/friedland.jpg",
+      "en": {
+        "titre": "1807, Friedland",
+        "texte": "shows Napoleon saluted by his cuirassiers on the day of a great victory. Meissonier worked on it for more than ten years and studied horses at a gallop so obsessively that he had a small rail track built to follow them.",
+        "artiste": "Ernest Meissonier"
+      }
+    }
+  ]
+}

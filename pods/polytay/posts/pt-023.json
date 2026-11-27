@@ -1,0 +1,617 @@
+{
+ "id": "pt-023",
+ "titre": {
+  "en": "habits that make you impossible to bore",
+  "fr": "habitudes pour ne plus jamais t'ennuyer",
+  "es": "hábitos para no aburrirte nunca",
+  "es-419": "hábitos para que nunca te aburras",
+  "it": "abitudini per non annoiarti mai più",
+  "tr": "asla sıkılmamanı sağlayan alışkanlıklar",
+  "pt-BR": "hábitos pra você nunca mais ficar entediada",
+  "sl": "navade, zaradi katerih ti ni nikoli dolgčas",
+  "de": "gewohnheiten, mit denen dir nie langweilig wird",
+  "sk": "zvyky, vďaka ktorým sa nikdy nenudíš",
+  "sv": "vanor som gör att du aldrig blir uttråkad"
+ },
+ "legendes": {
+  "en": "curious is something you practise, not something you're born with. steal one this week <3 #girlblogger #selfimprovement #learning #curiosity #booktok",
+  "fr": "être curieuse, ça s'entraîne. pique-en une cette semaine <3 #girlblogger #developpementpersonnel #apprendre #curiosite #booktok",
+  "es": "la curiosidad se practica, no se nace con ella. róbate una esta semana <3 #girlblogger #desarrollopersonal #aprender #curiosidad #booktok",
+  "es-419": "la curiosidad se practica, no se nace con ella. llévate una esta semana <3 #girlblogger #desarrollopersonal #aprender #curiosidad #booktok",
+  "it": "la curiosità si allena, non ci si nasce. rubane una questa settimana <3 #girlblogger #crescitapersonale #imparare #curiosità #booktok",
+  "tr": "merak doğuştan gelmez, çalışılır. bu hafta birini dene <3 #girlblogger #kişiselgelişim #öğrenmek #merak #booktok",
+  "pt-BR": "curiosidade se pratica, ninguém nasce com ela. rouba uma essa semana <3 #girlblogger #autodesenvolvimento #aprender #curiosidade #booktok",
+  "sl": "radovednost se vadi, z njo se ne rodiš. ta teden ukradi eno <3 #girlblogger #osebnirazvoj #učenje #radovednost #booktok",
+  "de": "neugier ist übung, nicht angeboren. klau dir diese woche eine <3 #girlblogger #selbstverbesserung #lernen #neugier #booktok",
+  "sk": "zvedavosť sa trénuje, nerodíš sa s ňou. tento týždeň si jeden zvyk ukradni <3 #girlblogger #osobnyrozvoj #ucenie #zvedavost #booktok",
+  "sv": "nyfikenhet tränas, man föds inte med den. sno en den här veckan <3 #girlblogger #självutveckling #lärande #nyfikenhet #booktok"
+ },
+ "musique": {
+  "titre": "Contemplation",
+  "url": "https://www.tiktok.com/music/Contemplation-6834268077673154561"
+ },
+ "notes": "Déclinaison G1 (BLEO, 27/11) de pt-001 « habits that make you impossible to bore » (famille gagnante : es 1,9 k r 1,6 ; en 1,6 k r 2,01), titre du parent mot pour mot. Tout le reste change : autres éléments (les nouvelles d'un autre pays, un bocal « today i learned », Sophia, un lieu nouveau de sa ville chaque mois, les échecs avec quelqu'un de plus âgé), autres photos (neuves), cta C (pt-001 avait cta A).",
+ "banque": {
+  "images/banque/couv-escalier-jardin.jpg": "03751c56-55d2-472e-8110-c606f0652855",
+  "images/banque/couv-fleur-blanche.jpg": "56a70375-5aee-4eb6-a2e6-b970b16a0f84",
+  "images/banque/ville-fenetre-soir.jpg": "019eee17-65d4-46c9-8dba-24657dd984fb",
+  "images/banque/rue-ville.jpg": "414fff81-13bc-4608-941d-741d90a39b32",
+  "images/banque/papier-stylos.jpg": "fa5cb540-5f2c-443e-b040-a1dc9e539cb0",
+  "images/banque/carte-cachet.jpg": "00a04ce5-ca54-4092-bf68-2a27da2651e7",
+  "images/banque/ciel-rose-ocean.jpg": "49eda55f-d52a-4be4-81fe-27b8f2dedc02",
+  "images/banque/rue-arcades-noel.jpg": "b7f3a5c6-7806-40f5-8c61-fe8f03e8a841",
+  "images/banque/grand-hall.jpg": "c6b86032-14e7-4249-a6d3-71a096c42f40",
+  "images/banque/echecs-noir-blanc.jpg": "348fc5cc-d0a4-4f23-9340-e3bb5f146305",
+  "images/banque/echecs-tour.jpg": "a254175c-30b8-480d-a6cb-0ba76eaab213"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-escalier-jardin.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-fleur-blanche.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "habits that make you\nimpossible to bore"
+   },
+   "fr": {
+    "titre": "habitudes pour\nne plus jamais\nt'ennuyer"
+   },
+   "es": {
+    "titre": "hábitos para no\naburrirte nunca"
+   },
+   "es-419": {
+    "titre": "hábitos para que\nnunca te aburras"
+   },
+   "it": {
+    "titre": "abitudini per non\nannoiarti mai più"
+   },
+   "tr": {
+    "titre": "asla sıkılmamanı\nsağlayan alışkanlıklar"
+   },
+   "pt-BR": {
+    "titre": "hábitos pra você\nnunca mais ficar\nentediada"
+   },
+   "sl": {
+    "titre": "navade, zaradi\nkaterih ti ni\nnikoli dolgčas"
+   },
+   "de": {
+    "titre": "gewohnheiten,\nmit denen dir nie\nlangweilig wird"
+   },
+   "sk": {
+    "titre": "zvyky, vďaka ktorým\nsa nikdy nenudíš"
+   },
+   "sv": {
+    "titre": "vanor som gör att du\naldrig blir uttråkad"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/ville-fenetre-soir.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/rue-ville.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. the news from another country",
+    "paragraphes": [
+     "Once a week, read the news from a country you've never been to, from one of its own newspapers. translate it if you need to.",
+     "You see the world from a new angle, and you always have something nobody else mentioned"
+    ]
+   },
+   "fr": {
+    "titre": "1. les infos d'un autre pays",
+    "paragraphes": [
+     "Une fois par semaine, lis les infos d'un pays où tu n'es jamais allée, dans un de ses propres journaux. traduis si besoin.",
+     "Tu vois le monde sous un autre angle, et tu as toujours un sujet dont personne n'a parlé"
+    ]
+   },
+   "es": {
+    "titre": "1. las noticias de otro país",
+    "paragraphes": [
+     "Una vez por semana, lee las noticias de un país donde nunca has estado, en uno de sus propios periódicos. tradúcelas si hace falta.",
+     "Ves el mundo desde otro ángulo, y siempre tienes algo que nadie más ha mencionado"
+    ]
+   },
+   "es-419": {
+    "titre": "1. las noticias de otro país",
+    "paragraphes": [
+     "Una vez por semana, lee las noticias de un país donde nunca has estado, en uno de sus propios periódicos. tradúcelas si hace falta.",
+     "Ves el mundo desde otro ángulo, y siempre tienes algo que nadie más mencionó"
+    ]
+   },
+   "it": {
+    "titre": "1. le notizie di un altro paese",
+    "paragraphes": [
+     "Una volta a settimana, leggi le notizie di un paese dove non sei mai stata, su uno dei suoi giornali. traducile se serve.",
+     "Vedi il mondo da un'altra angolazione, e hai sempre qualcosa che nessuno ha nominato"
+    ]
+   },
+   "tr": {
+    "titre": "1. başka bir ülkenin haberleri",
+    "paragraphes": [
+     "Haftada bir, hiç gitmediğin bir ülkenin haberlerini kendi gazetelerinden oku. gerekirse çevir.",
+     "Dünyaya başka bir açıdan bakarsın, ve hep kimsenin bahsetmediği bir konun olur"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. as notícias de outro país",
+    "paragraphes": [
+     "Uma vez por semana, lê as notícias de um país onde você nunca foi, num jornal de lá mesmo. traduz se precisar.",
+     "Você vê o mundo de outro ângulo, e sempre tem um assunto que ninguém mencionou"
+    ]
+   },
+   "sl": {
+    "titre": "1. novice iz druge države",
+    "paragraphes": [
+     "Enkrat na teden preberi novice iz države, kjer še nisi bila, v enem od njenih časopisov. po potrebi jih prevedi.",
+     "Svet vidiš z drugega zornega kota, in vedno imaš nekaj, česar ni omenil nihče"
+    ]
+   },
+   "de": {
+    "titre": "1. nachrichten aus einem anderen land",
+    "paragraphes": [
+     "Lies einmal pro woche die nachrichten aus einem land, in dem du nie warst, aus einer seiner eigenen zeitungen. übersetz sie, wenn nötig.",
+     "Du siehst die welt aus einem neuen winkel, und hast immer etwas, das sonst keiner erwähnt hat"
+    ]
+   },
+   "sk": {
+    "titre": "1. správy z inej krajiny",
+    "paragraphes": [
+     "Raz týždenne si prečítaj správy z krajiny, kde si nikdy nebola, z jej vlastných novín. ak treba, prelož si ich.",
+     "Vidíš svet z iného uhla, a vždy máš niečo, čo nikto iný nespomenul"
+    ]
+   },
+   "sv": {
+    "titre": "1. nyheter från ett annat land",
+    "paragraphes": [
+     "En gång i veckan, läs nyheterna från ett land du aldrig varit i, i en av dess egna tidningar. översätt om du behöver.",
+     "Du ser världen från en ny vinkel, och har alltid något ingen annan nämnt"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/papier-stylos.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/carte-cachet.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. a 'today i learned' jar",
+    "paragraphes": [
+     "Every evening, write one thing you learned that day on a small paper and drop it in a jar.",
+     "On new year's eve you open it and read three hundred tiny things you'd forgotten you knew"
+    ]
+   },
+   "fr": {
+    "titre": "2. un bocal « j'ai appris »",
+    "paragraphes": [
+     "Chaque soir, écris une chose apprise dans la journée sur un petit papier et glisse-la dans un bocal.",
+     "Le soir du nouvel an, tu l'ouvres et tu relis trois cents petites choses que tu avais oubliées"
+    ]
+   },
+   "es": {
+    "titre": "2. un frasco de «hoy aprendí»",
+    "paragraphes": [
+     "Cada noche, escribe algo que aprendiste ese día en un papelito y échalo en un frasco.",
+     "En nochevieja lo abres y lees trescientas cositas que habías olvidado que sabías"
+    ]
+   },
+   "es-419": {
+    "titre": "2. un frasco de «hoy aprendí»",
+    "paragraphes": [
+     "Cada noche, escribe algo que aprendiste ese día en un papelito y ponlo en un frasco.",
+     "En año nuevo lo abres y lees trescientas cositas que habías olvidado que sabías"
+    ]
+   },
+   "it": {
+    "titre": "2. un barattolo «oggi ho imparato»",
+    "paragraphes": [
+     "Ogni sera, scrivi una cosa che hai imparato quel giorno su un foglietto e mettila in un barattolo.",
+     "A capodanno lo apri e rileggi trecento piccole cose che avevi dimenticato di sapere"
+    ]
+   },
+   "tr": {
+    "titre": "2. bir 'bugün öğrendim' kavanozu",
+    "paragraphes": [
+     "Her akşam o gün öğrendiğin bir şeyi küçük bir kâğıda yaz ve bir kavanoza at.",
+     "Yılbaşı gecesi açıp, bildiğini unuttuğun üç yüz küçük şeyi okursun"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. um pote de 'hoje eu aprendi'",
+    "paragraphes": [
+     "Toda noite, escreve uma coisa que você aprendeu no dia num papelzinho e coloca num pote.",
+     "No réveillon você abre e lê trezentas coisinhas que tinha esquecido que sabia"
+    ]
+   },
+   "sl": {
+    "titre": "2. kozarec »danes sem se naučila«",
+    "paragraphes": [
+     "Vsak večer na listek napiši eno stvar, ki si se je naučila ta dan, in ga vrzi v kozarec.",
+     "Na silvestrovo ga odpreš in prebereš tristo drobnih stvari, za katere si pozabila, da jih veš"
+    ]
+   },
+   "de": {
+    "titre": "2. ein „heute gelernt“-glas",
+    "paragraphes": [
+     "Schreib jeden abend eine sache, die du an dem tag gelernt hast, auf einen zettel und wirf ihn in ein glas.",
+     "An silvester machst du es auf und liest dreihundert kleine dinge, die du schon vergessen hattest"
+    ]
+   },
+   "sk": {
+    "titre": "2. pohár „dnes som sa naučila“",
+    "paragraphes": [
+     "Každý večer napíš na papierik jednu vec, ktorú si sa v ten deň naučila, a hoď ho do pohára.",
+     "Na silvestra ho otvoríš a prečítaš tristo drobností, o ktorých si zabudla, že ich vieš"
+    ]
+   },
+   "sv": {
+    "titre": "2. en 'idag lärde jag mig'-burk",
+    "paragraphes": [
+     "Varje kväll, skriv en sak du lärt dig den dagen på en lapp och lägg den i en burk.",
+     "På nyårsafton öppnar du den och läser trehundra små saker du glömt att du visste"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/ciel-rose-ocean.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson a day",
+    "paragraphes": [
+     "One lesson a day on Sophia, like why we dream, with a little quiz after. it's the most reliable habit I have.",
+     "Ten minutes, and every single day ends with something new"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon par jour",
+    "paragraphes": [
+     "Une leçon par jour sur Sophia, genre pourquoi on rêve, avec un petit quiz après. c'est l'habitude la plus fiable que j'aie.",
+     "Dix minutes, et chaque journée finit sur quelque chose de nouveau"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección al día",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. es el hábito más constante que tengo.",
+     "Diez minutos, y cada día termina con algo nuevo"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección al día",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. es el hábito más constante que tengo.",
+     "Diez minutos, y cada día termina con algo nuevo"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione al giorno",
+    "paragraphes": [
+     "Una lezione al giorno su Sophia, tipo perché sogniamo, con un piccolo quiz alla fine. è l'abitudine più costante che ho.",
+     "Dieci minuti, e ogni giornata finisce con qualcosa di nuovo"
+    ]
+   },
+   "tr": {
+    "titre": "3. günde bir ders",
+    "paragraphes": [
+     "Her gün Sophia'da bir ders, mesela neden rüya görürüz, sonunda da küçük bir test. en istikrarlı alışkanlığım bu.",
+     "On dakika, ve her gün yeni bir şeyle biter"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula por dia",
+    "paragraphes": [
+     "Uma aula por dia no Sophia, tipo por que a gente sonha, com um quiz no final. é o hábito mais constante que eu tenho.",
+     "Dez minutos, e todo dia termina com algo novo"
+    ]
+   },
+   "sl": {
+    "titre": "3. ena lekcija na dan",
+    "paragraphes": [
+     "Ena lekcija na dan v aplikaciji Sophia, recimo zakaj sanjamo, na koncu pa kratek kviz. to je moja najbolj zanesljiva navada.",
+     "Deset minut, in vsak dan se konča z nečim novim"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion am tag",
+    "paragraphes": [
+     "Eine lektion am tag auf Sophia, zum beispiel warum wir träumen, mit einem kleinen quiz danach. das ist meine verlässlichste gewohnheit.",
+     "Zehn minuten, und jeder tag endet mit etwas neuem"
+    ]
+   },
+   "sk": {
+    "titre": "3. jedna lekcia denne",
+    "paragraphes": [
+     "Jedna lekcia denne v aplikácii Sophia, napríklad prečo snívame, a na konci malý kvíz. je to môj najspoľahlivejší zvyk.",
+     "Desať minút a každý deň skončí niečím novým"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion om dagen",
+    "paragraphes": [
+     "En lektion om dagen på Sophia, som varför vi drömmer, med ett litet quiz efteråt. det är den mest pålitliga vana jag har.",
+     "Tio minuter, och varje dag slutar med något nytt"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/rue-arcades-noel.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/grand-hall.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. one new place in your own city",
+    "paragraphes": [
+     "Once a month, go somewhere in your own city you've never been: a church, a library, a tiny museum. read its story first.",
+     "You become a tourist at home, and the city keeps surprising you"
+    ]
+   },
+   "fr": {
+    "titre": "4. un lieu inconnu dans ta ville",
+    "paragraphes": [
+     "Une fois par mois, va quelque part dans ta ville où tu n'es jamais allée : une église, une bibliothèque, un petit musée. lis son histoire avant.",
+     "Tu deviens touriste chez toi, et ta ville n'arrête pas de te surprendre"
+    ]
+   },
+   "es": {
+    "titre": "4. un sitio nuevo en tu ciudad",
+    "paragraphes": [
+     "Una vez al mes, ve a un sitio de tu ciudad donde nunca has estado: una iglesia, una biblioteca, un museo diminuto. lee su historia antes.",
+     "Te vuelves turista en casa, y tu ciudad no deja de sorprenderte"
+    ]
+   },
+   "es-419": {
+    "titre": "4. un lugar nuevo en tu ciudad",
+    "paragraphes": [
+     "Una vez al mes, ve a un lugar de tu ciudad donde nunca has estado: una iglesia, una biblioteca, un museo chiquito. lee su historia antes.",
+     "Te vuelves turista en casa, y tu ciudad no deja de sorprenderte"
+    ]
+   },
+   "it": {
+    "titre": "4. un posto nuovo nella tua città",
+    "paragraphes": [
+     "Una volta al mese, vai in un posto della tua città dove non sei mai stata: una chiesa, una biblioteca, un museo minuscolo. leggi prima la sua storia.",
+     "Diventi turista a casa tua, e la città continua a sorprenderti"
+    ]
+   },
+   "tr": {
+    "titre": "4. kendi şehrinde yeni bir yer",
+    "paragraphes": [
+     "Ayda bir, şehrinde hiç gitmediğin bir yere git: bir kilise, bir kütüphane, minik bir müze. önce hikâyesini oku.",
+     "Kendi şehrinde turist olursun, ve şehir seni şaşırtmaya devam eder"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. um lugar novo na sua cidade",
+    "paragraphes": [
+     "Uma vez por mês, vai num lugar da sua cidade onde você nunca foi: uma igreja, uma biblioteca, um museu minúsculo. lê a história dele antes.",
+     "Você vira turista em casa, e a cidade não para de te surpreender"
+    ]
+   },
+   "sl": {
+    "titre": "4. novo mesto v tvojem kraju",
+    "paragraphes": [
+     "Enkrat na mesec pojdi nekam v svojem mestu, kjer še nisi bila: cerkev, knjižnica, majhen muzej. prej preberi njegovo zgodbo.",
+     "Postaneš turistka doma, in mesto te kar naprej preseneča"
+    ]
+   },
+   "de": {
+    "titre": "4. ein neuer ort in deiner stadt",
+    "paragraphes": [
+     "Geh einmal im monat irgendwohin in deiner stadt, wo du nie warst: eine kirche, eine bibliothek, ein winziges museum. lies vorher seine geschichte.",
+     "Du wirst touristin zu hause, und deine stadt überrascht dich immer wieder"
+    ]
+   },
+   "sk": {
+    "titre": "4. nové miesto v tvojom meste",
+    "paragraphes": [
+     "Raz za mesiac choď niekam vo svojom meste, kde si ešte nebola: kostol, knižnica, malé múzeum. najprv si prečítaj jeho príbeh.",
+     "Staneš sa turistkou doma, a mesto ťa neprestane prekvapovať"
+    ]
+   },
+   "sv": {
+    "titre": "4. ett nytt ställe i din stad",
+    "paragraphes": [
+     "En gång i månaden, gå någonstans i din stad där du aldrig varit: en kyrka, ett bibliotek, ett pyttelitet museum. läs dess historia först.",
+     "Du blir turist hemma, och staden fortsätter att överraska dig"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/echecs-noir-blanc.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/echecs-tour.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. chess with someone older",
+    "paragraphes": [
+     "Ask your grandad, a neighbour or an old teacher to teach you chess. play once a week and let them talk.",
+     "You learn the game, and a whole life of stories comes with every move"
+    ]
+   },
+   "fr": {
+    "titre": "5. les échecs avec un aîné",
+    "paragraphes": [
+     "Demande à ton grand-père, un voisin ou un ancien prof de t'apprendre les échecs. joue une fois par semaine et laisse-le raconter.",
+     "Tu apprends le jeu, et toute une vie d'histoires arrive avec chaque coup"
+    ]
+   },
+   "es": {
+    "titre": "5. ajedrez con alguien mayor",
+    "paragraphes": [
+     "Pídele a tu abuelo, a un vecino o a un antiguo profe que te enseñe ajedrez. juega una vez por semana y deja que hable.",
+     "Aprendes el juego, y con cada jugada llega toda una vida de historias"
+    ]
+   },
+   "es-419": {
+    "titre": "5. ajedrez con alguien mayor",
+    "paragraphes": [
+     "Pídele a tu abuelo, a un vecino o a un exprofe que te enseñe ajedrez. juega una vez por semana y deja que platique.",
+     "Aprendes el juego, y con cada jugada llega toda una vida de historias"
+    ]
+   },
+   "it": {
+    "titre": "5. scacchi con qualcuno più grande",
+    "paragraphes": [
+     "Chiedi a tuo nonno, a un vicino o a un vecchio prof di insegnarti gli scacchi. gioca una volta a settimana e lascialo raccontare.",
+     "Impari il gioco, e con ogni mossa arriva una vita intera di storie"
+    ]
+   },
+   "tr": {
+    "titre": "5. senden büyük biriyle satranç",
+    "paragraphes": [
+     "Dedenden, bir komşundan ya da eski bir öğretmeninden sana satranç öğretmesini iste. haftada bir oyna ve onu konuştur.",
+     "Oyunu öğrenirsin, ve her hamleyle koca bir ömrün hikâyeleri gelir"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. xadrez com alguém mais velho",
+    "paragraphes": [
+     "Pede pro seu avô, um vizinho ou um ex-professor te ensinar xadrez. joga uma vez por semana e deixa ele falar.",
+     "Você aprende o jogo, e uma vida inteira de histórias vem com cada lance"
+    ]
+   },
+   "sl": {
+    "titre": "5. šah s kom starejšim",
+    "paragraphes": [
+     "Prosi dedka, soseda ali bivšega učitelja, naj te nauči šaha. igraj enkrat na teden in ga pusti pripovedovati.",
+     "Naučiš se igre, in z vsako potezo pride celo življenje zgodb"
+    ]
+   },
+   "de": {
+    "titre": "5. schach mit jemand älterem",
+    "paragraphes": [
+     "Bitte deinen opa, einen nachbarn oder einen alten lehrer, dir schach beizubringen. spielt einmal pro woche und lass ihn erzählen.",
+     "Du lernst das spiel, und mit jedem zug kommt ein ganzes leben voller geschichten"
+    ]
+   },
+   "sk": {
+    "titre": "5. šach s niekým starším",
+    "paragraphes": [
+     "Popros dedka, suseda alebo bývalého učiteľa, nech ťa naučí šach. hrajte raz týždenne a nechaj ho rozprávať.",
+     "Naučíš sa hru, a s každým ťahom príde celý život príbehov"
+    ]
+   },
+   "sv": {
+    "titre": "5. schack med någon äldre",
+    "paragraphes": [
+     "Be din morfar, en granne eller en gammal lärare att lära dig schack. spela en gång i veckan och låt dem berätta.",
+     "Du lär dig spelet, och med varje drag kommer ett helt liv av historier"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9036e122-2a15-46b4-a322-0e1dd0c6845a"
+}

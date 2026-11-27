@@ -1,0 +1,495 @@
+{
+ "id": "aw-015",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7687165284830039329",
+  "vues": 8588,
+  "accroche": "Comment réparer ta santée pour de bon (et voir la différence sur ton visage)"
+ },
+ "titre": {
+  "en": "how to actually take care of yourself (and see it on your face)",
+  "fr": "comment vraiment prendre soin de toi (et le voir sur ton visage)",
+  "de": "wie du wirklich auf dich achtest (und es im gesicht siehst)",
+  "it": "come prenderti davvero cura di te (e vederlo sul viso)",
+  "hu": "hogyan törődj magaddal igazán (és lásd az arcodon)",
+  "ro": "cum să ai cu adevărat grijă de tine (și să se vadă pe față)",
+  "el": "πώς να φροντίζεσαι στ' αλήθεια (και να φαίνεται στο πρόσωπό σου)"
+ },
+ "legendes": {
+  "en": "glow from the inside out ✨ #wellness #healthyhabits #thatgirl #selfcare #glow",
+  "fr": "brille de l'intérieur ✨ #wellness #healthyhabits #thatgirl #selfcare #glow",
+  "de": "strahl von innen heraus ✨ #wellness #healthyhabits #thatgirl #selfcare #glow",
+  "it": "brilla da dentro ✨ #wellness #healthyhabits #thatgirl #selfcare #glow",
+  "hu": "ragyogj belülről ✨ #wellness #healthyhabits #thatgirl #selfcare #glow",
+  "ro": "strălucește din interior ✨ #wellness #healthyhabits #thatgirl #selfcare #glow",
+  "el": "λάμψε από μέσα προς τα έξω ✨ #wellness #healthyhabits #thatgirl #selfcare #glow"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « comment réparer ta santé pour de bon (et voir la différence sur ton visage) » de @healthy_with_emma6 (8,6 k), adoucie en « take care of yourself » (rien de médical). 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : un plan à ton niveau, même de zéro ; « a running coach app like Atala » ; sans « AI »). Fait vérifié : la peau a besoin de vitamine C pour fabriquer son collagène (Pullar, Carr et Vissers, Nutrients 2017, revue). Les autres slides n'avancent aucun chiffre ni promesse. Photos : banque de l'OS ; Atala : 4804e77c (chemin en bord de mer, de dos).",
+ "banque": {
+  "images/banque/sc-couv-a.jpg": "8d3b59be-2134-4d16-ba98-807e17b2a2b0",
+  "images/banque/sc-couv-b.jpg": "7f6f3600-0557-4963-9e11-66e7a740292c",
+  "images/banque/sc-eau.jpg": "304fabc9-4806-4b11-91f0-e6806577a87e",
+  "images/banque/sc-taie.jpg": "0ede51d6-87a6-49b8-be93-08c44dc99dba",
+  "images/banque/sc-oranges.jpg": "1f750f34-39af-42f6-a308-5d7f1add28bf",
+  "images/banque/sc-course.jpg": "4804e77c-8381-4a71-a181-87c495c7ce29",
+  "images/banque/sc-pinceaux.jpg": "c4b6dd89-561d-4c20-b654-5ddcf9f012c5",
+  "images/banque/sc-bougie.jpg": "2b83faac-4139-4b2f-951e-df43d1e5a3e2"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/sc-couv-a.jpg",
+    "images/banque/sc-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "how to actually take care of yourself (and see it on your face)",
+    "note": "(the glow-up edition)"
+   },
+   "fr": {
+    "titre": "comment vraiment prendre soin de toi (et le voir sur ton visage)",
+    "note": "(édition glow-up)"
+   },
+   "de": {
+    "titre": "wie du wirklich auf dich achtest (und es im gesicht siehst)",
+    "note": "(die glow-up edition)"
+   },
+   "it": {
+    "titre": "come prenderti davvero cura di te (e vederlo sul viso)",
+    "note": "(edizione glow-up)"
+   },
+   "hu": {
+    "titre": "hogyan törődj magaddal igazán (és lásd az arcodon)",
+    "note": "(a glow-up kiadás)"
+   },
+   "ro": {
+    "titre": "cum să ai cu adevărat grijă de tine (și să se vadă pe față)",
+    "note": "(ediția glow-up)"
+   },
+   "el": {
+    "titre": "πώς να φροντίζεσαι στ' αλήθεια (και να φαίνεται στο πρόσωπό σου)",
+    "note": "(η glow-up έκδοση)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sc-eau.jpg",
+   "en": {
+    "titre": "_a water bottle_ you actually like",
+    "intro": "pretty bottle = _you drink more_",
+    "paragraphes": [
+     "cucumber, lemon, mint. it feels like _a treat_, not a chore",
+     "fill it in the morning, _finish it by night_"
+    ],
+    "chute": "hydrated looks _so good_ on you"
+   },
+   "fr": {
+    "titre": "_une gourde_ que tu aimes vraiment",
+    "intro": "jolie gourde = _tu bois plus_",
+    "paragraphes": [
+     "concombre, citron, menthe. c'est _un plaisir_, pas une corvée",
+     "remplis-la le matin, _finis-la le soir_"
+    ],
+    "chute": "hydratée, _ça te va trop bien_"
+   },
+   "de": {
+    "titre": "_eine flasche_, die du echt magst",
+    "intro": "schöne flasche = _du trinkst mehr_",
+    "paragraphes": [
+     "gurke, zitrone, minze. _ein kleiner luxus_, keine pflicht",
+     "morgens füllen, _bis abends leer_"
+    ],
+    "chute": "hydriert steht _dir so gut_"
+   },
+   "it": {
+    "titre": "_una borraccia_ che ti piace davvero",
+    "intro": "borraccia carina = _bevi di più_",
+    "paragraphes": [
+     "cetriolo, limone, menta. sembra _un premio_, non un dovere",
+     "riempila al mattino, _finiscila entro sera_"
+    ],
+    "chute": "idratata _stai benissimo_"
+   },
+   "hu": {
+    "titre": "_egy kulacs_, amit tényleg szeretsz",
+    "intro": "szép kulacs = _többet iszol_",
+    "paragraphes": [
+     "uborka, citrom, menta. _jutalomnak_ érzed, nem kötelességnek",
+     "reggel töltsd meg, _estére idd ki_"
+    ],
+    "chute": "a hidratáltság _jól áll neked_"
+   },
+   "ro": {
+    "titre": "_o sticlă_ care chiar îți place",
+    "intro": "sticlă drăguță = _bei mai mult_",
+    "paragraphes": [
+     "castravete, lămâie, mentă. pare _un răsfăț_, nu o corvoadă",
+     "umple-o dimineața, _termin-o până seara_"
+    ],
+    "chute": "hidratată _arăți superb_"
+   },
+   "el": {
+    "titre": "_ένα παγούρι_ που όντως σου αρέσει",
+    "intro": "ωραίο παγούρι = _πίνεις πιο πολύ_",
+    "paragraphes": [
+     "αγγούρι, λεμόνι, δυόσμος. μοιάζει με _κέρασμα_, όχι αγγαρεία",
+     "γέμισέ το το πρωί, _τελείωσέ το ως το βράδυ_"
+    ],
+    "chute": "η ενυδάτωση _σου πάει τόσο_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sc-taie.jpg",
+   "en": {
+    "titre": "change your pillowcase _often_",
+    "intro": "your face spends _8 hours_ on it",
+    "paragraphes": [
+     "clean sheets feel like _a fresh start_ every few days",
+     "keep a spare one _in the drawer_"
+    ],
+    "chute": "clean pillow, _calm skin_"
+   },
+   "fr": {
+    "titre": "change ta taie _souvent_",
+    "intro": "ton visage y passe _8 heures_",
+    "paragraphes": [
+     "draps propres = _nouveau départ_, tous les 2-3 jours",
+     "une de rechange _dans le tiroir_"
+    ],
+    "chute": "taie propre, _peau calme_"
+   },
+   "de": {
+    "titre": "wechsle deinen kissenbezug _oft_",
+    "intro": "dein gesicht liegt _8 stunden_ drauf",
+    "paragraphes": [
+     "frische bettwäsche alle paar tage = _ein neustart_",
+     "einen ersatz _in der schublade_"
+    ],
+    "chute": "kissen frisch, _haut ruhig_"
+   },
+   "it": {
+    "titre": "cambia la federa _spesso_",
+    "intro": "il tuo viso ci passa _8 ore_",
+    "paragraphes": [
+     "lenzuola pulite = _un nuovo inizio_ ogni due-tre giorni",
+     "tienine una di scorta _nel cassetto_"
+    ],
+    "chute": "federa pulita, _pelle calma_"
+   },
+   "hu": {
+    "titre": "cseréld a párnahuzatod _gyakran_",
+    "intro": "az arcod _8 órát_ tölt rajta",
+    "paragraphes": [
+     "a tiszta ágynemű pár naponta _új kezdet_",
+     "tarts egy tartalékot _a fiókban_"
+    ],
+    "chute": "tiszta párna, _nyugodt bőr_"
+   },
+   "ro": {
+    "titre": "schimbă-ți fața de pernă _des_",
+    "intro": "fața ta stă _8 ore_ pe ea",
+    "paragraphes": [
+     "cearșafurile curate sunt _un nou început_ la câteva zile",
+     "ține una de rezervă _în sertar_"
+    ],
+    "chute": "pernă curată, _piele calmă_"
+   },
+   "el": {
+    "titre": "άλλαζε μαξιλαροθήκη _συχνά_",
+    "intro": "το πρόσωπό σου περνά _8 ώρες_ εκεί",
+    "paragraphes": [
+     "τα καθαρά σεντόνια είναι _νέα αρχή_ κάθε λίγες μέρες",
+     "κράτα μία ρεζέρβα _στο συρτάρι_"
+    ],
+    "chute": "καθαρή θήκη, _ήρεμο δέρμα_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sc-oranges.jpg",
+   "en": {
+    "titre": "eat your _vitamin c_",
+    "intro": "oranges, kiwis, berries, _peppers_",
+    "paragraphes": [
+     "your skin needs vitamin c to make _its own collagen_",
+     "a fruit bowl on the table, _always full_"
+    ],
+    "chute": "the glow starts _on your plate_"
+   },
+   "fr": {
+    "titre": "mange ta _vitamine c_",
+    "intro": "oranges, kiwis, baies, _poivrons_",
+    "paragraphes": [
+     "ta peau a besoin de vitamine c pour _faire son collagène_",
+     "une coupe de fruits, _toujours pleine_"
+    ],
+    "chute": "le glow naît _dans ton assiette_"
+   },
+   "de": {
+    "titre": "iss dein _vitamin c_",
+    "intro": "orangen, kiwis, beeren, _paprika_",
+    "paragraphes": [
+     "deine haut braucht vitamin c für _ihr eigenes kollagen_",
+     "eine obstschale auf dem tisch, _immer voll_"
+    ],
+    "chute": "der glow beginnt _auf dem teller_"
+   },
+   "it": {
+    "titre": "mangia _vitamina c_",
+    "intro": "arance, kiwi, frutti rossi, _peperoni_",
+    "paragraphes": [
+     "alla pelle serve la vitamina c per fare _il suo collagene_",
+     "una ciotola di frutta, _sempre piena_"
+    ],
+    "chute": "il glow inizia _nel piatto_"
+   },
+   "hu": {
+    "titre": "edd a _c-vitamint_",
+    "intro": "narancs, kivi, bogyók, _paprika_",
+    "paragraphes": [
+     "a bőrödnek c-vitamin kell, hogy _saját kollagént_ termeljen",
+     "egy tál gyümölcs az asztalon, _mindig tele_"
+    ],
+    "chute": "a ragyogás _a tányérodon_ kezdődik"
+   },
+   "ro": {
+    "titre": "mănâncă _vitamina c_",
+    "intro": "portocale, kiwi, fructe roșii, _ardei_",
+    "paragraphes": [
+     "pielea ta are nevoie de vitamina c pentru _colagenul ei_",
+     "un bol cu fructe pe masă, _mereu plin_"
+    ],
+    "chute": "strălucirea începe _în farfurie_"
+   },
+   "el": {
+    "titre": "φάε _βιταμίνη c_",
+    "intro": "πορτοκάλι, ακτινίδιο, μούρα, _πιπεριές_",
+    "paragraphes": [
+     "το δέρμα θέλει βιταμίνη c για _το δικό του κολλαγόνο_",
+     "ένα μπολ φρούτα στο τραπέζι, _πάντα γεμάτο_"
+    ],
+    "chute": "η λάμψη ξεκινά _από το πιάτο σου_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/sc-course.jpg",
+   "en": {
+    "titre": "_run_, even a little",
+    "intro": "nothing makes me glow _like a run_",
+    "paragraphes": [
+     "i thought running wasn't for me because _i'd never done it_",
+     "my tip: a running coach app like Atala starts you _at your level_, even from zero"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   },
+   "fr": {
+    "titre": "_cours_, même un peu",
+    "intro": "rien ne me fait briller _comme un run_",
+    "paragraphes": [
+     "courir, c'était pas pour moi, car _je n'avais jamais couru_",
+     "mon tip : une appli de coaching running comme Atala part _de ton niveau_, même de zéro"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "_lauf_, auch kurz",
+    "intro": "kein glow _wie nach einem lauf_",
+    "paragraphes": [
+     "ich dachte, laufen ist nichts für mich, _weil ich's nie tat_",
+     "mein tipp: eine lauf-coach-app wie Atala holt dich _bei deinem level_ ab, sogar bei null"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "_corri_, anche poco",
+    "intro": "niente mi fa brillare _come una corsa_",
+    "paragraphes": [
+     "pensavo che correre non fosse per me perché _non l'avevo mai fatto_",
+     "il mio consiglio: un'app coach per la corsa come Atala parte _dal tuo livello_, pure da zero"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "_fuss_, ha keveset is",
+    "intro": "semmi se ragyogtat _jobban a futásnál_",
+    "paragraphes": [
+     "azt hittem, a futás nem nekem való, mert _sosem csináltam_",
+     "a tippem: egy futóedző app, mint az Atala, _a szintedről_ indít, akár nulláról is"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "_aleargă_, măcar puțin",
+    "intro": "nimic nu-mi dă glow _ca o alergare_",
+    "paragraphes": [
+     "credeam că nu e pentru mine, fiindcă _n-alergasem niciodată_",
+     "sfatul meu: o aplicație de running coach ca Atala pornește _de la nivelul tău_, și de la zero"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "_τρέξε_, έστω λίγο",
+    "intro": "τίποτα δεν με φωτίζει _όσο ένα τρέξιμο_",
+    "paragraphes": [
+     "νόμιζα ότι δεν ήταν για μένα γιατί _δεν είχα τρέξει ποτέ_",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala ξεκινά _από το επίπεδό σου_, κι από το μηδέν"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sc-pinceaux.jpg",
+   "en": {
+    "titre": "clean your _makeup brushes_",
+    "intro": "the habit _nobody talks about_",
+    "paragraphes": [
+     "once a week, a little soap and _warm water_",
+     "let them dry flat _overnight_"
+    ],
+    "chute": "clean tools, _clean face_"
+   },
+   "fr": {
+    "titre": "lave tes _pinceaux de make-up_",
+    "intro": "l'habitude _dont on parle pas_",
+    "paragraphes": [
+     "chaque semaine, un peu de savon et _d'eau tiède_",
+     "séchage à plat _toute la nuit_"
+    ],
+    "chute": "outils propres, _visage net_"
+   },
+   "de": {
+    "titre": "putz deine _make-up-pinsel_",
+    "intro": "die routine, _die keiner erwähnt_",
+    "paragraphes": [
+     "einmal pro woche, etwas seife und _warmes wasser_",
+     "flach _über nacht_ trocknen"
+    ],
+    "chute": "saubere tools, _reine haut_"
+   },
+   "it": {
+    "titre": "pulisci i _pennelli da trucco_",
+    "intro": "l'abitudine _di cui nessuno parla_",
+    "paragraphes": [
+     "ogni settimana, sapone e _acqua tiepida_",
+     "asciugare in piano _tutta notte_"
+    ],
+    "chute": "tool puliti, _viso pulito_"
+   },
+   "hu": {
+    "titre": "mosd ki a _sminkecseteid_",
+    "intro": "a szokás, _amiről senki se szól_",
+    "paragraphes": [
+     "hetente egyszer, egy kis szappan és _langyos víz_",
+     "laposan száradjon _egész éjjel_"
+    ],
+    "chute": "tiszta ecset, _tiszta arc_"
+   },
+   "ro": {
+    "titre": "spală-ți _pensulele de machiaj_",
+    "intro": "obiceiul _ignorat de toți_",
+    "paragraphes": [
+     "o dată pe săptămână, puțin săpun și _apă călduță_",
+     "lasă-le întinse _peste noapte_"
+    ],
+    "chute": "pensule curate, _ten curat_"
+   },
+   "el": {
+    "titre": "καθάρισε τα _πινέλα μακιγιάζ_",
+    "intro": "η συνήθεια _που κανείς δεν συζητά_",
+    "paragraphes": [
+     "μια φορά τη βδομάδα, σαπούνι και _χλιαρό νερό_",
+     "στέγνωμα ξαπλωτά _όλη νύχτα_"
+    ],
+    "chute": "καθαρά tools, _καθαρή όψη_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sc-bougie.jpg",
+   "en": {
+    "titre": "a slow _evening reset_",
+    "intro": "candle on, _lights low_",
+    "paragraphes": [
+     "10 minutes for you before bed: skincare, _a deep breath_, a towel on your hair",
+     "no phone, _no rush_"
+    ],
+    "chute": "take care of yourself _like it matters_"
+   },
+   "fr": {
+    "titre": "un _reset du soir_ lent",
+    "intro": "bougie, _lumière douce_",
+    "paragraphes": [
+     "10 min pour toi avant de dormir : skincare, _un grand souffle_, serviette sur les cheveux",
+     "zéro tél, _zéro rush_"
+    ],
+    "chute": "prends soin de toi _parce que ça compte_"
+   },
+   "de": {
+    "titre": "ein ruhiger _abend-reset_",
+    "intro": "kerze an, _licht gedimmt_",
+    "paragraphes": [
+     "10 minuten für dich vor dem schlafen: skincare, _tief durchatmen_, ein handtuch ums haar",
+     "handy aus, _ruhe an_"
+    ],
+    "chute": "kümmer dich um dich, _weil es zählt_"
+   },
+   "it": {
+    "titre": "un _reset serale_ lento",
+    "intro": "candela, _luci basse_",
+    "paragraphes": [
+     "10 minuti per te prima di dormire: skincare, _un bel respiro_, asciugamano sui capelli",
+     "no cell, _no fretta_"
+    ],
+    "chute": "prenditi cura di te _perché conta_"
+   },
+   "hu": {
+    "titre": "egy lassú _esti reset_",
+    "intro": "gyertya ég, _tompa fény_",
+    "paragraphes": [
+     "10 perc magadra lefekvés előtt: skincare, _egy mély levegő_, törölköző a hajadon",
+     "se mobil, _se sietés_"
+    ],
+    "chute": "törődj magaddal, _mert számít_"
+   },
+   "ro": {
+    "titre": "un _reset de seară_ lent",
+    "intro": "lumânare, _lumină difuză_",
+    "paragraphes": [
+     "10 minute pentru tine înainte de somn: skincare, _o respirație adâncă_, un prosop pe păr",
+     "tel jos, _fără grabă_"
+    ],
+    "chute": "ai grijă de tine _pentru că contează_"
+   },
+   "el": {
+    "titre": "ένα αργό _βραδινό reset_",
+    "intro": "κερί, _φώτα χαμηλά_",
+    "paragraphes": [
+     "10 λεπτά για σένα πριν τον ύπνο: skincare, _μια βαθιά ανάσα_, πετσέτα στα μαλλιά",
+     "κινητό κάτω, _χαλαρά_"
+    ],
+    "chute": "φρόντισε τον εαυτό σου _γιατί μετράει_"
+   }
+  }
+ ]
+}

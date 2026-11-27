@@ -7,10 +7,24 @@
     "accroche": "life lesson that i wish i knew at 16"
   },
   "titre": {
-    "en": "things i wish i knew at 16"
+    "en": "things i wish i knew at 16",
+    "de": "was ich gern mit 16 gewusst hätte",
+    "it": "cose che vorrei aver saputo a 16 anni",
+    "sv": "saker jag önskar att jag visste vid 16",
+    "fr": "ce que j'aurais aimé savoir à 16 ans",
+    "tr": "keşke 16 yaşımda bilseydim dediklerim",
+    "ro": "ce aș fi vrut să știu la 16 ani",
+    "hu": "amit bárcsak tudtam volna 16 évesen"
   },
   "legendes": {
-    "en": "things i wish someone had told me at 16.\n\nnot because 16 was bad, but because i thought i had to figure everything out right away.\n\nturns out most things get clearer once u stop rushing them.\n\nsave this for the version of u that's still figuring it out.\n\n#selfimprovement #lifelessons #teenagers #growingup #personaldevelopment"
+    "en": "things i wish someone had told me at 16.\n\nnot because 16 was bad, but because i thought i had to figure everything out right away.\n\nturns out most things get clearer once u stop rushing them.\n\nsave this for the version of u that's still figuring it out.\n\n#selfimprovement #lifelessons #teenagers #growingup #personaldevelopment",
+    "de": "dinge, die mir mit 16 gern jemand gesagt hätte.\n\nnicht weil 16 schlimm war, sondern weil ich dachte, ich müsste sofort alles rausfinden.\n\nam ende wird das meiste klarer, sobald du aufhörst, es zu überstürzen.\n\nspeicher dir das für die version von dir, die es noch rausfindet.\n\n#studytok #learning #lebensweisheiten #erwachsenwerden #teenager",
+    "it": "cose che avrei voluto che qualcuno mi dicesse a 16 anni.\n\nnon perché i 16 anni siano stati brutti, ma perché pensavo di dover capire tutto subito.\n\nalla fine quasi tutto diventa più chiaro quando smetti di avere fretta.\n\nsalvalo per la versione di te che sta ancora cercando la sua strada.\n\n#selfimprovement #lifelessons #teenagers #growingup #personaldevelopment #learning #studytok #crescitapersonale #adolescenti",
+    "sv": "saker jag önskar att någon hade sagt till mig när jag var 16.\n\ninte för att 16 var dåligt, utan för att jag trodde att jag måste lista ut allt direkt.\n\ndet visade sig att det mesta blir tydligare när man slutar stressa fram det.\n\nspara det här till versionen av dig som fortfarande håller på att lista ut det.\n\n#självutveckling #learning #studytok #tonåring #fördig",
+    "fr": "ce que j'aurais aimé qu'on me dise à 16 ans.\n\npas parce que 16 ans c'était nul, mais parce que je pensais devoir tout comprendre tout de suite.\n\nen fait, la plupart des choses deviennent plus claires quand t'arrêtes de les presser.\n\nenregistre ça pour la version de toi qui est encore en train de tout comprendre.\n\n#developpementpersonnel #conseilsdevie #ado #studytok #learning",
+    "tr": "16 yaşımdayken keşke biri bana söyleseydi dediğim şeyler.\n\n16 kötü olduğu için değil, her şeyi hemen çözmem gerektiğini sandığım için.\n\nmeğer çoğu şey acele etmeyi bırakınca netleşiyormuş.\n\nhâlâ kendini bulmaya çalışan halin için kaydet.\n\n#studytok #learning #hayatdersleri #kendinigeliştir #keşfet",
+    "ro": "lucruri pe care aș fi vrut să mi le spună cineva la 16 ani.\n\nnu pentru că 16 a fost rău, ci pentru că credeam că trebuie să-mi dau seama de tot imediat.\n\nse pare că majoritatea lucrurilor devin mai clare când nu le mai grăbești.\n\nsalvează asta pt versiunea ta care încă își caută drumul.\n\n#studytok #learning #adolescenti #sfaturidevia #dezvoltarepersonala",
+    "hu": "dolgok, amiket bárcsak valaki elmondott volna nekem 16 évesen.\n\nnem azért, mert rossz volt 16 évesnek lenni, hanem mert azt hittem, mindent azonnal ki kell találnom.\n\nkiderült, hogy a legtöbb dolog magától tisztul, ha nem siettetem.\n\nmentsd el annak a verziódnak, aki még mindig keresi az útját.\n\n#önfejlesztés #életleckék #magyartiktok #studytok #learning"
   },
   "musique": {
     "titre": "Nothing's Gonna Hurt You Baby - Cigarettes After Sex",
@@ -46,6 +60,34 @@
       "en": {
         "titre": "things i wish i knew\nat 16",
         "sous_titre": "the short version"
+      },
+      "de": {
+        "titre": "was ich gern mit 16\ngewusst hätte",
+        "sous_titre": "die kurzversion"
+      },
+      "it": {
+        "titre": "cose che vorrei aver\nsaputo a 16 anni",
+        "sous_titre": "la versione breve"
+      },
+      "sv": {
+        "titre": "saker jag önskar att\njag visste vid 16",
+        "sous_titre": "kortversionen"
+      },
+      "fr": {
+        "titre": "ce que j'aurais aimé\nsavoir à 16 ans",
+        "sous_titre": "la version courte"
+      },
+      "tr": {
+        "titre": "keşke 16 yaşımda\nbilseydim dediklerim",
+        "sous_titre": "kısa versiyonu"
+      },
+      "ro": {
+        "titre": "ce aș fi vrut să știu\nla 16 ani",
+        "sous_titre": "pe scurt"
+      },
+      "hu": {
+        "titre": "amit bárcsak tudtam\nvolna 16 évesen",
+        "sous_titre": "a rövid verzió"
       }
     },
     {
@@ -64,6 +106,55 @@
         "paragraphes": [
           "everyone asks what u want to do with ur life. almost nobody at 16 actually knows, and the ones who say they do usually change their minds.",
           "pick the next interesting thing, not the forever thing."
+        ]
+      },
+      "de": {
+        "titre": "noch kein plan nötig",
+        "paragraphes": [
+          "alle fragen dich, was du mit deinem leben anfangen willst. mit 16 weiß das fast niemand wirklich, und die, die sagen, sie wüssten es, ändern meistens ihre meinung.",
+          "nimm das nächste spannende ding, nicht das für immer."
+        ]
+      },
+      "it": {
+        "titre": "un piano può aspettare",
+        "paragraphes": [
+          "tutti ti chiedono cosa vuoi fare della tua vita. quasi nessuno a 16 anni lo sa davvero, e chi dice di saperlo di solito cambia idea.",
+          "scegli la prossima cosa interessante, non quella per sempre."
+        ]
+      },
+      "sv": {
+        "titre": "du behöver ingen plan",
+        "paragraphes": [
+          "alla frågar vad du vill göra med ditt liv. nästan ingen 16-åring vet det på riktigt, och de som säger att de vet ändrar sig oftast.",
+          "välj nästa intressanta grej, inte grejen för resten av livet."
+        ]
+      },
+      "fr": {
+        "titre": "pas besoin d'un plan",
+        "paragraphes": [
+          "tout le monde te demande ce que tu veux faire de ta vie. presque personne ne le sait vraiment à 16 ans, et ceux qui disent le savoir changent souvent d'avis.",
+          "choisis le prochain truc intéressant, pas le truc pour toujours."
+        ]
+      },
+      "tr": {
+        "titre": "henüz plana gerek yok",
+        "paragraphes": [
+          "herkes hayatında ne yapmak istediğini soruyor. 16 yaşında neredeyse kimse gerçekten bilmiyor, bildiğini söyleyenler de genelde fikir değiştiriyor.",
+          "sonsuza kadar sürecek şeyi değil, bir sonraki ilginç şeyi seç."
+        ]
+      },
+      "ro": {
+        "titre": "n-ai nevoie de plan încă",
+        "paragraphes": [
+          "toată lumea te întreabă ce vrei să faci cu viața ta. aproape nimeni nu știe la 16 ani, iar cei care zic că știu de obicei se răzgândesc.",
+          "alege următorul lucru interesant, nu lucrul pentru totdeauna."
+        ]
+      },
+      "hu": {
+        "titre": "még nem kell terv",
+        "paragraphes": [
+          "mindenki azt kérdezi, mit akarsz kezdeni az életeddel. 16 évesen szinte senki nem tudja igazán, és akik azt mondják, hogy tudják, általában meggondolják magukat.",
+          "a következő érdekes dolgot válaszd, ne az örökre szólót."
         ]
       }
     },
@@ -84,6 +175,55 @@
           "some people are in ur life for a chapter, not the whole book. that doesn't make the friendship fake.",
           "u can be grateful for someone and still let them drift away."
         ]
+      },
+      "de": {
+        "titre": "freunde auf zeit",
+        "paragraphes": [
+          "manche menschen sind für ein kapitel in deinem leben da, nicht für das ganze buch. das macht die freundschaft nicht fake.",
+          "du kannst jemandem dankbar sein und ihn trotzdem ziehen lassen."
+        ]
+      },
+      "it": {
+        "titre": "amicizie di passaggio",
+        "paragraphes": [
+          "alcune persone restano nella tua vita per un capitolo, non per tutto il libro. non vuol dire che l'amicizia fosse finta.",
+          "puoi essere riconoscente a qualcuno e lasciarlo comunque andare."
+        ]
+      },
+      "sv": {
+        "titre": "vänskap har säsonger",
+        "paragraphes": [
+          "vissa människor är med i ditt liv under ett kapitel, inte hela boken. det gör inte vänskapen fejk.",
+          "du kan vara tacksam för någon och ändå låta er glida isär."
+        ]
+      },
+      "fr": {
+        "titre": "les amis, ça passe",
+        "paragraphes": [
+          "certaines personnes sont dans ta vie pour un chapitre, pas pour tout le livre. ça rend pas l'amitié fausse.",
+          "tu peux garder de la gratitude pour quelqu'un et quand même le laisser s'éloigner."
+        ]
+      },
+      "tr": {
+        "titre": "dostluk da mevsimlik",
+        "paragraphes": [
+          "bazı insanlar hayatında bütün kitap için değil, bir bölüm için var. bu, arkadaşlığın sahte olduğu anlamına gelmiyor.",
+          "birine minnettar olup yine de uzaklaşmasına izin verebilirsin."
+        ]
+      },
+      "ro": {
+        "titre": "prieteni pe un sezon",
+        "paragraphes": [
+          "unii oameni sunt în viața ta pentru un capitol, nu pentru toată cartea. asta nu face prietenia falsă.",
+          "poți să-i mulțumești cuiva în gând și totuși să-l lași să se îndepărteze."
+        ]
+      },
+      "hu": {
+        "titre": "vannak szezonális barátok",
+        "paragraphes": [
+          "vannak, akik csak egy fejezetre vannak az életedben, nem az egész könyvre. ettől még nem volt kamu a barátság.",
+          "lehetsz hálás valakiért úgy is, hogy hagyod eltávolodni."
+        ]
       }
     },
     {
@@ -103,6 +243,55 @@
           "i used to panic about a free weekend with no plans. now i protect them.",
           "learning to enjoy ur own company means u never have to stay somewhere just to avoid being by urself."
         ]
+      },
+      "de": {
+        "titre": "allein ist nicht einsam",
+        "paragraphes": [
+          "früher hatte ich panik vor einem freien wochenende ohne pläne. jetzt verteidige ich sie.",
+          "wenn du lernst, gern mit dir allein zu sein, musst du nie irgendwo bleiben, nur um nicht allein zu sein."
+        ]
+      },
+      "it": {
+        "titre": "stare soli ≠ sentirsi soli",
+        "paragraphes": [
+          "prima andavo in panico per un weekend libero senza programmi. ora me li tengo stretti.",
+          "imparare a goderti la tua compagnia vuol dire che non dovrai mai restare da qualche parte solo per non stare a tu per tu con te."
+        ]
+      },
+      "sv": {
+        "titre": "själv är inte ensam",
+        "paragraphes": [
+          "förr fick jag panik över en ledig helg utan planer. nu skyddar jag dem.",
+          "när du lär dig trivas i ditt eget sällskap behöver du aldrig stanna någonstans bara för att slippa vara själv."
+        ]
+      },
+      "fr": {
+        "titre": "seul, c'est pas triste",
+        "paragraphes": [
+          "avant, je paniquais devant un week-end libre sans rien de prévu. maintenant je les protège.",
+          "apprendre à aimer ta propre compagnie, c'est ne plus jamais devoir rester quelque part juste pour éviter d'être seul avec toi-même."
+        ]
+      },
+      "tr": {
+        "titre": "yalnız kalmak kötü değil",
+        "paragraphes": [
+          "eskiden plansız boş bir hafta sonu beni paniğe sokardı. şimdi onları koruyorum.",
+          "kendi kendine vakit geçirmekten keyif almayı öğrenince, sırf tek kalmamak için bir yerde durmak zorunda kalmıyorsun."
+        ]
+      },
+      "ro": {
+        "titre": "singur nu înseamnă trist",
+        "paragraphes": [
+          "înainte intram în panică la gândul unui weekend liber fără planuri. acum le protejez.",
+          "când înveți să-ți placă propria companie, nu mai trebuie niciodată să rămâi undeva doar ca să eviți să stai cu tine."
+        ]
+      },
+      "hu": {
+        "titre": "egyedül lenni nem magány",
+        "paragraphes": [
+          "régen pánikoltam, ha volt egy szabad hétvégém program nélkül. most vigyázok rájuk.",
+          "ha megtanulod élvezni a saját társaságodat, sosem kell ott maradnod valahol csak azért, hogy ne legyél egyedül."
+        ]
       }
     },
     {
@@ -112,6 +301,55 @@
         "paragraphes": [
           "school made learning feel like a chore. it isn't. every night i do one short lesson on Sophia: history, philosophy, science, geopolitics, literature, economics.",
           "written by actual professors, with a little quiz after. 10 minutes, and i go to sleep knowing one more thing about the world."
+        ]
+      },
+      "de": {
+        "titre": "lernen nach der schule",
+        "paragraphes": [
+          "die schule hat lernen wie eine pflicht wirken lassen. ist es nicht. jeden abend mache ich eine kurze lektion bei Sophia: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "von echten professoren geschrieben, mit einem kleinen quiz danach. 10 minuten, und ich schlaf ein und weiß ein ding mehr über die welt."
+        ]
+      },
+      "it": {
+        "titre": "impara oltre la scuola",
+        "paragraphes": [
+          "la scuola mi aveva fatto sembrare lo studio un peso. non lo è. ogni sera faccio una lezione breve su Sophia: storia, filosofia, scienze, geopolitica, letteratura, economia.",
+          "scritta da veri professori, con un piccolo quiz alla fine. 10 minuti, e vado a dormire sapendo una cosa in più sul mondo."
+        ]
+      },
+      "sv": {
+        "titre": "lär dig mer efter skolan",
+        "paragraphes": [
+          "skolan fick lärande att kännas som en plikt. det är det inte. varje kväll gör jag en kort lektion på Sophia: historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
+          "skrivna av riktiga professorer, med ett litet quiz efteråt. 10 minuter, och jag somnar med en sak till som jag vet om världen."
+        ]
+      },
+      "fr": {
+        "titre": "apprendre après l'école",
+        "paragraphes": [
+          "l'école m'a fait voir l'apprentissage comme une corvée. c'en est pas une. chaque soir je fais une courte leçon sur Sophia: histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "écrite par de vrais profs, avec un petit quiz après. 10 minutes, et je m'endors en sachant un truc de plus sur le monde."
+        ]
+      },
+      "tr": {
+        "titre": "okuldan sonra da öğren",
+        "paragraphes": [
+          "okul öğrenmeyi angarya gibi hissettirdi. öyle değil. her gece Sophia'da kısa bir ders yapıyorum: tarih, felsefe, bilim, jeopolitik, edebiyat, ekonomi.",
+          "gerçek profesörler yazıyor, sonunda da küçük bir quiz var. 10 dakika, ve dünya hakkında bir şey daha bilerek uyuyorum."
+        ]
+      },
+      "ro": {
+        "titre": "învață și după ore",
+        "paragraphes": [
+          "școala a făcut învățatul să pară o corvoadă. nu e. în fiecare seară fac o lecție scurtă pe Sophia: istorie, filozofie, științe, geopolitică, literatură, economie.",
+          "scrise de profesori adevărați, cu un mic quiz la final. 10 minute, și adorm știind încă un lucru despre lume."
+        ]
+      },
+      "hu": {
+        "titre": "tanulni óra után is",
+        "paragraphes": [
+          "a suli miatt a tanulás kötelező robotnak tűnt. pedig nem az. minden este csinálok egy rövid leckét a Sophia appban: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "igazi professzorok írják, és utána van egy kis kvíz. 10 perc, és úgy alszom el, hogy eggyel több dolgot tudok a világról."
         ]
       }
     },
@@ -132,6 +370,55 @@
           "there will always be someone prettier, smarter or further ahead online. that's just how the internet works.",
           "the only fair comparison is u, a year ago."
         ]
+      },
+      "de": {
+        "titre": "hör auf zu vergleichen",
+        "paragraphes": [
+          "online gibt es immer jemanden, der hübscher, schlauer oder weiter ist. so funktioniert das internet halt.",
+          "der einzig faire vergleich bist du vor einem jahr."
+        ]
+      },
+      "it": {
+        "titre": "smetti di confrontarti",
+        "paragraphes": [
+          "online ci sarà sempre qualcuno più bello, più intelligente o più avanti di te. è così che funziona internet.",
+          "l'unico confronto giusto è con te stesso, un anno fa."
+        ]
+      },
+      "sv": {
+        "titre": "sluta jämföra",
+        "paragraphes": [
+          "det kommer alltid finnas någon som är snyggare, smartare eller längre fram på nätet. det är bara så internet funkar.",
+          "den enda rättvisa jämförelsen är du själv för ett år sen."
+        ]
+      },
+      "fr": {
+        "titre": "arrête de comparer",
+        "paragraphes": [
+          "il y aura toujours quelqu'un de plus beau, plus intelligent ou plus avancé en ligne. c'est juste comme ça qu'internet marche.",
+          "la seule comparaison juste, c'est toi, il y a un an."
+        ]
+      },
+      "tr": {
+        "titre": "kıyaslamayı bırak",
+        "paragraphes": [
+          "internette her zaman senden daha güzel, daha zeki ya da daha önde biri olacak. internet böyle işliyor.",
+          "tek adil kıyaslama, sen ve bir yıl önceki sen."
+        ]
+      },
+      "ro": {
+        "titre": "nu te mai compara",
+        "paragraphes": [
+          "mereu o să existe cineva mai frumos, mai deștept sau mai avansat online. așa funcționează internetul.",
+          "singura comparație corectă e cu tine de acum un an."
+        ]
+      },
+      "hu": {
+        "titre": "ne hasonlítgasd magad",
+        "paragraphes": [
+          "mindig lesz valaki, aki szebb, okosabb vagy előrébb tart online. az internet egyszerűen így működik.",
+          "az egyetlen igazságos összehasonlítás: te, egy évvel ezelőtt."
+        ]
       }
     },
     {
@@ -151,6 +438,55 @@
           "every time i was bored i grabbed my phone. i never let my brain wander long enough to come up with anything.",
           "some of my best ideas came on walks with nothing in my ears."
         ]
+      },
+      "de": {
+        "titre": "lass dich mal langweilen",
+        "paragraphes": [
+          "jedes mal, wenn mir langweilig war, hab ich zum handy gegriffen. ich hab mein gehirn nie lange genug wandern lassen, um auf irgendwas zu kommen.",
+          "ein paar meiner besten ideen kamen bei spaziergängen ohne kopfhörer."
+        ]
+      },
+      "it": {
+        "titre": "lasciati annoiare",
+        "paragraphes": [
+          "ogni volta che mi annoiavo prendevo il telefono. non lasciavo mai vagare la mente abbastanza a lungo da farle inventare qualcosa.",
+          "alcune delle mie idee migliori sono arrivate durante passeggiate senza niente nelle orecchie."
+        ]
+      },
+      "sv": {
+        "titre": "låt dig ha tråkigt",
+        "paragraphes": [
+          "varje gång jag hade tråkigt tog jag mobilen. jag lät aldrig hjärnan vandra iväg tillräckligt länge för att komma på något.",
+          "några av mina bästa idéer kom på promenader utan något i öronen."
+        ]
+      },
+      "fr": {
+        "titre": "laisse-toi t'ennuyer",
+        "paragraphes": [
+          "chaque fois que je m'ennuyais, je prenais mon tel. je laissais jamais mon cerveau divaguer assez longtemps pour trouver quoi que ce soit.",
+          "certaines de mes meilleures idées me sont venues en marchant, sans rien dans les oreilles."
+        ]
+      },
+      "tr": {
+        "titre": "sıkılmaya izin ver",
+        "paragraphes": [
+          "her sıkıldığımda telefona sarılıyordum. beynimin bir şey bulacak kadar uzun süre dolaşmasına hiç izin vermedim.",
+          "en iyi fikirlerimden bazıları kulağımda hiçbir şey yokken yaptığım yürüyüşlerde geldi."
+        ]
+      },
+      "ro": {
+        "titre": "lasă-te să te plictisești",
+        "paragraphes": [
+          "de fiecare dată când mă plictiseam, puneam mâna pe telefon. nu-mi lăsam niciodată creierul să hoinărească destul cât să-mi vină vreo idee.",
+          "unele dintre cele mai bune idei ale mele au venit la plimbare, fără nimic în urechi."
+        ]
+      },
+      "hu": {
+        "titre": "hagyd magad unatkozni",
+        "paragraphes": [
+          "valahányszor unatkoztam, előkaptam a telefonom. sosem hagytam elég ideig kalandozni az agyam ahhoz, hogy kitaláljak bármit.",
+          "a legjobb ötleteim egy része olyan sétákon jött, amikor semmi nem szólt a fülemben."
+        ]
       }
     },
     {
@@ -158,6 +494,34 @@
       "en": {
         "texte": "if i could sit next to my 16-year-old self, i'd say: slow down, get curious, and stop asking everyone else who u should be.",
         "gras": "OR.. u'll keep learning it the hard way."
+      },
+      "de": {
+        "texte": "wenn ich neben meinem 16-jährigen ich sitzen könnte, würde ich sagen: mach langsamer, sei neugierig und hör auf, alle anderen zu fragen, wer du sein sollst.",
+        "gras": "ODER.. du lernst es weiter auf die harte tour."
+      },
+      "it": {
+        "texte": "se potessi sedermi accanto alla me di 16 anni, le direi: rallenta, sii curiosa e smetti di chiedere agli altri chi dovresti essere.",
+        "gras": "O.. continuerai a impararlo nel modo più difficile."
+      },
+      "sv": {
+        "texte": "om jag kunde sitta bredvid mitt 16-åriga jag skulle jag säga: ta det lugnt, bli nyfiken och sluta fråga alla andra vem du borde vara.",
+        "gras": "ELLER.. du fortsätter lära dig den hårda vägen."
+      },
+      "fr": {
+        "texte": "si je pouvais m'asseoir à côté de moi à 16 ans, je me dirais: ralentis, intéresse-toi à tout, et arrête de demander à tout le monde qui tu devrais être.",
+        "gras": "OU.. tu continueras de l'apprendre à la dure."
+      },
+      "tr": {
+        "texte": "16 yaşındaki halimin yanına oturabilseydim şunu derdim: yavaşla, merak et ve kim olman gerektiğini herkese sormayı bırak.",
+        "gras": "YA DA.. bunu zor yoldan öğrenmeye devam edersin."
+      },
+      "ro": {
+        "texte": "dacă aș putea să stau lângă mine cea de 16 ani, mi-aș spune: încetinește, fii curioasă și nu-i mai întreba pe toți ceilalți cine ar trebui să fii.",
+        "gras": "SAU.. o să înveți tot pe calea cea grea."
+      },
+      "hu": {
+        "texte": "ha leülhetnék a 16 éves énem mellé, azt mondanám neki: lassíts, legyél kíváncsi, és ne kérdezgess mindenki mást arról, hogy ki legyél.",
+        "gras": "VAGY.. továbbra is a nehezebb úton tanulod meg."
       }
     }
   ]

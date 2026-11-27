@@ -2,10 +2,24 @@
   "id": "rt-003",
   "type_bleo": "full_test",
   "titre": {
-    "en": "rabbit holes worth falling into"
+    "en": "rabbit holes worth falling into",
+    "de": "rabbit holes, in die sich das fallen lohnt",
+    "it": "rabbit hole in cui vale la pena cadere",
+    "sv": "kaninhål värda att ramla ner i",
+    "fr": "des rabbit holes qui valent le coup",
+    "tr": "düşmeye değer tavşan delikleri",
+    "ro": "subiecte în care merită să te pierzi",
+    "hu": "nyúlüregek, amikbe megéri beleesni"
   },
   "legendes": {
-    "en": "some nights u don't need another video, u need one good rabbit hole.\n\nunsolved mysteries, the deep ocean, the history of music, nature being weird, and empires most of us never learned about in school.\n\npick the one that sounds the strangest and give it an hour.\n\nsave this for the next time ur bored.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok"
+    "en": "some nights u don't need another video, u need one good rabbit hole.\n\nunsolved mysteries, the deep ocean, the history of music, nature being weird, and empires most of us never learned about in school.\n\npick the one that sounds the strangest and give it an hour.\n\nsave this for the next time ur bored.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok",
+    "de": "an manchen abenden brauchst du kein weiteres video, sondern ein gutes rabbit hole.\n\nungelöste rätsel, die tiefsee, die geschichte der musik, eine natur, die einfach seltsam ist, und imperien, über die die meisten von uns in der schule nie was gelernt haben.\n\nnimm das, was am seltsamsten klingt, und gib ihm eine stunde.\n\nspeicher dir das fürs nächste mal, wenn dir langweilig ist.\n\n#studytok #learning #lernen #allgemeinwissen #wissen",
+    "it": "certe sere non ti serve un altro video, ti serve un bel rabbit hole.\n\nmisteri irrisolti, gli abissi dell'oceano, la storia della musica, la natura che fa cose strane e imperi che quasi nessuno di noi ha studiato a scuola.\n\nscegli quello che ti sembra più strano e dagli un'ora.\n\nsalvalo per la prossima volta che ti annoi.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok #imparaconte #cultura #perte",
+    "sv": "vissa kvällar behöver du inte en video till, du behöver ett bra kaninhål.\n\nolösta mysterier, djuphavet, musikens historia, naturen när den är konstig och imperier som de flesta av oss aldrig fick lära oss om i skolan.\n\nvälj det som låter konstigast och ge det en timme.\n\nspara det här till nästa gång du har tråkigt.\n\n#learning #studytok #plugga #allmänbildning #fördig",
+    "fr": "certains soirs t'as pas besoin d'une vidéo de plus, t'as besoin d'un bon rabbit hole.\n\nles mystères non résolus, les grands fonds, l'histoire de la musique, la nature qui est bizarre, et des empires dont on nous a presque jamais parlé à l'école.\n\nchoisis celui qui a l'air le plus étrange et donne-lui une heure.\n\nenregistre ça pour la prochaine fois que tu t'ennuies.\n\n#culturegenerale #apprendresurtiktok #curiosite #studytok #learning",
+    "tr": "bazı geceler başka bir videoya değil, iyi bir tavşan deliğine ihtiyacın var.\n\nçözülemeyen gizemler, derin okyanus, müziğin tarihi, doğanın tuhaflıkları ve çoğumuzun okulda hiç öğrenmediği imparatorluklar.\n\nkulağa en garip geleni seç ve ona bir saat ver.\n\nbir dahaki sıkılışın için kaydet.\n\n#studytok #learning #keşfet #bilgi #merak",
+    "ro": "în unele seri nu ai nevoie de încă un video, ai nevoie de un subiect bun în care să te pierzi.\n\nmistere nerezolvate, adâncurile oceanului, istoria muzicii, natura care e ciudată și imperii despre care majoritatea n-am învățat nimic la școală.\n\nalege-l pe cel mai ciudat și dă-i o oră.\n\nsalvează asta pt data viitoare când te plictisești.\n\n#studytok #learning #invatare #curiozitati #romania",
+    "hu": "vannak esték, amikor nem egy újabb videóra van szükséged, hanem egy jó nyúlüregre.\n\nmegoldatlan rejtélyek, a mélytenger, a zene története, a fura természet, és birodalmak, amikről a suliban a legtöbben sosem tanultunk.\n\nválaszd azt, amelyik a legfurcsábban hangzik, és adj neki egy órát.\n\nmentsd el legközelebbre, amikor unatkozol.\n\n#tanulás #önfejlesztés #magyartiktok #studytok #learning"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -36,6 +50,34 @@
       "en": {
         "titre": "rabbit holes worth\nfalling into",
         "sous_titre": "for the nights u can't sleep"
+      },
+      "de": {
+        "titre": "rabbit holes, in die\nsich das fallen lohnt",
+        "sous_titre": "für die nächte, in denen du nicht schlafen kannst"
+      },
+      "it": {
+        "titre": "rabbit hole in cui\nvale la pena cadere",
+        "sous_titre": "per le notti in cui non riesci a dormire"
+      },
+      "sv": {
+        "titre": "kaninhål värda att\nramla ner i",
+        "sous_titre": "för sömnlösa nätter"
+      },
+      "fr": {
+        "titre": "des rabbit holes qui\nvalent le coup",
+        "sous_titre": "pour les nuits où tu dors pas"
+      },
+      "tr": {
+        "titre": "düşmeye değer\ntavşan delikleri",
+        "sous_titre": "uyuyamadığın geceler için"
+      },
+      "ro": {
+        "titre": "subiecte în care\nmerită să te pierzi",
+        "sous_titre": "pt nopțile în care nu poți dormi"
+      },
+      "hu": {
+        "titre": "nyúlüregek, amikbe\nmegéri beleesni",
+        "sous_titre": "azokra az éjszakákra, amikor nem tudsz aludni"
       }
     },
     {
@@ -58,6 +100,139 @@
           "The Baghdad Battery",
           "The Taos Hum"
         ]
+      },
+      "de": {
+        "titre": "Ungelöste Rätsel",
+        "sujets": [
+          "Das Voynich-Manuskript",
+          "Das Wow!-Signal",
+          "Das Tunguska-Ereignis",
+          "Linear A",
+          "Der Diskos von Phaistos",
+          "Die Nazca-Linien",
+          "Stonehenge",
+          "Die Mary Celeste",
+          "Die Tanzwut von 1518",
+          "Die verlorene Kolonie Roanoke",
+          "Der Money Pit von Oak Island",
+          "Kryptos",
+          "Die Bagdad-Batterie",
+          "Das Brummen von Taos"
+        ]
+      },
+      "it": {
+        "titre": "Misteri irrisolti",
+        "sujets": [
+          "Il manoscritto Voynich",
+          "Il segnale Wow!",
+          "L'evento di Tunguska",
+          "La lineare A",
+          "Il disco di Festo",
+          "Le linee di Nazca",
+          "Stonehenge",
+          "La Mary Celeste",
+          "L'epidemia di ballo del 1518",
+          "La colonia perduta di Roanoke",
+          "Il Money Pit di Oak Island",
+          "Kryptos",
+          "La pila di Baghdad",
+          "Il ronzio di Taos"
+        ]
+      },
+      "sv": {
+        "titre": "Olösta mysterier",
+        "sujets": [
+          "Voynichmanuskriptet",
+          "Wow!-signalen",
+          "Tunguskaexplosionen",
+          "Linear A",
+          "Faistosdisken",
+          "Nazcalinjerna",
+          "Stonehenge",
+          "Mary Celeste",
+          "Dansepidemin 1518",
+          "Den försvunna kolonin Roanoke",
+          "Skattgropen på Oak Island",
+          "Kryptos",
+          "Bagdadbatteriet",
+          "Taosbrummet"
+        ]
+      },
+      "fr": {
+        "titre": "Mystères non résolus",
+        "sujets": [
+          "Manuscrit de Voynich",
+          "Signal Wow!",
+          "Événement de la Toungouska",
+          "Linéaire A",
+          "Disque de Phaistos",
+          "Lignes de Nazca",
+          "Stonehenge",
+          "Mary Celeste",
+          "Épidémie de danse de 1518",
+          "Colonie de Roanoke",
+          "Trésor d'Oak Island",
+          "Kryptos",
+          "Pile de Bagdad",
+          "Bourdonnement de Taos"
+        ]
+      },
+      "tr": {
+        "titre": "Çözülemeyen gizemler",
+        "sujets": [
+          "Voynich el yazması",
+          "Wow! sinyali",
+          "Tunguska olayı",
+          "Lineer A",
+          "Phaistos diski",
+          "Nazca çizgileri",
+          "Stonehenge",
+          "Mary Celeste",
+          "1518 dans salgını",
+          "Kayıp Roanoke Kolonisi",
+          "Oak Island para çukuru",
+          "Kryptos",
+          "Bağdat pili",
+          "Taos uğultusu"
+        ]
+      },
+      "ro": {
+        "titre": "Mistere nerezolvate",
+        "sujets": [
+          "Manuscrisul Voynich",
+          "Semnalul Wow!",
+          "Evenimentul Tunguska",
+          "Linear A",
+          "Discul de la Phaistos",
+          "Liniile Nazca",
+          "Stonehenge",
+          "Mary Celeste",
+          "Epidemia de dans din 1518",
+          "Colonia pierdută Roanoke",
+          "Groapa cu bani de pe Oak Island",
+          "Kryptos",
+          "Bateria de la Bagdad",
+          "Zumzetul din Taos"
+        ]
+      },
+      "hu": {
+        "titre": "Megoldatlan rejtélyek",
+        "sujets": [
+          "A Voynich-kézirat",
+          "A Wow!-jel",
+          "A tunguszkai esemény",
+          "A lineáris A írás",
+          "A phaisztoszi korong",
+          "A nazcai vonalak",
+          "Stonehenge",
+          "A Mary Celeste",
+          "Az 1518-as táncjárvány",
+          "Roanoke elveszett kolóniája",
+          "Az Oak Island-i pénzverem",
+          "Kryptos",
+          "A bagdadi elem",
+          "A taosi zúgás"
+        ]
       }
     },
     {
@@ -79,6 +254,132 @@
           "Seagrass Meadows",
           "The Immortal Jellyfish"
         ]
+      },
+      "de": {
+        "titre": "Die Tiefsee",
+        "sujets": [
+          "Die Mitternachtszone",
+          "Hydrothermale Quellen",
+          "Meeresschnee",
+          "Der Riesenkalmar",
+          "Anglerfische",
+          "Die Intelligenz von Kraken",
+          "Walgesänge",
+          "Bloop",
+          "Mittelozeanische Rücken",
+          "Die thermohaline Zirkulation",
+          "Korallenriffe",
+          "Seegraswiesen",
+          "Die unsterbliche Qualle"
+        ]
+      },
+      "it": {
+        "titre": "Gli abissi dell'oceano",
+        "sujets": [
+          "La zona di mezzanotte",
+          "Le sorgenti idrotermali",
+          "La neve marina",
+          "Il calamaro gigante",
+          "La rana pescatrice",
+          "L'intelligenza dei polpi",
+          "Il canto delle balene",
+          "Il Bloop",
+          "Le dorsali oceaniche",
+          "La circolazione termoalina",
+          "Le barriere coralline",
+          "Le praterie marine",
+          "La medusa immortale"
+        ]
+      },
+      "sv": {
+        "titre": "Djuphavet",
+        "sujets": [
+          "Midnattszonen",
+          "Hydrotermiska källor",
+          "Marin snö",
+          "Jättebläckfisken",
+          "Marulkar",
+          "Bläckfiskars intelligens",
+          "Valsång",
+          "Bloop",
+          "Mittoceaniska ryggar",
+          "Termohalin cirkulation",
+          "Korallrev",
+          "Sjögräsängar",
+          "Den odödliga maneten"
+        ]
+      },
+      "fr": {
+        "titre": "Les grands fonds",
+        "sujets": [
+          "Zone bathypélagique",
+          "Sources hydrothermales",
+          "Neige marine",
+          "Calmar géant",
+          "Baudroie abyssale",
+          "Intelligence des pieuvres",
+          "Chant des baleines",
+          "Bloop",
+          "Dorsales océaniques",
+          "Circulation thermohaline",
+          "Récifs coralliens",
+          "Herbiers marins",
+          "Méduse immortelle"
+        ]
+      },
+      "tr": {
+        "titre": "Derin okyanus",
+        "sujets": [
+          "Gece yarısı bölgesi",
+          "Hidrotermal bacalar",
+          "Deniz karı",
+          "Dev mürekkep balığı",
+          "Fener balığı",
+          "Ahtapot zekâsı",
+          "Balina şarkıları",
+          "Bloop",
+          "Okyanus ortası sırtları",
+          "Termohalin dolaşım",
+          "Mercan resifleri",
+          "Deniz çayırları",
+          "Ölümsüz denizanası"
+        ]
+      },
+      "ro": {
+        "titre": "Adâncurile oceanului",
+        "sujets": [
+          "Zona miezului nopții",
+          "Izvoarele hidrotermale",
+          "Zăpada marină",
+          "Calmarul uriaș",
+          "Peștele-undiță",
+          "Inteligența caracatițelor",
+          "Cântecul balenelor",
+          "Bloop",
+          "Dorsalele medio-oceanice",
+          "Circulația termohalină",
+          "Recifele de corali",
+          "Pajiștile de iarbă de mare",
+          "Meduza nemuritoare"
+        ]
+      },
+      "hu": {
+        "titre": "A mélytenger",
+        "sujets": [
+          "Az éjféli zóna",
+          "Hidrotermális kürtők",
+          "Tengeri hó",
+          "Az óriáskalmár",
+          "Horgászhalak",
+          "A polipok intelligenciája",
+          "Bálnaénekek",
+          "A Bloop",
+          "Óceánközépi hátságok",
+          "Termohalin cirkuláció",
+          "Korallzátonyok",
+          "Tengerifű-mezők",
+          "A halhatatlan medúza"
+        ]
       }
     },
     {
@@ -88,6 +389,55 @@
         "paragraphes": [
           "Sophia gives me one lesson a day, written by actual professors, with a little quiz after. history, philosophy, science, geopolitics, literature, economics.",
           "it takes about 10 minutes, and most nights that one lesson is enough to send me down one of these rabbit holes."
+        ]
+      },
+      "de": {
+        "titre": "wo ich anfange",
+        "paragraphes": [
+          "Sophia gibt mir jeden tag eine lektion, geschrieben von echten professoren, mit einem kleinen quiz danach. geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "das dauert ungefähr 10 minuten, und an den meisten abenden reicht diese eine lektion, um mich in eins dieser rabbit holes zu schicken."
+        ]
+      },
+      "it": {
+        "titre": "da dove parto",
+        "paragraphes": [
+          "Sophia mi dà una lezione al giorno, scritta da veri professori, con un piccolo quiz alla fine. storia, filosofia, scienze, geopolitica, letteratura, economia.",
+          "ci vogliono circa 10 minuti, e quasi tutte le sere quella lezione basta per farmi cadere in uno di questi rabbit hole."
+        ]
+      },
+      "sv": {
+        "titre": "där jag börjar",
+        "paragraphes": [
+          "Sophia ger mig en lektion om dagen, skriven av riktiga professorer, med ett litet quiz efteråt. historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
+          "det tar ungefär 10 minuter, och de flesta kvällar räcker den enda lektionen för att skicka ner mig i ett av de här kaninhålen."
+        ]
+      },
+      "fr": {
+        "titre": "par où je commence",
+        "paragraphes": [
+          "Sophia me donne une leçon par jour, écrite par de vrais profs, avec un petit quiz après. histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "ça prend environ 10 minutes, et la plupart des soirs, cette seule leçon suffit à m'envoyer dans un de ces rabbit holes."
+        ]
+      },
+      "tr": {
+        "titre": "başladığım yer",
+        "paragraphes": [
+          "Sophia bana günde bir ders veriyor, gerçek profesörlerin yazdığı, sonunda da küçük bir quiz olan. tarih, felsefe, bilim, jeopolitik, edebiyat, ekonomi.",
+          "yaklaşık 10 dakika sürüyor ve çoğu gece o tek ders beni bu tavşan deliklerinden birine göndermeye yetiyor."
+        ]
+      },
+      "ro": {
+        "titre": "de unde încep",
+        "paragraphes": [
+          "Sophia îmi dă o lecție pe zi, scrisă de profesori adevărați, cu un mic quiz la final. istorie, filozofie, științe, geopolitică, literatură, economie.",
+          "durează cam 10 minute și în majoritatea serilor lecția aia e de ajuns ca să mă trimită adânc într-unul dintre subiectele astea."
+        ]
+      },
+      "hu": {
+        "titre": "ahol kezdem",
+        "paragraphes": [
+          "a Sophia minden nap ad nekem egy leckét, amit igazi professzorok írnak, és utána van egy kis kvíz. történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "kb. 10 perc, és a legtöbb este ez az egy lecke elég ahhoz, hogy lemenjek valamelyik nyúlüregbe ezek közül."
         ]
       }
     },
@@ -111,6 +461,139 @@
           "Perfect Pitch",
           "The Phonograph"
         ]
+      },
+      "de": {
+        "titre": "Die Geschichte der Musik",
+        "sujets": [
+          "Gregorianischer Choral",
+          "Barockmusik",
+          "Bachs Fugen",
+          "Mozarts Requiem",
+          "Beethovens Neunte",
+          "Die Entstehung der Oper",
+          "Der Blues",
+          "Die Anfänge des Jazz",
+          "Motown",
+          "Die Anfänge des Hip-Hop",
+          "Synthesizer",
+          "Der Quintenzirkel",
+          "Das absolute Gehör",
+          "Der Phonograph"
+        ]
+      },
+      "it": {
+        "titre": "La storia della musica",
+        "sujets": [
+          "Il canto gregoriano",
+          "La musica barocca",
+          "Le fughe di Bach",
+          "Il Requiem di Mozart",
+          "La Nona di Beethoven",
+          "La nascita dell'opera",
+          "Il blues",
+          "La nascita del jazz",
+          "La Motown",
+          "La nascita dell'hip hop",
+          "I sintetizzatori",
+          "Il circolo delle quinte",
+          "L'orecchio assoluto",
+          "Il fonografo"
+        ]
+      },
+      "sv": {
+        "titre": "Musikens historia",
+        "sujets": [
+          "Gregoriansk sång",
+          "Barockmusik",
+          "Bachs fugor",
+          "Mozarts Requiem",
+          "Beethovens nionde symfoni",
+          "Operans födelse",
+          "Blues",
+          "Jazzens födelse",
+          "Motown",
+          "Hiphopens födelse",
+          "Syntar",
+          "Kvintcirkeln",
+          "Absolut gehör",
+          "Fonografen"
+        ]
+      },
+      "fr": {
+        "titre": "Histoire de la musique",
+        "sujets": [
+          "Chant grégorien",
+          "Musique baroque",
+          "Fugues de Bach",
+          "Requiem de Mozart",
+          "Neuvième Symphonie de Beethoven",
+          "Naissance de l'opéra",
+          "Blues",
+          "Naissance du jazz",
+          "Motown",
+          "Naissance du hip-hop",
+          "Synthétiseurs",
+          "Cycle des quintes",
+          "Oreille absolue",
+          "Phonographe"
+        ]
+      },
+      "tr": {
+        "titre": "Müziğin tarihi",
+        "sujets": [
+          "Gregoryen ilahiler",
+          "Barok müzik",
+          "Bach'ın fügleri",
+          "Mozart'ın Requiem'i",
+          "Beethoven'ın 9. Senfonisi",
+          "Operanın doğuşu",
+          "Blues",
+          "Cazın doğuşu",
+          "Motown",
+          "Hip hop'un doğuşu",
+          "Synthesizer'lar",
+          "Beşliler çemberi",
+          "Mutlak kulak",
+          "Fonograf"
+        ]
+      },
+      "ro": {
+        "titre": "Istoria muzicii",
+        "sujets": [
+          "Cântul gregorian",
+          "Muzica barocă",
+          "Fugile lui Bach",
+          "Recviemul lui Mozart",
+          "Simfonia a IX-a a lui Beethoven",
+          "Nașterea operei",
+          "Bluesul",
+          "Nașterea jazzului",
+          "Motown",
+          "Nașterea hip-hopului",
+          "Sintetizatoarele",
+          "Cercul cvintelor",
+          "Auzul absolut",
+          "Fonograful"
+        ]
+      },
+      "hu": {
+        "titre": "A zene története",
+        "sujets": [
+          "Gregorián ének",
+          "Barokk zene",
+          "Bach fúgái",
+          "Mozart Requiemje",
+          "Beethoven IX. szimfóniája",
+          "Az opera születése",
+          "A blues",
+          "A dzsessz születése",
+          "A Motown",
+          "A hiphop születése",
+          "Szintetizátorok",
+          "A kvintkör",
+          "Az abszolút hallás",
+          "A fonográf"
+        ]
       }
     },
     {
@@ -133,6 +616,139 @@
           "Convergent Evolution",
           "Fireflies"
         ]
+      },
+      "de": {
+        "titre": "Die Natur ist seltsam",
+        "sujets": [
+          "Bärtierchen",
+          "Axolotl",
+          "Schleimpilze",
+          "Myzel-Netzwerke",
+          "Die Intelligenz von Krähen",
+          "Der Schwänzeltanz der Bienen",
+          "Die Wanderung des Monarchfalters",
+          "Die Tarnung der Sepien",
+          "Nacktmulle",
+          "Das Schnabeltier",
+          "Pando",
+          "Wie Vögel navigieren",
+          "Konvergente Evolution",
+          "Glühwürmchen"
+        ]
+      },
+      "it": {
+        "titre": "La natura è strana",
+        "sujets": [
+          "I tardigradi",
+          "Gli axolotl",
+          "Le muffe mucillaginose",
+          "Le reti di micelio",
+          "L'intelligenza dei corvi",
+          "La danza delle api",
+          "La migrazione della farfalla monarca",
+          "Il mimetismo delle seppie",
+          "L'eterocefalo glabro",
+          "L'ornitorinco",
+          "Pando",
+          "Come si orientano gli uccelli",
+          "L'evoluzione convergente",
+          "Le lucciole"
+        ]
+      },
+      "sv": {
+        "titre": "Naturen är konstig",
+        "sujets": [
+          "Björndjur",
+          "Axolotler",
+          "Slemsvampar",
+          "Mycelnätverk",
+          "Kråkfåglars intelligens",
+          "Binas dans",
+          "Monarkfjärilens flytt",
+          "Sepiornas kamouflage",
+          "Nakenråttor",
+          "Näbbdjuret",
+          "Pando",
+          "Hur fåglar navigerar",
+          "Konvergent evolution",
+          "Eldflugor"
+        ]
+      },
+      "fr": {
+        "titre": "La nature est bizarre",
+        "sujets": [
+          "Tardigrades",
+          "Axolotls",
+          "Myxomycètes",
+          "Réseaux de mycélium",
+          "Intelligence des corbeaux",
+          "Danse des abeilles",
+          "Migration du monarque",
+          "Camouflage de la seiche",
+          "Rat-taupe nu",
+          "Ornithorynque",
+          "Pando",
+          "Orientation des oiseaux",
+          "Évolution convergente",
+          "Lucioles"
+        ]
+      },
+      "tr": {
+        "titre": "Doğa çok tuhaf",
+        "sujets": [
+          "Tardigradlar",
+          "Aksolotl",
+          "Cıvık mantarlar",
+          "Miselyum ağları",
+          "Karga zekâsı",
+          "Arıların sallanma dansı",
+          "Kral kelebeğinin göçü",
+          "Mürekkep balığı kamuflajı",
+          "Çıplak köstebek faresi",
+          "Ornitorenk",
+          "Pando",
+          "Kuşlar nasıl yön bulur",
+          "Yakınsak evrim",
+          "Ateş böcekleri"
+        ]
+      },
+      "ro": {
+        "titre": "Natura e ciudată",
+        "sujets": [
+          "Tardigradele",
+          "Axolotlii",
+          "Mixomicetele",
+          "Rețelele de miceliu",
+          "Inteligența ciorilor",
+          "Dansul albinelor",
+          "Migrația fluturelui monarh",
+          "Camuflajul sepiei",
+          "Șobolanul-cârtiță golaș",
+          "Ornitorincul",
+          "Pando",
+          "Cum se orientează păsările",
+          "Evoluția convergentă",
+          "Licuricii"
+        ]
+      },
+      "hu": {
+        "titre": "A természet fura",
+        "sujets": [
+          "Medveállatkák",
+          "Axolotlok",
+          "Nyálkagombák",
+          "Gombafonal-hálózatok",
+          "A varjak intelligenciája",
+          "A méhek tánca",
+          "A pompás királylepke vándorlása",
+          "A szépiák álcázása",
+          "Csupasz turkálók",
+          "A kacsacsőrű emlős",
+          "Pando",
+          "Hogyan tájékozódnak a madarak",
+          "Konvergens evolúció",
+          "Szentjánosbogarak"
+        ]
       }
     },
     {
@@ -154,6 +770,132 @@
           "The Mughal Empire",
           "Edo Japan"
         ]
+      },
+      "de": {
+        "titre": "Imperien & Dynastien",
+        "sujets": [
+          "Das Mali-Reich von Mansa Musa",
+          "Das Reich von Aksum",
+          "Das Achämenidenreich",
+          "Die Königsstraße",
+          "Die Han-Dynastie",
+          "Die Tang-Dynastie",
+          "Das Straßennetz der Inka",
+          "Die Republik Venedig",
+          "Die Hanse",
+          "Das Heilige Römische Reich",
+          "Das Osmanische Reich",
+          "Das Mogulreich",
+          "Die Edo-Zeit"
+        ]
+      },
+      "it": {
+        "titre": "Imperi e dinastie",
+        "sujets": [
+          "L'impero del Mali di Mansa Musa",
+          "Il regno di Axum",
+          "L'impero achemenide",
+          "La strada reale persiana",
+          "La dinastia Han",
+          "La dinastia Tang",
+          "Le strade degli Inca",
+          "La Repubblica di Venezia",
+          "La Lega anseatica",
+          "Il Sacro Romano Impero",
+          "L'Impero ottomano",
+          "L'Impero Moghul",
+          "Il periodo Edo"
+        ]
+      },
+      "sv": {
+        "titre": "Imperier och dynastier",
+        "sujets": [
+          "Mansa Musas Maliimperium",
+          "Aksumriket",
+          "Akemenidernas Persien",
+          "Kungsvägen",
+          "Handynastin",
+          "Tangdynastin",
+          "Inkarikets vägar",
+          "Republiken Venedig",
+          "Hansan",
+          "Tysk-romerska riket",
+          "Osmanska riket",
+          "Mogulriket",
+          "Edoperioden"
+        ]
+      },
+      "fr": {
+        "titre": "Empires et dynasties",
+        "sujets": [
+          "Empire du Mali de Mansa Moussa",
+          "Royaume d'Aksoum",
+          "Empire achéménide",
+          "Route royale",
+          "Dynastie Han",
+          "Dynastie Tang",
+          "Réseau routier inca",
+          "République de Venise",
+          "Hanse",
+          "Saint-Empire romain",
+          "Empire ottoman",
+          "Empire moghol",
+          "Époque d'Edo"
+        ]
+      },
+      "tr": {
+        "titre": "İmparatorluklar ve hanedanlar",
+        "sujets": [
+          "Mansa Musa'nın Mali İmparatorluğu",
+          "Aksum Krallığı",
+          "Ahameniş İmparatorluğu",
+          "Kral Yolu",
+          "Han Hanedanı",
+          "Tang Hanedanı",
+          "İnka yol sistemi",
+          "Venedik Cumhuriyeti",
+          "Hansa Birliği",
+          "Kutsal Roma İmparatorluğu",
+          "Osmanlı İmparatorluğu",
+          "Babür İmparatorluğu",
+          "Edo dönemi Japonya"
+        ]
+      },
+      "ro": {
+        "titre": "Imperii și dinastii",
+        "sujets": [
+          "Imperiul Mali al lui Mansa Musa",
+          "Regatul Aksum",
+          "Imperiul Ahemenid",
+          "Drumul Regal",
+          "Dinastia Han",
+          "Dinastia Tang",
+          "Drumurile incașe",
+          "Republica Veneția",
+          "Liga Hanseatică",
+          "Sfântul Imperiu Roman",
+          "Imperiul Otoman",
+          "Imperiul Mogul",
+          "Japonia perioadei Edo"
+        ]
+      },
+      "hu": {
+        "titre": "Birodalmak és dinasztiák",
+        "sujets": [
+          "Mansza Musza Mali Birodalma",
+          "Az Aksumi Királyság",
+          "Az Achaimenida Birodalom",
+          "A perzsa királyi út",
+          "A Han-dinasztia",
+          "A Tang-dinasztia",
+          "Az inka úthálózat",
+          "A Velencei Köztársaság",
+          "A Hanza-szövetség",
+          "A Német-római Birodalom",
+          "Az Oszmán Birodalom",
+          "A Mogul Birodalom",
+          "Az Edo-kori Japán"
+        ]
       }
     },
     {
@@ -161,6 +903,34 @@
       "en": {
         "texte": "save this for tonight. pick the one that sounds the weirdest, put ur phone on the other side of the room and give it an hour.",
         "gras": "OR.. u'll spend that hour scrolling again."
+      },
+      "de": {
+        "texte": "speicher dir das für heute abend. nimm das, was am seltsamsten klingt, leg dein handy ans andere ende vom zimmer und gib ihm eine stunde.",
+        "gras": "ODER.. du verbringst die stunde wieder mit scrollen."
+      },
+      "it": {
+        "texte": "salvalo per stasera. scegli quello che ti sembra più strano, metti il telefono dall'altra parte della stanza e dagli un'ora.",
+        "gras": "O.. passerai quell'ora a scrollare di nuovo."
+      },
+      "sv": {
+        "texte": "spara det här till i kväll. välj det som låter konstigast, lägg mobilen på andra sidan rummet och ge det en timme.",
+        "gras": "ELLER.. du lägger den timmen på att scrolla igen."
+      },
+      "fr": {
+        "texte": "enregistre ça pour ce soir. choisis celui qui a l'air le plus bizarre, pose ton tel à l'autre bout de la pièce et donne-lui une heure.",
+        "gras": "OU.. tu vas encore passer cette heure à scroller."
+      },
+      "tr": {
+        "texte": "bunu bu gece için kaydet. kulağa en tuhaf geleni seç, telefonunu odanın öbür ucuna koy ve ona bir saat ver.",
+        "gras": "YA DA.. o bir saati yine scroll'layarak geçirirsin."
+      },
+      "ro": {
+        "texte": "salvează asta pt diseară. alege-l pe cel care sună cel mai ciudat, pune telefonul în partea cealaltă a camerei și dă-i o oră.",
+        "gras": "SAU.. o să-ți petreci ora aia tot dând scroll."
+      },
+      "hu": {
+        "texte": "mentsd el ma estére. válaszd azt, amelyik a legfurcsábban hangzik, tedd a telefonod a szoba másik végébe, és adj neki egy órát.",
+        "gras": "VAGY.. azt az órát is görgetéssel töltöd."
       }
     }
   ]

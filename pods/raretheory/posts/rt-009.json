@@ -2,10 +2,24 @@
   "id": "rt-009",
   "type_bleo": "full_test",
   "titre": {
-    "en": "things school never taught u"
+    "en": "things school never taught u",
+    "de": "was dir die schule nie beigebracht hat",
+    "it": "cose che la scuola non ti ha mai insegnato",
+    "sv": "saker skolan aldrig lärde dig",
+    "fr": "ce que l'école ne t'a jamais appris",
+    "tr": "okulun sana hiç öğretmediği şeyler",
+    "ro": "ce nu ți-a predat școala niciodată",
+    "hu": "dolgok, amiket a suli sosem tanított meg"
   },
   "legendes": {
-    "en": "school taught us the mitochondria is the powerhouse of the cell and then sent us into the world without explaining taxes.\n\nmoney, how to think, how to actually learn, how to talk to people, and how the world around u runs.\n\nnone of it is hard. nobody just sat us down and said it.\n\nsave this and teach urself one a week.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok"
+    "en": "school taught us the mitochondria is the powerhouse of the cell and then sent us into the world without explaining taxes.\n\nmoney, how to think, how to actually learn, how to talk to people, and how the world around u runs.\n\nnone of it is hard. nobody just sat us down and said it.\n\nsave this and teach urself one a week.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok",
+    "de": "die schule hat uns beigebracht, dass die mitochondrien das kraftwerk der zelle sind, und uns dann in die welt geschickt, ohne steuern zu erklären.\n\ngeld, wie man denkt, wie man wirklich lernt, wie man mit menschen redet und wie die welt um dich herum läuft.\n\nnichts davon ist schwer. es hat sich nur nie jemand mit uns hingesetzt und es gesagt.\n\nspeicher dir das und bring dir jede woche eins selbst bei.\n\n#studytok #learning #lernen #allgemeinwissen #schule",
+    "it": "la scuola ci ha insegnato che il mitocondrio è la centrale energetica della cellula e poi ci ha mandati nel mondo senza spiegarci le tasse.\n\nsoldi, come ragionare, come imparare davvero, come parlare con le persone e come funziona il mondo intorno a te.\n\nniente di tutto questo è difficile. è solo che nessuno si è mai seduto a spiegarcelo.\n\nsalvalo e imparane una a settimana.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok #imparaconte #cultura #perte",
+    "sv": "skolan lärde oss att mitokondrien är cellens kraftverk och skickade sen ut oss i världen utan att förklara hur skatt funkar.\n\npengar, hur man tänker, hur man faktiskt lär sig, hur man pratar med folk och hur världen runt dig funkar.\n\ninget av det är svårt. det var bara ingen som satte sig ner och sa det till oss.\n\nspara det här och lär dig själv en grej i veckan.\n\n#learning #studytok #plugga #allmänbildning #fördig",
+    "fr": "l'école nous a appris que la mitochondrie est la centrale énergétique de la cellule, puis elle nous a lâchés dans le monde sans nous expliquer les impôts.\n\nl'argent, comment réfléchir, comment vraiment apprendre, comment parler aux gens, et comment tourne le monde autour de toi.\n\nrien de tout ça n'est dur. personne nous l'a juste expliqué.\n\nenregistre ça et apprends-toi un sujet par semaine.\n\n#culturegenerale #apprendresurtiktok #curiosite #studytok #learning",
+    "tr": "okul bize mitokondrinin hücrenin enerji santrali olduğunu öğretti, sonra vergileri hiç anlatmadan bizi dünyaya saldı.\n\npara, nasıl düşünüleceği, gerçekten nasıl öğrenileceği, insanlarla nasıl konuşulacağı ve etrafındaki dünyanın nasıl işlediği.\n\nhiçbiri zor değil. sadece kimse bizi oturtup anlatmadı.\n\nbunu kaydet ve kendine haftada bir tane öğret.\n\n#studytok #learning #keşfet #bilgi #kendinigeliştir",
+    "ro": "școala ne-a învățat că mitocondria e uzina energetică a celulei și apoi ne-a trimis în lume fără să ne explice taxele.\n\nbani, cum să gândești, cum să înveți de fapt, cum să vorbești cu oamenii și cum funcționează lumea din jurul tău.\n\nnimic din toate astea nu e greu. doar că nu ne-a luat nimeni deoparte să ne zică.\n\nsalvează asta și învață-le pe cont propriu, câte unul pe săptămână.\n\n#studytok #learning #invatare #educatiefinanciara #romania",
+    "hu": "a suliban megtanultuk, hogy a mitokondrium a sejt erőműve, aztán kiküldtek minket a világba anélkül, hogy elmagyarázták volna az adókat.\n\npénz, hogyan gondolkodj, hogyan tanulj igazán, hogyan beszélj az emberekkel, és hogyan működik körülötted a világ.\n\nsemmi nem nehéz belőle. csak senki nem ült le velünk, hogy elmondja.\n\nmentsd el, és tanulj meg magadtól egyet hetente.\n\n#tanulás #önfejlesztés #magyartiktok #studytok #learning"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -36,6 +50,34 @@
       "en": {
         "titre": "things school never\ntaught u",
         "sous_titre": "so teach urself"
+      },
+      "de": {
+        "titre": "was dir die schule\nnie beigebracht hat",
+        "sous_titre": "also bring sie dir selbst bei"
+      },
+      "it": {
+        "titre": "cose che la scuola\nnon ti ha insegnato",
+        "sous_titre": "quindi impara da te"
+      },
+      "sv": {
+        "titre": "saker skolan aldrig\nlärde dig",
+        "sous_titre": "så lär dig själv"
+      },
+      "fr": {
+        "titre": "ce que l'école ne t'a\njamais appris",
+        "sous_titre": "alors apprends-le toi-même"
+      },
+      "tr": {
+        "titre": "okulun sana hiç\nöğretmediği şeyler",
+        "sous_titre": "o zaman kendin öğren"
+      },
+      "ro": {
+        "titre": "ce nu ți-a predat\nșcoala niciodată",
+        "sous_titre": "deci învață-le pe cont propriu"
+      },
+      "hu": {
+        "titre": "dolgok, amiket a suli\nsosem tanított meg",
+        "sous_titre": "szóval tanítsd meg magadnak"
       }
     },
     {
@@ -55,6 +97,125 @@
           "Index Funds",
           "Renting vs Buying",
           "Spotting Scams"
+        ]
+      },
+      "de": {
+        "titre": "Geld-Basics",
+        "sujets": [
+          "Wie ein Budget funktioniert",
+          "Die 50/30/20-Regel",
+          "Bedürfnisse vs. Wünsche",
+          "Der Notgroschen",
+          "Zinsen",
+          "Wie Kredite funktionieren",
+          "Kreditwürdigkeit",
+          "Wie Steuern funktionieren",
+          "Eine Gehaltsabrechnung lesen",
+          "Indexfonds",
+          "Mieten vs. Kaufen",
+          "Betrug erkennen"
+        ]
+      },
+      "it": {
+        "titre": "Le basi dei soldi",
+        "sujets": [
+          "Come funziona un budget",
+          "La regola 50/30/20",
+          "Bisogni e desideri",
+          "Il fondo di emergenza",
+          "I tassi di interesse",
+          "Come funzionano i prestiti",
+          "Il merito creditizio",
+          "Come funzionano le tasse",
+          "Leggere una busta paga",
+          "I fondi indicizzati",
+          "Affittare o comprare casa",
+          "Riconoscere le truffe"
+        ]
+      },
+      "sv": {
+        "titre": "Grunderna om pengar",
+        "sujets": [
+          "Hur en budget fungerar",
+          "50/30/20-regeln",
+          "Behov vs begär",
+          "Buffertsparande",
+          "Räntor",
+          "Hur lån fungerar",
+          "Kreditvärdighet",
+          "Hur skatter fungerar",
+          "Att läsa en lönespecifikation",
+          "Indexfonder",
+          "Hyra vs köpa",
+          "Att känna igen bedrägerier"
+        ]
+      },
+      "fr": {
+        "titre": "Les bases de l'argent",
+        "sujets": [
+          "Faire un budget",
+          "Règle des 50/30/20",
+          "Besoins et envies",
+          "Épargne de précaution",
+          "Taux d'intérêt",
+          "Comment marche un prêt",
+          "Score de crédit",
+          "Comment marchent les impôts",
+          "Lire une fiche de paie",
+          "Fonds indiciels",
+          "Louer ou acheter",
+          "Repérer les arnaques"
+        ]
+      },
+      "tr": {
+        "titre": "Para temelleri",
+        "sujets": [
+          "Bütçe nasıl yapılır",
+          "50/30/20 kuralı",
+          "İhtiyaç ve istek",
+          "Acil durum fonu",
+          "Faiz oranları",
+          "Krediler nasıl işler",
+          "Kredi notu",
+          "Vergiler nasıl işler",
+          "Maaş bordrosu okumak",
+          "Endeks fonları",
+          "Kiralamak mı, satın almak mı",
+          "Dolandırıcılığı fark etmek"
+        ]
+      },
+      "ro": {
+        "titre": "Bazele banilor",
+        "sujets": [
+          "Cum funcționează un buget",
+          "Regula 50/30/20",
+          "Nevoi vs dorințe",
+          "Fondul de urgență",
+          "Ratele dobânzii",
+          "Cum funcționează împrumuturile",
+          "Scorul de credit",
+          "Cum funcționează taxele",
+          "Cum citești fluturașul de salariu",
+          "Fondurile index",
+          "Chirie vs cumpărare",
+          "Cum recunoști o țeapă"
+        ]
+      },
+      "hu": {
+        "titre": "Pénzügyi alapok",
+        "sujets": [
+          "Hogyan működik a költségvetés",
+          "Az 50/30/20-as szabály",
+          "Szükségletek vs. vágyak",
+          "Vésztartalék",
+          "Kamatlábak",
+          "Hogyan működnek a hitelek",
+          "Hitelképesség",
+          "Hogyan működnek az adók",
+          "A bérjegyzék olvasása",
+          "Indexalapok",
+          "Bérlés vs. vásárlás",
+          "Csalások felismerése"
         ]
       }
     },
@@ -76,6 +237,125 @@
           "Socratic Questioning",
           "Mental Models"
         ]
+      },
+      "de": {
+        "titre": "Wie man denkt",
+        "sujets": [
+          "Kritisches Denken",
+          "Logische Fehlschlüsse",
+          "Korrelation vs. Kausalität",
+          "Die wissenschaftliche Methode",
+          "Denken in ersten Prinzipien",
+          "Basisraten",
+          "Wahrscheinlichkeit",
+          "Statistik-Grundlagen",
+          "Falschinformationen erkennen",
+          "Steelmanning",
+          "Sokratisches Fragen",
+          "Mentale Modelle"
+        ]
+      },
+      "it": {
+        "titre": "Come ragionare",
+        "sujets": [
+          "Il pensiero critico",
+          "Le fallacie logiche",
+          "Correlazione e causalità",
+          "Il metodo scientifico",
+          "Ragionare per principi primi",
+          "La frequenza di base",
+          "La probabilità",
+          "Le basi della statistica",
+          "Riconoscere la disinformazione",
+          "Lo steelmanning",
+          "Le domande socratiche",
+          "I modelli mentali"
+        ]
+      },
+      "sv": {
+        "titre": "Hur man tänker",
+        "sujets": [
+          "Kritiskt tänkande",
+          "Logiska felslut",
+          "Korrelation vs kausalitet",
+          "Den vetenskapliga metoden",
+          "Tänkande från grundprinciper",
+          "Basfrekvenser",
+          "Sannolikhet",
+          "Grundläggande statistik",
+          "Att känna igen desinformation",
+          "Steelmanning",
+          "Sokratiska frågor",
+          "Mentala modeller"
+        ]
+      },
+      "fr": {
+        "titre": "Comment réfléchir",
+        "sujets": [
+          "Esprit critique",
+          "Sophismes",
+          "Corrélation et causalité",
+          "Méthode scientifique",
+          "Penser par principes premiers",
+          "Taux de base",
+          "Probabilités",
+          "Bases des statistiques",
+          "Repérer la désinformation",
+          "Steelmanning",
+          "Questionnement socratique",
+          "Modèles mentaux"
+        ]
+      },
+      "tr": {
+        "titre": "Nasıl düşünülür",
+        "sujets": [
+          "Eleştirel düşünme",
+          "Mantık hataları",
+          "Korelasyon ve nedensellik",
+          "Bilimsel yöntem",
+          "İlk ilkelerden düşünme",
+          "Taban oranları",
+          "Olasılık",
+          "İstatistiğin temelleri",
+          "Yanlış bilgiyi fark etmek",
+          "Steelmanning",
+          "Sokratik sorgulama",
+          "Zihinsel modeller"
+        ]
+      },
+      "ro": {
+        "titre": "Cum să gândești",
+        "sujets": [
+          "Gândirea critică",
+          "Erorile logice",
+          "Corelație vs cauzalitate",
+          "Metoda științifică",
+          "Gândirea din principii de bază",
+          "Ratele de bază",
+          "Probabilitatea",
+          "Noțiuni de statistică",
+          "Cum recunoști dezinformarea",
+          "Steelmanning",
+          "Metoda socratică",
+          "Modelele mentale"
+        ]
+      },
+      "hu": {
+        "titre": "Hogyan gondolkodj",
+        "sujets": [
+          "Kritikai gondolkodás",
+          "Logikai hibák",
+          "Korreláció vs. ok-okozat",
+          "A tudományos módszer",
+          "Első elvekből gondolkodni",
+          "Alapgyakoriság",
+          "Valószínűség",
+          "Statisztikai alapok",
+          "Az álhírek felismerése",
+          "Steelmanning",
+          "Szókratészi kérdezés",
+          "Mentális modellek"
+        ]
       }
     },
     {
@@ -85,6 +365,55 @@
         "paragraphes": [
           "Sophia gives me one lesson a day, written by actual professors, with a little quiz after. history, philosophy, science, geopolitics, literature, economics.",
           "10 minutes a day. it's the closest thing i've found to the class i wish school had."
+        ]
+      },
+      "de": {
+        "titre": "was ich stattdessen tu",
+        "paragraphes": [
+          "Sophia gibt mir jeden tag eine lektion, geschrieben von echten professoren, mit einem kleinen quiz danach. geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "10 minuten am tag. das ist das nächste, was ich an dem fach gefunden hab, das ich mir in der schule gewünscht hätte."
+        ]
+      },
+      "it": {
+        "titre": "cosa faccio invece",
+        "paragraphes": [
+          "Sophia mi dà una lezione al giorno, scritta da veri professori, con un piccolo quiz alla fine. storia, filosofia, scienze, geopolitica, letteratura, economia.",
+          "10 minuti al giorno. è la cosa più vicina che ho trovato alla materia che avrei voluto avere a scuola."
+        ]
+      },
+      "sv": {
+        "titre": "det jag gör i stället",
+        "paragraphes": [
+          "Sophia ger mig en lektion om dagen, skriven av riktiga professorer, med ett litet quiz efteråt. historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
+          "10 minuter om dagen. det är det närmaste jag har hittat till lektionen jag önskar att skolan hade haft."
+        ]
+      },
+      "fr": {
+        "titre": "ce que je fais à la place",
+        "paragraphes": [
+          "Sophia me donne une leçon par jour, écrite par de vrais profs, avec un petit quiz après. histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "10 minutes par jour. c'est ce qui ressemble le plus au cours que j'aurais aimé avoir à l'école."
+        ]
+      },
+      "tr": {
+        "titre": "onun yerine yaptığım",
+        "paragraphes": [
+          "Sophia bana günde bir ders veriyor, gerçek profesörlerin yazdığı, sonunda da küçük bir quiz olan. tarih, felsefe, bilim, jeopolitik, edebiyat, ekonomi.",
+          "günde 10 dakika. okulda olmasını istediğim derse bulduğum en yakın şey bu."
+        ]
+      },
+      "ro": {
+        "titre": "ce fac în schimb",
+        "paragraphes": [
+          "Sophia îmi dă o lecție pe zi, scrisă de profesori adevărați, cu un mic quiz la final. istorie, filozofie, științe, geopolitică, literatură, economie.",
+          "10 minute pe zi. e cel mai apropiat lucru pe care l-am găsit de ora pe care mi-aș fi dorit-o la școală."
+        ]
+      },
+      "hu": {
+        "titre": "amit helyette csinálok",
+        "paragraphes": [
+          "a Sophia minden nap ad nekem egy leckét, amit igazi professzorok írnak, és utána van egy kis kvíz. történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "napi 10 perc. ez áll a legközelebb ahhoz az órához, amit bárcsak tanított volna a suli."
         ]
       }
     },
@@ -106,6 +435,125 @@
           "Teaching to Learn",
           "Growth Mindset"
         ]
+      },
+      "de": {
+        "titre": "Wie man lernt",
+        "sujets": [
+          "Aktives Erinnern",
+          "Verteiltes Wiederholen",
+          "Die Vergessenskurve",
+          "Die Feynman-Methode",
+          "Interleaving",
+          "Gezieltes Üben",
+          "Chunking",
+          "Mindmaps",
+          "Die Pomodoro-Technik",
+          "Methoden zum Mitschreiben",
+          "Lernen durch Lehren",
+          "Growth Mindset"
+        ]
+      },
+      "it": {
+        "titre": "Come imparare",
+        "sujets": [
+          "Il richiamo attivo",
+          "La ripetizione dilazionata",
+          "La curva dell'oblio",
+          "La tecnica Feynman",
+          "Lo studio alternato",
+          "La pratica deliberata",
+          "Il chunking",
+          "Le mappe mentali",
+          "La tecnica del pomodoro",
+          "I metodi per prendere appunti",
+          "Insegnare per imparare",
+          "La mentalità di crescita"
+        ]
+      },
+      "sv": {
+        "titre": "Hur man lär sig",
+        "sujets": [
+          "Aktiv återkallning",
+          "Spridd repetition",
+          "Glömskekurvan",
+          "Feynmantekniken",
+          "Blandad övning",
+          "Målmedveten träning",
+          "Chunking",
+          "Tankekartor",
+          "Pomodorotekniken",
+          "Anteckningsmetoder",
+          "Lär ut för att lära dig",
+          "Growth mindset"
+        ]
+      },
+      "fr": {
+        "titre": "Comment apprendre",
+        "sujets": [
+          "Rappel actif",
+          "Répétition espacée",
+          "Courbe de l'oubli",
+          "Technique Feynman",
+          "Pratique entrelacée",
+          "Pratique délibérée",
+          "Chunking",
+          "Cartes mentales",
+          "Technique Pomodoro",
+          "Méthodes de prise de notes",
+          "Enseigner pour apprendre",
+          "État d'esprit de croissance"
+        ]
+      },
+      "tr": {
+        "titre": "Nasıl öğrenilir",
+        "sujets": [
+          "Aktif hatırlama",
+          "Aralıklı tekrar",
+          "Unutma eğrisi",
+          "Feynman tekniği",
+          "Karışık çalışma",
+          "Bilinçli pratik",
+          "Parçalama",
+          "Zihin haritaları",
+          "Pomodoro tekniği",
+          "Not alma yöntemleri",
+          "Öğreterek öğrenmek",
+          "Gelişim zihniyeti"
+        ]
+      },
+      "ro": {
+        "titre": "Cum să înveți",
+        "sujets": [
+          "Reamintirea activă",
+          "Repetiția spațiată",
+          "Curba uitării",
+          "Tehnica Feynman",
+          "Învățarea alternată",
+          "Practica deliberată",
+          "Gruparea informației",
+          "Hărțile mentale",
+          "Tehnica Pomodoro",
+          "Metode de luat notițe",
+          "Să înveți predând",
+          "Mentalitatea de creștere"
+        ]
+      },
+      "hu": {
+        "titre": "Hogyan tanulj",
+        "sujets": [
+          "Aktív felidézés",
+          "Időközi ismétlés",
+          "A felejtési görbe",
+          "A Feynman-technika",
+          "Váltott gyakorlás",
+          "Tudatos gyakorlás",
+          "Csoportosítás (chunking)",
+          "Gondolattérképek",
+          "A Pomodoro-technika",
+          "Jegyzetelési módszerek",
+          "Tanítva tanulni",
+          "Fejlődési szemlélet"
+        ]
       }
     },
     {
@@ -126,6 +574,125 @@
           "Persuasion",
           "Conflict Resolution"
         ]
+      },
+      "de": {
+        "titre": "Wie man mit Menschen redet",
+        "sujets": [
+          "Aktives Zuhören",
+          "Gute Fragen stellen",
+          "Smalltalk",
+          "Körpersprache",
+          "Storytelling",
+          "Öffentliches Reden",
+          "Eine gute E-Mail schreiben",
+          "Feedback geben",
+          "Höflich Nein sagen",
+          "Verhandeln",
+          "Überzeugen",
+          "Konfliktlösung"
+        ]
+      },
+      "it": {
+        "titre": "Come parlare con le persone",
+        "sujets": [
+          "L'ascolto attivo",
+          "Fare buone domande",
+          "Le chiacchiere di circostanza",
+          "Il linguaggio del corpo",
+          "Lo storytelling",
+          "Parlare in pubblico",
+          "Scrivere una buona email",
+          "Dare un feedback",
+          "Dire di no con gentilezza",
+          "La negoziazione",
+          "La persuasione",
+          "Risolvere i conflitti"
+        ]
+      },
+      "sv": {
+        "titre": "Hur man pratar med folk",
+        "sujets": [
+          "Aktivt lyssnande",
+          "Att ställa bra frågor",
+          "Småprat",
+          "Kroppsspråk",
+          "Berättande",
+          "Att tala inför publik",
+          "Att skriva ett bra mejl",
+          "Att ge feedback",
+          "Att säga nej artigt",
+          "Förhandling",
+          "Övertalning",
+          "Konfliktlösning"
+        ]
+      },
+      "fr": {
+        "titre": "Comment parler aux gens",
+        "sujets": [
+          "Écoute active",
+          "Poser de bonnes questions",
+          "Small talk",
+          "Langage corporel",
+          "Storytelling",
+          "Prise de parole en public",
+          "Écrire un bon mail",
+          "Donner un feedback",
+          "Dire non poliment",
+          "Négociation",
+          "Persuasion",
+          "Résolution de conflits"
+        ]
+      },
+      "tr": {
+        "titre": "İnsanlarla nasıl konuşulur",
+        "sujets": [
+          "Aktif dinleme",
+          "İyi soru sormak",
+          "Ufak sohbet",
+          "Beden dili",
+          "Hikâye anlatıcılığı",
+          "Topluluk önünde konuşma",
+          "İyi bir e-posta yazmak",
+          "Geri bildirim vermek",
+          "Kibarca hayır demek",
+          "Müzakere",
+          "İkna",
+          "Çatışma çözümü"
+        ]
+      },
+      "ro": {
+        "titre": "Cum să vorbești cu oamenii",
+        "sujets": [
+          "Ascultarea activă",
+          "Cum pui întrebări bune",
+          "Small talk-ul",
+          "Limbajul corpului",
+          "Arta povestirii",
+          "Vorbitul în public",
+          "Cum scrii un mail bun",
+          "Cum dai feedback",
+          "Cum spui nu politicos",
+          "Negocierea",
+          "Persuasiunea",
+          "Rezolvarea conflictelor"
+        ]
+      },
+      "hu": {
+        "titre": "Hogyan beszélj az emberekkel",
+        "sujets": [
+          "Aktív hallgatás",
+          "Jó kérdések feltevése",
+          "Small talk",
+          "Testbeszéd",
+          "Történetmesélés",
+          "Nyilvános beszéd",
+          "Egy jó e-mail megírása",
+          "Visszajelzés adása",
+          "Udvarias nemet mondás",
+          "Tárgyalás",
+          "Meggyőzés",
+          "Konfliktuskezelés"
+        ]
       }
     },
     {
@@ -145,6 +712,118 @@
           "How Time Zones Work",
           "The Mercator Projection"
         ]
+      },
+      "de": {
+        "titre": "Wie die Welt funktioniert",
+        "sujets": [
+          "Wie das Internet funktioniert",
+          "Wie Banken funktionieren",
+          "Wie Versicherungen funktionieren",
+          "Wie Lieferketten funktionieren",
+          "Wie der Container den Handel veränderte",
+          "Wie der Strom zu dir nach Hause kommt",
+          "Wie Leitungswasser gereinigt wird",
+          "Wie Recycling funktioniert",
+          "Wie Gesetze entstehen",
+          "Wie Zeitzonen funktionieren",
+          "Die Mercator-Projektion"
+        ]
+      },
+      "it": {
+        "titre": "Come funziona il mondo",
+        "sujets": [
+          "Come funziona internet",
+          "Come funzionano le banche",
+          "Come funzionano le assicurazioni",
+          "Come funzionano le catene di fornitura",
+          "Come i container hanno cambiato il commercio",
+          "Come arriva l'elettricità a casa tua",
+          "Come si depura l'acqua del rubinetto",
+          "Come funziona il riciclo",
+          "Come nasce una legge",
+          "Come funzionano i fusi orari",
+          "La proiezione di Mercatore"
+        ]
+      },
+      "sv": {
+        "titre": "Hur världen fungerar",
+        "sujets": [
+          "Hur internet fungerar",
+          "Hur banker fungerar",
+          "Hur försäkringar fungerar",
+          "Hur leveranskedjor fungerar",
+          "Hur containern ändrade handeln",
+          "Hur elen når ditt hem",
+          "Hur kranvatten renas",
+          "Hur återvinning fungerar",
+          "Hur lagar stiftas",
+          "Hur tidszoner fungerar",
+          "Mercatorprojektionen"
+        ]
+      },
+      "fr": {
+        "titre": "Comment tourne le monde",
+        "sujets": [
+          "Comment marche Internet",
+          "Comment marchent les banques",
+          "Comment marchent les assurances",
+          "Les chaînes logistiques",
+          "Le conteneur et le commerce",
+          "L'électricité jusqu'à chez toi",
+          "Le traitement de l'eau du robinet",
+          "Comment marche le recyclage",
+          "Comment une loi est votée",
+          "Les fuseaux horaires",
+          "Projection de Mercator"
+        ]
+      },
+      "tr": {
+        "titre": "Dünya nasıl işliyor",
+        "sujets": [
+          "İnternet nasıl çalışır",
+          "Bankalar nasıl çalışır",
+          "Sigorta nasıl işler",
+          "Tedarik zincirleri nasıl işler",
+          "Konteynerler ticareti nasıl değiştirdi",
+          "Elektrik evine nasıl ulaşır",
+          "Musluk suyu nasıl arıtılır",
+          "Geri dönüşüm nasıl işler",
+          "Yasalar nasıl yapılır",
+          "Saat dilimleri nasıl işler",
+          "Mercator projeksiyonu"
+        ]
+      },
+      "ro": {
+        "titre": "Cum funcționează lumea",
+        "sujets": [
+          "Cum funcționează internetul",
+          "Cum funcționează băncile",
+          "Cum funcționează asigurările",
+          "Cum funcționează lanțurile de aprovizionare",
+          "Cum au schimbat containerele comerțul",
+          "Cum ajunge curentul la tine acasă",
+          "Cum se curăță apa de la robinet",
+          "Cum funcționează reciclarea",
+          "Cum se fac legile",
+          "Cum funcționează fusurile orare",
+          "Proiecția Mercator"
+        ]
+      },
+      "hu": {
+        "titre": "Hogyan működik a világ",
+        "sujets": [
+          "Hogyan működik az internet",
+          "Hogyan működnek a bankok",
+          "Hogyan működik a biztosítás",
+          "Hogyan működnek az ellátási láncok",
+          "Hogyan változtatták meg a konténerek a kereskedelmet",
+          "Hogyan jut el az áram az otthonodba",
+          "Hogyan tisztítják a csapvizet",
+          "Hogyan működik az újrahasznosítás",
+          "Hogyan születnek a törvények",
+          "Hogyan működnek az időzónák",
+          "A Mercator-vetület"
+        ]
       }
     },
     {
@@ -152,6 +831,34 @@
       "en": {
         "texte": "save this and pick one topic a week. by next year u'll know more than most adults about how things actually work.",
         "gras": "OR.. keep waiting for someone to explain it."
+      },
+      "de": {
+        "texte": "speicher dir das und nimm dir ein thema pro woche vor. nächstes jahr weißt du dann mehr als die meisten erwachsenen darüber, wie die dinge wirklich funktionieren.",
+        "gras": "ODER.. warte weiter, bis es dir jemand erklärt."
+      },
+      "it": {
+        "texte": "salvalo e scegli un argomento a settimana. entro l'anno prossimo saprai più della maggior parte degli adulti su come funzionano davvero le cose.",
+        "gras": "O.. continua ad aspettare che qualcuno te lo spieghi."
+      },
+      "sv": {
+        "texte": "spara det här och välj ett ämne i veckan. nästa år vet du mer än de flesta vuxna om hur saker faktiskt funkar.",
+        "gras": "ELLER.. fortsätt vänta på att någon ska förklara det."
+      },
+      "fr": {
+        "texte": "enregistre ça et choisis un sujet par semaine. d'ici l'an prochain, tu sauras mieux que la plupart des adultes comment les choses marchent vraiment.",
+        "gras": "OU.. continue d'attendre que quelqu'un te l'explique."
+      },
+      "tr": {
+        "texte": "bunu kaydet ve haftada bir konu seç. seneye bu zamanlar, işlerin gerçekte nasıl yürüdüğünü çoğu yetişkinden iyi bileceksin.",
+        "gras": "YA DA.. birinin sana anlatmasını beklemeye devam et."
+      },
+      "ro": {
+        "texte": "salvează asta și alege un subiect pe săptămână. până la anul o să știi mai multe decât majoritatea adulților despre cum funcționează de fapt lucrurile.",
+        "gras": "SAU.. așteaptă în continuare să ți le explice cineva."
+      },
+      "hu": {
+        "texte": "mentsd el, és válassz egy témát hetente. jövőre többet fogsz tudni arról, hogyan működnek valójában a dolgok, mint a legtöbb felnőtt.",
+        "gras": "VAGY.. várd tovább, hogy valaki elmagyarázza."
       }
     }
   ]

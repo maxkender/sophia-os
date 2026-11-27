@@ -15,7 +15,8 @@
   "tr": "Seni dahiye dönüştüren 10/10 beceriler",
   "ro": "Abilități 10/10 care te transformă într-un geniu",
   "cs": "Dovednosti 10/10, které z tebe udělají génia",
-  "hu": "10/10-es készségek, amiktől zseni leszel"
+  "hu": "10/10-es készségek, amiktől zseni leszel",
+  "sr": "Veštine 10/10 koje te pretvaraju u genija"
  },
  "legendes": {
   "fr": "Compétences 10/10 qui te transforment en génie #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -26,7 +27,8 @@
   "tr": "Seni dahiye dönüştüren 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "Abilități 10/10 care te transformă într-un geniu #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "Dovednosti 10/10, které z tebe udělají génia #učímesenatiktoku #osobnírozvoj #dovednosti",
-  "hu": "10/10-es készségek, amiktől zseni leszel #tanuljtiktokon #önfejlesztés #készségek"
+  "hu": "10/10-es készségek, amiktől zseni leszel #tanuljtiktokon #önfejlesztés #készségek",
+  "sr": "Veštine 10/10 koje te pretvaraju u genija #učinatiktoku #samorazvoj #veštine"
  },
  "musique": {
   "titre": "original sound - T07",
@@ -247,6 +249,30 @@
      },
      {
       "t": "LESZEL",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "KOJE TE",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "PRETVARAJU",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "U GENIJA",
       "couleur": "noir",
       "cap": 182
      }
@@ -482,6 +508,27 @@
      "date": "11 évvel ezelőtt",
      "duree": "8:55",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nkIA1dwkEcL2vfFQbZWke1U6ZW1TmitfsKNagGudwztQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "BITI NAJBOLJI",
+     [
+      {
+       "t": "U RAČUNANJU",
+       "couleur": "#c04848"
+      }
+     ],
+     "NAPAMET"
+    ],
+    "video": {
+     "id": "3gUwyWp8R2c",
+     "titre": "Kako množiti pomoću prstiju?",
+     "chaine": "e-kako portal",
+     "vues": "349 hilj. pregleda",
+     "date": "pre 15 godina",
+     "duree": "1:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m3nrvanl1fBQ5e2hBstn7MLCL1-8oDYsAKgEE-SwRqgMA=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -760,6 +807,32 @@
      "duree": "14:57",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_mk4-sIgdbmYJ9OxCU5-01xr8j-pdnrKsVK50fEZAft5w=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "UČITI",
+       "couleur": "#6c5418"
+      }
+     ],
+     "KAO",
+     [
+      {
+       "t": "MAŠINA",
+       "couleur": "#6c5418"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8g35ikyWb4s",
+     "titre": "Kako učiti - efikasno i brzo učenje",
+     "chaine": "Boris Teodosijević",
+     "vues": "104 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "39:46",
+     "avatar": "https://yt3.ggpht.com/ai0iqA8A5K8p6K9miRSy2pdFQZEHeCDsPY96078M7RcDrQ2QoiTpLuSGPRfLPXVa1bNWOL6Z=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -952,6 +1025,27 @@
     },
     "sous": [
      "napi 5 perc"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "TRENIRATI",
+     [
+      {
+       "t": "SVOJ UM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ovo otvaram",
+      "umesto skrolovanja."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
     ]
    }
   },
@@ -1185,6 +1279,27 @@
      "duree": "13:04",
      "avatar": "https://yt3.ggpht.com/4wxNP0VXtBnrEb_KWt3-LIdA-CcDeWe6Z_MIWQFTmjjfZHLwyZSBPSwH5D9Kc93qorlldjv2=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "sr": {
+    "titre": [
+     "ISPREGOVARATI",
+     [
+      {
+       "t": "SVE ŠTO",
+       "couleur": "#e41818"
+      }
+     ],
+     "POŽELIŠ"
+    ],
+    "video": {
+     "id": "QtIm2w-tBLk",
+     "titre": "Vrednosti, principi, tehnike i faze pregovaranja - Prva lekcija i osnova obuke PSK",
+     "chaine": "Boris Pohulek",
+     "vues": "103 hilj. pregleda",
+     "date": "pre 3 godine",
+     "duree": "30:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mbSBvziAXUfayI9FqrqEhwkd0L3FGZj1opgmliiVmK4CY=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1368,6 +1483,26 @@
      "duree": "14:31",
      "avatar": "https://yt3.ggpht.com/6ZPkNEcXpfm_LGifVL6btyMD5fryHrqb8ugO0Xaexhxk9tAVnQaOTVvsHmMHUL-HMUbz6XGM7w=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "sr": {
+    "titre": [
+     "SLOŽITI",
+     [
+      {
+       "t": "RUBIKOVU KOCKU",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Sj6AzE9F4g4",
+     "titre": "Kako Složiti Rubikovu Kocku 3x3 na Srpskom (za početnike)",
+     "chaine": "Speedcubes Srbija",
+     "vues": "1,1 mil. pregleda",
+     "date": "pre 13 godina",
+     "duree": "17:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1mnnQ2gMKN8yex-GKlxtgg6KSiWowHCtE5xP1Stwg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1550,6 +1685,26 @@
      "date": "5 évvel ezelőtt",
      "duree": "3:16",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_kY5mPG5RK0_6Qs3OiEzVxphTFAf4vwXH6q_BZWPmdWObs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "ČITATI",
+     [
+      {
+       "t": "NOTE",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VSX0-pGEDis",
+     "titre": "Kako se citaju note kratak tutorijal",
+     "chaine": "MD MUSIC",
+     "vues": "41 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "26:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l7gCzuo8uXd5Zd0WDBpIvj3A_tS0PBlrB42dstswr3njw=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

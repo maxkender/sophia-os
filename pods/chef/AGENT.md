@@ -66,6 +66,7 @@ Les podz :
 | 30 · Originaux @highlevelgame_ (Artura) | `highlevel_art` | `session_017c8FRWWvtFm3JqMeCH4kDF` | highlevel_art (Artura seule, images finies, en anglais, genre homme ; les conseils de séduction pour hommes de @highlevelgame_ en cartes de texte, papier et serif bordeaux, « HOW TO … » en capitales ; une carte « Know how to talk about art. » avec un vrai tableau du domaine public et le logo d'Artura, jamais une capture ; lancé par Adrien le 25/11, pilote hl-001 ; Artura encore inactive) |
 | 31 · Remakes @ssazem (Sophia) | `ssazem` | `session_017c8FRZWLjth4S1q3g3yTLM` | ssazem (Sophia seule, images finies, en anglais, genre homme, SANS IA ; ses citations de réconfort « #fyp #venting » en cinq slides carrées, sa photo en carte arrondie, Times en minuscules en deux blocs ; ses propres photos sans célébrité, son texte effacé par copie de texture ; Sophia dans une des cinq phrases avec son logo, jamais une capture ; lancé par Adrien le 27/11, pilote sz-001) |
 | 32 · Remakes @msclzz (Sophia) | `msclzz` | `session_017c8FRW9z3axX8zu7riuwpU` | msclzz (Sophia seule, images finies, en anglais, SANS IA ; ses guides de psychologie sociale « How To Make People Remember You » sur fond noir, titres en capitales aux mots en violet, une image noir et blanc par slide ; ses propres images sans célébrité, découpées sur son fond noir ; jamais sa slide de vente ni la manipulation ; Sophia en étape du milieu avec son logo, jamais une capture ; lancé par Adrien le 27/11, pilote mc-001) |
+| 33 · Originaux @scilla2047 (Artura) | `scilla_art` | `session_017c8FRVPCWVZpuj2dfg1ULS` | scilla_art (Artura seule, images finies, en anglais, SANS IA ; le format de @scilla2047, carrés blancs, TikTok Sans centré, un titre noir, un paragraphe en couleur et une œuvre dessous, sur l'angle « réapprendre à regarder, apprécier l'art » ; de vrais tableaux du domaine public (Met) ; Artura en point du milieu avec son logo, jamais une capture ; jamais une promesse de soin ; lancé par Adrien le 27/11, pilote sc-001 ; Artura encore inactive) |
 
 ## Règles absolues
 
@@ -100,8 +101,8 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   la jauge le demande (`pods/ROUTINE.md` §4). Les règles 5 (le rythme ne
   baisse jamais) et 6 ci-dessous ne valent plus pour eux : leur rythme suit
   la jauge (plus bas).
-- **La voie 2** (podz 1, 10, 11, 13, 15 à 33 ; le 6, relancé le 15/11, y
-  revient à son premier remake validé ; 16 à 22, 24 à 30 et 33 sont des originaux
+- **La voie 2** (podz 1, 10, 11, 13, 15 à 34 ; le 6, relancé le 15/11, y
+  revient à son premier remake validé ; 16 à 22, 24 à 30, 33 et 34 sont des originaux
   en images finies, 23, 31 et 32 des remakes en images finies) a aussi sa boîte et
   sa jauge depuis le 5/11 (0653) : ses podz refont les posts neufs de leur
   compte modèle, déclinent leur boîte dans l'ordre et déposent les full tests

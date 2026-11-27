@@ -1,0 +1,63 @@
+{
+  "source_id": "sg-o504",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "aa1b3b75-6ed7-427e-9c86-60c2f68ea182",
+  "titre": "things you shouldn't buy cheap #investmentpieces #oldmoney #elegance #smartgirl #quality",
+  "musique_titre": "The Spins",
+  "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+  "inspirations": [
+    "aa1b3b75-6ed7-427e-9c86-60c2f68ea182"
+  ],
+  "notes": "cta C. Déclinaison G1 de la ligne 16 de la boîte (parent aa1b3b75, langue source en) : accroche du parent mot pour mot. Idées du parent (chaussures, manteau, son esprit, soins, sac) et neuves (matelas). Sophia en 3 comme chez le parent (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1370e456",
+      "texte_overlay": "things you shouldn't buy cheap",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621631389707816208/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "1fae7411",
+      "texte_overlay": "1. shoes\n\ncheap shoes ruin your feet\nand your outfits.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621631389707816208/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f618ec44",
+      "texte_overlay": "2. a winter coat\n\none good coat for 10 years.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621631389707816208/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "153677ff",
+      "texte_overlay": "3. your mind",
+      "texte_sophia": "3. your mind\n\nfive minutes a day on an app like Sophia\nbuilds quiet substance.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621631389707816208/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "61dbe77e",
+      "texte_overlay": "4. your mattress\n\na third of your life.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621631389707816208/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "8c17d266",
+      "texte_overlay": "5. skincare",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621631389707816208/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "4dab8723",
+      "texte_overlay": "6. a bag you'll keep for years",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621631389707816208/6.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "e168b036",
+      "texte_overlay": "save this",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621631389707816208/6.jpg"
+    }
+  ]
+}

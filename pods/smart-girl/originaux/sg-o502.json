@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o502",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d5146e07-4e48-46ec-9b2b-782bdbd1f2bc",
+ "titre": "incredibly chic things rich women do in business #business #elegance #bossbabe #smartgirl #oldmoney",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "d5146e07-4e48-46ec-9b2b-782bdbd1f2bc"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 14 de la boîte (parent d5146e07, langue source en) : accroche du parent mot pour mot. Idées du parent (laisser le silence négocier, ne jamais justifier son agenda, demander avant de juger, protéger sa vie privée, élégance discrète, complimenter précisément, savoir de tout). Sophia comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "527da55a",
+   "texte_overlay": "incredibly chic things rich women\ndo in business",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679541114864454932/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "aded3bdb",
+   "texte_overlay": "1. they let silence negotiate\n\nthey say a price, then stop talking.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679541114864454932/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "564af3a2",
+   "texte_overlay": "2. they never explain\ntheir calendar\n\n\"i'm not available\" is a full sentence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679541114864454932/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0fbc2725",
+   "texte_overlay": "3. they ask before they judge",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679541114864454932/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "315a7491",
+   "texte_overlay": "4. they guard their private life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679541114864454932/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c4c81943",
+   "texte_overlay": "5. they wear quiet elegance\n\ntailored, clean lines, no logos.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679541114864454932/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3c66f90f",
+   "texte_overlay": "6. they know more than\ntheir own field",
+   "texte_sophia": "6. they know more than their own field:\nfive minutes a day on an app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679541114864454932/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f2b6956a",
+   "texte_overlay": "follow for more",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679541114864454932/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o510",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "10c85fcf-5a64-456c-bc99-fed638f4624d",
+ "titre": "things that make you look extremely rich #oldmoney #rich #elegance #smartgirl #classy",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "10c85fcf-5a64-456c-bc99-fed638f4624d"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 25 de la boîte (parent 10c85fcf, langue source en) : accroche du parent mot pour mot. Idées du parent (langues, éducation, un instrument, pas de dettes, être cultivée, curiosité quotidienne, garde-robe intemporelle). Sophia sur la curiosité quotidienne comme chez le parent (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3b44959d",
+   "texte_overlay": "things that make you look\nextremely rich",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669026967999532309/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "59ea924f",
+   "texte_overlay": "1. speaking several languages",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669026967999532309/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f3edbc3f",
+   "texte_overlay": "2. a well-stocked mind",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669026967999532309/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d4c22c62",
+   "texte_overlay": "3. being good at an instrument\nor a sport",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669026967999532309/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8f09f9bd",
+   "texte_overlay": "4. having no debt",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669026967999532309/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3a557eb7",
+   "texte_overlay": "5. being very well read",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669026967999532309/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ee1c2f6e",
+   "texte_overlay": "6. daily curiosity\n\nart, history, philosophy:\nfive minutes a day.",
+   "texte_sophia": "6. daily curiosity\n\nart, history, philosophy: five minutes a day\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669026967999532309/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5b66517e",
+   "texte_overlay": "7. timeless, tailored pieces",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669026967999532309/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "34089c7c",
+   "texte_overlay": "follow for more",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669026967999532309/9.jpg"
+  }
+ ]
+}

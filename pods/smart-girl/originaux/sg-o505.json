@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o505",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "51355b1d-bd76-4f64-84e9-c3500709c713",
+ "titre": "the 48 laws of power for women: the rules you were never taught #48lawsofpower #power #women #smartgirl #mindset",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "51355b1d-bd76-4f64-84e9-c3500709c713"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 17 de la boîte (parent 51355b1d, langue source en) : accroche du parent mot pour mot (« the 48 laws of power for women: the rules you were never taught »). Règles inspirées du parent, regroupées par slide. Sophia sur « n'arrête jamais d'apprendre » comme chez le parent (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0450e0dd",
+   "texte_overlay": "the 48 laws of power for women\n\nthe rules you were never taught",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650527021629590805/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b2d3a724",
+   "texte_overlay": "move quietly when the stakes\nare high\n\nlet them underestimate you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650527021629590805/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "52c4456d",
+   "texte_overlay": "don't beg for a seat at the table\n\nbuild your own.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650527021629590805/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "cfd8ac89",
+   "texte_overlay": "trust actions, not words",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650527021629590805/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3b304998",
+   "texte_overlay": "say no without excuses",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650527021629590805/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "90ff6597",
+   "texte_overlay": "hold eye contact a little longer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650527021629590805/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e68d8406",
+   "texte_overlay": "protect your solitude\n\nthat's where you recharge.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650527021629590805/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "60bc84ba",
+   "texte_overlay": "never stop learning\n\ni read one short lesson every\nmorning.",
+   "texte_sophia": "never stop learning\n\ni read one short lesson a day on an app like\nSophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650527021629590805/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "1a1c01ba",
+   "texte_overlay": "follow for more",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650527021629590805/9.jpg"
+  }
+ ]
+}

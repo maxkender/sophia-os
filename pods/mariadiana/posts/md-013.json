@@ -69,11 +69,11 @@
       "url": "https://www.metmuseum.org/art/collection/search/437512"
     }
   },
-  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Courbet, Les Demoiselles de village (1851-52) : ses trois sœurs, Ornans ; Salon de 1852, critiques sur les vaches minuscules et les « demoiselles » jugées vulgaires (notice du Met). Manet, Mlle V. en costume d'espada (1862) : Victorine Meurent ; Salon des Refusés 1863 avec Le Déjeuner sur l'herbe ; la corrida du fond hors d'échelle, critiquée. Cézanne, Mont Sainte-Victoire (vers 1902-06) : plus de 80 œuvres sur la montagne ; moqué aux expositions impressionnistes de 1874 et 1877 ; « faire du Poussin sur nature », « rendre l'impressionnisme solide comme l'art des musées ». Rousseau, Les Bords de la Bièvre près de Bicêtre (vers 1908-09) : employé de l'octroi, autodidacte ; banquet Rousseau au Bateau-Lavoir chez Picasso en novembre 1908. Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou).",
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Courbet, Les Demoiselles de village (1851-52) : ses trois sœurs, Ornans ; Salon de 1852, critiques sur les vaches minuscules et les « demoiselles » jugées vulgaires (notice du Met). Manet, Mlle V. en costume d'espada (1862) : Victorine Meurent ; Salon des Refusés 1863 avec Le Déjeuner sur l'herbe ; la corrida du fond hors d'échelle, critiquée. Cézanne, Mont Sainte-Victoire (vers 1902-06) : plus de 80 œuvres sur la montagne ; moqué aux expositions impressionnistes de 1874 et 1877 ; « faire du Poussin sur nature », « rendre l'impressionnisme solide comme l'art des musées ». Rousseau, Les Bords de la Bièvre près de Bicêtre (vers 1908-09) : employé de l'octroi, autodidacte ; banquet Rousseau au Bateau-Lavoir chez Picasso en novembre 1908. Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
   "slides": [
     {
       "type": "couverture",
-      "image": "images/photos/musee-rire.jpg",
+      "image": "images/banque/musee-visiteurs-flous.jpg",
       "en": {
         "titre": "Paintings People Laughed At"
       },
@@ -321,5 +321,8 @@
         "artiste": "Henri Rousseau"
       }
     }
-  ]
+  ],
+  "banque": {
+    "images/banque/musee-visiteurs-flous.jpg": "26052f73-9031-4e18-b96a-aafb200650c6"
+  }
 }

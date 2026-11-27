@@ -69,11 +69,11 @@
       "url": "https://www.metmuseum.org/art/collection/search/437052"
     }
   },
-  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Holbein, Hermann von Wedigh III (1532) : marchand hanséatique du Steelyard à Londres ; inscription « ANNO 1532 AETATIS SVAE 29 ». Margareta Haverman, Vase de fleurs (1716) : seule élève de Jan van Huysum ; reçue à l'Académie royale de Paris en 1722, exclue en 1723 sur le soupçon que son morceau de réception était de Van Huysum (notice du Met). Ingres, Princesse de Broglie (1851-53) : morte de tuberculose en 1860 à 35 ans. Meissonier, 1807, Friedland (vers 1861-75) : plus de dix ans de travail ; Meissonier fit poser un petit rail à Poissy pour suivre les chevaux au galop dans un chariot. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou).",
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Holbein, Hermann von Wedigh III (1532) : marchand hanséatique du Steelyard à Londres ; inscription « ANNO 1532 AETATIS SVAE 29 ». Margareta Haverman, Vase de fleurs (1716) : seule élève de Jan van Huysum ; reçue à l'Académie royale de Paris en 1722, exclue en 1723 sur le soupçon que son morceau de réception était de Van Huysum (notice du Met). Ingres, Princesse de Broglie (1851-53) : morte de tuberculose en 1860 à 35 ans. Meissonier, 1807, Friedland (vers 1861-75) : plus de dix ans de travail ; Meissonier fit poser un petit rail à Poissy pour suivre les chevaux au galop dans un chariot. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
   "slides": [
     {
       "type": "couverture",
-      "image": "images/photos/musee-detail.jpg",
+      "image": "images/banque/musee-estampe.jpg",
       "en": {
         "titre": "Paintings That Look Like Photographs"
       },
@@ -321,5 +321,8 @@
         "artiste": "Ernest Meissonier"
       }
     }
-  ]
+  ],
+  "banque": {
+    "images/banque/musee-estampe.jpg": "0a1306ce-be58-4b62-b779-eb5b8f7d2c7d"
+  }
 }

@@ -103,7 +103,9 @@ s'ouvrent toutes seules ; ses places passent avant tout à la création d'un
 compte. Les anciens labels gardent le test tant qu'Adrien ou Max ne les
 basculent pas (carte « Labels 100 % podz », page Allocation). Pour voir où en
 est chacun : `select * from podz_paliers_etat();`. Un podz dont une langue de
-palier reste « à préparer » plus d'un jour : signale-le au point du matin.
+palier reste « à préparer » plus d'un jour : signale-le au point du matin. Un
+nouveau podz en images finies entre au palier 1 dès sa création, 7 langues
+ouvertes d'office (0875, `pods/LANCEMENT.md`).
 
 ## BLEO, voie 1 (depuis le 1/11) et voie 2 (depuis le 5/11)
 

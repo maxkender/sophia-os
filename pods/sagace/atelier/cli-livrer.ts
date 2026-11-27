@@ -1,6 +1,6 @@
 // Usage : npm run livrer -- <id> [--langues fr] [--complement] [--essai <dossier>]
 //
-// Rend le remake posts/<id>.json dans les langues du podz (`LANGUES` : fr, en, de, it, pt-BR, tr, ro, cs)
+// Rend le remake posts/<id>.json dans les langues du podz (`LANGUES`, 18 langues depuis le 27/11)
 // et le DÉPOSE dans la file de validation de l'OS (fonction Edge `pods`,
 // action `deposer`). Un deck incomplet arrête la livraison : chaque compte du
 // label poste dans une seule langue, un post sans la sienne le laisserait à sec.

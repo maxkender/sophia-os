@@ -2,10 +2,24 @@
   "id": "rt-010",
   "type_bleo": "full_test",
   "titre": {
-    "en": "wikipedia pages to read at 2am"
+    "en": "wikipedia pages to read at 2am",
+    "de": "wikipedia-artikel für 2 uhr nachts",
+    "it": "pagine di wikipedia da leggere alle 2 di notte",
+    "sv": "wikipediaartiklar att läsa kl. 2 på natten",
+    "fr": "des pages wikipédia à lire à 2h du mat",
+    "tr": "gece 2'de okunacak wikipedia sayfaları",
+    "ro": "pagini de wikipedia de citit la 2 noaptea",
+    "hu": "wikipédia-oldalak hajnali 2-re"
   },
   "legendes": {
-    "en": "if u're going to be awake at 2am anyway, at least come out of it smarter.\n\nideas that break ur brain, history that sounds made up, lists u can scroll for hours, words that do weird things, and nature showing off.\n\nall real. all worth one more tab.\n\nsave this for ur next sleepless night.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok"
+    "en": "if u're going to be awake at 2am anyway, at least come out of it smarter.\n\nideas that break ur brain, history that sounds made up, lists u can scroll for hours, words that do weird things, and nature showing off.\n\nall real. all worth one more tab.\n\nsave this for ur next sleepless night.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok",
+    "de": "wenn du um 2 uhr nachts eh wach bist, dann komm wenigstens schlauer raus.\n\nideen, die dein hirn verknoten, geschichte, die erfunden klingt, listen, durch die du stundenlang scrollen kannst, wörter, die komische sachen machen, und eine natur, die einfach angibt.\n\nalles echt. alles einen tab mehr wert.\n\nspeicher dir das für deine nächste schlaflose nacht.\n\n#studytok #learning #wikipedia #allgemeinwissen #wissen",
+    "it": "se tanto alle 2 di notte non dormi, almeno chiudi la nottata sapendo qualcosa in più.\n\nidee che ti mandano in tilt il cervello, storia che sembra inventata, liste da scorrere per ore, parole che fanno cose strane e la natura che si mette in mostra.\n\ntutto vero. tutto vale un'altra scheda.\n\nsalvalo per la tua prossima notte insonne.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok #imparaconte #cultura #perte",
+    "sv": "om du ändå är vaken kl. 2 på natten kan du lika gärna bli smartare av det.\n\nidéer som får hjärnan att krascha, historia som låter påhittad, listor du kan scrolla i timmar, ord som gör konstiga saker och naturen när den flexar.\n\nallt är på riktigt. allt är värt en flik till.\n\nspara det här till nästa sömnlösa natt.\n\n#learning #studytok #plugga #allmänbildning #fördig",
+    "fr": "quitte à être encore debout à 2h du mat, autant en ressortir avec un truc appris.\n\ndes idées qui retournent le cerveau, de l'histoire qui a l'air inventée, des listes que tu peux scroller pendant des heures, des mots qui font des trucs bizarres, et la nature qui frime.\n\ntout est vrai. tout vaut un onglet de plus.\n\nenregistre ça pour ta prochaine nuit blanche.\n\n#culturegenerale #apprendresurtiktok #curiosite #studytok #learning",
+    "tr": "gece 2'de nasılsa uyanık olacaksan, bari biraz daha akıllı çık.\n\nbeynini yakan fikirler, uydurma gibi duran tarih, saatlerce kaydırabileceğin listeler, tuhaf şeyler yapan kelimeler ve hava atan doğa.\n\nhepsi gerçek. hepsi bir sekme daha açmaya değer.\n\nbir dahaki uykusuz gecen için kaydet.\n\n#studytok #learning #keşfet #bilgi #merak",
+    "ro": "dacă tot nu dormi la 2 noaptea, măcar să te alegi cu ceva din asta.\n\nidei care îți sucesc mintea, istorie care sună inventat, liste pe care le poți scrolla ore întregi, cuvinte care fac chestii ciudate și natura care se dă mare.\n\ntoate sunt reale. toate merită încă un tab.\n\nsalvează asta pt următoarea noapte nedormită.\n\n#studytok #learning #invatare #curiozitati #romania",
+    "hu": "ha már úgyis fent leszel hajnali 2-kor, legalább legyél okosabb a végére.\n\nötletek, amiktől beáll az agyad, történelem, ami kitaláltnak hangzik, listák, amiket órákig görgethetsz, szavak, amik fura dolgokat csinálnak, és a természet, ahogy felvág.\n\nmind igaz. mind megér még egy lapot.\n\nmentsd el a következő álmatlan éjszakára.\n\n#tanulás #önfejlesztés #magyartiktok #studytok #learning"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -36,6 +50,34 @@
       "en": {
         "titre": "wikipedia pages to\nread at 2am",
         "sous_titre": "one more tab, i promise"
+      },
+      "de": {
+        "titre": "wikipedia-artikel für\n2 uhr nachts",
+        "sous_titre": "noch ein tab, versprochen"
+      },
+      "it": {
+        "titre": "pagine di wikipedia\nper le 2 di notte",
+        "sous_titre": "ancora una scheda, giuro"
+      },
+      "sv": {
+        "titre": "wikipediaartiklar att\nläsa kl. 2 på natten",
+        "sous_titre": "en flik till, jag lovar"
+      },
+      "fr": {
+        "titre": "des pages wikipédia\nà lire à 2h du mat",
+        "sous_titre": "encore un onglet, promis"
+      },
+      "tr": {
+        "titre": "gece 2'de okunacak\nwikipedia sayfaları",
+        "sous_titre": "bir sekme daha, söz"
+      },
+      "ro": {
+        "titre": "pagini de wikipedia\nde citit la 2 noaptea",
+        "sous_titre": "încă un tab, promit"
+      },
+      "hu": {
+        "titre": "wikipédia-oldalak\nhajnali 2-re",
+        "sous_titre": "még egy lap, megígérem"
       }
     },
     {
@@ -58,6 +100,139 @@
           "Laplace's Demon",
           "Maxwell's Demon"
         ]
+      },
+      "de": {
+        "titre": "Ideen, die dein Hirn verknoten",
+        "sujets": [
+          "Das Boltzmann-Gehirn",
+          "Die Simulationshypothese",
+          "Dyson-Sphären",
+          "Der Große Attraktor",
+          "Das Bootes-Void",
+          "Vagabundierende Planeten",
+          "ʻOumuamua",
+          "Das Kessler-Syndrom",
+          "Der Vakuumzerfall",
+          "Der Overview-Effekt",
+          "Der Mpemba-Effekt",
+          "Die Bibliothek von Babel",
+          "Der Laplacesche Dämon",
+          "Der Maxwellsche Dämon"
+        ]
+      },
+      "it": {
+        "titre": "Idee che fanno girare la testa",
+        "sujets": [
+          "Il cervello di Boltzmann",
+          "L'ipotesi della simulazione",
+          "La sfera di Dyson",
+          "Il Grande Attrattore",
+          "Il vuoto di Boote",
+          "I pianeti erranti",
+          "Oumuamua",
+          "La sindrome di Kessler",
+          "Il decadimento del vuoto",
+          "L'effetto della veduta d'insieme",
+          "L'effetto Mpemba",
+          "La biblioteca di Babele",
+          "Il demone di Laplace",
+          "Il diavoletto di Maxwell"
+        ]
+      },
+      "sv": {
+        "titre": "Idéer som vrider hjärnan",
+        "sujets": [
+          "Boltzmannhjärna",
+          "Simuleringshypotesen",
+          "Dysonsfärer",
+          "Stora attraktorn",
+          "Boötestomrummet",
+          "Interstellära planeter",
+          "ʻOumuamua",
+          "Kesslersyndromet",
+          "Vakuumsönderfall",
+          "Overview-effekten",
+          "Mpembaeffekten",
+          "Babels bibliotek",
+          "Laplace demon",
+          "Maxwells demon"
+        ]
+      },
+      "fr": {
+        "titre": "Idées qui retournent le cerveau",
+        "sujets": [
+          "Cerveau de Boltzmann",
+          "Hypothèse de la simulation",
+          "Sphère de Dyson",
+          "Grand Attracteur",
+          "Vide du Bouvier",
+          "Planètes errantes",
+          "Oumuamua",
+          "Syndrome de Kessler",
+          "Désintégration du faux vide",
+          "Effet de surplomb",
+          "Effet Mpemba",
+          "La Bibliothèque de Babel",
+          "Démon de Laplace",
+          "Démon de Maxwell"
+        ]
+      },
+      "tr": {
+        "titre": "Akıl almaz fikirler",
+        "sujets": [
+          "Boltzmann beyni",
+          "Simülasyon hipotezi",
+          "Dyson küresi",
+          "Büyük Çekici",
+          "Çoban Boşluğu",
+          "Başıboş gezegenler",
+          "Oumuamua",
+          "Kessler sendromu",
+          "Vakum bozunması",
+          "Genel bakış etkisi",
+          "Mpemba etkisi",
+          "Babil Kütüphanesi",
+          "Laplace'ın cini",
+          "Maxwell'in cini"
+        ]
+      },
+      "ro": {
+        "titre": "Idei care îți sucesc mintea",
+        "sujets": [
+          "Creierul Boltzmann",
+          "Ipoteza simulării",
+          "Sfera Dyson",
+          "Marele Atractor",
+          "Vidul Boötes",
+          "Planetele vagabonde",
+          "Oumuamua",
+          "Sindromul Kessler",
+          "Dezintegrarea vidului",
+          "Efectul overview",
+          "Efectul Mpemba",
+          "Biblioteca Babel",
+          "Demonul lui Laplace",
+          "Demonul lui Maxwell"
+        ]
+      },
+      "hu": {
+        "titre": "Agyzsibbasztó ötletek",
+        "sujets": [
+          "Boltzmann-agy",
+          "A szimulációs hipotézis",
+          "Dyson-gömbök",
+          "A Nagy Vonzó",
+          "A Boötes-üresség",
+          "Kóbor bolygók",
+          "Oumuamua",
+          "Kessler-szindróma",
+          "Vákuumbomlás",
+          "Az áttekintés-hatás",
+          "A Mpemba-effektus",
+          "A bábeli könyvtár",
+          "Laplace démona",
+          "Maxwell démona"
+        ]
       }
     },
     {
@@ -79,6 +254,132 @@
           "Ötzi the Iceman",
           "The Voyager Golden Record"
         ]
+      },
+      "de": {
+        "titre": "Geschichte, die erfunden klingt",
+        "sujets": [
+          "Das Jahr ohne Sommer",
+          "Der Große Gestank",
+          "Kaiser Norton",
+          "Der Große Mondschwindel",
+          "Die Lachepidemie von Tanganjika",
+          "Der Fleischregen von Kentucky",
+          "Die Knochenkriege",
+          "Der Olympia-Marathon von 1904",
+          "Die Feen von Cottingley",
+          "Der Piltdown-Mensch",
+          "Der Schachtürke",
+          "Ötzi",
+          "Die Voyager Golden Record"
+        ]
+      },
+      "it": {
+        "titre": "Storia che sembra inventata",
+        "sujets": [
+          "L'anno senza estate",
+          "La Grande puzza di Londra",
+          "L'imperatore Norton",
+          "La grande bufala della Luna",
+          "L'epidemia di risate del Tanganica",
+          "La pioggia di carne del Kentucky",
+          "La guerra delle ossa",
+          "La maratona olimpica del 1904",
+          "Le fate di Cottingley",
+          "L'uomo di Piltdown",
+          "Il Turco meccanico",
+          "Ötzi, la mummia del Similaun",
+          "Il disco d'oro dei Voyager"
+        ]
+      },
+      "sv": {
+        "titre": "Historia som låter fejk",
+        "sujets": [
+          "Året utan sommar",
+          "Den stora stanken",
+          "Kejsar Norton",
+          "Den stora månbluffen",
+          "Skrattepidemin i Tanganyika",
+          "Köttregnet i Kentucky",
+          "Benkrigen",
+          "Maratonloppet vid OS 1904",
+          "Cottingleyälvorna",
+          "Piltdownmannen",
+          "Schackturken",
+          "Ötzi",
+          "Voyagers guldskiva"
+        ]
+      },
+      "fr": {
+        "titre": "Histoires vraies qui ont l'air fausses",
+        "sujets": [
+          "Année sans été",
+          "Grande Puanteur",
+          "Empereur Norton",
+          "Canular de la Lune",
+          "Épidémie de rire du Tanganyika",
+          "Pluie de viande du Kentucky",
+          "Guerre des os",
+          "Marathon des JO de 1904",
+          "Fées de Cottingley",
+          "Homme de Piltdown",
+          "Turc mécanique",
+          "Ötzi",
+          "Disque d'or de Voyager"
+        ]
+      },
+      "tr": {
+        "titre": "Uydurma gibi duran tarih",
+        "sujets": [
+          "Yazsız yıl",
+          "Büyük Koku",
+          "İmparator Norton",
+          "Büyük Ay Aldatmacası",
+          "Tanganika gülme salgını",
+          "Kentucky et yağmuru",
+          "Kemik Savaşları",
+          "1904 Olimpiyat maratonu",
+          "Cottingley perileri",
+          "Piltdown adamı",
+          "Mekanik Türk",
+          "Buz Adam Ötzi",
+          "Voyager Altın Plağı"
+        ]
+      },
+      "ro": {
+        "titre": "Istorie care sună inventat",
+        "sujets": [
+          "Anul fără vară",
+          "Marea Duhoare din Londra",
+          "Împăratul Norton",
+          "Marea farsă a Lunii",
+          "Epidemia de râs din Tanganyika",
+          "Ploaia de carne din Kentucky",
+          "Războiul oaselor",
+          "Maratonul olimpic din 1904",
+          "Zânele din Cottingley",
+          "Omul din Piltdown",
+          "Turcul mecanic",
+          "Ötzi, omul gheții",
+          "Discul de aur Voyager"
+        ]
+      },
+      "hu": {
+        "titre": "Történelem, ami kamunak hangzik",
+        "sujets": [
+          "A nyár nélküli év",
+          "A nagy bűz",
+          "Norton császár",
+          "A nagy holdcsalás",
+          "A tanganyikai nevetésjárvány",
+          "A kentuckyi húseső",
+          "A csontháború",
+          "Az 1904-es olimpiai maraton",
+          "A cottingleyi tündérek",
+          "A piltdowni ember",
+          "A mechanikus török",
+          "Ötzi, a jégember",
+          "A Voyager aranylemeze"
+        ]
       }
     },
     {
@@ -97,6 +398,111 @@
           "List of Oldest Trees",
           "List of Hoaxes"
         ]
+      },
+      "de": {
+        "titre": "Listen zum Durchscrollen",
+        "sujets": [
+          "Liste verbreiteter Irrtümer",
+          "Liste ungelöster Probleme der Physik",
+          "Liste kognitiver Verzerrungen",
+          "Liste von Paradoxa",
+          "Liste eponymer Gesetze",
+          "Liste ungewöhnlicher Maßeinheiten",
+          "Liste optischer Täuschungen",
+          "Liste von Tieren nach Neuronenzahl",
+          "Liste der ältesten Bäume",
+          "Liste von Hoaxes"
+        ]
+      },
+      "it": {
+        "titre": "Liste da scorrere",
+        "sujets": [
+          "Lista di idee sbagliate comuni",
+          "Problemi irrisolti della fisica",
+          "Lista di bias cognitivi",
+          "Lista di paradossi",
+          "Lista di leggi eponime",
+          "Lista di unità di misura insolite",
+          "Lista di illusioni ottiche",
+          "Animali per numero di neuroni",
+          "Lista degli alberi più antichi",
+          "Lista di bufale"
+        ]
+      },
+      "sv": {
+        "titre": "Listor värda att scrolla",
+        "sujets": [
+          "Vanliga missuppfattningar",
+          "Olösta problem inom fysiken",
+          "Lista över kognitiva biaser",
+          "Lista över paradoxer",
+          "Lagar uppkallade efter personer",
+          "Ovanliga måttenheter",
+          "Lista över optiska illusioner",
+          "Djur efter antal nervceller",
+          "Lista över äldsta träd",
+          "Lista över bluffar"
+        ]
+      },
+      "fr": {
+        "titre": "Listes à scroller",
+        "sujets": [
+          "Liste d'idées reçues",
+          "Problèmes non résolus en physique",
+          "Liste de biais cognitifs",
+          "Liste de paradoxes",
+          "Liste de lois éponymes",
+          "Unités de mesure insolites",
+          "Liste d'illusions d'optique",
+          "Animaux par nombre de neurones",
+          "Liste des plus vieux arbres",
+          "Liste de canulars"
+        ]
+      },
+      "tr": {
+        "titre": "Kaydırmaya değer listeler",
+        "sujets": [
+          "Yaygın yanılgılar listesi",
+          "Fizikte çözülmemiş problemler",
+          "Bilişsel önyargılar listesi",
+          "Paradokslar listesi",
+          "Kişi adı taşıyan yasalar",
+          "Alışılmadık ölçü birimleri",
+          "Optik illüzyonlar listesi",
+          "Nöron sayısına göre hayvanlar",
+          "En yaşlı ağaçlar listesi",
+          "Aldatmacalar listesi"
+        ]
+      },
+      "ro": {
+        "titre": "Liste care merită scrollate",
+        "sujets": [
+          "Lista concepțiilor greșite comune",
+          "Lista problemelor nerezolvate din fizică",
+          "Lista erorilor cognitive",
+          "Lista paradoxurilor",
+          "Lista legilor eponime",
+          "Lista unităților de măsură neobișnuite",
+          "Lista iluziilor optice",
+          "Lista animalelor după numărul de neuroni",
+          "Lista celor mai bătrâni copaci",
+          "Lista farselor celebre"
+        ]
+      },
+      "hu": {
+        "titre": "Listák, amiket megéri görgetni",
+        "sujets": [
+          "Gyakori tévhitek listája",
+          "A fizika megoldatlan problémái",
+          "Kognitív torzítások listája",
+          "Paradoxonok listája",
+          "Névadó törvények listája",
+          "Szokatlan mértékegységek listája",
+          "Optikai csalódások listája",
+          "Állatok listája neuronszám szerint",
+          "A legöregebb fák listája",
+          "Híres átverések listája"
+        ]
       }
     },
     {
@@ -106,6 +512,55 @@
         "paragraphes": [
           "i don't research all of this from scratch. every night i do one short lesson on Sophia: history, philosophy, science, geopolitics, literature, economics.",
           "they're written by actual professors, with a little quiz after. it's usually what sends me off into ten more tabs."
+        ]
+      },
+      "de": {
+        "titre": "vor den tabs um 2 uhr",
+        "paragraphes": [
+          "ich recherchiere das alles nicht von null auf. jeden abend mache ich eine kurze lektion bei Sophia: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "sie sind von echten professoren geschrieben, mit einem kleinen quiz danach. meistens schickt mich genau das in zehn weitere tabs."
+        ]
+      },
+      "it": {
+        "titre": "prima delle 2 di notte",
+        "paragraphes": [
+          "non faccio ricerche su tutto partendo da zero. ogni sera faccio una lezione breve su Sophia: storia, filosofia, scienze, geopolitica, letteratura, economia.",
+          "sono scritte da veri professori, con un piccolo quiz alla fine. di solito è proprio quella che mi fa aprire altre dieci schede."
+        ]
+      },
+      "sv": {
+        "titre": "före flikarna kl. 2",
+        "paragraphes": [
+          "jag researchar inte allt det här från noll. varje kväll gör jag en kort lektion på Sophia: historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
+          "de är skrivna av riktiga professorer, med ett litet quiz efteråt. det är oftast det som skickar iväg mig till tio flikar till."
+        ]
+      },
+      "fr": {
+        "titre": "avant les onglets de 2h",
+        "paragraphes": [
+          "je fais pas toutes ces recherches de zéro. chaque soir je fais une courte leçon sur Sophia: histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "elles sont écrites par de vrais profs, avec un petit quiz après. c'est souvent ce qui m'envoie ouvrir dix onglets de plus."
+        ]
+      },
+      "tr": {
+        "titre": "o sekmelerden önce",
+        "paragraphes": [
+          "bunların hepsini sıfırdan araştırmıyorum. her gece Sophia'da kısa bir ders yapıyorum: tarih, felsefe, bilim, jeopolitik, edebiyat, ekonomi.",
+          "dersleri gerçek profesörler yazıyor, sonunda da küçük bir quiz var. genelde beni on sekme daha açmaya iten şey de o oluyor."
+        ]
+      },
+      "ro": {
+        "titre": "înainte de 2 noaptea",
+        "paragraphes": [
+          "nu caut toate astea de la zero. în fiecare seară fac o lecție scurtă pe Sophia: istorie, filozofie, științe, geopolitică, literatură, economie.",
+          "sunt scrise de profesori adevărați, cu un mic quiz la final. de obicei de acolo ajung la încă zece taburi."
+        ]
+      },
+      "hu": {
+        "titre": "a hajnali lapok előtt",
+        "paragraphes": [
+          "nem mindennek a nulláról nézek utána. minden este csinálok egy rövid leckét a Sophia appban: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "igazi professzorok írják, és utána van egy kis kvíz. általában ez indít el tíz újabb lap felé."
         ]
       }
     },
@@ -128,6 +583,132 @@
           "The Pirahã Language",
           "Toki Pona"
         ]
+      },
+      "de": {
+        "titre": "Sprachliche Kuriositäten",
+        "sujets": [
+          "Holzwegsätze",
+          "Buffalo Buffalo Buffalo",
+          "Pangramme",
+          "Palindrome",
+          "Eggcorns",
+          "Verhörer",
+          "Semantische Sättigung",
+          "Januswörter",
+          "Hapax legomenon",
+          "Der Bouba-Kiki-Effekt",
+          "Pfeifsprachen",
+          "Die Sprache Pirahã",
+          "Toki Pona"
+        ]
+      },
+      "it": {
+        "titre": "Stranezze della lingua",
+        "sujets": [
+          "Le frasi garden path",
+          "Buffalo buffalo Buffalo",
+          "I pangrammi",
+          "I palindromi",
+          "Gli eggcorn",
+          "I mondegreen",
+          "La sazietà semantica",
+          "L'enantiosemia",
+          "L'hapax legomenon",
+          "L'effetto bouba/kiki",
+          "Le lingue fischiate",
+          "La lingua pirahã",
+          "Il toki pona"
+        ]
+      },
+      "sv": {
+        "titre": "Språkliga kuriositeter",
+        "sujets": [
+          "Garden path-meningar",
+          "Buffalo buffalo buffalo",
+          "Pangram",
+          "Palindrom",
+          "Eggcorns",
+          "Mondegreener",
+          "Semantisk mättnad",
+          "Kontronymer",
+          "Hapax legomenon",
+          "Bouba/kiki-effekten",
+          "Visselspråk",
+          "Pirahã",
+          "Toki pona"
+        ]
+      },
+      "fr": {
+        "titre": "Bizarreries de la langue",
+        "sujets": [
+          "Phrases labyrinthes",
+          "Buffalo buffalo buffalo",
+          "Pangrammes",
+          "Palindromes",
+          "Eggcorns",
+          "Mondegreens",
+          "Saturation sémantique",
+          "Auto-antonymes",
+          "Hapax",
+          "Effet bouba-kiki",
+          "Langues sifflées",
+          "Pirahã",
+          "Toki pona"
+        ]
+      },
+      "tr": {
+        "titre": "Dil tuhaflıkları",
+        "sujets": [
+          "Bahçe yolu cümleleri",
+          "Buffalo Buffalo Buffalo",
+          "Pangramlar",
+          "Palindromlar",
+          "Eggcorn'lar",
+          "Mondegreen'ler",
+          "Anlamsal doyum",
+          "Kendi zıddı olan kelimeler",
+          "Hapax legomenon",
+          "Bouba/kiki etkisi",
+          "Islıklı diller",
+          "Pirahã dili",
+          "Toki Pona"
+        ]
+      },
+      "ro": {
+        "titre": "Ciudățenii ale limbii",
+        "sujets": [
+          "Propozițiile „garden-path”",
+          "Buffalo buffalo Buffalo",
+          "Pangramele",
+          "Palindroamele",
+          "Eggcorn-urile",
+          "Mondegreen-urile",
+          "Saturația semantică",
+          "Auto-antonimele",
+          "Hapax legomenon",
+          "Efectul bouba/kiki",
+          "Limbile fluierate",
+          "Limba pirahã",
+          "Toki Pona"
+        ]
+      },
+      "hu": {
+        "titre": "Nyelvi furcsaságok",
+        "sujets": [
+          "Garden-path mondatok",
+          "Buffalo buffalo Buffalo",
+          "Pangrammák",
+          "Palindromok",
+          "Eggcornok",
+          "Félrehallások",
+          "Szemantikai telítődés",
+          "Önellentétes szavak",
+          "Hapax legomenon",
+          "A bouba–kiki-hatás",
+          "Füttynyelvek",
+          "A pirahã nyelv",
+          "Toki pona"
+        ]
       }
     },
     {
@@ -149,6 +730,132 @@
           "Bdelloid Rotifers",
           "The Blue Whale"
         ]
+      },
+      "de": {
+        "titre": "Rekorde der Natur",
+        "sujets": [
+          "Hyperion, der höchste Baum",
+          "Methuselah, die älteste Kiefer",
+          "Der Riesen-Hallimasch",
+          "Der Grönlandhai",
+          "Die Küstenseeschwalbe",
+          "Die Streifengans",
+          "Der Wanderfalke",
+          "Der Fangschreckenkrebs",
+          "Der Bombardierkäfer",
+          "Der Leierschwanz",
+          "Periodische Zikaden",
+          "Bdelloide Rädertierchen",
+          "Der Blauwal"
+        ]
+      },
+      "it": {
+        "titre": "La natura dei record",
+        "sujets": [
+          "Hyperion, l'albero più alto",
+          "Matusalemme, il pino più antico",
+          "Il fungo più grande del mondo",
+          "Lo squalo della Groenlandia",
+          "La sterna codalunga",
+          "L'oca indiana",
+          "Il falco pellegrino",
+          "La canocchia pavone",
+          "Lo scarabeo bombardiere",
+          "L'uccello lira",
+          "Le cicale periodiche",
+          "I rotiferi bdelloidei",
+          "La balenottera azzurra"
+        ]
+      },
+      "sv": {
+        "titre": "Naturens rekord",
+        "sujets": [
+          "Hyperion, det högsta trädet",
+          "Metusalem, den äldsta tallen",
+          "Den gigantiska svampen",
+          "Håkäringen",
+          "Silvertärnan",
+          "Stripgåsen",
+          "Pilgrimsfalken",
+          "Mantisräkan",
+          "Bombarderbaggen",
+          "Lyrfågeln",
+          "Periodiska cikador",
+          "Bdelloida hjuldjur",
+          "Blåvalen"
+        ]
+      },
+      "fr": {
+        "titre": "Records de la nature",
+        "sujets": [
+          "Hyperion, l'arbre le plus haut",
+          "Mathusalem, le plus vieux pin",
+          "Le champignon géant de l'Oregon",
+          "Requin du Groenland",
+          "Sterne arctique",
+          "Oie à tête barrée",
+          "Faucon pèlerin",
+          "Squille",
+          "Coléoptère bombardier",
+          "Oiseau-lyre",
+          "Cigales périodiques",
+          "Rotifères bdelloïdes",
+          "Baleine bleue"
+        ]
+      },
+      "tr": {
+        "titre": "Rekor kıran doğa",
+        "sujets": [
+          "Hyperion, en uzun ağaç",
+          "Methuselah, en yaşlı çam",
+          "Devasa mantar",
+          "Grönland köpekbalığı",
+          "Kutup sumrusu",
+          "Hint kazı",
+          "Gökdoğan",
+          "Mantis karidesi",
+          "Bombardıman böceği",
+          "Lir kuşu",
+          "Periyodik ağustosböcekleri",
+          "Bdelloid rotiferler",
+          "Mavi balina"
+        ]
+      },
+      "ro": {
+        "titre": "Recorduri din natură",
+        "sujets": [
+          "Hyperion, cel mai înalt copac",
+          "Matusalem, cel mai bătrân pin",
+          "Ciuperca uriașă din Oregon",
+          "Rechinul de Groenlanda",
+          "Chira arctică",
+          "Gâsca cu cap vărgat",
+          "Șoimul călător",
+          "Crevetele-mantis",
+          "Gândacul bombardier",
+          "Pasărea-liră",
+          "Cicadele periodice",
+          "Rotiferele bdeloide",
+          "Balena albastră"
+        ]
+      },
+      "hu": {
+        "titre": "Rekorder természet",
+        "sujets": [
+          "Hyperion, a legmagasabb fa",
+          "Metuzsálem, a legöregebb fenyő",
+          "A gigantikus gomba",
+          "A grönlandi cápa",
+          "A sarki csér",
+          "Az indiai lúd",
+          "A vándorsólyom",
+          "A sáskarák",
+          "A pöfögő futrinka",
+          "A lantfarkú madár",
+          "Periodikus kabócák",
+          "Bdelloid kerekesférgek",
+          "A kék bálna"
+        ]
       }
     },
     {
@@ -156,6 +863,34 @@
       "en": {
         "texte": "save this for ur next sleepless night. open one page, follow every link that looks interesting, and see where u end up.",
         "gras": "OR.. u'll be on the same feed at 3am."
+      },
+      "de": {
+        "texte": "speicher dir das für deine nächste schlaflose nacht. öffne eine seite, folg jedem link, der spannend aussieht, und schau, wo du landest.",
+        "gras": "ODER.. du hängst um 3 uhr noch im selben feed."
+      },
+      "it": {
+        "texte": "salvalo per la tua prossima notte insonne. apri una pagina, segui ogni link che ti sembra interessante e vedi dove finisci.",
+        "gras": "O.. alle 3 sarai ancora sullo stesso feed."
+      },
+      "sv": {
+        "texte": "spara det här till nästa sömnlösa natt. öppna en sida, följ varje länk som ser intressant ut och se var du hamnar.",
+        "gras": "ELLER.. du sitter i samma flöde klockan 3."
+      },
+      "fr": {
+        "texte": "enregistre ça pour ta prochaine nuit blanche. ouvre une page, suis chaque lien qui a l'air intéressant, et regarde où tu finis.",
+        "gras": "OU.. tu seras sur le même feed à 3h du mat."
+      },
+      "tr": {
+        "texte": "bir dahaki uykusuz gecen için bunu kaydet. bir sayfa aç, ilginç görünen her bağlantıya tıkla ve nereye vardığına bak.",
+        "gras": "YA DA.. gece 3'te yine aynı akıştasın."
+      },
+      "ro": {
+        "texte": "salvează asta pt următoarea noapte nedormită. deschide o pagină, intră pe fiecare link care pare interesant și vezi unde ajungi.",
+        "gras": "SAU.. la 3 o să fii tot pe același feed."
+      },
+      "hu": {
+        "texte": "mentsd el a következő álmatlan éjszakára. nyiss meg egy oldalt, kattints minden linkre, ami érdekesnek tűnik, és nézd meg, hova jutsz.",
+        "gras": "VAGY.. hajnali 3-kor is ugyanazt a feedet görgeted."
       }
     }
   ]

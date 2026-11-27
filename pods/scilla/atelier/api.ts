@@ -8,11 +8,13 @@ export const COMPTES_SOURCE = ["scilla2047"] as const;
 /** L'appli servie : Artura (une grande œuvre par jour et son histoire), id du catalogue de l'OS. Encore inactive le 25/11. */
 export const APPLICATION = { slug: "artura", id: "00000000-0000-4000-8000-000000000005", nom: "Artura" } as const;
 /**
- * Les langues livrées : l'anglais (celle du compte modèle) depuis le 27/11.
+ * Les langues livrées : l'anglais (celle du compte modèle) depuis le 27/11 ;
+ * de, fr, it, es, pt-BR, nl et pl le 27/11 (demande du chef des podz, sur ordre
+ * d'Adrien), traduites à la main, sc-001 à sc-004 prêts dans les huit.
  * Déclarée à l'OS à chaque `npm run boite` (0654) : une langue ajoutée ici
  * s'OUVRE pour le label (0781) ; ne l'ajoute qu'une fois prête (pods/ROUTINE.md §5.6).
  */
-export const LANGUES = ["en"] as const;
+export const LANGUES = ["en", "de", "fr", "it", "es", "pt-BR", "nl", "pl"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

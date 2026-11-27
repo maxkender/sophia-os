@@ -19,7 +19,13 @@
     "id": "7537830129876142081",
     "titre": "mafios_4 - super slowed",
     "auteur": "77yolan"
-   }
+   },
+   "slides_reprenables": [
+    4,
+    6,
+    7
+   ],
+   "refait": "mc-003"
   },
   {
    "rang": 2,
@@ -62,7 +68,16 @@
     "id": "7501723046605671223",
     "titre": "son original",
     "auteur": "Trendformusic"
-   }
+   },
+   "slides_reprenables": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "refait": "mc-002"
   },
   {
    "rang": 4,
@@ -78,7 +93,12 @@
     "id": "6800733726369122306",
     "titre": "Zerkalo",
     "auteur": "Soft Blade"
-   }
+   },
+   "slides_reprenables": [
+    1,
+    2,
+    5
+   ]
   },
   {
    "rang": 5,
@@ -94,7 +114,11 @@
     "id": "7297938537801272097",
     "titre": "son original",
     "auteur": "️￴￴￴ ￴￴L O R E N Z O"
-   }
+   },
+   "slides_reprenables": [
+    2,
+    4
+   ]
   },
   {
    "rang": 6,
@@ -110,7 +134,15 @@
     "id": "7613401002465282837",
     "titre": "son original",
     "auteur": "Trendformusic"
-   }
+   },
+   "slides_reprenables": [
+    2,
+    5,
+    6,
+    7,
+    8
+   ],
+   "ecarte": "manipulation (rendre jaloux, faire courir) : on ne le refait pas ; ses images restent reprenables"
   },
   {
    "rang": 7,
@@ -126,7 +158,14 @@
     "id": "7369679404253137696",
     "titre": "original sound",
     "auteur": "Georgie"
-   }
+   },
+   "slides_reprenables": [
+    2,
+    3,
+    4,
+    6,
+    7
+   ]
   },
   {
    "rang": 8,
@@ -142,7 +181,13 @@
     "id": "7245863616556092186",
     "titre": "original sound",
     "auteur": "TWIY"
-   }
+   },
+   "slides_reprenables": [
+    1,
+    2,
+    4
+   ],
+   "refait": "mc-004"
   },
   {
    "rang": 9,
@@ -174,7 +219,14 @@
     "id": "7300609611654580997",
     "titre": "son original",
     "auteur": "Trendformusic"
-   }
+   },
+   "slides_reprenables": [
+    3,
+    4,
+    5,
+    7
+   ],
+   "ecarte": "manipulation (rendre jaloux, faire courir) : on ne le refait pas ; ses images restent reprenables"
   },
   {
    "rang": 11,
@@ -190,7 +242,12 @@
     "id": "7656301817815862037",
     "titre": "original sound",
     "auteur": "user63604177032"
-   }
+   },
+   "slides_reprenables": [
+    2,
+    5,
+    6
+   ]
   },
   {
    "rang": 12,

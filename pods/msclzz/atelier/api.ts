@@ -8,11 +8,13 @@ export const COMPTES_SOURCE = ["msclzz"] as const;
 /** L'appli servie : Sophia (une leçon courte par jour et un quiz), id du catalogue de l'OS. */
 export const APPLICATION = { slug: "sophia", id: "00000000-0000-4000-8000-000000000001", nom: "Sophia" } as const;
 /**
- * Les langues livrées : l'anglais (celle du compte modèle) depuis le 27/11.
+ * Les langues livrées : l'anglais (celle du compte modèle) depuis le 27/11 ;
+ * de, it, fr, pt-BR, es-419, pl et cs le 27/11 (demande du chef des podz, sur ordre
+ * d'Adrien), traduites à la main, mc-001 à mc-004 prêts dans les huit.
  * Déclarée à l'OS à chaque `npm run boite` (0654) : une langue ajoutée ici
  * s'OUVRE pour le label (0781) ; ne l'ajoute qu'une fois prête (pods/ROUTINE.md §5.6).
  */
-export const LANGUES = ["en"] as const;
+export const LANGUES = ["en", "de", "it", "fr", "pt-BR", "es-419", "pl", "cs"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

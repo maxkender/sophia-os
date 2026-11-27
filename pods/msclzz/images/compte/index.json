@@ -86,5 +86,183 @@
    924,
    1536
   ]
+ },
+ "images/compte/visage-fragmente.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+  "slide": 2,
+  "zone": [
+   280,
+   1024,
+   916,
+   1850
+  ]
+ },
+ "images/compte/etoile-vitruve.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+  "slide": 3,
+  "zone": [
+   296,
+   892,
+   872,
+   1520
+  ]
+ },
+ "images/compte/sourire.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+  "slide": 4,
+  "zone": [
+   304,
+   930,
+   818,
+   1494
+  ]
+ },
+ "images/compte/silhouette-portail.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+  "slide": 5,
+  "zone": [
+   270,
+   966,
+   848,
+   1514
+  ]
+ },
+ "images/compte/regard.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+  "slide": 6,
+  "zone": [
+   166,
+   956,
+   980,
+   1304
+  ]
+ },
+ "images/compte/cerveau-couleurs.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+  "slide": 7,
+  "zone": [
+   326,
+   1126,
+   864,
+   1844
+  ]
+ },
+ "images/compte/statue-masque.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7697369614828801302",
+  "slide": 4,
+  "zone": [
+   344,
+   740,
+   1078,
+   1344
+  ],
+  "noircir": [
+   [
+    344,
+    740,
+    566,
+    815
+   ]
+  ]
+ },
+ "images/compte/lions.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7697369614828801302",
+  "slide": 6,
+  "zone": [
+   36,
+   1264,
+   1140,
+   1632
+  ]
+ },
+ "images/compte/visage-fissure.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7697369614828801302",
+  "slide": 7,
+  "zone": [
+   308,
+   1060,
+   920,
+   1876
+  ]
+ },
+ "images/compte/phalene.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7700360923160104214",
+  "slide": 2,
+  "zone": [
+   82,
+   1248,
+   1006,
+   1752
+  ]
+ },
+ "images/compte/colombes.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7701734159739325718",
+  "slide": 2,
+  "zone": [
+   262,
+   1120,
+   960,
+   1682
+  ]
+ },
+ "images/compte/orchidee.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7701734159739325718",
+  "slide": 6,
+  "zone": [
+   344,
+   1456,
+   846,
+   1964
+  ]
+ },
+ "images/compte/mains-troisieme-oeil.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7692894810088148246",
+  "slide": 1,
+  "zone": [
+   304,
+   688,
+   864,
+   1214
+  ]
+ },
+ "images/compte/masque-brise.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7692894810088148246",
+  "slide": 2,
+  "zone": [
+   324,
+   1230,
+   858,
+   1870
+  ]
+ },
+ "images/compte/deux-silhouettes.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7692894810088148246",
+  "slide": 4,
+  "zone": [
+   330,
+   880,
+   740,
+   1450
+  ]
+ },
+ "images/compte/ange.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7703262649676516611",
+  "slide": 5,
+  "zone": [
+   56,
+   776,
+   520,
+   1490
+  ]
+ },
+ "images/compte/chouette.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7702878583785639190",
+  "slide": 3,
+  "zone": [
+   40,
+   756,
+   540,
+   1374
+  ]
  }
 }

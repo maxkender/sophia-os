@@ -13,7 +13,7 @@
 -- savoir.
 --
 -- CE QUE ÇA CHANGE. Un paragraphe ajouté AVANT « Notes basses » : TDAH, santé
--- mentale, anxiété, stress, listes d'habitudes et d'astuces = 55-80 quand
+-- mentale, anxiété, stress, listes d'habitudes et d'astuces = 60-80 quand
 -- « quelques minutes pour découvrir un tableau et son histoire » peut y être une
 -- habitude pour décrocher, calmer son esprit ou remplacer le scroll. Restent
 -- bas : médicaments, diagnostic, symptômes cliniques, couple.
@@ -21,20 +21,24 @@
 -- lignes sans note) ; le changement vaut pour les imports suivants.
 --
 -- Ciblé et idempotent : le paragraphe n'est inséré qu'une fois, devant
--- « Notes basses (0-44) », sans toucher au reste du prompt (qui a pu être retouché
+-- « Notes basses (0-50) », sans toucher au reste du prompt (qui a pu être retouché
 -- dans Configuration). Si ce repère manque, rien ne change.
 --
--- Retour arrière : retirer le paragraphe qui commence par « Notes moyennes à
--- hautes (55-80) : le TDAH ».
+-- ✅ Appliquée le 2026-11-27 (MCP). Premier essai sans effet : le prompt avait été
+-- réécrit dans Configuration le 24/11 (échelle 85-100 / 75-85 / 0-50) ; le repère et
+-- la fourchette ont été corrigés (0865b), ce fichier porte la version finale.
+--
+-- Retour arrière : retirer le paragraphe qui commence par « Notes moyennes (60-80) :
+-- le TDAH ».
 
 update public.prompts
    set contenu = replace(
          contenu,
-         'Notes basses (0-44)',
-         $p$Notes moyennes à hautes (55-80) : le TDAH, la santé mentale, l'anxiété, le stress, et les listes d'habitudes ou d'astuces (« adhd hacks », « habits that changed my life », « how to calm your mind », « dopamine reset », « micro-habits », « small resets », « things I do when I feel overwhelmed »), dès qu'une slide peut présenter « quelques minutes par jour pour découvrir un tableau et son histoire » comme une petite habitude pour décrocher, calmer son esprit ou remplacer le scroll. C'est prouvé chez nous : sur ce type de post, la slide « pour décrocher et calmer mon esprit, je prends quelques minutes pour découvrir un tableau et son histoire, j'utilise l'appli Artura chaque jour » a fait plus de 1 000 likes et 150 enregistrements en 7 heures. Ne descends sous 45 que si le post parle de médicaments, de diagnostic, de symptômes cliniques ou de couple, où une habitude culturelle sonnerait faux.
+         'Notes basses (0-50)',
+         $p$Notes moyennes (60-80) : le TDAH, la santé mentale, l'anxiété, le stress, et les listes d'habitudes ou d'astuces (« adhd hacks », « habits that changed my life », « how to calm your mind », « dopamine reset », « micro-habits », « small resets », « things I do when I feel overwhelmed »), dès qu'une slide peut présenter « quelques minutes par jour pour découvrir un tableau et son histoire » comme une petite habitude pour décrocher, calmer son esprit ou remplacer le scroll. C'est prouvé chez nous : sur ce type de post, la slide « pour décrocher et calmer mon esprit, je prends quelques minutes pour découvrir un tableau et son histoire, j'utilise l'appli Artura chaque jour » a fait plus de 1 000 likes et 150 enregistrements en 7 heures. Ne descends sous 50 que si le post parle de médicaments, de diagnostic, de symptômes cliniques ou de couple, où une habitude culturelle sonnerait faux.
 
-Notes basses (0-44)$p$),
+Notes basses (0-50)$p$),
        updated_at = now()
  where cle = 'pertinence_artura'
-   and contenu like '%Notes basses (0-44)%'
-   and contenu not like '%Notes moyennes à hautes (55-80) : le TDAH%';
+   and contenu like '%Notes basses (0-50)%'
+   and contenu not like '%Notes moyennes (60-80) : le TDAH%';

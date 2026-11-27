@@ -5995,27 +5995,57 @@ export interface SuiviMinuit {
 
 /** État de l'assignation d'une date, compte par compte : passages v-next
  *  (source de vérité), avec le post pont pour l'ouverture admin / poster. */
+const PAGE_SUIVI = 1000;
+
+/** Toutes les lignes d'une requête, par pages de 1 000 (plafond PostgREST), même forme `{ data, error }`. */
+async function lireParPagesSuivi<T>(
+  requete: (from: number, to: number) => PromiseLike<{ data: T[] | null; error: unknown }>,
+): Promise<{ data: T[]; error: unknown }> {
+  const toutes: T[] = [];
+  for (let from = 0; ; from += PAGE_SUIVI) {
+    const { data, error } = await requete(from, from + PAGE_SUIVI - 1);
+    if (error) return { data: toutes, error };
+    const lot = data ?? [];
+    toutes.push(...lot);
+    if (lot.length < PAGE_SUIVI) return { data: toutes, error: null };
+  }
+}
+
 export async function suiviAssignation(date: string): Promise<SuiviMinuit[]> {
+  // 27/11 : par pages. Une requête PostgREST s'arrête à 1 000 lignes ; avec ~1 050 passages par jour,
+  // les comptes au-delà de la 1 000e ligne apparaissaient « incomplets » (et « Passages prêts » plafonnait à 1 000).
   const [comptesRes, passagesRes, postsRes, regRes] = await Promise.all([
-    supabase
-      .from("comptes")
-      .select(
-        "id, persona_nom, handle_tiktok, avatar_url, langue, posts_par_jour, warmup_started_at, warmup_ends_at",
-      )
-      .eq("is_active", true)
-      .order("persona_nom", { nullsFirst: false }),
-    supabase
-      .from("passages")
-      .select("id, compte_id, post_id, statut")
-      .eq("date_publication_prevue", date)
-      .order("created_at"),
-    supabase
-      .from("posts")
-      .select("id, compte_id, type, statut, pipeline_statut, pipeline_etape, pipeline_erreur")
-      .eq("date_publication_prevue", date)
-      .eq("est_test", false)
-      .in("type", ["contenu", "video"])
-      .order("created_at"),
+    lireParPagesSuivi((from, to) =>
+      supabase
+        .from("comptes")
+        .select(
+          "id, persona_nom, handle_tiktok, avatar_url, langue, posts_par_jour, warmup_started_at, warmup_ends_at",
+        )
+        .eq("is_active", true)
+        .order("persona_nom", { nullsFirst: false })
+        .order("id")
+        .range(from, to)
+    ),
+    lireParPagesSuivi((from, to) =>
+      supabase
+        .from("passages")
+        .select("id, compte_id, post_id, statut")
+        .eq("date_publication_prevue", date)
+        .order("created_at")
+        .order("id")
+        .range(from, to)
+    ),
+    lireParPagesSuivi((from, to) =>
+      supabase
+        .from("posts")
+        .select("id, compte_id, type, statut, pipeline_statut, pipeline_etape, pipeline_erreur")
+        .eq("date_publication_prevue", date)
+        .eq("est_test", false)
+        .in("type", ["contenu", "video"])
+        .order("created_at")
+        .order("id")
+        .range(from, to)
+    ),
     supabase.from("reglages").select("valeur").eq("cle", "frequence").maybeSingle(),
   ]);
   if (comptesRes.error) throw comptesRes.error;

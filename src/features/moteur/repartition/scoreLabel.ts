@@ -57,6 +57,11 @@ export interface StatLabel {
    */
   niveau_pod?: number | null;
   /**
+   * Contenus valides du label que l'application peut servir (0867), lus à part
+   * (`contenus_valides_labels`). Absent : la règle « langue saturée » ne joue pas.
+   */
+  contenus_valides?: number | null;
+  /**
    * Comptes du label qui servent l'application affichée (page seulement : le
    * moteur compte toutes les applications, `comptes_total`).
    */
@@ -84,6 +89,8 @@ export interface ReglagesChoixLabel {
   /** Part des comptes d'un PAYS au-delà de laquelle un label n'en reçoit plus (0354). */
   partMaxPays: number;
   rafaleRecents: number;
+  /** Contenus valides qu'il faut au label pour UN compte de plus dans une langue (0867). */
+  contenusParCompteLangue: number;
   /** Comptes réaffectés au plus par nuit (garde-fou d'un réglage mal posé). */
   relabelsMaxParNuit: number;
   /** Label 100 % pod en test : comptes au plus, toutes langues confondues (0353). */
@@ -119,6 +126,7 @@ export const REGLAGES_CHOIX_LABEL_DEFAUT: Readonly<ReglagesChoixLabel> = Object.
   partMax: 0.5,
   partMaxPays: 0.5,
   rafaleRecents: 2,
+  contenusParCompteLangue: 30,
   relabelsMaxParNuit: 20,
   testPodComptes: 3,
   testPodPosts: 30,
@@ -191,6 +199,7 @@ export function lireReglagesChoixLabel(valeur: unknown): ReglagesChoixLabel {
     partMax: Math.min(1, positif(v.part_max, d.partMax)),
     partMaxPays: Math.min(1, positif(v.part_max_pays, d.partMaxPays)),
     rafaleRecents: positif(v.rafale_recents, d.rafaleRecents),
+    contenusParCompteLangue: positif(v.contenus_par_compte_langue, d.contenusParCompteLangue),
     relabelsMaxParNuit: Math.max(0, Math.round(nombre(v.relabels_max_par_nuit ?? d.relabelsMaxParNuit))),
     testPodComptes: Math.max(1, Math.round(positif(v.test_pod_comptes, d.testPodComptes))),
     testPodPosts: Math.max(1, Math.round(positif(v.test_pod_posts, d.testPodPosts))),
@@ -352,6 +361,21 @@ export function estSaturePays({ comptes_pays }: StatLabel, nPays: number, r: Reg
   return nPays > 0 && comptes_pays > r.partMaxPays * nPays + EPS;
 }
 
+/**
+ * LANGUE SATURÉE (0867, décision de Max du 27/11) : avec un compte de plus,
+ * le label aurait moins de `contenusParCompteLangue` contenus valides par
+ * compte dans cette langue. Même label + même langue = le même post traduit
+ * à l'identique sur tous ces comptes : psychologiefaits (244 contenus) a reçu
+ * 27 recrues hongroises en une semaine. Ne juge pas un label 100 % pod (son
+ * stock suit ses comptes) ni un label sans chiffre de contenus.
+ */
+export function estSatureLangue(s: StatLabel, r: ReglagesChoixLabel): boolean {
+  if (estPodSeul(s)) return false;
+  const n = s.contenus_valides;
+  if (n === null || n === undefined || !Number.isFinite(n)) return false;
+  return (s.comptes_langue + 1) * r.contenusParCompteLangue > n + EPS;
+}
+
 /** Passe après TOUS : à sec, ou, pour un label 100 % pod, langue que son pod ne sert pas (compte muet). */
 export function estASec(
   s: StatLabel,
@@ -413,6 +437,8 @@ export interface LabelClasse {
   rafalePays: boolean;
   /** Déjà plus de `partMaxPays` des comptes du pays (0354). */
   saturePays: boolean;
+  /** Moins de `contenusParCompteLangue` contenus par compte dans la langue avec ce compte en plus (0867). */
+  satureLangue: boolean;
   suspendu: boolean;
   aSec: boolean;
   /** Jours de contenu restants avec ce compte en plus. */
@@ -458,6 +484,7 @@ function prepare(
     rafaleLangue: s.recents_langue >= r.rafaleRecents,
     rafalePays: s.recents_pays >= r.rafaleRecents,
     saturePays: estSaturePays(s, nPays, r),
+    satureLangue: estSatureLangue(s, r),
     suspendu: estSuspendu(s, r),
     aSec: estASec(s, r),
     jours: joursApresCompte(s, r),
@@ -480,6 +507,8 @@ export function classerLabels(
 
   const regles: Array<(c: LabelClasse) => boolean> = [
     (c) => c.aSec,
+    // 0867 : plus assez de contenus pour un compte de plus dans cette langue.
+    (c) => c.satureLangue,
     (c) => c.rafaleLangue,
     // L'ÉLÉMENT CENTRAL (0354) : un label qui tient déjà plus de la moitié d'un
     // pays n'y reçoit plus de compte, quels que soient sa réserve et sa perf.

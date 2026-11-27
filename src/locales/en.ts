@@ -8295,6 +8295,7 @@ export const en = {
       rPostsNouveau: "Posts/day of a new account",
       rPartMax: "Maximum share of a label",
       rRafale: "Anti-burst (recent accounts)",
+      rContenusParCompteLangue: "Valid contents per account in a language (minimum)",
       rRelabels: "Accounts moved per night at most",
       rPartMaxPays: "Max share of a label in a country",
       rTestPodComptes: "Test accounts for a 100% pod label",

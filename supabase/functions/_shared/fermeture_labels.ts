@@ -253,7 +253,46 @@ export async function statsChoixLabel(
   if (error) throw new Error(`stats_choix_label : ${error.message}`);
   const stats = ((data ?? []) as Record<string, unknown>[]).map(normaliserStatLabel);
   const ouverts = await labelsLangueOuverte(supabase, args.langue);
-  return ouverts.size === 0 ? stats : stats.map((s) => (ouverts.has(s.label_id) ? { ...s, langue_ouverte: true } : s));
+  const contenus = await contenusValidesLabels(supabase, args.labels, args.application);
+  return stats.map((s) => ({
+    ...s,
+    ...(ouverts.has(s.label_id) ? { langue_ouverte: true } : {}),
+    ...(contenus.has(s.label_id) ? { contenus_valides: contenus.get(s.label_id) } : {}),
+  }));
+}
+
+/**
+ * Les contenus valides que l'application peut servir, par label (0867) : la
+ * règle « langue saturée » du choix de label. Ne lève jamais : sans réponse
+ * (fonction pas encore en base, panne), aucun chiffre, et la règle ne joue pas.
+ */
+export async function contenusValidesLabels(
+  supabase: Supabase,
+  labels: string[],
+  application: string,
+): Promise<Map<string, number>> {
+  if (labels.length === 0) return new Map();
+  try {
+    const { data, error } = await supabase.rpc("contenus_valides_labels", {
+      p_labels: labels,
+      p_application: application,
+    });
+    if (error) {
+      console.warn(`[choix label] contenus_valides_labels : ${error.message}`);
+      return new Map();
+    }
+    const out = new Map<string, number>();
+    for (const l of (data ?? []) as Array<{ label_id: string; contenus_valides: number | string }>) {
+      const n = Number(l.contenus_valides);
+      if (Number.isFinite(n)) out.set(String(l.label_id), n);
+    }
+    // Un label sans aucun contenu servable n'a pas de ligne : 0, pas « inconnu ».
+    for (const id of labels) if (!out.has(id)) out.set(id, 0);
+    return out;
+  } catch (e) {
+    console.warn(`[choix label] contenus_valides_labels : ${e instanceof Error ? e.message : String(e)}`);
+    return new Map();
+  }
 }
 
 /**

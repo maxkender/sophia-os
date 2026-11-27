@@ -1,0 +1,2913 @@
+{
+ "id": "sg-049",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ec4a6330-8705-47bf-8a97-ad62ab328853",
+ "titre": {
+  "fr": "Compétences 10/10 qui rendent la vie plus facile",
+  "en": "10/10 skills that make life easier",
+  "de": "10/10-Skills, die das Leben leichter machen",
+  "it": "Abilità 10/10 che rendono la vita più facile",
+  "pt-BR": "Habilidades 10/10 que deixam a vida mais fácil",
+  "tr": "Hayatı kolaylaştıran 10/10 beceriler",
+  "ro": "Abilități 10/10 care îți fac viața mai ușoară",
+  "cs": "Dovednosti 10/10, které ti usnadní život",
+  "hu": "10/10-es készségek, amik megkönnyítik az életet",
+  "el": "Δεξιότητες 10/10 που κάνουν τη ζωή πιο εύκολη",
+  "sr": "Veštine 10/10 koje ti olakšavaju život",
+  "es": "Habilidades 10/10 que te hacen la vida más fácil",
+  "es-419": "Habilidades 10/10 que hacen la vida más fácil",
+  "pl": "Umiejętności 10/10, które ułatwiają życie",
+  "sk": "Zručnosti 10/10, ktoré ti uľahčia život",
+  "hr": "Vještine 10/10 koje ti olakšavaju život",
+  "sv": "10/10-färdigheter som gör livet enklare",
+  "lv": "10/10 prasmes, kas atvieglo dzīvi"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 qui rendent la vie plus facile #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills that make life easier #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die das Leben leichter machen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che rendono la vita più facile #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que deixam a vida mais fácil #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Hayatı kolaylaştıran 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 care îți fac viața mai ușoară #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které ti usnadní život #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10-es készségek, amik megkönnyítik az életet #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 που κάνουν τη ζωή πιο εύκολη #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 koje ti olakšavaju život #učinatiktoku #samorazvoj #veštine",
+  "es": "Habilidades 10/10 que te hacen la vida más fácil #aprendeentiktok #desarrollopersonal #habilidades",
+  "es-419": "Habilidades 10/10 que hacen la vida más fácil #aprendeentiktok #desarrollopersonal #habilidades",
+  "pl": "Umiejętności 10/10, które ułatwiają życie #uczsięnatiktoku #rozwójosobisty #umiejętności",
+  "sk": "Zručnosti 10/10, ktoré ti uľahčia život #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "hr": "Vještine 10/10 koje ti olakšavaju život #učinatiktoku #osobnirazvoj #vještine",
+  "sv": "10/10-färdigheter som gör livet enklare #lärdigpåtiktok #självutveckling #färdigheter",
+  "lv": "10/10 prasmes, kas atvieglo dzīvi #mācītiestiktokā #pašattīstība #prasmes"
+ },
+ "musique": {
+  "titre": "original sound - rithu",
+  "url": "https://www.tiktok.com/music/original-sound-7514851905760512799"
+ },
+ "notes": "Déclinaison G1 de sg-025 (27/11) : titre du parent mot pour mot (« Compétences 10/10 qui rendent la vie plus facile »), sa couverture, sa musique ; 5 autres astuces de vie (nettoyer le four, couper une mangue, puis Sophia, éplucher l'ail, faire sa valise, réparer une fermeture éclair), une vraie vidéo native par langue (18 langues). Sophia en étape 4 sur 7, cta B « APPRENDRE / CHAQUE MATIN ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUI RENDENT LA VIE",
+      "cap": 120
+     },
+     {
+      "t": "PLUS",
+      "cap": 169
+     },
+     {
+      "t": "FACILE",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "THAT MAKE",
+      "cap": 120
+     },
+     {
+      "t": "LIFE",
+      "cap": 169
+     },
+     {
+      "t": "EASIER",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "DIE DAS LEBEN",
+      "cap": 120
+     },
+     {
+      "t": "LEICHTER",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "MACHEN",
+      "cap": 169
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "CHE RENDONO",
+      "cap": 120
+     },
+     {
+      "t": "LA VITA PIÙ",
+      "cap": 169
+     },
+     {
+      "t": "FACILE",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE DEIXAM",
+      "cap": 120
+     },
+     {
+      "t": "A VIDA MAIS",
+      "cap": 169
+     },
+     {
+      "t": "FÁCIL",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "HAYATI",
+      "cap": 169
+     },
+     {
+      "t": "KOLAYLAŞTIRAN",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 144
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 124,
+      "couleur": "brun"
+     },
+     {
+      "t": "CARE ÎȚI FAC",
+      "cap": 104
+     },
+     {
+      "t": "VIAȚA MAI",
+      "cap": 140
+     },
+     {
+      "t": "UȘOARĂ",
+      "cap": 205,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "KTERÉ TI",
+      "cap": 120
+     },
+     {
+      "t": "USNADNÍ",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "ŽIVOT",
+      "cap": 169
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "AMIK",
+      "cap": 120
+     },
+     {
+      "t": "MEGKÖNNYÍTIK",
+      "cap": 230,
+      "couleur": "brun"
+     },
+     {
+      "t": "AZ ÉLETET",
+      "cap": 169
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΠΟΥ ΚΑΝΟΥΝ ΤΗ ΖΩΗ",
+      "cap": 120
+     },
+     {
+      "t": "ΠΙΟ",
+      "cap": 169
+     },
+     {
+      "t": "ΕΥΚΟΛΗ",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "KOJE TI",
+      "cap": 120
+     },
+     {
+      "t": "OLAKŠAVAJU",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "ŽIVOT",
+      "cap": 169
+     }
+    ]
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE TE HACEN LA VIDA",
+      "cap": 120
+     },
+     {
+      "t": "MÁS",
+      "cap": 169
+     },
+     {
+      "t": "FÁCIL",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE HACEN LA VIDA",
+      "cap": 120
+     },
+     {
+      "t": "MÁS",
+      "cap": 169
+     },
+     {
+      "t": "FÁCIL",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pl": {
+    "lignes": [
+     {
+      "t": "UMIEJĘTNOŚCI",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "KTÓRE",
+      "cap": 120
+     },
+     {
+      "t": "UŁATWIAJĄ",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "ŻYCIE",
+      "cap": 169
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "t": "ZRUČNOSTI",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "KTORÉ TI",
+      "cap": 120
+     },
+     {
+      "t": "UĽAHČIA",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "ŽIVOT",
+      "cap": 169
+     }
+    ]
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "VJEŠTINE",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "KOJE TI",
+      "cap": 120
+     },
+     {
+      "t": "OLAKŠAVAJU",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "ŽIVOT",
+      "cap": 169
+     }
+    ]
+   },
+   "sv": {
+    "lignes": [
+     {
+      "t": "FÄRDIGHETER",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "SOM GÖR",
+      "cap": 120
+     },
+     {
+      "t": "LIVET",
+      "cap": 169
+     },
+     {
+      "t": "ENKLARE",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "t": "PRASMES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "KAS",
+      "cap": 120
+     },
+     {
+      "t": "ATVIEGLO",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "DZĪVI",
+      "cap": 169
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "NETTOYER",
+     [
+      {
+       "t": "LE FOUR",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4Mq5eSWGBlM",
+     "titre": "Comment NETTOYER son FOUR TRÈS FACILEMENT ! -  Astuce écologique, efficace et pas chère",
+     "chaine": "Trop Facile !",
+     "vues": "2,1 M de vues",
+     "date": "il y a 7 ans",
+     "duree": "4:16",
+     "avatar": "https://yt3.ggpht.com/PdvV5pFgIh_gT2M6u1C6pYs_utumzEGh1qb1ZfOi_hSU9bQua5tLIAaplc3RBTn_ridk47mdCg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "CLEAN",
+     [
+      {
+       "t": "THE OVEN",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kEwvNgWIZAU",
+     "titre": "5 Tips to Clean Your Oven Like a Pro",
+     "chaine": "Clean That Up",
+     "vues": "1.3M views",
+     "date": "3 years ago",
+     "duree": "5:56",
+     "avatar": "https://yt3.ggpht.com/GwgGDFUBqsgOs-XhyPwpU9WNsLa9_97-Nvu_gBf9o9CM8byVkaXaXMioJgug4iYSdtKzdfqBag=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "DEN OFEN",
+       "couleur": "#c2393d"
+      }
+     ],
+     "REINIGEN"
+    ],
+    "video": {
+     "id": "jNY3WzgNZbo",
+     "titre": "Backofen reinigen  - schnell und einfach mit Backpulver und Essig 📟",
+     "chaine": "Empfehlungsfuchs",
+     "vues": "2,7 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "3:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nOBfDtfTE7Dy6tgJv5uttYKEax4QLu0-BTzat30JySdg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PULIRE",
+     [
+      {
+       "t": "IL FORNO",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yz6qlwYgfFA",
+     "titre": "Come PULIRE IL FORNO INCROSTATO in modo naturale e veloce",
+     "chaine": "AppuntiCreativi",
+     "vues": "314K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "1:25",
+     "avatar": "https://yt3.ggpht.com/-obI27xtBsnvUBe2JRPACtkZzt2-obtKz_kcnILKeFpRalWU0Xa6nnCqZu09DgCCAviGMLyN_A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "LIMPAR",
+     [
+      {
+       "t": "O FORNO",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BQLWl0f7t4I",
+     "titre": "Descomplica: como limpar a gordura do forno",
+     "chaine": "Revista AnaMaria",
+     "vues": "372 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "1:55",
+     "avatar": "https://yt3.ggpht.com/8QMdup1boLZXcU6yB4UP5lwoIRiyFl7_Zhg_13iqEDQcB87XON2PFd0_Dqtenmf4oW0q9f2c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "FIRINI",
+       "couleur": "#c2393d"
+      }
+     ],
+     "TEMİZLEMEK"
+    ],
+    "video": {
+     "id": "zD87dKO-4-s",
+     "titre": "Fırın Nasıl Temizlenir, Fırın temizliği",
+     "chaine": "Hayalimdeki Yemekler",
+     "vues": "938 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "3:56",
+     "avatar": "https://yt3.ggpht.com/yxkmj-6tnVLcW-HT3FhAjDi-Y6AvybgENSvN6iY3ba5cExPzw2cc7AknmAP5KO8R2STdMlMxEw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CUREȚI",
+     [
+      {
+       "t": "CUPTORUL",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Cssepwfe6cU",
+     "titre": "Curățarea cuptorului cu bicarbonat și oțet // Cum curăț cuptorul electric și cuptorul cu microunde",
+     "chaine": "Alexandra Maria",
+     "vues": "75 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "6:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mcD2dVKh3ZPpf0UJHRXB34uSONIUYQOSMboXR9mWV5qQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "VYČISTIT",
+     [
+      {
+       "t": "TROUBU",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Wb1bddTEsVg",
+     "titre": "Jak vyčistit troubu bez drhnutí – trik ze školní kuchyně",
+     "chaine": "Babička Jarmila uklízí a Babička Jarmila vaří",
+     "vues": "98 tis. zhlédnutí",
+     "date": "před 1 měsícem",
+     "duree": "14:50",
+     "avatar": "https://yt3.ggpht.com/8uopbD0bk0lOb1tcr6a0efZUBOJUc6ZyNUpcgccJASNlQ9_01Xn61dGJqQ6ZYgjAHMrtNdP6YQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "A SÜTŐT",
+       "couleur": "#c2393d"
+      }
+     ],
+     "KITISZTÍTANI"
+    ],
+    "video": {
+     "id": "Z6PPoibkmRc",
+     "titre": "Sütőtisztítás | Konyha takarítás",
+     "chaine": "Takarító Kommandó",
+     "vues": "33 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "2:56",
+     "avatar": "https://yt3.ggpht.com/q9j1Dwi0Je0F4MOgZgoJFWF8LuDOGgfxerI5w-P7CAAO-9yDdTXh4fRLwCzTbjWOMqVoIcxm=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΚΑΘΑΡΙΣΕ",
+     [
+      {
+       "t": "ΤΟΝ ΦΟΥΡΝΟ",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "siZybrF0PKs",
+     "titre": "Καθαρισμός φούρνου με φυσικά υλικά ✨!",
+     "chaine": "Cookpad Greece",
+     "vues": "141 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "1:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mLuKcw4lL9Sg1Z0zL76cOC4O36LtNn7pDna8iV_dUNuqY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "OČISTITI",
+     [
+      {
+       "t": "RERNU",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NagGmzuhYrY",
+     "titre": "Očistite rernu za par minuta bez mnogo truda i bez ribanja",
+     "chaine": "Uradi Sama- Ideje za kreativce",
+     "vues": "4,2 mil. pregleda",
+     "date": "pre 4 godine",
+     "duree": "4:54",
+     "avatar": "https://yt3.ggpht.com/Elrl7_yFdGLgE1FROiPS0Q3s818ibiSfrSaUhbBEirHJwkOL8nsCYw38DssF1_nVM-wtAjLCQA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "LIMPIAR",
+     [
+      {
+       "t": "EL HORNO",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "s2WCYwZO3vk",
+     "titre": "▷¿Cómo limpiar el horno? No cometas estos fallos, ¡cuidado! | Navarrete Online",
+     "chaine": "Álvaro Navarrete",
+     "vues": "572 K visualizaciones",
+     "date": "hace 6 años",
+     "duree": "2:17",
+     "avatar": "https://yt3.ggpht.com/9Sd8Ii8-edbzNdNZJtFpwlLEBW0qmSdAMLHA-rTuQJPuKF_fUQxmEE5A2UFvlcg-eISoZ37QdQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "LIMPIAR",
+     [
+      {
+       "t": "EL HORNO",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_xySVSEYLvw",
+     "titre": "Con este truco limpiarás tu horno en 5 minutos",
+     "chaine": "Tipo Listo",
+     "vues": "3 M de vistas",
+     "date": "hace 10 años",
+     "duree": "1:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lDKIYox6Vwc8Ysi2jJg2-qvffU0tCVm-MaqJyeXZxAPA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "WYCZYŚCIĆ",
+     [
+      {
+       "t": "PIEKARNIK",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fzptzuSRZpQ",
+     "titre": "Dom dla początkujących: Jak wyczyścić piekarnik | Ula Pedantula #36",
+     "chaine": "Ula Pedantula",
+     "vues": "749 tys. wyświetleń",
+     "date": "11 lat temu",
+     "duree": "2:25",
+     "avatar": "https://yt3.ggpht.com/ttih9JnLAn59lcaSTi1vtA6zINT_wX1vPU3VcXJh6tdvCmjwq1qxdh0tpB9X9HP7ARWZD_-LcQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "VYČISTIŤ",
+     [
+      {
+       "t": "RÚRU",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5RYd4HHmgU0",
+     "titre": "Ako vyčistiť rúru, plechy, hrnce bez chémie! Tipy a triky v kuchyni. 100% prírodné prostriedky!",
+     "chaine": "Recepty CVR - Centrum Vzdelávania Rodiny",
+     "vues": "85 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "15:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1oNHZI8LYKLiYSjnUm4WWFrsdrHcI2uG5jFsg6DQW=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "OČISTITI",
+     [
+      {
+       "t": "PEĆNICU",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9fNFI19VSeE",
+     "titre": "Sjajan trik za čišćenje pećnice bez ribanja: Napravite smjesu koja čisti - dok vi spavate",
+     "chaine": "Večernji TV",
+     "vues": "91 tis. pregleda",
+     "date": "prije 4 godine",
+     "duree": "1:07",
+     "avatar": "https://yt3.ggpht.com/OFQd8zHNxbZS0D3DHkX7nmq6V6F1eTHnqYQA2t81br9PiHYgj760OdJ8odosM14b0vkoPoBlXw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "RENGÖRA",
+     [
+      {
+       "t": "UGNEN",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PalmJqA6vn4",
+     "titre": "Så rengör du ugnen",
+     "chaine": "Expressen",
+     "vues": "100 tn visningar",
+     "date": "för 9 år sedan",
+     "duree": "1:38",
+     "avatar": "https://yt3.ggpht.com/krgBbKrQB1E3fXhX4x7yKQlpuP88tSVV0Vok--7_dOGJw8uAyplGp7kJ_l_Y7q7d3kT7Oe7g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "IZTĪRĪT",
+     [
+      {
+       "t": "CEPEŠKRĀSNI",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hFkKIHNP6Yo",
+     "titre": "Vienkārša un efektīva cepeškrāsns tīrīšana ar tvaiku vai cepamo sodu, etiķi un ūdeni. #ekoloģija",
+     "chaine": "Tīrīšanas Tehnoloģijas Piegādātājs STEAMLUR",
+     "vues": "1,2 tūkst. skatījumu",
+     "date": "pirms 2 gadiem",
+     "duree": "1:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_llaFsVmO-5clvwHEDyE9rSPDf-SRAvfOq7FzyTeImRqw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min, lai iemācītos"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COUPER",
+     [
+      {
+       "t": "UNE MANGUE",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GvTxnPKHhJY",
+     "titre": "Technique de cuisine : Préparer une mangue",
+     "chaine": "L'atelier des Chefs",
+     "vues": "3,2 M de vues",
+     "date": "il y a 16 ans",
+     "duree": "1:41",
+     "avatar": "https://yt3.ggpht.com/MBfwbEKkgE2LHvB3Xw93hU-uFvixAmmYjZPXj2vSqXVgkWCRSrYBN1qqUKFUCsw0d-wIHhBCBOI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "CUT",
+     [
+      {
+       "t": "A MANGO",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pGLUt_kBXj0",
+     "titre": "How to Cut a Mango",
+     "chaine": "National Mango Board",
+     "vues": "232K views",
+     "date": "5 years ago",
+     "duree": "1:53",
+     "avatar": "https://yt3.ggpht.com/13DN-eTvTolLK6kVoZtwzNPDokIyIWa3RCpD6OIUFxwqzuD7smQlalglv-UqSeVOlTrwM25mVGM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "EINE MANGO",
+       "couleur": "#e08a1e"
+      }
+     ],
+     "SCHNEIDEN"
+    ],
+    "video": {
+     "id": "AJAxt5Scfhk",
+     "titre": "Mango richtig schneiden",
+     "chaine": "ichkoche.at",
+     "vues": "493.163 Aufrufe",
+     "date": "vor 13 Jahren",
+     "duree": "1:27",
+     "avatar": "https://yt3.ggpht.com/7ltS8Yw03MJgYR-YHbQYHusjovDOtaKu4ByPPzIX8VvYXUe8WDCyLvtRMNKRHGY5DDvZdDKSvg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "TAGLIARE",
+     [
+      {
+       "t": "UN MANGO",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZFUS75z_180",
+     "titre": "Come sbucciare il mango",
+     "chaine": "Francesco Saccomandi",
+     "vues": "356K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "1:25",
+     "avatar": "https://yt3.ggpht.com/4HQdEEb-Ur4eMTkD1sKhnez2sh-t4W-muKnzpm8LDDyQ1uBcbeP2ypZoZ7GAWb_17NZbV--CsQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CORTAR",
+     [
+      {
+       "t": "UMA MANGA",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "es8CwSfmiWE",
+     "titre": "Como cortar uma manga",
+     "chaine": "Allrecipes Brasil",
+     "vues": "146 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "1:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_npwM5teCm2mBoYkRX0BzzudOVRStRlAETUBg5GsAc8jzg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "MANGO",
+       "couleur": "#e08a1e"
+      }
+     ],
+     "KESMEK"
+    ],
+    "video": {
+     "id": "UOIxpuQA3zg",
+     "titre": "Mango Nasıl Kesilir, Nasıl Yenir? 🥭",
+     "chaine": "Luce Mutfak",
+     "vues": "92 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "2:06",
+     "avatar": "https://yt3.ggpht.com/LvXhUROtSvo-on05lKTG7ayzOvvWwb63RuakfL_AsYhG_dd7fzyVbcyZrow7-B3Q66Ymk3om=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ TAI",
+     [
+      {
+       "t": "UN MANGO",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kZQO5udccxA",
+     "titre": "Cum se curata un Mango",
+     "chaine": "GatesteUsor",
+     "vues": "801 K vizionări",
+     "date": "acum 10 ani",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/GKoD-xAAsxvFLMfUOKZunBw1GSL28BQOIci8bMXN6ROqRP_qVwt5kWyX609fCQLVTmUWC2K5=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAKRÁJET",
+     [
+      {
+       "t": "MANGO",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1jQRyhzvRbU",
+     "titre": "Jak nakrájet mango: 3 osvědčené triky, které musíte znát 🥭",
+     "chaine": "Apetit",
+     "vues": "243 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "1:49",
+     "avatar": "https://yt3.ggpht.com/N0mPnG3CR1zmonS62sXZ5ZM0JQ6vvfQqtwLfPSIORzBUDbgEmtDAYTxsOpUzRQy8MHMOb5Ry8aE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "A MANGÓT",
+       "couleur": "#e08a1e"
+      }
+     ],
+     "FELVÁGNI"
+    ],
+    "video": {
+     "id": "wIFbORSbq1E",
+     "titre": "A mangó konyhai előkészítése (hámozása)",
+     "chaine": "Cookpad receptek",
+     "vues": "348 E megtekintés",
+     "date": "13 évvel ezelőtt",
+     "duree": "0:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m3MwBt86LwVsFnZwEVUG3Tr3j4Fmf4xHFBGlKWfNALd3k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΚΟΨΕ",
+     [
+      {
+       "t": "ΕΝΑ ΜΑΝΓΚΟ",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VgV66rBnkc4",
+     "titre": "Μάθε πώς να 🔪 Κόψεις το Μάνγκο 🥭 | Lidl Hellas",
+     "chaine": "Lidl Hellas",
+     "vues": "70 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "1:48",
+     "avatar": "https://yt3.ggpht.com/Sai54wXrAovUhdka6_LLOZn8qTkqOqRtfuFk49x3ZMzRsJrlXTZhitL1nb5sZBP0SPxEycJ_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "ISEĆI",
+     [
+      {
+       "t": "MANGO",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "McKPF8k7-ro",
+     "titre": "Kako se seče mango",
+     "chaine": "Milin Kuvar",
+     "vues": "25 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "1:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mKTHDFDmaDEsVFKUUHrWQnBi4i2BbbCERuinsGuhOF7dg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "CORTAR",
+     [
+      {
+       "t": "UN MANGO",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Hyo4ktkFyp4",
+     "titre": "Cómo hay que pelar un mango",
+     "chaine": "Canal Andalucia Cocina",
+     "vues": "354 K visualizaciones",
+     "date": "hace 6 años",
+     "duree": "3:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kuOD0YZHS-HgDv65JFWaNkpYL1N3wTqvj7JyoFwJLb-Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "CORTAR",
+     [
+      {
+       "t": "UN MANGO",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kAKGghPNC9M",
+     "titre": "¿Cómo Pelar un Mango Fácilmente? - Cocina Fresca",
+     "chaine": "Cocina Fresca",
+     "vues": "248 k vistas",
+     "date": "hace 11 años",
+     "duree": "0:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lLcxF-96LLFp8NAqKyL5kcETn288OPu2ipYvVG9tDq-4c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "POKROIĆ",
+     [
+      {
+       "t": "MANGO",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "C7HLO5uFAU0",
+     "titre": "Jak pokroić mango - Allrecipes.pl",
+     "chaine": "AllrecipesPL",
+     "vues": "193 tys. wyświetleń",
+     "date": "9 lat temu",
+     "duree": "1:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nrwsITy7xWZkeTG8e8hgmewUNJwEAG4GMYP5MXRhHCbg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "NAKRÁJAŤ",
+     [
+      {
+       "t": "MANGO",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cuWg_2XGDts",
+     "titre": "Ako nakrájať mango na ježka?",
+     "chaine": "Surová Dcérka",
+     "vues": "51 tis. zhliadnutí",
+     "date": "pred 11 rokmi",
+     "duree": "2:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mFrSEJau2FxcFq6lOhHbMLga9cRVZbK-TgMroBGC6Adkmt=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "NAREZATI",
+     [
+      {
+       "t": "MANGO",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zlUSWPEQyaY",
+     "titre": "KAKO SE JEDE MANGO? (Najbolji trik za savršen rez",
+     "chaine": "Avanture Gorana Šafareka",
+     "vues": "85 tis. pregleda",
+     "date": "prije 6 godina",
+     "duree": "2:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nivg3uVGLdgkj0N_it2Ix4PQOCu9x9BbNHLqCF0wFngw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "SKÄRA",
+     [
+      {
+       "t": "EN MANGO",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9zwF_8oB2oo",
+     "titre": "Skära mango",
+     "chaine": "ICA",
+     "vues": "138 tn visningar",
+     "date": "för 9 år sedan",
+     "duree": "0:38",
+     "avatar": "https://yt3.ggpht.com/yiiD4QsAq9Zc4DSGFKFWBAvNgTbGY9wCy7Yhr-M8IcpxdQhntYfOKUyZjHm9vZzRm_ZL0yqFRQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "SAGRIEZT",
+     [
+      {
+       "t": "MANGO",
+       "couleur": "#e08a1e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HqzkwSOEbtY",
+     "titre": "🥭 Kā sagriezt mango? | Lidl Latvija",
+     "chaine": "Lidl Latvija",
+     "vues": "4,3 tūkst. skatījumu",
+     "date": "pirms 4 gadiem",
+     "duree": "1:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n8-Y-O8T9haWYmiQtEgjQ1mXJmVrajVQ7mPHjk5BZLzQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min, lai iemācītos"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "CHAQUE MATIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "EVERY MORNING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "JEDEN MORGEN",
+     [
+      {
+       "t": "LERNEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "OGNI MATTINA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "TODA MANHÃ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HER SABAH",
+     [
+      {
+       "t": "ÖĞRENMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "DIMINEAȚA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UČIT SE",
+     [
+      {
+       "t": "KAŽDÉ RÁNO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TANULNI",
+     [
+      {
+       "t": "MINDEN REGGEL",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj valami újat",
+      "minden nap."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΑΙΝΕ",
+     [
+      {
+       "t": "ΚΑΘΕ ΠΡΩΙ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "μάθε κάτι καινούργιο",
+      "κάθε μέρα."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "UČITI",
+     [
+      {
+       "t": "SVAKO JUTRO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo",
+      "svaki dan."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   },
+   "es": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "CADA MAÑANA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo",
+      "cada día."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "CADA MAÑANA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo",
+      "todos los días."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "UCZYĆ SIĘ",
+     [
+      {
+       "t": "CO RANO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "naucz się czegoś",
+      "nowego każdego dnia."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "UČIŤ SA",
+     [
+      {
+       "t": "KAŽDÉ RÁNO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč sa každý deň",
+      "niečo nové."
+     ]
+    },
+    "sous": [
+     "5 min denne"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "UČITI",
+     [
+      {
+       "t": "SVAKO JUTRO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo",
+      "svaki dan."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "LÄRA SIG",
+     [
+      {
+       "t": "VARJE MORGON",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lär dig något nytt",
+      "varje dag."
+     ]
+    },
+    "sous": [
+     "5 min om dagen"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "MĀCĪTIES",
+     [
+      {
+       "t": "KATRU RĪTU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "uzzini ko jaunu",
+      "katru dienu."
+     ]
+    },
+    "sous": [
+     "5 min dienā"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "ÉPLUCHER",
+     [
+      {
+       "t": "L'AIL",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9uTHB1qCGIA",
+     "titre": "Comment éplucher une gousse d'ail en moins d'une minute - Les astuces de Léa",
+     "chaine": "Pratiks",
+     "vues": "113 k vues",
+     "date": "il y a 11 ans",
+     "duree": "1:20",
+     "avatar": "https://yt3.ggpht.com/lkMqn-NPmbpigbinjGK47Av0hMQCtujEYl8pOGYc1yEjU0xlL_p8mGb3A4sSE1g8SBXsOwbj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PEEL",
+     [
+      {
+       "t": "GARLIC",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Dc7w_PGSt9Y",
+     "titre": "Fastest Way To Peel Garlic | Food Wishes",
+     "chaine": "Food Wishes",
+     "vues": "7.4M views",
+     "date": "13 years ago",
+     "duree": "2:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kGZ14S6frarUZ0q3zzhqTSnl3zkYo_qxwQ8Wi-J11MaA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KNOBLAUCH",
+       "couleur": "#a9715d"
+      }
+     ],
+     "SCHÄLEN"
+    ],
+    "video": {
+     "id": "4z09_kfSZT4",
+     "titre": "Knoblauch schneiden & schälen 🧄 | So einfach geht's | REWE Deine Küche",
+     "chaine": "REWE Deine Küche",
+     "vues": "64.849 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/6ICLmrRXwxYi-Dtkm5yu8BPBeGYEwYsAGj5a3sP6dUOUNZir2D3Pz7EkOoG4dgxN17AT0z9k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SBUCCIARE",
+     [
+      {
+       "t": "L'AGLIO",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TyYVX1tvam4",
+     "titre": "Sbucciare un Aglio Velocemente in circa 20 SECONDI con un SEMPLICE TRUCCHETTO",
+     "chaine": "The Foodellers",
+     "vues": "13K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "2:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kMfx1VtrCelqpSfjSq_aCeGEQtAdQLkiVzn9LBwfY4-Sw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DESCASCAR",
+     [
+      {
+       "t": "ALHO",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lZGH_NBapZ0",
+     "titre": "Como descascar alho rápido 🧄 3 TRUQUES",
+     "chaine": "TudoReceitas",
+     "vues": "266 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "2:11",
+     "avatar": "https://yt3.ggpht.com/beb-BJxXdIACzDJZACU121nDOMUkkJ9r5GvVFH4-dJHd9d3OmesNHBraRsuLQjYnyDP1xHI5mQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "SARIMSAK",
+       "couleur": "#a9715d"
+      }
+     ],
+     "SOYMAK"
+    ],
+    "video": {
+     "id": "mwpAmnS0zFs",
+     "titre": "ÇOK KOLAY, SARIMSAK NASIL SOYULUR? | Lezzetin Üstadı",
+     "chaine": "Leyla Şahin",
+     "vues": "74 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "1:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mIVO_qH8bjUh7dgkY7IIJU_0XFsrpu2rMBH3KEOwdmY90=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CUREȚI",
+     [
+      {
+       "t": "USTUROIUL",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-cEscxfakgI",
+     "titre": "Cum se Curata Usturoiul , repede si usor",
+     "chaine": "Mr.M",
+     "vues": "11 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "1:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mVZgWmKMLG02hVeWRdncFuyR0ALTyGL28w4-S_8fviRQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "OLOUPAT",
+     [
+      {
+       "t": "ČESNEK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YRmUO3J3S38",
+     "titre": "Jak loupat česnek 4 TIPY | Chytře na",
+     "chaine": "Heureka",
+     "vues": "190 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "0:48",
+     "avatar": "https://yt3.ggpht.com/JHxGQ22ZIq2Tgku5cVWh5Ga4N3lN1Zw1-zXDPB0hc6RKZPsRoWkxuRK9CmpKIEs17viL54rA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "FOKHAGYMÁT",
+       "couleur": "#a9715d"
+      }
+     ],
+     "PUCOLNI"
+    ],
+    "video": {
+     "id": "6Tm91ACrDs4",
+     "titre": "Fokhagymahámozás másodpercek alatt",
+     "chaine": "benkonyhaja",
+     "vues": "94 E megtekintés",
+     "date": "14 évvel ezelőtt",
+     "duree": "1:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_qCrNOv-doQOYhOuutvon5H-Ln9ErjsR0x1RYUV8W0g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΞΕΦΛΟΥΔΙΣΕ",
+     [
+      {
+       "t": "ΣΚΟΡΔΟ",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ckBtr4xqrDs",
+     "titre": "Πώς καθαρίζουμε γρήγορα το σκόρδο; | Γαστρονόμος",
+     "chaine": "Γαστρονόμος",
+     "vues": "46 χιλ. προβολές",
+     "date": "πριν από 14 έτη",
+     "duree": "1:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lLtQS1y2YrYEj4PApTzZtmRjwv9HdmIb4KaShek8BoIos=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "OLJUŠTITI",
+     [
+      {
+       "t": "BELI LUK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cBgefVEQbyQ",
+     "titre": "Najlakši način da očistite beli luk: Od sada ćete koristiti samo ovaj trik!",
+     "chaine": "Telegraf.rs TV",
+     "vues": "13 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "0:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4ASe8WFK0H4pdolP3gaMC-OiPSASEoxFwes61_gPpzg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "PELAR",
+     [
+      {
+       "t": "AJOS",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8_sWjDNI1Vs",
+     "titre": "6 TRUCOS para PELAR AJOS RÁPIDO🧄  (+2 TRUCOS que QUIZÁS NO SABÍAS)",
+     "chaine": "Carlos Valdaliso",
+     "vues": "99 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "6:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lqTVDv5oWwE6Wvm-h3V7_dY-wzT4t9AN9JHdjMjDI57A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "PELAR",
+     [
+      {
+       "t": "AJO",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ICyd4N_SXO0",
+     "titre": "TRUCOS PARA PELAR AJOS FÁCILMENTE Y SIN OLORES",
+     "chaine": "Divina Cocina",
+     "vues": "59 k vistas",
+     "date": "hace 8 años",
+     "duree": "1:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lKaxeB1zsHowHH7mYjPGun1pHHD5Vqw8QcZmpbYe_Srg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "OBRAĆ",
+     [
+      {
+       "t": "CZOSNEK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OOrgi8elOmA",
+     "titre": "Jak szybko obrać czosnek - zobacz nasze 3 sposoby!",
+     "chaine": "Zwieger",
+     "vues": "56 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "1:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mFzwkNw0eHNNbFxcezpS43EDuWe0QOK_F4lWnjRkr1BA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "OŠÚPAŤ",
+     [
+      {
+       "t": "CESNAK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "W_TatvY0Y64",
+     "titre": "Ako rýchlo očistiť väčšie množstvo cesnaku",
+     "chaine": "TREND",
+     "vues": "26 tis. zhliadnutí",
+     "date": "pred 10 rokmi",
+     "duree": "0:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_klamfGHlWMDOmIzOA1kgfAjMIi-ee2dkvu6jSimHhfEsk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "OGULITI",
+     [
+      {
+       "t": "ČEŠNJAK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UDXUgEi7nvY",
+     "titre": "Bez muke: Očistite češnjak brzo i efikasno - evo kako!",
+     "chaine": "Gastro. hr",
+     "vues": "4,6 tis. pregleda",
+     "date": "prije 9 godina",
+     "duree": "0:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nS8bOVI1LvRjDOYesi0GG2i69BL_x3btvZZT7iG5KPiQE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "SKALA",
+     [
+      {
+       "t": "VITLÖK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fa75oTt4eNY",
+     "titre": "Skala vitlök på några sekunder - Peel a head of garlic in a few seconds",
+     "chaine": "Matgeek",
+     "vues": "25 tn visningar",
+     "date": "för 11 år sedan",
+     "duree": "1:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ncqqOM2gb-xTDXk4vIH5JLtnYqpCwEt_kdH2utzyzT5g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "NOMIZOT",
+     [
+      {
+       "t": "ĶIPLOKU",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Da5K7TgRaNA",
+     "titre": "Kā notīrīt ķiploku",
+     "chaine": "mammamtetiem",
+     "vues": "1,6 tūkst. skatījumu",
+     "date": "pirms 15 gadiem",
+     "duree": "2:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lFDiTjBYajiswjkk6p91A3J26eM1aB20vPEWHBxdcRQQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min, lai iemācītos"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "SA VALISE",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tqi0niS_Cu0",
+     "titre": "Comment optimiser sa valise avant de partir en voyage",
+     "chaine": "Le Figaro",
+     "vues": "560 k vues",
+     "date": "il y a 7 ans",
+     "duree": "3:11",
+     "avatar": "https://yt3.ggpht.com/XdZoq42VpxVA7NDBKfaAi-kO664L97NCZZXLkIFxgQrne4d6JgoazzHDouIBlh_serwA6UQaamA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PACK",
+     [
+      {
+       "t": "A SUITCASE",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FsJ7N86etAc",
+     "titre": "13 Ways to Fold Clothes for Travel to SAVE SPACE (Tutorial)",
+     "chaine": "The Travel Coaches",
+     "vues": "660K views",
+     "date": "1 year ago",
+     "duree": "14:16",
+     "avatar": "https://yt3.ggpht.com/NkViKsPayYM6VPtpa-a0orqsGmfY60abiqWQKpBtUnskb5tF_cMnN4HLPYbmM0tVTTWUEbMuYQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "DEN KOFFER",
+       "couleur": "#3b8ec2"
+      }
+     ],
+     "PACKEN"
+    ],
+    "video": {
+     "id": "KMNOYbEakcQ",
+     "titre": "Koffer packen – unsere Profitricks für deine Reise | BAUR",
+     "chaine": "BAUR Versand",
+     "vues": "33.448 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "1:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lygLSAMC0vkSgXv0Vp9OXdob56rFBA26qECmn6abx5W7A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "LA VALIGIA",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "G_KKxmhEA3Q",
+     "titre": "COME FARE LA VALIGIA INTELLIGENTE: i trucchi per farci entrare tutto!",
+     "chaine": "alfemminile",
+     "vues": "100K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "2:06",
+     "avatar": "https://yt3.ggpht.com/yhwlcOPfOxN_saXjRQXAIjDtIalrT_3Zot4cS-0tXnPJmquUWF_lgtHgjTnogHlnWOTNKj6ww4w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ARRUMAR",
+     [
+      {
+       "t": "A MALA",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "o9jScpPNEGM",
+     "titre": "Como arrumar a mala de viagem - MELHORES DICAS e TRUQUES",
+     "chaine": "Naturam Viagens",
+     "vues": "109 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "6:46",
+     "avatar": "https://yt3.ggpht.com/6-LSIy473f6WXKBnznZNyp8GoOcwf9p913Fo5py88vqps68U_dLINIzE045eHlUbmgmjuFPLnA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "VALİZ",
+       "couleur": "#3b8ec2"
+      }
+     ],
+     "HAZIRLAMAK"
+    ],
+    "video": {
+     "id": "mSyp0-Iy9Uo",
+     "titre": "Valiz Hazırlama Tekniği!",
+     "chaine": "Emrah Uysal",
+     "vues": "158 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "3:32",
+     "avatar": "https://yt3.ggpht.com/FWXYhTJaz7BHz-Un4dM6S8oywM_qElKuqRG695W6KgqJjzyqw3lTzWtu2KS2TY15DLAaNd3o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI FACI",
+     [
+      {
+       "t": "BAGAJUL",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Fb4Wub74FA4",
+     "titre": "4 Trucuri de Impachetat pentru Bagajul de Vacanta | Ce Sa NU Faci!",
+     "chaine": "Hervis RO",
+     "vues": "14 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "1:27",
+     "avatar": "https://yt3.ggpht.com/450uAlArUdSELsdp1zWRMBl_0mmcbwJSTNRbF7pA-7WGD6zuDDc_zOMJRVcjNP3FCtT9GQMcwA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SBALIT",
+     [
+      {
+       "t": "KUFR",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cQyru4hXyRw",
+     "titre": "Jak sbalit oblečení do kufru, aby se příliš nepomačkalo?",
+     "chaine": "usporadejto",
+     "vues": "7,6 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "1:12",
+     "avatar": "https://yt3.ggpht.com/cRpCJJ7gQrSMiNFbi6KSm6UNsOnMiqJjI3nNnY4GoIgivicverv9viZXXL5BIM15CBl1VjYF2EI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "BŐRÖNDÖT",
+       "couleur": "#3b8ec2"
+      }
+     ],
+     "PAKOLNI"
+    ],
+    "video": {
+     "id": "8ZoJcchhWYU",
+     "titre": "Helytakarékos csomagolás",
+     "chaine": "SPAR Magyarország",
+     "vues": "91 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "2:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nq24ngGFBKMDEsA3xM-zF0IICEmzF4boJHUOQUGoGtpA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΦΤΙΑΞΕ",
+     [
+      {
+       "t": "ΒΑΛΙΤΣΑ",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Y2BUYjl1_PM",
+     "titre": "Life Hacks: Πακετάρισμα βαλίτσας για εξοικονόμηση χώρου | bonprix.gr",
+     "chaine": "Bonprix.gr",
+     "vues": "53 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "1:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kg6FvnurZdoj7KDt3FpCYv8vEBocCNuZw_GIMhxmlZpyc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "SPAKOVATI",
+     [
+      {
+       "t": "KOFER",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sg77b6OcZ8s",
+     "titre": "Praktična žena - Kako se spakovati i uštedeti prostor u koferu",
+     "chaine": "Prakticna zena",
+     "vues": "240 hilj. pregleda",
+     "date": "pre 10 godina",
+     "duree": "5:50",
+     "avatar": "https://yt3.ggpht.com/-E68F8tl3H22TyzHuukM4_cyu-2lPs0jhHFK0up4KmA-dBFqXmz0jM8m-l-9tRpsW9sI5v8G=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "HACER",
+     [
+      {
+       "t": "LA MALETA",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lNtJFv3345U",
+     "titre": "Cómo hacer la maleta perfecta | Trucos clave para aprovechar el espacio",
+     "chaine": "El Mueble",
+     "vues": "4,7 M de visualizaciones",
+     "date": "hace 9 años",
+     "duree": "3:26",
+     "avatar": "https://yt3.ggpht.com/tRMsEyhETCjtWTsgffKsS89XNFLICqXe6kWhgnAwFsKMrM0MGbKx46KU1UWGNBikZ8qtnFf6pQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "ARMAR",
+     [
+      {
+       "t": "LA MALETA",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "B6-q775p0us",
+     "titre": "5 ideas para armar una valija para salir de viaje",
+     "chaine": "Infobae",
+     "vues": "22 k vistas",
+     "date": "hace 10 años",
+     "duree": "0:33",
+     "avatar": "https://yt3.ggpht.com/BvlDAbXA9gtllpd9IB1mmCRh9nd5ftrFnWGjcTDmm_M3rXCMXqGG5nHSqNxgFCaQcLt7vjDNAk4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "SPAKOWAĆ",
+     [
+      {
+       "t": "WALIZKĘ",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "12eBQHG7doY",
+     "titre": "JAK SPAKOWAĆ WALIZKĘ KROK PO KROKU [PORADNIK]",
+     "chaine": "naTemat",
+     "vues": "195 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "2:04",
+     "avatar": "https://yt3.ggpht.com/SyAhCao5qkwHRmC4XggwPv0JVczB5FCw4vWU76Gpz3HtqwKLeObixqDDsFgE307z9OcDfG8-7g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ZBALIŤ",
+     [
+      {
+       "t": "KUFOR",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HdXrhgRRJRs",
+     "titre": "S Onliou na cestách • #1 Balenie",
+     "chaine": "Onlia SK",
+     "vues": "37 tis. zhliadnutí",
+     "date": "pred 8 rokmi",
+     "duree": "1:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ngoccIRFp2edQu0mKa2N7R0foUV3oBC_joFXm3Qqin4Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "SPAKIRATI",
+     [
+      {
+       "t": "KOFER",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "f1TDo3avbB8",
+     "titre": "Savjeti zlata vrijedni: Kako spakovati kofer?",
+     "chaine": "Opusteno nedjeljom",
+     "vues": "109 tis. pregleda",
+     "date": "prije 12 godina",
+     "duree": "0:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lbrIgMqDhRLgGEzoBAd9XuNPlsfUAtm5zH84bYZiQh2A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "PACKA",
+     [
+      {
+       "t": "RESVÄSKAN",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6AvoIvlFtnA",
+     "titre": "Knepen som gör att du får plats med mer i resväskan",
+     "chaine": "Clas Ohlson Sverige",
+     "vues": "139 tn visningar",
+     "date": "för 14 år sedan",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/rFa3uRYTdh4jvhoDTkz5x7YVDkXQoIx8_bkWM1P30NaQLBZEwbuWIBPpq9bcpSLQXHvmvzKNtnE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "SAKRAVĀT",
+     [
+      {
+       "t": "ČEMODĀNU",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hZVD5U_3eLk",
+     "titre": "Kā sapakot čemodānu? / Dari gudri #2",
+     "chaine": "darigudri",
+     "vues": "9,8 tūkst. skatījumu",
+     "date": "pirms 15 gadiem",
+     "duree": "2:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nOd0r4ius_DD1BZLPe3WB8qTrqnDJ7ql2RSrsJOhk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min, lai iemācītos"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉPARER",
+     [
+      {
+       "t": "UNE FERMETURE ÉCLAIR",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OsMud9lmfCA",
+     "titre": "TUTO - Comment réparer le curseur sur une fermeture éclair ? ⚡️ I Decathlon",
+     "chaine": "Decathlon FR",
+     "vues": "211 k vues",
+     "date": "il y a 3 ans",
+     "duree": "0:56",
+     "avatar": "https://yt3.ggpht.com/KZONpC3r-b0Rch3My_wqCKW7whfUomxLKstX7X5uNRezojb38nPItHd-7c-IbTF-75OUQ3Cc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "FIX",
+     [
+      {
+       "t": "A ZIPPER",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ORpmGEIFXWQ",
+     "titre": "Don't throw it away! How to Fix split zippers with this easy method",
+     "chaine": "Sailrite Workbench",
+     "vues": "1.6M views",
+     "date": "2 years ago",
+     "duree": "1:48",
+     "avatar": "https://yt3.ggpht.com/leKPmq_u-o1GMubkgUXfxL0Q19IAYQR_eEU6DyjHFtoedPMdZZyl7kEdTcKvKflRbl-lDMaDjvg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "REISSVERSCHLUSS",
+       "couleur": "#5f7f3a"
+      }
+     ],
+     "REPARIEREN"
+    ],
+    "video": {
+     "id": "7g065oPl1pw",
+     "titre": "Reissverschluss reparieren",
+     "chaine": "Grüezi bag",
+     "vues": "255.820 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "1:07",
+     "avatar": "https://yt3.ggpht.com/lDOxyknv64P7tFYxuz8AsKmupkBFxw626Uk_fn1jIqSC3rrOhXgvgSFxgSl_HvnSwMSvMt2TVA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RIPARARE",
+     [
+      {
+       "t": "UNA ZIP",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hwpsRGFtLcs",
+     "titre": "Come riparare una cerniera. 2 metodi validi per borse, felpe, zaini.",
+     "chaine": "Alpa Tutorial",
+     "vues": "149K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "1:03",
+     "avatar": "https://yt3.ggpht.com/7iUXSTdQvFu7_MK0Cx_-aZPOkjtKD79yeyMcaZPc5hx61sm2LAL9ZexMdXXWiFr0GzZWJMB0Yw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CONSERTAR",
+     [
+      {
+       "t": "UM ZÍPER",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TIXS4a8BxJA",
+     "titre": "Como consertar zíper- parte 1!",
+     "chaine": "Ninja da Costura // Elisa Lisot",
+     "vues": "1,2 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "1:34",
+     "avatar": "https://yt3.ggpht.com/qfjk-MmlZdHtbtNYtuDZuWaiGowAd6Dk8myQXcSSL3P890B_eeJTWXpJZ0WL0Hg7YFQ4fuEcTQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "FERMUAR",
+       "couleur": "#5f7f3a"
+      }
+     ],
+     "TAMİR ETMEK"
+    ],
+    "video": {
+     "id": "518wqrzGcbM",
+     "titre": "Bozulan fermuar en kolay nasıl tamir edilir Bozulan fermuara kesin çözüm.#fermuar #tamir",
+     "chaine": "Doğa Gökçe",
+     "vues": "101 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "6:58",
+     "avatar": "https://yt3.ggpht.com/X30qbQJFLW2uuSjgSxxFGV9rKdU565bCPho4HyQYR22KFFmgqcZa_XQuUjGFOh8wDReg1r31_nc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ REPARI",
+     [
+      {
+       "t": "UN FERMOAR",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rXkRkHXVRE0",
+     "titre": "Kit de reparatie fermoar Munkees FixnZip",
+     "chaine": "ProAlpin.ro",
+     "vues": "30 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "1:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kRaG6Y3hBxsisA-mGvWk-t4zfqjkONfG-GSMF5OcxZoPc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "OPRAVIT",
+     [
+      {
+       "t": "ZIP",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bSDM-KbfQnc",
+     "titre": "Tipy a triky: jak navléknout jezdce na zip",
+     "chaine": "Látky Mráz s.r.o.",
+     "vues": "175 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "4:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mKUFXZ7HufEaC3hvIWw9xVhRoOyLdmlpqUJYfhEh8c5XA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "CIPZÁRT",
+       "couleur": "#5f7f3a"
+      }
+     ],
+     "JAVÍTANI"
+    ],
+    "video": {
+     "id": "WOekBXPT3z8",
+     "titre": "Cipzár javítása könnyen.",
+     "chaine": "Bozsik Csaba",
+     "vues": "145 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "2:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ntwOktlLbS0QhaGiHspt2ZO4TiPw2Qe52KJSJ2wIvibw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΕΠΙΣΚΕΥΑΣΕ",
+     [
+      {
+       "t": "ΦΕΡΜΟΥΑΡ",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_NmI8Mj0ccc",
+     "titre": "πως περνάμε το οδηγό στο φερμουάρ?#φερμουάρ",
+     "chaine": "Athanasia t. my handmade",
+     "vues": "39 χιλ. προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "1:29",
+     "avatar": "https://yt3.ggpht.com/iRVXfKz5EvTL3NDngOg9gF1jPPyhxzV4JqP4zpyZCmi-Zuxh9XOQe0k1B2aSeNpZV-WPo9Ea4Sw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "POPRAVITI",
+     [
+      {
+       "t": "RAJSFERŠLUS",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DXlRnMWTNlc",
+     "titre": "Kako popraviti rajsferslus , rajfeslus 😊  ili rajsfeslus 😂 Repair broken zipper slider ❤️",
+     "chaine": "Uradi sam",
+     "vues": "18 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "0:49",
+     "avatar": "https://yt3.ggpht.com/-4x7xli1H8taFtv86Ja-E_VL_0Z2GnwZsuL_f3dlo-zkjVuKzUO9Mv9as3G7U5MPwHg2M8T3-w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "ARREGLAR",
+     [
+      {
+       "t": "UNA CREMALLERA",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "668RASp-ROQ",
+     "titre": "Colocar un carro en una cremallera continua.",
+     "chaine": "Merceria Sarabia",
+     "vues": "803 K visualizaciones",
+     "date": "hace 10 años",
+     "duree": "0:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k5Jb-pCeg9qJJuFI2cE33odz_011N_M_aKop3rFpGPB26F=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "ARREGLAR",
+     [
+      {
+       "t": "UN CIERRE",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5WxAqQyvE6k",
+     "titre": "Como arreglar un cierre que se salio",
+     "chaine": "Paula Preti",
+     "vues": "2 M de vistas",
+     "date": "hace 6 años",
+     "duree": "1:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nYhayJJfbMwtEv2-8xZnxsghLXEzUzlT4SymwqEiFDasJX=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "NAPRAWIĆ",
+     [
+      {
+       "t": "ZAMEK",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kAdQF8uISuM",
+     "titre": "Jak szybko naprawić zamek błyskawiczny w spodniach i nie tylko :)",
+     "chaine": "Uporządkowana",
+     "vues": "374 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nozJVLj_sTWgQHz3Lnt6ii3dl1j8QayU56KBQiD6Ycf3Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "OPRAVIŤ",
+     [
+      {
+       "t": "ZIPS",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "A3uDtvIhrq0",
+     "titre": "Toto je najrýchlejší spôsob, ako si doma opraviť pokazený zips",
+     "chaine": "Chillin.sk",
+     "vues": "74 tis. zhliadnutí",
+     "date": "pred 10 rokmi",
+     "duree": "0:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwi2KdXYA2kNnfh_RBmFUcC58KXapxnZ_NdQtGvhBOQQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "POPRAVITI",
+     [
+      {
+       "t": "ZATVARAČ",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NSQmTJtZNu8",
+     "titre": "Kako namjestiti ključić na patentni zatvarač?",
+     "chaine": "Svijet metraže",
+     "vues": "58 tis. pregleda",
+     "date": "prije 7 godina",
+     "duree": "0:37",
+     "avatar": "https://yt3.ggpht.com/egCWj9itaCUZEEqzc6eJo05v_6c1QQZ5UL_-W0Z5YbM6J_gEBRD0Te16T4xbL9Q9SByAgGzW=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "LAGA",
+     [
+      {
+       "t": "EN DRAGKEDJA",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pkwy89CrP90",
+     "titre": "Hur du lagar en dragkedja",
+     "chaine": "Naturkompaniet",
+     "vues": "124 tn visningar",
+     "date": "för 7 år sedan",
+     "duree": "1:30",
+     "avatar": "https://yt3.ggpht.com/cVquEDja2ye7jUGOTfHXEdlA0qusOPn1QBpIHRmyKNOJp5v0PFU-S6riK2e18KaAbb9ht7RNRg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "SALABOT",
+     [
+      {
+       "t": "RĀVĒJSLĒDZĒJU",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "J7EANr5VoMM",
+     "titre": "Kā salabot saplīsušu rāvējslēdzēju? / Dari gudri #52",
+     "chaine": "darigudri",
+     "vues": "2,6 tūkst. skatījumu",
+     "date": "pirms 14 gadiem",
+     "duree": "1:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nOd0r4ius_DD1BZLPe3WB8qTrqnDJ7ql2RSrsJOhk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min, lai iemācītos"
+    ]
+   }
+  }
+ ]
+}

@@ -35,7 +35,8 @@ export type CleReglageLabel =
   | "relabelsMaxParNuit"
   | "partMaxPays"
   | "testPodComptes"
-  | "testPodPosts";
+  | "testPodPosts"
+  | "contenusParCompteLangue";
 
 export interface ChampReglageLabel {
   cle: CleReglageLabel;
@@ -72,6 +73,7 @@ export const CHAMPS_REGLAGE_LABEL: readonly ChampReglageLabel[] = Object.freeze(
   { cle: "partMax", cleBase: "part_max", cleI18n: "rPartMax", min: 0, strict: true, max: 1, pas: 0.05 },
   { cle: "partMaxPays", cleBase: "part_max_pays", cleI18n: "rPartMaxPays", min: 0, strict: true, max: 1, pas: 0.05 },
   { cle: "rafaleRecents", cleBase: "rafale_recents", cleI18n: "rRafale", min: 0, strict: true, entier: true, pas: 1 },
+  { cle: "contenusParCompteLangue", cleBase: "contenus_par_compte_langue", cleI18n: "rContenusParCompteLangue", min: 0, strict: true, pas: 1 },
   { cle: "relabelsMaxParNuit", cleBase: "relabels_max_par_nuit", cleI18n: "rRelabels", min: 0, strict: false, entier: true, pas: 1 },
   { cle: "testPodComptes", cleBase: "test_pod_comptes", cleI18n: "rTestPodComptes", min: 0, strict: true, entier: true, pas: 1 },
   { cle: "testPodPosts", cleBase: "test_pod_posts", cleI18n: "rTestPodPosts", min: 0, strict: true, entier: true, pas: 5 },

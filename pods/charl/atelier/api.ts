@@ -8,11 +8,12 @@ export const COMPTES_SOURCE = ["charl.focus"] as const;
 /** L'appli servie : Sophia (une leçon courte par jour et un quiz), id du catalogue de l'OS. */
 export const APPLICATION = { slug: "sophia", id: "00000000-0000-4000-8000-000000000001", nom: "Sophia" } as const;
 /**
- * Les langues livrées : l'espagnol d'Espagne (celui du compte modèle : « móvil ») depuis le 24/11.
+ * Les langues livrées : l'espagnol d'Espagne (celui du compte modèle : « móvil ») depuis le 24/11 ;
+ * es-419, pt-BR, it, fr, ro, hu et de depuis le 27/11 (demande du chef des podz, sur ordre d'Adrien).
  * Déclarée à l'OS à chaque `npm run boite` (0654) : une langue ajoutée ici
  * s'OUVRE pour le label (0781) ; ne l'ajoute qu'une fois prête (pods/ROUTINE.md §5.6).
  */
-export const LANGUES = ["es"] as const;
+export const LANGUES = ["es", "es-419", "pt-BR", "it", "fr", "ro", "hu", "de"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "es";
 

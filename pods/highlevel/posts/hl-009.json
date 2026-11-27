@@ -11,7 +11,7 @@
     "titre": "M83 Solitude",
     "url": "https://www.tiktok.com/music/M83-Solitude-7116098620134394625"
   },
-  "notes": "Preuve de format : « DESTROY HER EGO WITH THESE WORDS. » (2,1 M), gabarit « She says: / You say: ». Accroche neuve « WHAT TO SAY WHEN SHE ASKS HARD QUESTIONS. ». Carte Artura (4) : « Have a real answer. », Renoir, Madame Georges Charpentier and Her Children (The Met 438815), LOGO d'Artura ; cta C. Fait vérifié : le petit Paul, 3 ans, est habillé comme sa sœur Georgette, selon la mode de l'époque (fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es (pas de sr : aucun compte).",
+  "notes": "Preuve de format : « DESTROY HER EGO WITH THESE WORDS. » (2,1 M), gabarit « She says: / You say: ». Accroche neuve « WHAT TO SAY WHEN SHE ASKS HARD QUESTIONS. ». Carte Artura (4) : « Have a real answer. », Renoir, Madame Georges Charpentier and Her Children (The Met 438815), LOGO d'Artura ; cta C. Fait vérifié : le petit Paul, 3 ans, est habillé comme sa sœur Georgette, selon la mode de l'époque (fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es + sr (latin) le 27/11.",
   "oeuvres": {
     "images/oeuvres/renoir-charpentier.jpg": {
       "musee": "The Met",
@@ -29,7 +29,8 @@
     "it": "Cosa dire quando fa domande difficili.",
     "hu": "Mit mondj, ha nehéz kérdést tesz fel.",
     "pt-BR": "O que dizer quando ela faz perguntas difíceis.",
-    "es": "Qué decir cuando te hace preguntas difíciles."
+    "es": "Qué decir cuando te hace preguntas difíciles.",
+    "sr": "Šta da kažeš kad postavlja teška pitanja."
   },
   "legendes": {
     "en": "#datingadvice #adviceformen #tipsformen ",
@@ -38,7 +39,8 @@
     "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
     "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
     "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
-    "es": "#consejosdecitas #consejosparahombres #ligar "
+    "es": "#consejosdecitas #consejosparahombres #ligar ",
+    "sr": "#savetizamuškarce #veze #zavođenje "
   },
   "slides": [
     {
@@ -63,6 +65,9 @@
       },
       "es": {
         "titre": "QUÉ DECIR\nCUANDO TE HACE\nPREGUNTAS\nDIFÍCILES."
+      },
+      "sr": {
+        "titre": "ŠTA DA KAŽEŠ\nKAD POSTAVLJA\nTEŠKA PITANJA."
       }
     },
     {
@@ -115,6 +120,13 @@
           "**Ella dice:**\n“¿Por qué sigues soltero?”",
           "**Tú dices:**\n“Soy exigente. Por ahora, vas aprobando.”"
         ]
+      },
+      "sr": {
+        "titre": "Kad pita zašto si sam.",
+        "paragraphes": [
+          "**Ona kaže:**\n„Zašto si još uvek sam?”",
+          "**Ti kažeš:**\n„Izbirljiv sam. Za sada prolaziš.”"
+        ]
       }
     },
     {
@@ -166,6 +178,13 @@
         "paragraphes": [
           "**Ella dice:**\n“¿Qué pasó con tu ex?”",
           "**Tú dices:**\n“Queríamos cosas distintas. Le deseo lo mejor.”"
+        ]
+      },
+      "sr": {
+        "titre": "Kad pita za tvoju bivšu.",
+        "paragraphes": [
+          "**Ona kaže:**\n„Šta se desilo sa bivšom?”",
+          "**Ti kažeš:**\n„Hteli smo različite stvari. Želim joj sve najbolje.”"
         ]
       }
     },
@@ -241,6 +260,16 @@
         "apres": [
           "No sabía nada de arte. Artura lo arregló, un cuadro al día."
         ]
+      },
+      "sr": {
+        "titre": "Imaj pravi odgovor.",
+        "avant": [
+          "**Ona kaže:** „Šta te pokreće?”",
+          "**Ti kažeš:** „Umetnost. Na ovom Renoaru dečak je obučen kao njegova sestra. Pitaj me zašto.”"
+        ],
+        "apres": [
+          "Nisam znao ništa o umetnosti. Artura je to rešila, jedna slika dnevno."
+        ]
       }
     },
     {
@@ -292,6 +321,13 @@
         "paragraphes": [
           "**Ella dice:**\n“¿Y qué estás buscando?”",
           "**Tú dices:**\n“Algo real. Sin prisa por ponerle nombre.”"
+        ]
+      },
+      "sr": {
+        "titre": "Kad pita šta tražiš.",
+        "paragraphes": [
+          "**Ona kaže:**\n„I šta tražiš?”",
+          "**Ti kažeš:**\n„Nešto pravo. Bez žurbe da to imenujemo.”"
         ]
       }
     },
@@ -345,6 +381,13 @@
           "**Ella dice:**\n“¿Estás nervioso?”",
           "**Tú dices:**\n“Un poco. Así sé que me gustas.”"
         ]
+      },
+      "sr": {
+        "titre": "Kad pita da li si nervozan.",
+        "paragraphes": [
+          "**Ona kaže:**\n„Jesi li nervozan?”",
+          "**Ti kažeš:**\n„Malo. Tako znam da mi se sviđaš.”"
+        ]
       }
     },
     {
@@ -397,6 +440,13 @@
           "Las preguntas difíciles no son trampas. Son su forma de acercarse.",
           "**Un niño esquiva.**\n**Un hombre responde y sonríe.**"
         ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Teška pitanja nisu zamke. Tako ona pokušava da ti se približi.",
+          "**Dečak izbegava.**\n**Muškarac odgovara i smeši se.**"
+        ]
       }
     },
     {
@@ -434,6 +484,11 @@
         "gras": "Sígueme",
         "milieu": " para no perderte",
         "suite": "lo que viene."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
       }
     }
   ]

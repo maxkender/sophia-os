@@ -1,0 +1,833 @@
+{
+ "id": "mc-001",
+ "source": {
+  "url": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+  "vues": 203100,
+  "publie_le": "2026-10-05",
+  "accroche": "How To Make People Remember You"
+ },
+ "titre": {
+  "en": "How To Make People Remember You",
+  "de": "So bleibst du Menschen im Kopf",
+  "it": "Come farti ricordare da tutti",
+  "fr": "Comment rester dans la tête des gens",
+  "pt-BR": "Como fazer as pessoas lembrarem de você",
+  "es-419": "Cómo hacer que la gente te recuerde",
+  "pl": "Jak sprawić, żeby ludzie cię zapamiętali",
+  "cs": "Jak zařídit, aby si tě lidé zapamatovali"
+ },
+ "legendes": {
+  "en": "Being memorable is not about saying more. It is about giving the brain something worth replaying.\n\n#psychology #charisma #socialskills #humanbehavior #socialintelligence",
+  "de": "Einprägsam sein heißt nicht, mehr zu sagen. Es heißt, dem Gehirn etwas zu geben, das es immer wieder abspielen will.\n\n#psychologie #charisma #socialskills #menschenkenntnis #kommunikation",
+  "it": "Essere memorabili non vuol dire parlare di più. Vuol dire dare al cervello qualcosa che valga la pena rivivere.\n\n#psicologia #carisma #socialskills #comportamentoumano #comunicazione",
+  "fr": "Être marquant, ce n'est pas en dire plus. C'est donner au cerveau quelque chose qui mérite d'être rejoué.\n\n#psychologie #charisme #confianceensoi #comportementhumain #communication",
+  "pt-BR": "Ser memorável não é falar mais. É dar ao cérebro algo que valha a pena repetir.\n\n#psicologia #carisma #habilidadessociais #comportamentohumano #comunicacao",
+  "es-419": "Ser memorable no es decir más. Es darle al cerebro algo que valga la pena repetir.\n\n#psicologia #carisma #habilidadessociales #comportamientohumano #comunicacion",
+  "pl": "Bycie zapamiętywanym nie polega na mówieniu więcej. Chodzi o to, żeby dać mózgowi coś, do czego chce wracać.\n\n#psychologia #charyzma #umiejetnoscispoleczne #komunikacja #rozwojosobisty",
+  "cs": "Být zapamatovatelný neznamená říkat víc. Znamená to dát mozku něco, co stojí za to si přehrávat.\n\n#psychologie #charisma #socialniinteligence #komunikace #osobnirozvoj"
+ },
+ "musique": {
+  "titre": "abandoned (Slowed) - ANGUISH & LMG & ily",
+  "url": "https://www.tiktok.com/music/abandoned-slowed-7375246696198260753"
+ },
+ "compte": {
+  "images/compte/radio-papillons.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 6
+  },
+  "images/compte/femme-floue.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 2
+  },
+  "images/compte/deux-visages.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 3
+  },
+  "images/compte/homme-masque.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 4
+  },
+  "images/compte/masques.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 5
+  },
+  "images/compte/mains-fils.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 7
+  },
+  "images/compte/mains-yeux.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 8
+  },
+  "images/compte/double-visage.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 9
+  }
+ },
+ "notes": "Remake de son tube « How To Make People Remember You » (203 k vues, 9,3 k enregistrements, 5/10 ; abandoned (Slowed)) : son texte tel quel, ses étapes dans son ordre, ses images (découpées sur son fond noir par `npm run compte`, sans IA). Sa couverture pose un couple de cinéma : on prend à la place la radiographie aux papillons de sa slide 6. Slide Sophia (6) à la place de son étape « MAKE THEM INVEST FIRST » : « GIVE THEM SOMETHING NEW », une idée dans sa ligne (on repense à qui nous a appris quelque chose), avec le logo de Sophia à la place de l'image ; cta A. Pas de slide finale de vente (son post n'en avait pas).",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/compte/radio-papillons.jpg",
+   "en": {
+    "titre": "How To Make People {Remember You}"
+   },
+   "de": {
+    "titre": "So bleibst du Menschen {im Kopf}"
+   },
+   "it": {
+    "titre": "Come farti {ricordare da tutti}"
+   },
+   "fr": {
+    "titre": "Comment rester {dans la tête des gens}"
+   },
+   "pt-BR": {
+    "titre": "Como fazer as pessoas {lembrarem de você}"
+   },
+   "es-419": {
+    "titre": "Cómo hacer que la gente {te recuerde}"
+   },
+   "pl": {
+    "titre": "Jak sprawić, żeby ludzie {cię zapamiętali}"
+   },
+   "cs": {
+    "titre": "Jak zařídit, aby si tě lidé {zapamatovali}"
+   }
+  },
+  {
+   "type": "avertissement",
+   "image": "images/compte/femme-floue.jpg",
+   "en": {
+    "surtitre": "DISCLAIMER",
+    "titre": "READ THIS BEFORE YOU USE IT",
+    "avant": [
+     "This gets weird once you notice how easy it is to stay in someones head without doing much.",
+     "The strongest part happens {after the conversation is already over.}",
+     "And that is exactly why it works."
+    ]
+   },
+   "de": {
+    "surtitre": "ACHTUNG",
+    "titre": "LIES DAS, BEVOR DU ES ANWENDEST",
+    "avant": [
+     "Es wird seltsam, sobald du merkst, wie leicht man jemandem im Kopf bleibt, ohne viel zu tun.",
+     "Der stärkste Teil passiert {erst, wenn das Gespräch schon vorbei ist.}",
+     "Und genau deshalb funktioniert es."
+    ]
+   },
+   "it": {
+    "surtitre": "ATTENZIONE",
+    "titre": "LEGGI PRIMA DI USARLO",
+    "avant": [
+     "Diventa strano quando ti accorgi di quanto sia facile restare in testa a qualcuno senza fare granché.",
+     "La parte più forte succede {quando la conversazione è già finita.}",
+     "Ed è proprio per questo che funziona."
+    ]
+   },
+   "fr": {
+    "surtitre": "ATTENTION",
+    "titre": "LIS ÇA AVANT DE L'UTILISER",
+    "avant": [
+     "Ça devient bizarre quand tu remarques à quel point c'est facile de rester dans la tête de quelqu'un sans faire grand-chose.",
+     "Le plus fort se passe {une fois la conversation terminée.}",
+     "Et c'est exactement pour ça que ça marche."
+    ]
+   },
+   "pt-BR": {
+    "surtitre": "AVISO",
+    "titre": "LEIA ISSO ANTES DE USAR",
+    "avant": [
+     "Fica estranho quando você percebe como é fácil ficar na cabeça de alguém sem fazer muita coisa.",
+     "A parte mais forte acontece {depois que a conversa já acabou.}",
+     "E é exatamente por isso que funciona."
+    ]
+   },
+   "es-419": {
+    "surtitre": "AVISO",
+    "titre": "LEE ESTO ANTES DE USARLO",
+    "avant": [
+     "Se pone raro cuando notas lo fácil que es quedarte en la cabeza de alguien sin hacer mucho.",
+     "La parte más fuerte pasa {cuando la conversación ya terminó.}",
+     "Y justo por eso funciona."
+    ]
+   },
+   "pl": {
+    "surtitre": "UWAGA",
+    "titre": "PRZECZYTAJ, ZANIM TO WYKORZYSTASZ",
+    "avant": [
+     "Robi się dziwnie, gdy zauważasz, jak łatwo zostać komuś w głowie, nie robiąc wiele.",
+     "Najmocniejsza część dzieje się {już po rozmowie.}",
+     "I właśnie dlatego to działa."
+    ]
+   },
+   "cs": {
+    "surtitre": "UPOZORNĚNÍ",
+    "titre": "PŘEČTI SI TO, NEŽ TO POUŽIJEŠ",
+    "avant": [
+     "Začne to být divné, když si všimneš, jak snadné je zůstat někomu v hlavě, aniž bys toho moc dělal.",
+     "Nejsilnější část se děje {až po skončení rozhovoru.}",
+     "A přesně proto to funguje."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/deux-visages.jpg",
+   "en": {
+    "titre": "WHY SOME PEOPLE {DISAPPEAR FAST}",
+    "avant": [
+     "Your brain is ruthless with predictable information.",
+     "If someone behaves exactly how you expected, there is not much reason to keep replaying them later.",
+     "The people who stick usually create one small {break in the pattern.}"
+    ],
+    "apres": [
+     "Not enough to feel weird. Enough to make the brain pay attention."
+    ]
+   },
+   "de": {
+    "titre": "WARUM MANCHE MENSCHEN {SCHNELL VERSCHWINDEN}",
+    "avant": [
+     "Dein Gehirn ist gnadenlos mit vorhersehbaren Informationen.",
+     "Wenn sich jemand genau so verhält, wie du es erwartet hast, gibt es kaum einen Grund, später noch an ihn zu denken.",
+     "Die Menschen, die hängen bleiben, sorgen meist für einen kleinen {Bruch im Muster.}"
+    ],
+    "apres": [
+     "Nicht genug, um seltsam zu wirken. Genug, damit das Gehirn aufpasst."
+    ]
+   },
+   "it": {
+    "titre": "PERCHÉ ALCUNE PERSONE {SPARISCONO IN FRETTA}",
+    "avant": [
+     "Il tuo cervello è spietato con le informazioni prevedibili.",
+     "Se qualcuno si comporta esattamente come ti aspettavi, non c'è molto motivo di ripensarci dopo.",
+     "Chi resta in mente di solito crea una piccola {rottura dello schema.}"
+    ],
+    "apres": [
+     "Non abbastanza da sembrare strano. Abbastanza da far stare attento il cervello."
+    ]
+   },
+   "fr": {
+    "titre": "POURQUOI CERTAINS {DISPARAISSENT VITE}",
+    "avant": [
+     "Ton cerveau est impitoyable avec les infos prévisibles.",
+     "Si quelqu'un agit exactement comme tu t'y attendais, il n'y a pas vraiment de raison d'y repenser plus tard.",
+     "Ceux qui restent créent souvent une petite {rupture dans le schéma.}"
+    ],
+    "apres": [
+     "Pas assez pour paraître bizarre. Assez pour que le cerveau fasse attention."
+    ]
+   },
+   "pt-BR": {
+    "titre": "POR QUE ALGUMAS PESSOAS {SOMEM RÁPIDO}",
+    "avant": [
+     "Seu cérebro é implacável com informação previsível.",
+     "Se alguém age exatamente como você esperava, não tem muito motivo pra ficar lembrando dela depois.",
+     "Quem fica na memória geralmente cria uma pequena {quebra no padrão.}"
+    ],
+    "apres": [
+     "Não o bastante pra parecer estranho. O bastante pra fazer o cérebro prestar atenção."
+    ]
+   },
+   "es-419": {
+    "titre": "POR QUÉ ALGUNAS PERSONAS {DESAPARECEN RÁPIDO}",
+    "avant": [
+     "Tu cerebro es despiadado con la información predecible.",
+     "Si alguien se comporta exactamente como esperabas, no hay mucha razón para seguir pensando en esa persona después.",
+     "La gente que se queda en la memoria suele crear una pequeña {ruptura en el patrón.}"
+    ],
+    "apres": [
+     "No lo suficiente para parecer raro. Lo suficiente para que el cerebro preste atención."
+    ]
+   },
+   "pl": {
+    "titre": "DLACZEGO NIEKTÓRZY {SZYBKO ZNIKAJĄ}",
+    "avant": [
+     "Twój mózg jest bezlitosny dla przewidywalnych informacji.",
+     "Jeśli ktoś zachowuje się dokładnie tak, jak się spodziewasz, nie ma powodu, żeby potem do niego wracać.",
+     "Ci, którzy zostają w pamięci, zwykle robią jedno małe {złamanie schematu.}"
+    ],
+    "apres": [
+     "Za mało, żeby było dziwnie. Dość, żeby mózg zwrócił uwagę."
+    ]
+   },
+   "cs": {
+    "titre": "PROČ NĚKTEŘÍ LIDÉ {RYCHLE MIZÍ}",
+    "avant": [
+     "Tvůj mozek je nemilosrdný k předvídatelným informacím.",
+     "Když se někdo chová přesně tak, jak čekáš, není moc důvod si ho později znovu přehrávat.",
+     "Lidé, kteří utkví v paměti, obvykle vytvoří jeden malý {zlom ve vzorci.}"
+    ],
+    "apres": [
+     "Ne tolik, aby to bylo divné. Dost na to, aby mozek zbystřil."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/homme-masque.jpg",
+   "en": {
+    "titre": "{DO NOT} TRY TO BE INTERESTING",
+    "avant": [
+     "Trying to look interesting usually makes you more predictable because everyone uses the same signals.",
+     "The better move is giving people one thing they did not expect from you.",
+     "A different angle. A strangely precise observation. Something that slightly changes how they read you."
+    ],
+    "apres": [
+     "That little mismatch creates {mental residue.}",
+     "And now you are harder to compress into just another person."
+    ]
+   },
+   "de": {
+    "titre": "{SPIEL NICHT} DEN INTERESSANTEN",
+    "avant": [
+     "Wer interessant wirken will, wird meist berechenbarer, weil alle dieselben Signale senden.",
+     "Besser: Gib den Leuten eine Sache, die sie von dir nicht erwartet haben.",
+     "Ein anderer Blickwinkel. Eine seltsam genaue Beobachtung. Etwas, das ändert, wie sie dich sehen."
+    ],
+    "apres": [
+     "Diese kleine Abweichung hinterlässt {einen mentalen Rest.}",
+     "Jetzt passt du in keine Schublade mehr."
+    ]
+   },
+   "it": {
+    "titre": "{NON} CERCARE DI ESSERE INTERESSANTE",
+    "avant": [
+     "Sembrare interessante di solito ti rende più prevedibile: tutti usano gli stessi segnali.",
+     "Meglio dare alle persone una cosa che non si aspettavano da te.",
+     "Un'angolazione diversa. Un'osservazione stranamente precisa. Qualcosa che cambia un po' come ti leggono."
+    ],
+    "apres": [
+     "Quella piccola differenza lascia {un residuo mentale.}",
+     "E ora è più difficile ridurti a uno qualunque."
+    ]
+   },
+   "fr": {
+    "titre": "{NE JOUE PAS} L'INTÉRESSANT",
+    "avant": [
+     "Vouloir paraître intéressant te rend souvent plus prévisible : tout le monde envoie les mêmes signaux.",
+     "Le meilleur move, c'est de donner aux gens une chose qu'ils n'attendaient pas de toi.",
+     "Un autre angle. Une observation étrangement précise. Un détail qui change leur façon de te lire."
+    ],
+    "apres": [
+     "Ce petit décalage laisse {une trace mentale.}",
+     "Et là, c'est plus dur de te ranger parmi « les autres »."
+    ]
+   },
+   "pt-BR": {
+    "titre": "{NÃO TENTE} SER INTERESSANTE",
+    "avant": [
+     "Tentar parecer interessante geralmente te deixa mais previsível, porque todo mundo usa os mesmos sinais.",
+     "O melhor movimento é dar às pessoas uma coisa que elas não esperavam de você.",
+     "Um ângulo diferente. Uma observação estranhamente precisa. Algo que muda um pouco o jeito como te leem."
+    ],
+    "apres": [
+     "Essa pequena diferença cria {um resíduo mental.}",
+     "E agora fica mais difícil te resumir a só mais uma pessoa."
+    ]
+   },
+   "es-419": {
+    "titre": "{NO INTENTES} SER INTERESANTE",
+    "avant": [
+     "Intentar parecer interesante normalmente te vuelve más predecible, porque todos usan las mismas señales.",
+     "La mejor jugada es darle a la gente algo que no esperaba de ti.",
+     "Un ángulo distinto. Una observación extrañamente precisa. Algo que cambia un poco cómo te leen."
+    ],
+    "apres": [
+     "Esa pequeña diferencia deja {un residuo mental.}",
+     "Y ahora es más difícil reducirte a una persona más."
+    ]
+   },
+   "pl": {
+    "titre": "{NIE PRÓBUJ} BYĆ INTERESUJĄCY",
+    "avant": [
+     "Próbując wyglądać na interesującego, zwykle stajesz się bardziej przewidywalny, bo wszyscy używają tych samych sygnałów.",
+     "Lepszy ruch to dać ludziom jedną rzecz, której się po tobie nie spodziewali.",
+     "Inny punkt widzenia. Dziwnie precyzyjna obserwacja. Coś, co lekko zmienia to, jak cię odbierają."
+    ],
+    "apres": [
+     "Ta mała niezgodność zostawia {mentalny ślad.}",
+     "I teraz trudniej sprowadzić cię do kolejnej zwykłej osoby."
+    ]
+   },
+   "cs": {
+    "titre": "{NESNAŽ SE} BÝT ZAJÍMAVÝ",
+    "avant": [
+     "Snaha působit zajímavě tě obvykle dělá předvídatelnějším, protože všichni používají stejné signály.",
+     "Lepší tah je dát lidem jednu věc, kterou od tebe nečekali.",
+     "Jiný úhel pohledu. Zvláštně přesný postřeh. Něco, co trochu změní, jak tě čtou."
+    ],
+    "apres": [
+     "Ten malý nesoulad vytváří {mentální stopu.}",
+     "A teď je těžší tě zaškatulkovat jako dalšího obyčejného člověka."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/masques.jpg",
+   "en": {
+    "titre": "MAKE THEIR BRAIN {FINISH SOMETHING}",
+    "avant": [
+     "Information sticks harder when someone has to complete part of it themselves.",
+     "Do not explain every thought until there is nothing left.",
+     "Leave just enough space for them to connect the last piece."
+    ],
+    "apres": [
+     "When their brain finishes the thought for you, {part of the memory becomes theirs.}",
+     "That is why it keeps replaying."
+    ]
+   },
+   "de": {
+    "titre": "LASS IHR GEHIRN {ETWAS ZU ENDE BRINGEN}",
+    "avant": [
+     "Informationen bleiben stärker hängen, wenn jemand einen Teil selbst ergänzen muss.",
+     "Erklär nicht jeden Gedanken, bis nichts mehr übrig ist.",
+     "Lass gerade genug Raum, damit sie das letzte Stück selbst verbinden."
+    ],
+    "apres": [
+     "Wenn ihr Gehirn den Gedanken für dich zu Ende denkt, {wird ein Teil der Erinnerung zu ihrer eigenen.}",
+     "Deshalb spielt es sich immer wieder ab."
+    ]
+   },
+   "it": {
+    "titre": "FAI {FINIRE QUALCOSA} AL LORO CERVELLO",
+    "avant": [
+     "Un'informazione resta più impressa quando qualcuno deve completarne una parte da solo.",
+     "Non spiegare ogni pensiero fino a non lasciare niente.",
+     "Lascia giusto lo spazio perché colleghino l'ultimo pezzo."
+    ],
+    "apres": [
+     "Quando il loro cervello finisce il pensiero al posto tuo, {una parte del ricordo diventa loro.}",
+     "Per questo continua a tornare."
+    ]
+   },
+   "fr": {
+    "titre": "LAISSE LEUR CERVEAU {FINIR QUELQUE CHOSE}",
+    "avant": [
+     "Une info marque plus quand on doit en compléter une partie soi-même.",
+     "N'explique pas chaque pensée jusqu'à ce qu'il ne reste plus rien.",
+     "Laisse juste assez d'espace pour qu'ils relient la dernière pièce."
+    ],
+    "apres": [
+     "Quand leur cerveau finit la pensée à ta place, {une partie du souvenir devient la leur.}",
+     "C'est pour ça qu'il revient en boucle."
+    ]
+   },
+   "pt-BR": {
+    "titre": "FAÇA O CÉREBRO DELAS {TERMINAR ALGO}",
+    "avant": [
+     "Uma informação gruda mais quando a pessoa precisa completar parte dela sozinha.",
+     "Não explique cada pensamento até não sobrar nada.",
+     "Deixe espaço suficiente pra elas ligarem a última peça."
+    ],
+    "apres": [
+     "Quando o cérebro delas termina o pensamento por você, {parte da memória vira delas.}",
+     "Por isso ela continua voltando."
+    ]
+   },
+   "es-419": {
+    "titre": "HAZ QUE SU CEREBRO {TERMINE ALGO}",
+    "avant": [
+     "La información se queda más cuando alguien tiene que completar una parte por sí mismo.",
+     "No expliques cada idea hasta que no quede nada.",
+     "Deja el espacio justo para que conecten la última pieza."
+    ],
+    "apres": [
+     "Cuando su cerebro termina la idea por ti, {una parte del recuerdo se vuelve suya.}",
+     "Por eso se sigue repitiendo."
+    ]
+   },
+   "pl": {
+    "titre": "NIECH ICH MÓZG {COŚ DOKOŃCZY}",
+    "avant": [
+     "Informacja zostaje mocniej, gdy ktoś musi sam uzupełnić jej część.",
+     "Nie tłumacz każdej myśli, aż nic nie zostanie.",
+     "Zostaw akurat tyle miejsca, żeby sami połączyli ostatni element."
+    ],
+    "apres": [
+     "Kiedy ich mózg dokończy myśl za ciebie, {część wspomnienia staje się ich własna.}",
+     "Dlatego ciągle do niej wracają."
+    ]
+   },
+   "cs": {
+    "titre": "NECH JEJICH MOZEK {NĚCO DOKONČIT}",
+    "avant": [
+     "Informace drží víc, když si část musí člověk doplnit sám.",
+     "Nevysvětluj každou myšlenku, dokud nic nezbude.",
+     "Nech přesně tolik prostoru, aby si poslední kousek spojili sami."
+    ],
+    "apres": [
+     "Když jejich mozek dokončí myšlenku za tebe, {část vzpomínky se stane jejich.}",
+     "Proto se jim pořád vrací."
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "en": {
+    "titre": "{GIVE THEM} SOMETHING NEW",
+    "avant": [
+     "People replay whoever {taught them something.}",
+     "A strange fact. A story they never heard. One small thing they did not know before talking to you."
+    ],
+    "apres": [
+     "I learn one short lesson a day on {Sophia,} so I always have one ready.",
+     "{New information gets replayed.}"
+    ]
+   },
+   "de": {
+    "titre": "{GIB IHNEN} ETWAS NEUES",
+    "avant": [
+     "Menschen denken immer wieder an den, der {ihnen etwas beigebracht hat.}",
+     "Ein seltsamer Fakt. Eine Geschichte, die sie nie gehört haben. Eine kleine Sache, die sie vor dem Gespräch mit dir nicht wussten."
+    ],
+    "apres": [
+     "Ich lerne jeden Tag eine kurze Lektion auf {Sophia,} also habe ich immer eine parat.",
+     "{Neues bleibt hängen.}"
+    ]
+   },
+   "it": {
+    "titre": "{DAGLI} QUALCOSA DI NUOVO",
+    "avant": [
+     "Le persone ripensano a chi {gli ha insegnato qualcosa.}",
+     "Un fatto strano. Una storia mai sentita. Una piccola cosa che non sapevano prima di parlare con te."
+    ],
+    "apres": [
+     "Imparo una breve lezione al giorno su {Sophia,} così ne ho sempre una pronta.",
+     "{Le cose nuove si ricordano.}"
+    ]
+   },
+   "fr": {
+    "titre": "{DONNE-LEUR} DU NOUVEAU",
+    "avant": [
+     "On repense toujours à celui qui {nous a appris quelque chose.}",
+     "Un fait étrange. Une histoire jamais entendue. Un petit truc qu'ils ne savaient pas avant de te parler."
+    ],
+    "apres": [
+     "J'apprends une courte leçon par jour sur {Sophia,} comme ça j'en ai toujours une sous la main.",
+     "{Ce qui est nouveau reste en tête.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "{DÊ A ELAS} ALGO NOVO",
+    "avant": [
+     "As pessoas lembram de quem {ensinou algo a elas.}",
+     "Um fato estranho. Uma história que nunca ouviram. Uma coisinha que não sabiam antes de falar com você."
+    ],
+    "apres": [
+     "Eu aprendo uma lição curta por dia no {Sophia,} então sempre tenho uma pronta.",
+     "{Informação nova é lembrada.}"
+    ]
+   },
+   "es-419": {
+    "titre": "{DALES} ALGO NUEVO",
+    "avant": [
+     "La gente vuelve a pensar en quien {le enseñó algo.}",
+     "Un dato raro. Una historia que nunca escucharon. Algo pequeño que no sabían antes de hablar contigo."
+    ],
+    "apres": [
+     "Aprendo una lección corta al día en {Sophia,} así que siempre tengo una lista.",
+     "{Lo nuevo se recuerda.}"
+    ]
+   },
+   "pl": {
+    "titre": "{DAJ IM} COŚ NOWEGO",
+    "avant": [
+     "Ludzie wracają myślami do tych, którzy {czegoś ich nauczyli.}",
+     "Dziwny fakt. Historia, której nigdy nie słyszeli. Jedna mała rzecz, której nie wiedzieli przed rozmową z tobą."
+    ],
+    "apres": [
+     "Codziennie przerabiam jedną krótką lekcję w {Sophia,} więc zawsze mam coś w zanadrzu.",
+     "{Nowe rzeczy się pamięta.}"
+    ]
+   },
+   "cs": {
+    "titre": "{DEJ JIM} NĚCO NOVÉHO",
+    "avant": [
+     "Lidé si přehrávají toho, kdo {je něco naučil.}",
+     "Zvláštní fakt. Příběh, který nikdy neslyšeli. Jedna malá věc, kterou nevěděli, než mluvili s tebou."
+    ],
+    "apres": [
+     "Každý den si projdu jednu krátkou lekci na {Sophia,} takže vždycky nějakou mám po ruce.",
+     "{Nové informace se přehrávají.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/mains-fils.jpg",
+   "en": {
+    "titre": "{END} BEFORE THE {ENERGY} DIES",
+    "avant": [
+     "People do not remember every minute equally.",
+     "They remember the strongest part and how the interaction felt near the end.",
+     "So dragging a good conversation until it goes flat can actually weaken the memory of the whole thing.",
+     "Leave while there is still something left.",
+     "{Do not stay long enough to become ordinary.}"
+    ]
+   },
+   "de": {
+    "titre": "{HÖR AUF,} BEVOR DIE {ENERGIE} STIRBT",
+    "avant": [
+     "Menschen erinnern sich nicht an jede Minute gleich.",
+     "Sie erinnern sich an den stärksten Moment und daran, wie sich das Ende angefühlt hat.",
+     "Ein gutes Gespräch zu ziehen, bis es flach wird, schwächt sogar die Erinnerung an alles.",
+     "Geh, solange noch etwas übrig ist.",
+     "{Bleib nicht so lange, bis du gewöhnlich wirst.}"
+    ]
+   },
+   "it": {
+    "titre": "{CHIUDI} PRIMA CHE {L'ENERGIA} SI SPENGA",
+    "avant": [
+     "Le persone non ricordano ogni minuto allo stesso modo.",
+     "Ricordano il momento più forte e come si sono sentite verso la fine.",
+     "Trascinare una bella conversazione fino a quando si spegne indebolisce il ricordo di tutto.",
+     "Vai via mentre c'è ancora qualcosa.",
+     "{Non restare abbastanza da diventare ordinario.}"
+    ]
+   },
+   "fr": {
+    "titre": "{PARS} AVANT QUE {L'ÉNERGIE} RETOMBE",
+    "avant": [
+     "On ne retient pas chaque minute pareil.",
+     "On retient le moment le plus fort et ce qu'on a ressenti à la fin.",
+     "Étirer une bonne conversation jusqu'à ce qu'elle s'essouffle peut affaiblir tout le souvenir.",
+     "Pars tant qu'il reste quelque chose.",
+     "{Ne reste pas assez longtemps pour devenir banal.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "{SAIA} ANTES QUE A {ENERGIA} MORRA",
+    "avant": [
+     "As pessoas não lembram de cada minuto do mesmo jeito.",
+     "Elas lembram do momento mais forte e de como a interação foi no final.",
+     "Então esticar uma boa conversa até ela ficar sem graça pode enfraquecer a memória de tudo.",
+     "Vá embora enquanto ainda sobra alguma coisa.",
+     "{Não fique tempo suficiente pra virar comum.}"
+    ]
+   },
+   "es-419": {
+    "titre": "{TERMINA} ANTES DE QUE LA {ENERGÍA} SE APAGUE",
+    "avant": [
+     "La gente no recuerda cada minuto igual.",
+     "Recuerda el momento más fuerte y cómo se sintió la interacción al final.",
+     "Así que alargar una buena conversación hasta que se apague puede debilitar el recuerdo de todo.",
+     "Vete mientras todavía quede algo.",
+     "{No te quedes tanto como para volverte común.}"
+    ]
+   },
+   "pl": {
+    "titre": "{KOŃCZ,} ZANIM {ENERGIA} SIĄDZIE",
+    "avant": [
+     "Ludzie nie pamiętają każdej minuty tak samo.",
+     "Pamiętają najmocniejszy moment i to, jak rozmowa wyglądała pod koniec.",
+     "Przeciąganie dobrej rozmowy, aż zrobi się płaska, może osłabić wspomnienie całości.",
+     "Wyjdź, póki jeszcze coś zostało.",
+     "{Nie zostawaj tak długo, aż staniesz się zwyczajny.}"
+    ]
+   },
+   "cs": {
+    "titre": "{SKONČI} DŘÍV, NEŽ {ENERGIE} ZMIZÍ",
+    "avant": [
+     "Lidé si nepamatují každou minutu stejně.",
+     "Pamatují si nejsilnější moment a to, jaký byl konec.",
+     "Natahovat dobrý rozhovor, dokud nezplaskne, může oslabit vzpomínku na celek.",
+     "Odejdi, dokud ještě něco zbývá.",
+     "{Nezůstávej tak dlouho, až budeš obyčejný.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/mains-yeux.jpg",
+   "en": {
+    "titre": "THIS IS WHY {THEY REPLAY YOU}",
+    "avant": [
+     "You broke expectation without becoming strange.",
+     "You made them complete part of the interaction themselves.",
+     "Then you {left} before the whole thing became predictable."
+    ],
+    "apres": [
+     "Now their brain has unfinished material with your face attached to it.",
+     "{That is what keeps you in their head.}"
+    ]
+   },
+   "de": {
+    "titre": "DESHALB {DENKEN SIE AN DICH}",
+    "avant": [
+     "Du hast Erwartungen gebrochen, ohne seltsam zu werden.",
+     "Du hast sie einen Teil der Begegnung selbst ergänzen lassen.",
+     "Dann bist du {gegangen,} bevor alles vorhersehbar wurde."
+    ],
+    "apres": [
+     "Jetzt hat ihr Gehirn unfertiges Material, an dem dein Gesicht hängt.",
+     "{Genau das hält dich in ihrem Kopf.}"
+    ]
+   },
+   "it": {
+    "titre": "ECCO PERCHÉ {RIPENSANO A TE}",
+    "avant": [
+     "Hai rotto le aspettative senza diventare strano.",
+     "Gli hai fatto completare da soli una parte dell'interazione.",
+     "Poi te ne {sei andato} prima che tutto diventasse prevedibile."
+    ],
+    "apres": [
+     "Ora il loro cervello ha materiale incompiuto con la tua faccia attaccata sopra.",
+     "{È questo che ti tiene nella loro testa.}"
+    ]
+   },
+   "fr": {
+    "titre": "VOILÀ POURQUOI {ILS Y REPENSENT}",
+    "avant": [
+     "Tu as cassé leurs attentes sans devenir bizarre.",
+     "Tu leur as fait compléter une partie de l'échange.",
+     "Puis tu es {parti} avant que tout devienne prévisible."
+    ],
+    "apres": [
+     "Leur cerveau a maintenant un truc inachevé avec ton visage dessus.",
+     "{C'est ça qui te garde dans leur tête.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "É POR ISSO QUE {ELAS LEMBRAM DE VOCÊ}",
+    "avant": [
+     "Você quebrou a expectativa sem ficar estranho.",
+     "Você fez elas completarem parte da interação sozinhas.",
+     "Depois você {saiu} antes de tudo ficar previsível."
+    ],
+    "apres": [
+     "Agora o cérebro delas tem um material inacabado com o seu rosto preso nele.",
+     "{É isso que te mantém na cabeça delas.}"
+    ]
+   },
+   "es-419": {
+    "titre": "POR ESO {TE SIGUEN RECORDANDO}",
+    "avant": [
+     "Rompiste la expectativa sin volverte raro.",
+     "Hiciste que completaran una parte de la interacción por sí mismos.",
+     "Luego te {fuiste} antes de que todo se volviera predecible."
+    ],
+    "apres": [
+     "Ahora su cerebro tiene material sin terminar con tu cara pegada.",
+     "{Eso es lo que te mantiene en su cabeza.}"
+    ]
+   },
+   "pl": {
+    "titre": "DLATEGO {WRACAJĄ DO CIEBIE MYŚLAMI}",
+    "avant": [
+     "Złamałeś oczekiwania, nie stając się dziwnym.",
+     "Sprawiłeś, że sami dokończyli część rozmowy.",
+     "Potem {wyszedłeś,} zanim wszystko stało się przewidywalne."
+    ],
+    "apres": [
+     "Teraz ich mózg ma niedokończony materiał z twoją twarzą.",
+     "{To właśnie trzyma cię w ich głowie.}"
+    ]
+   },
+   "cs": {
+    "titre": "PROTO {SI TĚ PŘEHRÁVAJÍ}",
+    "avant": [
+     "Porušil jsi očekávání, aniž bys byl divný.",
+     "Nechal jsi je dokončit část rozhovoru samotné.",
+     "Pak jsi {odešel} dřív, než se všechno stalo předvídatelným."
+    ],
+    "apres": [
+     "Teď má jejich mozek nedokončený materiál s tvým obličejem.",
+     "{To tě drží v jejich hlavě.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/double-visage.jpg",
+   "en": {
+    "titre": "THE PART THAT {ACTUALLY MATTERS}",
+    "avant": [
+     "Being memorable is not about demanding more attention.",
+     "It is about giving the brain a reason to return to you after the attention is gone.",
+     "Once you understand that, trying harder starts looking like the wrong move."
+    ],
+    "apres": [
+     "{Leave something worth replaying.}"
+    ]
+   },
+   "de": {
+    "titre": "DER TEIL, DER {WIRKLICH ZÄHLT}",
+    "avant": [
+     "Einprägsam sein heißt nicht, mehr Aufmerksamkeit zu verlangen.",
+     "Es heißt, dem Gehirn einen Grund zu geben, zu dir zurückzukehren, wenn die Aufmerksamkeit weg ist.",
+     "Sobald du das verstehst, sieht mehr Anstrengung plötzlich wie der falsche Move aus."
+    ],
+    "apres": [
+     "{Hinterlass etwas, an das man zurückdenkt.}"
+    ]
+   },
+   "it": {
+    "titre": "LA PARTE CHE {CONTA DAVVERO}",
+    "avant": [
+     "Essere memorabili non vuol dire pretendere più attenzione.",
+     "Vuol dire dare al cervello un motivo per tornare a te quando l'attenzione se n'è andata.",
+     "Quando lo capisci, sforzarti di più inizia a sembrare la mossa sbagliata."
+    ],
+    "apres": [
+     "{Lascia qualcosa che valga la pena ripensare.}"
+    ]
+   },
+   "fr": {
+    "titre": "LA PARTIE QUI {COMPTE VRAIMENT}",
+    "avant": [
+     "Être marquant, ce n'est pas réclamer plus d'attention.",
+     "C'est donner au cerveau une raison de revenir vers toi une fois l'attention partie.",
+     "Quand tu comprends ça, forcer davantage commence à ressembler au mauvais move."
+    ],
+    "apres": [
+     "{Laisse quelque chose qui vaut la peine d'être rejoué.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "A PARTE QUE {REALMENTE IMPORTA}",
+    "avant": [
+     "Ser memorável não é exigir mais atenção.",
+     "É dar ao cérebro um motivo pra voltar a você depois que a atenção passou.",
+     "Quando você entende isso, se esforçar mais começa a parecer o movimento errado."
+    ],
+    "apres": [
+     "{Deixe algo que valha a pena relembrar.}"
+    ]
+   },
+   "es-419": {
+    "titre": "LA PARTE QUE {DE VERDAD IMPORTA}",
+    "avant": [
+     "Ser memorable no es exigir más atención.",
+     "Es darle al cerebro una razón para volver a ti cuando la atención ya se fue.",
+     "Cuando entiendes eso, esforzarte más empieza a parecer la jugada equivocada."
+    ],
+    "apres": [
+     "{Deja algo que valga la pena recordar.}"
+    ]
+   },
+   "pl": {
+    "titre": "CZĘŚĆ, KTÓRA {NAPRAWDĘ SIĘ LICZY}",
+    "avant": [
+     "Bycie zapamiętywanym to nie domaganie się większej uwagi.",
+     "To danie mózgowi powodu, żeby wracał do ciebie, gdy uwaga już minie.",
+     "Kiedy to zrozumiesz, większe staranie zacznie wyglądać na zły ruch."
+    ],
+    "apres": [
+     "{Zostaw coś, do czego warto wracać.}"
+    ]
+   },
+   "cs": {
+    "titre": "ČÁST, NA KTERÉ {OPRAVDU ZÁLEŽÍ}",
+    "avant": [
+     "Být zapamatovatelný neznamená vyžadovat víc pozornosti.",
+     "Znamená to dát mozku důvod se k tobě vrátit, když pozornost zmizí.",
+     "Jakmile to pochopíš, větší snaha začne vypadat jako špatný tah."
+    ],
+    "apres": [
+     "{Zanech něco, co stojí za to si přehrát.}"
+    ]
+   }
+  }
+ ]
+}

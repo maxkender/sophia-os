@@ -64,6 +64,12 @@ Les podz :
 | 28 · Originaux @charl.focus (Sophia) | `charl` | `session_017c8FRYkYyk43fsbULXx8pZ` | charl (Sophia seule, images finies, en espagnol d'Espagne ; les guides « cómo arreglar tu DOPAMINA » de @charl.focus, slides noires carrées en Montserrat, couverture en six images, un point par slide avec des faits vérifiés ; Sophia à la place de sa slide d'appli, avec son logo, jamais une capture ; lancé par Adrien le 24/11, pilote ch-001) |
 | 29 · Originaux @mariadianatudor (Artura) | `mariadiana_art` | `session_017c8FRWawV7aKkbeobkb5YZ` | mariadiana_art (Artura seule, images finies, en anglais ; « Paintings That Devour My Soul » de @mariadianatudor, couverture sombre au musée, un tableau du domaine public par slide (Met), titre, paragraphe, artiste ; Artura citée dans le paragraphe d'une œuvre, son logo dessous, jamais une capture ; lancé par Adrien le 25/11, pilote md-001 ; Artura encore inactive) |
 | 30 · Originaux @highlevelgame_ (Artura) | `highlevel_art` | `session_017c8FRWWvtFm3JqMeCH4kDF` | highlevel_art (Artura seule, images finies, en anglais, genre homme ; les conseils de séduction pour hommes de @highlevelgame_ en cartes de texte, papier et serif bordeaux, « HOW TO … » en capitales ; une carte « Know how to talk about art. » avec un vrai tableau du domaine public et le logo d'Artura, jamais une capture ; lancé par Adrien le 25/11, pilote hl-001 ; Artura encore inactive) |
+| 31 · Remakes @ssazem (Sophia) | `ssazem` | `session_017c8FRZWLjth4S1q3g3yTLM` | ssazem (Sophia seule, images finies, en anglais, genre homme, SANS IA ; ses citations de réconfort « #fyp #venting » en cinq slides carrées, sa photo en carte arrondie, Times en minuscules en deux blocs ; ses propres photos sans célébrité, son texte effacé par copie de texture ; Sophia dans une des cinq phrases avec son logo, jamais une capture ; lancé par Adrien le 27/11, pilote sz-001) |
+| 32 · Remakes @msclzz (Sophia) | `msclzz` | `session_017c8FRW9z3axX8zu7riuwpU` | msclzz (Sophia seule, images finies, en anglais, SANS IA ; ses guides de psychologie sociale « How To Make People Remember You » sur fond noir, titres en capitales aux mots en violet, une image noir et blanc par slide ; ses propres images sans célébrité, découpées sur son fond noir ; jamais sa slide de vente ni la manipulation ; Sophia en étape du milieu avec son logo, jamais une capture ; lancé par Adrien le 27/11, pilote mc-001) |
+| 33 · Originaux @scilla2047 (Artura) | `scilla_art` | `session_017c8FRVPCWVZpuj2dfg1ULS` | scilla_art (Artura seule, images finies, en anglais, SANS IA ; le format de @scilla2047, carrés blancs, TikTok Sans centré, un titre noir, un paragraphe en couleur et une œuvre dessous, sur l'angle « réapprendre à regarder, apprécier l'art » ; de vrais tableaux du domaine public (Met) ; Artura en point du milieu avec son logo, jamais une capture ; jamais une promesse de soin ; lancé par Adrien le 27/11, pilote sc-001 ; Artura encore inactive) |
+| 34 · Icebergs @dorian.frog (Artura) | `dorian_art` | `session_017c8FRVPtvkS3eJFX2s5aCK` | dorian_art (Artura seule, images finies, en anglais, SANS IA ; seulement les icebergs de loisirs de @dorian.frog, « Iceberg of ADHD hobbies » / « Autistic hobbies », 2 slides : sa couverture à l'ovale, puis un iceberg dessiné par code, chaque loisir en objet du Met détouré ; un loisir Artura avec son logo, jamais une capture ; ses autres formats restent au podz 16 ; lancé par Adrien le 27/11, pilote da-001 ; Artura encore inactive) |
+| 35 · Originaux adhd (Artura) | `adhd` | `session_017c8FRVr919jNwgLkFrpp4B` | adhd (label d'import, Artura seule, 17 langues ; originaux EN TEXTE en anglais sur la banque du label, aux formats de @fraserparkinson0 : listes relatables, Fake vs Real, hacks ; aucune slide d'appli, l'OS traduit et place Artura ; voie 1, BLEO ; lancé par Adrien le 27/11, réserve du label à 0,9 jour, pilote ad-001 ; Artura encore inactive) |
+| 36 · Originaux art_histoire (Artura) | `arthistoire` | `session_017c8FRYDukdZwJaJyqFR2bh` | art_histoire (label d'import `art-histoire`, Artura seule, 24 langues ; originaux EN TEXTE en français aux formats de @glacis1 : un tableau, une histoire, un détail par slide, sur des tableaux du domaine public du Met recadrés et ajoutés à la banque, 40 images par jour au plus ; aucune slide d'appli, l'OS traduit et place Artura ; voie 1, BLEO ; lancé par Adrien le 27/11, réserve du label à 0 jour, pilote ah-001 « Madame X » ; Artura encore inactive) |
 
 ## Règles absolues
 
@@ -87,9 +93,23 @@ Les podz :
   identifiant de modèle** dans les commits, PR ou messages.
 - **Tout message que tu postes commence par `🤖`**, en français, court.
 
+## Les paliers des labels 100 % podz (0874, depuis le 27/11)
+
+Un label 100 % podz lancé depuis le 27/11 n'a plus de test (4 comptes, 30
+posts) : il monte par **paliers**. Palier 1 = 7 langues × 1 compte, palier 2
+= 14 × 1, palier 3 = 14 × 2 (le dernier automatique). Une semaine à r > 0,9
+fait monter (tâche horaire `podz-paliers`), et les langues du palier
+s'ouvrent toutes seules ; ses places passent avant tout à la création d'un
+compte. Les anciens labels gardent le test tant qu'Adrien ou Max ne les
+basculent pas (carte « Labels 100 % podz », page Allocation). Pour voir où en
+est chacun : `select * from podz_paliers_etat();`. Un podz dont une langue de
+palier reste « à préparer » plus d'un jour : signale-le au point du matin. Un
+nouveau podz en images finies entre au palier 1 dès sa création, 7 langues
+ouvertes d'office (0875, `pods/LANCEMENT.md`).
+
 ## BLEO, voie 1 (depuis le 1/11) et voie 2 (depuis le 5/11)
 
-Les podz de la voie 1 (2, 4, 5, 7, 8, 9, 12 et 14) passent sur BLEO quand
+Les podz de la voie 1 (2, 4, 5, 7, 8, 9, 12, 14, 35 et 36) passent sur BLEO quand
 `select valeur->'podz'->>'type_obligatoire' from reglages where cle = 'bleo';`
 vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont les premières sur BLEO). Dès lors, pour eux :
 
@@ -98,9 +118,9 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   la jauge le demande (`pods/ROUTINE.md` §4). Les règles 5 (le rythme ne
   baisse jamais) et 6 ci-dessous ne valent plus pour eux : leur rythme suit
   la jauge (plus bas).
-- **La voie 2** (podz 1, 10, 11, 13, 15 à 30 ; le 6, relancé le 15/11, y
-  revient à son premier remake validé ; 16 à 22 et 24 à 30 sont des originaux
-  en images finies, 23 des remakes en images finies) a aussi sa boîte et
+- **La voie 2** (podz 1, 10, 11, 13, 15 à 34 ; le 6, relancé le 15/11, y
+  revient à son premier remake validé ; 16 à 22, 24 à 30, 33 et 34 sont des originaux
+  en images finies, 23, 31 et 32 des remakes en images finies) a aussi sa boîte et
   sa jauge depuis le 5/11 (0653) : ses podz refont les posts neufs de leur
   compte modèle, déclinent leur boîte dans l'ordre et déposent les full tests
   de la jauge (`pods/ROUTINE.md` §5). Une déclinaison ou un full test déclaré

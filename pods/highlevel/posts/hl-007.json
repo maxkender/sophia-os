@@ -11,7 +11,7 @@
     "titre": "M83 Solitude",
     "url": "https://www.tiktok.com/music/M83-Solitude-7116098620134394625"
   },
-  "notes": "Preuve de format : « HOW TO TEXT LIKE A MAN NOT A BOY. » (3,8 M), gabarit « Instead of: / Say: ». Accroche neuve « TEXTS THAT MAKE HER SMILE. ». Carte Artura (4) : « Send her something beautiful. », Seurat, Circus Sideshow (The Met 437654), LOGO d'Artura ; cta A. Fait vérifié : une scène de nuit peinte en petits points de couleur (pointillisme, fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es (pas de sr : aucun compte).",
+  "notes": "Preuve de format : « HOW TO TEXT LIKE A MAN NOT A BOY. » (3,8 M), gabarit « Instead of: / Say: ». Accroche neuve « TEXTS THAT MAKE HER SMILE. ». Carte Artura (4) : « Send her something beautiful. », Seurat, Circus Sideshow (The Met 437654), LOGO d'Artura ; cta A. Fait vérifié : une scène de nuit peinte en petits points de couleur (pointillisme, fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es + sr (latin) le 27/11.",
   "oeuvres": {
     "images/oeuvres/seurat-parade.jpg": {
       "musee": "The Met",
@@ -29,7 +29,8 @@
     "it": "Messaggi che la fanno sorridere.",
     "hu": "Üzenetek, amiktől mosolyogni fog.",
     "pt-BR": "Mensagens que fazem ela sorrir.",
-    "es": "Mensajes que la hacen sonreír."
+    "es": "Mensajes que la hacen sonreír.",
+    "sr": "Poruke zbog kojih će se nasmejati."
   },
   "legendes": {
     "en": "#textingadvice #datingtips #tipsformen ",
@@ -38,7 +39,8 @@
     "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
     "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
     "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
-    "es": "#consejosdecitas #consejosparahombres #ligar "
+    "es": "#consejosdecitas #consejosparahombres #ligar ",
+    "sr": "#savetizamuškarce #veze #zavođenje "
   },
   "slides": [
     {
@@ -63,6 +65,9 @@
       },
       "es": {
         "titre": "MENSAJES QUE\nLA HACEN SONREÍR."
+      },
+      "sr": {
+        "titre": "PORUKE ZBOG\nKOJIH ĆE SE\nNASMEJATI."
       }
     },
     {
@@ -115,6 +120,13 @@
           "**En vez de:**\n“bd”",
           "**Dile:**\n“Buenos días. Hoy vas a arrasar.”"
         ]
+      },
+      "sr": {
+        "titre": "Dobro jutro.",
+        "paragraphes": [
+          "**Umesto:**\n„jt”",
+          "**Napiši:**\n„Dobro jutro. Danas ćeš ih sve oduvati.”"
+        ]
       }
     },
     {
@@ -166,6 +178,13 @@
         "paragraphes": [
           "**En vez de:**\n“suerte”",
           "**Dile:**\n“Te has preparado para esto. Llámame después, quiero detalles.”"
+        ]
+      },
+      "sr": {
+        "titre": "Kad ima važan dan.",
+        "paragraphes": [
+          "**Umesto:**\n„srećno”",
+          "**Napiši:**\n„Spremila si se za ovo. Pozovi me posle, hoću detalje.”"
         ]
       }
     },
@@ -241,6 +260,16 @@
         "apres": [
           "Aprendo un cuadro al día en Artura, así que siempre tengo una historia lista."
         ]
+      },
+      "sr": {
+        "titre": "Pošalji joj nešto lepo.",
+        "avant": [
+          "**Umesto:** „haha”",
+          "**Napiši:** „Sera je naslikao ovo veče sitnim tačkicama boje. Setio sam se tebe.”"
+        ],
+        "apres": [
+          "Učim jednu sliku dnevno u aplikaciji Artura, pa uvek imam spremnu priču."
+        ]
       }
     },
     {
@@ -292,6 +321,13 @@
         "paragraphes": [
           "**En vez de:**\n“qué mal”",
           "**Dile:**\n“¿Quieres desahogarte o distraerte? Soy bueno en las dos.”"
+        ]
+      },
+      "sr": {
+        "titre": "Kad je imala loš dan.",
+        "paragraphes": [
+          "**Umesto:**\n„baš bez veze”",
+          "**Napiši:**\n„Hoćeš da se izduvaš ili da te razonodim? Dobar sam u oba.”"
         ]
       }
     },
@@ -345,6 +381,13 @@
           "**En vez de:**\n“bn”",
           "**Dile:**\n“Buenas noches. ¿Mañana a la misma hora?”"
         ]
+      },
+      "sr": {
+        "titre": "Pre spavanja.",
+        "paragraphes": [
+          "**Umesto:**\n„lp”",
+          "**Napiši:**\n„Laku noć. Sutra u isto vreme?”"
+        ]
       }
     },
     {
@@ -397,6 +440,13 @@
           "Corto está bien. Vago, no.",
           "**Un niño manda palabras.**\n**Un hombre manda emociones.**"
         ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Kratko je u redu. Lenjo nije.",
+          "**Dečak šalje reči.**\n**Muškarac šalje osećaj.**"
+        ]
       }
     },
     {
@@ -434,6 +484,11 @@
         "gras": "Sígueme",
         "milieu": " para no perderte",
         "suite": "lo que viene."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
       }
     }
   ]

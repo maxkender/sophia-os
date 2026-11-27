@@ -1,0 +1,676 @@
+{
+ "id": "da-004",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698126851037875477",
+  "vues": 2100000,
+  "publie_le": "2026-10-18",
+  "accroche": "Iceberg of Autistic hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of Autistic hobbies (part 2)",
+  "es-419": "Iceberg de hobbies autistas (parte 2)",
+  "tr": "Otistik hobiler buzdağı (2. bölüm)",
+  "hu": "Autista hobbik jéghegye (2. rész)",
+  "ro": "Icebergul hobby-urilor autiste (partea a 2-a)",
+  "cs": "Ledovec autistických koníčků (2. část)",
+  "sr": "Santa leda autističnih hobija (2. deo)",
+  "el": "Το παγόβουνο των αυτιστικών χόμπι (μέρος 2)"
+ },
+ "legendes": {
+  "en": "#autismtok #iceberg #hobbies #lockedin #selfimprovement",
+  "es-419": "#autismo #hobbies #iceberg #superacionpersonal #lockedin",
+  "tr": "#otizm #hobiler #buzdağı #kişiselgelişim #lockedin",
+  "hu": "#autizmus #hobbik #jéghegy #önfejlesztés #lockedin",
+  "ro": "#autism #hobby #iceberg #dezvoltarepersonala #lockedin",
+  "cs": "#autismus #konicky #ledovec #seberozvoj #lockedin",
+  "sr": "#autizam #hobi #santaleda #samorazvoj #lockedin",
+  "el": "#αυτισμός #χόμπι #παγόβουνο #αυτοβελτίωση #lockedin"
+ },
+ "musique": {
+  "titre": "оригинальный звук",
+  "url": "https://www.tiktok.com/music/original-sound-7695439871377722133"
+ },
+ "oeuvres": {
+  "images/objets/mandoline.png": {
+   "musee": "The Met",
+   "id": "506858",
+   "titre": "A-4 Mandolin (serial no. 39051)",
+   "artiste": "Gibson Mandolin-Guitar Manufacturing Co., Ltd.",
+   "date": "1917",
+   "url": "https://www.metmuseum.org/art/collection/search/506858"
+  },
+  "images/objets/oiseau-paradis.png": {
+   "musee": "The Met",
+   "id": "206504",
+   "titre": "Bird of paradise (quetzal) (one of a pair)",
+   "artiste": "Meissen Manufactory",
+   "date": "1733",
+   "url": "https://www.metmuseum.org/art/collection/search/206504"
+  },
+  "images/objets/tasse.png": {
+   "musee": "The Met",
+   "id": "211487",
+   "titre": "Teacup and saucer",
+   "artiste": "Barr, Flight and Barr",
+   "date": "ca. 1807–10",
+   "url": "https://www.metmuseum.org/art/collection/search/211487"
+  },
+  "images/objets/eventail.png": {
+   "musee": "The Met",
+   "id": "209504",
+   "titre": "Folding fan",
+   "artiste": "",
+   "date": "ca. 1774–93",
+   "url": "https://www.metmuseum.org/art/collection/search/209504"
+  },
+  "images/objets/globe-terrestre.png": {
+   "musee": "The Met",
+   "id": "8487",
+   "titre": "Terrestrial Globe",
+   "artiste": "James Wilson",
+   "date": "1828",
+   "url": "https://www.metmuseum.org/art/collection/search/8487"
+  },
+  "images/objets/accordeon.png": {
+   "musee": "The Met",
+   "id": "503731",
+   "titre": "Accordion",
+   "artiste": "",
+   "date": "ca. 1890",
+   "url": "https://www.metmuseum.org/art/collection/search/503731"
+  },
+  "images/objets/bateau-terre.png": {
+   "musee": "The Met",
+   "id": "241307",
+   "titre": "Terracotta model of a ship",
+   "artiste": "",
+   "date": "ca. 600–480 BCE",
+   "url": "https://www.metmuseum.org/art/collection/search/241307"
+  },
+  "images/objets/tabatiere.png": {
+   "musee": "The Met",
+   "id": "41546",
+   "titre": "Snuff Bottle",
+   "artiste": "",
+   "date": "",
+   "url": "https://www.metmuseum.org/art/collection/search/41546"
+  },
+  "images/objets/chat-egyptien.png": {
+   "musee": "The Met",
+   "id": "552880",
+   "titre": "Statuette of a cat",
+   "artiste": "",
+   "date": "664–332 BCE",
+   "url": "https://www.metmuseum.org/art/collection/search/552880"
+  },
+  "images/objets/cage-oiseau.png": {
+   "musee": "The Met",
+   "id": "41997",
+   "titre": "Bird cage with hook",
+   "artiste": "",
+   "date": "",
+   "url": "https://www.metmuseum.org/art/collection/search/41997"
+  },
+  "images/objets/horloge-astronomique.png": {
+   "musee": "The Met",
+   "id": "209211",
+   "titre": "Astronomical table clock",
+   "artiste": "Jeremias Metzger",
+   "date": "1568",
+   "url": "https://www.metmuseum.org/art/collection/search/209211"
+  }
+ },
+ "notes": "Deuxième original sur son « Iceberg of Autistic hobbies » (2,1 M vues), en « *part 2 » comme sa « *requested update » : sa couverture avec la note, puis l'iceberg en 5 étages (4, 4, 2, 1, 1), « disagreed? ». Sans IA, aucun objet de da-001 à da-003 : mandoline (1917), oiseaux de paradis en porcelaine de Meissen (1733), tasse et soucoupe (vers 1807-10), éventail (vers 1774-93), globe terrestre (1828), accordéon (vers 1890), bateau en terre cuite (VIIe-VIe s. av. J.-C.), tabatière chinoise, chat égyptien (664-332 av. J.-C.), cage à oiseaux en ivoire, horloge de table astronomique (1568). Loisir Artura au 3e étage (2 loisirs) : « art history on artura », le logo ; cta A. En 8 langues (demande du chef des podz du 27/11).",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "Autistic hobbies",
+    "note": "*part 2"
+   },
+   "es-419": {
+    "haut": "Iceberg de",
+    "bas": "hobbies autistas",
+    "note": "*parte 2"
+   },
+   "tr": {
+    "haut": "Buzdağı:",
+    "bas": "Otistik hobiler",
+    "note": "*2. bölüm"
+   },
+   "hu": {
+    "haut": "Jéghegy:",
+    "bas": "Autista hobbik",
+    "note": "*2. rész"
+   },
+   "ro": {
+    "haut": "Icebergul",
+    "bas": "hobby-urilor autiste",
+    "note": "*partea a 2-a"
+   },
+   "cs": {
+    "haut": "Ledovec",
+    "bas": "autistických koníčků",
+    "note": "*2. část"
+   },
+   "sr": {
+    "haut": "Santa leda",
+    "bas": "autističnih hobija",
+    "note": "*2. deo"
+   },
+   "el": {
+    "haut": "Παγόβουνο:",
+    "bas": "αυτιστικά χόμπι",
+    "note": "*μέρος 2"
+   }
+  },
+  {
+   "type": "iceberg",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "mandolin",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "birdwatching",
+       "image": "images/objets/oiseau-paradis.png"
+      },
+      {
+       "t": "teacup collecting",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "antique fans",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "geography",
+       "image": "images/objets/globe-terrestre.png"
+      },
+      {
+       "t": "accordion",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "ancient ships",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "snuff bottles",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "art history on artura",
+       "image": "artura"
+      },
+      {
+       "t": "egyptian cats",
+       "image": "images/objets/chat-egyptien.png"
+      }
+     ],
+     [
+      {
+       "t": "keeping canaries",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomical clocks",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "es-419": {
+    "etages": [
+     [
+      {
+       "t": "mandolina",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "observar aves",
+       "image": "images/objets/oiseau-paradis.png"
+      },
+      {
+       "t": "coleccionar tazas",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "abanicos antiguos",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "geografía",
+       "image": "images/objets/globe-terrestre.png"
+      },
+      {
+       "t": "acordeón",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "barcos antiguos",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "frascos de rapé",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "historia del arte en artura",
+       "image": "artura"
+      },
+      {
+       "t": "gatos egipcios",
+       "image": "images/objets/chat-egyptien.png"
+      }
+     ],
+     [
+      {
+       "t": "criar canarios",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "relojes astronómicos",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "¿en desacuerdo?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "mandolin",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "kuş gözlemi",
+       "image": "images/objets/oiseau-paradis.png"
+      },
+      {
+       "t": "fincan koleksiyonu",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "antika yelpazeler",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "coğrafya",
+       "image": "images/objets/globe-terrestre.png"
+      },
+      {
+       "t": "akordeon",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "antik gemiler",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "enfiye şişeleri",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "artura'da sanat tarihi",
+       "image": "artura"
+      },
+      {
+       "t": "mısır kedileri",
+       "image": "images/objets/chat-egyptien.png"
+      }
+     ],
+     [
+      {
+       "t": "kanarya beslemek",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomik saatler",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "hu": {
+    "etages": [
+     [
+      {
+       "t": "mandolin",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "madarászás",
+       "image": "images/objets/oiseau-paradis.png"
+      },
+      {
+       "t": "régi csészék",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "régi legyezők",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "földrajz",
+       "image": "images/objets/globe-terrestre.png"
+      },
+      {
+       "t": "harmonika",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "ókori hajók",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "tubákos üvegek",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "művészet (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "egyiptomi macskák",
+       "image": "images/objets/chat-egyptien.png"
+      }
+     ],
+     [
+      {
+       "t": "kanárinevelés",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "csillagászati órák",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "nem értesz egyet?"
+   },
+   "ro": {
+    "etages": [
+     [
+      {
+       "t": "mandolină",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "observat păsări",
+       "image": "images/objets/oiseau-paradis.png"
+      },
+      {
+       "t": "colecționat cești",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "evantaie vechi",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "geografie",
+       "image": "images/objets/globe-terrestre.png"
+      },
+      {
+       "t": "acordeon",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "corăbii antice",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "sticle de tabac",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "istoria artei pe artura",
+       "image": "artura"
+      },
+      {
+       "t": "pisici egiptene",
+       "image": "images/objets/chat-egyptien.png"
+      }
+     ],
+     [
+      {
+       "t": "crescut canari",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "ceasuri astronomice",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "nu ești de acord?"
+   },
+   "cs": {
+    "etages": [
+     [
+      {
+       "t": "mandolína",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "pozorování ptáků",
+       "image": "images/objets/oiseau-paradis.png"
+      },
+      {
+       "t": "sbírání šálků",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "staré vějíře",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "zeměpis",
+       "image": "images/objets/globe-terrestre.png"
+      },
+      {
+       "t": "akordeon",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "starověké lodě",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "tabatěrky",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "dějiny umění (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "egyptské kočky",
+       "image": "images/objets/chat-egyptien.png"
+      }
+     ],
+     [
+      {
+       "t": "chov kanárů",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomické hodiny",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "nesouhlasíš?"
+   },
+   "sr": {
+    "etages": [
+     [
+      {
+       "t": "mandolina",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "posmatranje ptica",
+       "image": "images/objets/oiseau-paradis.png"
+      },
+      {
+       "t": "skupljanje šoljica",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "stare lepeze",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "geografija",
+       "image": "images/objets/globe-terrestre.png"
+      },
+      {
+       "t": "harmonika",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "antički brodovi",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "burmutice",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "umetnost (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "egipatske mačke",
+       "image": "images/objets/chat-egyptien.png"
+      }
+     ],
+     [
+      {
+       "t": "gajenje kanarinaca",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomski satovi",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "ne slažeš se?"
+   },
+   "el": {
+    "etages": [
+     [
+      {
+       "t": "μαντολίνο",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "παρατήρηση πουλιών",
+       "image": "images/objets/oiseau-paradis.png"
+      },
+      {
+       "t": "συλλογή φλιτζανιών",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "παλιές βεντάλιες",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "γεωγραφία",
+       "image": "images/objets/globe-terrestre.png"
+      },
+      {
+       "t": "ακορντεόν",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "αρχαία πλοία",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "ταμπακιέρες",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "τέχνη στο artura",
+       "image": "artura"
+      },
+      {
+       "t": "αιγυπτιακές γάτες",
+       "image": "images/objets/chat-egyptien.png"
+      }
+     ],
+     [
+      {
+       "t": "καναρίνια",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "αστρονομικά ρολόγια",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "διαφωνείς;"
+   }
+  }
+ ]
+}

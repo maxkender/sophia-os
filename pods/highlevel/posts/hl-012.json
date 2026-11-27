@@ -1,0 +1,503 @@
+{
+  "id": "hl-012",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7687701353061387522",
+    "vues": 3800000,
+    "publie_le": "2026-09-20",
+    "accroche": "HOW TO TEXT LIKE A MAN NOT A BOY."
+  },
+  "musique": {
+    "titre": "M83 Solitude",
+    "url": "https://www.tiktok.com/music/M83-Solitude-7116098620134394625"
+  },
+  "notes": "Preuve de format : « HOW TO TEXT LIKE A MAN NOT A BOY. » (3,8 M), gabarit « Instead of: / Say: ». Accroche neuve « WHAT TO TEXT HER AFTER THE FIRST DATE. », dont un refus honnête et respectueux. Carte Artura (4) : « Plan the next date with art. », Manet, Boating (The Met 436947), LOGO d'Artura ; cta B. Fait vérifié : peint à Argenteuil à l'été 1874 (fiche du Met). Full test (accroche jamais faite chez nous), routine du 27/11. En en, el, es-419, it, hu, sr (latin), pt-BR, es.",
+  "oeuvres": {
+    "images/oeuvres/manet-canotage.jpg": {
+      "musee": "The Met",
+      "id": "436947",
+      "titre": "Boating",
+      "artiste": "Edouard Manet",
+      "date": "1874",
+      "url": "https://www.metmuseum.org/art/collection/search/436947"
+    }
+  },
+  "titre": {
+    "en": "What to text her after the first date.",
+    "el": "Τι να της γράψεις μετά το πρώτο ραντεβού.",
+    "es-419": "Qué escribirle después de la primera cita.",
+    "it": "Cosa scriverle dopo il primo appuntamento.",
+    "hu": "Mit írj neki az első randi után.",
+    "sr": "Šta da joj pišeš posle prvog sastanka.",
+    "pt-BR": "O que mandar para ela depois do primeiro encontro.",
+    "es": "Qué escribirle después de la primera cita."
+  },
+  "legendes": {
+    "en": "#textingadvice #firstdate #tipsformen ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "sr": "#savetizamuškarce #veze #zavođenje ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "en": {
+        "titre": "WHAT TO TEXT HER\nAFTER THE\nFIRST DATE."
+      },
+      "el": {
+        "titre": "ΤΙ ΝΑ ΤΗΣ ΓΡΑΨΕΙΣ\nΜΕΤΑ ΤΟ ΠΡΩΤΟ\nΡΑΝΤΕΒΟΥ."
+      },
+      "es-419": {
+        "titre": "QUÉ ESCRIBIRLE\nDESPUÉS DE\nLA PRIMERA CITA."
+      },
+      "it": {
+        "titre": "COSA SCRIVERLE\nDOPO IL PRIMO\nAPPUNTAMENTO."
+      },
+      "hu": {
+        "titre": "MIT ÍRJ NEKI\nAZ ELSŐ\nRANDI UTÁN."
+      },
+      "sr": {
+        "titre": "ŠTA DA JOJ PIŠEŠ\nPOSLE PRVOG\nSASTANKA."
+      },
+      "pt-BR": {
+        "titre": "O QUE MANDAR\nPARA ELA DEPOIS\nDO PRIMEIRO\nENCONTRO."
+      },
+      "es": {
+        "titre": "QUÉ ESCRIBIRLE\nDESPUÉS DE\nLA PRIMERA CITA."
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The same night.",
+        "paragraphes": [
+          "**Instead of:**\n“So… did you like me?”",
+          "**Say:**\n“Home safe? Tonight was fun.”"
+        ]
+      },
+      "el": {
+        "titre": "Το ίδιο βράδυ.",
+        "paragraphes": [
+          "**Αντί για:**\n«Λοιπόν… σου άρεσα;»",
+          "**Πες:**\n«Έφτασες σπίτι; Απόψε ήταν ωραία.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Esa misma noche.",
+        "paragraphes": [
+          "**En vez de:**\n“Entonces… ¿te gusté?”",
+          "**Dile:**\n“¿Llegaste bien? Hoy fue divertido.”"
+        ]
+      },
+      "it": {
+        "titre": "La sera stessa.",
+        "paragraphes": [
+          "**Invece di:**\n“Allora… ti sono piaciuto?”",
+          "**Scrivi:**\n“Arrivata a casa? Stasera è stato bello.”"
+        ]
+      },
+      "hu": {
+        "titre": "Még aznap este.",
+        "paragraphes": [
+          "**Ne ezt:**\n„Szóval… tetszettem?”",
+          "**Hanem ezt:**\n„Hazaértél? Jó volt ma este.”"
+        ]
+      },
+      "sr": {
+        "titre": "Iste večeri.",
+        "paragraphes": [
+          "**Umesto:**\n„Pa… jesam li ti se svideo?”",
+          "**Napiši:**\n„Stigla si kući? Večeras je bilo zabavno.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Na mesma noite.",
+        "paragraphes": [
+          "**Em vez de:**\n“Então… gostou de mim?”",
+          "**Mande:**\n“Chegou bem? Hoje foi divertido.”"
+        ]
+      },
+      "es": {
+        "titre": "Esa misma noche.",
+        "paragraphes": [
+          "**En vez de:**\n“Entonces… ¿te gusté?”",
+          "**Dile:**\n“¿Has llegado bien? Hoy ha sido divertido.”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The next day.",
+        "paragraphes": [
+          "**Instead of:**\n“I can't stop thinking about you.”",
+          "**Say:**\n“Still can't believe you've\nnever had a churro.”"
+        ]
+      },
+      "el": {
+        "titre": "Την επόμενη μέρα.",
+        "paragraphes": [
+          "**Αντί για:**\n«Δεν μπορώ να σε βγάλω από το μυαλό μου.»",
+          "**Πες:**\n«Ακόμα δεν πιστεύω ότι δεν έχεις φάει ποτέ λουκουμάδες.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Al día siguiente.",
+        "paragraphes": [
+          "**En vez de:**\n“No dejo de pensar en ti.”",
+          "**Dile:**\n“Sigo sin creer que nunca hayas probado un churro.”"
+        ]
+      },
+      "it": {
+        "titre": "Il giorno dopo.",
+        "paragraphes": [
+          "**Invece di:**\n“Non riesco a smettere di pensarti.”",
+          "**Scrivi:**\n“Ancora non ci credo che non hai mai assaggiato un cannolo.”"
+        ]
+      },
+      "hu": {
+        "titre": "Másnap.",
+        "paragraphes": [
+          "**Ne ezt:**\n„Nem tudok nem rád gondolni.”",
+          "**Hanem ezt:**\n„Még mindig nem hiszem el, hogy sosem ettél kürtőskalácsot.”"
+        ]
+      },
+      "sr": {
+        "titre": "Sutradan.",
+        "paragraphes": [
+          "**Umesto:**\n„Ne mogu da prestanem da mislim na tebe.”",
+          "**Napiši:**\n„I dalje ne verujem da nikad nisi probala baklavu.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "No dia seguinte.",
+        "paragraphes": [
+          "**Em vez de:**\n“Não paro de pensar em você.”",
+          "**Mande:**\n“Ainda não acredito que você nunca comeu churros.”"
+        ]
+      },
+      "es": {
+        "titre": "Al día siguiente.",
+        "paragraphes": [
+          "**En vez de:**\n“No dejo de pensar en ti.”",
+          "**Dile:**\n“Sigo sin creer que nunca hayas probado un churro.”"
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/manet-canotage.jpg",
+      "en": {
+        "titre": "Plan the next date with art.",
+        "avant": [
+          "**Instead of:** “hang out again?”",
+          "**Say:** “Manet painted this boat ride\nin 1874. Want to go see it?”"
+        ],
+        "apres": [
+          "Artura gives me one artwork a day\nand the story behind it.",
+          "Ten minutes, and you're the most\ninteresting man in the room."
+        ]
+      },
+      "el": {
+        "titre": "Κανόνισε το επόμενο με τέχνη.",
+        "avant": [
+          "**Αντί για:** «να ξαναβρεθούμε»",
+          "**Πες:** «Ο Μανέ ζωγράφισε αυτή τη βαρκάδα το 1874. Πάμε να τη δούμε;»"
+        ],
+        "apres": [
+          "Το Artura μου δίνει ένα έργο τη μέρα και την ιστορία του.",
+          "Δέκα λεπτά, και είσαι ο πιο ενδιαφέρων άντρας στο δωμάτιο."
+        ]
+      },
+      "es-419": {
+        "titre": "Planea la próxima con arte.",
+        "avant": [
+          "**En vez de:** “hay que vernos otra vez”",
+          "**Dile:** “Manet pintó este paseo en bote en 1874. ¿Vamos a verlo?”"
+        ],
+        "apres": [
+          "Artura me da una obra al día y su historia.",
+          "Diez minutos, y eres el hombre más interesante del lugar."
+        ]
+      },
+      "it": {
+        "titre": "Organizza il prossimo con l'arte.",
+        "avant": [
+          "**Invece di:** “dobbiamo rivederci”",
+          "**Scrivi:** “Manet dipinse questa gita in barca nel 1874. Andiamo a vederla?”"
+        ],
+        "apres": [
+          "Artura mi dà un'opera al giorno e la sua storia.",
+          "Dieci minuti, e sei l'uomo più interessante della stanza."
+        ]
+      },
+      "hu": {
+        "titre": "Tervezd a következőt művészettel.",
+        "avant": [
+          "**Ne ezt:** „találkozzunk újra”",
+          "**Hanem ezt:** „Manet 1874-ben festette ezt a csónakázást. Megnézzük?”"
+        ],
+        "apres": [
+          "Az Artura naponta ad egy műalkotást és a történetét.",
+          "Tíz perc, és te vagy a legérdekesebb férfi a teremben."
+        ]
+      },
+      "sr": {
+        "titre": "Isplaniraj sledeći uz umetnost.",
+        "avant": [
+          "**Umesto:** „treba da se vidimo opet”",
+          "**Napiši:** „Mane je naslikao ovu vožnju čamcem 1874. Idemo da je vidimo?”"
+        ],
+        "apres": [
+          "Artura mi daje jedno delo dnevno i njegovu priču.",
+          "Deset minuta, i ti si najzanimljiviji muškarac u sobi."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Planeje o próximo com arte.",
+        "avant": [
+          "**Em vez de:** “vamos sair de novo?”",
+          "**Mande:** “Manet pintou este passeio de barco em 1874. Vamos ver?”"
+        ],
+        "apres": [
+          "O Artura me dá uma obra por dia e a história dela.",
+          "Dez minutos, e você é o homem mais interessante da sala."
+        ]
+      },
+      "es": {
+        "titre": "Planea la próxima con arte.",
+        "avant": [
+          "**En vez de:** “hay que vernos otra vez”",
+          "**Dile:** “Manet pintó este paseo en barca en 1874. ¿Vamos a verlo?”"
+        ],
+        "apres": [
+          "Artura me da una obra al día y su historia.",
+          "Diez minutos, y eres el hombre más interesante del lugar."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "If she texts first.",
+        "paragraphes": [
+          "**Instead of:**\n“Finally lol”",
+          "**Say:**\n“I was hoping you would.”"
+        ]
+      },
+      "el": {
+        "titre": "Αν σου γράψει πρώτη.",
+        "paragraphes": [
+          "**Αντί για:**\n«Επιτέλους χαχα»",
+          "**Πες:**\n«Ήλπιζα να το κάνεις.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Si ella escribe primero.",
+        "paragraphes": [
+          "**En vez de:**\n“Por fin jaja”",
+          "**Dile:**\n“Esperaba que lo hicieras.”"
+        ]
+      },
+      "it": {
+        "titre": "Se scrive prima lei.",
+        "paragraphes": [
+          "**Invece di:**\n“Finalmente ahah”",
+          "**Scrivi:**\n“Speravo che lo facessi.”"
+        ]
+      },
+      "hu": {
+        "titre": "Ha ő ír először.",
+        "paragraphes": [
+          "**Ne ezt:**\n„Na végre haha”",
+          "**Hanem ezt:**\n„Reméltem, hogy írsz.”"
+        ]
+      },
+      "sr": {
+        "titre": "Ako ona prva piše.",
+        "paragraphes": [
+          "**Umesto:**\n„Konačno haha”",
+          "**Napiši:**\n„Nadao sam se da hoćeš.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Se ela mandar primeiro.",
+        "paragraphes": [
+          "**Em vez de:**\n“Até que enfim kkk”",
+          "**Mande:**\n“Eu estava torcendo pra isso.”"
+        ]
+      },
+      "es": {
+        "titre": "Si ella escribe primero.",
+        "paragraphes": [
+          "**En vez de:**\n“Por fin jaja”",
+          "**Dile:**\n“Esperaba que lo hicieras.”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "If it didn't click.",
+        "paragraphes": [
+          "**Instead of:**\nSilence.",
+          "**Say:**\n“I had a good time, but I didn't feel\na spark. I wish you the best.”"
+        ]
+      },
+      "el": {
+        "titre": "Αν δεν ταίριαξε.",
+        "paragraphes": [
+          "**Αντί για:**\nΣιωπή.",
+          "**Πες:**\n«Πέρασα ωραία, αλλά δεν ένιωσα σπίθα. Σου εύχομαι τα καλύτερα.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Si no hubo química.",
+        "paragraphes": [
+          "**En vez de:**\nSilencio.",
+          "**Dile:**\n“La pasé bien, pero no sentí chispa. Te deseo lo mejor.”"
+        ]
+      },
+      "it": {
+        "titre": "Se non è scattato niente.",
+        "paragraphes": [
+          "**Invece di:**\nSilenzio.",
+          "**Scrivi:**\n“Sono stato bene, ma non ho sentito la scintilla. Ti auguro il meglio.”"
+        ]
+      },
+      "hu": {
+        "titre": "Ha nem volt meg a szikra.",
+        "paragraphes": [
+          "**Ne ezt:**\nCsend.",
+          "**Hanem ezt:**\n„Jól éreztem magam, de nem éreztem szikrát. Minden jót kívánok.”"
+        ]
+      },
+      "sr": {
+        "titre": "Ako nije kliknulo.",
+        "paragraphes": [
+          "**Umesto:**\nTišina.",
+          "**Napiši:**\n„Bilo mi je lepo, ali nisam osetio iskru. Želim ti sve najbolje.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Se não rolou.",
+        "paragraphes": [
+          "**Em vez de:**\nSilêncio.",
+          "**Mande:**\n“Foi legal, mas não senti química. Te desejo o melhor.”"
+        ]
+      },
+      "es": {
+        "titre": "Si no hubo química.",
+        "paragraphes": [
+          "**En vez de:**\nSilencio.",
+          "**Dile:**\n“Me lo pasé bien, pero no sentí chispa. Te deseo lo mejor.”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "The text after the date\nis part of the date.",
+          "**A boy waits three days.**\n**A man says what he felt.**"
+        ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Το μήνυμα μετά το ραντεβού είναι κομμάτι του ραντεβού.",
+          "**Το αγόρι περιμένει τρεις μέρες.**\n**Ο άντρας λέει τι ένιωσε.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "El mensaje después de la cita es parte de la cita.",
+          "**Un niño espera tres días.**\n**Un hombre dice lo que sintió.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "Il messaggio dopo l'appuntamento fa parte dell'appuntamento.",
+          "**Un ragazzino aspetta tre giorni.**\n**Un uomo dice cosa ha sentito.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "A randi utáni üzenet is a randi része.",
+          "**A kisfiú vár három napot.**\n**A férfi kimondja, mit érzett.**"
+        ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Poruka posle sastanka je deo sastanka.",
+          "**Dečak čeka tri dana.**\n**Muškarac kaže šta je osetio.**"
+        ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "A mensagem depois do encontro faz parte do encontro.",
+          "**O garoto espera três dias.**\n**O homem diz o que sentiu.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "El mensaje después de la cita es parte de la cita.",
+          "**Un niño espera tres días.**\n**Un hombre dice lo que sintió.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      }
+    }
+  ]
+}

@@ -1,0 +1,2918 @@
+{
+ "id": "sg-050",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3ec2c8e5-f3c6-4203-bbb0-f8d651be93a0",
+ "titre": {
+  "fr": "10 compétences 10/10 qui valent plus qu'un diplôme",
+  "en": "10 skills 10/10 worth more than a degree",
+  "de": "10 Skills 10/10, die mehr wert sind als ein Studium",
+  "it": "10 competenze 10/10 che valgono più di una laurea",
+  "pt-BR": "10 habilidades 10/10 que valem mais que um diploma",
+  "tr": "Diplomadan daha değerli 10 beceri 10/10",
+  "ro": "10 abilități 10/10 care valorează mai mult decât o diplomă",
+  "cs": "10 dovedností 10/10, které mají větší cenu než diplom",
+  "hu": "10/10 készségek, amik többet érnek egy diplománál",
+  "el": "10 δεξιότητες 10/10 που αξίζουν περισσότερο από ένα πτυχίο",
+  "sr": "10 veština 10/10 koje vrede više od diplome",
+  "es": "10 habilidades 10/10 que valen más que un título",
+  "es-419": "10 habilidades 10/10 que valen más que un título",
+  "pl": "10 umiejętności 10/10 wartych więcej niż dyplom",
+  "sk": "10 zručností 10/10, ktoré majú väčšiu cenu než diplom",
+  "hr": "10 vještina 10/10 koje vrijede više od diplome",
+  "sv": "10 färdigheter 10/10 som är värda mer än en examen",
+  "lv": "10 prasmes 10/10, kas ir vērtīgākas par diplomu"
+ },
+ "legendes": {
+  "fr": "10 compétences 10/10 qui valent plus qu'un diplôme #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10 skills 10/10 worth more than a degree #learnontiktok #selfimprovement #skills",
+  "de": "10 Skills 10/10, die mehr wert sind als ein Studium #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "10 competenze 10/10 che valgono più di una laurea #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "10 habilidades 10/10 que valem mais que um diploma #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Diplomadan daha değerli 10 beceri 10/10 #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "10 abilități 10/10 care valorează mai mult decât o diplomă #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "10 dovedností 10/10, které mají větší cenu než diplom #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10 készségek, amik többet érnek egy diplománál #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "10 δεξιότητες 10/10 που αξίζουν περισσότερο από ένα πτυχίο #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "10 veština 10/10 koje vrede više od diplome #učinatiktoku #samorazvoj #veštine",
+  "es": "10 habilidades 10/10 que valen más que un título #aprendeentiktok #desarrollopersonal #habilidades",
+  "es-419": "10 habilidades 10/10 que valen más que un título #aprendeentiktok #desarrollopersonal #habilidades",
+  "pl": "10 umiejętności 10/10 wartych więcej niż dyplom #uczsięnatiktoku #rozwójosobisty #umiejętności",
+  "sk": "10 zručností 10/10, ktoré majú väčšiu cenu než diplom #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "hr": "10 vještina 10/10 koje vrijede više od diplome #učinatiktoku #osobnirazvoj #vještine",
+  "sv": "10 färdigheter 10/10 som är värda mer än en examen #lärdigpåtiktok #självutveckling #färdigheter",
+  "lv": "10 prasmes 10/10, kas ir vērtīgākas par diplomu #mācītiestiktokā #pašattīstība #prasmes"
+ },
+ "musique": {
+  "titre": "son original - psycho - psycho",
+  "url": "https://www.tiktok.com/music/son-original-psycho-7668282687572462358"
+ },
+ "notes": "Déclinaison G1 de sg-007 (27/11) : titre mot pour mot, couverture de sg-007, musique de sg-007 ; 5 autres compétences qui valent plus qu'un diplôme (négocier son salaire, rédiger un bon CV, coder en Python, faire son budget, premiers secours), vraies vidéos natives dans les 18 langues ; Sophia en étape 4 sur 7, cta C, « ÊTRE / CURIEUX DE TOUT ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 122
+     },
+     {
+      "t": "QUI VALENT",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "PLUS QU'UN",
+      "cap": 150
+     },
+     {
+      "t": "DIPLÔME",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 122
+     },
+     {
+      "t": "WORTH MORE",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "THAN A",
+      "cap": 150
+     },
+     {
+      "t": "DEGREE",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS,",
+      "cap": 122
+     },
+     {
+      "t": "DIE MEHR",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "WERT SIND ALS",
+      "cap": 150
+     },
+     {
+      "t": "EIN STUDIUM",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "COMPETENZE",
+      "cap": 122
+     },
+     {
+      "t": "CHE VALGONO",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "PIÙ DI UNA",
+      "cap": 150
+     },
+     {
+      "t": "LAUREA",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 122
+     },
+     {
+      "t": "QUE VALEM",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "MAIS QUE UM",
+      "cap": 150
+     },
+     {
+      "t": "DIPLOMA",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "DİPLOMADAN",
+      "cap": 122
+     },
+     {
+      "t": "DAHA",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "DEĞERLİ",
+      "cap": 150
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 122
+     },
+     {
+      "t": "CARE VALOREAZĂ",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "MAI MULT DECÂT",
+      "cap": 150
+     },
+     {
+      "t": "O DIPLOMĂ",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 122
+     },
+     {
+      "t": "CO MAJÍ VĚTŠÍ",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "CENU NEŽ",
+      "cap": 150
+     },
+     {
+      "t": "DIPLOM",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK,",
+      "cap": 122
+     },
+     {
+      "t": "AMIK TÖBBET",
+      "couleur": "brun",
+      "cap": 176
+     },
+     {
+      "t": "ÉRNEK EGY",
+      "cap": 150
+     },
+     {
+      "t": "DIPLOMÁNÁL",
+      "couleur": "brun",
+      "cap": 198
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 122
+     },
+     {
+      "t": "ΠΟΥ ΑΞΙΖΟΥΝ",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΠΕΡΙΣΣΟΤΕΡΟ ΑΠΟ",
+      "cap": 150
+     },
+     {
+      "t": "ΕΝΑ ΠΤΥΧΙΟ",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 122
+     },
+     {
+      "t": "KOJE VREDE",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "VIŠE OD",
+      "cap": 150
+     },
+     {
+      "t": "DIPLOME",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 122
+     },
+     {
+      "t": "QUE VALEN",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "MÁS QUE UN",
+      "cap": 150
+     },
+     {
+      "t": "TÍTULO",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 122
+     },
+     {
+      "t": "QUE VALEN",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "MÁS QUE UN",
+      "cap": 150
+     },
+     {
+      "t": "TÍTULO",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pl": {
+    "lignes": [
+     {
+      "t": "UMIEJĘTNOŚCI",
+      "cap": 122
+     },
+     {
+      "t": "WARTE WIĘCEJ",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "NIŻ",
+      "cap": 150
+     },
+     {
+      "t": "DYPLOM",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "t": "ZRUČNOSTI",
+      "cap": 122
+     },
+     {
+      "t": "KTORÉ MAJÚ",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "VÄČŠIU CENU",
+      "cap": 150
+     },
+     {
+      "t": "NEŽ DIPLOM",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "VJEŠTINE",
+      "cap": 122
+     },
+     {
+      "t": "KOJE VRIJEDE",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "VIŠE OD",
+      "cap": 150
+     },
+     {
+      "t": "DIPLOME",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sv": {
+    "lignes": [
+     {
+      "t": "FÄRDIGHETER",
+      "cap": 122
+     },
+     {
+      "t": "SOM ÄR VÄRDA",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "MER ÄN",
+      "cap": 150
+     },
+     {
+      "t": "EN EXAMEN",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "t": "PRASMES,",
+      "cap": 122
+     },
+     {
+      "t": "KAS IR VĒRTĪGĀKAS",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "PAR",
+      "cap": 150
+     },
+     {
+      "t": "DIPLOMU",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "NÉGOCIER",
+       "couleur": "#d0a239"
+      }
+     ],
+     "SON SALAIRE"
+    ],
+    "video": {
+     "id": "yT_DKvUdDAQ",
+     "titre": "Comment négocier son salaire en entretien d'embauche : 7 erreurs (+ solutions)",
+     "chaine": "Y.GAUTIER, Coach Emploi, oral de concours et +",
+     "vues": "709 k vues",
+     "date": "il y a 5 ans",
+     "duree": "12:53",
+     "avatar": "https://yt3.ggpht.com/6VFGyIhmE_WlsY1NX72-uJ1vKPhbzVDA-4yyQlwokfmiHHrn-2_uwt6_ZYgImBs3WGOv8zdD=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "NEGOTIATE",
+       "couleur": "#d0a239"
+      }
+     ],
+     "YOUR SALARY"
+    ],
+    "video": {
+     "id": "J30wmYgzVXM",
+     "titre": "How to Negotiate Salary after Job Offer | 5 Practical Tips",
+     "chaine": "Jeff Su",
+     "vues": "905K views",
+     "date": "6 years ago",
+     "duree": "7:42",
+     "avatar": "https://yt3.ggpht.com/fHDMaIjQYS0XTz17AL-iIxdfyrGJfLliAJTQmJE931P1OareLsLIvFeJDcDtI3QpkD9HLnvI7Gw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "GEHALT",
+       "couleur": "#d0a239"
+      }
+     ],
+     "VERHANDELN"
+    ],
+    "video": {
+     "id": "7qDcJgkRkYI",
+     "titre": "Gehaltsverhandlung: Mein bester Trick aus 15 Jahren // M. Wehrle",
+     "chaine": "Martin Wehrle: Coaching- und Karrieretipps",
+     "vues": "473.680 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "5:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtlnlfI1W_yE6cXg8lQLL6lDo9FGdnfUlOg_23Ws82rcY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "NEGOZIARE",
+       "couleur": "#d0a239"
+      }
+     ],
+     "LO STIPENDIO"
+    ],
+    "video": {
+     "id": "RJFL32L_Xmc",
+     "titre": "Come chiedere un aumento e negoziare lo stipendio",
+     "chaine": "Valerio Villani",
+     "vues": "20K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "11:19",
+     "avatar": "https://yt3.ggpht.com/SDPcuc7QulPDWgUtprQuj5JgRJDlvGcndk9rd5KlJOUMAUcmsLfbWdIwN_UUsDVeX-uz3uauzg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "NEGOCIAR",
+       "couleur": "#d0a239"
+      }
+     ],
+     "SEU SALÁRIO"
+    ],
+    "video": {
+     "id": "pcZA-mbKbXU",
+     "titre": "COMO NEGOCIAR SEU SALÁRIO EM UM NOVO EMPREGO (NÃO COMETA estes 4 ERROS!) | Hackeando a Carreira",
+     "chaine": "Hackeando a Carreira",
+     "vues": "113 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "16:08",
+     "avatar": "https://yt3.ggpht.com/MTbv5uwyo2eNowDzA_9waGWu67UBmOlCwxxZcjExjV9xB1XBRBj4YHsFC21K6DqkVIGjAVFOHA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "MAAŞ",
+       "couleur": "#d0a239"
+      }
+     ],
+     "PAZARLIĞI"
+    ],
+    "video": {
+     "id": "0R1kbIEwNaU",
+     "titre": "Maaş Beklentinizi Doğru Söyleyin, İş Görüşmesi Stratejisi!",
+     "chaine": "Görkem Sakınmaz",
+     "vues": "3 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "12:15",
+     "avatar": "https://yt3.ggpht.com/AclV_fe76QCBGZjYHiHewa5-63nrrYcnSyVgzMYdo9ValU8mBrBl3AqB1VOg-PM3Jx7sj-MoWA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 2-3 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "NEGOCIEREA",
+       "couleur": "#d0a239"
+      }
+     ],
+     "SALARIULUI"
+    ],
+    "video": {
+     "id": "ayyapFQ2qCI",
+     "titre": "CE SALARIU VREI | CUM NEGOCIEZI UN SALARIU | CEL MAI BUN RASPUNS + 3 SFATURI",
+     "chaine": "UpCareer",
+     "vues": "2,8 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "5:48",
+     "avatar": "https://yt3.ggpht.com/KqoqWx9xU3rF1rmxRyG0Hco4Gw3NsGA3GwdYkbHjet1pOTBllTOcgTmikCYqTyFqNK_MjuA_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "VYJEDNAT",
+       "couleur": "#d0a239"
+      }
+     ],
+     "SI PLAT"
+    ],
+    "video": {
+     "id": "PAZh1Kn31Lw",
+     "titre": "Kolik PENĚZ si doopravdy zasloužíte? Přestaňte se podceňovat a řekněte si o víc.",
+     "chaine": "Pavel Procházka",
+     "vues": "46 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "16:47",
+     "avatar": "https://yt3.ggpht.com/7qkSLG6DKlK2W6XEWnTyvausSZCtVTpRyxtGC58uUFKYU4am-5ikSlkJePB6SUw6zlhL1aaK=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "TÁRGYALNI",
+       "couleur": "#d0a239"
+      }
+     ],
+     "A FIZETÉSRŐL"
+    ],
+    "video": {
+     "id": "Kd5YaehuAzU",
+     "titre": "Hogyan tárgyalj a több fizetésért?",
+     "chaine": "CV Shark - Erdőssy Gellért",
+     "vues": "4,1 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "3:39",
+     "avatar": "https://yt3.ggpht.com/4wxNP0VXtBnrEb_KWt3-LIdA-CcDeWe6Z_MIWQFTmjjfZHLwyZSBPSwH5D9Kc93qorlldjv2=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΔΙΑΠΡΑΓΜΑΤΕΥΣΗ",
+       "couleur": "#d0a239"
+      }
+     ],
+     "ΜΙΣΘΟΥ"
+    ],
+    "video": {
+     "id": "KCEGu0l-ACo",
+     "titre": "Διαπραγμάτευση αύξησης μισθού: Πώς μπορεί ο Γιάννης να μετατρέψει το όχι σε ναι;",
+     "chaine": "Maria Kokonou",
+     "vues": "77 προβολές",
+     "date": "πριν από 2 έτη",
+     "duree": "1:17",
+     "avatar": "https://yt3.ggpht.com/xbAIynBaQ3v5bAwcDXrkJWlrB3J1-D0WbbvGaLNTaCLWEO0vPMWmhl_ctTTMDl5yOwkzZkVH=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ώρες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "PREGOVARATI",
+       "couleur": "#d0a239"
+      }
+     ],
+     "O PLATI"
+    ],
+    "video": {
+     "id": "0L5WG1tMk34",
+     "titre": "Povećanje plate - kako ispregovarati povišicu sa teškim šefom? Razgovor za posao i platu",
+     "chaine": "Boris Pohulek",
+     "vues": "6,1 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "7:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mbSBvziAXUfayI9FqrqEhwkd0L3FGZj1opgmliiVmK4CY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     [
+      {
+       "t": "NEGOCIAR",
+       "couleur": "#d0a239"
+      }
+     ],
+     "TU SUELDO"
+    ],
+    "video": {
+     "id": "mG4oNnyHMs0",
+     "titre": "¿Cómo NEGOCIAR TU SALARIO durante la entrevista de trabajo? | Insider Teach",
+     "chaine": "Business Insider España",
+     "vues": "22 K visualizaciones",
+     "date": "hace 4 años",
+     "duree": "4:54",
+     "avatar": "https://yt3.ggpht.com/vExIcAnU2ipKVDQPLJCM8zHNV4nRZdfPwsLwMoYZVsRp-3_ntt3cqtyk9tiA_1ovdp_iCI1D=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     [
+      {
+       "t": "NEGOCIAR",
+       "couleur": "#d0a239"
+      }
+     ],
+     "TU SALARIO"
+    ],
+    "video": {
+     "id": "iXZMzcm0f8I",
+     "titre": "6 CONSEJOS PARA NEGOCIAR UN MEJOR SALARIO",
+     "chaine": "Virna Vitteri - Coach de Carrera",
+     "vues": "116 k vistas",
+     "date": "hace 3 años",
+     "duree": "6:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nIyIxfbcV7eZtPZN1qieRkf0ro1XVDyO9EZrToyDziyw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     [
+      {
+       "t": "NEGOCJOWAĆ",
+       "couleur": "#d0a239"
+      }
+     ],
+     "PENSJĘ"
+    ],
+    "video": {
+     "id": "SF-qV-tBWio",
+     "titre": "Negocjowanie podwyżki dla początkujących - praktyczny przykład",
+     "chaine": "Alex Barszczewski - Życie Pełne Życia",
+     "vues": "173 tys. wyświetleń",
+     "date": "10 lat temu",
+     "duree": "24:42",
+     "avatar": "https://yt3.ggpht.com/84jn3vRRzdi0Pk6zTIHkSBBE2abEpB2JOtxWxn8O4CiQOuiJUDXvjFWnxzu2JykkTnFCeVhK1g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 godziny nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     [
+      {
+       "t": "VYJEDNAŤ",
+       "couleur": "#d0a239"
+      }
+     ],
+     "SI PLAT"
+    ],
+    "video": {
+     "id": "M7SfOVAz6tI",
+     "titre": "Nástupný plat sa dá vyjednať. Väčšina ľudí to nevie.",
+     "chaine": "SOLTESOVA Club",
+     "vues": "1,2 tis. zhliadnutí",
+     "date": "pred 1 mesiacom",
+     "duree": "14:42",
+     "avatar": "https://yt3.ggpht.com/3bP_ZHDjvEhZa1kT0-opkeEDYGhokhJG8g5AxUW0Q4_mCUP9sEYSpNhTcO2Hj34mGjHX7H8Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     [
+      {
+       "t": "PREGOVARATI",
+       "couleur": "#d0a239"
+      }
+     ],
+     "O PLAĆI"
+    ],
+    "video": {
+     "id": "VjcHE-CMglE",
+     "titre": "Mikroučenje #28 - Pet savjeta za uspješne pregovore o plaći (i drugim uvjetima)",
+     "chaine": "Lider",
+     "vues": "342 pregleda",
+     "date": "prije 2 godine",
+     "duree": "1:37",
+     "avatar": "https://yt3.ggpht.com/G7EgGB2JZ_tGQ4BPq3-EGrppOs4LC8WP7khy_u9w9wQZJYdfNqeQrb1pGxY0b8qqWBIbk53Ksw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata učenja"
+    ]
+   },
+   "sv": {
+    "titre": [
+     [
+      {
+       "t": "FÖRHANDLA",
+       "couleur": "#d0a239"
+      }
+     ],
+     "DIN LÖN"
+    ],
+    "video": {
+     "id": "ZoZ3GJT-yhc",
+     "titre": "Lyckas med ditt lönesamtal",
+     "chaine": "Sveriges Ingenjörer / Engineers of Sweden",
+     "vues": "19 tn visningar",
+     "date": "för 9 år sedan",
+     "duree": "3:13",
+     "avatar": "https://yt3.ggpht.com/Yq2jRwMN_t2T--qPSfi6MgW-5oa0-7RFUaDVzKCiqgeGPP2LZDhZaVcYx7wJDKLrX5bR587L=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 timmar att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     [
+      {
+       "t": "VIENOTIES",
+       "couleur": "#d0a239"
+      }
+     ],
+     "PAR ALGU"
+    ],
+    "video": {
+     "id": "e2gBYUNAJh4",
+     "titre": "NEprātīgas finanšu izvēles. Alga un saruna par atalgojumu ar darba devēju.",
+     "chaine": "Citadele banka",
+     "vues": "765 skatījumi",
+     "date": "pirms 8 mēnešiem",
+     "duree": "24:15",
+     "avatar": "https://yt3.ggpht.com/GLXwmiIGOUSnyF3iM2DwIwWzf28KjLtCMeMAc8PE6eXAyh5auYCKm2QCA3TEtQHyu8E6bzZn8w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 stundas mācību"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉDIGER",
+     [
+      {
+       "t": "UN BON CV",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Jqcp9uuymnk",
+     "titre": "8 Erreurs à éviter dans ton CV + Conseils",
+     "chaine": "CVcrea FR",
+     "vues": "242 k vues",
+     "date": "il y a 1 an",
+     "duree": "4:00",
+     "avatar": "https://yt3.ggpht.com/I8NvXn_MO3ONPwUJEoCHdEnefJI15x9JNlm-A5YddAoy5H4gGvahPWG4K-YWTf5UpHLOLJY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "WRITE",
+     [
+      {
+       "t": "A GREAT RESUME",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "R3abknwWX7k",
+     "titre": "Tips For How To Write A Better Resume (From A Recruiter's Perspective)",
+     "chaine": "A Life After Layoff",
+     "vues": "766K views",
+     "date": "2 years ago",
+     "duree": "8:35",
+     "avatar": "https://yt3.ggpht.com/_zU_clWV90oSMPYNvnJhHIwIJBtsK2YQiaHsSRuQkgLUwWNsbkiXoZeRytQJPd8eK7TKYeq4QqA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINEN GUTEN",
+     [
+      {
+       "t": "LEBENSLAUF",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nuw4JirAIIc",
+     "titre": "Perfekter Lebenslauf 📋: Struktur, Tipps & No-Gos! (mit kostenloser Vorlage)",
+     "chaine": "XING",
+     "vues": "1,2 Mio. Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "3:51",
+     "avatar": "https://yt3.ggpht.com/YYxMDRYLJYnmAcADUHcpknWYGVODTuBBcDgIq9Y_xDy3m4XkJ1aGvpCL92L8NTVpg49gUOSc4hU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SCRIVERE",
+     [
+      {
+       "t": "UN BUON CV",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WY_Zv6BJCAs",
+     "titre": "CREARE un CURRICULUM EFFICACE senza ESPERIENZE LAVORATIVE 📝",
+     "chaine": "Marco Mazzella",
+     "vues": "244K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "7:30",
+     "avatar": "https://yt3.ggpht.com/8Ge4dU6Idb-Ykz3sxEBiOAydtj7FyXOPf0pDtG2YZaqNh8KpXIYDoM_AydOR8jJ6ljTPYfBl2w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER UM",
+     [
+      {
+       "t": "BOM CURRÍCULO",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "y279jGn4jdQ",
+     "titre": "Como fazer O MELHOR CURRÍCULO - Atualizado 2026",
+     "chaine": "TUDO É GESTÃO | Pedro Ferreira",
+     "vues": "440 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "15:22",
+     "avatar": "https://yt3.ggpht.com/0FDdXSEG5Q1ubOgBPc74WlChXE1fve51bDBM5lBm5UOP5R6DyM29RDFr0NMhBjxTzodqLVUW=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "İYİ BİR",
+     [
+      {
+       "t": "CV HAZIRLAMAK",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LGYdEtDOTrI",
+     "titre": "Dikkat Çekici Bir CV Nasıl Hazırlanır? Etkili Özgeçmiş Teknikleri",
+     "chaine": "Assessment Systems",
+     "vues": "68 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "5:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l2PrAeFBWkRDMMFJzZkKQ_IxIUsZ3PePj5d9AyTHDOOQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1-2 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ SCRII",
+     [
+      {
+       "t": "UN CV BUN",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "s70tTNCvO3Y",
+     "titre": "Tot ce trebuie să știi ca să-ți scrii #cv-ul",
+     "chaine": "eJobs",
+     "vues": "12 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "11:29",
+     "avatar": "https://yt3.ggpht.com/ewWkSrT87fnGWxfa4sFQRgbJAmn6nyhd1vAb6jjftH_10udTb6-sBLj4usfTPlCKuJ0KAb4jLg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAPSAT",
+     [
+      {
+       "t": "DOBRÝ ŽIVOTOPIS",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "G1bhTSSjGWE",
+     "titre": "ŽIVOTOPIS - TYTO CHYBY NEDĚLEJTE!",
+     "chaine": "Kristyna Ševčíková",
+     "vues": "16 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "6:23",
+     "avatar": "https://yt3.ggpht.com/moPMS4B6LoTjjnOaKp4zatk8sM4cNO7D_7NRH0NwfhQVUN0WWj3XsHI8wS2RIEtoS5Rgun9k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hodiny na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ÍRNI EGY",
+     [
+      {
+       "t": "JÓ ÖNÉLETRAJZOT",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1e9GBRlZvJQ",
+     "titre": "Hogyan készíts ÖNÉLETRAJZOT? | Herczeg Hajni",
+     "chaine": "Herczeg Hajni",
+     "vues": "38 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "12:21",
+     "avatar": "https://yt3.ggpht.com/HOBlle3Oyc_vIPSgQp9HVeyBHtCn_Xmo4xGP7IAqNCrNmYo8Q7xXZ5aFcTr8dA5lOLU9TBCxNA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΓΡΑΦΕΙΣ",
+     [
+      {
+       "t": "ΚΑΛΟ ΒΙΟΓΡΑΦΙΚΟ",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dYw2bLYpjac",
+     "titre": "Πως να φτιάξεις ένα βιογραφικό που θα ξεχωρίσει!",
+     "chaine": "Orientum",
+     "vues": "31 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "3:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nLXW8mwZwxWLW9iPwKhjdi2RjyoAiN08qd5zWk2BnOPg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ώρες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAPISATI",
+     [
+      {
+       "t": "DOBAR CV",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "davW8U5Pp7Y",
+     "titre": "Kako napisati CV kad nemaš radnog iskustva [CV]",
+     "chaine": "Biztique by Martina Raškaj",
+     "vues": "11 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "4:01",
+     "avatar": "https://yt3.ggpht.com/_uPfAkLKXb61xNKF_SyvAqCQsCZhFh_Xcxj6bcpeeh-VKCJr5531ooUfU9RR9Rzqvafo8fpytw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 sata za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "HACER UN",
+     [
+      {
+       "t": "BUEN CURRÍCULUM",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "toYqGCBi1gM",
+     "titre": "Masterclass: Elabora un CV de alto impacto | OBS Business School",
+     "chaine": "OBS Business School",
+     "vues": "234 K visualizaciones",
+     "date": "hace 2 años",
+     "duree": "14:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l_tS4DjsExM36GxHGntuTojj30zFVFYhu-2JhHf1ldMnk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER UN",
+     [
+      {
+       "t": "BUEN CURRÍCULUM",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "s67zRmL4oLs",
+     "titre": "Cómo hacer un BUEN CURRÍCULUM 2026 | FÁCIL y rápido | Todos los apartados necesarios explicados",
+     "chaine": "Humanos como recurso",
+     "vues": "174 k vistas",
+     "date": "hace 10 meses",
+     "duree": "12:02",
+     "avatar": "https://yt3.ggpht.com/SaWfxnrFtjGp_GvqY1I_SRgcMxGi5e_ICGG1miz6JOGDI_4_wZQvy9YlW0e2wdRuVBS8RNdk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "NAPISAĆ",
+     [
+      {
+       "t": "DOBRE CV",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AMyve4S-G4Y",
+     "titre": "CV wzór | Jak napisać DOBRE CV? 🚀 (Gotowy Szablon CV)",
+     "chaine": "Antoni Łącki",
+     "vues": "10 tys. wyświetleń",
+     "date": "1 rok temu",
+     "duree": "17:15",
+     "avatar": "https://yt3.ggpht.com/6jZky8twuS1YUsmLXcoC8HYGHwKZcgmtvnYjAVRr-oMcKthco1iPnSkW8szH00RSbiW5Jflz=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "NAPÍSAŤ",
+     [
+      {
+       "t": "DOBRÝ ŽIVOTOPIS",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EiYYAFCnvHk",
+     "titre": "Ako si urobiť životopis",
+     "chaine": "Profesia.sk",
+     "vues": "5,3 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kTWa7PkH8f4Xje2lnF_TtNDzoDxIwRpy1TfEKePHTdJsI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hodiny na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "NAPISATI",
+     [
+      {
+       "t": "DOBAR ŽIVOTOPIS",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sRMCbMGxMdU",
+     "titre": "Kako se piše životopis?",
+     "chaine": "srednjaHR",
+     "vues": "20 tis. pregleda",
+     "date": "prije 7 godina",
+     "duree": "4:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lori9-6KQHtqU8MEazFvRHsYDdGf0w3NdctCEqJ4MwmXY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 sata učenja"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "SKRIVA",
+     [
+      {
+       "t": "ETT BRA CV",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oim_jV6F1M8",
+     "titre": "Hur skriver man ett bra CV? Rekryterarens bästa råd | Skriva CV och söka jobb",
+     "chaine": "Hej Sverige",
+     "vues": "19 tn visningar",
+     "date": "för 1 år sedan",
+     "duree": "3:10",
+     "avatar": "https://yt3.ggpht.com/7GM0vod2XLyj67FQGzNhN7SJ6eOd-sCZAy39bZ3-3AKngT3t-7CkhVj6raBnZrMXWYKoXBne=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 timmar att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "UZRAKSTĪT",
+     [
+      {
+       "t": "LABU CV",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "b1j-TYl-8Ic",
+     "titre": "HERO: CV rakstīšana soli pa solim",
+     "chaine": "Valmieras Attīstības aģentūra",
+     "vues": "52 skatījumi",
+     "date": "pirms 8 mēnešiem",
+     "duree": "6:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_krfS7hiNRng8uVLcN0TXmfAJzkuHUlTzFsJW-UbM0XYw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 stundas mācību"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "ÊTRE",
+     [
+      {
+       "t": "CURIEUX DE TOUT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BE CURIOUS",
+     [
+      {
+       "t": "ABOUT EVERYTHING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "NEUGIERIG",
+     [
+      {
+       "t": "AUF ALLES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ESSERE CURIOSO",
+     [
+      {
+       "t": "DI TUTTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TER CURIOSIDADE",
+     [
+      {
+       "t": "POR TUDO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HER ŞEYİ",
+     [
+      {
+       "t": "MERAK ET",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FII CURIOS",
+     [
+      {
+       "t": "DE TOATE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZAJÍMAT SE",
+     [
+      {
+       "t": "O VŠECHNO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "LEGYÉL",
+     [
+      {
+       "t": "KÍVÁNCSI MINDENRE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΕΙΣΑΙ",
+     [
+      {
+       "t": "ΠΕΡΙΕΡΓΟΣ ΓΙΑ ΟΛΑ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "αυτό ανοίγω",
+      "αντί να σκρολάρω."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "BITI RADOZNAO",
+     [
+      {
+       "t": "ZA SVE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ovo otvaram",
+      "umesto skrolovanja."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   },
+   "es": {
+    "titre": [
+     "TENER CURIOSIDAD",
+     [
+      {
+       "t": "POR TODO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en vez de hacer scroll."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "TENER CURIOSIDAD",
+     [
+      {
+       "t": "POR TODO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de hacer scroll."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "CIEKAWIĆ SIĘ",
+     [
+      {
+       "t": "WSZYSTKIM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "to otwieram",
+      "zamiast scrollować."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ZAUJÍMAŤ SA",
+     [
+      {
+       "t": "O VŠETKO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "toto otváram",
+      "namiesto scrollovania."
+     ]
+    },
+    "sous": [
+     "5 min denne"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "BITI ZNATIŽELJAN",
+     [
+      {
+       "t": "ZA SVE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ovo otvaram",
+      "umjesto skrolanja."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "VARA NYFIKEN",
+     [
+      {
+       "t": "PÅ ALLT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "det jag öppnar",
+      "i stället för att scrolla."
+     ]
+    },
+    "sous": [
+     "5 min om dagen"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "INTERESĒTIES",
+     [
+      {
+       "t": "PAR VISU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "to es atveru",
+      "ritināšanas vietā."
+     ]
+    },
+    "sous": [
+     "5 min dienā"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "CODER",
+       "couleur": "#66696f"
+      }
+     ],
+     "EN PYTHON"
+    ],
+    "video": {
+     "id": "5EnpNI2iCZA",
+     "titre": "Apprendre Python en 1 heure - Cours Complet Débutant (4K)",
+     "chaine": "Comment Coder",
+     "vues": "670 k vues",
+     "date": "il y a 2 ans",
+     "duree": "1:00:01",
+     "avatar": "https://yt3.ggpht.com/0aoGQuBdbQ6Vc8O7C-MuHQCRAjNFi8d0gNu2GaUfQxr_hInOhjm0INaEZ2En2qsdibq8NNI0Pw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs semaines"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "CODE",
+       "couleur": "#66696f"
+      }
+     ],
+     "IN PYTHON"
+    ],
+    "video": {
+     "id": "kqtD5dpn9C8",
+     "titre": "Python for Beginners - Learn Coding with Python in 1 Hour",
+     "chaine": "Programming with Mosh",
+     "vues": "26M views",
+     "date": "6 years ago",
+     "duree": "1:00:06",
+     "avatar": "https://yt3.ggpht.com/HCv0fXFEEcD0HRyF0_qR1K7b7qO3KCzmIoyH1DEJYB94CIUFhIE5i2t2IDIPX97W1-DK4hegww=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several weeks"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "PYTHON",
+       "couleur": "#66696f"
+      }
+     ],
+     "PROGRAMMIEREN"
+    ],
+    "video": {
+     "id": "9mmVa6O-hzQ",
+     "titre": "PYTHON LERNEN in 10 Minuten (Anfänger Tutorial Deutsch)",
+     "chaine": "Programmieren lernen",
+     "vues": "301.177 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "12:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nh1hKt9hjsPwNfCgE_3EPrrXuBOJwvL_Kftar4JqIiFw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "PROGRAMMARE",
+       "couleur": "#66696f"
+      }
+     ],
+     "IN PYTHON"
+    ],
+    "video": {
+     "id": "zFA4pctRR1g",
+     "titre": "PYTHON TUTORIAL ITA - Impara Python in tempo RECORD!",
+     "chaine": "PitoneProgrammatore",
+     "vues": "194K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "5:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nfYcjrC5PFl8Qr1_YBLq-sMr1sXHeuSB7Ljx_72Yv9sbo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più settimane"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "PROGRAMAR",
+       "couleur": "#66696f"
+      }
+     ],
+     "EM PYTHON"
+    ],
+    "video": {
+     "id": "4p7axLXXBGU",
+     "titre": "Aprenda Python em 10min (para Iniciantes)",
+     "chaine": "Hashtag Programação",
+     "vues": "1,2 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "11:58",
+     "avatar": "https://yt3.ggpht.com/n5GUY-L5kuEeNCdK5g0FiVbhoAHQJxAI-3xxvPIm1Qb2zjfRHrqNp6dakUwKGZUfBiyBrWqJPW4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de várias semanas"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "PYTHON İLE",
+       "couleur": "#66696f"
+      }
+     ],
+     "KODLAMA"
+    ],
+    "video": {
+     "id": "_wZUNiGtkcw",
+     "titre": "Python Dersleri - 1 Saatte Tamamen Python Öğren!",
+     "chaine": "Kavax",
+     "vues": "1,4 Mn görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "1:00:00",
+     "avatar": "https://yt3.ggpht.com/9xirpLp6ErMjQGEl7EvkWvC-QSMfo6Qyw7rkBDJzFY5Km7-QnHppZh59LkFmUBYTd3S5-5lHRA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç hafta pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ PROGRAMEZI",
+       "couleur": "#66696f"
+      }
+     ],
+     "ÎN PYTHON"
+    ],
+    "video": {
+     "id": "A8SshE7aTuI",
+     "titre": "Tutorial Programare cu Python pentru incepatori: Invata Programare in 60 de minute",
+     "chaine": "Ramon Adrian Nǎstase",
+     "vues": "15 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "1:06:28",
+     "avatar": "https://yt3.ggpht.com/WEsDRf-xJy4zeujjsv1iUbKFLdV-H7dOkw0MqAKUpZyfh8056BZVhM46ywNaeiWY4Pxv2OcGxh0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva săptămâni"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "PROGRAMOVAT",
+       "couleur": "#66696f"
+      }
+     ],
+     "V PYTHONU"
+    ],
+    "video": {
+     "id": "XudlZelS7ic",
+     "titre": "1. Python - Co s pythonem všechno dokážeme",
+     "chaine": "David Šetek - Hackni svou budoucnost",
+     "vues": "132 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "2:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_klmQ3RmeLAdZH6PX9DiDmqANsRG4MGUSQcq1P0C53Oig=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik týdnů"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "PROGRAMOZNI",
+       "couleur": "#66696f"
+      }
+     ],
+     "PYTHONBAN"
+    ],
+    "video": {
+     "id": "guzcGxUM2CU",
+     "titre": "Python programozás kezdőknek - 01 - bevezető",
+     "chaine": "Tech Atival",
+     "vues": "262 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "8:36",
+     "avatar": "https://yt3.ggpht.com/U8AQnm0iam2bR5G20z5H0yBbobLkmhi3yV9tCtd5E1F91k6KPo0yL9t32xNY7VkkYjutq5LTbUQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több hetes gyakorlás"
+    ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ",
+       "couleur": "#66696f"
+      }
+     ],
+     "ΣΕ PYTHON"
+    ],
+    "video": {
+     "id": "7XCFc6JfJIg",
+     "titre": "Python Για Αρχάριους | FULL COURSE Ελληνικά",
+     "chaine": "CodeGRow",
+     "vues": "67 χιλ. προβολές",
+     "date": "πριν από 2 έτη",
+     "duree": "12:35:37",
+     "avatar": "https://yt3.ggpht.com/Ppryh4nJsiYSHAx-9Q6elmkTZEH48jZ9g2CJxlPJ3jEwrjVw3bpUgBEQ3F_Ic67QtRVTfNFejg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "εξάσκηση μερικών εβδομάδων"
+    ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "PROGRAMIRATI",
+       "couleur": "#66696f"
+      }
+     ],
+     "U PYTHONU"
+    ],
+    "video": {
+     "id": "uWx3zSvEID0",
+     "titre": "Python Kurs #1 - Uvod i osnove (O Pythonu, Varijable, Stringovi, Uslovi, Petlje, Nizovi, Funkcije)",
+     "chaine": "Lazar Bulatovic (Cysecor)",
+     "vues": "154 hilj. pregleda",
+     "date": "pre 2 godine",
+     "duree": "3:20:54",
+     "avatar": "https://yt3.ggpht.com/XrwgItTlRTmSQn2XVCTJA2KADSnERLkQ-DGnNIvNCJXvfaFA3DnRrS-DCD0VIqVcveZ3-THX=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "vežbanje nekoliko nedelja"
+    ]
+   },
+   "es": {
+    "titre": [
+     [
+      {
+       "t": "PROGRAMAR",
+       "couleur": "#66696f"
+      }
+     ],
+     "EN PYTHON"
+    ],
+    "video": {
+     "id": "Kp4Mvapo5kc",
+     "titre": "Curso COMPLETO de PYTHON desde CERO para PRINCIPIANTES",
+     "chaine": "MoureDev by Brais Moure",
+     "vues": "3,6 M de visualizaciones",
+     "date": "hace 4 años",
+     "duree": "10:07:35",
+     "avatar": "https://yt3.ggpht.com/aPuVOhE66m_en_vzdz5SpbytqxUd-xHyAfLyn_lIVcC88dYT85WVhdYKrbZgRz7QMXvF7Ap_4fQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "práctica durante varias semanas"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     [
+      {
+       "t": "PROGRAMAR",
+       "couleur": "#66696f"
+      }
+     ],
+     "EN PYTHON"
+    ],
+    "video": {
+     "id": "nKPbfIU442g",
+     "titre": "Curso de PYTHON desde CERO (Completo)",
+     "chaine": "Soy Dalto",
+     "vues": "6.3 M de vistas",
+     "date": "hace 3 años",
+     "duree": "8:06:30",
+     "avatar": "https://yt3.ggpht.com/BaWrdCez09FC6hT6ItEnPBPy9iU-q3ko5kuaGXPaPlI0EuZtqnklw9dd6H2cWVbAy7NlILOXaW0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "práctica durante varias semanas"
+    ]
+   },
+   "pl": {
+    "titre": [
+     [
+      {
+       "t": "PROGRAMOWAĆ",
+       "couleur": "#66696f"
+      }
+     ],
+     "W PYTHONIE"
+    ],
+    "video": {
+     "id": "I1uOp-e03rw",
+     "titre": "kurs podstaw Pythona w godzinę",
+     "chaine": "Matura z Lewusem",
+     "vues": "466 tys. wyświetleń",
+     "date": "3 lata temu",
+     "duree": "59:37",
+     "avatar": "https://yt3.ggpht.com/0Lwte2m8l9WoS7YIKFEHNcNhzTe0KFc6Q_sk_ilGf60pSEWqSrpmiIMgIHL7qfrbuNxGc8zT=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "ćwiczenie przez kilka tygodni"
+    ]
+   },
+   "sk": {
+    "titre": [
+     [
+      {
+       "t": "PROGRAMOVAŤ",
+       "couleur": "#66696f"
+      }
+     ],
+     "V PYTHONE"
+    ],
+    "video": {
+     "id": "hjYF_WRrreQ",
+     "titre": "Python kurz v Slovenčine | Lekcia 1 | Úvod a inštalácia",
+     "chaine": "Informatika s Mišom",
+     "vues": "110 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "13:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lixyBioJEsikHNHJrUw1tQvo-ajc92l5k9ncSa_RwDCA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "tréning niekoľko týždňov"
+    ]
+   },
+   "hr": {
+    "titre": [
+     [
+      {
+       "t": "PROGRAMIRATI",
+       "couleur": "#66696f"
+      }
+     ],
+     "U PYTHONU"
+    ],
+    "video": {
+     "id": "pzlKZS99aQE",
+     "titre": "Python 5 - Početak",
+     "chaine": "Moj Klik",
+     "vues": "822 pregleda",
+     "date": "prije 6 godina",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/NGe9dS0Om3cYhGhHCDstr-UVB64kwPVWUauY1nYcx-oBc5CcxeMHnDLGycqkWaZhOjCex2onYJI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "vježbanje nekoliko tjedana"
+    ]
+   },
+   "sv": {
+    "titre": [
+     [
+      {
+       "t": "PROGRAMMERA",
+       "couleur": "#66696f"
+      }
+     ],
+     "I PYTHON"
+    ],
+    "video": {
+     "id": "iUpCT-oCu1U",
+     "titre": "Python - Grunder - Del 1 - Variabler och listor",
+     "chaine": "Fredrik Johansson",
+     "vues": "92 tn visningar",
+     "date": "för 7 år sedan",
+     "duree": "31:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n17W7l3eMCDmYfDxnXT3wVYdXXGj6LGOyUe1h189Pq-g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "övning i flera veckor"
+    ]
+   },
+   "lv": {
+    "titre": [
+     [
+      {
+       "t": "PROGRAMMĒT",
+       "couleur": "#66696f"
+      }
+     ],
+     "AR PYTHON"
+    ],
+    "video": {
+     "id": "mqw74XUw5yg",
+     "titre": "Mācāmies programmēt ar Python",
+     "chaine": "Pēteris Krišjānis",
+     "vues": "1,5 tūkst. skatījumu",
+     "date": "Straumēts pirms 5 gadiem",
+     "duree": "54:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k9rHVbOegLFLpn9RMupC2xj-FAN0gx9ydhVufcCVC7x_0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "vairāku nedēļu prakse"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "SON BUDGET",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mXUlnFb0Di0",
+     "titre": "Gérer son budget : 7 choses à faire le jour de paie",
+     "chaine": "My 2 cents - Améliorez votre avenir financier",
+     "vues": "182 k vues",
+     "date": "il y a 5 ans",
+     "duree": "9:30",
+     "avatar": "https://yt3.ggpht.com/JFMJGXIriYbHUrvbbLBVBYZ8kS-m11idQHTAJnIWmH5JQsfM9kGiKC8eDs196uKlfwa8soJe=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE",
+     [
+      {
+       "t": "A BUDGET",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "97W7kV4aQ1E",
+     "titre": "How to Build Your Own Budget in Google Sheets | Step-by-Step Tutorial for Beginners",
+     "chaine": "My Productive Life Co",
+     "vues": "458K views",
+     "date": "1 year ago",
+     "duree": "20:08",
+     "avatar": "https://yt3.ggpht.com/jW2e1VoFQpoAoCtIIliCDN7R6-LMq3K5Ntn9a6sWy5SYs20L4p1M7unfCmhVcSD0PsgHThSy=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SEIN BUDGET",
+     [
+      {
+       "t": "PLANEN",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OXH8Khv5OQw",
+     "titre": "Haushaltsbuch Tutorial - nur 10 Minuten im Monat | Excel Budget",
+     "chaine": "Marnie Obster",
+     "vues": "6024 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "12:28",
+     "avatar": "https://yt3.ggpht.com/EWKRBARW7T2W9ecpxIvlpIoHxBKzt6R2PDWdoVRxxiWNHEA1SMsXnVU3sZm2sbHksQBNFKMf5Ec=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "UN BUDGET",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oDToWzWhKow",
+     "titre": "Come Creare un BUDGET per GESTIRE i SOLDI",
+     "chaine": "Money Stories Italia",
+     "vues": "18K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "15:16",
+     "avatar": "https://yt3.ggpht.com/Xs8Y_kMvORNPNTcmzQCnmwhfy9PFGUmR-V_5e_r9FL9Jnx32yz-3upGnxJdjvow5Xybea-oftJQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER UM",
+     [
+      {
+       "t": "ORÇAMENTO",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oLMxWL2w5PY",
+     "titre": "Como organizar as contas de casa? (Orçamento doméstico)",
+     "chaine": "Investidor Sardinha l Raul Sena",
+     "vues": "215 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "14:19",
+     "avatar": "https://yt3.ggpht.com/q6bgR6BvYXgq3u9GF_MP_YrVW4myeX_ETDwgM68vUA4XkahJUCoxnFy-MnELZPd5n875FDi5Fw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "BÜTÇE",
+     [
+      {
+       "t": "YAPMAK",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "loquLauxOy0",
+     "titre": "Bütçenizi Nasıl Yönetmelisiniz? (50/30/20 Kuralı)",
+     "chaine": "Doç. Dr. Serkan Ünal",
+     "vues": "23 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "6:59",
+     "avatar": "https://yt3.ggpht.com/Wyez-G2OzNwEb8eO9TG9JAg66bhSHjmy8toS8jll7lkF54O7ANePf_1UE-EpYB12cmuzt2ZzEw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI FACI",
+     [
+      {
+       "t": "UN BUGET",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CZqSM4tj5Lw",
+     "titre": "Cum să faci un Buget Personal",
+     "chaine": "Ovidiu Tarcu",
+     "vues": "9 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "7:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mHmwDimV37VD7QuE-x61E2ThxSlV9HlSoKwu_VlgYjCQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UDĚLAT SI",
+     [
+      {
+       "t": "ROZPOČET",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vKBP0SLrMcg",
+     "titre": "Jak si udělat rozpočet",
+     "chaine": "Jana a její svět",
+     "vues": "4 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "11:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ltquXuKHfd4j1agARShvrxHtYKir9Fby3NZhi5oD7Hv_s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "KÖLTSÉGVETÉST",
+     [
+      {
+       "t": "KÉSZÍTENI",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RngIP_MAlm4",
+     "titre": "Otthoni költségvetés tervezés 2025.március 1.rész",
+     "chaine": "PénztárcaBarát",
+     "vues": "536 megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "11:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mhD_uBtCD8mWdT0iitBx_Q8bq0TyRBWRZE2sXdp1oZwUfg1sZvctK6tZ7r4kqP-KS8-A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΚΑΝΕΙΣ",
+     [
+      {
+       "t": "ΠΡΟΫΠΟΛΟΓΙΣΜΟ",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ljtZ9v7uug4",
+     "titre": "Σύστημα προϋπολογισμού 50/30/20 - Πώς να διαθέσεις το εισόδημά σου κατάλληλα;",
+     "chaine": "skiouraki.gr",
+     "vues": "3,5 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "2:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_niANoXfr_wxdzYQtMPGK5tMyEfs2bD3jQu19sVroKL9Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAPRAVITI",
+     [
+      {
+       "t": "BUDŽET",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "E6ARCNsloq4",
+     "titre": "Kako da napraviš BUDŽET za 2026? - Mali Excel tutorijal",
+     "chaine": "Lične Finansije",
+     "vues": "5 hilj. pregleda",
+     "date": "pre 10 meseci",
+     "duree": "36:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kY1aNdZ1f69JR35wXAEAJsJaHCMQRJcB6NIStnXcCHlw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "HACER UN",
+     [
+      {
+       "t": "PRESUPUESTO",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7-6i6_bnpQw",
+     "titre": "Haz esto SIEMPRE que cobres la nómina. (Rutina Financiera)",
+     "chaine": "Richard Gracia",
+     "vues": "169 K visualizaciones",
+     "date": "hace 1 año",
+     "duree": "19:57",
+     "avatar": "https://yt3.ggpht.com/uv2Pf89aUGlsRy3uRynqlCC1ykMyVQslD72rmqQfr11qKVQnX-R4pFtxGWsHNelmbsBvELTEzw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER UN",
+     [
+      {
+       "t": "PRESUPUESTO",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "f2O4Q-T12FI",
+     "titre": "¿Cómo CREAR un PRESUPUESTO PERSONAL? | Guía Completa",
+     "chaine": "Andres Garza",
+     "vues": "137 k vistas",
+     "date": "hace 4 años",
+     "duree": "13:46",
+     "avatar": "https://yt3.ggpht.com/cIr0soR9lJgvp54ZznA6CwRpN9Nd09_OiIMjaAI_F_--5qraoZp-W0aOPEKSdu_noRZD4cUgEA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "ZROBIĆ",
+     [
+      {
+       "t": "BUDŻET",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Df3QMuRixyo",
+     "titre": "💰 Jak ogarnąć budżet domowy od A do Z 💸 Kompletny poradnik",
+     "chaine": "Bogaty z Wyboru",
+     "vues": "20 tys. wyświetleń",
+     "date": "3 lata temu",
+     "duree": "32:00",
+     "avatar": "https://yt3.ggpht.com/fqfJnkIgWIEOZ1Ie_ZtG3u_zD3sX2CmhAPrYchlzoaajyXm1hfjpi07n_LCUdp0NjQCado_3lsc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 godzina nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "UROBIŤ SI",
+     [
+      {
+       "t": "ROZPOČET",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0HwtDZiTBuI",
+     "titre": "„50/30/20 rozpočet: Ako funguje na Slovensku + Tipy na úsporu peňazí“",
+     "chaine": "Zarábaj s Mysľou",
+     "vues": "101 zhliadnutí",
+     "date": "pred 1 rokom",
+     "duree": "3:30",
+     "avatar": "https://yt3.ggpht.com/gAif6JZFH8F-vHY1IgY8XnVb5VLQrQv3c1LtQoq_utYT2iPVZJqpdG7Oc0OfDGoZe7u2YNybMnE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "NAPRAVITI",
+     [
+      {
+       "t": "BUDŽET",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7OBKhheI9lc",
+     "titre": "Budžetiranje za početnike: 3 metode koje stvarno rade!",
+     "chaine": "O novcu",
+     "vues": "7,7 tis. pregleda",
+     "date": "prije 1 godine",
+     "duree": "6:10",
+     "avatar": "https://yt3.ggpht.com/6gxTkCoxK843BB7ATSeosCuWt0T5PRcRhNOjdbMqcavhgDuiuBx4lP-P7BOI9Jy3iXDoyHLK_A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat učenja"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "GÖRA EN",
+     [
+      {
+       "t": "BUDGET",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RKC_f9-rjfU",
+     "titre": "Hur gör man en budget?",
+     "chaine": "PankaPappan",
+     "vues": "14 tn visningar",
+     "date": "för 7 år sedan",
+     "duree": "3:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k0dCXpmNboeQQA23B0zu1VeFT7QW6BsxGpyR-GN7_lrg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 timme att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "PLĀNOT",
+     [
+      {
+       "t": "BUDŽETU",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cmTq-QoELOE",
+     "titre": "50-30-20: Vienkāršs rīks, kā veiksmīgi plānot savu budžetu",
+     "chaine": "SEB Latvija",
+     "vues": "294 skatījumi",
+     "date": "Straumēts pirms 5 gadiem",
+     "duree": "54:56",
+     "avatar": "https://yt3.ggpht.com/aGIhcwP94LppnjwBLP9-96X4AH43D9pA1z_A030hHFb4V93lzzM4j0nwOSt_tsc6_IyuQhx9=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 stunda mācību"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "PREMIERS",
+       "couleur": "#c2393d"
+      }
+     ],
+     "SECOURS"
+    ],
+    "video": {
+     "id": "yXsLB1hOpIM",
+     "titre": "Premiers secours : comment réagir en cas d’accident ? | Tutoriel 2026",
+     "chaine": "Gouvernement",
+     "vues": "343 k vues",
+     "date": "il y a 3 ans",
+     "duree": "6:27",
+     "avatar": "https://yt3.ggpht.com/6bVJiXcI0zSZT8FpBkQ3ZITWksjXdAo1hjyOrQOEmSiU_fe5QCN_kR7RFitsJ6XOVy_ZewLi1A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "FIRST",
+       "couleur": "#c2393d"
+      }
+     ],
+     "AID"
+    ],
+    "video": {
+     "id": "DHbI3dw4H_I",
+     "titre": "FIRST-AID: BASICS",
+     "chaine": "GotSafety",
+     "vues": "68K views",
+     "date": "6 years ago",
+     "duree": "2:42",
+     "avatar": "https://yt3.ggpht.com/SNe3vqG4LEw3-_x9WPKDSoTCY8fxxDgWaFq9qg5TBvvV81eet5ykSHiJbGLgy7FDAoYXqlOVXg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "ERSTE",
+       "couleur": "#c2393d"
+      }
+     ],
+     "HILFE"
+    ],
+    "video": {
+     "id": "Dp2IKvR1BIo",
+     "titre": "Erste Hilfe: Wie hilft man im Erstickungsfall?",
+     "chaine": "Deutsches Rotes Kreuz",
+     "vues": "54.744 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "1:34",
+     "avatar": "https://yt3.ggpht.com/5f5MtBpAcy-4YrtDcC9tlXCw2cDUaM93hEy9iCOgeJE2ZPKIF9lze0QIWTGSlv0cIgaN9BbXkh0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "PRIMO",
+       "couleur": "#c2393d"
+      }
+     ],
+     "SOCCORSO"
+    ],
+    "video": {
+     "id": "DPHQUMJWTUk",
+     "titre": "Le manovre salvavita in caso di arresto cardiaco e soffocamento - Fausto D'Agostino a TV2000",
+     "chaine": "Università Campus Bio-Medico di Roma",
+     "vues": "26K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "4:47",
+     "avatar": "https://yt3.ggpht.com/nvHB6f5REnKyHSH0shzV_QTkcsdylr2OYN7zSTeQgnuH0VViRjQ3FR9Kw-jBAwRgGS1CEdIM9TI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "PRIMEIROS",
+       "couleur": "#c2393d"
+      }
+     ],
+     "SOCORROS"
+    ],
+    "video": {
+     "id": "mNi1JYtjp3o",
+     "titre": "Noções básicas de primeiros socorros",
+     "chaine": "Farmácias Pague Menos",
+     "vues": "28 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "5:18",
+     "avatar": "https://yt3.ggpht.com/0lW2jgXjrAgQL8Dpb48FO77r00PMfMxBEH4cp6WDViYsGNrg0GNPrmw_O-I9jxw043tP2LCb=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "İLK",
+       "couleur": "#c2393d"
+      }
+     ],
+     "YARDIM"
+    ],
+    "video": {
+     "id": "C50kTRJ4eiA",
+     "titre": "İlk Yardım ABC'si: Havayolu, Solunum ve Dolaşım Değerlendirmesi [ Ehliyet Dersleri ]",
+     "chaine": "Usta Öğretici",
+     "vues": "521 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "3:04",
+     "avatar": "https://yt3.ggpht.com/W0ejZjZjWwhfQPbycqyUGKO7Q28do5eGs8a0dvQzGJbHVftvTYZnQskxuA8bqNyDXGuIuOfHUQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 3-4 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "PRIM",
+       "couleur": "#c2393d"
+      }
+     ],
+     "AJUTOR"
+    ],
+    "video": {
+     "id": "Ary9piHuq50",
+     "titre": "Resuscitarea la adulți | Învață Primul Ajutor!",
+     "chaine": "Crucea Roșie Română",
+     "vues": "9,7 K vizionări",
+     "date": "acum 2 ani",
+     "duree": "6:07",
+     "avatar": "https://yt3.ggpht.com/yLy7hA2LfiXJCPMxPLoknI83PWiuRApMf5SDuvZ78GX88zQa6GMKkzIsUd8G3bTY1zO6urtt9Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "PRVNÍ",
+       "couleur": "#c2393d"
+      }
+     ],
+     "POMOC"
+    ],
+    "video": {
+     "id": "UfPlw0Bsdtk",
+     "titre": "První pomoc u resuscitace - jak použít AED | Kurzy první pomoci Life Support",
+     "chaine": "Life Support s.r.o.",
+     "vues": "45 tis. zhlédnutí",
+     "date": "před 10 lety",
+     "duree": "2:45",
+     "avatar": "https://yt3.ggpht.com/Iiv_2BUnwRyLae1OV9GDRp62sImYoKR4SHopUPdVAmzKEh8d6V_5CFOSZa2vMLk56yIIRObwnQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 hodiny na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "ELSŐSEGÉLY",
+       "couleur": "#c2393d"
+      }
+     ],
+     "NYÚJTÁS"
+    ],
+    "video": {
+     "id": "OxA84lHo0us",
+     "titre": "Az újraélesztés alapjai",
+     "chaine": "OMSZA",
+     "vues": "69 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "3:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mQmxGC2IAm04yiMQlUApPyALA0GiQeRr-4-WLu0feTMA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΠΡΩΤΕΣ",
+       "couleur": "#c2393d"
+      }
+     ],
+     "ΒΟΗΘΕΙΕΣ"
+    ],
+    "video": {
+     "id": "M1Nm37HvnWM",
+     "titre": "Πρώτες βοήθειες/Λιποθυμία",
+     "chaine": "Ελληνική Ομάδα Διάσωσης",
+     "vues": "228 χιλ. προβολές",
+     "date": "πριν από 11 έτη",
+     "duree": "4:34",
+     "avatar": "https://yt3.ggpht.com/V4E37IQutRmXsmvQnt_4c8MpZsedwa2i2GvxgcFXci-ZuH1TGeHUlQSEAZWeUZVcheB2iMKQFg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 ώρες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "PRVA",
+       "couleur": "#c2393d"
+      }
+     ],
+     "POMOĆ"
+    ],
+    "video": {
+     "id": "WCtlmH4um_Y",
+     "titre": "Prva pomoć za vozače - Neodložno pomeranje povređene osobe",
+     "chaine": "Crveni krst Srbije/Red Cross of Serbia",
+     "vues": "62 hilj. pregleda",
+     "date": "pre 9 godina",
+     "duree": "1:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_muQTYHpIOi3CQz_4JQmoMb49Hujp3V2QLtDk9-1olqU9Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 sata za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     [
+      {
+       "t": "PRIMEROS",
+       "couleur": "#c2393d"
+      }
+     ],
+     "AUXILIOS"
+    ],
+    "video": {
+     "id": "xXvyLpAfNDQ",
+     "titre": "Taller Iniciación a los Primeros Auxilios",
+     "chaine": "Cruz Roja Española",
+     "vues": "155 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "1:59:57",
+     "avatar": "https://yt3.ggpht.com/N0gWAarveuBXHXzgNpBplftiwWNOvNE1ftwh3Wjvm8cfYFrdizhf9dmOI7-q2RIkdE_vplRR1eo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 horas para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     [
+      {
+       "t": "PRIMEROS",
+       "couleur": "#c2393d"
+      }
+     ],
+     "AUXILIOS"
+    ],
+    "video": {
+     "id": "l89qiD3aqVQ",
+     "titre": "Introducción a los #PrimerosAuxilios básicos",
+     "chaine": "CRUZ ROJA MEXICANA IAP",
+     "vues": "265 k vistas",
+     "date": "hace 2 años",
+     "duree": "1:40",
+     "avatar": "https://yt3.ggpht.com/rhv6JkZKNpb6yTCFuj4kJ7V2OtE4LR9yvHQJ-1OUaqD40tc8pTWvKfg_ixaSc5zgPWw6-yY07A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 horas para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     [
+      {
+       "t": "PIERWSZA",
+       "couleur": "#c2393d"
+      }
+     ],
+     "POMOC"
+    ],
+    "video": {
+     "id": "d8w20pn_1vM",
+     "titre": "Podstawy pierwszej pomocy",
+     "chaine": "Centrum Symulacji Medycznych WUM",
+     "vues": "31 tys. wyświetleń",
+     "date": "3 lata temu",
+     "duree": "13:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nr9xE_2vBhbh6K--Fq-aive21XyEQnu2y02BiS_JoIPeuEzrRmJAz6CHewA8Z5_h4Pew=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 godziny nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     [
+      {
+       "t": "PRVÁ",
+       "couleur": "#c2393d"
+      }
+     ],
+     "POMOC"
+    ],
+    "video": {
+     "id": "QIVohH6Bexg",
+     "titre": "Prvá pomoc pri dusení cudzím telesom u dospelých",
+     "chaine": "Kapitoly o zdraví",
+     "vues": "454 zhliadnutí",
+     "date": "pred 2 rokmi",
+     "duree": "5:37",
+     "avatar": "https://yt3.ggpht.com/qgQG9MEzCbqI7NZ9h3PFClVd8a8nA56f68zhgiOj-z8pxG7YLqZiZu53cKHlbroKmT64Y7St3A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 hodiny na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     [
+      {
+       "t": "PRVA",
+       "couleur": "#c2393d"
+      }
+     ],
+     "POMOĆ"
+    ],
+    "video": {
+     "id": "uIXF5mXMWpE",
+     "titre": "Tehnika postavljanja unesrećene osobe u stabilan bočni položaj",
+     "chaine": "Croatian Red Cross Hrvatski Crveni kriz",
+     "vues": "2 tis. pregleda",
+     "date": "prije 4 tjedna",
+     "duree": "1:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lT4bqcKKpQdza7f35t5bbUbAnjCox5oIyPYJGbSVO7XpI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 sata učenja"
+    ]
+   },
+   "sv": {
+    "titre": [
+     [
+      {
+       "t": "FÖRSTA",
+       "couleur": "#c2393d"
+      }
+     ],
+     "HJÄLPEN"
+    ],
+    "video": {
+     "id": "3bx9yViDQyE",
+     "titre": "Så här gör du hjärt-lungräddning",
+     "chaine": "svenskarodakorset",
+     "vues": "9,5 tn visningar",
+     "date": "för 3 år sedan",
+     "duree": "6:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k2I1bWz0Zj3FphE04nS2I8K692VJRrjuwt8-Q2hOpXaJ8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 timmar att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     [
+      {
+       "t": "PIRMĀ",
+       "couleur": "#c2393d"
+      }
+     ],
+     "PALĪDZĪBA"
+    ],
+    "video": {
+     "id": "9DsVHRubNI4",
+     "titre": "Pirmā palīdzība: stabilā sānu poza",
+     "chaine": "Biedrība Latvijas Sarkanais Krusts",
+     "vues": "14 tūkst. skatījumu",
+     "date": "pirms 5 gadiem",
+     "duree": "2:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kZNqDuIcQmkqp0GHn7aUC1iXMZvn6EcCE64z1tSTN_ng=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 stundas mācību"
+    ]
+   }
+  }
+ ]
+}

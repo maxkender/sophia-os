@@ -1,0 +1,495 @@
+{
+  "id": "hl-013",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7686199268775939350",
+    "vues": 1400000,
+    "publie_le": "2026-09-16",
+    "accroche": "HOW TO GIVE A GIRL BUTTERFLIES."
+  },
+  "musique": {
+    "titre": "Les (Instrumental Slowed)",
+    "url": "https://www.tiktok.com/music/Les-Instrumental-Slowed-7601037808778708993"
+  },
+  "notes": "Preuve de format : « HOW TO GIVE A GIRL BUTTERFLIES. » (1,4 M), famille « HOW TO … », conseils titrés. Accroche neuve « HOW TO NEVER RUN OUT OF THINGS TO SAY. ». Carte Artura (4) : « Start with a painting. », Georges de La Tour, The Fortune-Teller (The Met 436838), LOGO d'Artura ; cta A. Fait vérifié : pendant que la vieille femme lui dit la bonne aventure, les jeunes femmes à ses côtés le volent (fiche du Met). Full test (accroche jamais faite chez nous), routine du 27/11. En en, el, es-419, it, hu, sr (latin), pt-BR, es.",
+  "oeuvres": {
+    "images/oeuvres/latour-diseuse.jpg": {
+      "musee": "The Met",
+      "id": "436838",
+      "titre": "The Fortune-Teller",
+      "artiste": "Georges de La Tour",
+      "date": "probably 1630s",
+      "url": "https://www.metmuseum.org/art/collection/search/436838"
+    }
+  },
+  "titre": {
+    "en": "How to never run out of things to say.",
+    "el": "Πώς να μη μείνεις ποτέ χωρίς κουβέντα.",
+    "es-419": "Cómo nunca quedarte sin tema de conversación.",
+    "it": "Come non restare mai senza parole.",
+    "hu": "Hogyan ne fogyj ki soha a témából.",
+    "sr": "Kako da ti nikad ne ponestane tema.",
+    "pt-BR": "Como nunca ficar sem assunto.",
+    "es": "Cómo nunca quedarte sin tema de conversación."
+  },
+  "legendes": {
+    "en": "#conversationtips #datingadvice #tipsformen ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "sr": "#savetizamuškarce #veze #zavođenje ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "en": {
+        "titre": "HOW TO NEVER\nRUN OUT OF\nTHINGS TO SAY."
+      },
+      "el": {
+        "titre": "ΠΩΣ ΝΑ ΜΗ\nΜΕΙΝΕΙΣ ΠΟΤΕ\nΧΩΡΙΣ ΚΟΥΒΕΝΤΑ."
+      },
+      "es-419": {
+        "titre": "CÓMO NUNCA\nQUEDARTE SIN\nTEMA DE\nCONVERSACIÓN."
+      },
+      "it": {
+        "titre": "COME NON\nRESTARE MAI\nSENZA PAROLE."
+      },
+      "hu": {
+        "titre": "HOGYAN NE\nFOGYJ KI SOHA\nA TÉMÁBÓL."
+      },
+      "sr": {
+        "titre": "KAKO DA TI\nNIKAD NE\nPONESTANE TEMA."
+      },
+      "pt-BR": {
+        "titre": "COMO NUNCA\nFICAR SEM\nASSUNTO."
+      },
+      "es": {
+        "titre": "CÓMO NUNCA\nQUEDARTE SIN\nTEMA DE\nCONVERSACIÓN."
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Ask, then ask again.",
+        "paragraphes": [
+          "Her answer is your next question.",
+          "“I moved here last year.”\n“What made you leave?”"
+        ]
+      },
+      "el": {
+        "titre": "Ρώτα, και ξαναρώτα.",
+        "paragraphes": [
+          "Η απάντησή της είναι η επόμενη ερώτησή σου.",
+          "«Μετακόμισα πέρσι.»\n«Τι σε έκανε να φύγεις;»"
+        ]
+      },
+      "es-419": {
+        "titre": "Pregunta, y vuelve a preguntar.",
+        "paragraphes": [
+          "Su respuesta es tu siguiente pregunta.",
+          "“Me mudé el año pasado.”\n“¿Qué te hizo irte?”"
+        ]
+      },
+      "it": {
+        "titre": "Chiedi, e chiedi ancora.",
+        "paragraphes": [
+          "La sua risposta è la tua prossima domanda.",
+          "“Mi sono trasferita l'anno scorso.”\n“Cosa ti ha fatto partire?”"
+        ]
+      },
+      "hu": {
+        "titre": "Kérdezz, aztán újra.",
+        "paragraphes": [
+          "Az ő válasza a te következő kérdésed.",
+          "„Tavaly költöztem ide.”\n„Miért jöttél el?”"
+        ]
+      },
+      "sr": {
+        "titre": "Pitaj, pa pitaj opet.",
+        "paragraphes": [
+          "Njen odgovor je tvoje sledeće pitanje.",
+          "„Preselila sam se prošle godine.”\n„Zašto si otišla?”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Pergunte, e pergunte de novo.",
+        "paragraphes": [
+          "A resposta dela é a sua próxima pergunta.",
+          "“Me mudei ano passado.”\n“O que te fez sair de lá?”"
+        ]
+      },
+      "es": {
+        "titre": "Pregunta, y vuelve a preguntar.",
+        "paragraphes": [
+          "Su respuesta es tu siguiente pregunta.",
+          "“Me mudé el año pasado.”\n“¿Qué te hizo irte?”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Share a little, too.",
+        "paragraphes": [
+          "An interview isn't a date.",
+          "Give a story for every story."
+        ]
+      },
+      "el": {
+        "titre": "Μοιράσου κι εσύ κάτι.",
+        "paragraphes": [
+          "Η συνέντευξη δεν είναι ραντεβού.",
+          "Για κάθε ιστορία της, πες κι εσύ μία."
+        ]
+      },
+      "es-419": {
+        "titre": "Cuenta algo tú también.",
+        "paragraphes": [
+          "Una entrevista no es una cita.",
+          "Por cada historia suya, cuenta una tuya."
+        ]
+      },
+      "it": {
+        "titre": "Racconta qualcosa anche tu.",
+        "paragraphes": [
+          "Un interrogatorio non è un appuntamento.",
+          "Per ogni sua storia, raccontane una tua."
+        ]
+      },
+      "hu": {
+        "titre": "Mesélj te is.",
+        "paragraphes": [
+          "Az interjú nem randi.",
+          "Minden történetére mesélj egyet te is."
+        ]
+      },
+      "sr": {
+        "titre": "Ispričaj i ti nešto.",
+        "paragraphes": [
+          "Intervju nije sastanak.",
+          "Za svaku njenu priču, ispričaj jednu svoju."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Conte algo também.",
+        "paragraphes": [
+          "Entrevista não é encontro.",
+          "Para cada história dela, conte uma sua."
+        ]
+      },
+      "es": {
+        "titre": "Cuenta algo tú también.",
+        "paragraphes": [
+          "Una entrevista no es una cita.",
+          "Por cada historia suya, cuenta una tuya."
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/latour-diseuse.jpg",
+      "en": {
+        "titre": "Start with a painting.",
+        "avant": [
+          "In La Tour's Fortune-Teller, he listens to his future while the girls pick his pockets.",
+          "Ask her who she'd be."
+        ],
+        "apres": [
+          "I learn one painting a day on Artura,\nso I always have a story ready."
+        ]
+      },
+      "el": {
+        "titre": "Ξεκίνα από έναν πίνακα.",
+        "avant": [
+          "Στη Μάντισσα του Λα Τουρ, εκείνος ακούει το μέλλον του ενώ τα κορίτσια τον ληστεύουν.",
+          "Ρώτα τη ποια θα ήταν."
+        ],
+        "apres": [
+          "Μαθαίνω έναν πίνακα τη μέρα στο Artura, οπότε έχω πάντα μια ιστορία έτοιμη."
+        ]
+      },
+      "es-419": {
+        "titre": "Empieza por un cuadro.",
+        "avant": [
+          "En La buenaventura de La Tour, él escucha su futuro mientras las chicas le vacían los bolsillos.",
+          "Pregúntale quién sería ella."
+        ],
+        "apres": [
+          "Aprendo un cuadro al día en Artura, así que siempre tengo una historia lista."
+        ]
+      },
+      "it": {
+        "titre": "Parti da un quadro.",
+        "avant": [
+          "Nella Buona ventura di La Tour, lui ascolta il suo futuro mentre le ragazze lo derubano.",
+          "Chiedile chi sarebbe lei."
+        ],
+        "apres": [
+          "Imparo un quadro al giorno su Artura, così ho sempre una storia pronta."
+        ]
+      },
+      "hu": {
+        "titre": "Kezdd egy festménnyel.",
+        "avant": [
+          "La Tour Jósnőjén a férfi a jövőjét hallgatja, közben a lányok kizsebelik.",
+          "Kérdezd meg, ő ki lenne a képen."
+        ],
+        "apres": [
+          "Naponta egy festményt tanulok az Artura appban, így mindig van egy kész történetem."
+        ]
+      },
+      "sr": {
+        "titre": "Počni od slike.",
+        "avant": [
+          "Na La Turovoj Gatari on sluša svoju budućnost dok mu devojke prazne džepove.",
+          "Pitaj je ko bi ona bila."
+        ],
+        "apres": [
+          "Učim jednu sliku dnevno u aplikaciji Artura, pa uvek imam spremnu priču."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Comece por um quadro.",
+        "avant": [
+          "Em A Cartomante, de La Tour, ele ouve seu futuro enquanto as moças o roubam.",
+          "Pergunte quem ela seria."
+        ],
+        "apres": [
+          "Aprendo um quadro por dia no Artura, então sempre tenho uma história pronta."
+        ]
+      },
+      "es": {
+        "titre": "Empieza por un cuadro.",
+        "avant": [
+          "En La buenaventura de La Tour, él escucha su futuro mientras las chicas le vacían los bolsillos.",
+          "Pregúntale quién sería ella."
+        ],
+        "apres": [
+          "Aprendo un cuadro al día en Artura, así que siempre tengo una historia lista."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Silence is fine.",
+        "paragraphes": [
+          "Don't panic at a pause.\nSmile, take a sip.",
+          "Calm silence feels like confidence."
+        ]
+      },
+      "el": {
+        "titre": "Η σιωπή είναι εντάξει.",
+        "paragraphes": [
+          "Μην πανικοβάλλεσαι σε μια παύση. Χαμογέλα, πιες μια γουλιά.",
+          "Η ήρεμη σιωπή μοιάζει με αυτοπεποίθηση."
+        ]
+      },
+      "es-419": {
+        "titre": "El silencio está bien.",
+        "paragraphes": [
+          "No entres en pánico en una pausa. Sonríe, toma un sorbo.",
+          "Un silencio tranquilo se siente como seguridad."
+        ]
+      },
+      "it": {
+        "titre": "Il silenzio va bene.",
+        "paragraphes": [
+          "Non andare nel panico a una pausa. Sorridi, bevi un sorso.",
+          "Un silenzio calmo sa di sicurezza."
+        ]
+      },
+      "hu": {
+        "titre": "A csend rendben van.",
+        "paragraphes": [
+          "Ne ess pánikba egy szünettől. Mosolyogj, kortyolj egyet.",
+          "A nyugodt csend magabiztosságnak tűnik."
+        ]
+      },
+      "sr": {
+        "titre": "Tišina je u redu.",
+        "paragraphes": [
+          "Ne paniči zbog pauze. Nasmeši se, otpij gutljaj.",
+          "Mirna tišina deluje kao samopouzdanje."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Silêncio não é problema.",
+        "paragraphes": [
+          "Não entre em pânico com uma pausa. Sorria, tome um gole.",
+          "Silêncio tranquilo parece confiança."
+        ]
+      },
+      "es": {
+        "titre": "El silencio está bien.",
+        "paragraphes": [
+          "No entres en pánico en una pausa. Sonríe, da un sorbo.",
+          "Un silencio tranquilo se siente como seguridad."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Talk about dreams.",
+        "paragraphes": [
+          "Not “Where do you see yourself\nin five years?”",
+          "But “Where would you go\ntomorrow if you could?”"
+        ]
+      },
+      "el": {
+        "titre": "Μίλα για όνειρα.",
+        "paragraphes": [
+          "Όχι «Πού βλέπεις τον εαυτό σου σε πέντε χρόνια;»",
+          "Αλλά «Πού θα πήγαινες αύριο, αν μπορούσες;»"
+        ]
+      },
+      "es-419": {
+        "titre": "Habla de sueños.",
+        "paragraphes": [
+          "No “¿Dónde te ves en cinco años?”",
+          "Sino “¿A dónde irías mañana si pudieras?”"
+        ]
+      },
+      "it": {
+        "titre": "Parla di sogni.",
+        "paragraphes": [
+          "Non “Dove ti vedi tra cinque anni?”",
+          "Ma “Dove andresti domani, se potessi?”"
+        ]
+      },
+      "hu": {
+        "titre": "Álmokról beszélj.",
+        "paragraphes": [
+          "Ne azt, hogy „Hol látod magad öt év múlva?”",
+          "Hanem: „Hová mennél holnap, ha tehetnéd?”"
+        ]
+      },
+      "sr": {
+        "titre": "Pričaj o snovima.",
+        "paragraphes": [
+          "Ne „Gde se vidiš za pet godina?”",
+          "Nego „Gde bi otišla sutra da možeš?”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Fale de sonhos.",
+        "paragraphes": [
+          "Não “Onde você se vê daqui a cinco anos?”",
+          "Mas “Para onde você iria amanhã, se pudesse?”"
+        ]
+      },
+      "es": {
+        "titre": "Habla de sueños.",
+        "paragraphes": [
+          "No “¿Dónde te ves en cinco años?”",
+          "Sino “¿A dónde irías mañana si pudieras?”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "It's not about being interesting.\nIt's about being interested.",
+          "**A boy talks.**\n**A man listens, then talks.**"
+        ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Δεν είναι να είσαι ενδιαφέρων. Είναι να ενδιαφέρεσαι.",
+          "**Το αγόρι μιλάει.**\n**Ο άντρας ακούει, μετά μιλάει.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "No se trata de ser interesante. Se trata de estar interesado.",
+          "**Un niño habla.**\n**Un hombre escucha, y luego habla.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "Non si tratta di essere interessante. Si tratta di essere interessato.",
+          "**Un ragazzino parla.**\n**Un uomo ascolta, poi parla.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "Nem az a lényeg, hogy érdekes légy. Hanem hogy érdeklődj.",
+          "**A kisfiú beszél.**\n**A férfi meghallgat, aztán beszél.**"
+        ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Nije stvar u tome da budeš zanimljiv. Nego da te zanima.",
+          "**Dečak priča.**\n**Muškarac sluša, pa priča.**"
+        ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Não é sobre ser interessante. É sobre estar interessado.",
+          "**O garoto fala.**\n**O homem escuta, depois fala.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "No se trata de ser interesante. Se trata de estar interesado.",
+          "**Un niño habla.**\n**Un hombre escucha, y luego habla.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      }
+    }
+  ]
+}

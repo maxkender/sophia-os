@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o328",
+  "type_bleo": "full_test",
+  "titre": "les sujets d'histoire qu'on n'apprend pas à l'école #histoire #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Fait vérifié le 3/11 sur https://en.wikipedia.org/wiki/Anglo-Zanzibar_War : moins d'une heure, 1896. Routine du 27/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 6 full tests et 12 déclinaisons ; seules les lignes 1 et 15 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale « how to destroy yourself »), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12, 13 et 14 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ce0cbe0b",
+      "texte_overlay": "les sujets d'histoire\nqu'on n'apprend pas à l'école",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6e2e215e",
+      "texte_overlay": "1. la vie quotidienne\n\nce qu'on mangeait, comment on dormait.\nle plus passionnant.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "b0150d90",
+      "texte_overlay": "2. les femmes oubliées\n\nles savantes, les reines, les autrices\nque les manuels ont laissées de côté.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "1d2e0042",
+      "texte_overlay": "3. les guerres absurdes\n\nce matin, j'ai appris que la guerre la plus courte de l'histoire a duré moins d'une heure, en 1896.\nje n'en revenais pas.",
+      "texte_sophia": "3. les guerres absurdes\n\nce matin, l'appli Sophia m'a appris que la guerre la plus courte de l'histoire a duré moins d'une heure, en 1896.\nje n'en revenais pas.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "300f3ed6",
+      "texte_overlay": "4. l'histoire des objets\n\nla fourchette, le miroir, la montre.\ntout a une origine.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "cfb52a7d",
+      "texte_overlay": "5. les autres continents\n\nl'afrique, l'asie, les amériques.\ntout un monde à découvrir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "8375818c",
+      "texte_overlay": "tu commences par lequel ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

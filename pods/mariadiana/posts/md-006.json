@@ -68,11 +68,11 @@
       "url": "https://www.metmuseum.org/art/collection/search/435809"
     }
   },
-  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : Vue de Tolède : un des deux seuls paysages d'El Greco conservés (avec Vue et plan de Tolède) ; né en Crète, à Tolède de 1577 à sa mort en 1614. Hammershøi : appartement du Strandgade 30 (1898-1909), peint une soixantaine de fois, souvent Ida de dos. Serena Lederer (1867-1943) : les Lederer, grands mécènes de Klimt ; collection saisie par les nazis ; incendie du château d'Immendorf en mai 1945 ; acheté par le Met en 1980. Les Moissonneurs : 1565, série des saisons pour Niclaes Jongelinck (Anvers), six tableaux, cinq conservés ; l'homme endormi sous le poirier. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (une foule ou des visiteurs de dos, le tableau n'est qu'une tache de lumière).",
+  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : Vue de Tolède : un des deux seuls paysages d'El Greco conservés (avec Vue et plan de Tolède) ; né en Crète, à Tolède de 1577 à sa mort en 1614. Hammershøi : appartement du Strandgade 30 (1898-1909), peint une soixantaine de fois, souvent Ida de dos. Serena Lederer (1867-1943) : les Lederer, grands mécènes de Klimt ; collection saisie par les nazis ; incendie du château d'Immendorf en mai 1945 ; acheté par le Met en 1980. Les Moissonneurs : 1565, série des saisons pour Niclaes Jongelinck (Anvers), six tableaux, cinq conservés ; l'homme endormi sous le poirier. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA (refaite le 27/11).",
   "slides": [
     {
       "type": "couverture",
-      "image": "images/photos/musee-couloir.jpg",
+      "image": "images/banque/b-silhouette.jpg",
       "en": {
         "titre": "Paintings That Haunt Me"
       },
@@ -320,5 +320,8 @@
         "artiste": "Pieter Bruegel cel Bătrân"
       }
     }
-  ]
+  ],
+  "banque": {
+    "images/banque/b-silhouette.jpg": "750438f5-7a62-4f58-a208-3a9ae8a0bb88"
+  }
 }

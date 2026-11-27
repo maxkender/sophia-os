@@ -1,0 +1,106 @@
+{
+ "id": "tg-020",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies that make you smarter if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #learning #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies that make you smarter if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (329fd162), slide Artura sur un tableau ou un musée de la banque (91216c38), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/a-galerie-noire.jpg": "91216c38-6922-4b39-acff-75e89bb9fa01",
+  "images/banque/c-desert.jpg": "329fd162-3613-4d71-8794-73ca83adbcbb"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 hobbies that make you\nsmarter if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/piano.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning piano",
+    "accroche": "both hands, _new notes_, _instant sound_",
+    "colonne": [
+     "you hear right away if a note is wrong, and every song you learn is a clear _level up_"
+    ],
+    "chute": "one song, ten minutes a day"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-galerie-noire.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning art history",
+    "accroche": "one painting at a time, _one story_ at a time",
+    "colonne": [
+     "each painting teaches you a bit of history, a technique and a hidden detail",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "start with one painting a day"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/etoiles.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "stargazing",
+    "accroche": "the sky is a _map_ you can _learn_",
+    "colonne": [
+     "finding one new star or planet each night gives a curious brain a small _mission_"
+    ],
+    "chute": "go somewhere dark and look for one constellation"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-desert.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "trail running",
+    "accroche": "your brain reads _every rock_ and _every step_",
+    "colonne": [
+     "rough ground keeps your attention sharp, and a race goal gives the training a _direction_",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "walk the climbs, run the flats"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/sudoku.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "sudoku",
+    "accroche": "nine boxes, _one rule_, _no guessing_",
+    "colonne": [
+     "every number you place is a small win, and you always know exactly _what's left_"
+    ],
+    "chute": "start with the easy ones, the hard ones come fast"
+   }
+  }
+ ]
+}

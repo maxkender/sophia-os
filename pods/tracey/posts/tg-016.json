@@ -1,0 +1,106 @@
+{
+ "id": "tg-016",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 cozy hobbies that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #cozy #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 cozy hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (2a632527), slide Artura sur un tableau ou un musée de la banque (c016f9f7), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/a-ange.jpg": "c016f9f7-515e-40ba-b89c-415be28d9683",
+  "images/banque/c-automne.jpg": "2a632527-6d52-4617-8854-645308a94ebb"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 cozy hobbies that actually\nwork if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/cookies.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "nom": "baking cookies",
+    "accroche": "warm kitchen, _clear steps_, _quick reward_",
+    "colonne": [
+     "measuring and mixing keep your hands busy, and in 12 minutes you have something to _show for it_"
+    ],
+    "chute": "one easy recipe, saved on paper"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/lecture.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "reading by the window",
+    "accroche": "rain outside, _one book_, _no phone_",
+    "colonne": [
+     "a cozy spot with nothing else to do helps a scattered brain stay on the same page for _longer_"
+    ],
+    "chute": "start with 10 pages, not a whole chapter"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-ange.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "a quiet museum evening",
+    "accroche": "soft light, _no crowd_, _one statue_",
+    "colonne": [
+     "late openings are calm, and standing in front of one piece slows a busy mind right down",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "check which museum opens late this week"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/fleurs.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "pressing flowers",
+    "accroche": "you pick them today and _open the book_ next _week_",
+    "colonne": [
+     "it's slow, gentle and hands-on, and the wait makes the result feel like a small _surprise_"
+    ],
+    "chute": "one heavy book and flowers from a walk"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-automne.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a slow autumn run",
+    "accroche": "leaves, _cold air_ and _no rush_",
+    "colonne": [
+     "an easy run gives a restless body somewhere to go, and a weekly plan keeps it _gentle_",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "go slow enough to talk"
+   }
+  }
+ ]
+}

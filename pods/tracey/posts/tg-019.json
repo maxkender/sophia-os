@@ -1,0 +1,106 @@
+{
+ "id": "tg-019",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 rainy day hobbies that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #rainyday #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 rainy day hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (7bcc0c09), slide Artura sur un tableau ou un musée de la banque (65a40ede), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/a-musee-nuit.jpg": "65a40ede-2f98-446a-acf4-0c263a893ab4",
+  "images/banque/c-pov-mer.jpg": "7bcc0c09-8d06-43cb-ba5f-43be3796427e"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 rainy day hobbies that\nactually work if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/jeux.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "board games",
+    "accroche": "every turn is a _new_ little _decision_",
+    "colonne": [
+     "the rules give your brain structure, and other players keep the game moving _fast enough_"
+    ],
+    "chute": "pick a short game, 20 minutes max"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-musee-nuit.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a museum on a rainy day",
+    "accroche": "rain outside, _a whole world_ inside",
+    "colonne": [
+     "a rainy afternoon is the perfect excuse to get lost in one wing of a museum",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "pick one room and stay until the rain stops"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/lettres.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "writing letters",
+    "accroche": "slow, _on paper_, to _one person_",
+    "colonne": [
+     "a letter has a start and an end, and writing by hand slows a racing mind to the speed of the _pen_"
+    ],
+    "chute": "write one to a friend this week"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-pov-mer.jpg",
+   "cadrage": {
+    "y": 0.78
+   },
+   "en": {
+    "nom": "a run after the rain",
+    "accroche": "the rain stops, you're _out the door_",
+    "colonne": [
+     "fresh air after a grey day gives a restless body somewhere to go, and a plan keeps you running on _grey weeks_",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "go out in the first dry hour"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/plantes.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "repotting plants",
+    "accroche": "dirt, roots and _something alive_",
+    "colonne": [
+     "it's messy, hands-on and quick, and you get to watch the plant _grow back_ all week"
+    ],
+    "chute": "start with one plant that looks too big for its pot"
+   }
+  }
+ ]
+}

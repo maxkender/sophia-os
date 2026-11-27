@@ -1,0 +1,106 @@
+{
+ "id": "tg-017",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies to start in your 20s if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #20s #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies to start in your 20s if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (705e766c), slide Artura sur un tableau ou un musée de la banque (040ef31e), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-groupe-rue.jpg": "705e766c-9881-4abe-b3e5-c53df41a82ad",
+  "images/banque/a-trois.jpg": "040ef31e-2a48-4544-801c-c9dd135108b4"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 hobbies to start in your\n20s if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/langue.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning a language",
+    "accroche": "every new word is a _small_ unlock",
+    "colonne": [
+     "vocabulary comes in tiny pieces, and understanding a sentence for the first time is a _real high_"
+    ],
+    "chute": "ten words a day on paper flashcards"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-groupe-rue.jpg",
+   "cadrage": {
+    "y": 0.8
+   },
+   "en": {
+    "nom": "a running club",
+    "accroche": "new friends _and_ a _finish line_",
+    "colonne": [
+     "running with a group gives your week structure, and a race date gives a busy brain _a goal_",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "most clubs have a free beginner run"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/refuge.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "volunteering at a shelter",
+    "accroche": "a dog that _needs you_ at _10am_",
+    "colonne": [
+     "someone counting on you makes it easy to show up, and the walk itself burns off _restless energy_"
+    ],
+    "chute": "most shelters need weekend walkers"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-trois.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning to look at art",
+    "accroche": "you'll _see_ paintings _differently_ forever",
+    "colonne": [
+     "once you know what to look for, every museum and old church turns into a puzzle",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "start with one painting a week"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/basket.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a rec league",
+    "accroche": "a team, a schedule, a _real game_",
+    "colonne": [
+     "the ball moves fast, everyone needs you, and a weekly game gives your week a _fixed point_"
+    ],
+    "chute": "look for a local beginner league"
+   }
+  }
+ ]
+}

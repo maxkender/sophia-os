@@ -1,0 +1,106 @@
+{
+ "id": "tg-018",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 morning habits that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #morningroutine #focus #brain #selfimprovement"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 morning habits that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (5ecc8d18), slide Artura sur un tableau ou un musée de la banque (0a900463), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-pov-route.jpg": "5ecc8d18-cb37-4aa8-835a-f90bc2b0fc3d",
+  "images/banque/a-aquarelle.jpg": "0a900463-f764-4091-98bb-6f21685eb8d5"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 morning habits that\nactually work if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/lit.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "make your bed",
+    "accroche": "one _finished_ task before _8am_",
+    "colonne": [
+     "it takes a minute, and starting the day with something done makes the next task _easier_ to start"
+    ],
+    "chute": "do it before you touch your phone"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-pov-route.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a short morning run",
+    "accroche": "move first, _think_ later",
+    "colonne": [
+     "a run first thing burns off restless energy before the day can pull you in ten directions",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "15 minutes, shoes by the door"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/petitdej.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "breakfast without your phone",
+    "accroche": "your _first_ ten minutes stay _yours_",
+    "colonne": [
+     "eating without a feed lets your brain wake up slowly instead of starting the day _overloaded_"
+    ],
+    "chute": "phone stays in another room until you're done"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-aquarelle.jpg",
+   "cadrage": {
+    "y": 0.3
+   },
+   "en": {
+    "nom": "one painting with your coffee",
+    "accroche": "something _beautiful_ before _the news_",
+    "colonne": [
+     "a painting and its story is a calm, new thing to look at while your coffee cools",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "look before you open any other app"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/soleil.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "10 minutes of daylight",
+    "accroche": "get outside _before_ you _sit down_",
+    "colonne": [
+     "morning light and fresh air are an easy way to feel awake before work starts"
+    ],
+    "chute": "take your coffee to the window or balcony"
+   }
+  }
+ ]
+}

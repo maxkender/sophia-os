@@ -1,0 +1,106 @@
+{
+ "id": "tg-022",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 calm hobbies that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #calm #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 calm hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (5087dd73), slide Artura sur un tableau ou un musée de la banque (77488f24), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/a-sculptures2.jpg": "77488f24-8b01-4677-86e7-65b6aaa627f7",
+  "images/banque/c-pov-soir.jpg": "5087dd73-6256-4fd2-8264-f3068ac7f01e"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 calm hobbies that actually\nwork if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/yoga.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "slow stretching",
+    "accroche": "your _body_ moves, your _mind_ follows",
+    "colonne": [
+     "holding a stretch gives a busy brain one thing to feel, and ten minutes is enough to _reset_"
+    ],
+    "chute": "one short video, then do it without the screen"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-sculptures2.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a slow museum visit",
+    "accroche": "no plan, _no rush_, _just looking_",
+    "colonne": [
+     "walking slowly between statues lets your mind settle on one shape, one face, one detail",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "go alone and leave when you feel calm"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/bonsai.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "bonsai",
+    "accroche": "tiny cuts, _tiny tree_, _total focus_",
+    "colonne": [
+     "every snip matters, so your attention narrows to one branch, and the tree changes _slowly_"
+    ],
+    "chute": "start with one cheap juniper"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-pov-soir.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "an easy evening run",
+    "accroche": "slow pace, _sunset_ and _your own thoughts_",
+    "colonne": [
+     "an easy run lets a racing mind slow down to the rhythm of your feet",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "run slow enough to breathe through your nose"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/the.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "brewing tea",
+    "accroche": "wait, pour, _sip_, _nothing else_",
+    "colonne": [
+     "the steps are small and slow, and the wait teaches a restless brain that _nothing is urgent_"
+    ],
+    "chute": "one good loose tea and a small pot"
+   }
+  }
+ ]
+}

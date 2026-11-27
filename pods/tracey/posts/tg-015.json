@@ -1,0 +1,106 @@
+{
+ "id": "tg-015",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies for adhd brains that get bored fast"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #focus #brain #selfimprovement"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies for adhd brains that get bored fast », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (3037bd2e), slide Artura sur un tableau ou un musée de la banque (081464e0), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-plage-saut.jpg": "3037bd2e-f6f8-4176-ad78-dac8a6af1932",
+  "images/banque/a-pompei.jpg": "081464e0-826e-4ea9-b9e4-dd0a2e366d6d"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 hobbies for adhd brains\nthat get bored fast",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/escape.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "escape rooms",
+    "accroche": "60 minutes, _one puzzle_ after _another_",
+    "colonne": [
+     "the clock is ticking and every lock is new, so a brain that bores fast never gets the _time_ to drift"
+    ],
+    "chute": "book the easiest room with friends"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-plage-saut.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "running",
+    "accroche": "every run can be a _new place_",
+    "colonne": [
+     "changing where you run keeps it new, and a goal like a first 10k gives your brain a reason to _keep going_",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "try a beach, a park, a bridge, a hill"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/cartes.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "nom": "card tricks",
+    "accroche": "you get _better_ every _single night_",
+    "colonne": [
+     "one trick takes ten minutes to learn, and the look on someone's face is an _instant reward_"
+    ],
+    "chute": "a plain deck and one simple trick to start"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-pompei.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning to look at art",
+    "accroche": "one painting, a _hundred_ little _stories_",
+    "colonne": [
+     "every face in a big painting has its own drama, and spotting them keeps a restless brain _hunting_",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "pick one person in the painting and guess their story"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/sushi.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "making sushi",
+    "accroche": "fast, hands-on and _done_ in _an hour_",
+    "colonne": [
+     "rolling, cutting and plating are short steps, and you eat the result, the best kind of _feedback_"
+    ],
+    "chute": "most cooking schools run a one-night class"
+   }
+  }
+ ]
+}

@@ -1,0 +1,106 @@
+{
+ "id": "tg-021",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies for adhd brains that need to move"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #sport #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies for adhd brains that need to move », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (4d557f58), slide Artura sur un tableau ou un musée de la banque (b4661cab), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-piste.jpg": "4d557f58-f62c-4a62-ac4a-f5f247c8dd23",
+  "images/banque/a-abstrait-expo.jpg": "b4661cab-f28b-41d9-950e-222d19cd37c7"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 hobbies for adhd brains\nthat need to move",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/corde.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "jump rope",
+    "accroche": "count to _100_ and your _brain is quiet_",
+    "colonne": [
+     "the rhythm keeps your mind busy and your body tired, and you can do it _anywhere_"
+    ],
+    "chute": "start with 30 seconds on, 30 seconds off"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-piste.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "sprints on a track",
+    "accroche": "short, _fast_ and _over quickly_",
+    "colonne": [
+     "a few hard sprints give a restless body exactly what it wants, and a plan keeps you from overdoing it",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "most school tracks are open in the evening"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/aviron.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "rowing",
+    "accroche": "every stroke has the _same rhythm_",
+    "colonne": [
+     "the repeated movement keeps your whole body busy, and the water gives your eyes _something calm_"
+    ],
+    "chute": "most clubs run a learn-to-row weekend"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-abstrait-expo.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "walking a big exhibition",
+    "accroche": "huge rooms, _bright colors_, _keep moving_",
+    "colonne": [
+     "a big exhibition keeps you walking, and every new room is a new burst of color",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "go on a weekday morning when it's empty"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/tennis.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "tennis",
+    "accroche": "the ball comes back _every second_",
+    "colonne": [
+     "you track, run and hit in one move, so a brain that needs to move has no time to _wander_"
+    ],
+    "chute": "public courts and a beginner group class"
+   }
+  }
+ ]
+}

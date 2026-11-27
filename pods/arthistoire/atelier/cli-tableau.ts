@@ -99,7 +99,8 @@ if (args.includes("--chercher")) {
   const mots = opt("--chercher");
   if (!mots) throw new Error('usage : tableau --chercher "<mots>"');
   const limite = Number(opt("--limite") ?? 15);
-  const r = await fetch(`${API}/v1/search?hasImages=true&q=${encodeURIComponent(mots)}`);
+  // /v1/search a été retiré par le Met le 1/10/2026 (HTTP 410) : /v1.1/search, paginé (offset, limit).
+  const r = await fetch(`${API}/v1.1/search?hasImages=true&q=${encodeURIComponent(mots)}&limit=${limite * 4}`);
   if (!r.ok) throw new Error(`Met : HTTP ${r.status}`);
   const ids = (((await r.json()) as { objectIDs?: number[] }).objectIDs ?? []).slice(0, limite * 4);
   let n = 0;

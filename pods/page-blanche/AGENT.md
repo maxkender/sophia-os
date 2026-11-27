@@ -32,6 +32,7 @@ Une fois par session : `npm install`.
 | `npm run sources -- --compte amayareading` | scrape le compte et ajoute ses nouveaux slideshows au manifeste (statut `nouveau`) |
 | `npm run sources -- --compte mind.in.motionx --max 60 --banque` | source scrapable « banque photo » (ajoutée le 17/11) : même format page blanche, statut `banque` et champ `compte` au manifeste. Ses photos servent aux originaux et aux déclinaisons ; ses posts ne sont pas à reprendre. Écarte ses slides d'appli (Perfect Day, captures d'écran de verrouillage) et ses célébrités (acteurs de séries, etc.) |
 | `npm run sources -- --compte wellnessquitters --max 30 --banque` | source d'inspiration « banque » (ajoutée le 27/11 à la demande de l'utilisateur) : page blanche wellness, mêmes règles que mind.in.motionx (statut `banque`, posts non repris). Sert surtout de réservoir d'accroches pour les full tests (voir « Pistes wellnessquitters ») ; ses photos portent souvent « @thewellnessforquitters » en surimpression : recadre-les ou écarte-les |
+| `npm run sources -- --compte detourdares --max 30 --banque` | source d'inspiration « banque » (ajoutée le 27/11 à la demande de l'utilisateur) : exactement notre format page blanche (titre souligné, une ligne d'explication, une photo, « 10/10 »). Posts non repris tels quels, accroches à adapter en full tests (voir « Pistes detourdares »). Écarte sa slide d'appli (Detour, toujours la dernière) et ses célébrités en couverture si elles sont sur la slide app |
 | `npm run photos -- "mots en anglais" [--limite 24]` | (20/11) cherche dans TOUTE la banque photo de l'OS (descriptions en anglais, les moins utilisées d'abord), télécharge en `sources/os_<id8>.jpg` et fait la planche `sortie/photos/<mots>.jpg`. C'est la source de photos à préférer pour les couvertures et les slides : pose-les avec « remplacer ». |
 | `npm run geometrie -- sources <sortie>` | blocs détectés + images annotées (T = texte, I = image) pour transcrire un nouveau post |
 | `npm run rendu -- sources posts/<id>.<langue>.json <sortie> <langue>` | rend un post dans une langue ; rapport des débordements |
@@ -164,4 +165,14 @@ Accroches qui ont fait des vues chez @wellnessquitters, à adapter en full tests
 - « if you're scared to start something in 2027 do this » (194 k) : méthode pas à pas avec un tableau rempli (fear-setting) ; marche avant le Nouvel An.
 - Plus petits mais réguliers : « your golden hours » (32 k), « found these on google scholar at 2am » (22 k), procrastination (24 k).
 Ce qui marche chez eux : une promesse concrète et utile, une slide = une ligne-titre + 2 lignes + une photo douce, un outil (grille, tableau) qu'on a envie d'enregistrer.
+
+## Pistes detourdares (relevé du 27/11)
+
+Accroches qui ont fait des vues chez @detourdares (appli de « défis du jour », pas une appli d'apprentissage), à adapter en full tests, jamais copiées mot pour mot :
+- « 10/10 habits of people who always have the best stories » (330 k) : une habitude d'audace par slide (« they say yes first », « they talk to strangers »…). Pour nous : la dernière slide devient Sophia (« they learn one new thing a day »).
+- « lecture got cancelled. now what? » (132 k) : une situation précise + 6 idées concrètes, une légende courte sous chaque photo.
+- « you'll save this and still end up at dinner and drinks » (36 k) : idées de sorties autres que dîner/verre.
+- « which one are you trying tonight? » (26 k) : alternatives au doomscroll du soir.
+- « tag the charismatic friend », « send this to the fun friend » : accroches de partage (le post est écrit pour être envoyé à un ami).
+Ce qui marche chez eux : des photos de vraie vie (amis, rue, nuit, argentique), un ton complice en 2e personne, et une fin qui invite à taguer ou envoyer.
 

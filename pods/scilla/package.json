@@ -1,0 +1,25 @@
+{
+  "name": "pod-scilla",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 33 — originaux au format de @scilla2047 (carrés blancs, texte natif TikTok : un titre noir, un paragraphe en couleur, une œuvre dessous), pour Artura, en anglais, sur l'angle « réapprendre à regarder, apprécier l'art » : de vrais tableaux du domaine public (Met), jamais générés ; un des points porte le logo d'Artura.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "photos": "NODE_USE_ENV_PROXY=1 node atelier/cli-photos.ts",
+    "oeuvre": "NODE_USE_ENV_PROXY=1 node atelier/cli-oeuvre.ts"
+  }
+}

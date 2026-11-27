@@ -112,7 +112,7 @@
       "consuming everything at 2x speed"
      ],
      "fr": "tout mettre [[en vitesse x2]]",
-     "texte": "διαβάζεις [[σε δωμάτιο-φούρνο]]"
+     "texte": "διαβάζεις [[σε ένα δωμάτιο-φούρνο]]"
     },
     "T2": {
      "en": [
@@ -130,7 +130,7 @@
       "need constant density"
      ],
      "fr": "ton cerveau s'habitue à [[en vouloir toujours plus]]",
-     "texte": "σε καύσωνα, φοιτητές χωρίς κλιματισμό [[ήταν πιο αργοί στα τεστ]]"
+     "texte": "χωρίς κλιματισμό, φοιτητές [[ήταν πιο αργοί στα τεστ]]"
     },
     "T4": {
      "en": [
@@ -215,7 +215,7 @@
       "procrastinating all day"
      ],
      "fr": "procrastiner [[toute la journée]]",
-     "texte": "παραλείπεις [[τον σύντομο υπνάκο]]"
+     "texte": "δεν παίρνεις [[ποτέ υπνάκο]]"
     },
     "T2": {
      "en": [
@@ -225,7 +225,7 @@
       "yourself"
      ],
      "fr": "chaque fois que tu te dis « je le fais » et que non, tu [[perds confiance en toi]]",
-     "texte": "σε έρευνα της nasa, πιλότοι που κοιμήθηκαν 26 λεπτά είχαν μετά [[54% περισσότερη εγρήγορση]]"
+     "texte": "σε έρευνα της nasa, πιλότοι που κοιμήθηκαν 26 λεπτά είχαν [[54% περισσότερη εγρήγορση]]"
     },
     "T3": {
      "en": [
@@ -234,7 +234,7 @@
       "instantly"
      ],
      "fr": "quand tu penses à faire un truc, [[fais-le direct]]",
-     "texte": "βάλε ξυπνητήρι στα 25 λεπτά και [[πάρε έναν υπνάκο μετά το φαγητό]]"
+     "texte": "βάλε ξυπνητήρι στα 25 λεπτά και [[κοιμήσου μετά το φαγητό]]"
     }
    },
    "images": {
@@ -278,14 +278,14 @@
       "book for 20 minutes"
      ],
      "fr": "tu peux compter sur ta volonté pour arrêter, moi j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]",
-     "texte": "παλιά σκρόλαρα για ώρες. τώρα, αφού είμαι στο κινητό έτσι κι αλλιώς, μαθαίνω γιατί η αναγέννηση ξεκίνησε στην ιταλία σε [[5 λεπτά στην εφαρμογή Sophia]]"
+     "texte": "παλιά σκρόλαρα με τις ώρες. τώρα στο κινητό μαθαίνω γιατί η αναγέννηση γεννήθηκε στην ιταλία [[στην εφαρμογή Sophia]]"
     },
     "T4": {
      "en": [
       "don't become illiterate!!"
      ],
      "fr": "deviens pas inculte !!",
-     "texte": "θα σ' ευχαριστήσει ο εγκέφαλός σου!!"
+     "texte": "προστάτεψε το μυαλό σου!!"
     }
    },
    "images": {

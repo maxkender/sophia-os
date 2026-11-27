@@ -1,0 +1,319 @@
+{
+ "post_id": "var-concentration-3",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things destroying your",
+      "attention span"
+     ],
+     "fr": "10/10 petits détails qui sabotent ton focus",
+     "texte": "10/10 petits détails qui sabotent ton focus"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T4": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "texte": "(version niche)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_3827ffe4.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    },
+    "I2": {
+     "remplacer": {
+      "source": "sources/os_06762ece.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "consuming while doing everything"
+     ],
+     "fr": "réviser sur [[des sons à paroles]]",
+     "texte": "réviser sur [[des sons à paroles]]"
+    },
+    "T2": {
+     "en": [
+      "eating with youtube, walking with podcasts, working",
+      "with music, scrolling while watching netflix"
+     ],
+     "fr": "tu lis ton cours pendant qu'une voix chante dans tes écouteurs, et tu relis 3 fois la même ligne",
+     "texte": "tu lis ton cours pendant qu'une voix chante dans tes écouteurs, et tu relis 3 fois la même ligne"
+    },
+    "T3": {
+     "en": [
+      "you’re training your",
+      "brain to expect multiple",
+      "streams of input at once"
+     ],
+     "fr": "ton cerveau traite chaque mot qu'il entend, [[même si t'écoutes pas]]",
+     "texte": "ton cerveau traite chaque mot qu'il entend, [[même si t'écoutes pas]]"
+    },
+    "T4": {
+     "en": [
+      "eventually doing just",
+      "one thing starts to feel",
+      "painfully empty"
+     ],
+     "fr": "pour lire ou écrire, passe [[au son sans paroles]] ou au silence",
+     "texte": "pour lire ou écrire, passe [[au son sans paroles]] ou au silence"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_36372f64.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "not reading books"
+     ],
+     "fr": "[[« juste l'heure »]]",
+     "texte": "[[« juste l'heure »]]"
+    },
+    "T2": {
+     "en": [
+      "if most of what you consume",
+      "is short posts, clips, and",
+      "headlines, your brain rarely",
+      "has to hold attention for long"
+     ],
+     "fr": "tu prends ton tel pour voir l'heure, une notif traîne sur l'écran, et 20 minutes plus tard t'es encore dessus",
+     "texte": "tu prends ton tel pour voir l'heure, une notif traîne sur l'écran, et 20 minutes plus tard t'es encore dessus"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea across pages, remember",
+      "context, and resist the urge for",
+      "something new"
+     ],
+     "fr": "ton tel te sert de montre, donc tu l'allumes [[des dizaines de fois par jour]] sans même y penser",
+     "texte": "ton tel te sert de montre, donc tu l'allumes [[des dizaines de fois par jour]] sans même y penser"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "et quand je l'ouvre quand même, c'est pour camus et le rocher de sisyphe, en 5 min sur [[l'appli Sophia]]",
+     "texte": "et quand je l'ouvre quand même, c'est pour camus et le rocher de sisyphe, en 5 min sur [[l'appli Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "skipping every boring part"
+     ],
+     "fr": "[[un café toutes les heures]]",
+     "texte": "[[un café toutes les heures]]"
+    },
+    "T2": {
+     "en": [
+      "you skip intros, speed up videos, skim paragraphs,",
+      "jump between chapters"
+     ],
+     "fr": "le 1er te réveille, le 4e te donne les mains moites et le cœur qui s'emballe",
+     "texte": "le 1er te réveille, le 4e te donne les mains moites et le cœur qui s'emballe"
+    },
+    "T3": {
+     "en": [
+      "you’re teaching yourself that",
+      "anything slightly slow",
+      "deserves to be escaped"
+     ],
+     "fr": "trop de caféine, c'est [[plus de nervosité]], pas plus de concentration",
+     "texte": "trop de caféine, c'est [[plus de nervosité]], pas plus de concentration"
+    },
+    "T4": {
+     "en": [
+      "then real work feels",
+      "unbearable because there’s",
+      "no “skip 10 seconds” button"
+     ],
+     "fr": "reste à 2 ou 3 cafés max, et [[plus rien après 14 h]], sinon ta nuit trinque aussi",
+     "texte": "reste à 2 ou 3 cafés max, et [[plus rien après 14 h]], sinon ta nuit trinque aussi"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_09e0be7c.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never travel"
+     ],
+     "fr": "[[« réviser »]]",
+     "texte": "[[« réviser »]]"
+    },
+    "T2": {
+     "en": [
+      "there's nothing out there you need to experience",
+      "yourself"
+     ],
+     "fr": "c'est tout ce qui est écrit sur ta to-do pour la journée",
+     "texte": "c'est tout ce qui est écrit sur ta to-do pour la journée"
+    },
+    "T3": {
+     "en": [
+      "you can see mountains,",
+      "cities, cultures and people",
+      "through a 6-inch screen",
+      "anyway"
+     ],
+     "fr": "ton cerveau sait pas par où commencer, alors il [[tourne autour]] et trouve mieux à faire",
+     "texte": "ton cerveau sait pas par où commencer, alors il [[tourne autour]] et trouve mieux à faire"
+    },
+    "T4": {
+     "en": [
+      "stay where it's",
+      "comfortable"
+     ],
+     "fr": "but flou = [[procrastination]]",
+     "texte": "but flou = [[procrastination]]"
+    },
+    "T5": {
+     "en": [
+      "why risk discovering that",
+      "the world is much bigger",
+      "than the life you've built?"
+     ],
+     "fr": "écris plutôt « [[refaire les exos 3 à 6]] du chapitre 2 ». là, tu sais quoi faire",
+     "texte": "écris plutôt « [[refaire les exos 3 à 6]] du chapitre 2 ». là, tu sais quoi faire"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1dd5bc46.jpg",
+      "boite": [
+       0,
+       0,
+       2208,
+       1888
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "keeping stimulation within reach"
+     ],
+     "fr": "t'y mettre [[sans heure de fin]]",
+     "texte": "t'y mettre [[sans heure de fin]]"
+    },
+    "T2": {
+     "en": [
+      "your phone is on the desk,",
+      "youtube is one tab away,",
+      "and every distracting app",
+      "is already logged in"
+     ],
+     "fr": "« j'ai toute l'aprem », alors tu traînes, tu relis, tu ranges ton bureau, et à 18 h t'as bossé 20 minutes",
+     "texte": "« j'ai toute l'aprem », alors tu traînes, tu relis, tu ranges ton bureau, et à 18 h t'as bossé 20 minutes"
+    },
+    "T3": {
+     "en": [
+      "you’re forcing yourself to",
+      "resist temptation hundreds",
+      "of times a day"
+     ],
+     "fr": "un boulot s'étire [[pour remplir tout le temps]] que tu lui donnes",
+     "texte": "un boulot s'étire [[pour remplir tout le temps]] que tu lui donnes"
+    },
+    "T4": {
+     "en": [
+      "make distraction inconvenient before trying to become",
+      "more disciplined"
+     ],
+     "fr": "fixe une heure de fin, genre 16 h, et [[ton cerveau accélère tout seul]]",
+     "texte": "fixe une heure de fin, genre 16 h, et [[ton cerveau accélère tout seul]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_172292c1.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  }
+ }
+}

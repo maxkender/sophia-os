@@ -1,0 +1,158 @@
+{
+  "id": "rt-009",
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "things school never taught u"
+  },
+  "legendes": {
+    "en": "school taught us the mitochondria is the powerhouse of the cell and then sent us into the world without explaining taxes.\n\nmoney, how to think, how to actually learn, how to talk to people, and how the world around u runs.\n\nnone of it is hard. nobody just sat us down and said it.\n\nsave this and teach urself one a week.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/livre-bois.jpg": "15acb423-7009-46a2-8e51-8cb7bd414776",
+    "images/banque/main-tasse.jpg": "13b47836-e46a-422a-86f7-26b5caf1b428"
+  },
+  "notes": "Full test, sans post source : format et famille de @raretheory_ (« topic to research when u're bored », 652,5 k et 151,1 k), même gabarit, même musique. Accroche neuve (jamais faite dans le label). Catégories pratiques et réelles, rien de médical ni de politique partisan (« How Laws Are Made » reste de l'instruction civique). Slide Sophia (4, « 03 — what i do instead ») : son LOGO, jamais une capture ; cta C. Photos : livre ouvert et café sur une table en bois (15acb423), main qui tient une tasse (13b47836), sans visage ni marque.",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/livre-bois.jpg",
+          "cadrage": {
+            "y": 0.5
+          }
+        },
+        {
+          "image": "images/banque/main-tasse.jpg",
+          "cadrage": {
+            "y": 0.5
+          }
+        }
+      ],
+      "en": {
+        "titre": "things school never\ntaught u",
+        "sous_titre": "so teach urself"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Money Basics",
+        "sujets": [
+          "How Budgeting Works",
+          "The 50/30/20 Rule",
+          "Needs vs Wants",
+          "Emergency Funds",
+          "Interest Rates",
+          "How Loans Work",
+          "Credit Scores",
+          "How Taxes Work",
+          "Reading a Payslip",
+          "Index Funds",
+          "Renting vs Buying",
+          "Spotting Scams"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "How to Think",
+        "sujets": [
+          "Critical Thinking",
+          "Logical Fallacies",
+          "Correlation vs Causation",
+          "The Scientific Method",
+          "First Principles Thinking",
+          "Base Rates",
+          "Probability",
+          "Statistics Basics",
+          "Spotting Misinformation",
+          "Steelmanning",
+          "Socratic Questioning",
+          "Mental Models"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "what i do instead",
+        "paragraphes": [
+          "Sophia gives me one lesson a day, written by actual professors, with a little quiz after. history, philosophy, science, geopolitics, literature, economics.",
+          "10 minutes a day. it's the closest thing i've found to the class i wish school had."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "How to Learn",
+        "sujets": [
+          "Active Recall",
+          "Spaced Repetition",
+          "The Forgetting Curve",
+          "The Feynman Technique",
+          "Interleaving",
+          "Deliberate Practice",
+          "Chunking",
+          "Mind Maps",
+          "The Pomodoro Technique",
+          "Note-Taking Methods",
+          "Teaching to Learn",
+          "Growth Mindset"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "How to Talk to People",
+        "sujets": [
+          "Active Listening",
+          "Asking Good Questions",
+          "Small Talk",
+          "Body Language",
+          "Storytelling",
+          "Public Speaking",
+          "Writing a Good Email",
+          "Giving Feedback",
+          "Saying No Politely",
+          "Negotiation",
+          "Persuasion",
+          "Conflict Resolution"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "How the World Runs",
+        "sujets": [
+          "How the Internet Works",
+          "How Banks Work",
+          "How Insurance Works",
+          "How Supply Chains Work",
+          "How Shipping Containers Changed Trade",
+          "How Electricity Reaches Ur Home",
+          "How Tap Water Gets Cleaned",
+          "How Recycling Works",
+          "How Laws Are Made",
+          "How Time Zones Work",
+          "The Mercator Projection"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this and pick one topic a week. by next year u'll know more than most adults about how things actually work.",
+        "gras": "OR.. keep waiting for someone to explain it."
+      }
+    }
+  ]
+}

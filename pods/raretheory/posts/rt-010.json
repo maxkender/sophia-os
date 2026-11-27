@@ -1,0 +1,162 @@
+{
+  "id": "rt-010",
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "wikipedia pages to read at 2am"
+  },
+  "legendes": {
+    "en": "if u're going to be awake at 2am anyway, at least come out of it smarter.\n\nideas that break ur brain, history that sounds made up, lists u can scroll for hours, words that do weird things, and nature showing off.\n\nall real. all worth one more tab.\n\nsave this for ur next sleepless night.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/livre-cafe-nuit.jpg": "124638b3-c2f9-4e21-92f5-8e7ab89867f9",
+    "images/banque/cafe-genoux.jpg": "2a24cfa7-3309-4ab6-bfca-93bbe8763ef1"
+  },
+  "notes": "Full test, sans post source : format et famille de @raretheory_ (« topic to research when u're bored », 652,5 k et 151,1 k), même gabarit, même musique. Accroche neuve. Sujets réels, tous des articles existants, rien de violent ni de médical. Wikipédia n'est pas une appli concurrente (une encyclopédie). Slide Sophia (5, « 04 — before the 2am tabs ») : son LOGO, jamais une capture ; cta A. Photos : livre et cafés sur une table la nuit (124638b3), café posé sur des genoux (2a24cfa7), sans visage ni marque.",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/livre-cafe-nuit.jpg",
+          "cadrage": {
+            "y": 0.4
+          }
+        },
+        {
+          "image": "images/banque/cafe-genoux.jpg",
+          "cadrage": {
+            "y": 0.5
+          }
+        }
+      ],
+      "en": {
+        "titre": "wikipedia pages to\nread at 2am",
+        "sous_titre": "one more tab, i promise"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Mind-Bending Ideas",
+        "sujets": [
+          "Boltzmann Brain",
+          "The Simulation Hypothesis",
+          "Dyson Spheres",
+          "The Great Attractor",
+          "The Boötes Void",
+          "Rogue Planets",
+          "Oumuamua",
+          "Kessler Syndrome",
+          "Vacuum Decay",
+          "The Overview Effect",
+          "The Mpemba Effect",
+          "The Library of Babel",
+          "Laplace's Demon",
+          "Maxwell's Demon"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "History That Sounds Fake",
+        "sujets": [
+          "The Year Without a Summer",
+          "The Great Stink",
+          "Emperor Norton",
+          "The Great Moon Hoax",
+          "The Tanganyika Laughter Epidemic",
+          "The Kentucky Meat Shower",
+          "The Bone Wars",
+          "The 1904 Olympic Marathon",
+          "The Cottingley Fairies",
+          "Piltdown Man",
+          "The Mechanical Turk",
+          "Ötzi the Iceman",
+          "The Voyager Golden Record"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Lists Worth Scrolling",
+        "sujets": [
+          "List of Common Misconceptions",
+          "List of Unsolved Problems in Physics",
+          "List of Cognitive Biases",
+          "List of Paradoxes",
+          "List of Eponymous Laws",
+          "List of Unusual Units of Measurement",
+          "List of Optical Illusions",
+          "List of Animals by Number of Neurons",
+          "List of Oldest Trees",
+          "List of Hoaxes"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "before the 2am tabs",
+        "paragraphes": [
+          "i don't research all of this from scratch. every night i do one short lesson on Sophia: history, philosophy, science, geopolitics, literature, economics.",
+          "they're written by actual professors, with a little quiz after. it's usually what sends me off into ten more tabs."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Language Oddities",
+        "sujets": [
+          "Garden-Path Sentences",
+          "Buffalo Buffalo Buffalo",
+          "Pangrams",
+          "Palindromes",
+          "Eggcorns",
+          "Mondegreens",
+          "Semantic Satiation",
+          "Contronyms",
+          "Hapax Legomenon",
+          "The Bouba/Kiki Effect",
+          "Whistled Languages",
+          "The Pirahã Language",
+          "Toki Pona"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Record-Breaking Nature",
+        "sujets": [
+          "Hyperion, the Tallest Tree",
+          "Methuselah, the Oldest Pine",
+          "The Humongous Fungus",
+          "The Greenland Shark",
+          "The Arctic Tern",
+          "The Bar-Headed Goose",
+          "The Peregrine Falcon",
+          "The Mantis Shrimp",
+          "The Bombardier Beetle",
+          "The Lyrebird",
+          "Periodical Cicadas",
+          "Bdelloid Rotifers",
+          "The Blue Whale"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this for ur next sleepless night. open one page, follow every link that looks interesting, and see where u end up.",
+        "gras": "OR.. u'll be on the same feed at 3am."
+      }
+    }
+  ]
+}

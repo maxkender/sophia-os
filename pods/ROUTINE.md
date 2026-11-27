@@ -337,6 +337,9 @@ toute seule quand ses langues sont validées.
   comme ci-dessus : chaque langue ouverte reçoit un compte de ton label dès
   la création suivante. Une langue que tu ne sais vraiment pas mettre en
   page : dis-le dans ton compte rendu (Adrien décide de la fermer).
+  Un nouveau podz en images finies a ses 7 langues de palier 1 ouvertes dès
+  sa création (0875) : le pilote et les premiers posts partent dans les 7
+  (`pods/LANCEMENT.md`).
 
 ### 5.7 Le reste
 

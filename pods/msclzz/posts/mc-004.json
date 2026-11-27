@@ -1,0 +1,722 @@
+{
+ "id": "mc-004",
+ "source": {
+  "url": "https://www.tiktok.com/@msclzz/photo/7692894810088148246",
+  "vues": 57400,
+  "publie_le": "2026-10-04",
+  "accroche": "How To Make People Trust You Fast"
+ },
+ "titre": {
+  "en": "How To Make People Trust You Fast",
+  "de": "So vertrauen dir Menschen schnell",
+  "it": "Come far fidare le persone di te in fretta",
+  "fr": "Comment gagner vite la confiance des gens",
+  "pt-BR": "Como fazer as pessoas confiarem em você rápido",
+  "es-419": "Cómo hacer que la gente confíe en ti rápido",
+  "pl": "Jak sprawić, żeby ludzie szybko ci zaufali",
+  "cs": "Jak zařídit, aby ti lidé rychle věřili"
+ },
+ "legendes": {
+  "en": "The less you force trust, the faster it builds.\n\n#psychology #trust #socialskills #persuasion #humanbehavior",
+  "de": "Je weniger du Vertrauen erzwingst, desto schneller wächst es.\n\n#psychologie #vertrauen #socialskills #menschenkenntnis #kommunikation",
+  "it": "Meno forzi la fiducia, più in fretta cresce.\n\n#psicologia #fiducia #socialskills #comportamentoumano #comunicazione",
+  "fr": "Moins tu forces la confiance, plus elle vient vite.\n\n#psychologie #confiance #confianceensoi #comportementhumain #communication",
+  "pt-BR": "Quanto menos você força a confiança, mais rápido ela vem.\n\n#psicologia #confianca #habilidadessociais #comportamentohumano #comunicacao",
+  "es-419": "Mientras menos fuerzas la confianza, más rápido llega.\n\n#psicologia #confianza #habilidadessociales #comportamientohumano #comunicacion",
+  "pl": "Im mniej wymuszasz zaufanie, tym szybciej rośnie.\n\n#psychologia #zaufanie #umiejetnoscispoleczne #komunikacja #rozwojosobisty",
+  "cs": "Čím míň důvěru tlačíš, tím rychleji roste.\n\n#psychologie #duvera #socialniinteligence #komunikace #osobnirozvoj"
+ },
+ "musique": {
+  "titre": "original sound - TWIY",
+  "url": "https://www.tiktok.com/music/original-sound-7245863616556092186"
+ },
+ "compte": {
+  "images/compte/mains-troisieme-oeil.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7692894810088148246",
+   "slide": 1
+  },
+  "images/compte/masque-brise.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7692894810088148246",
+   "slide": 2
+  },
+  "images/compte/deux-silhouettes.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7692894810088148246",
+   "slide": 4
+  },
+  "images/compte/ange.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7703262649676516611",
+   "slide": 5
+  },
+  "images/compte/chouette.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7702878583785639190",
+   "slide": 3
+  },
+  "images/compte/radio-papillons.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 6
+  },
+  "images/compte/femme-floue.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 2
+  }
+ },
+ "notes": "Remake de son post « How To Make People Trust You Fast » (57 k vues, 5,5 % d'enregistrements, 4/10 ; original sound de TWIY), sans slide de vente : son texte (apostrophes, « shit » → « stuff »), ses titres en capitales (les siens sont en casse de titre sur ce post), ses étapes dans son ordre. Ses images : les mains sur les yeux (1), le masque brisé (2), les deux silhouettes (4, posées sur l'étape 3 dont l'image est une femme, possible scène de film), la femme floue de sa slide 8 (déjà découpée pour mc-001). Sa silhouette en points (5) est trop pâle et ses slides 6 et 7 sont en 1080 × 1920 : on prend l'ange de son post du 1/11, la chouette de son post du 31/10 et la radio aux papillons de son post du 5/10. Slide Sophia (4) à la place de son étape « Make Them Think About You » (prendre de la place dans la tête de l'autre : écartée) : « HAVE SOMETHING REAL TO SAY » ; cta A, avec sa transition « But … is not enough. ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "How To Make People {Trust You Fast}"
+   },
+   "image": "images/compte/mains-troisieme-oeil.jpg",
+   "de": {
+    "titre": "So vertrauen dir Menschen {schnell}"
+   },
+   "it": {
+    "titre": "Come far fidare le persone di te {in fretta}"
+   },
+   "fr": {
+    "titre": "Comment gagner vite {la confiance des gens}"
+   },
+   "pt-BR": {
+    "titre": "Como fazer as pessoas {confiarem em você rápido}"
+   },
+   "es-419": {
+    "titre": "Cómo hacer que la gente {confíe en ti rápido}"
+   },
+   "pl": {
+    "titre": "Jak sprawić, żeby ludzie {szybko ci zaufali}"
+   },
+   "cs": {
+    "titre": "Jak zařídit, aby ti lidé {rychle věřili}"
+   }
+  },
+  {
+   "type": "avertissement",
+   "en": {
+    "surtitre": "DISCLAIMER",
+    "titre": "BEFORE YOU TRY THIS",
+    "avant": [
+     "This is the kind of stuff that feels {unethical} once you notice how well it works.",
+     "Used right, people drop their guard faster without even realizing why.",
+     "Used wrong, you just come off fake. That is why almost nobody talks about it openly."
+    ]
+   },
+   "image": "images/compte/masque-brise.jpg",
+   "de": {
+    "surtitre": "ACHTUNG",
+    "titre": "BEVOR DU DAS AUSPROBIERST",
+    "avant": [
+     "Das ist die Art von Sache, die sich {unfair} anfühlt, sobald du merkst, wie gut sie funktioniert.",
+     "Richtig eingesetzt, lassen Menschen ihre Deckung schneller fallen, ohne zu merken, warum.",
+     "Falsch eingesetzt, wirkst du einfach fake. Deshalb redet fast niemand offen darüber."
+    ]
+   },
+   "it": {
+    "surtitre": "ATTENZIONE",
+    "titre": "PRIMA DI PROVARLO",
+    "avant": [
+     "È il tipo di cosa che sembra {scorretta} quando ti accorgi di quanto funziona.",
+     "Usata bene, le persone abbassano la guardia più in fretta senza capire perché.",
+     "Usata male, sembri solo finto. Per questo quasi nessuno ne parla apertamente."
+    ]
+   },
+   "fr": {
+    "surtitre": "ATTENTION",
+    "titre": "AVANT D'ESSAYER",
+    "avant": [
+     "C'est le genre de truc qui paraît {limite} quand tu vois à quel point ça marche.",
+     "Bien utilisé, les gens baissent leur garde plus vite sans même comprendre pourquoi.",
+     "Mal utilisé, tu as juste l'air faux. C'est pour ça que presque personne n'en parle ouvertement."
+    ]
+   },
+   "pt-BR": {
+    "surtitre": "AVISO",
+    "titre": "ANTES DE TENTAR ISSO",
+    "avant": [
+     "É o tipo de coisa que parece {antiética} quando você percebe o quanto funciona.",
+     "Usado do jeito certo, as pessoas baixam a guarda mais rápido sem nem perceber por quê.",
+     "Usado do jeito errado, você só parece falso. Por isso quase ninguém fala disso abertamente."
+    ]
+   },
+   "es-419": {
+    "surtitre": "AVISO",
+    "titre": "ANTES DE PROBAR ESTO",
+    "avant": [
+     "Es el tipo de cosa que se siente {poco ética} cuando notas lo bien que funciona.",
+     "Bien usado, la gente baja la guardia más rápido sin darse cuenta de por qué.",
+     "Mal usado, solo pareces falso. Por eso casi nadie habla de esto abiertamente."
+    ]
+   },
+   "pl": {
+    "surtitre": "UWAGA",
+    "titre": "ZANIM TO WYPRÓBUJESZ",
+    "avant": [
+     "To rzecz, która wydaje się {nie fair,} kiedy widzisz, jak dobrze działa.",
+     "Użyta dobrze sprawia, że ludzie szybciej opuszczają gardę, nawet nie wiedząc dlaczego.",
+     "Użyta źle sprawia, że wypadasz sztucznie. Dlatego prawie nikt nie mówi o tym otwarcie."
+    ]
+   },
+   "cs": {
+    "surtitre": "UPOZORNĚNÍ",
+    "titre": "NEŽ TO ZKUSÍŠ",
+    "avant": [
+     "Je to přesně ten typ věci, který působí {neférově,} jakmile si všimneš, jak dobře funguje.",
+     "Když to použiješ správně, lidé sklopí stráž rychleji a ani nevědí proč.",
+     "Když to použiješ špatně, působíš jen falešně. Proto o tom skoro nikdo nemluví otevřeně."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "STOP TRYING TO {WIN THEM OVER}",
+    "avant": [
+     "The harder you try to seem smart, interesting, trustworthy, or impressive, the more they start evaluating you.",
+     "Instead, hold back a little. {Let them come toward you} instead of constantly pushing yourself toward them."
+    ],
+    "apres": [
+     "That creates something more interesting, {they start trying to figure you out...}"
+    ]
+   },
+   "image": "images/compte/deux-silhouettes.jpg",
+   "de": {
+    "titre": "HÖR AUF, SIE {FÜR DICH GEWINNEN} ZU WOLLEN",
+    "avant": [
+     "Je mehr du versuchst, klug, interessant, vertrauenswürdig oder beeindruckend zu wirken, desto mehr fangen sie an, dich zu bewerten.",
+     "Halt dich stattdessen etwas zurück. {Lass sie auf dich zukommen,} statt dich ständig aufzudrängen."
+    ],
+    "apres": [
+     "Das erzeugt etwas Spannenderes: {Sie fangen an, dich verstehen zu wollen...}"
+    ]
+   },
+   "it": {
+    "titre": "SMETTI DI CERCARE {DI CONQUISTARLI}",
+    "avant": [
+     "Più cerchi di sembrare intelligente, interessante, affidabile o impressionante, più iniziano a valutarti.",
+     "Invece, trattieniti un po'. {Lascia che vengano verso di te} invece di spingerti sempre verso di loro."
+    ],
+    "apres": [
+     "Questo crea qualcosa di più interessante: {iniziano a cercare di capirti...}"
+    ]
+   },
+   "fr": {
+    "titre": "ARRÊTE DE VOULOIR {LES CONQUÉRIR}",
+    "avant": [
+     "Plus tu essaies de paraître intelligent, intéressant, fiable ou impressionnant, plus ils commencent à t'évaluer.",
+     "Retiens-toi un peu. {Laisse-les venir vers toi} au lieu de toujours aller vers eux."
+    ],
+    "apres": [
+     "Ça crée quelque chose de plus intéressant : {ils essaient de te cerner...}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "PARE DE TENTAR {CONQUISTAR AS PESSOAS}",
+    "avant": [
+     "Quanto mais você tenta parecer inteligente, interessante, confiável ou impressionante, mais elas começam a te avaliar.",
+     "Em vez disso, segure um pouco. {Deixe elas virem até você} em vez de ficar se empurrando pra cima delas."
+    ],
+    "apres": [
+     "Isso cria algo mais interessante: {elas começam a tentar te decifrar...}"
+    ]
+   },
+   "es-419": {
+    "titre": "DEJA DE INTENTAR {GANÁRTELOS}",
+    "avant": [
+     "Mientras más intentas parecer inteligente, interesante, confiable o impresionante, más empiezan a evaluarte.",
+     "Mejor, contente un poco. {Deja que se acerquen a ti} en vez de estar empujándote hacia ellos."
+    ],
+    "apres": [
+     "Eso crea algo más interesante: {empiezan a tratar de descifrarte...}"
+    ]
+   },
+   "pl": {
+    "titre": "PRZESTAŃ PRÓBOWAĆ {ICH ZDOBYĆ}",
+    "avant": [
+     "Im bardziej próbujesz wyglądać na mądrego, ciekawego, godnego zaufania czy imponującego, tym bardziej zaczynają cię oceniać.",
+     "Zamiast tego trochę się wstrzymaj. {Pozwól im podejść do ciebie,} zamiast ciągle się narzucać."
+    ],
+    "apres": [
+     "To tworzy coś ciekawszego: {zaczynają próbować cię rozgryźć...}"
+    ]
+   },
+   "cs": {
+    "titre": "PŘESTAŇ SE JE SNAŽIT {ZÍSKAT}",
+    "avant": [
+     "Čím víc se snažíš působit chytře, zajímavě, důvěryhodně nebo působivě, tím víc tě začnou hodnotit.",
+     "Radši se trochu drž zpátky. {Nech je přijít k tobě} místo toho, aby ses k nim pořád tlačil."
+    ],
+    "apres": [
+     "Tím vznikne něco zajímavějšího: {začnou se tě snažit prokouknout...}"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "en": {
+    "titre": "{HAVE SOMETHING} REAL TO SAY",
+    "avant": [
+     "Holding back only works if what you do share is worth hearing.",
+     "A strange fact. A good story. Something you learned this week and can't stop thinking about."
+    ],
+    "apres": [
+     "I learn one short lesson a day on {Sophia,} so I always have one ready.",
+     "But having things to say is not enough."
+    ]
+   },
+   "de": {
+    "titre": "{HAB ETWAS} ECHTES ZU SAGEN",
+    "avant": [
+     "Zurückhaltung funktioniert nur, wenn das, was du teilst, hörenswert ist.",
+     "Ein seltsamer Fakt. Eine gute Geschichte. Etwas, das du diese Woche gelernt hast und nicht mehr loswirst."
+    ],
+    "apres": [
+     "Ich lerne jeden Tag eine kurze Lektion auf {Sophia,} also habe ich immer eine parat.",
+     "Aber etwas zu sagen zu haben, reicht nicht."
+    ]
+   },
+   "it": {
+    "titre": "{ABBI QUALCOSA} DI VERO DA DIRE",
+    "avant": [
+     "Trattenersi funziona solo se quello che condividi vale la pena di essere ascoltato.",
+     "Un fatto strano. Una bella storia. Qualcosa che hai imparato questa settimana e non riesci a toglierti dalla testa."
+    ],
+    "apres": [
+     "Imparo una breve lezione al giorno su {Sophia,} così ne ho sempre una pronta.",
+     "Ma avere cose da dire non basta."
+    ]
+   },
+   "fr": {
+    "titre": "{AIE QUELQUE CHOSE} DE VRAI À DIRE",
+    "avant": [
+     "Te retenir ne marche que si ce que tu partages vaut la peine d'être entendu.",
+     "Un fait étrange. Une bonne histoire. Un truc appris cette semaine qui ne te sort plus de la tête."
+    ],
+    "apres": [
+     "J'apprends une courte leçon par jour sur {Sophia,} comme ça j'en ai toujours une sous la main.",
+     "Mais avoir des choses à dire ne suffit pas."
+    ]
+   },
+   "pt-BR": {
+    "titre": "{TENHA ALGO} DE VERDADE PRA DIZER",
+    "avant": [
+     "Se segurar só funciona se o que você compartilha vale a pena ouvir.",
+     "Um fato estranho. Uma boa história. Algo que você aprendeu essa semana e não sai da sua cabeça."
+    ],
+    "apres": [
+     "Eu aprendo uma lição curta por dia no {Sophia,} então sempre tenho uma pronta.",
+     "Mas ter o que dizer não basta."
+    ]
+   },
+   "es-419": {
+    "titre": "{TEN ALGO} REAL QUE DECIR",
+    "avant": [
+     "Contenerte solo funciona si lo que sí compartes vale la pena escucharlo.",
+     "Un dato raro. Una buena historia. Algo que aprendiste esta semana y no te sacas de la cabeza."
+    ],
+    "apres": [
+     "Aprendo una lección corta al día en {Sophia,} así que siempre tengo una lista.",
+     "Pero tener cosas que decir no es suficiente."
+    ]
+   },
+   "pl": {
+    "titre": "{MIEJ COŚ} PRAWDZIWEGO DO POWIEDZENIA",
+    "avant": [
+     "Wstrzymywanie się działa tylko wtedy, gdy to, czym się dzielisz, warto usłyszeć.",
+     "Dziwny fakt. Dobra historia. Coś, czego nauczyłeś się w tym tygodniu i nie możesz przestać o tym myśleć."
+    ],
+    "apres": [
+     "Codziennie przerabiam jedną krótką lekcję w {Sophia,} więc zawsze mam coś w zanadrzu.",
+     "Ale mieć coś do powiedzenia to za mało."
+    ]
+   },
+   "cs": {
+    "titre": "{MĚJ CO} SKUTEČNÉHO ŘÍCT",
+    "avant": [
+     "Držet se zpátky funguje, jen když to, co sdílíš, stojí za poslech.",
+     "Zvláštní fakt. Dobrý příběh. Něco, co ses tento týden naučil a nemůžeš to dostat z hlavy."
+    ],
+    "apres": [
+     "Každý den si projdu jednu krátkou lekci na {Sophia,} takže vždycky nějakou mám po ruce.",
+     "Ale mít co říct nestačí."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "MAKE THEM {FEEL UNDERSTOOD}",
+    "avant": [
+     "People remember the person who actually gets what they mean without making them explain it five times.",
+     "Listen for what sits underneath the words. The thing they care about. The thing that actually bothers them."
+    ],
+    "apres": [
+     "When you catch that correctly, the interaction changes fast.",
+     "{Now they feel seen, not just heard.}",
+     "And that is where the guard really starts moving."
+    ]
+   },
+   "image": "images/compte/ange.jpg",
+   "de": {
+    "titre": "GIB IHNEN DAS GEFÜHL, {VERSTANDEN ZU WERDEN}",
+    "avant": [
+     "Menschen erinnern sich an den, der versteht, was sie meinen, ohne dass sie es fünfmal erklären müssen.",
+     "Hör auf das, was unter den Worten liegt. Was ihnen wichtig ist. Was sie wirklich beschäftigt."
+    ],
+    "apres": [
+     "Wenn du das richtig erkennst, ändert sich die Begegnung schnell.",
+     "{Jetzt fühlen sie sich gesehen, nicht nur gehört.}",
+     "Und genau da beginnt die Deckung zu fallen."
+    ]
+   },
+   "it": {
+    "titre": "FALLI {SENTIRE CAPITI}",
+    "avant": [
+     "Le persone ricordano chi capisce cosa intendono senza fargliela spiegare cinque volte.",
+     "Ascolta cosa c'è sotto le parole. La cosa a cui tengono. La cosa che li preoccupa davvero."
+    ],
+    "apres": [
+     "Quando la cogli, l'interazione cambia in fretta.",
+     "{Ora si sentono visti, non solo ascoltati.}",
+     "Ed è lì che la guardia inizia davvero ad abbassarsi."
+    ]
+   },
+   "fr": {
+    "titre": "FAIS-LES SE {SENTIR COMPRIS}",
+    "avant": [
+     "On se souvient de la personne qui comprend ce qu'on veut dire sans nous le faire expliquer cinq fois.",
+     "Écoute ce qu'il y a sous les mots. Ce qui compte pour eux. Ce qui les travaille vraiment."
+    ],
+    "apres": [
+     "Quand tu captes ça, l'échange change vite.",
+     "{Ils se sentent vus, pas juste écoutés.}",
+     "Et c'est là que la garde commence vraiment à tomber."
+    ]
+   },
+   "pt-BR": {
+    "titre": "FAÇA ELAS SE {SENTIREM ENTENDIDAS}",
+    "avant": [
+     "As pessoas lembram de quem entende o que elas querem dizer sem fazer elas explicarem cinco vezes.",
+     "Escute o que está por baixo das palavras. O que importa pra elas. O que realmente incomoda."
+    ],
+    "apres": [
+     "Quando você capta isso, a conversa muda rápido.",
+     "{Agora elas se sentem vistas, não só ouvidas.}",
+     "E é aí que a guarda realmente começa a baixar."
+    ]
+   },
+   "es-419": {
+    "titre": "HAZ QUE SE {SIENTAN ENTENDIDOS}",
+    "avant": [
+     "La gente recuerda a quien entiende lo que quiere decir sin hacer que lo explique cinco veces.",
+     "Escucha lo que hay debajo de las palabras. Lo que les importa. Lo que de verdad les molesta."
+    ],
+    "apres": [
+     "Cuando captas eso, la conversación cambia rápido.",
+     "{Ahora se sienten vistos, no solo escuchados.}",
+     "Y ahí es donde la guardia de verdad empieza a bajar."
+    ]
+   },
+   "pl": {
+    "titre": "SPRAW, ŻEBY {CZULI SIĘ ZROZUMIANI}",
+    "avant": [
+     "Ludzie pamiętają kogoś, kto łapie, co mają na myśli, bez tłumaczenia pięć razy.",
+     "Słuchaj tego, co jest pod słowami. Co jest dla nich ważne. Co naprawdę ich gryzie."
+    ],
+    "apres": [
+     "Kiedy to dobrze wyłapiesz, rozmowa szybko się zmienia.",
+     "{Teraz czują się widziani, a nie tylko słyszani.}",
+     "I właśnie wtedy garda naprawdę zaczyna opadać."
+    ]
+   },
+   "cs": {
+    "titre": "AŤ SE {CÍTÍ POCHOPENI}",
+    "avant": [
+     "Lidé si pamatují toho, kdo pochopí, co myslí, aniž by to museli vysvětlovat pětkrát.",
+     "Poslouchej, co je pod slovy. Na čem jim záleží. Co je doopravdy trápí."
+    ],
+    "apres": [
+     "Když to správně zachytíš, rozhovor se rychle změní.",
+     "{Teď se cítí viděni, ne jen slyšeni.}",
+     "A právě tam začne stráž opravdu padat."
+    ]
+   },
+   "hauteur": 600
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "{DO NOT} SHOW THEM EVERYTHING",
+    "avant": [
+     "Trust does not mean dumping your whole personality onto the table.",
+     "Leave some space. Be honest, but do not explain every thought, every story, every weakness.",
+     "People trust what feels real, but they stay interested in what {is not completely available yet.}"
+    ],
+    "apres": [
+     "That balance is what keeps them leaning in."
+    ]
+   },
+   "image": "images/compte/chouette.jpg",
+   "de": {
+    "titre": "{ZEIG NICHT} ALLES",
+    "avant": [
+     "Vertrauen heißt nicht, deine ganze Persönlichkeit auf den Tisch zu kippen.",
+     "Lass etwas Raum. Sei ehrlich, aber erklär nicht jeden Gedanken, jede Geschichte, jede Schwäche.",
+     "Menschen vertrauen dem, was echt wirkt, aber sie bleiben neugierig auf das, was {noch nicht ganz verfügbar ist.}"
+    ],
+    "apres": [
+     "Diese Balance sorgt dafür, dass sie dranbleiben."
+    ]
+   },
+   "it": {
+    "titre": "{NON MOSTRARE} TUTTO",
+    "avant": [
+     "Fiducia non vuol dire rovesciare tutta la tua personalità sul tavolo.",
+     "Lascia un po' di spazio. Sii sincero, ma non spiegare ogni pensiero, ogni storia, ogni debolezza.",
+     "Le persone si fidano di ciò che sembra vero, ma restano interessate a ciò che {non è ancora del tutto disponibile.}"
+    ],
+    "apres": [
+     "È questo equilibrio che li tiene vicini."
+    ]
+   },
+   "fr": {
+    "titre": "{NE MONTRE PAS} TOUT",
+    "avant": [
+     "La confiance, ce n'est pas déballer toute ta personnalité sur la table.",
+     "Laisse de l'espace. Sois honnête, mais n'explique pas chaque pensée, chaque histoire, chaque faiblesse.",
+     "On fait confiance à ce qui paraît vrai, mais on reste curieux de ce qui {n'est pas encore tout à fait disponible.}"
+    ],
+    "apres": [
+     "C'est cet équilibre qui les garde accrochés."
+    ]
+   },
+   "pt-BR": {
+    "titre": "{NÃO MOSTRE} TUDO",
+    "avant": [
+     "Confiança não é despejar sua personalidade inteira na mesa.",
+     "Deixe espaço. Seja sincero, mas não explique cada pensamento, cada história, cada fraqueza.",
+     "As pessoas confiam no que parece real, mas continuam interessadas no que {ainda não está totalmente disponível.}"
+    ],
+    "apres": [
+     "É esse equilíbrio que mantém elas interessadas."
+    ]
+   },
+   "es-419": {
+    "titre": "{NO MUESTRES} TODO",
+    "avant": [
+     "Confianza no es tirar toda tu personalidad sobre la mesa.",
+     "Deja espacio. Sé honesto, pero no expliques cada pensamiento, cada historia, cada debilidad.",
+     "La gente confía en lo que se siente real, pero sigue interesada en lo que {todavía no está del todo disponible.}"
+    ],
+    "apres": [
+     "Ese equilibrio es lo que los mantiene cerca."
+    ]
+   },
+   "pl": {
+    "titre": "{NIE POKAZUJ} WSZYSTKIEGO",
+    "avant": [
+     "Zaufanie nie polega na wyrzuceniu całej swojej osobowości na stół.",
+     "Zostaw trochę przestrzeni. Bądź szczery, ale nie tłumacz każdej myśli, każdej historii, każdej słabości.",
+     "Ludzie ufają temu, co wydaje się prawdziwe, ale ciekawi ich to, co {nie jest jeszcze w pełni dostępne.}"
+    ],
+    "apres": [
+     "Ta równowaga sprawia, że chcą więcej."
+    ]
+   },
+   "cs": {
+    "titre": "{NEUKAZUJ} JIM VŠECHNO",
+    "avant": [
+     "Důvěra neznamená vysypat celou svou osobnost na stůl.",
+     "Nech trochu prostoru. Buď upřímný, ale nevysvětluj každou myšlenku, každý příběh, každou slabost.",
+     "Lidé věří tomu, co působí skutečně, ale zajímá je to, co {ještě není úplně k mání.}"
+    ],
+    "apres": [
+     "Právě ta rovnováha je drží blízko."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "THEN YOU SEE {THE SWITCH}",
+    "avant": [
+     "Their answers get longer. They stop filtering every sentence. They start giving you details you never asked for.",
+     "At that point, they are no longer trying to manage how they look around you."
+    ],
+    "apres": [
+     "{They feel safe enough to stop performing.}",
+     "And that is the part people confuse with instant chemistry."
+    ]
+   },
+   "image": "images/compte/radio-papillons.jpg",
+   "de": {
+    "titre": "DANN SIEHST DU {DEN WECHSEL}",
+    "avant": [
+     "Ihre Antworten werden länger. Sie filtern nicht mehr jeden Satz. Sie erzählen dir Details, nach denen du nie gefragt hast.",
+     "Ab da versuchen sie nicht mehr zu steuern, wie sie vor dir wirken."
+    ],
+    "apres": [
+     "{Sie fühlen sich sicher genug, um nicht mehr zu spielen.}",
+     "Und genau das verwechseln Leute mit sofortiger Chemie."
+    ]
+   },
+   "it": {
+    "titre": "POI VEDI {LA SVOLTA}",
+    "avant": [
+     "Le loro risposte si allungano. Smettono di filtrare ogni frase. Iniziano a darti dettagli che non hai mai chiesto.",
+     "A quel punto non cercano più di controllare come appaiono con te."
+    ],
+    "apres": [
+     "{Si sentono abbastanza al sicuro da smettere di recitare.}",
+     "Ed è questa la parte che la gente scambia per chimica immediata."
+    ]
+   },
+   "fr": {
+    "titre": "LÀ, TU VOIS {LE DÉCLIC}",
+    "avant": [
+     "Leurs réponses s'allongent. Ils arrêtent de filtrer chaque phrase. Ils te donnent des détails que tu n'as jamais demandés.",
+     "À ce moment-là, ils n'essaient plus de contrôler l'image qu'ils donnent."
+    ],
+    "apres": [
+     "{Ils se sentent assez en sécurité pour arrêter de jouer un rôle.}",
+     "Et c'est ça que les gens confondent avec une alchimie immédiate."
+    ]
+   },
+   "pt-BR": {
+    "titre": "AÍ VOCÊ VÊ {A VIRADA}",
+    "avant": [
+     "As respostas ficam mais longas. Elas param de filtrar cada frase. Começam a te dar detalhes que você nunca pediu.",
+     "Nesse ponto, elas não estão mais tentando controlar como parecem perto de você."
+    ],
+    "apres": [
+     "{Elas se sentem seguras o bastante pra parar de atuar.}",
+     "E é essa parte que as pessoas confundem com química instantânea."
+    ]
+   },
+   "es-419": {
+    "titre": "ENTONCES VES {EL CAMBIO}",
+    "avant": [
+     "Sus respuestas se alargan. Dejan de filtrar cada frase. Empiezan a darte detalles que nunca pediste.",
+     "En ese punto, ya no intentan controlar cómo se ven frente a ti."
+    ],
+    "apres": [
+     "{Se sienten lo bastante seguros para dejar de actuar.}",
+     "Y esa es la parte que la gente confunde con química instantánea."
+    ]
+   },
+   "pl": {
+    "titre": "WTEDY WIDZISZ {ZMIANĘ}",
+    "avant": [
+     "Ich odpowiedzi się wydłużają. Przestają filtrować każde zdanie. Zaczynają podawać szczegóły, o które nie pytałeś.",
+     "Wtedy już nie próbują kontrolować tego, jak przy tobie wypadają."
+    ],
+    "apres": [
+     "{Czują się na tyle bezpiecznie, żeby przestać grać.}",
+     "I to jest ta część, którą ludzie mylą z natychmiastową chemią."
+    ]
+   },
+   "cs": {
+    "titre": "PAK UVIDÍŠ {TU ZMĚNU}",
+    "avant": [
+     "Jejich odpovědi se prodlouží. Přestanou filtrovat každou větu. Začnou ti dávat detaily, na které ses nikdy neptal.",
+     "V tu chvíli se už nesnaží řídit, jak před tebou vypadají."
+    ],
+    "apres": [
+     "{Cítí se dost v bezpečí, aby přestali hrát.}",
+     "A tohle si lidé pletou s okamžitou chemií."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "WHAT ACTUALLY {HAPPENED}",
+    "avant": [
+     "You did not magically make them trust you.",
+     "You removed the things that normally keep people guarded like pressure, over explaining, trying too hard, giving away too much too fast."
+    ],
+    "apres": [
+     "Then you let their own attention do the rest.",
+     "{The less forced it feels, the faster trust builds.}"
+    ]
+   },
+   "image": "images/compte/femme-floue.jpg",
+   "de": {
+    "titre": "WAS {WIRKLICH PASSIERT IST}",
+    "avant": [
+     "Du hast sie nicht magisch dazu gebracht, dir zu vertrauen.",
+     "Du hast weggenommen, was Menschen sonst vorsichtig macht: Druck, zu viel Erklären, zu viel Mühe, zu viel zu schnell preisgeben."
+    ],
+    "apres": [
+     "Dann hast du ihre eigene Aufmerksamkeit den Rest machen lassen.",
+     "{Je weniger es erzwungen wirkt, desto schneller wächst Vertrauen.}"
+    ]
+   },
+   "it": {
+    "titre": "COSA {È SUCCESSO DAVVERO}",
+    "avant": [
+     "Non li hai fatti fidare di te per magia.",
+     "Hai tolto quello che di solito mette le persone in guardia: la pressione, spiegare troppo, sforzarsi troppo, dare troppo troppo in fretta."
+    ],
+    "apres": [
+     "Poi hai lasciato che la loro attenzione facesse il resto.",
+     "{Meno sembra forzato, più in fretta cresce la fiducia.}"
+    ]
+   },
+   "fr": {
+    "titre": "CE QUI S'EST {VRAIMENT PASSÉ}",
+    "avant": [
+     "Tu ne les as pas fait te faire confiance par magie.",
+     "Tu as retiré ce qui rend les gens méfiants : la pression, trop d'explications, trop d'efforts, trop en dire trop vite."
+    ],
+    "apres": [
+     "Puis tu as laissé leur propre attention faire le reste.",
+     "{Moins ça paraît forcé, plus la confiance vient vite.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "O QUE {REALMENTE ACONTECEU}",
+    "avant": [
+     "Você não fez elas confiarem em você por mágica.",
+     "Você tirou o que normalmente deixa as pessoas na defensiva: pressão, explicar demais, se esforçar demais, se entregar demais rápido demais."
+    ],
+    "apres": [
+     "Depois deixou a própria atenção delas fazer o resto.",
+     "{Quanto menos forçado parece, mais rápido a confiança vem.}"
+    ]
+   },
+   "es-419": {
+    "titre": "LO QUE {DE VERDAD PASÓ}",
+    "avant": [
+     "No hiciste que confiaran en ti por arte de magia.",
+     "Quitaste lo que normalmente pone a la gente a la defensiva: presión, explicar de más, esforzarte de más, contar demasiado demasiado rápido."
+    ],
+    "apres": [
+     "Luego dejaste que su propia atención hiciera el resto.",
+     "{Mientras menos forzado se siente, más rápido llega la confianza.}"
+    ]
+   },
+   "pl": {
+    "titre": "CO SIĘ {NAPRAWDĘ STAŁO}",
+    "avant": [
+     "Nie sprawiłeś magicznie, że ci zaufali.",
+     "Usunąłeś to, co zwykle trzyma ludzi na dystans: presję, nadmierne tłumaczenie, zbyt duże starania, zbyt dużo zbyt szybko."
+    ],
+    "apres": [
+     "Potem pozwoliłeś, żeby ich własna uwaga zrobiła resztę.",
+     "{Im mniej to wymuszone, tym szybciej rośnie zaufanie.}"
+    ]
+   },
+   "cs": {
+    "titre": "CO SE {DOOPRAVDY STALO}",
+    "avant": [
+     "Nepřiměl jsi je zázrakem, aby ti věřili.",
+     "Odstranil jsi to, co lidi obvykle drží ve střehu: tlak, přehnané vysvětlování, přílišnou snahu, moc všeho moc rychle."
+    ],
+    "apres": [
+     "Pak jsi nechal jejich vlastní pozornost udělat zbytek.",
+     "{Čím míň to působí vynuceně, tím rychleji roste důvěra.}"
+    ]
+   }
+  }
+ ]
+}

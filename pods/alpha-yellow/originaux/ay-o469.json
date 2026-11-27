@@ -1,19 +1,18 @@
 {
  "source_id": "ay-o469",
- "type_bleo": "declinaison",
- "parent_contenu_id": "e53a9aec-cdea-4b51-b365-2194dfecd498",
- "titre": "Ce que tu comprendras sur la vie un jour ou l'autre #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "type_bleo": "full_test",
+ "titre": "Ce que la vie finit par t'apprendre #developpementpersonnel #confiance #charisme #psychologie #amelioration",
  "musique_titre": "original sound",
  "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
  "inspirations": [
-  "e53a9aec-cdea-4b51-b365-2194dfecd498"
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
  ],
- "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 7 de la boîte (e53a9aec, notre ay-o327), 3e et dernière déclinaison après ay-o414 et ay-o433, écrite en français, la langue source du parent (§4.3). Même promesse, autres mots, sans « leçons » ni « trop tard » pour ne pas toucher ay-o447 ni ay-o466. Idées neuves, aucune reprise d'ay-o327, o414, o433, o450 ni de 81b924e4. Ton bienveillant.",
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque. full test (v3) : la déclinaison de e53a9aec a été refusée au guichet (quota de 3 déclinaisons atteint) et la boîte n'avait plus de ligne libre pour aujourd'hui, d'où un 9e full test en français sur une accroche jamais faite. Accroches écrites : « Ce que la vie finit par t'apprendre » (retenue), « Les vérités de la trentaine » (écartée : trop étroit).",
  "slides": [
   {
    "position": 1,
    "media_id": "ba1d3764-10ea-4a90-b8f5-5f7f18fd6565",
-   "texte_overlay": "Ce que tu comprendras sur la vie\nun jour ou l'autre",
+   "texte_overlay": "Ce que la vie finit\npar t'apprendre",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
   },
   {

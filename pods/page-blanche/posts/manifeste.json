@@ -6811,6 +6811,34 @@
    },
    "notes": "full test BLEO, cta B",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-mains-2",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 7,
+   "legende": "#hobbies #mains #digitaldetox",
+   "musique": {
+    "titre": "Earrings",
+    "auteur": "Malcolm Todd",
+    "original": false,
+    "id": "7354423336196933649",
+    "url_tiktok": "https://www.tiktok.com/music/x-7354423336196933649"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7703525134610566433_1",
+    "2": "7685340052989398275_4",
+    "3": "7694340359056313632_3",
+    "4": "7697728269335924001_4",
+    "5": "7699523873712164128_3",
+    "6": "7685340052989398275_3",
+    "7": "7704751322830064929_3"
+   },
+   "notes": "declinaison G2 de var-mains-1, cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "46826ee9-104f-43f7-ac7c-c9f0fc8aa61e"
   }
  ]
 }

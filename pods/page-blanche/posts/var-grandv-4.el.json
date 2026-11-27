@@ -41,12 +41,12 @@
     },
     "I2": {
      "remplacer": {
-      "source": "sources/os_f6d56724.jpg",
+      "source": "sources/os_6b9658f9.jpg",
       "boite": [
        0,
        0,
-       1760,
-       2368
+       2656,
+       1600
       ]
      }
     }
@@ -139,7 +139,7 @@
       "seconds"
      ],
      "fr": "à la place, pose-toi sur une idée plus de 10 secondes",
-     "texte": "κράτα το δωμάτιο [[δροσερό, γύρω στους 21°C]], όταν διαβάζεις"
+     "texte": "κράτα το δωμάτιο [[δροσερό, γύρω στους 21°C]] όταν διαβάζεις"
     }
    },
    "images": {

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o456",
+ "type_bleo": "full_test",
+ "titre": "Breathing tricks that calm you down in seconds #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Breathing tricks that calm you down in seconds » (retenue), « How to stop panicking » (écartée : trop fort), « Box breathing for men » (écartée : jargon). Conseils généraux.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1e30f722-db56-4749-9546-8481cc3d3151",
+   "texte_overlay": "Breathing tricks that\ncalm you down in seconds",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "The long exhale. Breathe in for four seconds, out for six. A longer exhale tells your body it's safe and slows your heart.",
+   "media_id": "3ab43411-39a7-4981-a22f-1854da5ac318"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "The double inhale. Two short breaths in through the nose, then one long breath out. It's one of the fastest ways to calm a stressed body.",
+   "media_id": "3be6dd87-3179-48d4-87ce-7c2d288d6604"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Box breathing. Four seconds in, hold four, out four, hold four. Repeat for a minute before a meeting or a hard conversation.",
+   "media_id": "3fff1b1f-4fc5-481a-8133-707e80187aec"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Breathe through your nose. Mouth breathing keeps you in alarm mode. Nose breathing is slower and calmer all day long.",
+   "media_id": "435a5f85-d3b4-47be-a063-b13929676145"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: stress took over my evenings. After: five minutes a day of history, art or science, and a few slow breaths, and my head is calmer.",
+   "texte_sophia": "Before: stress took over my evenings. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. With a few slow breaths, my head is calmer.",
+   "media_id": "3a9fc87c-463f-4453-b446-5d1ac8fd88a1"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Breathe low, not high. Put a hand on your belly and feel it rise. Chest breathing is tense, belly breathing is relaxed.",
+   "media_id": "4ac7e826-abd4-432d-938d-31f7221b023d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Practise when you're calm. Two minutes a day trains the habit, so it works automatically when stress hits. Practise daily.",
+   "media_id": "4ee6e05d-40b1-4b60-b988-bd25007bee68"
+  }
+ ]
+}

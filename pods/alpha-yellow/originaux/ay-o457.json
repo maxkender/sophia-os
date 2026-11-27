@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o457",
+ "type_bleo": "full_test",
+ "titre": "Why every man should keep a simple journal #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Try",
+ "musique_url": "https://www.tiktok.com/music/try-7533289206400027394",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Why every man should keep a simple journal » (retenue), « Journaling for men who hate writing » (écartée : plus long), « Write this every night » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3e8cdd7b-dff8-495a-9ef8-386168c0031c",
+   "texte_overlay": "Why every man should keep\na simple journal",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "It clears your head. Writing down what's on your mind before bed stops thoughts from spinning while you try to sleep.",
+   "media_id": "4f961ce8-b4a9-4c9a-8ef9-736138554b02"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "It shows you patterns. After a month, you'll notice what drains you, what lifts you and what keeps repeating. Patterns become obvious.",
+   "media_id": "5792bc29-f76f-4aa0-b592-ebd3197aad90"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "It makes decisions easier. Writing the pros and cons on paper is calmer and clearer than going round in circles in your head.",
+   "media_id": "5809175c-9e42-4150-a556-5b7e9ff7b557"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "It keeps your memories. Small funny moments, trips, conversations. In a few years, you'll love reading it back.",
+   "media_id": "62463b6a-4f2e-4e24-97cb-80d5a295a6eb"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Write one thing you learned in your journal each night.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Write one thing you learned in your journal each night.",
+   "media_id": "4446546e-da53-473c-b5cf-b1c2a4aa89ce"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Keep it short. Three lines a day is enough. A simple habit you keep beats a perfect one you drop. Start tonight with three lines.",
+   "media_id": "6426d56d-19b6-46e8-a048-a639c8e691d4"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Nobody has to read it. Be honest. A journal is the one place where you don't have to impress anyone. Write freely.",
+   "media_id": "6a5102c5-ef27-4ab0-a74b-9a772b24646e"
+  }
+ ]
+}

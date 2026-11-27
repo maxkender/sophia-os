@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o459",
+ "type_bleo": "full_test",
+ "titre": "Why boxing changes men more than the gym #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Bad Love (Slowed)",
+ "musique_url": "https://www.tiktok.com/music/bad-love-slowed-7313738119294732290",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Why boxing changes men more than the gym » (retenue), « Start boxing at any age » (écartée : plus faible), « Fighting made me calmer » (écartée : récit). Sport encadré, sans violence.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4ce88dcf-a499-4aeb-9460-65379802a4cc",
+   "texte_overlay": "Why boxing changes men\nmore than the gym",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "It makes you calm under pressure. When someone throws a punch at you in training, panicking doesn't help. You learn to stay cool.",
+   "media_id": "83f09e41-29fb-46e4-b5de-66595227a1d6"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "It's a full-body workout. Footwork, core, shoulders and cardio in one session. Few sports are this complete. One hour, everything.",
+   "media_id": "856c5fe8-a6ba-4126-aa52-4ec67c509d80"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "It humbles you. Everyone gets hit, everyone loses rounds. Boxing teaches respect for others and honesty about your level.",
+   "media_id": "97b27cf0-ed4d-4d79-a1aa-2196d3a98413"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "It builds real confidence. Not from looking strong, but from knowing you can handle yourself and stay calm. Calm is strength.",
+   "media_id": "9879c45f-aa21-49e9-9bbc-5841e56a407a"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A sharp mind helps in the ring as much as fast hands.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A sharp mind helps in the ring as much as fast hands.",
+   "media_id": "5603a5ff-fa8d-435f-8073-ada513700768"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "It burns stress. Hitting pads after a hard day clears your head better than almost anything else. Try one session.",
+   "media_id": "9b2ff5e0-2fb3-4594-abf9-d7d863a911a4"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Find a good club with coaches. Safety, technique and respect come first. You don't need to fight to get all the benefits.",
+   "media_id": "9e66209e-9d28-47a8-adf6-529daf61ad85"
+  }
+ ]
+}

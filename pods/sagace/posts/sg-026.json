@@ -9,7 +9,8 @@
   "pt-BR": "Habilidades 10/10 que pessoas cultas dominam",
   "tr": "Kültürlü insanların ustalaştığı 10/10 beceriler",
   "ro": "Abilități 10/10 pe care oamenii culți le stăpânesc",
-  "cs": "Dovednosti 10/10, které ovládají vzdělaní lidé"
+  "cs": "Dovednosti 10/10, které ovládají vzdělaní lidé",
+  "hu": "10/10-es készségek, amiket a műveltek mesterien tudnak"
  },
  "legendes": {
   "fr": "Compétences 10/10 que les gens cultivés maîtrisent #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -19,7 +20,8 @@
   "pt-BR": "Habilidades 10/10 que pessoas cultas dominam #aprendanotiktok #desenvolvimentopessoal #habilidades",
   "tr": "Kültürlü insanların ustalaştığı 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "Abilități 10/10 pe care oamenii culți le stăpânesc #invatapetiktok #dezvoltarepersonala #abilitati",
-  "cs": "Dovednosti 10/10, které ovládají vzdělaní lidé #učímesenatiktoku #osobnírozvoj #dovednosti"
+  "cs": "Dovednosti 10/10, které ovládají vzdělaní lidé #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10-es készségek, amiket a műveltek mesterien tudnak #tanuljtiktokon #önfejlesztés #készségek"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
@@ -202,6 +204,28 @@
      {
       "t": "LIDÉ",
       "cap": 169
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "AMIKET A",
+      "cap": 169
+     },
+     {
+      "t": "MŰVELTEK",
+      "couleur": "brun",
+      "cap": 250
+     },
+     {
+      "t": "MESTERIEN TUDNAK",
+      "cap": 110
      }
     ]
    }
@@ -390,6 +414,29 @@
     },
     "sous": [
      "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ÉRTENI",
+     [
+      {
+       "t": "A MŰVÉSZETET",
+       "couleur": "#c08a3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TAfFPh-TILo",
+     "titre": "Remekművek titkai 1. - Leonardo da Vinci: Hermelines hölgy (1480-1490)",
+     "chaine": "Ambrusa alkotói stúdiója - Hangoskönyv",
+     "vues": "1,7 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "6:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_loEmQy9hubgPSn3DNTLMbz3jlz5I0MtFEAGx4PLwHp=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra tanulás"
     ]
    }
   },
@@ -585,6 +632,30 @@
     "sous": [
      "2 hodiny na naučení"
     ]
+   },
+   "hu": {
+    "titre": [
+     "FELISMERNI",
+     [
+      {
+       "t": "AZ ÉPÍTÉSZETI",
+       "couleur": "#b5523b"
+      }
+     ],
+     "STÍLUSOKAT"
+    ],
+    "video": {
+     "id": "dh7lMYNNTQM",
+     "titre": "ROMÁN, GÓTIKUS ÉS RENESZÁNSZ ÉPÍTÉSZET – EURÓPAI ÉS MAGYAR PÉLDÁK",
+     "chaine": "Töriesszé",
+     "vues": "2,8 E megtekintés",
+     "date": "7 hónappal ezelőtt",
+     "duree": "4:33",
+     "avatar": "https://yt3.ggpht.com/BKm-_VaDhCvqxr9hvd1Cn5foh11IaqscQc-ul3MQKCai56n7YR5ktvd6T4AcSm56ePVM6KznLg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 óra tanulás"
+    ]
    }
   },
   {
@@ -756,6 +827,27 @@
     },
     "sous": [
      "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "RAGYOGNI",
+     [
+      {
+       "t": "TÁRSASÁGBAN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
     ]
    }
   },
@@ -949,6 +1041,29 @@
     },
     "sous": [
      "poslech několik týdnů"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ÉRTENI A",
+     [
+      {
+       "t": "KOMOLYZENÉT",
+       "couleur": "#2f5d9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0d0nLFeGsaM",
+     "titre": "Nincs ilyen, hogy KOMOLYZENE... S01E03 - Debussy: Clair de Lune",
+     "chaine": "Krisztian Horvath",
+     "vues": "2 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "4:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mF-LU3M165N2ARq17L7PIeD77rZ8eQj2gmo049TV5G5hk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Hallgasd több héten át"
     ]
    }
   },
@@ -1145,6 +1260,30 @@
     "sous": [
      "2-3 hodiny na naučení"
     ]
+   },
+   "hu": {
+    "titre": [
+     "ISMERNI A",
+     [
+      {
+       "t": "GÖRÖG",
+       "couleur": "#7a4fb0"
+      }
+     ],
+     "MITOLÓGIÁT"
+    ],
+    "video": {
+     "id": "x2wyKCrp6hs",
+     "titre": "A görög mitológia | Szép E. Kinga",
+     "chaine": "Bornemisza Péter Gimnázium",
+     "vues": "14 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "27:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lDdSEHA57wBdso8J6kOuGHN-4sLUukNr8RwxKn_F4shA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 óra tanulás"
+    ]
    }
   },
   {
@@ -1331,6 +1470,29 @@
     },
     "sous": [
      "čtení několik dní"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ÉRTENI",
+     [
+      {
+       "t": "A FILOZÓFIÁT",
+       "couleur": "#3d8b5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Cf7Q6YQkofg",
+     "titre": "Filozófia gyorstalpaló",
+     "chaine": "GGI",
+     "vues": "60 E megtekintés",
+     "date": "2 évvel ezelőtt",
+     "duree": "16:00",
+     "avatar": "https://yt3.ggpht.com/EBsIcAXreetyEOqkX_hx3626jhDFHx6fmiKXLwJRonF4zzXR2INN9C3xMhJ0hoq2gG88NMIH2IQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Olvasás több napon át"
     ]
    }
   }

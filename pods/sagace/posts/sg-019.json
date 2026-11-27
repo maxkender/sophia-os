@@ -14,7 +14,8 @@
   "pt-BR": "Habilidades 10/10 que te transformam em um gênio",
   "tr": "Seni dahiye dönüştüren 10/10 beceriler",
   "ro": "Abilități 10/10 care te transformă într-un geniu",
-  "cs": "Dovednosti 10/10, které z tebe udělají génia"
+  "cs": "Dovednosti 10/10, které z tebe udělají génia",
+  "hu": "10/10-es készségek, amiktől zseni leszel"
  },
  "legendes": {
   "fr": "Compétences 10/10 qui te transforment en génie #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -24,7 +25,8 @@
   "pt-BR": "Habilidades 10/10 que te transformam em um gênio #aprendanotiktok #desenvolvimentopessoal #habilidades",
   "tr": "Seni dahiye dönüştüren 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "Abilități 10/10 care te transformă într-un geniu #invatapetiktok #dezvoltarepersonala #abilitati",
-  "cs": "Dovednosti 10/10, které z tebe udělají génia #učímesenatiktoku #osobnírozvoj #dovednosti"
+  "cs": "Dovednosti 10/10, které z tebe udělají génia #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10-es készségek, amiktől zseni leszel #tanuljtiktokon #önfejlesztés #készségek"
  },
  "musique": {
   "titre": "original sound - T07",
@@ -221,6 +223,30 @@
      },
      {
       "t": "GÉNIA",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "AMIKTŐL",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "ZSENI",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "LESZEL",
       "couleur": "noir",
       "cap": 182
      }
@@ -435,6 +461,27 @@
      "date": "před 10 lety",
      "duree": "8:54",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_kArdRNEaB-MY4a5uAHbCHevWpEcggGAfoQlAXt8fZ8FQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "A LEGJOBBNAK",
+     [
+      {
+       "t": "LENNI",
+       "couleur": "#c04848"
+      }
+     ],
+     "FEJSZÁMOLÁSBAN"
+    ],
+    "video": {
+     "id": "mC-oC1ULLqs",
+     "titre": "Fejszámoló trükkök - Botond megmondja",
+     "chaine": "figarobuveszbolt",
+     "vues": "15 E megtekintés",
+     "date": "11 évvel ezelőtt",
+     "duree": "8:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nkIA1dwkEcL2vfFQbZWke1U6ZW1TmitfsKNagGudwztQ=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -687,6 +734,32 @@
      "duree": "12:19",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_mlw6hJ5N-rAGOS70x_up1HwURebmUjewTLjdXNg6XuKtg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "TANULNI",
+       "couleur": "#6c5418"
+      }
+     ],
+     "MINT EGY",
+     [
+      {
+       "t": "GÉP",
+       "couleur": "#6c5418"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qOzV-ZnmYIA",
+     "titre": "Tanulj akár egy zseni! - A Legjobb Tanulási Technikák",
+     "chaine": "Tanulom Magam",
+     "vues": "845 E megtekintés",
+     "date": "9 évvel ezelőtt",
+     "duree": "14:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mk4-sIgdbmYJ9OxCU5-01xr8j-pdnrKsVK50fEZAft5w=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -858,6 +931,27 @@
     },
     "sous": [
      "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "EDZENI",
+     [
+      {
+       "t": "AZ ELMÉDET",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
     ]
    }
   },
@@ -1070,6 +1164,27 @@
      "duree": "19:30",
      "avatar": "https://yt3.ggpht.com/2-iel7lhrDx3CDEctM4HS0YHo_kuUz7JPzu-q3l92XOB6QU2XN9xTHJd8lyY9OV8864L0Ad_klQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "BÁRMIT",
+     [
+      {
+       "t": "KI TUDSZ",
+       "couleur": "#e41818"
+      }
+     ],
+     "ALKUDNI"
+    ],
+    "video": {
+     "id": "pm7SEhmEIdg",
+     "titre": "7 dolog, ami instant jobb tárgyalóvá tesz",
+     "chaine": "CV Shark - Erdőssy Gellért",
+     "vues": "12 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "13:04",
+     "avatar": "https://yt3.ggpht.com/4wxNP0VXtBnrEb_KWt3-LIdA-CcDeWe6Z_MIWQFTmjjfZHLwyZSBPSwH5D9Kc93qorlldjv2=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1233,6 +1348,26 @@
      "duree": "22:47",
      "avatar": "https://yt3.ggpht.com/sddxRMGkrNIv0Pb4JCGs0lHz5KTnC14BcBugdJMr6QePRyNuI7ccdgKPn4lEns26tDNgnEx7=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "KIRAKNI A",
+     [
+      {
+       "t": "RUBIK-KOCKÁT",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NKy_z9DUI_4",
+     "titre": "Rubik Kocka KIRAKÁSA KEZDŐKNEK - MAGYARUL",
+     "chaine": "Wixder",
+     "vues": "659 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "14:31",
+     "avatar": "https://yt3.ggpht.com/6ZPkNEcXpfm_LGifVL6btyMD5fryHrqb8ugO0Xaexhxk9tAVnQaOTVvsHmMHUL-HMUbz6XGM7w=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1395,6 +1530,26 @@
      "date": "před 6 lety",
      "duree": "12:52",
      "avatar": "https://yt3.ggpht.com/hmMUiaBNZl8MMvikV8t9Ql4SZyuAaMcL0MJJI1rzoTfMkrHxFLG_2-bX_IFlsoz5r2ImwRq4zg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "KOTTÁT",
+     [
+      {
+       "t": "OLVASNI",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Q80oCkFfgjo",
+     "titre": "Furulya tanárod: Hogyan olvassuk a kottát? - www.FurulyaIskola.hu",
+     "chaine": "FurulyaIskola.hu",
+     "vues": "13 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "3:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kY5mPG5RK0_6Qs3OiEzVxphTFAf4vwXH6q_BZWPmdWObs=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

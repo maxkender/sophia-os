@@ -15,11 +15,11 @@
 // Environnement : POD_JETON. --essai écrit le corps de la requête sur disque
 // au lieu de l'envoyer.
 
-import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { appelPod, LANGUE_SOURCE, LANGUES, languesDuLabel, POD } from "./api.ts";
 import { metadonneesRestantes } from "./metadonnees.ts";
-import { estSlideApp, languesCompletes, lirePost, loisirs, photosSlide, RACINE, rendreSlide, textesSlide } from "./slides.ts";
+import { estSlideApp, languesCompletes, lirePost, loisirs, photosSlide, rendreSlide, textesSlide } from "./slides.ts";
 
 const args = process.argv.slice(2);
 const id = args[0];
@@ -107,12 +107,11 @@ for (const langue of langues) {
 // Les textes lus par la note de pertinence : chaque slide, dans l'ordre.
 const textes = post.slides.map((s) => textesSlide(s, LANGUE_SOURCE)).filter(Boolean);
 
-// Deux originaux inspirés du même post d'un compte modèle : l'OS refuse deux
-// contenus de même source_url, on les distingue par « ?variante=<id> ».
-const anterieurs = readdirSync(join(RACINE, "posts"))
-  .filter((f) => /^da-\d+\.json$/.test(f) && f < `${id}.json`)
-  .map((f) => JSON.parse(readFileSync(join(RACINE, "posts", f), "utf8")) as { source?: { url?: string } });
-const sourceUrl = anterieurs.some((p) => p.source?.url === post.source?.url && post.source?.url) ? `${post.source?.url}?variante=${id}` : post.source?.url;
+// L'OS refuse deux contenus de même source_url, et les posts de @dorian.frog
+// sont déjà des contenus du podz 16 (label dorian, imports) : chaque iceberg
+// part donc TOUJOURS avec « ?variante=<id> » (da-001 à da-003 ont buté dessus
+// à la validation le 27/11).
+const sourceUrl = post.source?.url ? `${post.source.url.split("?")[0]}?variante=${id}` : post.source?.url;
 
 const corps = {
   action: "deposer",

@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o330",
+  "type_bleo": "full_test",
+  "titre": "les mots étrangers qui n'existent pas en français #mots #langues #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta C. Mots connus et définitions usuelles (hygge, saudade, wabi-sabi, fernweh, sobremesa), sans date. Routine du 27/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 6 full tests et 12 déclinaisons ; seules les lignes 1 et 15 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale « how to destroy yourself »), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12, 13 et 14 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "dcc9a5f5",
+      "texte_overlay": "les mots étrangers\nqui n'existent pas en français",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c8d05ddb",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ce38de82",
+      "texte_overlay": "1. hygge (danois)\n\nla douceur d'un moment cosy,\nbougies et plaid.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "8e7ee441",
+      "texte_overlay": "2. saudade (portugais)\n\nla nostalgie douce\nde quelque chose qu'on aime.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "cf3e7c38",
+      "texte_overlay": "3. wabi-sabi (japonais)\n\nla beauté\ndes choses imparfaites.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "4bb8379c",
+      "texte_overlay": "4. fernweh (allemand)\n\nle mal du pays…\nqu'on ne connaît pas encore.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "418d3fea",
+      "texte_overlay": "5. sobremesa (espagnol)\n\nrester à table après le repas,\nà discuter.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "82af0a30",
+      "texte_overlay": "tu en connais d'autres ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

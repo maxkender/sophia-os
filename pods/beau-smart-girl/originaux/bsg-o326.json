@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o326",
+  "type_bleo": "full_test",
+  "titre": "les métiers d'art qui me fascinent #artisanat #metiers #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Descriptions générales, sans date. Routine du 27/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 6 full tests et 12 déclinaisons ; seules les lignes 1 et 15 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale « how to destroy yourself »), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12, 13 et 14 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4868b9f0",
+      "texte_overlay": "les métiers d'art\nqui me fascinent",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "9c973832",
+      "texte_overlay": "1. relieuse\n\nredonner vie aux vieux livres,\npage après page.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "8f8b5922",
+      "texte_overlay": "2. restauratrice de tableaux\n\nretirer des siècles de poussière\nsans abîmer un trait.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "e047ecd9",
+      "texte_overlay": "3. souffleuse de verre\n\ndu sable et du feu\ndeviennent un vase.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "afe92805",
+      "texte_overlay": "4. luthière\n\nfabriquer un violon\nqui chantera cent ans.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "846a6863",
+      "texte_overlay": "5. et l'envie de tout découvrir\n\navant, je ne connaissais aucun de ces métiers.\nmaintenant, j'apprends un truc sur le monde chaque matin. et je découvre un savoir-faire chaque semaine.",
+      "texte_sophia": "5. et l'envie de tout découvrir\n\navant, je ne connaissais aucun de ces métiers.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et je découvre un savoir-faire chaque semaine.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "cb78ae66",
+      "texte_overlay": "tu ferais lequel ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

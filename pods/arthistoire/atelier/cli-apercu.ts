@@ -19,7 +19,9 @@ for (const f of fichiers) {
   const slides = [...o.slides].sort((a, b) => a.position - b.position);
   const cases = slides.map((s) => {
     const im = r.images.find((i) => i.id === s.media_id || i.id.startsWith(s.media_id));
-    if (!im) throw new Error(`${o.source_id} #${s.position} : image ${s.media_id} hors banque`);
+    // Une image livrée depuis 14 jours n'est plus renvoyée par `images` (0671) : un original déjà déposé ne
+    // peut plus être prévisualisé ainsi (regarde la planche de `npm run tableau` à la place).
+    if (!im) throw new Error(`${o.source_id} #${s.position} : image ${s.media_id} hors banque (ou déjà livrée depuis moins de 14 jours)`);
     const texte = s.texte_overlay;
     return { id: im.id, url: im.url, texte, legende: `#${s.position} ${texte.length} car.` };
   });

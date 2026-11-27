@@ -98,9 +98,9 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   la jauge le demande (`pods/ROUTINE.md` §4). Les règles 5 (le rythme ne
   baisse jamais) et 6 ci-dessous ne valent plus pour eux : leur rythme suit
   la jauge (plus bas).
-- **La voie 2** (podz 1, 10, 11, 13, 15 à 30 ; le 6, relancé le 15/11, y
+- **La voie 2** (podz 1, 10, 11, 13, 15 à 31 ; le 6, relancé le 15/11, y
   revient à son premier remake validé ; 16 à 22 et 24 à 30 sont des originaux
-  en images finies, 23 des remakes en images finies) a aussi sa boîte et
+  en images finies, 23 et 31 des remakes en images finies) a aussi sa boîte et
   sa jauge depuis le 5/11 (0653) : ses podz refont les posts neufs de leur
   compte modèle, déclinent leur boîte dans l'ordre et déposent les full tests
   de la jauge (`pods/ROUTINE.md` §5). Une déclinaison ou un full test déclaré

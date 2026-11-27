@@ -1,0 +1,138 @@
+{
+ "id": "dr-069",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696252759917481236",
+  "vues": 382200,
+  "publie_le": "2026-10-13",
+  "accroche": "10/10 skills to learn if you have ADHD"
+ },
+ "titre": {
+  "en": "10/10 skills for people who get bored of everything",
+  "de": "10/10 skills, wenn dich alles schnell langweilt",
+  "tr": "her şeyden sıkılanlar için 10/10 beceriler"
+ },
+ "legendes": {
+  "en": "#niche #skills #selfimprovement #lockedin",
+  "de": "#skills #selbstverbesserung #lernen #hobbys",
+  "tr": "#beceri #kişiselgelişim #öğrenmek #hobi"
+ },
+ "musique": {
+  "titre": "QUANTUM (Slowed) - PHNKR & dnvn & Phonk King",
+  "url": "https://www.tiktok.com/music/original-sound-7550638068775438337"
+ },
+ "notes": "Déclinaison G2 de dr-035 : accroche reformulée (« get bored of everything »), autres compétences. Faits : Draganski et al. 2004 (Nature, jonglage) ; SOS en morse ; repères sur F et J ; dessin d'observation. Objets de la banque, balles Seedream. En, de, tr ; une couverture par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "10/10 skills for people who get bored of everything",
+    "image": "images/cerveau-37.jpg",
+    "legende": "(one weekend each)"
+   },
+   "de": {
+    "titre": "10/10 skills, wenn dich alles schnell langweilt",
+    "image": "images/cerveau-39.jpg",
+    "legende": "(je ein wochenende)"
+   },
+   "tr": {
+    "titre": "her şeyden sıkılanlar için 10/10 beceriler",
+    "image": "images/cerveau-41.jpg",
+    "legende": "(her biri bir hafta sonu)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Juggling",
+    "texte": "three balls, one weekend. a 2004 study found that three months of learning to juggle grew grey matter in brain areas that track movement",
+    "image": "images/objets/jonglage.png"
+   },
+   "de": {
+    "titre": "Jonglieren",
+    "texte": "drei bälle, ein wochenende. eine studie von 2004 zeigte: wer drei monate jonglieren lernt, bekommt mehr graue substanz in hirnarealen, die bewegung verfolgen",
+    "image": "images/objets/jonglage.png"
+   },
+   "tr": {
+    "titre": "Jonglörlük",
+    "texte": "üç top, bir hafta sonu. 2004'teki bir çalışmada üç ay jonglörlük öğrenenlerin beyninde hareketi izleyen bölgelerde gri madde arttı",
+    "image": "images/objets/jonglage.png"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Morse code",
+    "texte": "26 letters of dots and dashes. sos is three short, three long, three short. learn it by sound, not by sight, and you'll be reading it within a week",
+    "image": "images/objets/manipulateur-morse.png"
+   },
+   "de": {
+    "titre": "Morsecode",
+    "texte": "26 buchstaben aus punkten und strichen. sos ist dreimal kurz, dreimal lang, dreimal kurz. lern es nach gehör, nicht nach bild, und nach einer woche liest du mit",
+    "image": "images/objets/manipulateur-morse.png"
+   },
+   "tr": {
+    "titre": "Mors alfabesi",
+    "texte": "noktalar ve çizgilerden 26 harf. sos üç kısa, üç uzun, üç kısa. görerek değil duyarak öğren, bir haftada okumaya başlarsın",
+    "image": "images/objets/manipulateur-morse.png"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. never the same topic two days in a row",
+    "telephone": "accueil"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "was ich statt scrollen öffne: eine lektion, ein quiz, fertig. nie zwei tage hintereinander dasselbe thema",
+    "telephone": "accueil"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "ekranı kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. hiçbir zaman iki gün üst üste aynı konu yok",
+    "telephone": "accueil"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Touch typing",
+    "texte": "the little bumps on f and j are there so your fingers find home without looking. a few weeks of practice and you'll never look at the keys again",
+    "image": "images/objets/machine-ecrire.png"
+   },
+   "de": {
+    "titre": "Zehnfingersystem",
+    "texte": "die kleinen erhebungen auf f und j sind da, damit deine finger ohne hinschauen zurückfinden. ein paar wochen übung und du schaust nie wieder auf die tasten",
+    "image": "images/objets/machine-ecrire.png"
+   },
+   "tr": {
+    "titre": "On parmak yazma",
+    "texte": "klavyedeki iki küçük çıkıntı, parmakların bakmadan yerini bulsun diye var. birkaç haftalık pratikle bir daha tuşlara bakmazsın",
+    "image": "images/objets/machine-ecrire.png"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Sketching",
+    "texte": "draw one real object every day for 30 days. you're not learning to draw, you're learning to see",
+    "image": "images/objets/carnet-croquis.png"
+   },
+   "de": {
+    "titre": "Skizzieren",
+    "texte": "zeichne 30 tage lang jeden tag einen echten gegenstand. du lernst nicht zeichnen, du lernst sehen",
+    "image": "images/objets/carnet-croquis.png"
+   },
+   "tr": {
+    "titre": "Eskiz",
+    "texte": "30 gün boyunca her gün gerçek bir nesne çiz. çizmeyi değil, görmeyi öğreniyorsun",
+    "image": "images/objets/carnet-croquis.png"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "92c986bf-21dc-46fa-a3ec-859cc7a88bb8"
+}

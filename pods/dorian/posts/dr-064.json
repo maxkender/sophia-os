@@ -10,12 +10,22 @@
  "titre": {
   "en": "5 science facts that genuinely break your brain",
   "hu": "5 tudományos tény, amitől szétesik az agyad",
-  "it": "5 fatti scientifici che ti mandano in tilt il cervello"
+  "it": "5 fatti scientifici che ti mandano in tilt il cervello",
+  "de": "5 wissenschaftliche fakten, die dein gehirn sprengen",
+  "nl": "5 wetenschappelijke feiten die je brein breken",
+  "pt-BR": "5 fatos da ciência que bugam seu cérebro",
+  "sv": "5 vetenskapliga fakta som får hjärnan att krascha",
+  "tr": "beynini yakacak 5 bilim gerçeği"
  },
  "legendes": {
   "en": "#science #physics #math #smarttok",
   "hu": "#tudomány #fizika #matek #tudás",
-  "it": "#scienza #fisica #matematica #curiosità"
+  "it": "#scienza #fisica #matematica #curiosità",
+  "de": "#wissenschaft #physik #mathe #wissen",
+  "nl": "#wetenschap #natuurkunde #wiskunde #weetjes",
+  "pt-BR": "#ciência #física #matemática #curiosidades",
+  "sv": "#vetenskap #fysik #matte #kunskap",
+  "tr": "#bilim #fizik #matematik #bilgi"
  },
  "musique": {
   "titre": "original sound - 432pa.hp",
@@ -39,6 +49,31 @@
     "titre": "5 fatti scientifici che ti mandano in tilt il cervello",
     "image": "images/cerveau-07.jpg",
     "legende": "(cercali)"
+   },
+   "de": {
+    "titre": "5 wissenschaftliche fakten, die dein gehirn sprengen",
+    "image": "images/cerveau-27.jpg",
+    "legende": "(schau sie nach)"
+   },
+   "nl": {
+    "titre": "5 wetenschappelijke feiten die je brein breken",
+    "image": "images/cerveau-29.jpg",
+    "legende": "(zoek ze op)"
+   },
+   "pt-BR": {
+    "titre": "5 fatos da ciência que bugam seu cérebro",
+    "image": "images/cerveau-31.jpg",
+    "legende": "(pesquisa aí)"
+   },
+   "sv": {
+    "titre": "5 vetenskapliga fakta som får hjärnan att krascha",
+    "image": "images/cerveau-33.jpg",
+    "legende": "(kolla upp dem)"
+   },
+   "tr": {
+    "titre": "beynini yakacak 5 bilim gerçeği",
+    "image": "images/cerveau-35.jpg",
+    "legende": "(araştır)"
    }
   },
   {
@@ -60,6 +95,36 @@
     "difficulte": "26/50",
     "texte": "ci sono più partite di scacchi possibili che atomi nell'universo osservabile. claude shannon stimò un 1 seguito da 120 zeri, contro circa un 1 seguito da 80 zeri di atomi",
     "image": "images/echecs-nuit.jpg"
+   },
+   "de": {
+    "titre": "Mehr schachpartien als atome",
+    "difficulte": "26/50",
+    "texte": "es gibt mehr mögliche schachpartien als atome im beobachtbaren universum. claude shannon schätzte eine 1 mit 120 nullen, gegen etwa eine 1 mit 80 nullen bei den atomen",
+    "image": "images/echecs-nuit.jpg"
+   },
+   "nl": {
+    "titre": "Meer schaakpartijen dan atomen",
+    "difficulte": "26/50",
+    "texte": "er zijn meer mogelijke schaakpartijen dan atomen in het waarneembare heelal. claude shannon schatte een 1 met 120 nullen, tegenover ongeveer een 1 met 80 nullen aan atomen",
+    "image": "images/echecs-nuit.jpg"
+   },
+   "pt-BR": {
+    "titre": "Mais partidas que átomos",
+    "difficulte": "26/50",
+    "texte": "existem mais partidas de xadrez possíveis do que átomos no universo observável. claude shannon estimou um 1 seguido de 120 zeros, contra mais ou menos um 1 seguido de 80 zeros de átomos",
+    "image": "images/echecs-nuit.jpg"
+   },
+   "sv": {
+    "titre": "Fler schackpartier än atomer",
+    "difficulte": "26/50",
+    "texte": "det finns fler möjliga schackpartier än atomer i det observerbara universum. claude shannon uppskattade en etta följd av 120 nollor, mot ungefär en etta följd av 80 nollor för atomer",
+    "image": "images/echecs-nuit.jpg"
+   },
+   "tr": {
+    "titre": "Atomdan çok satranç oyunu",
+    "difficulte": "26/50",
+    "texte": "olası satranç oyunlarının sayısı gözlemlenebilir evrendeki atomlardan fazla. claude shannon 1'in yanında 120 sıfır tahmin etti, atomlar ise yaklaşık 1'in yanında 80 sıfır",
+    "image": "images/echecs-nuit.jpg"
    }
   },
   {
@@ -80,6 +145,36 @@
     "titre": "Il paradosso del compleanno",
     "difficulte": "30/50",
     "texte": "metti 23 persone in una stanza e c'è più del 50% di probabilità che due compiano gli anni lo stesso giorno. con 70 persone è il 99,9%",
+    "image": "images/gateau-bougies.jpg"
+   },
+   "de": {
+    "titre": "Das geburtstagsparadoxon",
+    "difficulte": "30/50",
+    "texte": "bei 23 leuten in einem raum liegt die chance über 50 %, dass zwei am selben tag geburtstag haben. bei 70 leuten sind es 99,9 %",
+    "image": "images/gateau-bougies.jpg"
+   },
+   "nl": {
+    "titre": "De verjaardagsparadox",
+    "difficulte": "30/50",
+    "texte": "zet 23 mensen in een kamer en de kans is groter dan 50% dat twee van hen op dezelfde dag jarig zijn. bij 70 mensen is het 99,9%",
+    "image": "images/gateau-bougies.jpg"
+   },
+   "pt-BR": {
+    "titre": "O paradoxo do aniversário",
+    "difficulte": "30/50",
+    "texte": "coloque 23 pessoas numa sala e a chance de duas fazerem aniversário no mesmo dia passa de 50%. com 70 pessoas, é 99,9%",
+    "image": "images/gateau-bougies.jpg"
+   },
+   "sv": {
+    "titre": "Födelsedagsparadoxen",
+    "difficulte": "30/50",
+    "texte": "sätt 23 personer i ett rum så är chansen över 50 % att två av dem fyller år samma dag. med 70 personer är den 99,9 %",
+    "image": "images/gateau-bougies.jpg"
+   },
+   "tr": {
+    "titre": "Doğum günü paradoksu",
+    "difficulte": "30/50",
+    "texte": "bir odada 23 kişi varsa, ikisinin aynı gün doğmuş olma ihtimali %50'nin üstünde. 70 kişide %99,9",
     "image": "images/gateau-bougies.jpg"
    }
   },
@@ -103,6 +198,36 @@
     "difficulte": "4/50",
     "texte": "quello che apro invece di scrollare: una lezione, un quiz, fine. la scienza spiegata finalmente in modo chiaro",
     "telephone": "accueil"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "difficulte": "4/50",
+    "texte": "was ich statt scrollen öffne: eine lektion, ein quiz, fertig. wissenschaft so erklärt, dass es endlich klick macht",
+    "telephone": "accueil"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "difficulte": "4/50",
+    "texte": "wat ik open in plaats van scrollen: één les, één quiz, klaar. wetenschap zo uitgelegd dat het eindelijk klikt",
+    "telephone": "accueil"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "difficulte": "4/50",
+    "texte": "o que eu abro em vez de rolar o feed: uma lição, um quiz, pronto. ciência explicada de um jeito que finalmente faz sentido",
+    "telephone": "accueil"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "difficulte": "4/50",
+    "texte": "det jag öppnar i stället för att scrolla: en lektion, ett quiz, klart. vetenskap förklarad så att det äntligen klickar",
+    "telephone": "accueil"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "difficulte": "4/50",
+    "texte": "ekranı kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. bilim sonunda oturacak şekilde anlatılmış",
+    "telephone": "accueil"
    }
   },
   {
@@ -123,6 +248,36 @@
     "titre": "0,999… = 1",
     "difficulte": "36/50",
     "texte": "0,999… con infiniti nove è esattamente uguale a 1. non quasi: uguale. tra due numeri diversi ce n'è sempre un terzo. qui non c'è",
+    "image": "images/escalier-spirale.jpg"
+   },
+   "de": {
+    "titre": "0,999… = 1",
+    "difficulte": "36/50",
+    "texte": "0,999… mit unendlich vielen neunen ist genau gleich 1. nicht fast: gleich. zwischen zwei verschiedenen zahlen liegt immer eine dritte. hier nicht",
+    "image": "images/escalier-spirale.jpg"
+   },
+   "nl": {
+    "titre": "0,999… = 1",
+    "difficulte": "36/50",
+    "texte": "0,999… met oneindig veel negens is precies gelijk aan 1. niet bijna: gelijk. tussen twee verschillende getallen zit altijd een derde. hier niet",
+    "image": "images/escalier-spirale.jpg"
+   },
+   "pt-BR": {
+    "titre": "0,999… = 1",
+    "difficulte": "36/50",
+    "texte": "0,999… com noves infinitos é exatamente igual a 1. não quase: igual. entre dois números diferentes sempre existe um terceiro. aqui não existe",
+    "image": "images/escalier-spirale.jpg"
+   },
+   "sv": {
+    "titre": "0,999… = 1",
+    "difficulte": "36/50",
+    "texte": "0,999… med oändligt många nior är exakt lika med 1. inte nästan: lika. mellan två olika tal finns alltid ett tredje. här finns inget",
+    "image": "images/escalier-spirale.jpg"
+   },
+   "tr": {
+    "titre": "0,999… = 1",
+    "difficulte": "36/50",
+    "texte": "sonsuza kadar dokuzlarla devam eden 0,999… tam olarak 1'e eşit. neredeyse değil: eşit. iki farklı sayının arasında hep bir sayı vardır. burada yok",
     "image": "images/escalier-spirale.jpg"
    }
   },
@@ -145,6 +300,36 @@
     "difficulte": "40/50",
     "texte": "se un atomo fosse grande come uno stadio, il nucleo sarebbe una biglia sul dischetto del centrocampo. il resto è quasi tutto spazio vuoto",
     "image": "images/stade-nuit.jpg"
+   },
+   "de": {
+    "titre": "Atome sind fast leer",
+    "difficulte": "40/50",
+    "texte": "wäre ein atom so groß wie ein stadion, wäre sein kern eine murmel auf dem anstoßpunkt. der rest ist fast komplett leerer raum",
+    "image": "images/stade-nuit.jpg"
+   },
+   "nl": {
+    "titre": "Atomen zijn bijna leeg",
+    "difficulte": "40/50",
+    "texte": "als een atoom zo groot was als een stadion, was de kern een knikker op de middenstip. de rest is bijna helemaal lege ruimte",
+    "image": "images/stade-nuit.jpg"
+   },
+   "pt-BR": {
+    "titre": "Átomos são quase vazios",
+    "difficulte": "40/50",
+    "texte": "se um átomo fosse do tamanho de um estádio, o núcleo seria uma bolinha de gude no meio do campo. o resto é quase todo espaço vazio",
+    "image": "images/stade-nuit.jpg"
+   },
+   "sv": {
+    "titre": "Atomer är nästan tomma",
+    "difficulte": "40/50",
+    "texte": "om en atom var lika stor som en arena skulle kärnan vara en kula på mittpunkten. resten är nästan helt tomrum",
+    "image": "images/stade-nuit.jpg"
+   },
+   "tr": {
+    "titre": "Atomlar neredeyse boş",
+    "difficulte": "40/50",
+    "texte": "bir atom stadyum büyüklüğünde olsaydı, çekirdeği orta noktada duran bir bilye olurdu. geri kalanı neredeyse tamamen boşluk",
+    "image": "images/stade-nuit.jpg"
    }
   },
   {
@@ -165,6 +350,36 @@
     "titre": "L'effetto tunnel",
     "difficulte": "46/50",
     "texte": "a volte le particelle attraversano barriere che non dovrebbero superare. il sole ne ha bisogno: senza effetto tunnel il suo nucleo sarebbe troppo freddo per la fusione",
+    "image": "images/soleil-surface.jpg"
+   },
+   "de": {
+    "titre": "Der tunneleffekt",
+    "difficulte": "46/50",
+    "texte": "teilchen gehen manchmal durch barrieren, die sie eigentlich nicht überwinden können. die sonne braucht das: ohne tunneleffekt wäre ihr kern zu kalt für kernfusion",
+    "image": "images/soleil-surface.jpg"
+   },
+   "nl": {
+    "titre": "Het tunneleffect",
+    "difficulte": "46/50",
+    "texte": "deeltjes gaan soms door barrières waar ze eigenlijk niet doorheen kunnen. de zon heeft het nodig: zonder tunneleffect was haar kern te koud voor kernfusie",
+    "image": "images/soleil-surface.jpg"
+   },
+   "pt-BR": {
+    "titre": "Tunelamento quântico",
+    "difficulte": "46/50",
+    "texte": "às vezes partículas atravessam barreiras que não deveriam conseguir passar. o sol depende disso: sem tunelamento, o núcleo dele seria frio demais pra fusão",
+    "image": "images/soleil-surface.jpg"
+   },
+   "sv": {
+    "titre": "Kvanttunnling",
+    "difficulte": "46/50",
+    "texte": "partiklar tar sig ibland igenom hinder de egentligen inte borde klara. solen är beroende av det: utan tunnling vore dess kärna för kall för fusion",
+    "image": "images/soleil-surface.jpg"
+   },
+   "tr": {
+    "titre": "Kuantum tünelleme",
+    "difficulte": "46/50",
+    "texte": "parçacıklar bazen aşamamaları gereken engellerin içinden geçer. güneş buna muhtaç: tünelleme olmasa çekirdeği füzyon için fazla soğuk kalırdı",
     "image": "images/soleil-surface.jpg"
    }
   }

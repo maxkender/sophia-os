@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o382",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "700c3ebb-75da-4774-9661-208832b2c647",
+ "titre": "Small signs your life is on the right track #men #life #growth #mindset #progress",
+ "musique_titre": "sonido original",
+ "musique_url": "https://www.tiktok.com/music/sonido-original-7607213209031887638",
+ "inspirations": [
+  "700c3ebb-75da-4774-9661-208832b2c647"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 27/11. Déclinaison G2 de la ligne 5 de la boîte (parent 700c3ebb = notre am-o112 ; 2e déclinaison après am-o355). Promesse reformulée. Format : « N. » + une phrase. Items neufs, ni de am-o112 ni de am-o355. reference_url de am-o112 (1 à 7) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a040687e",
+   "texte_overlay": "Small signs your life is on\nthe right track",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "32cc4074",
+   "texte_overlay": "1. You wake up before the alarm.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "68187e0b",
+   "texte_overlay": "2. You leave conversations\nfeeling lighter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b0f56e9a",
+   "texte_overlay": "3. Your goals feel exciting,\nnot heavy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7574425b",
+   "texte_overlay": "4. You learn things for fun.",
+   "texte_sophia": "4. You learn things for fun\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6858d611",
+   "texte_overlay": "5. Your home feels calm.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "69c3c0a5",
+   "texte_overlay": "6. You'd thank your past self.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/7.jpg"
+  }
+ ]
+}

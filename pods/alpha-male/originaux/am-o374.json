@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o374",
+ "type_bleo": "full_test",
+ "titre": "Sauna etiquette every man should know #men #sauna #wellness #respect #manners",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 27/11. Full test du jour (5 sur 8, jauge : 8 sur 26). Accroche jamais faite chez nous : aucun « sauna » dans donnees/label.json. reference_url : post source de am-o002, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5b9689f6",
+   "texte_overlay": "Sauna etiquette every man\nshould know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2585250b",
+   "texte_overlay": "1. Shower before you go in",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "58547de7",
+   "texte_overlay": "2. Sit on a towel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1f20a9b8",
+   "texte_overlay": "3. Close the door quickly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ef9eff42",
+   "texte_overlay": "4. Learn the tradition\n\nFinland has more saunas than cars.",
+   "texte_sophia": "4. Learn the tradition\n\nI learned it on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "27fc9bdf",
+   "texte_overlay": "5. Drink water after",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "fe6c8432",
+   "texte_overlay": "6. Keep conversations quiet",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/7.jpg"
+  }
+ ]
+}

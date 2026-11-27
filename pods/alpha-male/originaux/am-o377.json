@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o377",
+ "type_bleo": "full_test",
+ "titre": "How to start journaling as a man #men #journaling #mindset #discipline #reflection",
+ "musique_titre": "Interstellar",
+ "musique_url": "https://www.tiktok.com/music/interstellar-7396002037526710273",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 27/11. Full test du jour (8 sur 8, jauge : 8 sur 26). Accroche jamais faite chez nous : « journal » seulement dans des items dans donnees/label.json. reference_url : post source de am-o034, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "06e26fd0",
+   "texte_overlay": "How to start journaling\nas a man",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9ffa6878",
+   "texte_overlay": "1. One cheap notebook.\nNo excuses.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "32affa04",
+   "texte_overlay": "2. Same time every night",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "072dae6f",
+   "texte_overlay": "3. Three lines are enough",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1a81a8b6",
+   "texte_overlay": "4. Write what happened,\nnot what you feel you should",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a709bd62",
+   "texte_overlay": "5. Read your old pages\nonce a month",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "20edd31f",
+   "texte_overlay": "6. Write down one thing you learned\n\nEvery single day.",
+   "texte_sophia": "6. Write down one thing you learned\n\nI pick mine on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  }
+ ]
+}

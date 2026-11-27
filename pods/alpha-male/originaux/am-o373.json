@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o373",
+ "type_bleo": "full_test",
+ "titre": "Road cycling rules every man should know #men #cycling #bike #fitness #outdoors",
+ "musique_titre": "boohoo",
+ "musique_url": "https://www.tiktok.com/music/boohoo-7228135360868649774",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 27/11. Full test du jour (4 sur 8, jauge : 8 sur 26). Accroche jamais faite chez nous : aucun « cycling » dans donnees/label.json. reference_url : post source de am-o036 (2 à 7), vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3b13decd",
+   "texte_overlay": "Road cycling rules every man\nshould know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "aeb778c5",
+   "texte_overlay": "1. Helmet. Always.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1475bcdd",
+   "texte_overlay": "2. Ride with traffic, not against it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8b5f72f1",
+   "texte_overlay": "3. Learn to fix a flat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b3aae4a4",
+   "texte_overlay": "4. Learn how gears work\n\nRide smarter, not harder.",
+   "texte_sophia": "4. Learn how gears work\n\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "578db736",
+   "texte_overlay": "5. Coffee stop at the halfway point",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  }
+ ]
+}

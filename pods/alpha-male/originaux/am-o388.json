@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o388",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6613b883-41e2-464d-a00e-db5c66339c99",
+ "titre": "6 small habits that improve your life #habits #men #discipline #selfimprovement #routine",
+ "musique_titre": "why i do em like that (feat. billie essco)",
+ "musique_url": "https://www.tiktok.com/music/why-i-do-em-like-that-feat-billie-essco-7010274430282631169",
+ "inspirations": [
+  "6613b883-41e2-464d-a00e-db5c66339c99"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 27/11. Déclinaison G1 de la ligne 51 de la boîte (parent 6613b883, @relatableoutof10, langue source en). Accroche du parent mot pour mot. Format : « N. habitude » en une ligne. Rien de am-o343 (refusé le 25/11). Items neufs, aucun du parent. reference_url du parent (1 à 7) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5e7939e4",
+   "texte_overlay": "6 small habits that improve\nyour life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617796269980781846/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "277902bc",
+   "texte_overlay": "1. Shoes off at the door",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617796269980781846/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6903fa68",
+   "texte_overlay": "2. Fruit on the counter,\nsnacks in the cupboard",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617796269980781846/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3cda40c0",
+   "texte_overlay": "3. Alarm across the room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617796269980781846/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "58951956",
+   "texte_overlay": "4. Stairs instead of the elevator",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617796269980781846/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6c0f83c9",
+   "texte_overlay": "5. A 3-item to-do list",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617796269980781846/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9d44aff0",
+   "texte_overlay": "6. Learn something every lunch break",
+   "texte_sophia": "6. Learn something every lunch break\non the Sophia app",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617796269980781846/7.jpg"
+  }
+ ]
+}

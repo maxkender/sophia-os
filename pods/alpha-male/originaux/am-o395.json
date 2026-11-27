@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o395",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7f53d2e4-88f6-4c82-b12f-dd0be40a9143",
+ "titre": "A guide on how to be a better man #men #betterman #character #respect #growth",
+ "musique_titre": "boohoo",
+ "musique_url": "https://www.tiktok.com/music/boohoo-7228135360868649774",
+ "inspirations": [
+  "7f53d2e4-88f6-4c82-b12f-dd0be40a9143"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 27/11. Réécrit après refus accroche_voisine (ligne 65). Déclinaison G1 de la ligne 68 de la boîte (parent 7f53d2e4, @millyjhino, langue source en ; ligne 66 en français et 67 sur la rupture passées). Accroche du parent mot pour mot. Format du parent : « N. if… then » puis une ligne. Situations neuves, aucune du parent. reference_url du parent (2 à 7 ; slide 1 manquante) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6939489b",
+   "texte_overlay": "a guide on how to be\na better man",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7637608496007023880/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2a211160",
+   "texte_overlay": "1. if someone holds the door...\nthank them\n\nsmall respect, every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7637608496007023880/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4f82f691",
+   "texte_overlay": "2. if your dad tells the same story...\nlisten like it's the first time",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7637608496007023880/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "08971434",
+   "texte_overlay": "3. if a friend is quiet...\nask twice\n\nthe second \"how are you\" matters.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7637608496007023880/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "556d3550",
+   "texte_overlay": "4. if you don't understand something...\nlearn it\n\ndon't fake it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7637608496007023880/6.jpg",
+   "texte_sophia": "4. if you don't understand something...\nlearn it\n\nuse a micro-learning app\nlike the Sophia app."
+  },
+  {
+   "position": 6,
+   "media_id": "6ffa08a9",
+   "texte_overlay": "5. if you lose...\nshake hands and train harder",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7637608496007023880/7.jpg"
+  }
+ ]
+}

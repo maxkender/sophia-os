@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o385",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "41bf2008-f819-4c38-ba99-82ce0891a77d",
+ "titre": "6 old school skills every man should learn #men #skills #oldschool #gentleman #selfreliance",
+ "musique_titre": "dźwięk oryginalny",
+ "musique_url": "https://www.tiktok.com/music/dzwiek-oryginalny-7378481013607533345",
+ "inspirations": [
+  "41bf2008-f819-4c38-ba99-82ce0891a77d"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 27/11. Déclinaison G1 de la ligne 8 de la boîte (parent 41bf2008, = notre am-o026, langue source en). Accroche du parent mot pour mot. Format : « N. compétence » + une ligne. Rien de am-o026. Items neufs, aucun du parent. reference_url du parent (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "554979e6",
+   "texte_overlay": "6 old school skills every man\nshould learn",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "bcc6dcad",
+   "texte_overlay": "1. Read a paper map\n\nNo signal, no problem.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4740c450",
+   "texte_overlay": "2. Polish your own shoes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "415abab0",
+   "texte_overlay": "3. Sharpen a knife",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2f0d7b77",
+   "texte_overlay": "4. Build a fire without lighter fluid",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9548165a",
+   "texte_overlay": "5. Name the stars\n\nNavigation before GPS.",
+   "texte_sophia": "5. Name the stars\n\nI learned them on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666932208724151574/6.jpg"
+  }
+ ]
+}

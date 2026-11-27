@@ -1,0 +1,729 @@
+{
+  "id": "rt-014",
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "questions that will break ur brain at 3am",
+    "sv": "frågor som kommer knäcka din hjärna kl. 3 på natten",
+    "fr": "questions qui vont te retourner le cerveau à 3h du mat",
+    "it": "domande che alle 3 di notte ti mandano in tilt il cervello",
+    "ro": "întrebări care îți fac praf creierul la 3 noaptea",
+    "tr": "gece 3'te beynini yakacak sorular",
+    "de": "fragen, die dein hirn um 3 uhr nachts sprengen",
+    "hu": "kérdések, amiktől hajnali 3-kor leég az agyad"
+  },
+  "legendes": {
+    "en": "some questions don't have answers. that's exactly why they're worth thinking about.\n\nthe mind, how we know anything, time, right and wrong, and why anything exists at all.\n\nphilosophers have argued about these for centuries. u get to join in.\n\nsave this for the next night u can't sleep.\n\n#philosophy #deepthoughts #learning #curiosity #studytok",
+    "sv": "vissa frågor har inga svar. det är precis därför de är värda att tänka på.\n\nmedvetandet, hur vi kan veta något alls, tiden, rätt och fel och varför något existerar överhuvudtaget.\n\nfilosofer har bråkat om de här i århundraden. nu får du hänga på.\n\nspara det här till nästa natt du inte kan sova.\n\n#filosofi #djupatankar #learning #studytok #fördig",
+    "fr": "certaines questions ont pas de réponse. c'est justement pour ça qu'elles valent le coup d'y réfléchir.\n\nl'esprit, comment on peut savoir quoi que ce soit, le temps, le bien et le mal, et pourquoi quelque chose existe.\n\nles philosophes en débattent depuis des siècles. à toi de te joindre à eux.\n\nenregistre ça pour la prochaine nuit où tu dors pas.\n\n#philosophie #philo #reflexion #studytok #learning",
+    "it": "certe domande non hanno risposta. ed è proprio per questo che vale la pena pensarci.\n\nla mente, come facciamo a sapere qualcosa, il tempo, il bene e il male, e perché esiste qualcosa.\n\ni filosofi ne discutono da secoli. puoi unirti anche tu.\n\nsalvalo per la prossima notte in cui non riesci a dormire.\n\n#philosophy #deepthoughts #learning #curiosity #studytok #filosofia #pensieri #perte",
+    "ro": "unele întrebări n-au răspuns. exact de asta merită să te gândești la ele.\n\nmintea, cum putem ști ceva, timpul, binele și răul și de ce există ceva până la urmă.\n\nfilozofii se ceartă pe ele de secole. acum poți să intri și tu în discuție.\n\nsalvează asta pt următoarea noapte în care nu poți dormi.\n\n#studytok #learning #filozofie #ganduri #romania",
+    "tr": "bazı soruların cevabı yok. tam da bu yüzden üzerine düşünmeye değerler.\n\nzihin, bir şeyi nasıl bildiğimiz, zaman, doğru ve yanlış, ve neden herhangi bir şeyin var olduğu.\n\nfilozoflar bunları yüzyıllardır tartışıyor. sen de katılabilirsin.\n\nuyuyamadığın bir sonraki gece için kaydet.\n\n#studytok #learning #felsefe #derindüşünceler #keşfet",
+    "de": "manche fragen haben keine antwort. genau deshalb lohnt es sich, über sie nachzudenken.\n\nder geist, wie wir überhaupt etwas wissen, die zeit, richtig und falsch und warum überhaupt etwas existiert.\n\nphilosophen streiten seit jahrhunderten darüber. du darfst mitmachen.\n\nspeicher dir das für die nächste nacht, in der du nicht schlafen kannst.\n\n#studytok #learning #philosophie #deepthoughts #allgemeinwissen",
+    "hu": "vannak kérdések, amikre nincs válasz. pont ezért érdemes gondolkodni rajtuk.\n\naz elme, hogy honnan tudunk bármit is, az idő, a jó és a rossz, és hogy miért létezik egyáltalán bármi.\n\na filozófusok évszázadok óta vitatkoznak ezeken. most te is beszállhatsz.\n\nmentsd el a következő éjszakára, amikor nem tudsz aludni.\n\n#filozófia #önfejlesztés #magyartiktok #studytok #learning"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/lune-mer.jpg": "11f7abf0-36e7-40ef-9c36-25be42fe3871",
+    "images/banque/croissant-lune.jpg": "40e0f32f-a8ba-4965-9db9-467d336043b0"
+  },
+  "notes": "Full test, sans post source : format et famille de @raretheory_ (« topic to research when u're bored », 652,5 k et 151,1 k), même gabarit, même musique. Demande du chef des podz du 27/11 (posts neufs aussi traduits dans les 7 langues ouvertes). Questions et notions réelles de philosophie (sujets établis), rien de religieux, violent ou médical. Slide Sophia (4, « 03 — how i got into this ») : son LOGO, jamais une capture ; cta B. Photos : tableau d'une baie au clair de lune (11f7abf0, domaine public), croissant de lune (40e0f32f), sans visage ni marque.",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/lune-mer.jpg",
+          "cadrage": {
+            "y": 0.5
+          }
+        },
+        {
+          "image": "images/banque/croissant-lune.jpg",
+          "cadrage": {
+            "y": 0.45
+          }
+        }
+      ],
+      "en": {
+        "titre": "questions that will\nbreak ur brain\nat 3am"
+      },
+      "sv": {
+        "titre": "frågor som kommer\nknäcka din hjärna\nkl. 3 på natten"
+      },
+      "fr": {
+        "titre": "questions qui vont te\nretourner le cerveau\nà 3h du mat"
+      },
+      "it": {
+        "titre": "domande che alle 3\ndi notte ti mandano\nin tilt il cervello"
+      },
+      "ro": {
+        "titre": "întrebări care îți fac\npraf creierul la 3\nnoaptea"
+      },
+      "tr": {
+        "titre": "gece 3'te beynini\nyakacak sorular"
+      },
+      "de": {
+        "titre": "fragen, die dein hirn\num 3 uhr nachts\nsprengen"
+      },
+      "hu": {
+        "titre": "kérdések, amiktől\nhajnali 3-kor leég\naz agyad"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "The Mind",
+        "sujets": [
+          "The Hard Problem of Consciousness",
+          "Qualia",
+          "Mary's Room",
+          "Philosophical Zombies",
+          "The Chinese Room",
+          "Brain in a Vat",
+          "The Problem of Other Minds",
+          "Personal Identity",
+          "The Mind-Body Problem"
+        ]
+      },
+      "sv": {
+        "titre": "Medvetandet",
+        "sujets": [
+          "Medvetandets svåra problem",
+          "Qualia",
+          "Marys rum",
+          "Filosofiska zombier",
+          "Det kinesiska rummet",
+          "Hjärna i ett kar",
+          "Problemet med andra medvetanden",
+          "Personlig identitet",
+          "Kropp–själ-problemet"
+        ]
+      },
+      "fr": {
+        "titre": "L'esprit",
+        "sujets": [
+          "Problème difficile de la conscience",
+          "Qualia",
+          "La chambre de Mary",
+          "Zombies philosophiques",
+          "Chambre chinoise",
+          "Cerveau dans une cuve",
+          "Problème des autres esprits",
+          "Identité personnelle",
+          "Problème corps-esprit"
+        ]
+      },
+      "it": {
+        "titre": "La mente",
+        "sujets": [
+          "Il problema difficile della coscienza",
+          "I qualia",
+          "La stanza di Mary",
+          "Gli zombie filosofici",
+          "La stanza cinese",
+          "Il cervello nella vasca",
+          "Il problema delle altre menti",
+          "L'identità personale",
+          "Il problema mente-corpo"
+        ]
+      },
+      "ro": {
+        "titre": "Mintea",
+        "sujets": [
+          "Problema dificilă a conștiinței",
+          "Qualia",
+          "Camera lui Mary",
+          "Zombii filozofici",
+          "Camera chinezească",
+          "Creierul în cuvă",
+          "Problema celorlalte minți",
+          "Identitatea personală",
+          "Problema minte-corp"
+        ]
+      },
+      "tr": {
+        "titre": "Zihin",
+        "sujets": [
+          "Bilincin zor problemi",
+          "Qualia",
+          "Mary'nin odası",
+          "Felsefi zombiler",
+          "Çin odası",
+          "Fıçıdaki beyin",
+          "Başka zihinler problemi",
+          "Kişisel kimlik",
+          "Zihin-beden problemi"
+        ]
+      },
+      "de": {
+        "titre": "Der Geist",
+        "sujets": [
+          "Das schwierige Problem des Bewusstseins",
+          "Qualia",
+          "Marys Zimmer",
+          "Philosophische Zombies",
+          "Das Chinesische Zimmer",
+          "Gehirn im Tank",
+          "Das Problem des Fremdpsychischen",
+          "Personale Identität",
+          "Das Leib-Seele-Problem"
+        ]
+      },
+      "hu": {
+        "titre": "Az elme",
+        "sujets": [
+          "A tudat nehéz problémája",
+          "Kváliák",
+          "Mary szobája",
+          "Filozófiai zombik",
+          "A kínai szoba",
+          "Agy a tartályban",
+          "A más elmék problémája",
+          "Személyes identitás",
+          "A test–elme probléma"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "How Do We Know Anything?",
+        "sujets": [
+          "The Problem of Induction",
+          "Gettier Problems",
+          "Descartes' Evil Demon",
+          "The Münchhausen Trilemma",
+          "Hume's Fork",
+          "Falsifiability",
+          "Bayesian Reasoning",
+          "Black Swans",
+          "The Map Is Not the Territory"
+        ]
+      },
+      "sv": {
+        "titre": "Hur kan vi veta något alls?",
+        "sujets": [
+          "Induktionsproblemet",
+          "Gettierproblemet",
+          "Descartes onde demon",
+          "Münchhausentrilemmat",
+          "Humes gaffel",
+          "Falsifierbarhet",
+          "Bayesianskt resonerande",
+          "Svarta svanar",
+          "Kartan är inte terrängen"
+        ]
+      },
+      "fr": {
+        "titre": "Comment savoir quoi que ce soit ?",
+        "sujets": [
+          "Problème de l'induction",
+          "Problème de Gettier",
+          "Le malin génie de Descartes",
+          "Trilemme de Münchhausen",
+          "Fourche de Hume",
+          "Réfutabilité",
+          "Raisonnement bayésien",
+          "Cygnes noirs",
+          "La carte n'est pas le territoire"
+        ]
+      },
+      "it": {
+        "titre": "Come facciamo a sapere qualcosa?",
+        "sujets": [
+          "Il problema dell'induzione",
+          "Il problema di Gettier",
+          "Il genio maligno di Cartesio",
+          "Il trilemma di Münchhausen",
+          "La forchetta di Hume",
+          "La falsificabilità",
+          "Il ragionamento bayesiano",
+          "I cigni neri",
+          "La mappa non è il territorio"
+        ]
+      },
+      "ro": {
+        "titre": "Cum putem ști ceva?",
+        "sujets": [
+          "Problema inducției",
+          "Problemele lui Gettier",
+          "Geniul rău al lui Descartes",
+          "Trilema lui Münchhausen",
+          "Furca lui Hume",
+          "Falsificabilitatea",
+          "Raționamentul bayesian",
+          "Lebedele negre",
+          "Harta nu este teritoriul"
+        ]
+      },
+      "tr": {
+        "titre": "Bir şeyi nasıl bilebiliriz?",
+        "sujets": [
+          "Tümevarım problemi",
+          "Gettier problemleri",
+          "Descartes'ın kötü cini",
+          "Münchhausen üçlemi",
+          "Hume'un çatalı",
+          "Yanlışlanabilirlik",
+          "Bayesçi akıl yürütme",
+          "Siyah kuğular",
+          "Harita, bölgenin kendisi değildir"
+        ]
+      },
+      "de": {
+        "titre": "Wie können wir etwas wissen?",
+        "sujets": [
+          "Das Induktionsproblem",
+          "Gettier-Probleme",
+          "Descartes' böser Dämon",
+          "Das Münchhausen-Trilemma",
+          "Humes Gabel",
+          "Falsifizierbarkeit",
+          "Bayessches Denken",
+          "Schwarze Schwäne",
+          "Die Karte ist nicht das Gebiet"
+        ]
+      },
+      "hu": {
+        "titre": "Honnan tudunk bármit is?",
+        "sujets": [
+          "Az indukció problémája",
+          "Gettier-problémák",
+          "Descartes gonosz démona",
+          "A Münchhausen-trilemma",
+          "Hume villája",
+          "Cáfolhatóság",
+          "Bayes-i gondolkodás",
+          "Fekete hattyúk",
+          "A térkép nem azonos a területtel"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "how i got into this",
+        "paragraphes": [
+          "before i go down a rabbit hole, i do the 10-minute lesson on Sophia. one short lesson a day: history, philosophy, science, geopolitics, literature, economics.",
+          "each one is written by actual professors and ends with a little quiz. philosophy was the one i thought i'd hate. now it's my favorite."
+        ]
+      },
+      "sv": {
+        "titre": "så fastnade jag för det",
+        "paragraphes": [
+          "innan jag går ner i ett kaninhål gör jag 10-minuterslektionen på Sophia. en kort lektion om dagen: historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
+          "varje lektion är skriven av riktiga professorer och slutar med ett litet quiz. filosofi var det jag trodde att jag skulle hata. nu är det min favorit."
+        ]
+      },
+      "fr": {
+        "titre": "comment j'ai commencé",
+        "paragraphes": [
+          "avant de tomber dans un rabbit hole, je fais la leçon de 10 minutes sur Sophia. une courte leçon par jour: histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "chacune est écrite par de vrais profs et finit par un petit quiz. la philo, je pensais que j'allais détester. maintenant c'est ma préférée."
+        ]
+      },
+      "it": {
+        "titre": "come ci sono arrivata",
+        "paragraphes": [
+          "prima di perdermi in un rabbit hole, faccio la lezione da 10 minuti su Sophia. una lezione breve al giorno: storia, filosofia, scienze, geopolitica, letteratura, economia.",
+          "ognuna è scritta da veri professori e finisce con un piccolo quiz. pensavo che avrei odiato la filosofia. ora è la mia preferita."
+        ]
+      },
+      "ro": {
+        "titre": "cum am ajuns aici",
+        "paragraphes": [
+          "înainte să intru într-un rabbit hole, fac lecția de 10 minute pe Sophia. o lecție scurtă pe zi: istorie, filozofie, științe, geopolitică, literatură, economie.",
+          "fiecare e scrisă de profesori adevărați și se termină cu un mic quiz. credeam că o să urăsc filozofia. acum e preferata mea."
+        ]
+      },
+      "tr": {
+        "titre": "bu işe nasıl girdim",
+        "paragraphes": [
+          "bir tavşan deliğine dalmadan önce Sophia'da 10 dakikalık dersimi yapıyorum. günde kısa bir ders: tarih, felsefe, bilim, jeopolitik, edebiyat, ekonomi.",
+          "her birini gerçek profesörler yazıyor ve sonunda küçük bir quiz var. nefret edeceğimi sandığım şey felsefeydi. şimdi en sevdiğim o."
+        ]
+      },
+      "de": {
+        "titre": "wie ich dazu kam",
+        "paragraphes": [
+          "bevor ich in ein rabbit hole abtauche, mache ich die 10-minuten-lektion bei Sophia. eine kurze lektion am tag: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "jede ist von echten professoren geschrieben und endet mit einem kleinen quiz. bei philosophie dachte ich, ich würde es hassen. jetzt ist es mein lieblingsthema."
+        ]
+      },
+      "hu": {
+        "titre": "hogyan kezdtem bele",
+        "paragraphes": [
+          "mielőtt lemegyek egy nyúlüregbe, megcsinálom a 10 perces leckét a Sophia appban. napi egy rövid lecke: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "mindegyiket igazi professzorok írják, és a végén van egy kis kvíz. azt hittem, a filozófiát utálni fogom. most az a kedvencem."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Time",
+        "sujets": [
+          "What Is Time?",
+          "The Arrow of Time",
+          "The Block Universe",
+          "Presentism vs Eternalism",
+          "Determinism",
+          "Closed Timelike Curves",
+          "The Heat Death of the Universe",
+          "Why We Remember the Past but Not the Future"
+        ]
+      },
+      "sv": {
+        "titre": "Tiden",
+        "sujets": [
+          "Vad är tid?",
+          "Tidens pil",
+          "Blockuniversum",
+          "Presentism vs eternalism",
+          "Determinism",
+          "Slutna tidslika kurvor",
+          "Universums värmedöd",
+          "Varför vi minns det förflutna men inte framtiden"
+        ]
+      },
+      "fr": {
+        "titre": "Le temps",
+        "sujets": [
+          "Qu'est-ce que le temps ?",
+          "Flèche du temps",
+          "Univers bloc",
+          "Présentisme et éternalisme",
+          "Déterminisme",
+          "Courbes temporelles fermées",
+          "Mort thermique de l'Univers",
+          "Pourquoi on se souvient du passé"
+        ]
+      },
+      "it": {
+        "titre": "Il tempo",
+        "sujets": [
+          "Che cos'è il tempo?",
+          "La freccia del tempo",
+          "L'universo a blocco",
+          "Presentismo ed eternalismo",
+          "Il determinismo",
+          "Le curve chiuse di tipo tempo",
+          "La morte termica dell'universo",
+          "Perché ricordiamo il passato e non il futuro"
+        ]
+      },
+      "ro": {
+        "titre": "Timpul",
+        "sujets": [
+          "Ce este timpul?",
+          "Săgeata timpului",
+          "Universul-bloc",
+          "Prezentism vs eternalism",
+          "Determinismul",
+          "Curbele închise de tip timp",
+          "Moartea termică a universului",
+          "De ce ne amintim trecutul, dar nu viitorul"
+        ]
+      },
+      "tr": {
+        "titre": "Zaman",
+        "sujets": [
+          "Zaman nedir?",
+          "Zamanın oku",
+          "Blok evren",
+          "Şimdicilik ve ebedicilik",
+          "Determinizm",
+          "Kapalı zamansı eğriler",
+          "Evrenin ısıl ölümü",
+          "Geçmişi hatırlıyoruz da geleceği neden değil?"
+        ]
+      },
+      "de": {
+        "titre": "Zeit",
+        "sujets": [
+          "Was ist Zeit?",
+          "Der Zeitpfeil",
+          "Das Blockuniversum",
+          "Präsentismus vs. Eternalismus",
+          "Determinismus",
+          "Geschlossene zeitartige Kurven",
+          "Der Wärmetod des Universums",
+          "Warum wir uns nur an die Vergangenheit erinnern"
+        ]
+      },
+      "hu": {
+        "titre": "Az idő",
+        "sujets": [
+          "Mi az idő?",
+          "Az idő iránya",
+          "A blokkuniverzum",
+          "Prezentizmus vs. eternalizmus",
+          "Determinizmus",
+          "Zárt időszerű görbék",
+          "Az univerzum hőhalála",
+          "Miért emlékszünk a múltra, de a jövőre nem?"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Right & Wrong",
+        "sujets": [
+          "The Ring of Gyges",
+          "The Experience Machine",
+          "Moral Luck",
+          "The Is-Ought Problem",
+          "The Euthyphro Dilemma",
+          "The Categorical Imperative",
+          "Virtue Ethics",
+          "The Repugnant Conclusion"
+        ]
+      },
+      "sv": {
+        "titre": "Rätt och fel",
+        "sujets": [
+          "Gyges ring",
+          "Upplevelsemaskinen",
+          "Moralisk tur",
+          "Är–bör-problemet",
+          "Euthyfrons dilemma",
+          "Det kategoriska imperativet",
+          "Dygdetik",
+          "Den motbjudande slutsatsen"
+        ]
+      },
+      "fr": {
+        "titre": "Le bien et le mal",
+        "sujets": [
+          "L'anneau de Gygès",
+          "La machine à expériences",
+          "Chance morale",
+          "Guillotine de Hume",
+          "Dilemme d'Euthyphron",
+          "Impératif catégorique",
+          "Éthique de la vertu",
+          "Conclusion répugnante"
+        ]
+      },
+      "it": {
+        "titre": "Il bene e il male",
+        "sujets": [
+          "L'anello di Gige",
+          "La macchina dell'esperienza",
+          "La fortuna morale",
+          "La ghigliottina di Hume",
+          "Il dilemma di Eutifrone",
+          "L'imperativo categorico",
+          "L'etica delle virtù",
+          "La conclusione ripugnante"
+        ]
+      },
+      "ro": {
+        "titre": "Bine și rău",
+        "sujets": [
+          "Inelul lui Gyges",
+          "Mașina experiențelor",
+          "Norocul moral",
+          "Problema „este–trebuie”",
+          "Dilema lui Eutifron",
+          "Imperativul categoric",
+          "Etica virtuții",
+          "Concluzia respingătoare"
+        ]
+      },
+      "tr": {
+        "titre": "Doğru ve yanlış",
+        "sujets": [
+          "Gyges'in yüzüğü",
+          "Deneyim makinesi",
+          "Ahlaki şans",
+          "Olan-olması gereken problemi",
+          "Euthyphron ikilemi",
+          "Kategorik buyruk",
+          "Erdem etiği",
+          "İtici sonuç"
+        ]
+      },
+      "de": {
+        "titre": "Richtig & Falsch",
+        "sujets": [
+          "Der Ring des Gyges",
+          "Die Erlebnismaschine",
+          "Moralisches Glück",
+          "Das Sein-Sollen-Problem",
+          "Das Euthyphron-Dilemma",
+          "Der kategorische Imperativ",
+          "Tugendethik",
+          "Die abstoßende Schlussfolgerung"
+        ]
+      },
+      "hu": {
+        "titre": "Jó és rossz",
+        "sujets": [
+          "Gügész gyűrűje",
+          "Az élménygép",
+          "Erkölcsi szerencse",
+          "A van–kell probléma",
+          "Az Euthüphrón-dilemma",
+          "A kategorikus imperatívusz",
+          "Erényetika",
+          "A visszataszító következtetés"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Why Anything Exists",
+        "sujets": [
+          "Why Is There Something Rather Than Nothing?",
+          "The Anthropic Principle",
+          "The Fine-Tuning Problem",
+          "Nihilism",
+          "The Myth of Sisyphus",
+          "Amor Fati",
+          "Memento Mori",
+          "Wabi-Sabi",
+          "Ubuntu Philosophy"
+        ]
+      },
+      "sv": {
+        "titre": "Varför något alls finns",
+        "sujets": [
+          "Varför finns det något snarare än ingenting?",
+          "Antropiska principen",
+          "Finjusteringsproblemet",
+          "Nihilism",
+          "Myten om Sisyfos",
+          "Amor fati",
+          "Memento mori",
+          "Wabi-sabi",
+          "Ubuntu (filosofi)"
+        ]
+      },
+      "fr": {
+        "titre": "Pourquoi quelque chose existe",
+        "sujets": [
+          "Pourquoi quelque chose plutôt que rien ?",
+          "Principe anthropique",
+          "Ajustement fin de l'Univers",
+          "Nihilisme",
+          "Le Mythe de Sisyphe",
+          "Amor fati",
+          "Memento mori",
+          "Wabi-sabi",
+          "Philosophie ubuntu"
+        ]
+      },
+      "it": {
+        "titre": "Perché esiste qualcosa",
+        "sujets": [
+          "Perché esiste qualcosa piuttosto che nulla?",
+          "Il principio antropico",
+          "Il problema della regolazione fine",
+          "Il nichilismo",
+          "Il mito di Sisifo",
+          "Amor fati",
+          "Memento mori",
+          "Wabi-sabi",
+          "La filosofia ubuntu"
+        ]
+      },
+      "ro": {
+        "titre": "De ce există ceva",
+        "sujets": [
+          "De ce există ceva și nu nimic?",
+          "Principiul antropic",
+          "Problema reglajului fin",
+          "Nihilismul",
+          "Mitul lui Sisif",
+          "Amor fati",
+          "Memento mori",
+          "Wabi-sabi",
+          "Filozofia Ubuntu"
+        ]
+      },
+      "tr": {
+        "titre": "Neden bir şey var?",
+        "sujets": [
+          "Neden hiçbir şey yerine bir şey var?",
+          "Antropik ilke",
+          "İnce ayar problemi",
+          "Nihilizm",
+          "Sisifos Söyleni",
+          "Amor fati",
+          "Memento mori",
+          "Wabi-sabi",
+          "Ubuntu felsefesi"
+        ]
+      },
+      "de": {
+        "titre": "Warum überhaupt etwas existiert",
+        "sujets": [
+          "Warum ist überhaupt etwas und nicht vielmehr nichts?",
+          "Das anthropische Prinzip",
+          "Das Feinabstimmungsproblem",
+          "Nihilismus",
+          "Der Mythos des Sisyphos",
+          "Amor fati",
+          "Memento mori",
+          "Wabi-Sabi",
+          "Ubuntu-Philosophie"
+        ]
+      },
+      "hu": {
+        "titre": "Miért létezik bármi is?",
+        "sujets": [
+          "Miért van inkább valami, mint semmi?",
+          "Az antropikus elv",
+          "A finomhangolás problémája",
+          "Nihilizmus",
+          "Sziszüphosz mítosza",
+          "Amor fati",
+          "Memento mori",
+          "Wabi-szabi",
+          "Ubuntu-filozófia"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this for the next time ur brain won't switch off. pick one question, read about it, and form ur own answer.",
+        "gras": "OR.. lie there overthinking anyway."
+      },
+      "sv": {
+        "texte": "spara det här till nästa gång din hjärna inte vill stänga av. välj en fråga, läs om den och kom fram till ditt eget svar.",
+        "gras": "ELLER.. ligg där och övertänk ändå."
+      },
+      "fr": {
+        "texte": "enregistre ça pour la prochaine nuit où ton cerveau veut pas s'éteindre. choisis une des questions, lis un peu dessus, et fais-toi ta propre réponse.",
+        "gras": "OU.. tourne en rond dans ton lit quand même."
+      },
+      "it": {
+        "texte": "salvalo per la prossima notte in cui la testa non si spegne. scegli una domanda, leggi qualcosa e trova la tua risposta.",
+        "gras": "O.. resta lì a rimuginare comunque."
+      },
+      "ro": {
+        "texte": "salvează asta pt data viitoare când creierul nu vrea să se oprească. alege o întrebare, citește despre ea și găsește-ți propriul răspuns.",
+        "gras": "SAU.. stai acolo și gândește-te prea mult oricum."
+      },
+      "tr": {
+        "texte": "beyninin susmadığı bir sonraki gece için bunu kaydet. bir soru seç, hakkında oku ve kendi cevabını oluştur.",
+        "gras": "YA DA.. yine yatıp kafanda kur dur."
+      },
+      "de": {
+        "texte": "speicher dir das fürs nächste mal, wenn dein hirn nicht abschalten will. such dir eine frage aus, lies darüber und bilde dir deine eigene antwort.",
+        "gras": "ODER.. lieg da und denk trotzdem zu viel nach."
+      },
+      "hu": {
+        "texte": "mentsd el arra az estére, amikor nem tudod kikapcsolni az agyad. válassz egy kérdést, olvass róla, és alakítsd ki a saját válaszod.",
+        "gras": "VAGY.. feküdj ott, és agyalj tovább."
+      }
+    }
+  ]
+}

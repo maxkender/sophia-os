@@ -318,6 +318,13 @@ export function dateAppli(date: string, langue = "en"): string {
   }
   if (langue === "sr") return dateSerbe(latin(date));
   // sk, hr, lv, sv : la page abrège (« pred 9 r. », « prije 3 g. », « pirms 1 g. », « för 5 år sen ») ; l'appli écrit le mot entier.
+  const pl = date.match(/^(\d+)\s*(mies\.|tyg\.|godz\.|min\.)\s+temu$/);
+  if (langue === "pl" && pl) {
+    const k = Number(pl[1]);
+    const forme = (un: string, peu: string, plus: string) => (k === 1 ? un : k % 10 >= 2 && k % 10 <= 4 && (k % 100 < 12 || k % 100 > 14) ? peu : plus);
+    const mot = { "mies.": forme("miesiąc", "miesiące", "miesięcy"), "tyg.": forme("tydzień", "tygodnie", "tygodni"), "godz.": forme("godzinę", "godziny", "godzin"), "min.": forme("minutę", "minuty", "minut") }[pl[2]];
+    return `${k} ${mot} temu`;
+  }
   const sk = date.match(/^pred (\d+)\s*(r\.|mes\.|týž\.|d\.|hod\.|min\.)$/);
   if (langue === "sk" && sk) {
     const un = sk[1] === "1";

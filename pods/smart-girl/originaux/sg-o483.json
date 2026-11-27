@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o483",
+ "type_bleo": "full_test",
+ "titre": "the stories behind the most famous perfumes #perfume #fragrance #history #smartgirl #elegance",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 3/9 (la jauge en demande 9 sur 31) : accroche jamais faite chez nous (« perfume » absent des accroches du label et de nos originaux). Accroches écrites : « the stories behind the most famous perfumes » (retenue : luxe + anecdotes), « perfumes every woman should own » (écartée : achat, pas savoir), « how perfume is made » (écartée : technique). Faits vérifiés : l'eau de Cologne de Johann Maria Farina (1709), L'Heure Bleue de Guerlain (1912), Chanel n° 5 (1921, le cinquième échantillon d'Ernest Beaux), Shalimar (1925, les jardins de Shalimar), Joy de Jean Patou (1930, vendu comme le parfum le plus cher du monde), Miss Dior (1947, nommé d'après Catherine Dior). Sophia à la fin comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ccc76f08",
+   "texte_overlay": "the stories behind the most\nfamous perfumes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "71205c16",
+   "texte_overlay": "eau de cologne, 1709\n\nan italian perfumer in cologne\nnamed it after his new city.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "aad27db5",
+   "texte_overlay": "l'heure bleue, 1912\n\nthe blue hour of paris,\njust before night.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9765a4d4",
+   "texte_overlay": "chanel n°5, 1921\n\nshe chose the fifth sample.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c5cf2296",
+   "texte_overlay": "shalimar, 1925\n\ninspired by the gardens\nof shalimar.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "102e16bb",
+   "texte_overlay": "joy, 1930\n\nlaunched after the crash as\n\"the costliest perfume in the world\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b56ea034",
+   "texte_overlay": "miss dior, 1947\n\nnamed after christian dior's\nsister, catherine.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c1efed35",
+   "texte_overlay": "one beautiful story a day instead\nof an hour of scrolling.",
+   "texte_sophia": "one beautiful story a day on an app like\nSophia instead of an hour of scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

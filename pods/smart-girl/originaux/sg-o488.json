@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o488",
+ "type_bleo": "full_test",
+ "titre": "beauty secrets of women in history #beauty #history #skincare #smartgirl #ancient",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Full test 8/9 (la jauge en demande 9 sur 31) : accroche jamais faite chez nous (« beauty secrets » absent des accroches du label et de nos originaux). Accroches écrites : « beauty secrets of women in history » (retenue : beauté + histoire, très partageable), « ancient skincare » (écartée : sèche), « weird beauty trends » (écartée : moqueuse). Faits vérifiés : le khôl égyptien (protégeait aussi du soleil), les bains de lait d'ânesse prêtés à Cléopâtre (légende), le masque aux fientes de rossignol des geishas (uguisu no fun), le blanc de céruse au plomb de l'époque élisabéthaine (dangereux), l'eau de la reine de Hongrie au romarin (XIVe siècle selon la légende), l'eau de rose dans le monde persan. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b0508e5e",
+   "texte_overlay": "beauty secrets of women\nin history",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ed092105",
+   "texte_overlay": "egypt\n\nkohl eyeliner, which also\nhelped against the sun.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "79953465",
+   "texte_overlay": "cleopatra\n\nlegend says she bathed\nin donkey's milk.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6d5a98b6",
+   "texte_overlay": "japan\n\ngeishas used a face mask made\nof nightingale droppings.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c6caad22",
+   "texte_overlay": "elizabethan england\n\nwhite lead makeup.\nbeautiful, and poisonous.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ec257b0a",
+   "texte_overlay": "persia\n\nrose water for the face,\nfor centuries.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "147e7d71",
+   "texte_overlay": "hungary\n\n\"queen of hungary water\", rosemary.\ni read about it this morning.",
+   "texte_sophia": "hungary\n\n\"queen of hungary water\", rosemary. i read\nabout it on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5b1dff4f",
+   "texte_overlay": "which one would you try?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

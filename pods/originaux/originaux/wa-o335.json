@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o335",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bfeae5c9-d336-4905-bfa3-636d04e2c47c",
+ "titre": "how to become the most unforgettable person in any room #charisma #magnetic #socialskills #selfimprovement #confidence",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "f490daf5-f20d-4891-a1ce-4219bcb84d2d"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f490daf5). déclinaison G2 de « how to become the most magnetic person in any room » (parent bfeae5c9). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2b29c30a-59d6-4d56-9d2f-ee2262b342ab",
+   "texte_overlay": "how to become the most\nunforgettable person\nin any room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5b21bfcd-d82a-4e8f-8e1b-9659f1287f74",
+   "texte_overlay": "arrive with good energy\n\nbefore you walk in, take three slow breaths and decide you're going to enjoy the next hour. people feel your mood within seconds, and good energy is contagious.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ad791c98-cd3f-4035-8273-7913a44527b0",
+   "texte_overlay": "focus on them\n\nask people what they've been excited about lately and stay on that topic. people remember how you made them feel in a conversation far more than anything you said.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b8bdceec-fdef-4636-9352-52c79668d5c0",
+   "texte_overlay": "bring something new\n\nspend 5 minutes a day learning something interesting, like a strange animal or a lost city, and share it. people always remember the person who taught them something surprising.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/4.jpg",
+   "texte_sophia": "bring something new\n\ni used to fade into the background. now i spend 5 minutes a day on one lesson in the Sophia app, a lost city or a strange animal, and people always gather around my stories."
+  },
+  {
+   "position": 5,
+   "media_id": "a8507420-231a-4909-befa-5626549f36b3",
+   "texte_overlay": "use their name\n\nsay each person's name once during the conversation and once as you leave. it's a tiny thing that almost nobody does, and it makes people feel truly noticed and valued.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "24c6f771-082b-4c4c-aef1-58a06fdb6b32",
+   "texte_overlay": "leave them smiling\n\nend every conversation with something kind about what they told you. the last moment is what people remember most, so make it a warm and genuine one every time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/6.jpg"
+  }
+ ]
+}

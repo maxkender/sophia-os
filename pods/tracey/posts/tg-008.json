@@ -1,0 +1,538 @@
+{
+ "id": "tg-008",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 winter hobbies that actually work if you have adhd",
+  "bg": "10/10 зимни хобита, които наистина работят, ако имаш адхд",
+  "de": "10/10 winter-hobbys, die bei adhs wirklich funktionieren",
+  "el": "10/10 χειμερινά χόμπι που δουλεύουν αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies de invierno que sí funcionan si tienes tdah",
+  "fr": "10/10 loisirs d'hiver qui marchent quand on a un tdah",
+  "hu": "10/10 téli hobbi, ami tényleg működik, ha adhd-s vagy",
+  "it": "10/10 hobby invernali che funzionano se hai l'adhd",
+  "pt-BR": "10/10 hobbies de inverno que funcionam de verdade se você tem tdah",
+  "sr": "10/10 zimskih hobija koji stvarno pomažu ako imaš adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #winter #focus #brain",
+  "bg": "#адхд #хобита #зима #фокус #мозък",
+  "de": "#adhs #hobbys #winter #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #χειμώνας #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #invierno #enfoque #cerebro",
+  "fr": "#tdah #loisirs #hiver #concentration #cerveau",
+  "hu": "#adhd #hobbi #tél #fókusz #agy",
+  "it": "#adhd #hobby #inverno #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #inverno #foco #cerebro",
+  "sr": "#adhd #hobi #zima #fokus #mozak"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 winter hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (231396d9), slide Artura sur un tableau ou un musée de la banque (a159f9ee), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/a-salle-chaude.jpg": "a159f9ee-e822-4a3c-8021-f0c21c8d211d",
+  "images/banque/c-couchant.jpg": "231396d9-2ed5-458a-89e8-1480ab6be172"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 winter hobbies that\nactually work if you have adhd",
+    "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 зимни хобита, които\nнаистина работят при адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 winter-hobbys, die bei\nadhs wirklich funktionieren",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 χειμερινά χόμπι που\nδουλεύουν αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies de invierno que\nsí funcionan si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs d'hiver qui\nmarchent quand on a un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 téli hobbi, ami tényleg\nműködik, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby invernali che\nfunzionano se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies de inverno que\nfuncionam de verdade com tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 zimskih hobija koji\nstvarno pomažu ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/patinage.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "ice skating",
+    "accroche": "you _can't_ check your phone _on ice_",
+    "colonne": [
+     "balance needs all of your attention, and every lap you stay up is a small _win_ for your brain"
+    ],
+    "chute": "most rinks rent skates by the hour"
+   },
+   "bg": {
+    "nom": "кънки на лед",
+    "accroche": "на леда _не можеш_ да гледаш _телефона_",
+    "colonne": [
+     "равновесието иска цялото ти внимание, а всяка обиколка без падане е малка _победа_"
+    ],
+    "chute": "повечето пързалки дават кънки под наем"
+   },
+   "de": {
+    "nom": "eislaufen",
+    "accroche": "auf dem eis _kein blick_ aufs _handy_",
+    "colonne": [
+     "gleichgewicht braucht deine ganze aufmerksamkeit, und jede runde ohne sturz ist ein kleiner _sieg_"
+    ],
+    "chute": "die meisten eisbahnen verleihen schlittschuhe"
+   },
+   "el": {
+    "nom": "πατινάζ στον πάγο",
+    "accroche": "δεν κοιτάς το κινητό _πάνω στον πάγο_",
+    "colonne": [
+     "η ισορροπία θέλει όλη σου την προσοχή, και κάθε γύρος όρθια είναι μια μικρή _νίκη_"
+    ],
+    "chute": "τα περισσότερα παγοδρόμια νοικιάζουν πατίνια"
+   },
+   "es-419": {
+    "nom": "patinar sobre hielo",
+    "accroche": "no puedes ver el celular _en el hielo_",
+    "colonne": [
+     "el equilibrio pide toda tu atención, y cada vuelta sin caerte es una pequeña _victoria_"
+    ],
+    "chute": "casi todas las pistas rentan patines por hora"
+   },
+   "fr": {
+    "nom": "le patin à glace",
+    "accroche": "impossible de regarder ton téléphone _sur la glace_",
+    "colonne": [
+     "l'équilibre demande toute ton attention, et chaque tour sans tomber est une petite _victoire_"
+    ],
+    "chute": "la plupart des patinoires louent des patins à l'heure"
+   },
+   "hu": {
+    "nom": "korcsolyázás",
+    "accroche": "a _jégen_ nem tudod _nyomkodni_ a telefont",
+    "colonne": [
+     "az egyensúly minden figyelmedet leköti, és minden kör, amit állva teszel meg, egy kis _győzelem_"
+    ],
+    "chute": "a legtöbb pályán óradíjért bérelhetsz korit"
+   },
+   "it": {
+    "nom": "pattinare sul ghiaccio",
+    "accroche": "non puoi guardare il telefono _sul ghiaccio_",
+    "colonne": [
+     "l'equilibrio chiede tutta la tua attenzione, e ogni giro in piedi è una piccola _vittoria_"
+    ],
+    "chute": "quasi tutte le piste noleggiano i pattini a ore"
+   },
+   "pt-BR": {
+    "nom": "patinação no gelo",
+    "accroche": "no gelo você _não consegue_ olhar o _celular_",
+    "colonne": [
+     "o equilíbrio exige toda a sua atenção, e cada volta sem cair é uma pequena _vitória_ pro cérebro"
+    ],
+    "chute": "a maioria das pistas aluga patins por hora"
+   },
+   "sr": {
+    "nom": "klizanje",
+    "accroche": "na _ledu_ ne možeš da _gledaš telefon_",
+    "colonne": [
+     "ravnoteža traži svu tvoju pažnju, a svaki krug na nogama je mala _pobeda_ za mozak"
+    ],
+    "chute": "većina klizališta iznajmljuje klizaljke na sat"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/tricot.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "knitting",
+    "accroche": "your hands are busy, so your _mind slows down_",
+    "colonne": [
+     "the stitches repeat, the scarf grows a little every night, and you can _see_ the progress"
+    ],
+    "chute": "one ball of chunky wool and big needles to start"
+   },
+   "bg": {
+    "nom": "плетене",
+    "accroche": "ръцете са заети, _умът се успокоява_",
+    "colonne": [
+     "бримките се повтарят, шалът расте всяка вечер, и _виждаш_ напредъка"
+    ],
+    "chute": "едно кълбо дебела прежда и големи куки"
+   },
+   "de": {
+    "nom": "stricken",
+    "accroche": "hände beschäftigt, _kopf wird ruhig_",
+    "colonne": [
+     "die maschen wiederholen sich, der schal wächst jeden abend ein stück, und du _siehst_ den fortschritt"
+    ],
+    "chute": "ein knäuel dicke wolle und große nadeln"
+   },
+   "el": {
+    "nom": "πλέξιμο",
+    "accroche": "τα χέρια απασχολημένα, το _μυαλό ηρεμεί_",
+    "colonne": [
+     "οι πόντοι επαναλαμβάνονται, το κασκόλ μεγαλώνει κάθε βράδυ και _βλέπεις_ την πρόοδο"
+    ],
+    "chute": "ένα χοντρό κουβάρι και μεγάλες βελόνες"
+   },
+   "es-419": {
+    "nom": "tejer",
+    "accroche": "tus manos están ocupadas y tu _mente se calma_",
+    "colonne": [
+     "los puntos se repiten, la bufanda crece un poco cada noche y _ves_ el avance"
+    ],
+    "chute": "un ovillo grueso y agujas grandes para empezar"
+   },
+   "fr": {
+    "nom": "le tricot",
+    "accroche": "tes mains sont occupées, ton _esprit ralentit_",
+    "colonne": [
+     "les mailles se répètent, l'écharpe grandit un peu chaque soir et tu _vois_ tes progrès"
+    ],
+    "chute": "une pelote épaisse et de grosses aiguilles pour commencer"
+   },
+   "hu": {
+    "nom": "kötés",
+    "accroche": "a kezed foglalt, így _lelassul a fejed_",
+    "colonne": [
+     "a szemek ismétlődnek, a sál minden este nő egy kicsit, és _látod_ a haladást"
+    ],
+    "chute": "egy gombolyag vastag fonal és nagy tűk elég"
+   },
+   "it": {
+    "nom": "lavorare a maglia",
+    "accroche": "le mani sono occupate, la _mente rallenta_",
+    "colonne": [
+     "i punti si ripetono, la sciarpa cresce un po' ogni sera e i progressi si _vedono_"
+    ],
+    "chute": "un gomitolo grosso e ferri grandi per iniziare"
+   },
+   "pt-BR": {
+    "nom": "tricô",
+    "accroche": "mãos ocupadas, _mente mais calma_",
+    "colonne": [
+     "os pontos se repetem, o cachecol cresce um pouco toda noite, e você _vê_ o progresso"
+    ],
+    "chute": "um novelo grosso e agulhas grandes pra começar"
+   },
+   "sr": {
+    "nom": "pletenje",
+    "accroche": "ruke su zauzete, pa se _um smiri_",
+    "colonne": [
+     "petlje se ponavljaju, šal raste svako veče i _vidiš_ napredak"
+    ],
+    "chute": "jedno klupko debele vune i velike igle za početak"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-salle-chaude.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a museum on a cold day",
+    "accroche": "warm rooms, _no rush_, _one painting_",
+    "colonne": [
+     "winter is the best time to wander a gallery slowly and stop wherever something catches your eye",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "pick one room and stay until you're bored"
+   },
+   "bg": {
+    "nom": "музей в студен ден",
+    "accroche": "топли зали, _без бързане_, _една картина_",
+    "colonne": [
+     "зимата е идеална, за да обикаляш галерия бавно и да спираш, където нещо те грабне",
+     "_съвет_: artura ми дава по една картина на ден и историята зад нея, за няколко минути"
+    ],
+    "chute": "избери една зала и стой, докато ти доскучае"
+   },
+   "de": {
+    "nom": "ein museum an kalten tagen",
+    "accroche": "warme räume, _keine eile_, _ein gemälde_",
+    "colonne": [
+     "im winter kannst du langsam durch eine galerie gehen und stehen bleiben, wo dich etwas packt",
+     "_pro tipp_: artura zeigt mir jeden tag ein gemälde und die geschichte dahinter, in ein paar minuten"
+    ],
+    "chute": "nimm einen raum und bleib, bis dir langweilig wird"
+   },
+   "el": {
+    "nom": "μουσείο μια κρύα μέρα",
+    "accroche": "ζεστές αίθουσες, _καμία βιασύνη_, _ένας πίνακας_",
+    "colonne": [
+     "ο χειμώνας είναι η καλύτερη εποχή για αργή βόλτα σε μια πινακοθήκη",
+     "_μικρό tip_: το artura μου δίνει έναν πίνακα τη μέρα και την ιστορία του, σε λίγα λεπτά"
+    ],
+    "chute": "διάλεξε μια αίθουσα και μείνε μέχρι να βαρεθείς"
+   },
+   "es-419": {
+    "nom": "un museo en un día frío",
+    "accroche": "salas calientitas, _sin prisa_, _una pintura_",
+    "colonne": [
+     "el invierno es el mejor momento para recorrer una galería despacio y parar donde algo te llame",
+     "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
+    ],
+    "chute": "elige una sala y quédate hasta aburrirte"
+   },
+   "fr": {
+    "nom": "un musée quand il fait froid",
+    "accroche": "des salles chaudes, _aucune urgence_, _un tableau_",
+    "colonne": [
+     "l'hiver, c'est le meilleur moment pour flâner dans une galerie et s'arrêter où ça accroche l'œil",
+     "_petite astuce_: artura me donne un tableau par jour et son histoire, en quelques minutes"
+    ],
+    "chute": "choisis une salle et reste jusqu'à t'ennuyer"
+   },
+   "hu": {
+    "nom": "múzeum egy hideg napon",
+    "accroche": "meleg termek, _semmi rohanás_, _egy festmény_",
+    "colonne": [
+     "a tél a legjobb idő arra, hogy lassan végigsétálj egy galérián, és ott állj meg, ahol valami megfog",
+     "_pro tip_: az artura minden nap ad egy festményt és a mögötte lévő történetet, pár perc alatt"
+    ],
+    "chute": "válassz egy termet, és maradj, amíg meg nem unod"
+   },
+   "it": {
+    "nom": "un museo quando fa freddo",
+    "accroche": "sale calde, _niente fretta_, _un dipinto_",
+    "colonne": [
+     "l'inverno è il momento migliore per girare una galleria con calma e fermarti dove ti cade l'occhio",
+     "_piccolo consiglio_: artura mi dà un dipinto al giorno e la sua storia, in pochi minuti"
+    ],
+    "chute": "scegli una sala e resta finché ti annoi"
+   },
+   "pt-BR": {
+    "nom": "um museu num dia frio",
+    "accroche": "salas quentes, _sem pressa_, _uma pintura_",
+    "colonne": [
+     "o inverno é perfeito pra andar devagar por uma galeria e parar onde algo chamar sua atenção",
+     "_dica_: o artura me dá uma pintura por dia e a história por trás dela, em poucos minutos"
+    ],
+    "chute": "escolha uma sala e fique até cansar"
+   },
+   "sr": {
+    "nom": "muzej po hladnom danu",
+    "accroche": "tople sale, _bez žurbe_, _jedna slika_",
+    "colonne": [
+     "zima je najbolje vreme da polako prođeš galeriju i staneš gde god ti nešto zapne za oko",
+     "_pro tip_: artura mi daje jednu sliku dnevno i priču iza nje, za par minuta"
+    ],
+    "chute": "izaberi jednu salu i ostani dok ti ne dosadi"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/puzzle.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "jigsaw puzzles",
+    "accroche": "every piece is a _tiny win_",
+    "colonne": [
+     "your eyes keep scanning for one shape or color, so a scattered brain locks onto _one job_"
+    ],
+    "chute": "start with 500 pieces, not 2000"
+   },
+   "bg": {
+    "nom": "пъзели",
+    "accroche": "всяко парче е _малка победа_",
+    "colonne": [
+     "очите ти търсят форма или цвят, така че разсеяният мозък се залепва за _една задача_"
+    ],
+    "chute": "започни с 500 парчета, не 2000"
+   },
+   "de": {
+    "nom": "puzzeln",
+    "accroche": "jedes teil ist ein _kleiner sieg_",
+    "colonne": [
+     "deine augen suchen eine form oder farbe, also bleibt ein zerstreuter kopf bei _einer aufgabe_"
+    ],
+    "chute": "fang mit 500 teilen an, nicht mit 2000"
+   },
+   "el": {
+    "nom": "παζλ",
+    "accroche": "κάθε κομμάτι είναι μια _μικρή νίκη_",
+    "colonne": [
+     "τα μάτια ψάχνουν ένα σχήμα ή χρώμα, έτσι το σκόρπιο μυαλό κλειδώνει σε _μία δουλειά_"
+    ],
+    "chute": "ξεκίνα με 500 κομμάτια, όχι 2000"
+   },
+   "es-419": {
+    "nom": "rompecabezas",
+    "accroche": "cada pieza es una _mini victoria_",
+    "colonne": [
+     "tus ojos buscan una forma o un color, así que un cerebro disperso se enfoca en _una sola tarea_"
+    ],
+    "chute": "empieza con 500 piezas, no con 2000"
+   },
+   "fr": {
+    "nom": "les puzzles",
+    "accroche": "chaque pièce est une _mini victoire_",
+    "colonne": [
+     "tes yeux cherchent une forme ou une couleur, donc un cerveau dispersé se fixe sur _une seule tâche_"
+    ],
+    "chute": "commence avec 500 pièces, pas 2000"
+   },
+   "hu": {
+    "nom": "kirakós",
+    "accroche": "minden darab egy _kis győzelem_",
+    "colonne": [
+     "a szemed egyetlen formát vagy színt keres, így a szétszórt agy _egy feladatra_ áll rá"
+    ],
+    "chute": "kezdd 500 darabbal, ne 2000-rel"
+   },
+   "it": {
+    "nom": "i puzzle",
+    "accroche": "ogni pezzo è una _piccola vittoria_",
+    "colonne": [
+     "gli occhi cercano una forma o un colore, così un cervello disperso si fissa su _un solo compito_"
+    ],
+    "chute": "inizia con 500 pezzi, non 2000"
+   },
+   "pt-BR": {
+    "nom": "quebra-cabeça",
+    "accroche": "cada peça é uma _mini vitória_",
+    "colonne": [
+     "seus olhos ficam procurando uma forma ou cor, então um cérebro disperso foca em _uma tarefa_"
+    ],
+    "chute": "comece com 500 peças, não 2000"
+   },
+   "sr": {
+    "nom": "slagalice",
+    "accroche": "svaki deo je _mala pobeda_",
+    "colonne": [
+     "oči stalno traže jedan oblik ili boju, pa se rasut um zaključa na _jedan zadatak_"
+    ],
+    "chute": "počni sa 500 delova, ne 2000"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-couchant.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "running in the cold",
+    "accroche": "the cold air _wakes up_ your _whole brain_",
+    "colonne": [
+     "a short run on a grey day burns off restless energy and gives your week a _goal_ to chase",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "wear layers and go at lunch when it's light"
+   },
+   "bg": {
+    "nom": "бягане в студа",
+    "accroche": "студеният въздух _събужда_ _целия мозък_",
+    "colonne": [
+     "кратко бягане в сив ден изгаря неспокойната енергия и дава на седмицата _цел_",
+     "_съвет_: atala нагласява бяганията ми около целта ми и ги променя всяка седмица"
+    ],
+    "chute": "облечи се на слоеве и тичай по обяд"
+   },
+   "de": {
+    "nom": "laufen in der kälte",
+    "accroche": "kalte luft macht dein _ganzes gehirn_ _wach_",
+    "colonne": [
+     "ein kurzer lauf an grauen tagen baut unruhe ab und gibt deiner woche ein _ziel_",
+     "_pro tipp_: atala baut meine läufe um mein ziel herum und passt sie jede woche an"
+    ],
+    "chute": "zieh schichten an und lauf mittags, wenn's hell ist"
+   },
+   "el": {
+    "nom": "τρέξιμο στο κρύο",
+    "accroche": "ο κρύος αέρας _ξυπνάει_ όλο τον _εγκέφαλο_",
+    "colonne": [
+     "ένα σύντομο τρέξιμο σε γκρίζα μέρα καίει την ανησυχία και δίνει στη βδομάδα _στόχο_",
+     "_μικρό tip_: το atala χτίζει τα τρεξίματά μου γύρω από τον στόχο μου και τα προσαρμόζει κάθε εβδομάδα"
+    ],
+    "chute": "φόρα στρώσεις και βγες το μεσημέρι"
+   },
+   "es-419": {
+    "nom": "correr con frío",
+    "accroche": "el aire frío _despierta_ todo tu _cerebro_",
+    "colonne": [
+     "una carrera corta en un día gris quema la energía de más y le da a tu semana una _meta_",
+     "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
+    ],
+    "chute": "ponte capas y sal al mediodía, cuando hay luz"
+   },
+   "fr": {
+    "nom": "courir dans le froid",
+    "accroche": "l'air froid _réveille_ tout ton _cerveau_",
+    "colonne": [
+     "une petite course par temps gris brûle l'énergie en trop et donne un _objectif_ à ta semaine",
+     "_petite astuce_: atala construit mes sorties autour de mon objectif et les ajuste chaque semaine"
+    ],
+    "chute": "mets des couches et sors à midi quand il fait jour"
+   },
+   "hu": {
+    "nom": "futás a hidegben",
+    "accroche": "a hideg levegő _felébreszti_ az _egész agyad_",
+    "colonne": [
+     "egy rövid futás egy szürke napon levezeti a nyugtalan energiát, és _célt_ ad a hetednek",
+     "_pro tip_: az atala a célomhoz igazítja a futásaimat, és minden héten finomít rajtuk"
+    ],
+    "chute": "öltözz rétegesen, és menj ebédidőben, amíg világos van"
+   },
+   "it": {
+    "nom": "correre al freddo",
+    "accroche": "l'aria fredda _sveglia_ tutto il _cervello_",
+    "colonne": [
+     "una corsetta in una giornata grigia brucia l'energia in eccesso e dà alla settimana un _obiettivo_",
+     "_piccolo consiglio_: atala costruisce le mie corse intorno al mio obiettivo e le adatta ogni settimana"
+    ],
+    "chute": "vestiti a strati ed esci a pranzo, quando c'è luce"
+   },
+   "pt-BR": {
+    "nom": "correr no frio",
+    "accroche": "o ar frio _acorda_ o _cérebro inteiro_",
+    "colonne": [
+     "uma corrida curta num dia cinza queima a energia inquieta e dá à semana um _objetivo_",
+     "_dica_: o atala monta minhas corridas em torno do meu objetivo e ajusta toda semana"
+    ],
+    "chute": "use camadas e vá no almoço, com luz"
+   },
+   "sr": {
+    "nom": "trčanje po hladnoći",
+    "accroche": "hladan vazduh _budi_ _ceo mozak_",
+    "colonne": [
+     "kratko trčanje po sivom danu troši nemirnu energiju i daje nedelji _cilj_",
+     "_pro tip_: atala pravi moja trčanja prema mom cilju i prilagođava ih svake nedelje"
+    ],
+    "chute": "obuci se slojevito i trči za ručak dok je svetlo"
+   }
+  }
+ ]
+}

@@ -2,7 +2,8 @@
  * 21/11 (Max) : en haut du dashboard d'un posteur RUUL pas encore prêt, un bloc qu'on ne peut pas fermer, dans sa langue :
  * les 3 étapes du set-up Ruul, cochées toutes seules (synchro horaire de l'API Ruul), chacune avec son bouton vers Ruul,
  * la date limite, et « I have a problem with Ruul » (Help prérempli avec l'étape bloquée). Prêt : « ✅ You're all set »
- * 3 jours, puis plus rien. Jamais pour un posteur Upwork.
+ * 3 jours, puis plus rien. Jamais pour un posteur Upwork. 26/11 (Max) : tant que la première semaine n'est pas payable,
+ * le titre dit « tu peux le faire plus tard, avant ta première paie » (comme la page Join).
  */
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { Check } from "lucide-react";
@@ -12,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 import { monLienRuul } from "./api";
-import { ETAPES_SETUP, type EtapeSetup, etapeBloquee, etatBloc, LIENS_RUUL, lireMonSetupRuul, lireTextesSetup, type MonSetupRuul, TEXTES_SETUP_EN, type TextesSetup } from "./setup";
+import { ETAPES_SETUP, type EtapeSetup, etapeBloquee, etatBloc, LIENS_RUUL, lireMonSetupRuul, lireTextesSetup, type MonSetupRuul, ruulPlusTard, TEXTES_SETUP_EN, type TextesSetup } from "./setup";
 
 export function BlocGetPaid() {
   const q = useQuery({ queryKey: ["ruul-mon-setup"], queryFn: lireMonSetupRuul, refetchInterval: 10 * 60_000 });
@@ -46,7 +47,8 @@ export function VueGetPaid({ s, t, maintenant }: { s: MonSetupRuul; t: TextesSet
   const bloquee = etapeBloquee(s);
   return (
     <section className="space-y-3 rounded-xl border-2 border-violet-300 bg-violet-50/60 p-4 shadow-sm dark:border-violet-800 dark:bg-violet-950/30" data-testid="bloc-get-paid">
-      <p className="font-semibold">{t.titre}</p>
+      {/* 26/11 (Max) : avant la première semaine payable, Ruul peut attendre (avant la première paie). */}
+      <p className="font-semibold" data-testid="titre-get-paid">{ruulPlusTard(s.cohorte_lundi, maintenant) ? t.titre_plus_tard : t.titre}</p>
       <ul className="space-y-2">
         {ETAPES_SETUP.map((e) => {
           const fait = Boolean(s.etapes?.[e]);

@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o482",
+ "type_bleo": "full_test",
+ "titre": "queens who changed history #history #queens #womeninhistory #smartgirl #royalty",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Full test 2/9 (la jauge en demande 9 sur 31) : accroche jamais faite chez nous (« queen » absent des accroches du label et de nos originaux). Accroches écrites : « queens who changed history » (retenue : femmes puissantes, histoire), « the most powerful women ever » (écartée : vague), « female rulers » (écartée : plate). Faits vérifiés : Hatchepsout (pharaonne, représentée avec la barbe postiche), Wu Zetian (seule impératrice régnante de Chine), Isabelle de Castille (finance Colomb en 1492), Élisabeth Iʳᵉ (44 ans de règne, jamais mariée), Catherine II (34 ans, débuts de l'Ermitage), Victoria (63 ans de règne). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f5a6754d",
+   "texte_overlay": "queens who changed history",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f06130fc",
+   "texte_overlay": "hatshepsut, egypt\n\na pharaoh who wore the royal\nfalse beard in her statues.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2268dc5b",
+   "texte_overlay": "wu zetian, china\n\nthe only woman to rule china\nas emperor in her own name.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f7fce6bf",
+   "texte_overlay": "isabella of castile\n\nshe funded columbus in 1492.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4f5d00b4",
+   "texte_overlay": "elizabeth i, england\n\n44 years on the throne.\nshe never married.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fc4443b3",
+   "texte_overlay": "catherine the great, russia\n\nher art collection began\nthe hermitage.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0e0070a0",
+   "texte_overlay": "victoria, britain\n\n63 years: an era named after her.\ni read one story like this every morning.",
+   "texte_sophia": "victoria, britain\n\n63 years: an era named after her. i read one\nstory like this a day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "17695575",
+   "texte_overlay": "which queen would you be?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

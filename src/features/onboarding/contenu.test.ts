@@ -27,11 +27,16 @@ describe("ecransPour", () => {
     expect(paie).toContain("Ruul");
     expect(paie).toContain("ana@example.com");
     expect(paie).not.toMatch(/hiring manager|upwork/i);
-    // 13/11 (Max) : jamais « crée ton compte sur ruul.io » : depuis l'email d'invitation.
+    // 13/11 (Max) : jamais « crée ton compte sur ruul.io ». 26/11 : plus d'invitation de Ruul ni de « It's done » :
+    // le lien personnel (email, dashboard, page Join), et Ruul peut attendre la première paie.
     expect(paie).not.toMatch(/ruul\.io/i);
-    expect(paie).toContain("invitation email from Ruul");
-    expect(paie).toContain("FROM that email");
-    expect(paie).toContain("It's done");
+    expect(paie).not.toMatch(/invitation email|within 24 hours|FROM that email|It's done/i);
+    expect(paie).toContain("personal Ruul link");
+    expect(paie).toContain("Open my Ruul setup");
+    expect(paie).toContain("you can do it later, before your first pay");
+    expect(paie).toContain("Same email address");
+    // Un seul « every Monday ».
+    expect(paie.match(/every Monday/g)).toHaveLength(1);
     expect(paie).toContain(REGLE_ARGENT);
     const slack = texte(ecrans, "slack");
     expect(slack).toContain("#ruul-posters");
@@ -141,7 +146,9 @@ describe("accueil standard", () => {
       "6. Your first post",
       "7. Your first payment: Monday 23 November, 10 $ for your first week",
     ]);
-    expect(frise.items[4]!.texte).toContain("Invitation email from Ruul");
+    expect(frise.items[4]!.texte).toContain("personal Ruul link");
+    expect(frise.items[4]!.texte).not.toMatch(/invitation email|It's done/i);
+    expect(frise.items[4]!.quand).toBe("Before your first pay");
     // Montant inconnu : pas de montant inventé.
     const sans = ecransPour({ cohorteRuul: true, emailRuul: null, premierPaiement: "Monday 23 November" });
     expect(texte(sans, "compte")).toContain("7. Your first payment: Monday 23 November\"");

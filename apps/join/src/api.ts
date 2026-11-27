@@ -65,19 +65,33 @@ export interface Moi {
     ferme?: boolean;
   };
   expiree?: boolean;
+  /** 26/11 : l'OS a arrêté ce posteur (fiche désactivée ou arrêt) : la page affiche « inscription arrêtée ». */
+  arretee?: boolean;
   offre?: { cohorte: string; date_limite: string };
   signature: { signe_at: string } | null;
   etapes: Etape[];
   premier_post: string | null;
-  /** Le profil TikTok à créer (25/11 : celui du compte de l'OS quand il existe, photo comprise). */
-  profil_suggere: { nom: string; bio: string; photo: string; photo_url?: string | null };
+  /**
+   * Le profil TikTok à créer : SEULEMENT celui du compte créé par l'OS (26/11), le même que sur le dashboard. `pret`
+   * faux (pas encore de compte de l'OS) : toutes les valeurs sont null.
+   */
+  profil_suggere?: { pret?: boolean; handle?: string | null; nom: string | null; bio: string | null; photo_url?: string | null };
   ruul_visible: boolean;
   /** 0858 : la checklist (cochée quand l'OS voit l'étape faite) et les liens de ses boutons. */
-  checklist?: { etape: "contrat" | "ruul" | "tiktok" | "warmup" | "slack" | "premier_post"; fait: boolean }[];
+  checklist?: { etape: "contrat" | "dashboard" | "ruul" | "tiktok" | "warmup" | "slack" | "premier_post"; fait: boolean }[];
   liens?: { dashboard: string; slack: string; tiktok: string; ruul: string; ruul_personnel: boolean };
   handle?: string | null;
   ruul_email?: string | null;
   compte_os?: boolean;
+  /**
+   * 26/11 : la connexion au dashboard de l'OS : son adresse, l'identifiant de l'OS (jamais de mot de passe), et si le
+   * bouton « Choose my password » peut demander le lien personnel « Set my password » (action `mot_de_passe`).
+   */
+  connexion?: { dashboard: string; login: string | null; lien_mot_de_passe: boolean };
+  /** 26/11 : les sous-étapes Ruul lues dans l'OS (les mêmes que le bloc « Get paid » de son dashboard). */
+  ruul_etapes?: { inscrit: boolean; identite: boolean; banque: boolean; pret: boolean; kyc: string | null } | null;
+  /** 26/11 : la première paie (lundi de départ + 7 jours), AAAA-MM-JJ. */
+  premiere_paie?: string | null;
 }
 
 // Provenance (?ref=, utm_*, fbclid) : gardée 30 jours dans le navigateur, envoyée avec la candidature.

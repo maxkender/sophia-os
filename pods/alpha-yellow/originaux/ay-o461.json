@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o461",
+ "type_bleo": "full_test",
+ "titre": "How to get to know your neighbours again #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to get to know your neighbours again » (retenue), « Why nobody knows their neighbours anymore » (écartée : sans promesse), « Be a good neighbour » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5ca058a8-6f0f-4d54-8b64-62f423aebe5c",
+   "texte_overlay": "How to get to know\nyour neighbours again",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688441172787793184/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Say hello every time. In the hallway, the lift, the street. A simple greeting is how every neighbourly relationship starts.",
+   "media_id": "c7b88a0b-0665-4392-a7fc-b97eeeaf3cfd"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Learn their names. Ask once, then use it. \"Morning, Paul.\" Names turn strangers into people you know. Remember them.",
+   "media_id": "cd2efa88-e8e0-4d2f-aadc-e82b54c31a39"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Offer small help. Carry shopping up the stairs, take in a parcel, lend a tool. Small favours build trust quickly.",
+   "media_id": "d01ad13f-b53d-48af-88be-b0b48b93092f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Invite them for a drink or coffee. A short, easy invitation. Many people are waiting for someone else to make the first move.",
+   "media_id": "d0802c6e-3530-4fb6-b845-ea4714319263"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I didn't know anyone on my street. After: five minutes a day of history, art or science, and I always have something to chat about.",
+   "texte_sophia": "Before: I didn't know anyone on my street. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have something to chat about.",
+   "media_id": "85e683d4-15ca-4f43-a178-77d87731d0e1"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Join local events. Street parties, markets, a local sports team. Being part of your area makes it feel like home.",
+   "media_id": "dc37ae71-dbf7-421e-b005-480c1b2e0f60"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Be considerate. Keep noise down at night and keep shared spaces clean. Good neighbours notice and do the same.",
+   "media_id": "ddb11f44-7bb6-47a7-9ea9-3db11dcae795"
+  }
+ ]
+}

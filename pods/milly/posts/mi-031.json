@@ -1,0 +1,740 @@
+{
+ "id": "mi-031",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7684514161577053471",
+  "vues": 310800,
+  "publie_le": "2026-09-24",
+  "accroche": "How to / Study / for 10+ / Hours"
+ },
+ "fond": "sarcelle",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "825 hp",
+  "url": "https://www.tiktok.com/music/825-hp-6891746453606123521"
+ },
+ "notes": "Full test (jauge du 27/11 : 1 full test sur 3). Famille « How to [verbe] … » de @bdnf.milly, format de « How to Study for 10+ Hours » (310,8 k vues), fond sarcelle. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta A. Faits vérifiés : les plans « si… alors… » aident nettement à atteindre ses objectifs, effet moyen à fort sur 94 tests (Gollwitzer et Sheeran, Advances in Experimental Social Psychology 2006) ; 80 à 95 % des étudiants procrastinent, et on remet surtout à plus tard les tâches jugées désagréables (Steel, Psychological Bulletin 2007) ; les étudiants qui s'étaient pardonné d'avoir procrastiné avant un premier partiel ont moins procrastiné avant le suivant (Wohl, Pychyl et Bennett, Personality and Individual Differences 2010). 11 langues. Images : banque (cerveau-3d, tractographie, irm-activite), sans texte.",
+ "titre": {
+  "en": "How to stop Procrastinating",
+  "fr": "Comment arrêter de Procrastiner",
+  "es": "Cómo dejar de Procrastinar",
+  "es-419": "Cómo dejar de Procrastinar",
+  "it": "Come smettere di Procrastinare",
+  "tr": "Ertelemeyi nasıl Bırakırsın",
+  "pt-BR": "Como parar de Procrastinar",
+  "sl": "Kako nehati Odlašati",
+  "hr": "Kako prestati Odgađati",
+  "de": "Wie du aufhörst zu Prokrastinieren",
+  "hu": "Hogyan hagyd abba a Halogatást"
+ },
+ "legendes": {
+  "en": "start smaller than you think #procrastination #productivity #studytips #brain #psychology",
+  "fr": "commence plus petit que tu crois #procrastination #productivité #méthodedetravail #cerveau #psychologie",
+  "es": "empieza más pequeño de lo que crees #procrastinación #productividad #técnicasdeestudio #cerebro #psicología",
+  "es-419": "empieza más chiquito de lo que crees #procrastinación #productividad #tipsdeestudio #cerebro #psicología",
+  "it": "inizia più in piccolo di quanto pensi #procrastinazione #produttività #metododistudio #cervello #psicologia",
+  "tr": "sandığından daha küçük başla #erteleme #verimlilik #dersçalışma #beyin #psikoloji",
+  "pt-BR": "comece menor do que você imagina #procrastinacao #produtividade #dicasdeestudo #cerebro #psicologia",
+  "sl": "začni manjše, kot misliš #odlašanje #produktivnost #učenje #možgani #psihologija",
+  "hr": "počni manje nego što misliš #prokrastinacija #produktivnost #učenje #mozak #psihologija",
+  "de": "fang kleiner an, als du denkst #prokrastination #produktivität #lerntipps #gehirn #psychologie",
+  "hu": "kezdd kisebben, mint gondolnád #halogatás #produktivitás #tanulás #agy #pszichológia"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/cerveau-3d.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to",
+      "taille": "petit"
+     },
+     {
+      "t": "Stop",
+      "taille": "grand"
+     },
+     {
+      "t": "Procrastinating",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment",
+      "taille": "petit"
+     },
+     {
+      "t": "arrêter de",
+      "taille": "petit"
+     },
+     {
+      "t": "Procrastiner",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "dejar de",
+      "taille": "petit"
+     },
+     {
+      "t": "Procrastinar",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "dejar de",
+      "taille": "petit"
+     },
+     {
+      "t": "Procrastinar",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come",
+      "taille": "petit"
+     },
+     {
+      "t": "smettere di",
+      "taille": "petit"
+     },
+     {
+      "t": "Procrastinare",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Ertelemeyi",
+      "taille": "grand"
+     },
+     {
+      "t": "nasıl",
+      "taille": "petit"
+     },
+     {
+      "t": "Bırakırsın",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como",
+      "taille": "petit"
+     },
+     {
+      "t": "parar de",
+      "taille": "petit"
+     },
+     {
+      "t": "Procrastinar",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "nehati",
+      "taille": "petit"
+     },
+     {
+      "t": "Odlašati",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "prestati",
+      "taille": "petit"
+     },
+     {
+      "t": "Odgađati",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du",
+      "taille": "petit"
+     },
+     {
+      "t": "aufhörst zu",
+      "taille": "petit"
+     },
+     {
+      "t": "Prokrastinieren",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan hagyd",
+      "taille": "petit"
+     },
+     {
+      "t": "abba a",
+      "taille": "petit"
+     },
+     {
+      "t": "Halogatást",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Make An If-Then Plan",
+    "blocs": [
+     {
+      "p": "“I'll study more” rarely works. “If it is 7 pm, then I open my notes at my desk” does. Across 94 tests, plans written this way helped people reach their goals far more often than good intentions alone."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "The plan decides for you in advance, so when the moment comes there is nothing left to negotiate. Pick the time, the place and the very first action."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Fais un plan « si… alors… »",
+    "blocs": [
+     {
+      "p": "« Je vais travailler plus » marche rarement. « S'il est 19 h, alors j'ouvre mes cours à mon bureau », si. Sur 94 tests, les plans formulés ainsi ont aidé les gens à atteindre leurs objectifs bien plus souvent que les bonnes intentions seules."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Le plan décide pour toi à l'avance : le moment venu, il n'y a plus rien à négocier. Choisis l'heure, le lieu et la toute première action."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Haz un plan «si… entonces…»",
+    "blocs": [
+     {
+      "p": "«Voy a estudiar más» rara vez funciona. «Si son las 7 de la tarde, entonces abro mis apuntes en mi mesa», sí. En 94 pruebas, los planes escritos así ayudaron a la gente a lograr sus objetivos mucho más que las buenas intenciones solas."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "El plan decide por ti de antemano: cuando llega el momento, ya no hay nada que negociar. Elige la hora, el lugar y la primerísima acción."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Haz un plan «si… entonces…»",
+    "blocs": [
+     {
+      "p": "«Voy a estudiar más» casi nunca funciona. «Si son las 7 de la noche, entonces abro mis apuntes en mi escritorio», sí. En 94 pruebas, los planes escritos así ayudaron a las personas a lograr sus metas mucho más que las buenas intenciones solas."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "El plan decide por ti con anticipación: cuando llega el momento, ya no hay nada que negociar. Elige la hora, el lugar y la primerísima acción."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Fai un piano «se… allora…»",
+    "blocs": [
+     {
+      "p": "«Studierò di più» funziona raramente. «Se sono le 19, allora apro gli appunti alla scrivania», sì. In 94 test, i piani scritti così hanno aiutato le persone a raggiungere i propri obiettivi molto più spesso delle sole buone intenzioni."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Il piano decide per te in anticipo: quando arriva il momento, non c'è più niente da negoziare. Scegli l'ora, il luogo e la primissima azione."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Bir “eğer… o zaman…” planı yap",
+    "blocs": [
+     {
+      "p": "“Daha çok çalışacağım” nadiren işe yarar. “Eğer saat 19.00 ise, o zaman masamda notlarımı açarım” işe yarar. 94 testte bu şekilde yazılan planlar, insanların hedeflerine ulaşmasına yalnızca iyi niyetten çok daha fazla yardım etti."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Plan senin yerine önceden karar verir: an geldiğinde pazarlık edecek bir şey kalmaz. Saati, yeri ve ilk hareketi seç."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Faça um plano «se… então…»",
+    "blocs": [
+     {
+      "p": "«Vou estudar mais» quase nunca funciona. «Se forem 19h, então abro meu caderno na escrivaninha» funciona. Em 94 testes, planos escritos assim ajudaram as pessoas a alcançar seus objetivos muito mais do que só as boas intenções."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "O plano decide por você com antecedência: na hora, não sobra nada para negociar. Escolha o horário, o lugar e a primeiríssima ação."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Naredi načrt »če … potem …«",
+    "blocs": [
+     {
+      "p": "»Več se bom učil« redko deluje. »Če je ura 19, potem za mizo odprem zapiske« pa deluje. V 94 preizkusih so tako zapisani načrti ljudem veliko pogosteje pomagali doseči cilje kot zgolj dobri nameni."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Načrt odloči namesto tebe vnaprej: ko pride trenutek, se nimaš več o čem pogajati. Izberi uro, kraj in čisto prvo dejanje."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Napravi plan »ako… onda…«",
+    "blocs": [
+     {
+      "p": "»Više ću učiti« rijetko upali. »Ako je 19 sati, onda za stolom otvaram bilješke« upali. U 94 testa tako napisani planovi pomogli su ljudima da ostvare ciljeve mnogo češće nego same dobre namjere."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Plan odlučuje umjesto tebe unaprijed: kad dođe trenutak, nema se više o čemu pregovarati. Odaberi vrijeme, mjesto i baš prvi korak."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Mach einen Wenn-dann-Plan",
+    "blocs": [
+     {
+      "p": "„Ich lerne mehr“ klappt selten. „Wenn es 19 Uhr ist, dann öffne ich am Schreibtisch meine Notizen“ schon. In 94 Tests halfen so formulierte Pläne Menschen weit häufiger, ihre Ziele zu erreichen, als gute Vorsätze allein."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Der Plan entscheidet vorab für dich: Wenn der Moment kommt, gibt es nichts mehr zu verhandeln. Wähl die Uhrzeit, den Ort und den allerersten Schritt."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Készíts „ha… akkor…” tervet",
+    "blocs": [
+     {
+      "p": "A „többet fogok tanulni” ritkán működik. A „ha este 7 óra van, akkor az asztalomnál kinyitom a jegyzeteimet” működik. 94 vizsgálatban az így megfogalmazott tervek sokkal gyakrabban segítették az embereket a céljaikhoz, mint a puszta jó szándék."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "A terv előre dönt helyetted: amikor eljön a pillanat, már nincs min alkudozni. Válaszd ki az időpontot, a helyet és a legelső lépést."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Start Smaller Than You Think",
+    "blocs": [
+     {
+      "p": "Between 80 and 95% of college students procrastinate, and the tasks we put off most are the ones that feel unpleasant. The hard part is starting: make the first step so small it is hard to refuse."
+     },
+     {
+      "p": "Build the habit every evening like a training session: one short lesson, a few minutes, nothing more. Small, daily, and it soon feels automatic."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Commence plus petit que tu crois",
+    "blocs": [
+     {
+      "p": "Entre 80 et 95 % des étudiants procrastinent, et ce qu'on repousse le plus, ce sont les tâches qui semblent désagréables. Le plus dur, c'est de commencer : rends le premier pas si petit qu'il est difficile de le refuser."
+     },
+     {
+      "p": "Construis l'habitude chaque soir comme une séance d'entraînement : une courte leçon, quelques minutes, rien de plus. Petit et quotidien, ça devient vite automatique."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "J'utilise Sophia pour ça : une courte leçon avant de dormir, chaque soir, comme une séance d'entraînement pour l'esprit."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Empieza más pequeño de lo que crees",
+    "blocs": [
+     {
+      "p": "Entre el 80 y el 95 % de los universitarios procrastina, y lo que más aplazamos son las tareas que nos resultan desagradables. Lo difícil es empezar: haz el primer paso tan pequeño que cueste decirle que no."
+     },
+     {
+      "p": "Crea el hábito cada noche como una sesión de entrenamiento: una lección corta, unos minutos, nada más. Pequeño y diario, pronto se vuelve automático."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Uso Sophia para esto: una lección corta antes de dormir, cada noche, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Empieza más chiquito de lo que crees",
+    "blocs": [
+     {
+      "p": "Entre el 80 y el 95 % de los universitarios procrastina, y lo que más posponemos son las tareas que se sienten desagradables. Lo difícil es empezar: haz el primer paso tan chiquito que cueste decirle que no."
+     },
+     {
+      "p": "Arma el hábito cada noche como una sesión de entrenamiento: una lección corta, unos minutos, nada más. Chiquito y diario, pronto se vuelve automático."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Yo uso Sophia para esto: una lección corta antes de dormir, todas las noches, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Inizia più in piccolo di quanto pensi",
+    "blocs": [
+     {
+      "p": "Tra l'80 e il 95 % degli studenti universitari procrastina, e i compiti che rimandiamo di più sono quelli che sembrano sgradevoli. Il difficile è iniziare: rendi il primo passo così piccolo da non poterlo rifiutare."
+     },
+     {
+      "p": "Costruisci l'abitudine ogni sera come un allenamento: una breve lezione, pochi minuti, niente di più. Piccolo e quotidiano, diventa presto automatico."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Io uso Sophia per questo: una breve lezione prima di dormire, ogni sera, come un allenamento per la mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Sandığından küçük başla",
+    "blocs": [
+     {
+      "p": "Üniversite öğrencilerinin %80 ila %95'i erteleme yapar ve en çok ertelediğimiz işler hoş olmayan gelen işlerdir. Zor olan başlamaktır: ilk adımı reddedilemeyecek kadar küçük yap."
+     },
+     {
+      "p": "Alışkanlığı her akşam bir antrenman gibi kur: kısa bir ders, birkaç dakika, fazlası değil. Küçük ve her gün olunca kısa sürede otomatikleşir."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Bunun için Sophia kullanıyorum: her gece yatmadan önce kısa bir ders, zihin için bir antrenman gibi."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Comece menor do que imagina",
+    "blocs": [
+     {
+      "p": "Entre 80 e 95 % dos universitários procrastinam, e o que mais adiamos são as tarefas que parecem desagradáveis. O difícil é começar: deixe o primeiro passo tão pequeno que fique difícil recusar."
+     },
+     {
+      "p": "Crie o hábito toda noite como um treino: uma lição curta, alguns minutos, nada mais. Pequeno e diário, logo vira automático."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Eu uso a Sophia para isso: uma lição curta antes de dormir, toda noite, como um treino para a mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Začni manjše, kot misliš",
+    "blocs": [
+     {
+      "p": "Med 80 in 95 % študentov odlaša, najbolj pa odlašamo z nalogami, ki se zdijo neprijetne. Najtežje je začeti: prvi korak naj bo tako majhen, da ga težko zavrneš."
+     },
+     {
+      "p": "Navado gradi vsak večer kot trening: kratka lekcija, nekaj minut, nič več. Majhno in vsakodnevno kmalu postane samodejno."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to uporabljam Sophio: kratka lekcija pred spanjem, vsak večer, kot trening za um."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Počni manje nego što misliš",
+    "blocs": [
+     {
+      "p": "Između 80 i 95 % studenata odgađa, a najviše odgađamo zadatke koji djeluju neugodno. Najteže je početi: neka prvi korak bude toliko malen da ga je teško odbiti."
+     },
+     {
+      "p": "Gradi naviku svake večeri kao trening: kratka lekcija, nekoliko minuta, ništa više. Malo i svakodnevno brzo postane automatski."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to koristim Sophiju: kratka lekcija prije spavanja, svake večeri, kao trening za um."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Fang kleiner an, als du denkst",
+    "blocs": [
+     {
+      "p": "Zwischen 80 und 95 % der Studierenden prokrastinieren, und am meisten schieben wir Aufgaben auf, die sich unangenehm anfühlen. Schwer ist das Anfangen: Mach den ersten Schritt so klein, dass man kaum Nein sagen kann."
+     },
+     {
+      "p": "Bau die Gewohnheit jeden Abend wie eine Trainingseinheit auf: eine kurze Lektion, ein paar Minuten, mehr nicht. Klein und täglich wird es schnell automatisch."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ich nutze Sophia dafür: eine kurze Lektion vor dem Schlafen, jeden Abend, wie ein Training für den Kopf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Kezdd kisebben, mint gondolnád",
+    "blocs": [
+     {
+      "p": "Az egyetemisták 80–95 %-a halogat, és leginkább azokat a feladatokat toljuk el, amelyek kellemetlennek tűnnek. A kezdés a nehéz: tedd az első lépést olyan kicsivé, hogy nehéz legyen nemet mondani rá."
+     },
+     {
+      "p": "Építsd a szokást minden este, mint egy edzést: egy rövid lecke, néhány perc, semmi több. Kicsiben és naponta hamar automatikussá válik."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Én erre a Sophiát használom: egy rövid lecke lefekvés előtt, minden este, mint egy edzés az elmének."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Forgive Yourself",
+    "blocs": [
+     {
+      "p": "Beating yourself up makes it worse. In one study, students who forgave themselves for procrastinating before their first exam procrastinated less when studying for the next one."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Guilt makes a task feel even more unpleasant, so you avoid it again. Admit the slip, let it go, and restart with the next small step."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Pardonne-toi",
+    "blocs": [
+     {
+      "p": "Te flageller aggrave les choses. Dans une étude, les étudiants qui s'étaient pardonné d'avoir procrastiné avant leur premier examen ont moins procrastiné en révisant le suivant."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "La culpabilité rend la tâche encore plus désagréable, alors tu l'évites encore. Reconnais l'écart, lâche-le, et repars avec le prochain petit pas."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Perdónate",
+    "blocs": [
+     {
+      "p": "Machacarte lo empeora. En un estudio, los estudiantes que se perdonaron por haber procrastinado antes de su primer examen procrastinaron menos al estudiar para el siguiente."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "La culpa hace que la tarea parezca aún más desagradable, y vuelves a evitarla. Reconoce el tropiezo, suéltalo y vuelve a empezar con el siguiente paso pequeño."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Perdónate",
+    "blocs": [
+     {
+      "p": "Castigarte lo empeora. En un estudio, los estudiantes que se perdonaron por haber procrastinado antes de su primer examen procrastinaron menos al estudiar para el siguiente."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "La culpa hace que la tarea se sienta todavía más desagradable, y vuelves a evitarla. Reconoce el tropiezo, suéltalo y vuelve a empezar con el siguiente paso chiquito."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Perdonati",
+    "blocs": [
+     {
+      "p": "Colpevolizzarti peggiora le cose. In uno studio, gli studenti che si erano perdonati per aver procrastinato prima del primo esame hanno procrastinato meno studiando per il successivo."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Il senso di colpa rende il compito ancora più sgradevole, e così lo eviti di nuovo. Ammetti lo scivolone, lascialo andare e riparti dal prossimo piccolo passo."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Kendini affet",
+    "blocs": [
+     {
+      "p": "Kendini hırpalamak durumu kötüleştirir. Bir çalışmada ilk sınavdan önce ertelediği için kendini affeden öğrenciler, bir sonraki sınava çalışırken daha az erteledi."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Suçluluk duygusu işi daha da nahoş hissettirir, sen de ondan yine kaçarsın. Kaymayı kabul et, bırak ve bir sonraki küçük adımla yeniden başla."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Perdoe-se",
+    "blocs": [
+     {
+      "p": "Se culpar piora tudo. Num estudo, os estudantes que se perdoaram por ter procrastinado antes da primeira prova procrastinaram menos ao estudar para a seguinte."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "A culpa deixa a tarefa ainda mais desagradável, e você a evita de novo. Reconheça o deslize, deixe pra lá e recomece com o próximo passo pequeno."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Odpusti si",
+    "blocs": [
+     {
+      "p": "Samobičanje stvari poslabša. V eni raziskavi so študenti, ki so si odpustili odlašanje pred prvim izpitom, pri učenju za naslednjega manj odlašali."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Krivda nalogo naredi še bolj neprijetno, zato se ji spet izogneš. Priznaj spodrsljaj, ga spusti in začni znova z naslednjim majhnim korakom."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Oprosti si",
+    "blocs": [
+     {
+      "p": "Samokažnjavanje sve pogoršava. U jednom istraživanju studenti koji su si oprostili odgađanje prije prvog ispita manje su odgađali dok su učili za sljedeći."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Krivnja zadatak čini još neugodnijim, pa ga opet izbjegavaš. Priznaj posrtaj, pusti ga i kreni ispočetka sljedećim malim korakom."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Vergib dir",
+    "blocs": [
+     {
+      "p": "Dich fertigzumachen macht es schlimmer. In einer Studie prokrastinierten Studierende, die sich das Aufschieben vor der ersten Prüfung vergeben hatten, beim Lernen für die nächste weniger."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Schuldgefühle machen die Aufgabe noch unangenehmer, also weichst du ihr wieder aus. Gib den Ausrutscher zu, lass ihn los und starte neu mit dem nächsten kleinen Schritt."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Bocsáss meg magadnak",
+    "blocs": [
+     {
+      "p": "Az önostorozás csak ront a helyzeten. Egy vizsgálatban azok a diákok, akik megbocsátották maguknak, hogy az első vizsga előtt halogattak, kevesebbet halogattak a következőre készülve."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "A bűntudat még kellemetlenebbé teszi a feladatot, így újra kerülöd. Ismerd el a megcsúszást, engedd el, és kezdd újra a következő kis lépéssel."
+     }
+    ]
+   }
+  }
+ ]
+}

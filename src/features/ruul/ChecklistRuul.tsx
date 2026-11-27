@@ -15,6 +15,7 @@ import { enregistrerIdentiteRuul } from "@/features/moteur/api";
 import { cn } from "@/lib/utils";
 
 import { enregistrerMonEmailRuul, jeSuisPretRuul, lireMonOnboardingRuul, monLienRuul, type MonOnboardingRuul } from "./api";
+import { ruulPlusTard } from "./setup";
 
 export type EtapeRuul = "identite" | "email" | "tiktok" | "warmup" | "slack" | "ruul";
 export const ETAPES_RUUL_ONBOARDING: EtapeRuul[] = ["identite", "email", "tiktok", "warmup", "slack", "ruul"];
@@ -58,9 +59,10 @@ export function etatRuul(o: MonOnboardingRuul): "attente" | "invite" | "pret" {
 
 /**
  * 17/11 (Max, API Ruul) : « Set up Ruul — required to get paid (5 min) » et le bouton « Open my Ruul setup »,
- * qui ouvre le lien d'onboarding frais (demandé au clic : il expire au bout de 72 h).
+ * qui ouvre le lien d'onboarding frais (demandé au clic : il expire au bout de 72 h). 26/11 (Max) : tant que la
+ * première semaine n'est pas payable (lundi de départ + 7 jours), « you can do it later, before your first pay ».
  */
-export function SetupRuul({ onboarding }: { onboarding: string | null }) {
+export function SetupRuul({ onboarding, cohorteLundi }: { onboarding: string | null; cohorteLundi?: string | null }) {
   const { t } = useTranslation();
   const ouvrir = useMutation({
     mutationFn: monLienRuul,
@@ -72,7 +74,9 @@ export function SetupRuul({ onboarding }: { onboarding: string | null }) {
     ? onboarding! : "NOT_REGISTERED";
   return (
     <div className="space-y-1.5" data-testid="setup-ruul">
-      <p className="text-sm font-medium">{t("ruulOnboarding.ruulSetupTitre")}</p>
+      <p className="text-sm font-medium" data-testid="setup-ruul-titre">
+        {t(ruulPlusTard(cohorteLundi) ? "ruulOnboarding.ruulSetupTitrePlusTard" : "ruulOnboarding.ruulSetupTitre")}
+      </p>
       <p className="text-xs text-muted-foreground">{t(`ruulOnboarding.ruulReste.${reste}`)}</p>
       <p className="text-xs text-muted-foreground">{t("ruulOnboarding.ruulPasBesoin")}</p>
       <Button size="sm" className="h-8" loading={ouvrir.isPending} onClick={() => ouvrir.mutate()} data-testid="ouvrir-setup-ruul">
@@ -263,7 +267,7 @@ export function ChecklistRuul() {
               ? t("ruulOnboarding.ruulInviteTexte", { email: o.ruul_email ?? o.email_candidature ?? "your email" })
               : t("ruulOnboarding.ruulAttenteTexte")}
           </p>
-          {ruul !== "pret" && o.ruul_lien_auto && <SetupRuul onboarding={o.ruul_onboarding ?? null} />}
+          {ruul !== "pret" && o.ruul_lien_auto && <SetupRuul onboarding={o.ruul_onboarding ?? null} cohorteLundi={o.cohorte_lundi} />}
           {ruul !== "pret" && !o.ruul_lien_auto && <GuideRuul email={o.ruul_email ?? o.email_candidature ?? "your Ruul email"} />}
           {ruul !== "pret" && !o.ruul_lien_auto && (
             <span className="mt-1 inline-flex flex-wrap items-center gap-2">

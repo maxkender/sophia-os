@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o212",
+  "type_bleo": "full_test",
+  "titre": "how i read a poem for class and actually understand it #studytok #studytips #literature",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 27/11 : 6 full tests sur 13, plus 1 car la boîte n'a que 6 lignes utilisables). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Gestes vrais : lire deux fois dont une à voix haute, une phrase pour dire de quoi il parle, souligner les images, le contexte de l'auteur (slide Sophia, 5), relier une image à un effet. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b928a7de",
+      "texte_overlay": "how i read a poem for class\nand actually understand it",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "275e60e7",
+      "texte_overlay": "i read it twice.\nonce in my head, once out loud.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9f7efff9",
+      "texte_overlay": "then one sentence: what is it about?\nno fancy words.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "b468d746",
+      "texte_overlay": "i underline every image.\na colour, an object, a place.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "e1bf9569",
+      "texte_overlay": "i look up when and where the poet lived.\nthe context explains half the poem.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "i look up when and where the poet lived\non a micro-learning app like the Sophia app.\nthe context explains half the poem."
+    },
+    {
+      "position": 6,
+      "media_id": "4c28d04e",
+      "texte_overlay": "for each image: what does it make me feel?\nthat's the analysis.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "7acfc37a",
+      "texte_overlay": "last: one line i'd quote in an essay.\nand why.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

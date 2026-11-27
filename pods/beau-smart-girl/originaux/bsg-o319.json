@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o319",
+  "type_bleo": "full_test",
+  "titre": "ce que les vieux romans m'ont appris sur l'élégance #elegance #livres #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Aucun fait daté. Routine du 27/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 6 full tests et 12 déclinaisons ; seules les lignes 1 et 15 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale « how to destroy yourself »), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12, 13 et 14 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1263a850",
+      "texte_overlay": "ce que les vieux romans\nm'ont appris sur l'élégance",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5d9e3882",
+      "texte_overlay": "1. on écrit des lettres\n\nmême courtes.\nune lettre se garde, un message s'oublie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "1bbdae56",
+      "texte_overlay": "2. on ne parle pas de soi tout le temps\n\nles héroïnes écoutent,\npuis répondent avec esprit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "4178545c",
+      "texte_overlay": "3. on se tient droite\n\nmême fatiguée.\nla posture, c'est une politesse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6b175301",
+      "texte_overlay": "4. on choisit ses mots\n\nune phrase juste\nvaut mieux qu'un long discours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "7ef426de",
+      "texte_overlay": "5. on a toujours quelque chose à raconter\n\navant, je n'osais pas parler dans les dîners.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'ai toujours une histoire à partager.",
+      "texte_sophia": "5. on a toujours quelque chose à raconter\n\navant, je n'osais pas parler dans les dîners.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'ai toujours une histoire à partager.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ab60c5e",
+      "texte_overlay": "tu as appris quoi dans les livres ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

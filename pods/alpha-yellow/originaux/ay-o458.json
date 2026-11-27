@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o458",
+ "type_bleo": "full_test",
+ "titre": "Why swimming is the most underrated sport for men #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Why swimming is the most underrated sport for men » (retenue), « Start swimming this year » (écartée : injonction), « The best sport you're ignoring » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "467e8247-6841-44af-b894-28dce4821848",
+   "texte_overlay": "Why swimming is the most\nunderrated sport for men",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "It trains your whole body. Back, shoulders, legs, core and lungs, all at once, without the impact that hurts knees and joints.",
+   "media_id": "6ef6edb6-fa9e-48d5-82b2-9c632fd5dd62"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "It's a lifelong skill. You can swim at 20 and still swim at 80. Few sports stay with you for that long. A sport for life.",
+   "media_id": "719026b7-3009-4659-992b-c97bef4c5226"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "It calms your mind. The rhythm of your strokes and breathing feels almost like meditation. Many men find it their quietest hour.",
+   "media_id": "74b0526b-b1cd-40ff-b272-e7a640b3e3bf"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "It improves your breathing. Learning to control your breath in the water helps with stress, sport and sleep. Breath is power.",
+   "media_id": "7833025f-6fce-4625-9a99-8ddd142fe0cb"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: training was just about my body. After: five minutes a day of history, art or science, and I train my mind as well.",
+   "texte_sophia": "Before: training was just about my body. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I train my mind as well.",
+   "media_id": "5305ee58-d4ff-4eb5-b3c7-cebf7297eba8"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "It keeps you safe. Being a strong swimmer means you can enjoy the sea, lakes and boats with confidence. Swim with confidence.",
+   "media_id": "79e0e876-cd6e-4d4c-bf8e-d307e62f9eee"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Take a few lessons as an adult. Good technique makes swimming easier and much more enjoyable. Book one lesson this month and see how it feels.",
+   "media_id": "7c7fcc6d-1a21-4aae-8774-45e74c4fb784"
+  }
+ ]
+}

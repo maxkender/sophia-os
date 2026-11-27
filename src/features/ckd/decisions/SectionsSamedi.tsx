@@ -43,6 +43,7 @@ export function CompteurCouverture({ c }: { c: Couverture }) {
           </ul>
         </details>
       )}
+      {c.enSetup > 0 && <p className="text-xs text-muted-foreground">{t(`${P}.couverture.enSetup`, { n: c.enSetup })}</p>}
       {c.sansCompte > 0 && <p className="text-xs text-muted-foreground">{t(`${P}.couverture.sansCompte`, { n: c.sansCompte })}</p>}
     </div>
   );

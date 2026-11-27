@@ -1,0 +1,52 @@
+{
+  "source_id": "cs-o220",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "5a8fc76d-2b11-446f-a52b-fc24c28ba657",
+  "titre": "méthodes d'étude pour les étudiants qui visent un A+ #studytok #révisions #lycée",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [
+    "5a8fc76d-2b11-446f-a52b-fc24c28ba657"
+  ],
+  "notes": "Déclinaison G1 de 5a8fc76d (notre cs-o125), ligne 10 de la boîte, 3e et dernière déclinaison de la famille. Langue source du parent : français ; accroche du parent mot pour mot. Le texte de base est en français, la slide Sophia aussi (comme cs-o194). Méthodes neuves, aucune du parent, de cs-o125 ni de cs-o194 : la méthode des lieux (palais de mémoire), le carnet d'erreurs, prévoir les questions du prof, la culture générale (slide Sophia, 5), le plan avant la copie. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6a3a2052",
+      "texte_overlay": "méthodes d'étude pour les\nétudiants qui visent un A+",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0bb14dcd",
+      "texte_overlay": "LA MÉTHODE DES LIEUX\nassocie chaque idée à une pièce de ta maison. pour réciter, tu refais le trajet dans ta tête.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "da086e1c",
+      "texte_overlay": "LE CARNET D'ERREURS\nchaque erreur de contrôle va dans un carnet, avec la bonne réponse. tu le relis avant chaque contrôle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "7e9f2da6",
+      "texte_overlay": "LES QUESTIONS DU PROF\navant le contrôle, écris les 5 questions que ton prof va sûrement poser. puis réponds-y.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "7d463f3e",
+      "texte_overlay": "LA CULTURE GÉNÉRALE\nun peu chaque jour, hors du programme. elle nourrit tes copies.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "LA CULTURE GÉNÉRALE\nun peu chaque jour, hors du programme.\nje lis une leçon sur une appli de micro-learning comme l'appli Sophia."
+    },
+    {
+      "position": 6,
+      "media_id": "c5f6e84f",
+      "texte_overlay": "LE PLAN AVANT LA COPIE\n3 minutes pour un plan au brouillon. ta copie est plus claire, et le prof le voit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ],
+  "langue_source": "fr"
+}

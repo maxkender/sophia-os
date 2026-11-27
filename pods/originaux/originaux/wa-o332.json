@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o332",
+ "type_bleo": "full_test",
+ "titre": "evening rituals that change your whole life #eveningroutine #rituals #selfcare #sleep #habits",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "5b39aa5e-5308-40f5-8693-18773c10278f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 5b39aa5e). full test BLEO : accroche jamais faite (format « evening rituals that change your whole X »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "09aeca04-632a-4652-9935-94aa798025c2",
+   "texte_overlay": "evening rituals that\nchange your whole life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "fb05ee5f-3c04-4f3a-8af1-cf367aa86d93",
+   "texte_overlay": "a phone curfew\n\nput your phone away an hour before bed and leave it in another room. your mind finally gets the chance to slow down, and your sleep becomes deeper almost straight away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "69ce55aa-5ba2-4245-b079-00b33a31ece9",
+   "texte_overlay": "a ten minute reset\n\nspend ten minutes putting your space back in order before bed. waking up to a calm, tidy room makes the next morning feel lighter before it has even started.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a3dc02e0-6488-4ef6-b380-9725392da53e",
+   "texte_overlay": "one gentle lesson\n\nend the day by learning one beautiful thing, a constellation, a myth or a painting, instead of scrolling. you'll fall asleep with something lovely in your head instead of other people's noise.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/4.jpg",
+   "texte_sophia": "one gentle lesson\n\nmy evenings used to end with endless scrolling. now i spend 5 minutes on one lesson in the Sophia app, a myth or a star, and i fall asleep calm with something lovely in my head."
+  },
+  {
+   "position": 5,
+   "media_id": "9a434ec9-8a4f-4e55-bae9-95f8f12b5310",
+   "texte_overlay": "writing one line\n\nwrite a single sentence about your day in a small notebook. over months, those tiny lines become a quiet record of how much you've grown and how many good days you had.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "308aacef-9f87-4176-a75c-8c1651a08267",
+   "texte_overlay": "a warm drink and dim lights\n\nmake a caffeine free tea and switch to soft lamps after dinner. warm light and a warm cup tell your body the day is over, and it starts getting ready for rest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/6.jpg"
+  }
+ ]
+}

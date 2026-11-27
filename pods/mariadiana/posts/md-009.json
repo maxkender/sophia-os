@@ -1,0 +1,325 @@
+{
+  "id": "md-009",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Make Me Feel So Small",
+    "fr": "Les tableaux qui me font sentir minuscule",
+    "es-419": "Pinturas que me hacen sentir tan poca cosa",
+    "it": "Quadri che mi fanno sentire così piccola",
+    "el": "Πίνακες που με κάνουν να νιώθω τόσο μικρή",
+    "hu": "Festmények, amelyek előtt eltörpülök",
+    "sr": "Slike pored kojih se osećam tako malom",
+    "hr": "Slike uz koje se osjećam tako malenom",
+    "lv": "Gleznas, kuru priekšā jūtos tik maza",
+    "ro": "Tablouri în fața cărora mă simt atât de mică"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #turner #courbet #museum",
+    "fr": "#histoiredelart #peinture #turner #courbet #musée",
+    "es-419": "#historiadelarte #pintura #turner #courbet #museo",
+    "it": "#storiadellarte #pittura #turner #courbet #museo",
+    "el": "#ιστορίατέχνης #ζωγραφική #turner #courbet #μουσείο",
+    "hu": "#művészettörténet #festészet #turner #courbet #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #turner #courbet #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #turner #courbet #muzej",
+    "lv": "#mākslasvēsture #glezniecība #turner #courbet #muzejs",
+    "ro": "#istoriaartei #pictura #turner #courbet #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/baleiniers.jpg": {
+      "musee": "The Met",
+      "id": "437854",
+      "titre": "Whalers",
+      "artiste": "Joseph Mallord William Turner",
+      "date": "ca. 1845",
+      "url": "https://www.metmuseum.org/art/collection/search/437854"
+    },
+    "images/oeuvres/dahl-cascade.jpg": {
+      "musee": "The Met",
+      "id": "439344",
+      "titre": "Two Men before a Waterfall at Sunset",
+      "artiste": "Johan Christian Dahl",
+      "date": "1823",
+      "url": "https://www.metmuseum.org/art/collection/search/439344"
+    },
+    "images/oeuvres/source-loue.jpg": {
+      "musee": "The Met",
+      "id": "436023",
+      "titre": "The Source of the Loue",
+      "artiste": "Gustave Courbet",
+      "date": "1864",
+      "url": "https://www.metmuseum.org/art/collection/search/436023"
+    },
+    "images/oeuvres/ruisdael-bles.jpg": {
+      "musee": "The Met",
+      "id": "437549",
+      "titre": "Wheat Fields",
+      "artiste": "Jacob van Ruisdael",
+      "date": "ca. 1670",
+      "url": "https://www.metmuseum.org/art/collection/search/437549"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Turner, Baleiniers (vers 1845) : exposé à la Royal Academy en 1845, Turner né en 1775 ; scène tirée de The Natural History of the Sperm Whale de Thomas Beale ; peint pour Elhanan Bicknell, enrichi dans l'huile de baleine. Dahl, Deux hommes devant une cascade au coucher du soleil (1823) : Dahl s'installe en 1823 dans la maison de Friedrich à Dresde (An der Elbe 33). Courbet, La Source de la Loue (1864) : Courbet né à Ornans ; série de vues de la source peintes en 1864. Ruisdael, Champs de blé (vers 1670) : Ruisdael à Amsterdam depuis 1657 ; legs Benjamin Altman 1913. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou, une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-immense.jpg",
+      "en": {
+        "titre": "Paintings That Make Me Feel So Small"
+      },
+      "fr": {
+        "titre": "Les tableaux qui me font sentir minuscule"
+      },
+      "es-419": {
+        "titre": "Pinturas que me hacen sentir tan poca cosa"
+      },
+      "it": {
+        "titre": "Quadri che mi fanno sentire così piccola"
+      },
+      "el": {
+        "titre": "Πίνακες που με κάνουν να νιώθω τόσο μικρή"
+      },
+      "hu": {
+        "titre": "Festmények, amelyek előtt eltörpülök"
+      },
+      "sr": {
+        "titre": "Slike pored kojih se osećam tako malom"
+      },
+      "hr": {
+        "titre": "Slike uz koje se osjećam tako malenom"
+      },
+      "lv": {
+        "titre": "Gleznas, kuru priekšā jūtos tik maza"
+      },
+      "ro": {
+        "titre": "Tablouri în fața cărora mă simt atât de mică"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/baleiniers.jpg",
+      "en": {
+        "titre": "Whalers",
+        "texte": "was painted when Turner was seventy, and he had never been whaling. He took the scene from a book on sperm whales, for a patron whose fortune came from whale oil. The ship almost dissolves into the storm.",
+        "artiste": "J. M. W. Turner"
+      },
+      "fr": {
+        "titre": "Les Baleiniers",
+        "texte": "ont été peints quand Turner avait soixante-dix ans, et il n'avait jamais chassé la baleine. Il a tiré la scène d'un livre sur les cachalots, pour un mécène qui avait fait fortune dans l'huile de baleine. Le navire se dissout presque dans la tempête.",
+        "artiste": "William Turner"
+      },
+      "es-419": {
+        "titre": "Balleneros",
+        "texte": "fue pintado cuando Turner tenía setenta años, y nunca había ido a cazar ballenas. Tomó la escena de un libro sobre cachalotes, para un mecenas que había hecho su fortuna con el aceite de ballena. El barco casi se disuelve en la tormenta.",
+        "artiste": "William Turner"
+      },
+      "it": {
+        "titre": "Balenieri",
+        "texte": "fu dipinto quando Turner aveva settant'anni, e non era mai stato a caccia di balene. Prese la scena da un libro sui capodogli, per un mecenate che aveva fatto fortuna con l'olio di balena. La nave quasi si dissolve nella tempesta.",
+        "artiste": "William Turner"
+      },
+      "el": {
+        "titre": "Φαλαινοθήρες",
+        "texte": "ζωγραφίστηκε όταν ο Τέρνερ ήταν εβδομήντα χρονών, και δεν είχε πάει ποτέ για φαλαινοθηρία. Πήρε τη σκηνή από ένα βιβλίο για τους φυσητήρες, για έναν προστάτη που είχε πλουτίσει από το λάδι φάλαινας. Το πλοίο σχεδόν διαλύεται μέσα στην καταιγίδα.",
+        "artiste": "Ουίλιαμ Τέρνερ"
+      },
+      "hu": {
+        "titre": "Bálnavadászok",
+        "texte": "akkor készült, amikor Turner hetvenéves volt, és soha nem járt bálnavadászaton. A jelenetet egy ámbráscetekről szóló könyvből vette, egy mecénásnak, aki bálnaolajból gazdagodott meg. A hajó szinte feloldódik a viharban.",
+        "artiste": "William Turner"
+      },
+      "sr": {
+        "titre": "Kitolovci",
+        "texte": "naslikani su kada je Tarner imao sedamdeset godina, a nikada nije išao u lov na kitove. Scenu je uzeo iz knjige o ulješurama, za mecenu koji se obogatio na kitovom ulju. Brod se gotovo rastapa u oluji.",
+        "artiste": "Vilijam Tarner"
+      },
+      "hr": {
+        "titre": "Kitolovci",
+        "texte": "naslikani su kad je Turner imao sedamdeset godina, a nikad nije bio u lovu na kitove. Prizor je preuzeo iz knjige o ulješurama, za mecenu koji se obogatio na kitovu ulju. Brod se gotovo rastapa u oluji.",
+        "artiste": "William Turner"
+      },
+      "lv": {
+        "titre": "Vaļu mednieki",
+        "texte": "tika uzgleznoti, kad Tērneram bija septiņdesmit gadu, un viņš nekad nebija medījis vaļus. Ainu viņš paņēma no grāmatas par kašalotiem, mecenātam, kurš bija iedzīvojies ar vaļu eļļu. Kuģis gandrīz izšķīst vētrā.",
+        "artiste": "Viljams Tērners"
+      },
+      "ro": {
+        "titre": "Vânătorii de balene",
+        "texte": "a fost pictat când Turner avea șaptezeci de ani și nu fusese niciodată la vânătoare de balene. A luat scena dintr-o carte despre cașaloți, pentru un mecenat care se îmbogățise din uleiul de balenă. Corabia aproape se dizolvă în furtună.",
+        "artiste": "William Turner"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/dahl-cascade.jpg",
+      "en": {
+        "titre": "Two Men before a Waterfall at Sunset",
+        "texte": "shows two tiny figures facing a waterfall as the light goes. Dahl, a Norwegian living in Dresden, painted it in 1823, the year he moved into the same house as Caspar David Friedrich. You can feel his friend in every tree.",
+        "artiste": "Johan Christian Dahl"
+      },
+      "fr": {
+        "titre": "Deux hommes devant une cascade au coucher du soleil",
+        "texte": "montre deux minuscules silhouettes face à une cascade, à la tombée du jour. Dahl, un Norvégien installé à Dresde, l'a peint en 1823, l'année où il a emménagé dans la même maison que Caspar David Friedrich. On sent son ami dans chaque arbre.",
+        "artiste": "Johan Christian Dahl"
+      },
+      "es-419": {
+        "titre": "Dos hombres ante una cascada al atardecer",
+        "texte": "muestra dos figuras diminutas frente a una cascada mientras se va la luz. Dahl, un noruego que vivía en Dresde, lo pintó en 1823, el año en que se mudó a la misma casa que Caspar David Friedrich. Se siente a su amigo en cada árbol.",
+        "artiste": "Johan Christian Dahl"
+      },
+      "it": {
+        "titre": "Due uomini davanti a una cascata al tramonto",
+        "texte": "mostra due minuscole figure davanti a una cascata mentre la luce se ne va. Dahl, un norvegese che viveva a Dresda, lo dipinse nel 1823, l'anno in cui andò ad abitare nella stessa casa di Caspar David Friedrich. Si sente il suo amico in ogni albero.",
+        "artiste": "Johan Christian Dahl"
+      },
+      "el": {
+        "titre": "Δύο άντρες μπροστά σε καταρράκτη στο ηλιοβασίλεμα",
+        "texte": "δείχνει δύο μικροσκοπικές μορφές μπροστά σε έναν καταρράκτη καθώς χάνεται το φως. Ο Νταλ, Νορβηγός που ζούσε στη Δρέσδη, τον ζωγράφισε το 1823, τη χρονιά που μετακόμισε στο ίδιο σπίτι με τον Κάσπαρ Ντάβιντ Φρίντριχ. Νιώθεις τον φίλο του σε κάθε δέντρο.",
+        "artiste": "Γιόχαν Κρίστιαν Νταλ"
+      },
+      "hu": {
+        "titre": "Két férfi egy vízesés előtt naplementekor",
+        "texte": "két apró alakot mutat egy vízesés előtt, ahogy fogy a fény. Dahl, a Drezdában élő norvég festő 1823-ban festette, abban az évben, amikor Caspar David Friedrichhel egy házba költözött. A barátját minden fában érezni.",
+        "artiste": "Johan Christian Dahl"
+      },
+      "sr": {
+        "titre": "Dvojica ljudi pred vodopadom u zalasku sunca",
+        "texte": "prikazuje dve sićušne figure pred vodopadom dok se svetlost gasi. Dal, Norvežanin koji je živeo u Drezdenu, naslikao ju je 1823, godine kada se uselio u istu kuću sa Kasparom Davidom Fridrihom. Prijatelja osećaš u svakom drvetu.",
+        "artiste": "Johan Kristijan Dal"
+      },
+      "hr": {
+        "titre": "Dvojica muškaraca pred slapom u zalazak sunca",
+        "texte": "prikazuje dva sićušna lika pred slapom dok svjetlo nestaje. Dahl, Norvežanin koji je živio u Dresdenu, naslikao ju je 1823., godine kad se uselio u istu kuću s Casparom Davidom Friedrichom. Prijatelja osjećaš u svakom stablu.",
+        "artiste": "Johan Christian Dahl"
+      },
+      "lv": {
+        "titre": "Divi vīri pie ūdenskrituma saulrietā",
+        "texte": "rāda divus sīkus stāvus ūdenskrituma priekšā, gaismai dziestot. Dāls, norvēģis, kurš dzīvoja Drēzdenē, to uzgleznoja 1823. gadā, kad pārcēlās uz to pašu māju, kurā dzīvoja Kaspars Dāvids Frīdrihs. Draugs jūtams katrā kokā.",
+        "artiste": "Juhans Kristians Dāls"
+      },
+      "ro": {
+        "titre": "Doi bărbați în fața unei cascade la apus",
+        "texte": "arată două siluete minuscule în fața unei cascade, în timp ce lumina se stinge. Dahl, un norvegian care trăia la Dresda, l-a pictat în 1823, anul în care s-a mutat în aceeași casă cu Caspar David Friedrich. Îl simți pe prietenul lui în fiecare copac.",
+        "artiste": "Johan Christian Dahl"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/source-loue.jpg",
+      "en": {
+        "titre": "The Source of the Loue",
+        "texte": "is a river bursting out of a black cave in the hills near Ornans, where Courbet was born. He came back to paint this cave again and again in 1864. Artura gives me one painting a day and the story behind it; this one stayed with me.",
+        "artiste": "Gustave Courbet"
+      },
+      "fr": {
+        "titre": "La Source de la Loue",
+        "texte": "est une rivière qui jaillit d'une grotte noire dans les collines près d'Ornans, où Courbet est né. Il est revenu peindre cette grotte encore et encore en 1864. Artura me donne un tableau par jour et l'histoire qui va avec ; celui-ci m'est resté.",
+        "artiste": "Gustave Courbet"
+      },
+      "es-419": {
+        "titre": "El nacimiento del Loue",
+        "texte": "es un río que brota de una cueva negra en las colinas cerca de Ornans, donde nació Courbet. Volvió a pintar esta cueva una y otra vez en 1864. Artura me da una pintura al día y la historia que hay detrás; esta se me quedó grabada.",
+        "artiste": "Gustave Courbet"
+      },
+      "it": {
+        "titre": "La sorgente della Loue",
+        "texte": "è un fiume che sgorga da una grotta nera tra le colline vicino a Ornans, dove Courbet era nato. Tornò a dipingere questa grotta ancora e ancora nel 1864. Artura mi dà un quadro al giorno e la storia che c'è dietro; questo mi è rimasto dentro.",
+        "artiste": "Gustave Courbet"
+      },
+      "el": {
+        "titre": "Η πηγή του Λου",
+        "texte": "είναι ένα ποτάμι που ξεπηδά από μια μαύρη σπηλιά στους λόφους κοντά στο Ορνάν, όπου γεννήθηκε ο Κουρμπέ. Γύριζε ξανά και ξανά να ζωγραφίσει αυτή τη σπηλιά το 1864. Η Artura μού δίνει έναν πίνακα τη μέρα και την ιστορία πίσω του· αυτός μου έμεινε.",
+        "artiste": "Γκιστάβ Κουρμπέ"
+      },
+      "hu": {
+        "titre": "A Loue forrása",
+        "texte": "egy folyó, amely egy fekete barlangból tör elő az Ornans melletti dombok között, ahol Courbet született. 1864-ben újra és újra visszatért, hogy megfesse ezt a barlangot. Az Artura app minden nap ad egy festményt és a mögötte álló történetet; ez velem maradt.",
+        "artiste": "Gustave Courbet"
+      },
+      "sr": {
+        "titre": "Izvor Lue",
+        "texte": "je reka koja izbija iz crne pećine u brdima kod Ornana, gde je Kurbe rođen. Vraćao se da slika ovu pećinu iznova i iznova 1864. Aplikacija Artura mi svakog dana daje jednu sliku i priču iza nje; ova mi je ostala u srcu.",
+        "artiste": "Gistav Kurbe"
+      },
+      "hr": {
+        "titre": "Izvor Loue",
+        "texte": "je rijeka koja izvire iz crne špilje u brdima kraj Ornansa, gdje je Courbet rođen. Vraćao se slikati ovu špilju iznova i iznova 1864. Aplikacija Artura svaki mi dan daje jednu sliku i priču iza nje; ova mi je ostala u srcu.",
+        "artiste": "Gustave Courbet"
+      },
+      "lv": {
+        "titre": "Lū upes avots",
+        "texte": "ir upe, kas izlaužas no melnas alas pakalnos pie Ornānas, kur dzimis Kurbē. 1864. gadā viņš atkal un atkal atgriezās gleznot šo alu. Lietotne Artura man katru dienu dod vienu gleznu un stāstu aiz tās; šī palika ar mani.",
+        "artiste": "Gistavs Kurbē"
+      },
+      "ro": {
+        "titre": "Izvorul râului Loue",
+        "texte": "este un râu care țâșnește dintr-o peșteră neagră din dealurile de lângă Ornans, unde s-a născut Courbet. A revenit să picteze peștera aceasta iar și iar în 1864. Aplicația Artura îmi oferă un tablou pe zi și povestea din spatele lui; acesta mi-a rămas în minte.",
+        "artiste": "Gustave Courbet"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/ruisdael-bles.jpg",
+      "en": {
+        "titre": "Wheat Fields",
+        "texte": "gives most of the canvas to the sky. A few small figures walk the road between the grain while clouds as big as mountains pass over them. Ruisdael painted it in Amsterdam around 1670.",
+        "artiste": "Jacob van Ruisdael"
+      },
+      "fr": {
+        "titre": "Champs de blé",
+        "texte": "laisse presque toute la toile au ciel. Quelques petites silhouettes marchent sur le chemin entre les blés, sous des nuages grands comme des montagnes. Ruisdael l'a peint à Amsterdam vers 1670.",
+        "artiste": "Jacob van Ruisdael"
+      },
+      "es-419": {
+        "titre": "Campos de trigo",
+        "texte": "le da casi todo el lienzo al cielo. Unas pocas figuras pequeñas caminan por el sendero entre el trigo mientras pasan nubes tan grandes como montañas. Ruisdael lo pintó en Ámsterdam hacia 1670.",
+        "artiste": "Jacob van Ruisdael"
+      },
+      "it": {
+        "titre": "Campi di grano",
+        "texte": "lascia quasi tutta la tela al cielo. Poche piccole figure camminano sulla strada tra il grano mentre passano nuvole grandi come montagne. Ruisdael lo dipinse ad Amsterdam intorno al 1670.",
+        "artiste": "Jacob van Ruisdael"
+      },
+      "el": {
+        "titre": "Σιταροχώραφα",
+        "texte": "δίνουν σχεδόν όλο τον καμβά στον ουρανό. Λίγες μικρές μορφές περπατούν στον δρόμο ανάμεσα στα στάχυα, ενώ από πάνω τους περνούν σύννεφα μεγάλα σαν βουνά. Ο Ρόισνταλ τα ζωγράφισε στο Άμστερνταμ γύρω στο 1670.",
+        "artiste": "Γιάκομπ βαν Ρόισνταλ"
+      },
+      "hu": {
+        "titre": "Búzamezők",
+        "texte": "a vászon nagy részét az égnek adja. Néhány apró alak sétál az úton a gabona között, miközben hegynyi felhők vonulnak el felettük. Ruisdael Amszterdamban festette 1670 körül.",
+        "artiste": "Jacob van Ruisdael"
+      },
+      "sr": {
+        "titre": "Žitna polja",
+        "texte": "daju gotovo celo platno nebu. Nekoliko malih figura hoda putem kroz žito dok iznad njih prolaze oblaci veliki kao planine. Rojsdal ih je naslikao u Amsterdamu oko 1670.",
+        "artiste": "Jakob van Rojsdal"
+      },
+      "hr": {
+        "titre": "Žitna polja",
+        "texte": "daju gotovo cijelo platno nebu. Nekoliko malih likova hoda putem kroz žito dok iznad njih prolaze oblaci veliki kao planine. Ruisdael ih je naslikao u Amsterdamu oko 1670.",
+        "artiste": "Jacob van Ruisdael"
+      },
+      "lv": {
+        "titre": "Kviešu lauki",
+        "texte": "gandrīz visu audeklu atvēl debesīm. Pa ceļu starp labību iet dažas sīkas figūras, kamēr virs tām slīd mākoņi kalnu lielumā. Reisdāls tos uzgleznoja Amsterdamā ap 1670. gadu.",
+        "artiste": "Jākobs van Reisdāls"
+      },
+      "ro": {
+        "titre": "Lanuri de grâu",
+        "texte": "dă aproape toată pânza cerului. Câteva siluete mici merg pe drumul dintre lanuri, în timp ce deasupra trec nori mari cât munții. Ruisdael l-a pictat la Amsterdam în jurul anului 1670.",
+        "artiste": "Jacob van Ruisdael"
+      }
+    }
+  ]
+}

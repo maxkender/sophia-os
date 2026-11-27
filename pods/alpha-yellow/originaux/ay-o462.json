@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o462",
+ "type_bleo": "full_test",
+ "titre": "Why every man should learn an instrument, even late #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Why every man should learn an instrument, even late » (retenue), « It's never too late for guitar » (écartée : trop étroit), « Music made me smarter » (écartée : promesse forte).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6703d7b4-0c25-400b-b14f-cf096f247389",
+   "texte_overlay": "Why every man should learn\nan instrument, even late",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652781448931314977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "It trains your brain in a unique way. Reading notes, moving both hands and listening at the same time keeps your mind sharp.",
+   "media_id": "de1712a1-e266-47fa-a5d8-739b963d0a61"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "It gives you something to look forward to. Practising a song after work is far more rewarding than another hour of screens.",
+   "media_id": "de7b571c-5714-448c-a75f-96d9db5c6d57"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "It teaches patience. Progress is slow at first. Learning to enjoy small steps is a skill that helps everywhere in life.",
+   "media_id": "e1140173-d349-4bc2-9606-53440d3e38b8"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "It brings people together. Playing at a gathering or jamming with friends creates memories that last. Music connects.",
+   "media_id": "e1a883fd-174c-409d-ae04-db10e0664fd9"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Learning the story of music makes playing it more meaningful.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Learning the story of music makes playing it more meaningful.",
+   "media_id": "cac28b1a-5be9-4b8f-89f0-c3b3b12174fc"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Start with something simple. Guitar, piano or ukulele. A few lessons and ten minutes a day are enough to progress.",
+   "media_id": "e233ab74-0679-4b14-ab60-89e704b222b6"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Don't wait to be good. Play songs you love from the start. Fun is what keeps you practising. Start with one song you love this week.",
+   "media_id": "e57d7ad4-4f8e-415b-a097-d9fad7ad55c0"
+  }
+ ]
+}

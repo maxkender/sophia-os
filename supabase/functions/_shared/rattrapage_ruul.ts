@@ -97,12 +97,13 @@ export function emailRattrapage(
   const mdpTexte = o.motDePasse
     ? `Your password: ${o.motDePasse}\nDoesn't work? Get a new password: ${l.motDePasse}`
     : `Your password: the one you chose. Forgot it? Get a new password: ${l.motDePasse}`;
+  // 26/11 (Max) : Ruul n'envoie plus d'invitation : le lien personnel d'inscription (API Ruul), par email et sur le dashboard.
   const ruulHtml = s.ruul_active
     ? `Your Ruul account is connected: just make sure your ID and bank account are done, then click<br><br>${bouton(l.pret, "It's done")}`
-    : `Open the invitation email from Ruul (check spam), create your account with <b>${echapper(s.ruul_email ?? "your email")}</b>, verify your ID, add your bank account, then click<br><br>${bouton(l.pret, "It's done")}`;
+    : `Open your personal Ruul link (we send it by email, and it's on your dashboard: « Open my Ruul setup »), create your account with <b>${echapper(s.ruul_email ?? "your email")}</b>, verify your ID, add your bank account, then click<br><br>${bouton(l.pret, "It's done")}`;
   const ruulTexte = s.ruul_active
     ? `Your Ruul account is connected: just make sure your ID and bank account are done, then click It's done: ${l.pret}`
-    : `Open the invitation email from Ruul (check spam), create your account with ${s.ruul_email ?? "your email"}, verify your ID, add your bank account, then click It's done: ${l.pret}`;
+    : `Open your personal Ruul link (we send it by email, and it's on your dashboard: « Open my Ruul setup »), create your account with ${s.ruul_email ?? "your email"}, verify your ID, add your bank account, then click It's done: ${l.pret}`;
   const handle = s.handle ? `@${s.handle}` : "the exact name shown on your dashboard";
 
   const etapes: Etape[] = [

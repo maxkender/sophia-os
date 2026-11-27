@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o493",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "01e32661-43f7-4d7b-be2b-360525ee4963",
+ "titre": "how to turn one café into your second home #cafe #slowliving #coffee #smartgirl #thatgirl",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 4 de la boîte (parent 01e32661, langue source en) : accroche reformulée (« how to turn one café into your second home »), différente de sg-o255 et sg-o462 ; conseils neufs. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a9753848",
+   "texte_overlay": "how to turn one café into\nyour second home",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d087ab4d",
+   "texte_overlay": "pick one close to home",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9d70335f",
+   "texte_overlay": "order the same thing\nfor a month",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "62c1adbb",
+   "texte_overlay": "bring something to learn",
+   "texte_sophia": "bring something to learn: i read short\nlessons on an app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c2eb4904",
+   "texte_overlay": "tip, and say thank you\nby name",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f9a9dcdc",
+   "texte_overlay": "talk to the other regulars",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c6160e0e",
+   "texte_overlay": "go when it's quiet",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f29aa886",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

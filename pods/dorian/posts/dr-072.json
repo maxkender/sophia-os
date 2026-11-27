@@ -1,0 +1,287 @@
+{
+ "id": "dr-072",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696990065343532309",
+  "vues": 1100000,
+  "publie_le": "2026-10-15",
+  "accroche": "Iceberg of ADHD hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of rainy day hobbies",
+  "sv": "Isberget av hobbyer för regniga dagar",
+  "it": "Iceberg degli hobby per i giorni di pioggia"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #rainyday #cozy #selfimprovement",
+  "sv": "#isberg #hobbyer #regnigdag #mysigt",
+  "it": "#iceberg #hobby #pioggia #crescitapersonale"
+ },
+ "musique": {
+  "titre": "A Song of Ice and Fire - Ramin Djawadi",
+  "url": "https://www.tiktok.com/music/original-sound-6723045131219372033"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « rainy day hobbies ». Sophia au 2e étage (icône). Objets de la banque. En, sv, it ; variantes 3, 4, 5.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "rainy day hobbies",
+    "variante": 3
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "regndagshobbyer",
+    "variante": 4
+   },
+   "it": {
+    "haut": "Iceberg degli",
+    "bas": "hobby da giorni di pioggia",
+    "variante": 5
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "tea and rain sounds",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "jigsaw puzzles",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "reading all day",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "knitting",
+       "image": "images/objets/tricot.png"
+      }
+     ],
+     [
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "vinyl records",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "watercolour",
+       "image": "images/objets/palette.png"
+      },
+      {
+       "t": "crosswords",
+       "image": "images/objets/mots-croises.png"
+      }
+     ],
+     [
+      {
+       "t": "writing letters",
+       "image": "images/objets/machine-ecrire.png"
+      },
+      {
+       "t": "model ships",
+       "image": "images/objets/maquette-bateau.png"
+      },
+      {
+       "t": "calligraphy",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "learning piano",
+       "image": "images/objets/piano.png"
+      }
+     ],
+     [
+      {
+       "t": "reading by lamplight",
+       "image": "images/objets/lampe-lune.png"
+      },
+      {
+       "t": "old classics",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "black and white films",
+       "image": "images/objets/tele-vintage.png"
+      }
+     ],
+     [
+      {
+       "t": "writing your novel",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "te och regnljud",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "pussel",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "läsa hela dagen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "sticka",
+       "image": "images/objets/tricot.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia varje dag",
+       "image": "sophia"
+      },
+      {
+       "t": "vinylskivor",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "akvarell",
+       "image": "images/objets/palette.png"
+      },
+      {
+       "t": "korsord",
+       "image": "images/objets/mots-croises.png"
+      }
+     ],
+     [
+      {
+       "t": "skriva brev",
+       "image": "images/objets/machine-ecrire.png"
+      },
+      {
+       "t": "modellskepp",
+       "image": "images/objets/maquette-bateau.png"
+      },
+      {
+       "t": "kalligrafi",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "lära sig piano",
+       "image": "images/objets/piano.png"
+      }
+     ],
+     [
+      {
+       "t": "läsa i lampljus",
+       "image": "images/objets/lampe-lune.png"
+      },
+      {
+       "t": "gamla klassiker",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "svartvita filmer",
+       "image": "images/objets/tele-vintage.png"
+      }
+     ],
+     [
+      {
+       "t": "skriva din roman",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   },
+   "it": {
+    "etages": [
+     [
+      {
+       "t": "tè e pioggia",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "puzzle",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "leggere tutto il giorno",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "lavorare a maglia",
+       "image": "images/objets/tricot.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia ogni giorno",
+       "image": "sophia"
+      },
+      {
+       "t": "vinili",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "acquerello",
+       "image": "images/objets/palette.png"
+      },
+      {
+       "t": "cruciverba",
+       "image": "images/objets/mots-croises.png"
+      }
+     ],
+     [
+      {
+       "t": "scrivere lettere",
+       "image": "images/objets/machine-ecrire.png"
+      },
+      {
+       "t": "modellini di navi",
+       "image": "images/objets/maquette-bateau.png"
+      },
+      {
+       "t": "calligrafia",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "imparare il piano",
+       "image": "images/objets/piano.png"
+      }
+     ],
+     [
+      {
+       "t": "leggere a lume",
+       "image": "images/objets/lampe-lune.png"
+      },
+      {
+       "t": "vecchi classici",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "film in bianco e nero",
+       "image": "images/objets/tele-vintage.png"
+      }
+     ],
+     [
+      {
+       "t": "scrivere un romanzo",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "non sei d'accordo?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

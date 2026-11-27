@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o362",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8831f013-d0fd-4c6b-8d49-09715d9b2cc1",
+ "titre": "les questions d'entretien qui cachent un piège (une ex-rh t'explique) #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Reflection on Peace",
+ "musique_url": "https://www.tiktok.com/music/reflection-on-peace-7449413744872032272",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 27/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Déclinaison G2 de la ligne #2 (parent 8831f013, notre rh-o321) : même promesse, autres mots, autres questions. Inspirations reprises de rh-o321. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bc379b45",
+   "texte_overlay": "les questions d'entretien\nqui cachent un piège\n(une ex-rh t'explique)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b1f5a81b",
+   "texte_overlay": "« qu'est-ce que vous aimez le moins chez vous ? »\nle piège : un défaut énorme.\nla bonne : un vrai, et comment tu le gères",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d79aa296",
+   "texte_overlay": "« vous seriez prête à faire des heures sup ? »\nle piège : « toujours ».\nla bonne : « en période de rush, oui »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d25c551b",
+   "texte_overlay": "« vous êtes curieuse ? »\nle piège : « oui » tout court.\nla bonne : ce que t'as appris le mois dernier",
+   "texte_sophia": "« vous êtes curieuse ? »\nle piège : « oui » tout court.\nla bonne : ce que t'as appris le mois dernier. utilise l'appli Sophia 5 minutes par jour, t'auras ta réponse",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d01cff6f",
+   "texte_overlay": "« vous travaillez mieux seule ? »\nle piège : choisir.\nla bonne : un exemple pour chaque",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9552acc2",
+   "texte_overlay": "« vous avez une dernière chose à dire ? »\nle piège : « non ».\nla bonne : une phrase sur ce que t'apportes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a0501f87",
+   "texte_overlay": "laquelle te piège le plus ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

@@ -179,10 +179,12 @@ export function ecranCompte(handle: string | null, premierPost: string | null, o
     },
   ];
   if (o.ruul) {
+    // 26/11 (Max) : textes seulement. Ruul n'envoie plus d'invitation (lien personnel par email et sur le dashboard),
+    // l'OS voit seul quand c'est prêt (plus de « It's done »), et Ruul peut attendre la première paie.
     etapes.push({
-      quand: "Before Sunday midnight",
+      quand: "Before your first pay",
       titre: "Prepare your Ruul account",
-      texte: "Invitation email from Ruul → verify your ID → add your bank account → click **It's done** on your dashboard.",
+      texte: "Your **personal Ruul link** (by email and on your dashboard) → create your account → verify your ID → add your bank account. You can do it later: it's not required to start.",
     });
   }
   etapes.push({
@@ -563,31 +565,25 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
       attente: ATTENTE_TEXTE_S,
       blocs: [
         {
+          // 26/11 (Max, « cohérent avec Ruul ») : un seul paragraphe sur la paie (avant : « paid every Monday » deux
+          // fois), puis le nouveau parcours Ruul : plus d'invitation de Ruul, le lien personnel (API Ruul) par email,
+          // sur le dashboard et sur la page Join ; l'OS voit seul quand c'est prêt (le bouton « It's done » n'existe
+          // plus avec la lecture de l'API) ; Ruul peut attendre la première paie. Textes seulement.
           type: "p",
           texte:
-            "You are paid **every week** through **Ruul**, our payment partner. **Nothing to submit**: every Monday, we pay you for the week of posts that just ended (Monday → Sunday).",
+            "You are paid **every Monday** through **Ruul**, our payment partner, for the week of posts that just ended (Monday → Sunday). **Nothing to submit.** Because of bank validation, the money usually reaches your account **1 to 2 business days later** (Tuesday or Wednesday). **Ruul fees are paid by Vik Studios**: you receive the full amount, nothing is deducted.",
         },
-        {
-          // 21/11 (Max) : le délai de la validation bancaire de Ruul (ajout de texte seulement).
-          type: "p",
-          texte:
-            "You're paid every Monday for the previous week (Monday to Sunday). Because of bank validation, the money usually reaches your account **1 to 2 business days later** (Tuesday or Wednesday).",
-        },
-        {
-          // 21/11 (Max) : les frais Ruul sont payés par Vik Studios.
-          type: "p",
-          texte: "**Ruul fees are paid by Vik Studios**: you receive the full amount (10 $ sent = 10 $ received).",
-        },
-        { type: "titre", texte: "Before your first Monday" },
+        { type: "titre", texte: "Set up Ruul (you can do it later, before your first pay)" },
         {
           type: "etapes",
           items: [
-            `Within 24 hours you'll receive an **invitation email from Ruul**. Create your account **FROM that email**, with this address: **${emailRuul ?? "the email address you applied with"}**.`,
-            "Verify your **ID** (ID and selfie, about 10 minutes).",
+            "Open your **personal Ruul link**: we send it to you by email, and it's also on your dashboard and on your Join page (button **Open my Ruul setup**).",
+            `Create your account with this address: **${emailRuul ?? "the email address you applied with"}**.`,
+            "Verify your **identity** (ID and selfie, about 10 minutes).",
             "Add your **bank account**.",
-            "Then click **It's done** on your dashboard.",
           ],
         },
+        { type: "p", texte: "That's it: we see on our side when your Ruul account is ready, nothing else to click." },
         {
           type: "alerte",
           ton: "orange",

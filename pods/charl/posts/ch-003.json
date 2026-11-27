@@ -1,0 +1,130 @@
+{
+  "id": "ch-003",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@charl.focus/photo/7710972158259858720",
+    "vues": 115900,
+    "publie_le": "2026-11-22",
+    "accroche": "cómo dejar de ser INSEGURO (según la neurociencia)"
+  },
+  "titre": {
+    "es": "cómo volver a leer (según la neurociencia)"
+  },
+  "legendes": {
+    "es": "#leer #libros #concentracion #habitos #detox"
+  },
+  "musique": {
+    "titre": "son original - yvesnord",
+    "url": "https://www.tiktok.com/music/son-original-7632342268447443734"
+  },
+  "notes": "Full test (jauge du 26/11 : 1 full test, boîte vide) : accroche jamais faite chez nous, dans sa famille « cómo … tu / MOT CLÉ » (son « cómo dejar de ser INSEGURO (según la neurociencia) », 115,9 k, 22/11 ; « cómo arreglar tu DOPAMINA », 362,4 k), sa musique (yvesnord). Faits vérifiés : Maryanne Wolf (UCLA, avant Tufts ; « Reader, Come Home », 2018) raconte qu'en relisant « Le Jeu des perles de verre » de Hesse elle n'arrivait plus à lire lentement, elle survolait ; Delgado, Vargas, Ackerman et Salmerón (2018, Educational Research Review, Universidad de Valencia) : méta-analyse de 54 études, 171 055 participants, meilleure compréhension sur papier que sur écran pour les textes informatifs, l'écart grandit quand on lit vite ; Berns et al. (2013, Brain Connectivity, Emory University) : 21 étudiants lisent un roman sur 9 soirs, connectivité accrue (cortex temporal gauche) encore mesurée 5 jours après la fin. Point 5 : conseils pratiques, sans chiffre. Rien de médical. Slide Sophia (5) : « 4 · empieza por algo corto », LOGO de Sophia en haut de la colonne, jamais une capture ; cta C (« en el metro hago una lección de 10 minutos en Sophia, con un quiz al final »). Images : 16 Seedream neuves (IRM, silhouettes de dos, livres), aucune de ch-001/ch-002 ni de la banque ; irm-lecture (filigrane) et marque-page (ombres fantômes) jetées.",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        { "image": "images/photos/irm-axiale.jpg" },
+        { "image": "images/photos/livre-fenetre-nuit.jpg" },
+        { "image": "images/photos/cerveau-lumiere-bleue.jpg" },
+        { "image": "images/photos/bibliotheque-vide.jpg" },
+        { "image": "images/photos/irm-tete-face.jpg", "cadrage": { "y": 0.2 } },
+        { "image": "images/photos/banc-parc-livre.jpg" }
+      ],
+      "es": {
+        "haut": "cómo volver a",
+        "mot": "LEER",
+        "note": "(según la neurociencia)"
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        { "image": "images/photos/silhouette-telephone-lit.jpg" },
+        { "image": "images/photos/pages-tournees.jpg" }
+      ],
+      "es": {
+        "titre": "no has olvidado leer.",
+        "paragraphes": [
+          "abres un libro, lees dos páginas y te das cuenta de que **no te has enterado de nada**.",
+          "le pasó también a la neurocientífica **maryanne wolf**: volvió a una novela que le encantaba y **no podía leer despacio**. su cerebro saltaba líneas, como en el móvil.",
+          "no lo has perdido. **lo has dejado de entrenar**."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        { "image": "images/photos/livre-papier-table.jpg" },
+        { "image": "images/photos/pile-livres.jpg" }
+      ],
+      "es": {
+        "titre": "el papel gana",
+        "paragraphes": [
+          "en la universidad de valencia juntaron **54 estudios** con más de **170.000 personas**.",
+          "resultado: se entiende mejor **en papel que en pantalla**, sobre todo con textos para aprender y cuando vamos con prisa.",
+          "si quieres concentrarte, **un libro de verdad** y el móvil lejos."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        { "image": "images/photos/reseau-neurones.jpg" },
+        { "image": "images/photos/fauteuil-lampe.jpg" }
+      ],
+      "es": {
+        "titre": "tu cerebro cambia",
+        "paragraphes": [
+          "21 estudiantes de la universidad emory leyeron una novela cada noche durante **nueve días**. cada mañana, les escaneaban el cerebro.",
+          "las conexiones de sus zonas del lenguaje **se reforzaron**, y seguían así **cinco días después** de acabar el libro.",
+          "leer no es solo pasar el rato: **es entrenar tu cerebro**."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "photos": [
+        { "image": "images/photos/metro-lecture.jpg" }
+      ],
+      "es": {
+        "titre": "empieza por algo corto",
+        "paragraphes": [
+          "si llevas meses sin leer, no empieces con 500 páginas. **empieza con 10 minutos**.",
+          "en el metro hago **una lección de 10 minutos en Sophia**, con un quiz al final sobre lo que acabo de leer.",
+          "es corta, **la termino siempre**, y al día siguiente me apetece leer más."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        { "image": "images/photos/lunettes-livre.jpg" },
+        { "image": "images/photos/livre-ouvert-lit.jpg" }
+      ],
+      "es": {
+        "titre": "diez páginas.",
+        "paragraphes": [
+          "cada noche, **diez páginas en papel**. nada más. el móvil se queda **fuera del dormitorio**.",
+          "si el libro no te engancha, **cámbialo sin culpa**. no tienes que acabarlo todo.",
+          "al principio te costará. a la semana, **leerás sin darte cuenta**."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "photos": [
+        { "image": "images/photos/aube-fenetre.jpg" }
+      ],
+      "es": {
+        "titre": "tu cerebro sabe leer.",
+        "paragraphes": [
+          "solo se ha acostumbrado a **leer a saltos**.",
+          "cada página que lees despacio **le devuelve un poco de calma**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo y **abre un libro esta noche**."
+        ]
+      }
+    }
+  ]
+}

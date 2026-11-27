@@ -1,0 +1,1797 @@
+{
+ "id": "sg-046",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 qui font de toi quelqu'un de fiable",
+  "en": "10/10 skills that make you truly reliable",
+  "de": "10/10-Skills, die dich zuverlässig machen",
+  "it": "Abilità 10/10 che ti rendono una persona affidabile",
+  "pt-BR": "Habilidades 10/10 que te tornam alguém confiável",
+  "tr": "Seni güvenilir biri yapan 10/10 beceriler",
+  "ro": "Abilități 10/10 care te fac un om de încredere",
+  "cs": "Dovednosti 10/10, díky kterým se na tebe dá spolehnout",
+  "hu": "10/10 készségek, amiktől megbízható leszel",
+  "el": "Δεξιότητες 10/10 που σε κάνουν άνθρωπο εμπιστοσύνης",
+  "sr": "Veštine 10/10 zbog kojih se na tebe može osloniti"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 qui font de toi quelqu'un de fiable #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills that make you truly reliable #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die dich zuverlässig machen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che ti rendono una persona affidabile #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que te tornam alguém confiável #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Seni güvenilir biri yapan 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 care te fac un om de încredere #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, díky kterým se na tebe dá spolehnout #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10 készségek, amiktől megbízható leszel #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 που σε κάνουν άνθρωπο εμπιστοσύνης #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 zbog kojih se na tebe može osloniti #učinatiktoku #samorazvoj #veštine"
+ },
+ "musique": {
+  "titre": "original sound - Jacob . P",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "Full test du 27/11, « Compétences 10/10 qui font de toi quelqu'un de fiable », en 11 langues, accroche neuve (fiabilité). 5 compétences : devenir discipliné, savoir s'excuser, retenir les prénoms, gérer son temps, inspirer confiance (être ponctuel et écrire un mail pro écartés faute de vidéos natives en tr, ro, cs, el, sr ; tenir ses promesses écarté, vidéos religieuses ou chansons). Vraies vidéos natives par langue, titre natif, miniatures vérifiées (aucun visage hors auteur, aucune appli d'agenda). Sophia en étape 4 sur 7, cta C, « ÊTRE / RÉGULIER ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "QUI FONT DE TOI",
+      "cap": 110
+     },
+     {
+      "t": "QUELQU'UN DE",
+      "cap": 120
+     },
+     {
+      "t": "FIABLE",
+      "couleur": "brun",
+      "cap": 260
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "THAT MAKE YOU",
+      "cap": 120
+     },
+     {
+      "t": "TRULY",
+      "cap": 140
+     },
+     {
+      "t": "RELIABLE",
+      "couleur": "brun",
+      "cap": 230
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "DIE DICH",
+      "cap": 130
+     },
+     {
+      "t": "ZUVERLÄSSIG",
+      "couleur": "brun",
+      "cap": 170
+     },
+     {
+      "t": "MACHEN",
+      "cap": 140
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "CHE TI RENDONO",
+      "cap": 110
+     },
+     {
+      "t": "UNA PERSONA",
+      "cap": 120
+     },
+     {
+      "t": "AFFIDABILE",
+      "couleur": "brun",
+      "cap": 210
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "QUE TE TORNAM",
+      "cap": 110
+     },
+     {
+      "t": "ALGUÉM",
+      "cap": 140
+     },
+     {
+      "t": "CONFIÁVEL",
+      "couleur": "brun",
+      "cap": 230
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "SENİ",
+      "cap": 140
+     },
+     {
+      "t": "GÜVENİLİR",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "BİRİ YAPAN",
+      "cap": 130
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 150
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "CARE TE FAC",
+      "cap": 120
+     },
+     {
+      "t": "UN OM DE",
+      "cap": 130
+     },
+     {
+      "t": "ÎNCREDERE",
+      "couleur": "brun",
+      "cap": 210
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "DÍKY KTERÝM SE",
+      "cap": 110
+     },
+     {
+      "t": "NA TEBE DÁ",
+      "cap": 120
+     },
+     {
+      "t": "SPOLEHNOUT",
+      "couleur": "brun",
+      "cap": 190
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "AMIKTŐL",
+      "cap": 130
+     },
+     {
+      "t": "MEGBÍZHATÓ",
+      "couleur": "brun",
+      "cap": 180
+     },
+     {
+      "t": "LESZEL",
+      "cap": 150
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "ΠΟΥ ΣΕ ΚΑΝΟΥΝ",
+      "cap": 110
+     },
+     {
+      "t": "ΑΝΘΡΩΠΟ",
+      "cap": 130
+     },
+     {
+      "t": "ΕΜΠΙΣΤΟΣΥΝΗΣ",
+      "couleur": "brun",
+      "cap": 170
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "ZBOG KOJIH SE",
+      "cap": 110
+     },
+     {
+      "t": "NA TEBE MOŽE",
+      "cap": 120
+     },
+     {
+      "t": "OSLONITI",
+      "couleur": "brun",
+      "cap": 220
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "DEVENIR",
+     [
+      {
+       "t": "DISCIPLINÉ",
+       "couleur": "#d9433a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "H7TFDnJiWGA",
+     "titre": "Être discipliné deviendra facile après ça",
+     "chaine": "Julien Kim",
+     "vues": "47 k vues",
+     "date": "il y a 1 an",
+     "duree": "16:42",
+     "avatar": "https://yt3.ggpht.com/Wynl9c1u6Bm77Bb8AoDJJ-bke7AGxeFCTzqlJpyWHUKy2C90RWT1XUv-CpvGFfv8NqTsBalU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BECOME",
+     [
+      {
+       "t": "DISCIPLINED",
+       "couleur": "#d9433a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nCjUj0-zLC8",
+     "titre": "how to actually become disciplined in 9 minutes",
+     "chaine": "StickFigure Explains",
+     "vues": "1.6M views",
+     "date": "2 years ago",
+     "duree": "8:52",
+     "avatar": "https://yt3.ggpht.com/W61mRDLZM2h36sqricDoI6n76cOHx7vgdS-bKDiiERvqIm6LN6Ns3E_BDlTSEnNZGg4PNpZMRA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DISZIPLIN",
+     [
+      {
+       "t": "AUFBAUEN",
+       "couleur": "#d9433a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IbsLRYYEvrk",
+     "titre": "so wirst du ENDLICH diszipliniert - mit kleinen Änderungen!",
+     "chaine": "Sladi",
+     "vues": "5677 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "11:54",
+     "avatar": "https://yt3.ggpht.com/BmNPMPt_2bJqidcsnPXgPFdTX8B-ZPBKaWCSnVLIu8bgXwLWep3lupX_1J0XkCayQohKDO_V6g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "DIVENTARE",
+     [
+      {
+       "t": "DISCIPLINATO",
+       "couleur": "#d9433a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HdFWjAkxg2A",
+     "titre": "Come diventare persone disciplinate.",
+     "chaine": "Virginia Gambardella",
+     "vues": "48K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "11:51",
+     "avatar": "https://yt3.ggpht.com/oNYRQ_4LB2laCNuenGalK2dKDN0ZR2Kmd5iVGAK2Z5j6DqCpWNKSaV9GzjnNWh3uLU5713WJOA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TER",
+     [
+      {
+       "t": "DISCIPLINA",
+       "couleur": "#d9433a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tM7HRfQFH8k",
+     "titre": "Como Se Tornar DISCIPLINADO em apenas 30 Dias - Guia Completo Sem enrolação",
+     "chaine": "Jotzz",
+     "vues": "74 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "8:58",
+     "avatar": "https://yt3.ggpht.com/6Z5llrlJauRIo5YlugdYzTrAe-1FC2a8aTbRAG9x3pMk7EHysggEYVUZhNVS_-LwbN8y1_JEF6E=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DİSİPLİNLİ",
+     [
+      {
+       "t": "OLMAK",
+       "couleur": "#d9433a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "O46mKTiS6ak",
+     "titre": "Nasıl Disiplinli Biri Oldum? (disiplin için kullandığım yöntemler)",
+     "chaine": "Furkan Gönenç",
+     "vues": "124 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "6:33",
+     "avatar": "https://yt3.ggpht.com/rL08Kf3228uH0Z2Ni2ThJBIty5FpL1NvWltHs2yWJrPPOzsX1cglYD_Y-eQRQtFz91rOFkKB=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ DEVII",
+     [
+      {
+       "t": "DISCIPLINAT",
+       "couleur": "#d9433a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "A1XZ4POSahs",
+     "titre": "Cum Devii Disciplinat?  5 Reguli Practice | Dezvoltare Personala #1",
+     "chaine": "Cunostinte Practice",
+     "vues": "13 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "10:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lKxcbRZ1IKsy40PijUskixfGLOUzUXGG_HCS-I2QFRuw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZÍSKAT",
+     [
+      {
+       "t": "SEBEDISCIPLÍNU",
+       "couleur": "#d9433a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Bpf0VtglYh4",
+     "titre": "Jak Posílit Sebedisciplínu: 10 Praktických Rad od Stoiků",
+     "chaine": "Cesta k sobě",
+     "vues": "12 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "7:24",
+     "avatar": "https://yt3.ggpht.com/4OYcq32xCO1MTcMLt1m7VCVLXDWjR_xngtq78oWPmqVbd0vVxhT3fcyIFY_M3E05K8SoJ1MS1Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ÖNFEGYELMET",
+     [
+      {
+       "t": "TANULNI",
+       "couleur": "#d9433a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UXsGxC5y9go",
+     "titre": "Az ÖNFEGYELEM elsajátításának 15 lépése",
+     "chaine": "ÖTTŐL TÍZIG- Siker, Motiváció, Pszichológia, Tudás",
+     "vues": "47 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "16:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lzNX7oHeHXD7a93YJ67GpcldiiAh5KX9p_vR-xY5BIMQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΑΠΟΚΤΗΣΕΙΣ",
+     [
+      {
+       "t": "ΑΥΤΟΠΕΙΘΑΡΧΙΑ",
+       "couleur": "#d9433a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "P6AGQRCzdLo",
+     "titre": "Τα πρώτα βήματα για αυτοπειθαρχία",
+     "chaine": "Konstantinos Charantiniotis",
+     "vues": "22 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "4:18",
+     "avatar": "https://yt3.ggpht.com/DMNY5eyMvzLm8CbEqov1y4qf8lJzBPHd20qKnZwKLVuYRLlohsV7myIeHSEPgkDBCS1azhRH=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "POSTATI",
+     [
+      {
+       "t": "DISCIPLINOVAN",
+       "couleur": "#d9433a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jztHesE23Nk",
+     "titre": "Nedostaje ti disciplina? Ovi trikovi će ti pomoći odmah!",
+     "chaine": "Ivona Boca",
+     "vues": "3,9 hilj. pregleda",
+     "date": "pre 1 godinu",
+     "duree": "14:43",
+     "avatar": "https://yt3.ggpht.com/JkcUGLBL05SErL4Uho77C9MebqRWL3mMhkk1vKLX8x-qAV_gQFD-j35jEkfNjaEFE95VUhS9=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "SAVOIR",
+     [
+      {
+       "t": "S'EXCUSER",
+       "couleur": "#e8a33d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GVfSVv0eDfA",
+     "titre": "Comment s'excuser de manière efficace en 6 étapes !",
+     "chaine": "Nina Luka",
+     "vues": "122 k vues",
+     "date": "il y a 8 ans",
+     "duree": "7:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lRtws-hrKEMmNPP5UGw14AYk4Ew_Uv9oXAXwcfoZXnWj0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "APOLOGIZE",
+     [
+      {
+       "t": "THE RIGHT WAY",
+       "couleur": "#e8a33d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "z3H_GgtE3Tc",
+     "titre": "How to Apologize",
+     "chaine": "watchwellcast",
+     "vues": "1.1M views",
+     "date": "13 years ago",
+     "duree": "5:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kWOo2ZIG4u6h4gIm-TKpmyfXoKquZlA3NwrlyKNK0eqd4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SICH RICHTIG",
+     [
+      {
+       "t": "ENTSCHULDIGEN",
+       "couleur": "#e8a33d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8iK44j-ubyU",
+     "titre": "5 Schritte einer effektiven Entschuldigung",
+     "chaine": "braintoons",
+     "vues": "15.190 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "3:10",
+     "avatar": "https://yt3.ggpht.com/IAz26mojBLjLj2KJwVJGVHfHKE9FUROnk7dxI7tGqsju9TIC2Z6hJoPlSOVKjHuWhjUmTz18xg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SAPER",
+     [
+      {
+       "t": "CHIEDERE SCUSA",
+       "couleur": "#e8a33d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ziX0M6Ww1lU",
+     "titre": "Come Fare delle Scuse Efficaci: Elementi Chiave per Rimediare ai Tuoi Errori",
+     "chaine": "Dr. Giacobbi Psicoterapeuta di Coppia e Sessuologo",
+     "vues": "2,1K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "8:42",
+     "avatar": "https://yt3.ggpht.com/kTf7uLZ1bw3cKROBgcMvvm40E90oe2J9TBTlLHZylSJ93R37LHhSbAP0gXgAMhXawcrCytSLcw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "SABER",
+     [
+      {
+       "t": "PEDIR DESCULPAS",
+       "couleur": "#e8a33d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EonP9P1n0TY",
+     "titre": "COMO PEDIR DESCULPAS",
+     "chaine": "Margareth Signorelli",
+     "vues": "113 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "2:56",
+     "avatar": "https://yt3.ggpht.com/GqjbqZX5KMKNq0DGJj2-QAhUC9iebHBXOKjWMWrMCuO1s9-txfTuS82uJA4xpzKL73jDhTnixOo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DOĞRU",
+     [
+      {
+       "t": "ÖZÜR DİLEMEK",
+       "couleur": "#e8a33d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "f1COBo3udv0",
+     "titre": "SAMİMİ ÖZÜR DİLEMENİN 10 YOLU",
+     "chaine": "Serhat Yabancı",
+     "vues": "31 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "8:35",
+     "avatar": "https://yt3.ggpht.com/h3gHP9Z0BSX_AQM-p4t7fNUWhArgcHpzI_dFDLWTGtJUtJ0htFwfatlPy227WFX0bU8P1GMAwQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ȘTII SĂ",
+     [
+      {
+       "t": "ÎȚI CERI SCUZE",
+       "couleur": "#e8a33d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "waVfn87LemY",
+     "titre": "Nu este greu să-ți ceri scuze când greșești",
+     "chaine": "nwradu",
+     "vues": "2,4 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/WizpyeA-dN9gmhEuFfZmgcF6oFluDQHOqayPWTt9xWIArcyrqDFxMrD2eA1QmHNLd1K7Ac5T=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UMĚT SE",
+     [
+      {
+       "t": "OMLUVIT",
+       "couleur": "#e8a33d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DBLyhLHTUXo",
+     "titre": "UMÍTE SE OPRAVDU OMLUVIT nebo je to jen naučená fráze?",
+     "chaine": "Oáza Vědomí",
+     "vues": "38 zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "2:25",
+     "avatar": "https://yt3.ggpht.com/614Ehk76GE5JQnY6-BOuj69KsjJmQsOHwCMTjGneIqrp_6scFxdD0QefzuKwNz9eThC-Scr3CQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "JÓL",
+     [
+      {
+       "t": "BOCSÁNATOT KÉRNI",
+       "couleur": "#e8a33d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6wfuZLxmZA4",
+     "titre": "Rosszul kérsz bocsánatot!",
+     "chaine": "Tanulom Magam",
+     "vues": "47 E megtekintés",
+     "date": "8 hónappal ezelőtt",
+     "duree": "16:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mk4-sIgdbmYJ9OxCU5-01xr8j-pdnrKsVK50fEZAft5w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΖΗΤΑΣ",
+     [
+      {
+       "t": "ΣΥΓΓΝΩΜΗ",
+       "couleur": "#e8a33d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vuRpURt5JYM",
+     "titre": "6 tips για το πώς να ζητάς συγνώμη και να βελτιώσεις τις σχέσεις σου! - Δρ Νάνσυ Μαλλέρου",
+     "chaine": "Nancy Mallerou",
+     "vues": "10 χιλ. προβολές",
+     "date": "πριν από 10 έτη",
+     "duree": "3:37",
+     "avatar": "https://yt3.ggpht.com/RbL6nTjs5IlQOazNE7Ga13YIdqe82vf9AtIxGrvsfZ-2Am98S6HiJX6R0r_62_eTRJ5_CTvn1g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "ZNATI DA SE",
+     [
+      {
+       "t": "IZVINIŠ",
+       "couleur": "#e8a33d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tx-PideSONI",
+     "titre": "Koje su najprimenjivije reči kojima se možemo izviniti nekome?",
+     "chaine": "Boris Teodosijević",
+     "vues": "3,1 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "1:14",
+     "avatar": "https://yt3.ggpht.com/ai0iqA8A5K8p6K9miRSy2pdFQZEHeCDsPY96078M7RcDrQ2QoiTpLuSGPRfLPXVa1bNWOL6Z=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RETENIR",
+     [
+      {
+       "t": "LES PRÉNOMS",
+       "couleur": "#4a7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Jb_NrXYTex4",
+     "titre": "Comment retenir les prénoms (Devenez plus intelligent #8)",
+     "chaine": "Potion de vie",
+     "vues": "2,4 k vues",
+     "date": "il y a 12 ans",
+     "duree": "1:42",
+     "avatar": "https://yt3.ggpht.com/oPrmxkiJmLHPnGHUkxkmxzIsRafICCEzdhcHcflATzZVBNkpW1Bm7L3ubg0d4WHROLKY4hjXfxw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "REMEMBER",
+     [
+      {
+       "t": "NAMES",
+       "couleur": "#4a7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xPi6TD1BzWs",
+     "titre": "How to Remember Anyone's Name",
+     "chaine": "Vanessa Van Edwards",
+     "vues": "41K views",
+     "date": "7 years ago",
+     "duree": "5:22",
+     "avatar": "https://yt3.ggpht.com/UibvtC7PDQITwvPfJScV5kZrs9kLsblugpVrn0O8OfGBDdJ4OHOuOj_g3dGKGgtSQt6BpDvm3Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SICH NAMEN",
+     [
+      {
+       "t": "MERKEN",
+       "couleur": "#4a7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "v7QalIu4bo4",
+     "titre": "Wie du dir jeden Namen merken kannst, mit dieser einfachen Technik",
+     "chaine": "SCHNELLER LERNEN mit Florian Wurm",
+     "vues": "1016 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "3:05",
+     "avatar": "https://yt3.ggpht.com/c79kN0hxFkAcIzjKTMe2puFMyKdeJCRAfhh8ylTxrVoYNXIRJuI3rBEYoT1kGfZgZWoWippzhQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RICORDARE",
+     [
+      {
+       "t": "I NOMI",
+       "couleur": "#4a7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nbUJEBp0JnE",
+     "titre": "Come RICORDARE i NOMI delle persone",
+     "chaine": "Andrea Muzii",
+     "vues": "18K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "9:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyQzE5qg9qAwCsMsdr_rauz5jXgX19RfpBlqJ4QKri5n4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "LEMBRAR",
+     [
+      {
+       "t": "NOMES",
+       "couleur": "#4a7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Eh98NeB3Gek",
+     "titre": "Como Lembrar Nomes e Rostos | Não Passe mais Vergonha",
+     "chaine": "Renato Alves Memorização",
+     "vues": "12 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "7:32",
+     "avatar": "https://yt3.ggpht.com/YMt7kHoEllBVJFS8a2gBbW0N1MPlaigbjDIqTtDzVmYWxgBHhutw0QChaY9YgKRRU9jWMlL3vA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "İSİMLERİ",
+     [
+      {
+       "t": "HATIRLAMAK",
+       "couleur": "#4a7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nXWM2Hmo8uI",
+     "titre": "3 Dakikada İsim Hatırlama Teknikleri",
+     "chaine": "İLETIKOM",
+     "vues": "3,2 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "3:26",
+     "avatar": "https://yt3.ggpht.com/sKJx62XidrWrZZySBNsmo2QQz59EN1pJE0R9C8UuIKL38lN4VRwLf0ZSfaA9olA3kYEO32AjfQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ REȚII",
+     [
+      {
+       "t": "NUMELE",
+       "couleur": "#4a7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rDJtWeUX8yY",
+     "titre": "3 Minute pentru Minte - Ziua 5 - Memoram nume",
+     "chaine": "Ina Ilie",
+     "vues": "1,3 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "4:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mrw05k8WSpIqrHSmGt_dJm6_4tJRe8Ht3Ub-dZLmDrd74=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PAMATOVAT SI",
+     [
+      {
+       "t": "JMÉNA",
+       "couleur": "#4a7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "z-djsnggw6Y",
+     "titre": "Jak si pamatovat jména a obličeje",
+     "chaine": "Škola paměti Jakuba Poka",
+     "vues": "5,9 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "7:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k588OzlOvgCOWsRuUeV9G15ekxomhQtOsj7ZWXUWj8y7A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "NEVEKET",
+     [
+      {
+       "t": "MEGJEGYEZNI",
+       "couleur": "#4a7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OhCZHknip5E",
+     "titre": "Nagy Krisztina: Személyes Márka Gyorstipp 1. Nevek és arcok megjegyzése",
+     "chaine": "KickassKriszta",
+     "vues": "688 megtekintés",
+     "date": "12 évvel ezelőtt",
+     "duree": "4:11",
+     "avatar": "https://yt3.ggpht.com/SaRHPSo82whCJpiwMjva-gYsIAJRoYknsddDym2B8PgXwQvySwWnZLZ-x5zEXzvEVNiFMRZIgA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΘΥΜΑΣΑΙ",
+     [
+      {
+       "t": "ΟΝΟΜΑΤΑ",
+       "couleur": "#4a7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FekjVh-ZRe4",
+     "titre": "3 Ιδέες για να μην Ξεχάσεις Ποτέ το Όνομα Κάποιου: Βελτίωσε Άμεσα τις Κοινωνικές σου Δεξιότητες",
+     "chaine": "Theodoros Arampatzis Greek Coach",
+     "vues": "302 προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "5:40",
+     "avatar": "https://yt3.ggpht.com/3tCJRRXBbBHwoVNqIHI4OZNkhbAhME0vzm29mITUvS51h6q6nl_FX163DU4bGsDiXxvbYo23gg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "PAMTITI",
+     [
+      {
+       "t": "IMENA",
+       "couleur": "#4a7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RCFBqefep88",
+     "titre": "Pamtim 30 imena za 20 minuta (tehnike pamcenje + asocijacije)",
+     "chaine": "Jovana Miljkovic",
+     "vues": "1 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "27:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kGifdOfl9HqTICEk5Em2ZjjJ9xcjFabbDF2UCuB14WOR8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "ÊTRE",
+     [
+      {
+       "t": "RÉGULIER",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BE",
+     [
+      {
+       "t": "CONSISTENT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "JEDEN TAG",
+     [
+      {
+       "t": "DRANBLEIBEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ESSERE",
+     [
+      {
+       "t": "COSTANTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "SER",
+     [
+      {
+       "t": "CONSTANTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "İSTİKRARLI",
+     [
+      {
+       "t": "OLMAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FII",
+     [
+      {
+       "t": "CONSECVENT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "VYDRŽET",
+     [
+      {
+       "t": "KAŽDÝ DEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "KITARTÓNAK",
+     [
+      {
+       "t": "LENNI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΕΙΣΑΙ",
+     [
+      {
+       "t": "ΣΥΝΕΠΗΣ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "αυτό ανοίγω",
+      "αντί να σκρολάρω."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "BITI",
+     [
+      {
+       "t": "DOSLEDAN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ovo otvaram",
+      "umesto skrolovanja."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "GÉRER",
+     [
+      {
+       "t": "SON TEMPS",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BuzxfwIlqYw",
+     "titre": "Gestion du temps et des priorités au travail : 3 étapes",
+     "chaine": "Julien Godefroy [Réussir Son Management]",
+     "vues": "21 k vues",
+     "date": "il y a 5 ans",
+     "duree": "16:14",
+     "avatar": "https://yt3.ggpht.com/-WWyPiuO-KGDHiG-gHJpre-vb5QSP2bao_dIeKtY6Uo_ydgCYYuPD9lN2jrVffhNc6tM-h_lcVQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MANAGE",
+     [
+      {
+       "t": "YOUR TIME",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iDbdXTMnOmE",
+     "titre": "How to manage your time more effectively (according to machines) - Brian Christian",
+     "chaine": "TED-Ed",
+     "vues": "7.9M views",
+     "date": "8 years ago",
+     "duree": "5:10",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DEINE ZEIT",
+     [
+      {
+       "t": "EINTEILEN",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ybspTTfyw8M",
+     "titre": "10 Techniken für ein besseres Zeitmanagement",
+     "chaine": "Tobias Jost",
+     "vues": "63.235 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "10:10",
+     "avatar": "https://yt3.ggpht.com/bjCdgpe_LEeFRwXgjk_Y9rWGhiwK7VM9CC-iAOkbOnqqO8MikELFmfHB8P1Vyws-KLgWt-MWLA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "GESTIRE",
+     [
+      {
+       "t": "IL TEMPO",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-Y9GJhnw5mo",
+     "titre": "Tre consigli pratici per gestire al meglio il tuo tempo | Filippo Ongaro",
+     "chaine": "Dr. Filippo Ongaro",
+     "vues": "35K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "7:08",
+     "avatar": "https://yt3.ggpht.com/h6rUuIJy2Gq35UIFROwcxOtvJOCfAz8aCu2NCOgBpXes4U8lY1NHWYQGshWQtMBFisMSNKkP=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "GERENCIAR",
+     [
+      {
+       "t": "SEU TEMPO",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PzUZsoyMXuY",
+     "titre": "Gestão de tempo e planejamento",
+     "chaine": "Gabriela Affonso",
+     "vues": "937 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "13:30",
+     "avatar": "https://yt3.ggpht.com/VAGYYfpqzCkK4XpDK5hxeXF6j2avmLDEt1DQq1crCE_FsG4qBW0atILMpKq2FGbmHGarejbtjg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ZAMANINI",
+     [
+      {
+       "t": "YÖNETMEK",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LDwciFMyuS0",
+     "titre": "10 Tane Zaman Yönetimi Taktiği (gayet iyiler)",
+     "chaine": "Baraneemo",
+     "vues": "351 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "12:01",
+     "avatar": "https://yt3.ggpht.com/r9g4Dmmovuf6grAbeRBleqnbmpERRHj_eUhEc1djR30wRHOy8XeOHhXBRgr4iweHLIk5cvHVn7M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI GESTIONEZI",
+     [
+      {
+       "t": "TIMPUL",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JtNngo-Jxy0",
+     "titre": "Managementul Timpului: Strategii Pentru a fi mai Productiv! | Dezvoltare Personala",
+     "chaine": "Cască Ochii",
+     "vues": "955 vizionări",
+     "date": "acum 7 ani",
+     "duree": "5:57",
+     "avatar": "https://yt3.ggpht.com/Cdo6CvSD16wv7bC82i0mkKo7l2rqxwEI3xrFWnEs1Y6NHv7DJEZ0WJGUGHce8p1lxkHVECJv8w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "HOSPODAŘIT",
+     [
+      {
+       "t": "S ČASEM",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "a1mrrLPyOu8",
+     "titre": "3 zásadní TIME MANAGEMENT tipy! Aneb Jak získat více času",
+     "chaine": "Jan Kohut",
+     "vues": "4,4 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "12:26",
+     "avatar": "https://yt3.ggpht.com/s37LISB_ONA5BvXFfmkS-1UfHFptnsig3pqT9Cq_TlAtT8QaGNILfxtS_KNxauBsxRoaSQu65tA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "BEOSZTANI",
+     [
+      {
+       "t": "AZ IDŐDET",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AoAj6Zx56Cg",
+     "titre": "Így oszd be az idődet | Viszkok Fruzsi",
+     "chaine": "Viszkok Fruzsi",
+     "vues": "131 E megtekintés",
+     "date": "10 évvel ezelőtt",
+     "duree": "7:23",
+     "avatar": "https://yt3.ggpht.com/4zwSkmo60poyAWOvzQaVWIBMExdVTsH26NA09EVGN2v-EHQVBM2d6xJLaZ0pQmqeFyx1CdNH6w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΔΙΑΧΕΙΡΙΖΕΣΑΙ",
+     [
+      {
+       "t": "ΤΟΝ ΧΡΟΝΟ",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SH1pjiq8LJ0",
+     "titre": "Διαχείριση χρόνου - Ενήλικες με ΔΕΠΥ  ( χρήσιμα tips)",
+     "chaine": "Τριανταφυλλιά Γαροφαλάκη",
+     "vues": "11 χιλ. προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "11:30",
+     "avatar": "https://yt3.ggpht.com/lCAdOtyOEtDiQ9C8j4kpOABR8xiFVvBC4aGWkIuXAVcW78-Kd21FbkLIMXM-PC_RuIVwo3xHDg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "UPRAVLJATI",
+     [
+      {
+       "t": "VREMENOM",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EKlvoOR8OHo",
+     "titre": "Kako najbolje organizovati i isplanirati svoje vreme? | Napredni nivo organizacije i produktivnosti",
+     "chaine": "Zmajska jutra za bolje sutra | Zmaj Milicevic",
+     "vues": "7,1 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "8:58",
+     "avatar": "https://yt3.ggpht.com/DC9NTVOHX7kmvy3eze2GQorh-Wy6GjvwPMOuoCcx0YlpwpC5S4UGvtqYbbXAo8RBAvhTtgYW=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "INSPIRER",
+     [
+      {
+       "t": "CONFIANCE",
+       "couleur": "#2f9e8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BHnx8953FRw",
+     "titre": "Comment être CREDIBLE et inspirer CONFIANCE : le Pouvoir de l'ETHOS 🤝",
+     "chaine": "Aguere - Parole et Rhétorique",
+     "vues": "1,4 k vues",
+     "date": "il y a 5 ans",
+     "duree": "8:37",
+     "avatar": "https://yt3.ggpht.com/yi5CMBInCc3jIEOEio6bBC_95CRVA3sSRGjb5eIIrSP-sr4XuA74NA3iePCmPKTrs9kx0QAjyg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BUILD",
+     [
+      {
+       "t": "TRUST",
+       "couleur": "#2f9e8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "abEFDuumakM",
+     "titre": "3 Steps for INSTANTLY Being More Trustworthy",
+     "chaine": "The Josh Speaks",
+     "vues": "7.4K views",
+     "date": "9 years ago",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mezP83Cod2yQSM-SYPW81jy75PD_6Do0Mib5eNFoZwUhY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "VERTRAUEN",
+     [
+      {
+       "t": "AUFBAUEN",
+       "couleur": "#2f9e8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uyLiwAuQit0",
+     "titre": "Die Vertrauensformel: Vertrauen aufbauen im Beruf",
+     "chaine": "Ingrid und Peter Gerstbach",
+     "vues": "1038 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "9:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kYAAkbDw4TXKmVnpKg3DVjGin7nhADq9JMqQYVv_d37DE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ISPIRARE",
+     [
+      {
+       "t": "FIDUCIA",
+       "couleur": "#2f9e8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xmvM2VDyMy8",
+     "titre": "Come ispirare fiducia in chi ti ascolta",
+     "chaine": "Chiara Alzati - Public Speaking",
+     "vues": "536 visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "4:32",
+     "avatar": "https://yt3.ggpht.com/OgOTEygbSIj0LvHXFyIzFnS0dszlzfonevMvEZXMVJMaPdPegdggCAJZ12yVSzUoDM1O7pRyhw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TRANSMITIR",
+     [
+      {
+       "t": "CONFIANÇA",
+       "couleur": "#2f9e8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JBp1-OyFjh8",
+     "titre": "Como Transmitir Confiança com Linguagem Corporal (Metaforando)",
+     "chaine": "Metaforando",
+     "vues": "1,1 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "14:21",
+     "avatar": "https://yt3.ggpht.com/uI1P-w-eK6bsq07E8A_w3e5oXc0gruzQ3sGM5hLJK1HYr2e6CgwSmdG-A6TMYOkTnE3cUyezEmg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "GÜVEN",
+     [
+      {
+       "t": "VERMEK",
+       "couleur": "#2f9e8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AaXir_lbVec",
+     "titre": "KARŞINDAKİNE NASIL GÜVEN VERİRSİN?",
+     "chaine": "İnce İşler",
+     "vues": "112 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/VJUgW6OENH09AZX1PY856WJYrmJHjz0-fRMs0DFxpZejBaukHlxPlAWdQZq354WTDOG1WnftOg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ INSPIRI",
+     [
+      {
+       "t": "ÎNCREDERE",
+       "couleur": "#2f9e8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3OOMxyFyCYU",
+     "titre": "5 Minute pentru o minte sănătoasă - Încrederea în relațiile cu ceilalți",
+     "chaine": "Mind Education",
+     "vues": "965 vizionări",
+     "date": "acum 6 ani",
+     "duree": "5:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n8jP_HTbUUkgwH4am6X1ConiRgm916UkrahOkhXSVofA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "BUDOVAT",
+     [
+      {
+       "t": "DŮVĚRU",
+       "couleur": "#2f9e8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qaRniatC4Gw",
+     "titre": "Ztráta důvěry ve vztahu | Jak ji znovu vybudovat a neztratit",
+     "chaine": "Karel Chába - Partnerské vztahy",
+     "vues": "2,4 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "9:26",
+     "avatar": "https://yt3.ggpht.com/rKZDmIfQ3XkAnJpLwiZsIEb5RtBOYHUncNCTPyu79Ik4gHZTjbOWJ2MwuAIXiyYRL2EDxrKy=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "BIZALMAT",
+     [
+      {
+       "t": "ÉPÍTENI",
+       "couleur": "#2f9e8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AxE5K1JcqKY",
+     "titre": "Bizalomépítés a párkapcsolatban #bizalom #bizalomhiány #lifecoachbudapest",
+     "chaine": "Hollenda Zsolt önbizalom tréner, coach",
+     "vues": "1,1 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "5:09",
+     "avatar": "https://yt3.ggpht.com/QipaP-ELmP9GKpo3sAO-gF4yxuTpvZzVisjhQb2JpM7yM7uLjj4KTZXKEuGFMGRrJ51mJXEWnbM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΕΜΠΝΕΕΙΣ",
+     [
+      {
+       "t": "ΕΜΠΙΣΤΟΣΥΝΗ",
+       "couleur": "#2f9e8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CLbXV5JrazU",
+     "titre": "Το Νο1 μυστικό για να εμπνέεις εμπιστοσύνη ως ομιλητής | Νίνα Καλούτσα",
+     "chaine": "Nina Kaloutsa - VOICE. PUBLIC SPEAKING. PRESENCE.",
+     "vues": "5,3 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "4:48",
+     "avatar": "https://yt3.ggpht.com/KOXn-EzywU8PzoMq488A8WyrcpXpMS4pfr_vARxHlY1Ds20DEElkgzWOVwNJD-a2o0X6iOxW3g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "GRADITI",
+     [
+      {
+       "t": "POVERENJE",
+       "couleur": "#2f9e8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NdrUqUsogV4",
+     "titre": "Kako izgraditi poverenje",
+     "chaine": "Boris Teodosijević",
+     "vues": "5,9 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "21:05",
+     "avatar": "https://yt3.ggpht.com/ai0iqA8A5K8p6K9miRSy2pdFQZEHeCDsPY96078M7RcDrQ2QoiTpLuSGPRfLPXVa1bNWOL6Z=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   }
+  }
+ ]
+}

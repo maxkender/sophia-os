@@ -1,4 +1,5 @@
-import { langueTraduite } from "./traduction_email.ts";
+import { langueTraduite, proteger, restaurer } from "./traduction_email.ts";
+import { rendreEmailRuul } from "./ruul.ts";
 import { assert, assertEquals, assertMatch } from "jsr:@std/assert@1";
 
 import {
@@ -19,9 +20,13 @@ import {
   type EtatChecklist,
   etatChecklist,
   type EtatOS,
+  etapesRuul,
+  identiteEnAttente,
+  premierePaie,
   lireJoinReel,
   raisonSimulation,
   rappelsDus,
+  separerDoublons,
   signatureVendrediDue,
   texteRappel,
   typeWhatsappRappel,
@@ -34,8 +39,8 @@ import {
   etatCode,
   genererCode,
   genererJeton,
-  handlePropose,
   jourParis,
+  LIEN_DASHBOARD_OS,
   LIEN_SLACK,
   lireAutoAcceptation,
   VIDEO_GUIDE_URL,
@@ -47,6 +52,7 @@ import {
   normaliserWhatsapp,
   paysEtPaie,
   premierPost,
+  profilTiktokOS,
   relanceCodeDue,
   reponsesOS,
   sha256Hex,
@@ -56,6 +62,7 @@ import {
   TYPES_MESSAGE_JOIN,
   validerCandidature,
   versCandidatureRuul,
+  whatsappsBienvenue,
 } from "./join.ts";
 
 const saisie = {
@@ -184,12 +191,27 @@ Deno.test("codes : 6 chiffres, 5 essais, 15 minutes", async () => {
   assertMatch(genererJeton(), /^[A-Za-z0-9_-]{43}$/);
 });
 
-Deno.test("handle : prénom + mot + 3 chiffres, minuscules", () => {
-  assertEquals(handlePropose("Léa-Marie", () => 0), "leamarie.daily000");
-  assertMatch(handlePropose("Zoë"), /^zoe\.[a-z]+\d{3}$/);
-  assertEquals(handlePropose("李", () => 0.5), "creator.mind500");
+Deno.test("handle saisi : « @ » retiré, minuscules, caractères de TikTok", () => {
   assertEquals(nettoyerHandle("@Lea.Reads_01"), "lea.reads_01");
   assertEquals(nettoyerHandle("a b"), null);
+});
+
+Deno.test("profil TikTok : SEULEMENT celui du compte de l'OS, jamais inventé (26/11)", () => {
+  // Pas de compte de l'OS : tout est null, pas prêt (aucun prénom, aucune bio par défaut).
+  const vide = { pret: false, handle: null, nom: null, bio: null, photo_url: null };
+  assertEquals(profilTiktokOS(null), vide);
+  assertEquals(profilTiktokOS([]), vide);
+  // Un compte sans pseudo : pas prêt, rien n'est montré.
+  assertEquals(profilTiktokOS([{ handle_tiktok: " ", persona_nom: "Léa", persona_bio: "x", avatar_url: "https://a/b.jpg" }]), vide);
+  // Le compte perso le plus ancien (comme join_etat_os et le dashboard de l'OS), valeurs telles quelles.
+  const p = profilTiktokOS([
+    { handle_tiktok: "cm.compte", persona_nom: "CM", persona_bio: "cm", avatar_url: null, type_compte: "cm", created_at: "2026-11-01" },
+    { handle_tiktok: "@lea.recent", persona_nom: "Récent", persona_bio: "r", avatar_url: null, type_compte: "perso", created_at: "2026-11-20" },
+    { handle_tiktok: "@Lea.Study", persona_nom: " Léa M ", persona_bio: "Books & coffee", avatar_url: "https://x/a.jpg", type_compte: null, created_at: "2026-11-10" },
+  ]);
+  assertEquals(p, { pret: true, handle: "Lea.Study", nom: "Léa M", bio: "Books & coffee", photo_url: "https://x/a.jpg" });
+  assertEquals(profilTiktokOS([{ handle_tiktok: "lea", persona_nom: null, persona_bio: "", avatar_url: null }]),
+    { pret: true, handle: "lea", nom: null, bio: null, photo_url: null });
 });
 
 Deno.test("premier post : lundi suivant, +7 si warm-up pas fini avant dimanche 23:59", () => {
@@ -296,16 +318,97 @@ Deno.test("bienvenue après signature : lien Set my password, jamais de mot de p
     login: "lea.martin@sophia.com", handle: "lea.daily123", ruulEmail: "lea@example.com", compteCree: true };
   const m = texteMessage("acces", v);
   assertEquals(m.bouton, "Set my password");
-  for (const x of ["Set my password: https://os.example/set-password?t=abc", "lea.martin@sophia.com", "@lea.daily123", LIEN_SLACK,
+  for (const x of ["https://os.example/set-password?t=abc", "lea.martin@sophia.com", "@lea.daily123", LIEN_SLACK,
     "app.ruul.io", "lea@example.com", "Monday 30 November", "Start warmup", `Watch our short video guide: ${VIDEO_GUIDE_URL}`]) {
     assert(m.corps.includes(x), x);
   }
-  assert(!/password\s*[:=]\s*(?!https?:\/\/)[^\s(]/i.test(m.corps.replace("Set my password: https", "")));
+  // Jamais de mot de passe : « Your password: choose it here → <lien> » seulement.
+  assert(!/password\s*[:=]\s*(?!https?:\/\/|choose it here|you choose it)[^\s(]/i.test(m.corps));
   assert(!/\b(bot|AI|automatic|automated)\b/i.test(m.corps));
   // Mode test (aucun compte créé) : pas de faux lien.
   const t = texteMessage("acces", { ...v, lien: "https://join.example", compteCree: false });
   assert(!t.corps.includes("https://join.example"));
   assertEquals(t.bouton, "Open my dashboard");
+  // 26/11 (Max) : le bloc de connexion TOUT EN HAUT, juste après « Welcome » : login, mot de passe (lien en clair), dashboard.
+  const p = m.corps.split("\n\n");
+  assertEquals(p[0], "Hi Léa,");
+  assertEquals(p[1], "Welcome to Vik Studios!");
+  assertEquals(p[2], [
+    "Your access to your dashboard:",
+    "- Your login: lea.martin@sophia.com",
+    "- Your password: choose it here → https://os.example/set-password?t=abc (your personal « Set my password » link, valid 14 days)",
+    `- Dashboard: ${LIEN_DASHBOARD_OS}`,
+  ].join("\n"));
+  assert(p[3].startsWith("Check your emails (and your spam folder) and WhatsApp"));
+  // Le bouton juste sous le bloc de connexion ; ensuite les étapes, Slack, la vidéo, puis Ruul en dernier.
+  assertEquals(m.boutonApres, 3);
+  const i = (x: string) => m.corps.indexOf(x);
+  assert(i("Your access to your dashboard") < i("Before Sunday 29 November") && i("Before Sunday 29 November") < i(LIEN_SLACK));
+  assert(i(LIEN_SLACK) < i(VIDEO_GUIDE_URL) && i(VIDEO_GUIDE_URL) < i("Ruul (our payment platform)"));
+  assert(m.corps.includes("you can set it up later, before your first pay: it's not required to start"));
+  // Ruul ne demande plus « avant ton premier post » : seulement avant la première paie.
+  assert(!m.corps.includes("Do it before your first post"));
+});
+
+Deno.test("bienvenue : le bouton sous le bloc de connexion (HTML et texte), traduction comprise (26/11)", () => {
+  const v = { prenom: "Léa", lien: "https://os.example/set-password?t=abc", lundi: "Monday 30 November", limite: "Sunday 29 November",
+    login: "lea.martin@sophia.com", handle: "lea.daily123", ruulEmail: "lea@example.com", compteCree: true, ruulParEmail: true };
+  const m = texteMessage("acces", v);
+  const r = rendreEmailRuul({ objet: m.objet, corps: m.corps, bouton: { texte: m.bouton!, lien: v.lien }, lienStop: "https://join.example", sansPied: true, boutonApres: m.boutonApres });
+  const bouton = r.html.indexOf(">Set my password</a>");
+  assert(bouton > r.html.indexOf("lea.martin@sophia.com") && bouton < r.html.indexOf("Check your emails"));
+  assert(r.texte.indexOf("Set my password: https://os.example/set-password?t=abc") < r.texte.indexOf("Check your emails"));
+  // La traduction ne touche ni l'identifiant ni les liens : ils sont remplacés par des repères [[n]], puis remis.
+  const valeurs: string[] = [];
+  const protege = proteger(m.corps, ["Léa", v.login, v.handle, v.ruulEmail], valeurs);
+  for (const x of [v.login, v.lien, LIEN_DASHBOARD_OS, LIEN_SLACK, VIDEO_GUIDE_URL, v.ruulEmail]) assert(!protege.includes(x), x);
+  assert(protege.includes("- Your login: [["));
+  assertEquals(restaurer(protege, valeurs), m.corps);
+  // Sans boutonApres : le bouton reste à la fin, comme avant.
+  const fin = rendreEmailRuul({ objet: "O", corps: "A\n\nB", bouton: { texte: "Go", lien: "https://x" }, lienStop: "https://x" });
+  assert(fin.texte.startsWith("A\n\nB\n\nGo: https://x"));
+});
+
+Deno.test("bienvenue : sans @ de l'OS, aucun pseudo, les infos TikTok sont sur le dashboard (26/11)", () => {
+  const v = { prenom: "Léa", lien: "https://os.example/set-password?t=abc", lundi: "Monday 30 November", limite: "Sunday 29 November",
+    login: "lea.martin@sophia.com", handle: null, ruulEmail: "lea@example.com", compteCree: true };
+  const m = texteMessage("acces", v);
+  assert(!m.corps.includes("@lea"), "aucun @ inventé");
+  assert(!m.corps.includes("exact name below"));
+  assert(m.corps.includes("your TikTok details are on your dashboard"));
+  assert(m.corps.includes("username, name, photo and bio shown on your dashboard"));
+  assert(m.corps.includes("- Your login: lea.martin@sophia.com") && m.corps.includes("- Your password: choose it here → https://os.example/set-password?t=abc"));
+  assert(!/\b(bot|AI|automatic|automated)\b/i.test(m.corps));
+  const avec = texteMessage("acces", { ...v, handle: "lea.study" });
+  assert(avec.corps.includes("- Your TikTok account, with this exact name: @lea.study"));
+  assert(avec.corps.includes("exact name below"));
+});
+
+Deno.test("bienvenue WhatsApp : lien « Set my password » puis welcome_start avec le @ de l'OS (26/11)", () => {
+  const base = {
+    candidatureId: "cand-1", profileId: "post-1", prenom: "Léa Marie", lundi: "2026-11-30", lien: "https://os.example/set-password?t=abc",
+    handle: "lea.study" as string | null, lienPersonnel: true, approuves: new Set(["welcome_start", "account_ready"]),
+  };
+  // Compte OS réel + lien personnel : 2 WhatsApp, dans l'ordre.
+  const deux = whatsappsBienvenue(base);
+  assertEquals(deux.map((w) => [w.nom, w.cle, w.motif]), [
+    ["account_ready", "join_acces_lien:cand-1", "join_acces"],
+    ["welcome_start", "welcome:post-1", "relance:welcome_start"],
+  ]);
+  assertEquals(deux[0].variables, ["Léa", "https://os.example/set-password?t=abc"]);
+  assertEquals(deux[1].variables[0], "Léa");
+  assertEquals(deux[1].variables[3], "lea.study");
+  assertEquals(deux[1].variables[4], VIDEO_GUIDE_URL);
+  // Sans @ de l'OS, ou welcome_start pas APPROVED : le lien seulement.
+  assertEquals(whatsappsBienvenue({ ...base, handle: null }).map((w) => w.nom), ["account_ready"]);
+  assertEquals(whatsappsBienvenue({ ...base, approuves: new Set(["account_ready"]) }).map((w) => w.cle), ["join_acces_lien:cand-1"]);
+  // Sans compte OS réel (pas de lien personnel) : comme avant, un seul message.
+  const avant = whatsappsBienvenue({ ...base, lienPersonnel: false, lien: "https://join.example" });
+  assertEquals(avant.map((w) => [w.nom, w.cle]), [["welcome_start", "welcome:post-1"]]);
+  const sansFiche = whatsappsBienvenue({ ...base, profileId: null, handle: null, lienPersonnel: false, lien: "https://join.example" });
+  assertEquals(sansFiche, [{ nom: "account_ready", cle: "join_acces:cand-1", motif: "relance:welcome_start", variables: ["Léa", "https://join.example"] }]);
+  // Un lien « personnel » sans fiche OS n'existe pas : jamais deux messages sans posteur.
+  assertEquals(whatsappsBienvenue({ ...base, profileId: null, handle: null }).length, 1);
 });
 
 Deno.test("acceptation automatique : OFF par défaut ; OFF → l'admin décide", () => {
@@ -378,17 +481,37 @@ Deno.test("join_reel : tout simulé par défaut ; seul true rend une étape rée
 Deno.test("décision : langue gérée par l'OS et doublons, en clair", () => {
   const ouverts = new Set(["FR", "ES"]);
   const ok = { langue: { geree: true, code: "fr" }, doublons: [] };
-  assertEquals(deciderJoin(cand(), ouverts, true, ok), { decision: "auto", manques: [] });
+  assertEquals(deciderJoin(cand(), ouverts, true, ok), { decision: "auto", manques: [], alertes: [] });
   assertEquals(deciderJoin(cand(), ouverts, true, { ...ok, langue: { geree: false, code: "ca" } }).manques, ["langue non gérée par l'OS (ca)"]);
   assertEquals(deciderJoin(cand(), ouverts, true, { ...ok, langue: { geree: null, code: null } }).manques, ["langue non vérifiée (OS injoignable)"]);
   const d = deciderJoin(cand(), ouverts, true, { ...ok, doublons: ["doublon : email déjà sur une fiche de l'OS"] });
-  assertEquals(d, { decision: "a_traiter", manques: ["doublon : email déjà sur une fiche de l'OS"] });
+  assertEquals(d, { decision: "a_traiter", manques: ["doublon : email déjà sur une fiche de l'OS"], alertes: [] });
   // Pays fermé : la langue n'est pas ajoutée (un seul manque, le vrai).
   assertEquals(deciderJoin(cand({ pays: "PT" }), ouverts, true, { ...ok, langue: { geree: false, code: "pt" } }).manques, ["pays fermé (PT)"]);
   // 18 ans ou plus : toujours la règle de l'OS.
   assertEquals(deciderJoin(cand({ age: null, majeur: false }), ouverts, true, ok).decision, "a_traiter");
   // Avec l'interrupteur OFF : éligible, mais l'admin décide.
   assertEquals(deciderAvecReglage(deciderJoin(cand(), ouverts, true, ok), false), { decision: "a_traiter", manques: [], eligible: true });
+});
+
+Deno.test("décision : un même nom est une alerte, jamais bloquante ; email ou téléphone connu reste un manque (26/11, 0863)", () => {
+  const ouverts = new Set(["FR", "ES"]);
+  const ok = { langue: { geree: true, code: "fr" }, doublons: [] as string[] };
+  const noms = ["alerte : même nom qu'une autre candidature Join", "alerte : même nom qu'un posteur de l'OS", "alerte : même nom qu'une candidature du site"];
+  const d = deciderJoin(cand(), ouverts, true, { ...ok, doublons: noms });
+  assertEquals(d, { decision: "auto", manques: [], alertes: noms });
+  // ON : acceptée seule malgré l'alerte (elle reste notée pour la fiche /admin).
+  assertEquals(deciderAvecReglage(d, true), { decision: "auto", manques: [], eligible: true });
+  // L'ancien libellé (« doublon : même nom… », avant 0863) est lu comme une alerte.
+  assertEquals(separerDoublons(["doublon : même nom qu'un posteur de l'OS"]), { manques: [], alertes: ["alerte : même nom qu'un posteur de l'OS"] });
+  // Email ou téléphone déjà connu : toujours « a_traiter », l'alerte à part.
+  const mixte = deciderJoin(cand(), ouverts, true, {
+    ...ok, doublons: ["doublon : téléphone déjà dans une autre candidature Join", noms[1], "doublon : email déjà dans le Hub"],
+  });
+  assertEquals(mixte.decision, "a_traiter");
+  assertEquals(mixte.manques, ["doublon : téléphone déjà dans une autre candidature Join", "doublon : email déjà dans le Hub"]);
+  assertEquals(mixte.alertes, [noms[1]]);
+  assertEquals(separerDoublons(["", " ", "doublons non vérifiés (base injoignable)"]), { manques: ["doublons non vérifiés (base injoignable)"], alertes: [] });
 });
 
 const osVide = (o: Partial<EtatOS> = {}): EtatOS => ({
@@ -398,38 +521,78 @@ const osVide = (o: Partial<EtatOS> = {}): EtatOS => ({
   paie_reportee: false, email_jour: false, ...o,
 });
 
-Deno.test("checklist : cochée par ce que l'OS voit (Ruul READY, TikTok, warm-up, Slack, premier post), et ce que Join a noté", () => {
+Deno.test("checklist : cochée par ce que l'OS voit (connexion, Ruul READY, TikTok, warm-up, Slack, premier post), et ce que Join a noté", () => {
   assertEquals(etatChecklist({ signee: true, etapes: [] }, null), {
-    contrat: true, ruul: false, tiktok: false, warmup: false, slack: false, premier_post: false,
+    contrat: true, dashboard: false, ruul: false, tiktok: false, warmup: false, slack: false, premier_post: false,
   });
   assertEquals(etatChecklist({ signee: true, etapes: [{ etape: "tiktok", statut: "ok" }] }, null).tiktok, true);
-  const os = osVide({ ruul_onboarding: "READY", warmup_started_at: "2026-11-27T10:00:00Z", slack: true, premier_post_at: "2026-11-30T10:00:00Z" });
-  assertEquals(etatChecklist({ signee: true, etapes: [] }, os), { contrat: true, ruul: true, tiktok: true, warmup: true, slack: true, premier_post: true });
+  const os = osVide({
+    premiere_connexion_at: "2026-11-26T10:00:00Z", ruul_onboarding: "READY", warmup_started_at: "2026-11-27T10:00:00Z", slack: true,
+    premier_post_at: "2026-11-30T10:00:00Z",
+  });
+  assertEquals(etatChecklist({ signee: true, etapes: [] }, os), {
+    contrat: true, dashboard: true, ruul: true, tiktok: true, warmup: true, slack: true, premier_post: true,
+  });
+  // 26/11 : la première connexion vue par l'OS coche « se connecter au dashboard ».
+  assertEquals(etatChecklist({ signee: true, etapes: [] }, osVide()).dashboard, false);
+  assertEquals(etatChecklist({ signee: true, etapes: [] }, osVide({ premiere_connexion_at: "2026-11-26T10:00:00Z" })).dashboard, true);
   assertEquals(etatChecklist({ signee: true, etapes: [] }, osVide({ ruul_ready_at: "2026-11-28T10:00:00Z" })).ruul, true);
   assertEquals(etatChecklist({ signee: true, etapes: [] }, osVide({ tiktok: true })).tiktok, true);
   // Une étape cochée le reste.
   assertEquals(etatChecklist({ signee: true, etapes: [{ etape: "slack", statut: "fait" }] }, osVide()).slack, true);
+  assertEquals(etatChecklist({ signee: true, etapes: [{ etape: "dashboard", statut: "fait" }] }, osVide()).dashboard, true);
 });
 
-Deno.test("rappels : J+1, J+3, vendredi avant le lundi, premier post (lundi, J+1, J+3), Ruul le jeudi", () => {
+Deno.test("checklist : l'ordre (26/11) — se connecter juste après le contrat, Ruul en dernier", async () => {
+  const { ETAPES_CHECKLIST } = await import("./join.ts");
+  assertEquals([...ETAPES_CHECKLIST], ["contrat", "dashboard", "tiktok", "warmup", "slack", "premier_post", "ruul"]);
+  assertEquals(premierePaie("2026-11-30"), "2026-12-07");
+});
+
+Deno.test("Ruul : les mêmes sous-étapes que le dashboard de l'OS (ruul_etapes), identité en attente", () => {
+  // Pas commencé.
+  assertEquals(etapesRuul(osVide({ ruul_statut_api: "NOT_REGISTERED", ruul_kyc: "NOT_STARTED", ruul_banque: false, ruul_onboarding: "NOT_REGISTERED" })),
+    { inscrit: false, identite: false, banque: false, pret: false, kyc: "NOT_STARTED" });
+  // L'OS donne ses sous-étapes (ruul_etapes) : elles l'emportent.
+  const attente = etapesRuul(osVide({ ruul_etapes: { inscrit: true, identite: false, banque: false, pret: false, kyc: "PENDING" } }));
+  assertEquals(attente, { inscrit: true, identite: false, banque: false, pret: false, kyc: "PENDING" });
+  assert(identiteEnAttente(attente));
+  assert(!identiteEnAttente(etapesRuul(osVide({ ruul_statut_api: "ACTIVE", ruul_kyc: "DECLINED" }))));
+  assert(!identiteEnAttente(etapesRuul(osVide({ ruul_statut_api: "ACTIVE", ruul_kyc: "NOT_STARTED" }))));
+  // Sans ruul_etapes : la même règle que ruul_etapes() (0799) sur les colonnes.
+  assertEquals(etapesRuul(osVide({ ruul_statut_api: "ACTIVE", ruul_kyc: "APPROVED", ruul_banque: false, ruul_onboarding: "PENDING_COLLECTION_ACCOUNT" })),
+    { inscrit: true, identite: true, banque: false, pret: false, kyc: "APPROVED" });
+  // Prêt (READY) : tout coché.
+  assertEquals(etapesRuul(osVide({ ruul_onboarding: "READY" })), { inscrit: true, identite: true, banque: true, pret: true, kyc: null });
+  assertEquals(etapesRuul(null), { inscrit: false, identite: false, banque: false, pret: false, kyc: null });
+});
+
+Deno.test("rappels : J+1, J+3, vendredi avant le lundi (dashboard, TikTok, warm-up, Slack), premier post, Ruul APRÈS le départ seulement", () => {
   // Signé le mercredi 25/11 à 19 h (Paris), départ le lundi 30/11, France.
   const base = { signeAt: "2026-11-25T18:00:00Z", lundi: "2026-11-30", pays: "FR" };
-  const rien: EtatChecklist = { contrat: true, ruul: false, tiktok: false, warmup: false, slack: false, premier_post: false };
+  const rien: EtatChecklist = { contrat: true, dashboard: false, ruul: false, tiktok: false, warmup: false, slack: false, premier_post: false };
   const a = (jour: string) => new Date(`${jour}T09:00:00Z`); // 10 h à Paris
   const cles = (jour: string, deja: string[] = [], faites = rien, o: Record<string, unknown> = {}) =>
     rappelsDus({ ...base, faites, deja, maintenant: a(jour), ...o }).map((d) => d.cle);
   assertEquals(cles("2026-11-25"), []); // le jour de la signature
-  assertEquals(cles("2026-11-26"), ["rappel:tiktok:j1", "rappel:warmup:j1", "rappel:ruul:j1", "rappel:slack:j1"]);
+  // 26/11 (Max) : « se connecter au dashboard » en premier ; plus aucun rappel Ruul avant le lundi de départ.
+  assertEquals(cles("2026-11-26"), ["rappel:dashboard:j1", "rappel:tiktok:j1", "rappel:warmup:j1", "rappel:slack:j1"]);
   const j1 = cles("2026-11-26");
-  assertEquals(cles("2026-11-27", j1), ["rappel:tiktok:vendredi:2026-11-30", "rappel:warmup:vendredi:2026-11-30", "rappel:ruul:vendredi:2026-11-30", "rappel:slack:vendredi:2026-11-30"]);
+  assertEquals(cles("2026-11-27", j1), [
+    "rappel:dashboard:vendredi:2026-11-30", "rappel:tiktok:vendredi:2026-11-30", "rappel:warmup:vendredi:2026-11-30", "rappel:slack:vendredi:2026-11-30",
+  ]);
   const ven = [...j1, ...cles("2026-11-27", j1)];
-  assertEquals(cles("2026-11-28", ven), ["rappel:tiktok:j3", "rappel:warmup:j3", "rappel:ruul:j3", "rappel:slack:j3"]);
+  assertEquals(cles("2026-11-28", ven), ["rappel:dashboard:j3", "rappel:tiktok:j3", "rappel:warmup:j3", "rappel:slack:j3"]);
   const j3 = [...ven, ...cles("2026-11-28", ven)];
   assertEquals(cles("2026-11-29", j3), []);
+  // Avant le départ, Ruul jamais (ni J+1, ni J+3, ni vendredi), même si c'est la seule étape restante.
+  const saufRuul = { ...rien, dashboard: true, tiktok: true, warmup: true, slack: true };
+  for (const jour of ["2026-11-26", "2026-11-27", "2026-11-28", "2026-11-29"]) assertEquals(cles(jour, [], saufRuul), [], jour);
   // Une étape faite n'est plus rappelée.
-  assertEquals(cles("2026-11-26", [], { ...rien, tiktok: true, warmup: true, slack: true }), ["rappel:ruul:j1"]);
+  assertEquals(cles("2026-11-26", [], { ...rien, tiktok: true, warmup: true, slack: true }), ["rappel:dashboard:j1"]);
+  assertEquals(cles("2026-11-26", [], { ...rien, dashboard: true }), ["rappel:tiktok:j1", "rappel:warmup:j1", "rappel:slack:j1"]);
   // Premier post : seulement warm-up lancé (sinon l'OS reporte le départ) et des posts prévus.
-  const prets = { ...rien, tiktok: true, warmup: true, slack: true, ruul: true };
+  const prets = { ...rien, dashboard: true, tiktok: true, warmup: true, slack: true, ruul: true };
   assertEquals(cles("2026-11-30", j3), []);
   assertEquals(cles("2026-11-30", j3, prets), ["rappel:premier_post:lundi:2026-11-30"]);
   assertEquals(cles("2026-11-30", j3, prets, { postsPrevus: false }), []);
@@ -438,34 +601,82 @@ Deno.test("rappels : J+1, J+3, vendredi avant le lundi, premier post (lundi, J+1
   assertEquals(cles("2026-12-03", j3, { ...prets, premier_post: true }), []);
   // Ruul pas READY après le départ : le jeudi (4 au plus), pas si la paie est reportée (l'OS en parle), et 3 jours après le 1er post.
   const ruulKo = { ...prets, ruul: false, premier_post: true };
+  assertEquals(cles("2026-11-30", j3, ruulKo), []); // le lundi de départ : pas un jeudi
   assertEquals(cles("2026-12-03", j3, ruulKo), ["rappel:ruul:jeudi:2026-12-03"]);
   assertEquals(cles("2026-12-03", j3, ruulKo, { paieReportee: true }), []);
   const quatre = [...j3, "rappel:ruul:jeudi:a", "rappel:ruul:jeudi:b", "rappel:ruul:jeudi:c", "rappel:ruul:jeudi:d"];
   assertEquals(cles("2026-12-03", quatre, ruulKo), []);
   assertEquals(cles("2026-12-04", j3, ruulKo, { premierPostAt: "2026-11-30T12:00:00Z" }), ["rappel:ruul:apres_post"]);
+  // Le jeudi AVANT le départ (signé le mercredi 18/11, départ le 30/11) : pas de Ruul.
+  assertEquals(rappelsDus({ ...base, signeAt: "2026-11-18T18:00:00Z", faites: saufRuul, deja: [], maintenant: a("2026-11-26") }), []);
   // Départ reporté par l'OS (nouveau lundi) : un nouveau vendredi.
   assertEquals(rappelsDus({ ...base, lundi: "2026-12-07", faites: rien, deja: j3, maintenant: a("2026-12-04") }).map((d) => d.rang),
     ["vendredi:2026-12-07", "vendredi:2026-12-07", "vendredi:2026-12-07", "vendredi:2026-12-07"]);
 });
 
-Deno.test("rappels : un email par jour (toutes les étapes), WhatsApp des relances de l'OS, jamais de mot interdit", () => {
+Deno.test("rappels : le vendredi saute après un rappel la veille, jamais 3 rappels de suite (26/11)", () => {
+  // Signé le mercredi 25/11, départ le lundi 30/11 : J+1 le jeudi 26.
+  const base = { signeAt: "2026-11-25T18:00:00Z", lundi: "2026-11-30", pays: "FR" };
+  const rien: EtatChecklist = { contrat: true, dashboard: false, ruul: false, tiktok: false, warmup: false, slack: false, premier_post: false };
+  const a = (jour: string) => new Date(`${jour}T09:00:00Z`);
+  const cles = (jour: string, deja: string[], joursRappels: string[]) =>
+    rappelsDus({ ...base, faites: rien, deja, joursRappels, maintenant: a(jour) }).map((d) => d.cle);
+  const j1 = ["rappel:dashboard:j1", "rappel:tiktok:j1", "rappel:warmup:j1", "rappel:slack:j1"];
+  // Vendredi 27 : un rappel est parti jeudi 26 → rien.
+  assertEquals(cles("2026-11-27", j1, ["2026-11-26"]), []);
+  // Samedi 28 : J+3 et le rappel du vendredi, dans le même email (un seul rappel ce jour-là).
+  const sam = cles("2026-11-28", j1, ["2026-11-26"]);
+  assertEquals(sam.filter((c) => c.endsWith(":j3")).length, 4);
+  assertEquals(sam.filter((c) => c.includes(":vendredi:2026-11-30")).length, 4);
+  // Dimanche 29 : plus rien (tout est fait), même avec un rappel samedi.
+  assertEquals(cles("2026-11-29", [...j1, ...sam], ["2026-11-26", "2026-11-28"]), []);
+  // Pas de rappel la veille : le vendredi part comme avant.
+  assertEquals(cles("2026-11-27", j1, ["2026-11-25"]).length, 4);
+  // Un rappel l'avant-veille ne compte pas.
+  assertEquals(cles("2026-11-27", j1, []).length, 4);
+});
+
+Deno.test("rappels : un email par jour (toutes les étapes, se connecter en premier), WhatsApp jamais sur Ruul avant le départ", () => {
   const dus = rappelsDus({
     signeAt: "2026-11-25T18:00:00Z", lundi: "2026-11-30", pays: "FR", deja: [], maintenant: new Date("2026-11-26T09:00:00Z"),
-    faites: { contrat: true, ruul: false, tiktok: false, warmup: false, slack: false, premier_post: false },
+    faites: { contrat: true, dashboard: false, ruul: false, tiktok: false, warmup: false, slack: false, premier_post: false },
   });
-  const m = texteRappel(dus, { prenom: "Max", lundi: "Monday 30 November", limite: "Sunday 29 November", avantDepart: true, handle: "max.daily123", ruulEmail: "x@example.invalid" });
-  assertEquals(m.objet, "Next step: create your TikTok account");
-  for (const x of ["@max.daily123", "Start warmup", "x@example.invalid", LIEN_SLACK, "Sunday 29 November", "Monday 30 November"]) assert(m.corps.includes(x), x);
+  const m = texteRappel(dus, {
+    prenom: "Max", lundi: "Monday 30 November", limite: "Sunday 29 November", avantDepart: true, handle: "max.daily123", ruulEmail: "x@example.invalid",
+    login: "max.k@sophia.com",
+  });
+  assertEquals(m.objet, "Next step: log in to your dashboard");
+  for (const x of ["@max.daily123", "Start warmup", LIEN_SLACK, "Sunday 29 November", "Monday 30 November", "max.k@sophia.com", "Set my password", "spam"]) {
+    assert(m.corps.includes(x), x);
+  }
+  // L'étape « se connecter » en premier dans l'email groupé ; Ruul n'y est pas (avant le départ).
+  assert(m.corps.includes("1. Log in to your dashboard"));
+  assert(!m.corps.includes("Ruul") && !m.corps.includes("x@example.invalid"));
   assert(!/\b(bot|AI|automatic|automated)\b/i.test(`${m.objet} ${m.corps} ${m.bouton}`));
-  assertEquals(typeWhatsappRappel(dus[0]), "warmup_start");
-  assertEquals(typeWhatsappRappel({ etape: "ruul", rang: "j1", cle: "" }), "ruul_payment_setup");
+  // Le WhatsApp d'avant le départ : la connexion (account_ready) ou le warm-up, jamais Ruul.
+  assertEquals(typeWhatsappRappel(dus[0]), "account_ready");
+  assertEquals(dus.map((d) => typeWhatsappRappel(d)).filter(Boolean), ["account_ready", "warmup_start", "warmup_start"]);
+  const sansConnexion = rappelsDus({
+    signeAt: "2026-11-25T18:00:00Z", lundi: "2026-11-30", pays: "FR", deja: [], maintenant: new Date("2026-11-26T09:00:00Z"),
+    faites: { contrat: true, dashboard: true, ruul: false, tiktok: false, warmup: false, slack: false, premier_post: false },
+  });
+  assertEquals(typeWhatsappRappel(sansConnexion.find((d) => typeWhatsappRappel(d))!), "warmup_start");
+  assertEquals(typeWhatsappRappel({ etape: "ruul", rang: "jeudi:2026-12-03", cle: "" }), "ruul_payment_setup");
   assertEquals(typeWhatsappRappel({ etape: "slack", rang: "j1", cle: "" }), null);
   assertEquals(typeWhatsappRappel({ etape: "premier_post", rang: "lundi:2026-11-30", cle: "" }), "start_posting_today");
   assertEquals(typeWhatsappRappel({ etape: "premier_post", rang: "j1:2026-11-30", cle: "" }), null);
   assertEquals(typeWhatsappRappel({ etape: "premier_post", rang: "j3:2026-11-30", cle: "" }), "no_posts_week");
+  // 26/11 : sans @ de l'OS, aucun pseudo : les infos du compte sont sur le dashboard.
+  const sans = texteRappel(dus, { prenom: "Max", lundi: "Monday 30 November", limite: "Sunday 29 November", avantDepart: true, handle: null });
+  assert(!/@[a-z0-9._]{2,}/.test(sans.corps.replace(/https?:\/\/\S+/g, "")), "aucun @ inventé");
+  assert(sans.corps.includes("your TikTok details (username, name, photo and bio) are on your dashboard"));
   const debut = texteRappel([{ etape: "premier_post", rang: "lundi:2026-11-30", cle: "" }], { prenom: "Max", lundi: "", limite: "", avantDepart: false });
   assertEquals(debut.objet, "You start posting today");
   assert(!debut.corps.includes("Here's what's left"));
+  // Après le départ, le rappel Ruul garde son texte (nécessaire pour être payé).
+  const ruul = texteRappel([{ etape: "ruul", rang: "jeudi:2026-12-03", cle: "" }], { prenom: "Max", lundi: "", limite: "", avantDepart: false, ruulEmail: "x@example.invalid" });
+  assertEquals(ruul.objet, "Reminder: set up Ruul to get paid");
+  assert(ruul.corps.includes("x@example.invalid"));
 });
 
 Deno.test("contrat : rappel du vendredi avant le lundi offert, une fois, pas le jour de l'acceptation", () => {

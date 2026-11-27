@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o492",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "32d26d82-bf06-44bc-af48-02484f6a3fd3",
+ "titre": "what flowers secretly meant in the 1800s #flowers #floriography #victorian #smartgirl #history",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 3 de la boîte (parent 32d26d82, langue source en) : accroche reformulée (« what flowers secretly meant in the 1800s »), différente de sg-o434 et sg-o461 ; fleurs neuves (camélia, jonquille, myosotis, gardénia, chèvrefeuille, pivoine). Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "fcd1b42b",
+   "texte_overlay": "what flowers secretly meant\nin the 1800s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a857df36",
+   "texte_overlay": "camellia\n\n\"my destiny is in your hands.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3a7872f6",
+   "texte_overlay": "daffodil\n\nnew beginnings.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "39e2d4d5",
+   "texte_overlay": "forget-me-not\n\ntrue love and memories.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d1f27488",
+   "texte_overlay": "gardenia\n\na secret love.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f2f0d9e1",
+   "texte_overlay": "honeysuckle\n\ndevotion.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2bf82466",
+   "texte_overlay": "peony\n\na happy life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b4c9f93b",
+   "texte_overlay": "one beautiful fact a day instead\nof the morning scroll.",
+   "texte_sophia": "one beautiful fact a day on an app like\nSophia instead of the morning scroll.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

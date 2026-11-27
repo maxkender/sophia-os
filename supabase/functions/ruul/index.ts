@@ -1027,7 +1027,8 @@ async function dnsEmail() {
 const SYNC_ESSAIS = 5;
 const URL_DASHBOARD = "https://sophia-marketing-orga.vercel.app";
 const EMAIL_RUUL_OBJET = "Add your Ruul email so we can pay you";
-const EMAIL_RUUL_TEXTE = "Hi {prenom},\n\nWe still need your Ruul email to pay you every Monday. Log in to your dashboard (Sophia OS) and add it at the top of the page.\n\nNo Ruul account yet? Within 24 hours you'll receive an invitation email from Ruul: create your account FROM that email, with the address shown on your dashboard.";
+// 26/11 (Max) : Ruul n'envoie plus d'invitation : le lien personnel d'inscription (API Ruul) est sur le dashboard.
+const EMAIL_RUUL_TEXTE = "Hi {prenom},\n\nWe still need your Ruul email to pay you every Monday. Log in to your dashboard (Sophia OS) and add it at the top of the page.\n\nNo Ruul account yet? You don't need to wait for an email from Ruul: once your Ruul email is saved, your personal Ruul link is on your dashboard (« Open my Ruul setup »). Create your account with the address shown on your dashboard.";
 const EMAIL_RUUL_SLACK = "Hi {prenom}! We still need your Ruul email to pay you every Monday. Please add it at the top of your Sophia dashboard: https://sophia-marketing-orga.vercel.app 🙏";
 
 interface RelanceEmailRuul {

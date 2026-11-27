@@ -402,6 +402,20 @@ legend { font-weight: 600; font-size: .95rem; padding: 0; margin-bottom: 8px; }
 .profil dd > span { font-size: .92rem; color: var(--fg-soft); }
 .profil__photo { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; display: block; border: 1px solid var(--line); }
 @media (max-width: 420px) { .profil__ligne { grid-template-columns: 1fr; } }
+/* 26/11 (Max) : « regarde tes emails et ton WhatsApp », Ruul « plus tard » en rouge, ses sous-étapes (les mêmes que l'OS). */
+.regarde-mails { margin: 0; display: flex; gap: 10px; align-items: flex-start; background: #fff7e6; border: 1.5px solid var(--amber); border-radius: 16px; padding: 12px 14px; font-weight: 600; font-size: .95rem; }
+.regarde-mails span { flex: none; }
+.alerte-rouge { width: 100%; background: #fdecec; border: 2px solid var(--erreur); color: var(--erreur); border-radius: 16px; padding: 12px 14px; display: grid; gap: 6px; font-weight: 600; }
+.alerte-rouge p { margin: 0; }
+.sous-etapes { width: 100%; display: grid; gap: 6px; }
+.sous-etapes p { margin: 0; }
+.sous-etapes ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.sous-etapes li { display: flex; align-items: center; gap: 10px; font-size: .95rem; }
+.sous-etapes li span { width: 22px; height: 22px; border-radius: 7px; border: 1.5px solid var(--line-strong); display: grid; place-items: center; flex: none; font-size: .75rem; color: var(--white); }
+.sous-etapes li.fait { color: var(--muted); }
+.sous-etapes li.fait span { background: var(--ok); border-color: var(--ok); }
+.sous-etapes li.attente span { border-color: var(--amber); background: var(--amber); color: var(--navy); }
+.connexion dd a { font-weight: 600; overflow-wrap: anywhere; }
 .pastille { display: inline-block; font-family: var(--mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; background: #f1f4fb; color: var(--muted); border-radius: 999px; padding: 3px 10px; }
 
 /* Accueil concis */

@@ -1,0 +1,500 @@
+{
+ "compte": "msclzz",
+ "releve_le": "2026-11-27",
+ "abonnes": 8136,
+ "posts_releves": 80,
+ "note": "Ses 30 posts les plus vus (Apify, 27/11). `slides_reprenables` : ses slides relues une à une dont l'image se reprend (une statue, un masque, une silhouette, une œuvre, une photo d'inconnu détournée : jamais un acteur ni une scène de film, jamais son logo à l'œil ni sa signature) ; `npm run compte` la découpe. Les autres posts ne sont pas encore relus : relis-les avant de les refaire et ajoute leur clé. Sa dernière slide vend presque toujours son ebook (« This was ONE move », « Social Playbook », l'œil) : on ne la reprend jamais. Ses sujets de manipulation (« dark psychology », « make them chase », culpabiliser, « the trick is making your no feel like a crime ») : on ne les refait pas.",
+ "posts": [
+  {
+   "rang": 1,
+   "url": "https://www.tiktok.com/@msclzz/photo/7697369614828801302",
+   "publie_le": "2026-10-16",
+   "vues": 279500,
+   "likes": 26400,
+   "enregistrements": 14170,
+   "partages": 1535,
+   "slides": 8,
+   "legende": "People love who they help.\n\n#psychology #charisma #socialskills #persuasion #socialism",
+   "musique": {
+    "id": "7537830129876142081",
+    "titre": "mafios_4 - super slowed",
+    "auteur": "77yolan"
+   }
+  },
+  {
+   "rang": 2,
+   "url": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "publie_le": "2026-10-05",
+   "vues": 203100,
+   "likes": 16800,
+   "enregistrements": 9334,
+   "partages": 1047,
+   "slides": 9,
+   "legende": "Being memorable is not about saying more. It is about giving the brain something worth replaying.\n\n#psychology #charisma #socialskills #humanbehavior #socialintelligence",
+   "musique": {
+    "id": "7375246696198260753",
+    "titre": "abandoned (Slowed)",
+    "auteur": "ANGUISH & LMG & ily"
+   },
+   "slides_reprenables": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "refait": "mc-001"
+  },
+  {
+   "rang": 3,
+   "url": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+   "publie_le": "2026-10-09",
+   "vues": 200100,
+   "likes": 23100,
+   "enregistrements": 13074,
+   "partages": 1336,
+   "slides": 9,
+   "legende": "Good conversations are about listening, not talking.\n\n#psychology #charisma #socialskills #communication #socialintelligence",
+   "musique": {
+    "id": "7501723046605671223",
+    "titre": "son original",
+    "auteur": "Trendformusic"
+   }
+  },
+  {
+   "rang": 4,
+   "url": "https://www.tiktok.com/@msclzz/photo/7697297174450703638",
+   "publie_le": "2026-10-16",
+   "vues": 172000,
+   "likes": 15200,
+   "enregistrements": 8718,
+   "partages": 741,
+   "slides": 6,
+   "legende": "The best talkers barely talk.\n\n#psychology #charisma #socialskills #conversation #socialism",
+   "musique": {
+    "id": "6800733726369122306",
+    "titre": "Zerkalo",
+    "auteur": "Soft Blade"
+   }
+  },
+  {
+   "rang": 5,
+   "url": "https://www.tiktok.com/@msclzz/photo/7700360923160104214",
+   "publie_le": "2026-10-24",
+   "vues": 164700,
+   "likes": 13800,
+   "enregistrements": 8034,
+   "partages": 736,
+   "slides": 7,
+   "legende": "Your closest friends are the ones you've complained with the most.\n\n#psychology #socialskills #friendship #connection #selfimprovement",
+   "musique": {
+    "id": "7297938537801272097",
+    "titre": "son original",
+    "auteur": "️￴￴￴ ￴￴L O R E N Z O"
+   }
+  },
+  {
+   "rang": 6,
+   "url": "https://www.tiktok.com/@msclzz/photo/7703262649676516611",
+   "publie_le": "2026-11-01",
+   "vues": 95800,
+   "likes": 7361,
+   "enregistrements": 4315,
+   "partages": 396,
+   "slides": 9,
+   "legende": "People want the version of you nobody else gets. \n\n#psychology #dating #attraction #relationships #crush",
+   "musique": {
+    "id": "7613401002465282837",
+    "titre": "son original",
+    "auteur": "Trendformusic"
+   }
+  },
+  {
+   "rang": 7,
+   "url": "https://www.tiktok.com/@msclzz/photo/7701103253655768342",
+   "publie_le": "2026-10-26",
+   "vues": 88800,
+   "likes": 6305,
+   "enregistrements": 4152,
+   "partages": 400,
+   "slides": 8,
+   "legende": "Nobody gets attached to a compliment.\n\n#psychology #socialskills #friendship #relationships #connection",
+   "musique": {
+    "id": "7369679404253137696",
+    "titre": "original sound",
+    "auteur": "Georgie"
+   }
+  },
+  {
+   "rang": 8,
+   "url": "https://www.tiktok.com/@msclzz/photo/7692894810088148246",
+   "publie_le": "2026-10-04",
+   "vues": 57400,
+   "likes": 5193,
+   "enregistrements": 3131,
+   "partages": 319,
+   "slides": 8,
+   "legende": "The less you force trust, the faster it builds.\n\n#psychology #trust #socialskills #persuasion #humanbehavior",
+   "musique": {
+    "id": "7245863616556092186",
+    "titre": "original sound",
+    "auteur": "TWIY"
+   }
+  },
+  {
+   "rang": 9,
+   "url": "https://www.tiktok.com/@msclzz/photo/7696974279384075542",
+   "publie_le": "2026-10-15",
+   "vues": 52800,
+   "likes": 4145,
+   "enregistrements": 2365,
+   "partages": 231,
+   "slides": 7,
+   "legende": "Whatever you say about people sticks to you.\n\n#psychology #manipulation #socialskills #fyp #humanbehavior",
+   "musique": {
+    "id": "7426139871758157841",
+    "titre": "alchemical recipe for self-destruction - slowed",
+    "auteur": "Yuumu"
+   }
+  },
+  {
+   "rang": 10,
+   "url": "https://www.tiktok.com/@msclzz/photo/7702878583785639190",
+   "publie_le": "2026-10-31",
+   "vues": 40500,
+   "likes": 2500,
+   "enregistrements": 1462,
+   "partages": 150,
+   "slides": 8,
+   "legende": "The best compliment you never hear yourself. \n\n#psychology #socialskills #friendship #relationships #communication",
+   "musique": {
+    "id": "7300609611654580997",
+    "titre": "son original",
+    "auteur": "Trendformusic"
+   }
+  },
+  {
+   "rang": 11,
+   "url": "https://www.tiktok.com/@msclzz/photo/7701734159739325718",
+   "publie_le": "2026-10-28",
+   "vues": 40500,
+   "likes": 2558,
+   "enregistrements": 1191,
+   "partages": 126,
+   "slides": 7,
+   "legende": "The first look after a laugh tells you everything.\n\n#psychology #crush #bodylanguage #relationships #socialskills",
+   "musique": {
+    "id": "7656301817815862037",
+    "titre": "original sound",
+    "auteur": "user63604177032"
+   }
+  },
+  {
+   "rang": 12,
+   "url": "https://www.tiktok.com/@msclzz/photo/7693848791631400214",
+   "publie_le": "2026-10-07",
+   "vues": 37400,
+   "likes": 2999,
+   "enregistrements": 1621,
+   "partages": 181,
+   "slides": 8,
+   "legende": "People miss what felt good when it was there.\n\n#psychology #socialskills #relationships #humanbehavior #socialintelligence",
+   "musique": {
+    "id": "7577199615087364886",
+    "titre": "son original",
+    "auteur": "TYRAN."
+   }
+  },
+  {
+   "rang": 13,
+   "url": "https://www.tiktok.com/@msclzz/photo/7698771679459200278",
+   "publie_le": "2026-10-20",
+   "vues": 34700,
+   "likes": 3014,
+   "enregistrements": 1501,
+   "partages": 197,
+   "slides": 7,
+   "legende": "Respect was never about being loud.\n\n#psychology #respect #socialskills #darkpsychology #selfimprovement",
+   "musique": {
+    "id": "7662361154026572566",
+    "titre": "оригинальный звук - 𝐖𝟑𝐑𝐊𝐗",
+    "auteur": "𝐖𝟑𝐑𝐊𝐗"
+   }
+  },
+  {
+   "rang": 14,
+   "url": "https://www.tiktok.com/@msclzz/photo/7698090752676482326",
+   "publie_le": "2026-10-18",
+   "vues": 32500,
+   "likes": 2176,
+   "enregistrements": 1211,
+   "partages": 132,
+   "slides": 7,
+   "legende": "People trust what they can predict.\n\n#darkpsychology #trust #manipulation #charisma #psychology",
+   "musique": {
+    "id": "7245863616556092186",
+    "titre": "original sound",
+    "auteur": "TWIY"
+   }
+  },
+  {
+   "rang": 15,
+   "url": "https://www.tiktok.com/@msclzz/photo/7693630450811637014",
+   "publie_le": "2026-10-06",
+   "vues": 30700,
+   "likes": 1895,
+   "enregistrements": 1012,
+   "partages": 84,
+   "slides": 7,
+   "legende": "People take your words as seriously as your history tells them to.\n\n#psychology #respect #socialskills #humanbehavior #mastery",
+   "musique": {
+    "id": "7387739422871341057",
+    "titre": "Monolithic (Slowed)",
+    "auteur": "Milord"
+   }
+  },
+  {
+   "rang": 16,
+   "url": "https://www.tiktok.com/@msclzz/photo/7705073697966640406",
+   "publie_le": "2026-11-06",
+   "vues": 25800,
+   "likes": 1482,
+   "enregistrements": 900,
+   "partages": 109,
+   "slides": 9,
+   "legende": "Never tell your best story yourself. \n\n#psychology #attraction #dating #seduction #crush",
+   "musique": {
+    "id": "7477786165987576581",
+    "titre": "som original",
+    "auteur": "DRAKO"
+   }
+  },
+  {
+   "rang": 17,
+   "url": "https://www.tiktok.com/@msclzz/photo/7696882029765577987",
+   "publie_le": "2026-10-15",
+   "vues": 22500,
+   "likes": 1747,
+   "enregistrements": 1151,
+   "partages": 113,
+   "slides": 8,
+   "legende": "People get attached to whoever they told the most.\n\n#psychology #socialskills #charisma #relationships #fyp",
+   "musique": {
+    "id": "7693116828066908935",
+    "titre": "оригинальный звук",
+    "auteur": "..."
+   }
+  },
+  {
+   "rang": 18,
+   "url": "https://www.tiktok.com/@msclzz/photo/7697657131415129347",
+   "publie_le": "2026-10-17",
+   "vues": 18700,
+   "likes": 1334,
+   "enregistrements": 793,
+   "partages": 81,
+   "slides": 7,
+   "legende": "People need a reason to say yes.\n\n#darkpsychology #persuasion #socialskills #charisma #socialintelligence",
+   "musique": {
+    "id": "7521220076478630687",
+    "titre": "original sound",
+    "auteur": "Alex⁴⁴"
+   }
+  },
+  {
+   "rang": 19,
+   "url": "https://www.tiktok.com/@msclzz/photo/7696118667158850838",
+   "publie_le": "2026-10-13",
+   "vues": 16500,
+   "likes": 1133,
+   "enregistrements": 661,
+   "partages": 52,
+   "slides": 9,
+   "legende": "The trick is making your no feel like a crime.\n\n#psychology #manipulation #society #boundaries #humanbehavior",
+   "musique": {
+    "id": "7574352999313574687",
+    "titre": "оригинальный звук",
+    "auteur": "igorek"
+   }
+  },
+  {
+   "rang": 20,
+   "url": "https://www.tiktok.com/@msclzz/photo/7698031643394624790",
+   "publie_le": "2026-10-18",
+   "vues": 13500,
+   "likes": 946,
+   "enregistrements": 573,
+   "partages": 34,
+   "slides": 7,
+   "legende": "People match the energy you walk in with.\n\n#psychology #charisma #socialskills #firstimpression #socialintelligence",
+   "musique": {
+    "id": "7380314289540859921",
+    "titre": "Skins - Slowed + Reverb",
+    "auteur": "KREZUS & Surreal_dvd"
+   }
+  },
+  {
+   "rang": 21,
+   "url": "https://www.tiktok.com/@msclzz/photo/7695137174248819990",
+   "publie_le": "2026-10-10",
+   "vues": 13400,
+   "likes": 755,
+   "enregistrements": 441,
+   "partages": 41,
+   "slides": 8,
+   "legende": "Some strangers feel like home in minutes.\n\n#psychology #socialintelligence #charisma #humanbehavior #socialskills",
+   "musique": {
+    "id": "7397849954893138693",
+    "titre": "son original",
+    "auteur": "Trendformusic"
+   }
+  },
+  {
+   "rang": 22,
+   "url": "https://www.tiktok.com/@msclzz/photo/7698853250996391190",
+   "publie_le": "2026-10-20",
+   "vues": 13200,
+   "likes": 682,
+   "enregistrements": 406,
+   "partages": 47,
+   "slides": 7,
+   "legende": "Funny people barely tell jokes.\n\n#psychology #socialskills #humor #confidence #selfimprovement",
+   "musique": {
+    "id": "7649330848147933200",
+    "titre": "Eyes - Slowed",
+    "auteur": "HAIX"
+   }
+  },
+  {
+   "rang": 23,
+   "url": "https://www.tiktok.com/@msclzz/photo/7700724895705025814",
+   "publie_le": "2026-10-25",
+   "vues": 13000,
+   "likes": 892,
+   "enregistrements": 527,
+   "partages": 53,
+   "slides": 8,
+   "legende": "You can't argue anyone out of anything.\n\n#psychology #communication #socialskills #persuasion #selfimprovement",
+   "musique": {
+    "id": "7683563400764394270",
+    "titre": "оригинальный звук",
+    "auteur": "he1zx"
+   }
+  },
+  {
+   "rang": 24,
+   "url": "https://www.tiktok.com/@msclzz/photo/7694378705832971542",
+   "publie_le": "2026-10-08",
+   "vues": 12500,
+   "likes": 720,
+   "enregistrements": 396,
+   "partages": 50,
+   "slides": 10,
+   "legende": "Some people enjoy you. Watch who they let see you.\n\n#psychology #socialintelligence #humanbehavior #relationships #socialskills",
+   "musique": {
+    "id": "7218074857332803586",
+    "titre": "Øfdream: Thelema (Slowed & Bass Boosted)",
+    "auteur": "Øfdream"
+   }
+  },
+  {
+   "rang": 25,
+   "url": "https://www.tiktok.com/@msclzz/photo/7694019955305647362",
+   "publie_le": "2026-10-07",
+   "vues": 11600,
+   "likes": 691,
+   "enregistrements": 435,
+   "partages": 37,
+   "slides": 9,
+   "legende": "Dont fight the opinion. Let them judge the mirror before they know its one.\n\n#psychology #arguments #communication #persuasion #socialintelligence",
+   "musique": {
+    "id": "7383034458912279301",
+    "titre": "som original - 71scythe",
+    "auteur": "71Scy"
+   }
+  },
+  {
+   "rang": 26,
+   "url": "https://www.tiktok.com/@msclzz/photo/7691979968477285654",
+   "publie_le": "2026-10-02",
+   "vues": 11400,
+   "likes": 1134,
+   "enregistrements": 522,
+   "partages": 36,
+   "slides": 6,
+   "legende": "Your words get heavier when people know you mean them. Stop saying shit you will not stand behind.\n\n#respect #psychology #communication #status #selfmastery",
+   "musique": {
+    "id": "7641246210866842381",
+    "titre": "original sound - kaz",
+    "auteur": "eli"
+   }
+  },
+  {
+   "rang": 27,
+   "url": "https://www.tiktok.com/@msclzz/photo/7701430206694771990",
+   "publie_le": "2026-10-27",
+   "vues": 11300,
+   "likes": 700,
+   "enregistrements": 398,
+   "partages": 45,
+   "slides": 7,
+   "legende": "The coldest people are only cold to whoever's chasing them.\n\n#psychology #socialskills #communication #humanbehaviour #love",
+   "musique": {
+    "id": "7673230648739515143",
+    "titre": "оригинальный звук",
+    "auteur": "plenka"
+   }
+  },
+  {
+   "rang": 28,
+   "url": "https://www.tiktok.com/@msclzz/photo/7704335962976931094",
+   "publie_le": "2026-11-04",
+   "vues": 10700,
+   "likes": 825,
+   "enregistrements": 475,
+   "partages": 45,
+   "slides": 10,
+   "legende": "Watch who they look at when they laugh. \n\n#psychology #relationships #bodylanguage #socialskills #friendship",
+   "musique": {
+    "id": "7613115489488784148",
+    "titre": "son original - Trendformusic🤍🇲🇺",
+    "auteur": "Trendformusic🤍🇲🇺"
+   }
+  },
+  {
+   "rang": 29,
+   "url": "https://www.tiktok.com/@msclzz/photo/7703633752739581206",
+   "publie_le": "2026-11-02",
+   "vues": 10700,
+   "likes": 641,
+   "enregistrements": 422,
+   "partages": 44,
+   "slides": 8,
+   "legende": "People forgive the ones who let them finish. \n\n#psychology #relationships #selfimprovement #communication #friendship",
+   "musique": {
+    "id": "7693961144901323533",
+    "titre": "original sound",
+    "auteur": "!"
+   }
+  },
+  {
+   "rang": 30,
+   "url": "https://www.tiktok.com/@msclzz/photo/7699884900631170326",
+   "publie_le": "2026-10-23",
+   "vues": 10700,
+   "likes": 662,
+   "enregistrements": 368,
+   "partages": 24,
+   "slides": 7,
+   "legende": "Strangers relax the second they see an exit.\n\n#psychology #socialskills #socialanxiety #communication #confidence",
+   "musique": {
+    "id": "7229539815292487681",
+    "titre": "Kinda Like It That Way",
+    "auteur": "Snow Strippers"
+   }
+  }
+ ]
+}

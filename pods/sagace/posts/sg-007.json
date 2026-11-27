@@ -17,7 +17,14 @@
   "cs": "10 dovedností 10/10, které mají větší cenu než diplom",
   "sr": "10 veština 10/10 koje vrede više od diplome",
   "hu": "10/10 készségek, amik többet érnek egy diplománál",
-  "el": "10 δεξιότητες 10/10 που αξίζουν περισσότερο από ένα πτυχίο"
+  "el": "10 δεξιότητες 10/10 που αξίζουν περισσότερο από ένα πτυχίο",
+  "es": "10 habilidades 10/10 que valen más que un título",
+  "es-419": "10 habilidades 10/10 que valen más que un título",
+  "pl": "10 umiejętności 10/10 wartych więcej niż dyplom",
+  "sk": "10 zručností 10/10, ktoré majú väčšiu cenu než diplom",
+  "hr": "10 vještina 10/10 koje vrijede više od diplome",
+  "sv": "10 färdigheter 10/10 som är värda mer än en examen",
+  "lv": "10 prasmes 10/10, kas ir vērtīgākas par diplomu"
  },
  "legendes": {
   "fr": "10 compétences 10/10 qui valent plus qu'un diplôme #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -30,13 +37,20 @@
   "cs": "10 dovedností 10/10, které mají větší cenu než diplom #učímesenatiktoku #osobnírozvoj #dovednosti",
   "sr": "10 veština 10/10 koje vrede više od diplome #učinatiktoku #samorazvoj #veštine",
   "hu": "10/10 készségek, amik többet érnek egy diplománál #tanuljtiktokon #önfejlesztés #készségek",
-  "el": "10 δεξιότητες 10/10 που αξίζουν περισσότερο από ένα πτυχίο #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες"
+  "el": "10 δεξιότητες 10/10 που αξίζουν περισσότερο από ένα πτυχίο #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "es": "10 habilidades 10/10 que valen más que un título #aprendeentiktok #desarrollopersonal #habilidades",
+  "es-419": "10 habilidades 10/10 que valen más que un título #aprendeentiktok #desarrollopersonal #habilidades",
+  "pl": "10 umiejętności 10/10 wartych więcej niż dyplom #uczsięnatiktoku #rozwójosobisty #umiejętności",
+  "sk": "10 zručností 10/10, ktoré majú väčšiu cenu než diplom #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "hr": "10 vještina 10/10 koje vrijede više od diplome #učinatiktoku #osobnirazvoj #vještine",
+  "sv": "10 färdigheter 10/10 som är värda mer än en examen #lärdigpåtiktok #självutveckling #färdigheter",
+  "lv": "10 prasmes 10/10, kas ir vērtīgākas par diplomu #mācītiestiktokā #pašattīstība #prasmes"
  },
  "musique": {
   "titre": "son original - psycho - psycho",
   "url": "https://www.tiktok.com/music/son-original-psycho-7668282687572462358"
  },
- "notes": "Routine du 16/11. Son post à 81,2 k : sa couverture (lignes noir/brun/noir/brun, cap relevés 122/176/150/198), ses 5 compétences dans son ordre avec ses couleurs et ses temps, fautes corrigées (« COMPÉTENCES », « PSYCHOLOGIE », « LES INTÉRÊTS COMPOSÉS », « UTILISER L'IA »). Autres vraies vidéos que les siennes (Matthieu Louvet, Michael Aguilar, Timothée Falcon, Bastien Pelissier, Ludo Salenne), natives dans chaque langue. Sophia en étape 4 sur 7 (cta A : « S'INSTRUIRE / CHAQUE JOUR »), sa slide « ABONNE-TOI » retirée. el (24/11) : « psychologie inversée » devient « l'art de la persuasion » (aucune vidéo grecque sérieuse sur la psychologie inversée).",
+ "notes": "Routine du 16/11. Son post à 81,2 k : sa couverture (lignes noir/brun/noir/brun, cap relevés 122/176/150/198), ses 5 compétences dans son ordre avec ses couleurs et ses temps, fautes corrigées (« COMPÉTENCES », « PSYCHOLOGIE », « LES INTÉRÊTS COMPOSÉS », « UTILISER L'IA »). Autres vraies vidéos que les siennes (Matthieu Louvet, Michael Aguilar, Timothée Falcon, Bastien Pelissier, Ludo Salenne), natives dans chaque langue. Sophia en étape 4 sur 7 (cta A : « S'INSTRUIRE / CHAQUE JOUR »), sa slide « ABONNE-TOI » retirée. el (24/11) : « psychologie inversée » devient « l'art de la persuasion » (aucune vidéo grecque sérieuse sur la psychologie inversée). es, es-419, pl, sk, hr, sv, lv (27/11) : vidéos natives ; sk, hr, sv et lv prennent « l'art de persuader » (rien de sérieux sur la psychologie inversée), lv « commencer à investir » (aucune vidéo lettone sur les intérêts composés).",
  "slides": [
   {
    "type": "couverture",
@@ -277,6 +291,160 @@
      },
      {
       "t": "ΕΝΑ ΠΤΥΧΙΟ",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 122
+     },
+     {
+      "t": "QUE VALEN",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "MÁS QUE UN",
+      "cap": 150
+     },
+     {
+      "t": "TÍTULO",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 122
+     },
+     {
+      "t": "QUE VALEN",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "MÁS QUE UN",
+      "cap": 150
+     },
+     {
+      "t": "TÍTULO",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pl": {
+    "lignes": [
+     {
+      "t": "UMIEJĘTNOŚCI",
+      "cap": 122
+     },
+     {
+      "t": "WARTE WIĘCEJ",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "NIŻ",
+      "cap": 150
+     },
+     {
+      "t": "DYPLOM",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "t": "ZRUČNOSTI",
+      "cap": 122
+     },
+     {
+      "t": "KTORÉ MAJÚ",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "VÄČŠIU CENU",
+      "cap": 150
+     },
+     {
+      "t": "NEŽ DIPLOM",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "VJEŠTINE",
+      "cap": 122
+     },
+     {
+      "t": "KOJE VRIJEDE",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "VIŠE OD",
+      "cap": 150
+     },
+     {
+      "t": "DIPLOME",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sv": {
+    "lignes": [
+     {
+      "t": "FÄRDIGHETER",
+      "cap": 122
+     },
+     {
+      "t": "SOM ÄR VÄRDA",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "MER ÄN",
+      "cap": 150
+     },
+     {
+      "t": "EN EXAMEN",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "t": "PRASMES,",
+      "cap": 122
+     },
+     {
+      "t": "KAS IR VĒRTĪGĀKAS",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "PAR",
+      "cap": 150
+     },
+     {
+      "t": "DIPLOMU",
       "cap": 198,
       "couleur": "brun"
      }
@@ -537,6 +705,167 @@
      "duree": "5:25",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nvl_Cv5hzoXTvu-NM5AXITPxQ6rmRxwMvvovl2HJbED-A=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     [
+      {
+       "t": "ENTENDER",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "EL INTERÉS COMPUESTO"
+    ],
+    "video": {
+     "id": "6YiZ5SIMBdY",
+     "titre": "Qué es el Interés Compuesto | Explicado FÁCIL 🎓",
+     "chaine": "Economipedia",
+     "vues": "51 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "6:25",
+     "avatar": "https://yt3.ggpht.com/RvRUK0MqXB-H3X0h4mTGmVEE9vE4uiUHyxQkWg8Lz8T3O0eVdX91opQ4EgehxYzZamnsFi9UMQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     [
+      {
+       "t": "ENTENDER",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "EL INTERÉS COMPUESTO"
+    ],
+    "video": {
+     "id": "7h0USmJk2-A",
+     "titre": "✅ ¿Qué es el INTERÉS COMPUESTO? | La fórmula matemática que te puede hacer RICO",
+     "chaine": "Memorias de Tiburón",
+     "vues": "729 k vistas",
+     "date": "hace 4 años",
+     "duree": "7:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtS6T3-Z5FFRIGOq7Ttqx91YpBqeseUqpIUz7jRT2AsA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     [
+      {
+       "t": "ZROZUMIEĆ",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "PROCENT SKŁADANY"
+    ],
+    "video": {
+     "id": "jfrDuY5oWXo",
+     "titre": "Po jakim czasie zyski z inwestowania przewyższają wpłaty? Jak działa procent składany?",
+     "chaine": "Giełda Inwestycje Trading",
+     "vues": "81 tys. wyświetleń",
+     "date": "2 lata temu",
+     "duree": "15:10",
+     "avatar": "https://yt3.ggpht.com/G6Xd8V8hXe63LkZO-n5efZN--pZ8Ak8ntaVEIAAkNnkI2F6c1fN24_NxO3XVScpdkJUtqRCZ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     [
+      {
+       "t": "POCHOPIŤ",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "ZLOŽENÉ ÚROČENIE"
+    ],
+    "video": {
+     "id": "tlw2lG39Jks",
+     "titre": "Zložený úrok robí divy - Ako funguje?",
+     "chaine": "Martin Babocký",
+     "vues": "3,7 tis. zhliadnutí",
+     "date": "pred 4 rokmi",
+     "duree": "5:15",
+     "avatar": "https://yt3.ggpht.com/GJ7VB-k9DUBXENW7O6WcBYhS3V7iyfdQoyw4DdVKpwEOC_zWgW1Ju7NLMWBNbqckeGqn35zmFgU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hodiny na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     [
+      {
+       "t": "RAZUMJETI",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "SLOŽENU KAMATU"
+    ],
+    "video": {
+     "id": "xp4E6fhtREA",
+     "titre": "Složena kamatna stopa - tvoj NOVAC NA STEROIDIMA!",
+     "chaine": "O novcu",
+     "vues": "4,2 tis. pregleda",
+     "date": "prije 2 godine",
+     "duree": "4:34",
+     "avatar": "https://yt3.ggpht.com/6gxTkCoxK843BB7ATSeosCuWt0T5PRcRhNOjdbMqcavhgDuiuBx4lP-P7BOI9Jy3iXDoyHLK_A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 sata učenja"
+    ]
+   },
+   "sv": {
+    "titre": [
+     [
+      {
+       "t": "FÖRSTÅ",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "RÄNTA PÅ RÄNTA"
+    ],
+    "video": {
+     "id": "gKQ5GRQtdLE",
+     "titre": "Ränta på Ränta effekten (Förklarad)",
+     "chaine": "Kreativ Privatekonomi",
+     "vues": "16 tn visningar",
+     "date": "för 6 år sedan",
+     "duree": "11:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lVvdvVvPzZQgH7qm0VASjA_LWg4kM-jWh2WyQwDeLZwA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 timmar att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     [
+      {
+       "t": "SĀKT",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "INVESTĒT"
+    ],
+    "video": {
+     "id": "MTTaeMYzcK8",
+     "titre": "Vēlies sākt investēt, bet nezini kas jādara?",
+     "chaine": "Swedbank Studija",
+     "vues": "131 tūkst. skatījumu",
+     "date": "pirms 3 gadiem",
+     "duree": "4:40",
+     "avatar": "https://yt3.ggpht.com/gOQPOg1sv3pPjpNbSu5t_HZEsPtyQrUKsfOU4Z7-F_BiCwBwsoEg3lRUd2J5bODL9C19urP8iKY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 stundas, lai iemācītos"
+    ]
    }
   },
   {
@@ -793,6 +1122,167 @@
      "duree": "8:41",
      "avatar": "https://yt3.ggpht.com/a75sU0EY5aCiBX06xvnXrb9Odrwu3Tz0GYLcKytr7AFFg64gHfU49LVBOZSdgcVPBkAixAxN5A=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     "PSICOLOGÍA",
+     [
+      {
+       "t": "INVERSA",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EiQmLFEOp_0",
+     "titre": "PSICOLOGÍA INVERSA, ¿Qué es? y ¿Cómo usarlo?",
+     "chaine": "Mr. Rayden",
+     "vues": "588 K visualizaciones",
+     "date": "hace 9 años",
+     "duree": "6:14",
+     "avatar": "https://yt3.ggpht.com/uoeMz1uZ5uElnhjWk4NycBi3aZSZpGpQ5q2jyhhSIQDJ8dU_7dewR1NZUHhBSN0QNwPyo510QQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 horas para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "PSICOLOGÍA",
+     [
+      {
+       "t": "INVERSA",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JOnooYa0Kxg",
+     "titre": "PSICOLOGÍA INVERSA ¿Qué es y Cómo utilizarla?",
+     "chaine": "Evoluciona tu Mindset",
+     "vues": "17 k vistas",
+     "date": "hace 4 años",
+     "duree": "6:18",
+     "avatar": "https://yt3.ggpht.com/jBnXHVIP-BNQS89qU8Kt6-FeO4Vm98rVxtxP2EMtp5RE5heVH7Z6tHmPJvqA4_etWZQO7pCMvw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 horas para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "PSYCHOLOGIA",
+     [
+      {
+       "t": "ODWROTNA",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7PzkMSxCwX4",
+     "titre": "Odwrotna psychologia i nielinearność - jak może się nam to przydać?",
+     "chaine": "Krzysztof Sarnecki",
+     "vues": "14 tys. wyświetleń",
+     "date": "9 lat temu",
+     "duree": "15:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_liaqIvDOJXGucSw3Ano26yRsxW-Nm1mrIjc4f1m2MtBg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 godziny nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "UMENIE",
+     [
+      {
+       "t": "PRESVEDČIŤ",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "I3lsQFMcGgo",
+     "titre": "AKO NIEKOHO PRESVEDČIŤ ║ AKO NIEČO VYSVETLIŤ",
+     "chaine": "Growth",
+     "vues": "21 tis. zhliadnutí",
+     "date": "pred 8 rokmi",
+     "duree": "8:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtbW3GwN17iM7J5UZLsX7mKMof-7zoGk9D0T5055xlSHI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 hodiny na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "VJEŠTINA",
+     [
+      {
+       "t": "UVJERAVANJA",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "f2LcxD0pOMg",
+     "titre": "Kako dobiti ono sto zelis // tehnika uvjeravanja",
+     "chaine": "Borna Jurišković - Pregovaranje i Prodaja",
+     "vues": "6,9 tis. pregleda",
+     "date": "prije 3 godine",
+     "duree": "3:38",
+     "avatar": "https://yt3.ggpht.com/OePR3s1fw-dcaDprbDZYBxOws-bEnpLZdsC1PkRCzfs3eHH-y81sB6zBNazUvCSyGk_tOaV4uw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 sata učenja"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "KONSTEN ATT",
+     [
+      {
+       "t": "ÖVERTYGA",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cIYFOSfBu5I",
+     "titre": "5 Övertygande ord som påverkar andra (och dig själv)",
+     "chaine": "Gabrielle Salander",
+     "vues": "2,4 tn visningar",
+     "date": "för 3 år sedan",
+     "duree": "5:00",
+     "avatar": "https://yt3.ggpht.com/y7QRF_MbFXAglIUXGwXNxncWixGVl7bCjqxC7ayhSmOPoXxmGPxlLXwYOLVDmiOC6x0wZO-O=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 timmar att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "PĀRLIECINĀŠANAS",
+     [
+      {
+       "t": "MĀKSLA",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zcB-ftYs4C8",
+     "titre": "Kā pārliecināt otru tikai uzdodot jautājumus",
+     "chaine": "Runas skola",
+     "vues": "161 skatījums",
+     "date": "pirms 1 gada",
+     "duree": "19:41",
+     "avatar": "https://yt3.ggpht.com/_iIzRgqD-Imyrgzvn1A1yuy4aXoGJ5dvaWaIXqEr5dEY6nbqLihbDMh-jUgI-HXC-GVOBqjZIA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 stundas, lai iemācītos"
+    ]
    }
   },
   {
@@ -1028,6 +1518,153 @@
       "από αληθινούς καθηγητές."
      ]
     }
+   },
+   "es": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "CADA DÍA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "cursos cortos escritos",
+      "por profesores de verdad."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "TODOS LOS DÍAS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "clases cortas escritas",
+      "por profesores de verdad."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "UCZYĆ SIĘ",
+     [
+      {
+       "t": "CODZIENNIE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krótkie lekcje od",
+      "prawdziwych nauczycieli."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "UČIŤ SA",
+     [
+      {
+       "t": "KAŽDÝ DEŇ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátke lekcie od",
+      "skutočných učiteľov."
+     ]
+    },
+    "sous": [
+     "5 min denne"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "UČITI",
+     [
+      {
+       "t": "SVAKI DAN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "LÄRA SIG",
+     [
+      {
+       "t": "VARJE DAG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "korta lektioner skrivna",
+      "av riktiga lärare."
+     ]
+    },
+    "sous": [
+     "5 min om dagen"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "MĀCĪTIES",
+     [
+      {
+       "t": "KATRU DIENU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "īsas nodarbības, ko raksta",
+      "īsti skolotāji."
+     ]
+    },
+    "sous": [
+     "5 min dienā"
+    ]
    }
   },
   {
@@ -1284,6 +1921,167 @@
      "duree": "12:36",
      "avatar": "https://yt3.ggpht.com/KOXn-EzywU8PzoMq488A8WyrcpXpMS4pfr_vARxHlY1Ds20DEElkgzWOVwNJD-a2o0X6iOxW3g=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     [
+      {
+       "t": "CAPTAR",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "LA ATENCIÓN"
+    ],
+    "video": {
+     "id": "EAyTx3470Ng",
+     "titre": "📌CÓMO CAPTAR LA ATENCIÓN DEL PÚBLICO en 3 PASOS SIMPLES",
+     "chaine": "Hermes - Escuela de Oratoria",
+     "vues": "2,2 K visualizaciones",
+     "date": "hace 4 años",
+     "duree": "4:10",
+     "avatar": "https://yt3.ggpht.com/x71iaCXGqedJzU-83AIg69ODM9vptNNqhhmjJoJelr6wfFN4DpMJChdZrk8W0mTorKWOFSmD=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 horas para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     [
+      {
+       "t": "CAPTAR",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "LA ATENCIÓN"
+    ],
+    "video": {
+     "id": "PC68R8odcTA",
+     "titre": "Cómo captar la atención al hablar en público: Parte 1 - Alvaro Gordoa - Colegio de Imagen Pública",
+     "chaine": "Colegio de Imagen Pública",
+     "vues": "5.4 K vistas",
+     "date": "hace 1 año",
+     "duree": "7:02",
+     "avatar": "https://yt3.ggpht.com/ltuRgMtegf3hruiMdPnCKoVfDJF7Zzo-sGoIq_c6F-SdkwAO6KrwBmUo_3SV6E8zCMQUNISdhos=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 horas para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     [
+      {
+       "t": "PRZYKUĆ",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "UWAGĘ"
+    ],
+    "video": {
+     "id": "g6-RzpEkPec",
+     "titre": "Jak przykuć uwagę słuchaczy i utrzymać ich zainteresowanie - wystąpienia publiczne",
+     "chaine": "Aktren Wystąpienia Biznesowe",
+     "vues": "11 tys. wyświetleń",
+     "date": "9 lat temu",
+     "duree": "5:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m_x6kvjvBrjrn3HhfdzbWRcjW5IJwqDepwRijOnZP90A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 godzin nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     [
+      {
+       "t": "ZAUJAŤ",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "PUBLIKUM"
+    ],
+    "video": {
+     "id": "mBVX8u9FKMw",
+     "titre": "Prezentačné zručnosti: Ako zaujať v úvode prezentácie?",
+     "chaine": "Martin Prodaj",
+     "vues": "19 tis. zhliadnutí",
+     "date": "pred 16 rokmi",
+     "duree": "8:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ldtq93adKoETncy1Hm4_c_94tXlkfHwbsqoOdd-U1wiJmc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 hodín na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     [
+      {
+       "t": "PRIVUĆI",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "PAŽNJU"
+    ],
+    "video": {
+     "id": "gAx3-pF3jII",
+     "titre": "Kako napraviti dobru prezentaciju? - Think About",
+     "chaine": "Think About!",
+     "vues": "11 tis. pregleda",
+     "date": "prije 6 godina",
+     "duree": "11:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kEtZO_Y4O0wmHqoTqXpN1c8WZPxi2mDtyBAf7z6Bx14zw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 sati učenja"
+    ]
+   },
+   "sv": {
+    "titre": [
+     [
+      {
+       "t": "FÅNGA",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "UPPMÄRKSAMHETEN"
+    ],
+    "video": {
+     "id": "wl_pEDeeENc",
+     "titre": "2.6.4 Fånga uppmärksamheten",
+     "chaine": "Presentationscoachen",
+     "vues": "100 visningar",
+     "date": "för 13 år sedan",
+     "duree": "4:36",
+     "avatar": "https://yt3.ggpht.com/pt1ZTTXKzj1lOFPBykNTUJl97I_7OsT1MOTL1XuieBTVdE_pdv2-NyMCJ4AxMDxeb6bWh0wYdA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 timmar att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     [
+      {
+       "t": "PIESAISTĪT",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "UZMANĪBU"
+    ],
+    "video": {
+     "id": "FsIRKmiCoS0",
+     "titre": "Prezentācijas prasmes | Viestura Meikšāna publiskās runas taktikas",
+     "chaine": "Runas skola",
+     "vues": "2,2 tūkst. skatījumu",
+     "date": "pirms 4 gadiem",
+     "duree": "4:08",
+     "avatar": "https://yt3.ggpht.com/_iIzRgqD-Imyrgzvn1A1yuy4aXoGJ5dvaWaIXqEr5dEY6nbqLihbDMh-jUgI-HXC-GVOBqjZIA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 stundas, lai iemācītos"
+    ]
    }
   },
   {
@@ -1543,6 +2341,167 @@
      "duree": "19:04",
      "avatar": "https://yt3.ggpht.com/0vh5_DaNMQk5HjeVJJL65sGYpf-my2ToilvqdZ1g3Avp7E__lYs2IlXwPWhzocptwmkvp9wFGg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     "VENDER",
+     [
+      {
+       "t": "CUALQUIER COSA",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OYZZ92QXhHM",
+     "titre": "💸 Cómo VENDER CUALQUIER COSA - Consigue Clientes (NEUROVENTAS)",
+     "chaine": "Jordi Segués | Negocios · Desarrollo Personal",
+     "vues": "1 M de visualizaciones",
+     "date": "hace 3 años",
+     "duree": "10:42",
+     "avatar": "https://yt3.ggpht.com/t7esGheuzo1-FD-Dfo4jWG2zca3ptNAMuOeuGQv9E_35Z75xEbyX4aL3vrZPnNw0PxxNUkc6Gow=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "VENDER",
+     [
+      {
+       "t": "CUALQUIER COSA",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hsIowKV9bVk",
+     "titre": "Cómo VENDER cualquier cosa | Consigue CLIENTES",
+     "chaine": "Pedro Buerbaum",
+     "vues": "2.3 M de vistas",
+     "date": "hace 3 años",
+     "duree": "12:36",
+     "avatar": "https://yt3.ggpht.com/1HIt4aN0rvl9tckXDTWhSjsHN0CV6ZNQRKm4ZaTc1FVRbthX6GXkY_flfCjbXW-f2jLmHa753A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "SPRZEDAĆ",
+     [
+      {
+       "t": "WSZYSTKO",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "goEAjHg5Lzw",
+     "titre": "Jak sprzedać wszystko każdemu?",
+     "chaine": "Antek Płuciennik - Ogarniam Marketing",
+     "vues": "28 tys. wyświetleń",
+     "date": "4 miesiące temu",
+     "duree": "28:17",
+     "avatar": "https://yt3.ggpht.com/oOMPidbYFy4Fnm4NyXSUDKkWmL8cineLFWo-xaxdKGoY1ACXZWrDntu-iaa3LVTTR2l0XENu=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 godziny nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "PREDAŤ",
+     [
+      {
+       "t": "ČOKOĽVEK",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JVYF2ZV5kVY",
+     "titre": "Ako predať čokoľvek komukoľvek… toto je zvláštne, ale funguje to ⎮ časť 1",
+     "chaine": "Natália Pauerová",
+     "vues": "1,3 tis. zhliadnutí",
+     "date": "pred 3 rokmi",
+     "duree": "9:39",
+     "avatar": "https://yt3.ggpht.com/paZdgqbbPhB6pW55F0M_M2hRzxaeS3Ami5FpXQBkOz0Ju6UhpMmxz328hhlvIDJeMYRqOzl2yyU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "PRODATI",
+     [
+      {
+       "t": "BILO ŠTO",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aHNwJYkJKGo",
+     "titre": "2 tajne koje odmah primijenite u prodaji | Prodajne vještine |",
+     "chaine": "Bojan Kovačević",
+     "vues": "5,3 tis. pregleda",
+     "date": "prije 5 godina",
+     "duree": "3:57",
+     "avatar": "https://yt3.ggpht.com/vdrCFNpoQgX5sP6sgYZ4Fad2Q5wM3eKTLgEJU4uXkpVTdJcbMrxIPIinBnUSmDwoFfccv3fb=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata učenja"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "SÄLJA",
+     [
+      {
+       "t": "VAD SOM HELST",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mSDW56iv96I",
+     "titre": "Sälj mig den här pennan",
+     "chaine": "Mingelkampen",
+     "vues": "440 visningar",
+     "date": "för 6 år sedan",
+     "duree": "2:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lTAjbJmDUHdAw_JzEkgSrG7RJbC4Yzye7E6ZjXExevjw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 timmar att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "PĀRDOT",
+     [
+      {
+       "t": "JEBKO",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4IZrACBBgbw",
+     "titre": "Jānis Viegliņš \"Pārdošanas skola\" lekcija Biznesa vadības koledžā",
+     "chaine": "JĀNIS VIEGLIŅŠ",
+     "vues": "3,5 tūkst. skatījumu",
+     "date": "pirms 8 gadiem",
+     "duree": "6:16",
+     "avatar": "https://yt3.ggpht.com/NtQasZ27sCbUb7gTD5idoBzj9JKssTuCYF1QbQiC3dfd4Hstwdlg49reBTIQH6qI6QZ81EzqlqI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 stundas, lai iemācītos"
+    ]
    }
   },
   {
@@ -1799,6 +2758,167 @@
      "duree": "5:37",
      "avatar": "https://yt3.ggpht.com/vyaOMek743Sv-o_qMtzoPyWCyM8oefjwh6448Ma75MvIfGHrDNLC14gNcmw910ZW-xJ8pHYg1yc=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     [
+      {
+       "t": "USAR BIEN",
+       "couleur": "#3a929a"
+      }
+     ],
+     "LA IA"
+    ],
+    "video": {
+     "id": "-idMBeCCCzs",
+     "titre": "Curso de IA de Google para principiantes (Resumen en 10 minutos)",
+     "chaine": "DonebyLaura",
+     "vues": "1,1 M de visualizaciones",
+     "date": "hace 2 años",
+     "duree": "11:34",
+     "avatar": "https://yt3.ggpht.com/yspDjMLs4kMHD9KpI3050OgE9U8oUYgxnwSH4KUd3SByyiNkxRev52kZvcG0K5KJBpT3YE2i3A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     [
+      {
+       "t": "USAR BIEN",
+       "couleur": "#3a929a"
+      }
+     ],
+     "LA IA"
+    ],
+    "video": {
+     "id": "cmep2mdip3k",
+     "titre": "Tutorial de inteligencia artificial para cualquier persona",
+     "chaine": "Platzi",
+     "vues": "1.8 M de vistas",
+     "date": "hace 1 año",
+     "duree": "19:20",
+     "avatar": "https://yt3.ggpht.com/jSVrx7B9DIXfx7-Mh16nzdqXcBFoa-FV3fgItxePwv17Dst-U-JuC3_TR6rLq0quRjJPpHy5RQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     [
+      {
+       "t": "KORZYSTAĆ",
+       "couleur": "#3a929a"
+      }
+     ],
+     "Z AI MĄDRZE"
+    ],
+    "video": {
+     "id": "TVHYl-MVugQ",
+     "titre": "AI od zera. Jak zacząć, nie tracąc czasu i nerwów?",
+     "chaine": "Kuba Klawiter",
+     "vues": "536 tys. wyświetleń",
+     "date": "1 rok temu",
+     "duree": "35:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nqa_qW-GXCNc5mGqTK16UhFIMTVT-LpjORcGnp4v4wRQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 godziny nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     [
+      {
+       "t": "POUŽÍVAŤ",
+       "couleur": "#3a929a"
+      }
+     ],
+     "AI SPRÁVNE"
+    ],
+    "video": {
+     "id": "o8jeiGvrl6s",
+     "titre": "Úvod do ChatGPT za 6 MINÚT ⏰ Staň sa kráľom #AI",
+     "chaine": "Zaujaloma AI",
+     "vues": "20 tis. zhliadnutí",
+     "date": "pred 2 rokmi",
+     "duree": "6:15",
+     "avatar": "https://yt3.ggpht.com/VvxSZdkvkBoZpZv9wFMMreP5CS19Kfz1gQ5FxUMwEybcs5dzx8RSCJb4hF6kY7sKx-DQE4nI-g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     [
+      {
+       "t": "KORISTITI",
+       "couleur": "#3a929a"
+      }
+     ],
+     "AI PAMETNO"
+    ],
+    "video": {
+     "id": "z36mMM5W_f8",
+     "titre": "Što je ChatGPT i kako početi? | AI za Sve – Vodič za početnike",
+     "chaine": "AI za Sve",
+     "vues": "317 pregleda",
+     "date": "prije 1 godinu",
+     "duree": "3:06",
+     "avatar": "https://yt3.ggpht.com/qiJm__yoYj6IYU4bjefVSVut4Li7so9-IsO5V9ra342t3kQqNNcMs656nRaKRu1cGZ_mtU9pfg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata učenja"
+    ]
+   },
+   "sv": {
+    "titre": [
+     [
+      {
+       "t": "ANVÄNDA",
+       "couleur": "#3a929a"
+      }
+     ],
+     "AI RÄTT"
+    ],
+    "video": {
+     "id": "zFRtNOvkzdc",
+     "titre": "Hur använder man chatGPT? - Guide för nybörjare",
+     "chaine": "Oscar Marklund",
+     "vues": "9,8 tn visningar",
+     "date": "för 3 år sedan",
+     "duree": "15:44",
+     "avatar": "https://yt3.ggpht.com/aAz4j21dhuxCgVoT6uzShciD_qqNUZxXaci-19XD9murcG5LjaMuMLc6P_2vwzWljWX-8Y0iVA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 timmar att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     [
+      {
+       "t": "LIETOT",
+       "couleur": "#3a929a"
+      }
+     ],
+     "MI PAREIZI"
+    ],
+    "video": {
+     "id": "Nd0MECnXoC0",
+     "titre": "#32 Nezini, kā sākt ar ChatGPT!  Šis video Tev palīdzēs | Don't know how to get started with ChatGPT",
+     "chaine": "Easy Productivity LV",
+     "vues": "130 skatījumu",
+     "date": "pirms 1 gada",
+     "duree": "2:43",
+     "avatar": "https://yt3.ggpht.com/dWZ7lGqaG5JJhL6yW3MSRa6C_mpH9Dki9VMBPBoTpWHWLqVOQl3jqjAizYwvgKNCFDOJm1_dQcA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 stundas, lai iemācītos"
+    ]
    }
   }
  ]

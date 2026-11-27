@@ -7,10 +7,24 @@
     "accroche": "cómo arreglar tu DOPAMINA"
   },
   "titre": {
-    "es": "cómo recuperar tu atención (según la neurociencia)"
+    "es": "cómo recuperar tu atención (según la neurociencia)",
+    "fr": "comment retrouver ton attention (selon les neurosciences)",
+    "it": "come recuperare la tua attenzione (secondo le neuroscienze)",
+    "pt-BR": "como recuperar a sua atenção (segundo a neurociência)",
+    "de": "so bekommst du deinen fokus zurück (laut neurowissenschaft)",
+    "ro": "cum să-ți recuperezi atenția (după neuroștiință)",
+    "hu": "hogyan szerezd vissza a figyelmed (az idegtudomány szerint)",
+    "es-419": "cómo recuperar tu atención (según la neurociencia)"
   },
   "legendes": {
-    "es": "#atencion #concentracion #productividad #disciplina #detox"
+    "es": "#atencion #concentracion #productividad #disciplina #detox",
+    "fr": "#attention #concentration #productivite #discipline #detox",
+    "it": "#attenzione #concentrazione #produttivita #disciplina #detox",
+    "pt-BR": "#atencao #foco #produtividade #disciplina #detox",
+    "de": "#fokus #konzentration #produktivitaet #disziplin #detox",
+    "ro": "#atentie #concentrare #productivitate #disciplina #detox",
+    "hu": "#figyelem #koncentracio #produktivitas #fegyelem #detox",
+    "es-419": "#atencion #concentracion #productividad #disciplina #detox"
   },
   "musique": {
     "titre": "original sound",
@@ -21,14 +35,70 @@
     {
       "type": "couverture",
       "photos": [
-        { "image": "images/photos/irm-neon.jpg" },
-        { "image": "images/photos/lit-telephone.jpg" },
-        { "image": "images/photos/visage-cache.jpg", "cadrage": { "y": 0.35 } },
-        { "image": "images/photos/fenetre-ville.jpg" },
-        { "image": "images/photos/irm-chaleur.jpg", "cadrage": { "y": 0.3 } },
-        { "image": "images/photos/tete-lumiere.jpg", "cadrage": { "y": 0.35 } }
+        {
+          "image": "images/photos/irm-neon.jpg"
+        },
+        {
+          "image": "images/photos/lit-telephone.jpg"
+        },
+        {
+          "image": "images/photos/visage-cache.jpg",
+          "cadrage": {
+            "y": 0.35
+          }
+        },
+        {
+          "image": "images/photos/fenetre-ville.jpg"
+        },
+        {
+          "image": "images/photos/irm-chaleur.jpg",
+          "cadrage": {
+            "y": 0.3
+          }
+        },
+        {
+          "image": "images/photos/tete-lumiere.jpg",
+          "cadrage": {
+            "y": 0.35
+          }
+        }
       ],
       "es": {
+        "haut": "cómo recuperar tu",
+        "mot": "ATENCIÓN",
+        "note": "(según la neurociencia)"
+      },
+      "fr": {
+        "haut": "comment retrouver ton",
+        "mot": "ATTENTION",
+        "note": "(selon les neurosciences)"
+      },
+      "it": {
+        "haut": "come recuperare la tua",
+        "mot": "ATTENZIONE",
+        "note": "(secondo le neuroscienze)"
+      },
+      "pt-BR": {
+        "haut": "como recuperar a sua",
+        "mot": "ATENÇÃO",
+        "note": "(segundo a neurociência)"
+      },
+      "de": {
+        "haut": "so bekommst du deinen",
+        "mot": "FOKUS",
+        "note": "zurück (laut neurowissenschaft)"
+      },
+      "ro": {
+        "haut": "cum să-ți recuperezi",
+        "mot": "ATENȚIA",
+        "note": "(după neuroștiință)"
+      },
+      "hu": {
+        "haut": "hogyan szerezd vissza a",
+        "mot": "FIGYELMED",
+        "note": "(az idegtudomány szerint)"
+      },
+      "es-419": {
         "haut": "cómo recuperar tu",
         "mot": "ATENCIÓN",
         "note": "(según la neurociencia)"
@@ -38,8 +108,12 @@
       "type": "point",
       "mise": "bas",
       "photos": [
-        { "image": "images/photos/metro-ecrans.jpg" },
-        { "image": "images/photos/main-ecran.jpg" }
+        {
+          "image": "images/photos/metro-ecrans.jpg"
+        },
+        {
+          "image": "images/photos/main-ecran.jpg"
+        }
       ],
       "es": {
         "titre": "no eres tú.",
@@ -48,13 +122,73 @@
           "la investigadora **gloria mark** lleva veinte años midiendo cuánto aguantamos en una pantalla antes de cambiar: en 2004 eran **dos minutos y medio**. hoy, **47 segundos**.",
           "no estás roto. **tu atención está entrenada para saltar**, y se puede volver a entrenar."
         ]
+      },
+      "fr": {
+        "titre": "ce n'est pas toi.",
+        "paragraphes": [
+          "tu t'assois pour étudier ou travailler et, deux minutes après, tu regardes déjà ton téléphone. et tu te dis que **tu manques de volonté**.",
+          "la chercheuse **gloria mark** mesure depuis vingt ans combien de temps on tient sur un écran avant de changer: en 2004, c'était **deux minutes et demie**. aujourd'hui, **47 secondes**.",
+          "tu n'es pas cassé. **ton attention est entraînée à sauter**, et elle peut se réentraîner."
+        ]
+      },
+      "it": {
+        "titre": "non sei tu.",
+        "paragraphes": [
+          "ti siedi a studiare o a lavorare e dopo due minuti stai già guardando il telefono. e pensi che **ti manchi la forza di volontà**.",
+          "la ricercatrice **gloria mark** misura da vent'anni quanto resistiamo su uno schermo prima di cambiare: nel 2004 erano **due minuti e mezzo**. oggi, **47 secondi**.",
+          "non sei rotto. **la tua attenzione è allenata a saltare**, e si può riallenare."
+        ]
+      },
+      "pt-BR": {
+        "titre": "não é você.",
+        "paragraphes": [
+          "você senta pra estudar ou trabalhar e, dois minutos depois, já está olhando o celular. e acha que **falta força de vontade**.",
+          "a pesquisadora **gloria mark** mede há vinte anos quanto tempo a gente aguenta numa tela antes de trocar: em 2004 eram **dois minutos e meio**. hoje, **47 segundos**.",
+          "você não está quebrado. **sua atenção foi treinada pra pular**, e dá pra treinar de novo."
+        ]
+      },
+      "de": {
+        "titre": "es liegt nicht an dir.",
+        "paragraphes": [
+          "du setzt dich zum lernen oder arbeiten hin und nach zwei minuten schaust du schon aufs handy. und denkst, **dir fehlt die willenskraft**.",
+          "die forscherin **gloria mark** misst seit zwanzig jahren, wie lange wir bei einem bildschirm bleiben, bevor wir wechseln: 2004 waren es **zweieinhalb minuten**. heute **47 sekunden**.",
+          "du bist nicht kaputt. **deine aufmerksamkeit ist aufs springen trainiert**, und sie lässt sich neu trainieren."
+        ]
+      },
+      "ro": {
+        "titre": "nu e vina ta.",
+        "paragraphes": [
+          "te apuci să înveți sau să lucrezi și după două minute deja te uiți pe telefon. și crezi că **nu ai voință**.",
+          "cercetătoarea **gloria mark** măsoară de douăzeci de ani cât rezistăm pe un ecran înainte să schimbăm: în 2004 erau **două minute și jumătate**. azi, **47 de secunde**.",
+          "nu ești stricat. **atenția ta e antrenată să sară**, și se poate reantrena."
+        ]
+      },
+      "hu": {
+        "titre": "nem veled van a baj.",
+        "paragraphes": [
+          "leülsz tanulni vagy dolgozni, és két perc múlva már a telefonodat nézed. és azt hiszed, **nincs elég akaraterőd**.",
+          "**gloria mark** kutató húsz éve méri, meddig bírjuk egy képernyőn, mielőtt váltunk: 2004-ben **két és fél perc** volt. ma **47 másodperc**.",
+          "nem vagy elromolva. **a figyelmed ugrálásra van edzve**, és át lehet edzeni."
+        ]
+      },
+      "es-419": {
+        "titre": "no eres tú.",
+        "paragraphes": [
+          "te sientas a estudiar o a trabajar y a los dos minutos ya estás mirando el celular. y piensas que **te falta fuerza de voluntad**.",
+          "la investigadora **gloria mark** lleva veinte años midiendo cuánto aguantamos en una pantalla antes de cambiar: en 2004 eran **dos minutos y medio**. hoy, **47 segundos**.",
+          "no estás roto. **tu atención está entrenada para saltar**, y se puede volver a entrenar."
+        ]
       }
     },
     {
       "type": "point",
       "photos": [
-        { "image": "images/photos/telephone-retourne.jpg" },
-        { "image": "images/photos/bureau-lampe.jpg" }
+        {
+          "image": "images/photos/telephone-retourne.jpg"
+        },
+        {
+          "image": "images/photos/bureau-lampe.jpg"
+        }
       ],
       "es": {
         "titre": "el móvil te roba",
@@ -63,15 +197,131 @@
           "los que lo tenían **en otra habitación** sacaron mejores resultados. y eso que el móvil estaba en silencio.",
           "solo tenerlo cerca **gasta parte de tu atención** en no mirarlo."
         ]
+      },
+      "fr": {
+        "titre": "ton téléphone te vole",
+        "paragraphes": [
+          "dans une expérience de l'université du texas, environ 800 personnes ont passé des tests de mémoire et de concentration avec leur téléphone **sur la table, dans la poche ou dans une autre pièce**.",
+          "ceux qui l'avaient **dans une autre pièce** ont eu les meilleurs résultats. et pourtant, il était en silencieux.",
+          "juste l'avoir près de toi **use une partie de ton attention** à ne pas le regarder."
+        ]
+      },
+      "it": {
+        "titre": "il telefono ti ruba",
+        "paragraphes": [
+          "in un esperimento dell'università del texas, circa 800 persone hanno fatto test di memoria e concentrazione con il telefono **sul tavolo, in tasca o in un'altra stanza**.",
+          "chi lo aveva **in un'altra stanza** ha ottenuto risultati migliori. eppure il telefono era in silenzioso.",
+          "solo averlo vicino **consuma parte della tua attenzione** per non guardarlo."
+        ]
+      },
+      "pt-BR": {
+        "titre": "o celular te rouba",
+        "paragraphes": [
+          "num experimento da universidade do texas, cerca de 800 pessoas fizeram testes de memória e concentração com o celular **na mesa, no bolso ou em outro cômodo**.",
+          "quem estava com ele **em outro cômodo** foi melhor. e o celular estava no silencioso.",
+          "só de estar perto, ele **gasta parte da sua atenção** pra você não olhar."
+        ]
+      },
+      "de": {
+        "titre": "das handy stiehlt",
+        "paragraphes": [
+          "in einem experiment der university of texas machten rund 800 menschen gedächtnis- und konzentrationstests, das handy **auf dem tisch, in der tasche oder in einem anderen raum**.",
+          "wer es **in einem anderen raum** hatte, schnitt besser ab. und das handy war auf lautlos.",
+          "allein die nähe **kostet dich aufmerksamkeit**, nur um nicht hinzuschauen."
+        ]
+      },
+      "ro": {
+        "titre": "telefonul te fură",
+        "paragraphes": [
+          "într-un experiment al universității din texas, cam 800 de oameni au dat teste de memorie și concentrare cu telefonul **pe masă, în buzunar sau în altă cameră**.",
+          "cei care îl aveau **în altă cameră** au avut rezultate mai bune. și telefonul era pe silențios.",
+          "doar faptul că e lângă tine **îți consumă din atenție** ca să nu te uiți la el."
+        ]
+      },
+      "hu": {
+        "titre": "a telefon lop tőled",
+        "paragraphes": [
+          "a texasi egyetem egyik kísérletében nagyjából 800 ember töltött ki memória- és koncentrációs teszteket úgy, hogy a telefonja **az asztalon, a zsebében vagy egy másik szobában** volt.",
+          "akiknél **egy másik szobában** volt, jobb eredményt értek el. pedig a telefon le volt némítva.",
+          "már az is, hogy a közeledben van, **elvisz a figyelmedből**, hogy ne nézz rá."
+        ]
+      },
+      "es-419": {
+        "titre": "el celular te roba",
+        "paragraphes": [
+          "en un experimento de la universidad de texas, unas 800 personas hicieron pruebas de memoria y concentración con el celular **en la mesa, en el bolsillo o en otra habitación**.",
+          "los que lo tenían **en otra habitación** sacaron mejores resultados. y eso que el celular estaba en silencio.",
+          "solo tenerlo cerca **gasta parte de tu atención** en no mirarlo."
+        ]
       }
     },
     {
       "type": "point",
       "photos": [
-        { "image": "images/photos/pluie-fenetre.jpg" },
-        { "image": "images/photos/ecouteurs.jpg" }
+        {
+          "image": "images/photos/pluie-fenetre.jpg"
+        },
+        {
+          "image": "images/photos/ecouteurs.jpg"
+        }
       ],
       "es": {
+        "titre": "el residuo",
+        "paragraphes": [
+          "cada vez que saltas de una tarea a otra, **una parte de tu cabeza se queda en la anterior**. en 2009 una investigadora lo llamó **residuo de atención**.",
+          "mirar una notificación «solo un segundo» no cuesta un segundo: **te deja a medias** un buen rato.",
+          "por eso **terminar algo** antes de cambiar, aunque sea pequeño, ya es entrenar tu atención."
+        ]
+      },
+      "fr": {
+        "titre": "le résidu",
+        "paragraphes": [
+          "chaque fois que tu passes d'une tâche à une autre, **une partie de ta tête reste sur la précédente**. en 2009, une chercheuse a appelé ça **le résidu d'attention**.",
+          "regarder une notification «juste une seconde» ne coûte pas une seconde: **ça te laisse à moitié là** un bon moment.",
+          "alors **finir quelque chose** avant de changer, même petit, c'est déjà entraîner ton attention."
+        ]
+      },
+      "it": {
+        "titre": "il residuo",
+        "paragraphes": [
+          "ogni volta che salti da un compito all'altro, **una parte della tua testa resta su quello prima**. nel 2009 una ricercatrice l'ha chiamato **residuo di attenzione**.",
+          "guardare una notifica «solo un secondo» non costa un secondo: **ti lascia a metà** per un bel po'.",
+          "per questo **finire qualcosa** prima di cambiare, anche di piccolo, è già allenare l'attenzione."
+        ]
+      },
+      "pt-BR": {
+        "titre": "o resíduo",
+        "paragraphes": [
+          "toda vez que você pula de uma tarefa pra outra, **uma parte da sua cabeça fica na anterior**. em 2009 uma pesquisadora chamou isso de **resíduo de atenção**.",
+          "olhar uma notificação «só um segundo» não custa um segundo: **te deixa pela metade** por um bom tempo.",
+          "por isso **terminar algo** antes de trocar, mesmo pequeno, já é treinar a atenção."
+        ]
+      },
+      "de": {
+        "titre": "der rest",
+        "paragraphes": [
+          "jedes mal, wenn du von einer aufgabe zur nächsten springst, **bleibt ein teil deines kopfes bei der alten**. 2009 nannte eine forscherin das **aufmerksamkeitsrest**.",
+          "eine nachricht «nur kurz» checken kostet nicht eine sekunde: **du bist danach eine weile nur halb da**.",
+          "darum ist **etwas fertig machen**, bevor du wechselst, schon training für deine aufmerksamkeit."
+        ]
+      },
+      "ro": {
+        "titre": "reziduul",
+        "paragraphes": [
+          "de fiecare dată când sari de la o sarcină la alta, **o parte din mintea ta rămâne la cea dinainte**. în 2009, o cercetătoare a numit asta **reziduu de atenție**.",
+          "să te uiți la o notificare «doar o secundă» nu costă o secundă: **te lasă pe jumătate** o bună bucată de timp.",
+          "de asta **să termini ceva** înainte să schimbi, chiar și ceva mic, deja înseamnă să-ți antrenezi atenția."
+        ]
+      },
+      "hu": {
+        "titre": "a maradék",
+        "paragraphes": [
+          "valahányszor egyik feladatról a másikra ugrasz, **a fejed egy része az előzőnél marad**. 2009-ben egy kutató ezt **figyelemmaradéknak** nevezte el.",
+          "egy értesítést «csak egy pillanatra» megnézni nem egy pillanatba kerül: **utána egy ideig csak félig vagy ott**.",
+          "ezért már az is edzés, ha **befejezel valamit**, mielőtt váltasz, akár egy apróságot is."
+        ]
+      },
+      "es-419": {
         "titre": "el residuo",
         "paragraphes": [
           "cada vez que saltas de una tarea a otra, **una parte de tu cabeza se queda en la anterior**. en 2009 una investigadora lo llamó **residuo de atención**.",
@@ -83,9 +333,67 @@
     {
       "type": "sophia",
       "photos": [
-        { "image": "images/photos/lecture-lit.jpg" }
+        {
+          "image": "images/photos/lecture-lit.jpg"
+        }
       ],
       "es": {
+        "titre": "dale algo mejor",
+        "paragraphes": [
+          "el scroll no desaparece si dejas el hueco vacío. **llénalo con algo que te aporte**.",
+          "yo cambié el primer scroll del día por **una lección corta en Sophia**: historia, filosofía, ciencia, geopolítica, literatura, economía.",
+          "**10 minutos y un quiz al final**. empiezo el día terminando algo, no saltando de vídeo en vídeo."
+        ]
+      },
+      "fr": {
+        "titre": "donne-lui mieux",
+        "paragraphes": [
+          "le scroll ne disparaît pas si tu laisses un vide. **remplis-le avec quelque chose qui t'apporte**.",
+          "j'ai remplacé le premier scroll de la journée par **une leçon courte sur Sophia**: histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "**10 minutes et un quiz à la fin**. je commence la journée en finissant quelque chose, pas en sautant de vidéo en vidéo."
+        ]
+      },
+      "it": {
+        "titre": "dagli qualcosa di meglio",
+        "paragraphes": [
+          "lo scroll non sparisce se lasci il vuoto. **riempilo con qualcosa che ti dia valore**.",
+          "ho sostituito il primo scroll della giornata con **una lezione breve su Sophia**: storia, filosofia, scienza, geopolitica, letteratura, economia.",
+          "**10 minuti e un quiz alla fine**. inizio la giornata finendo qualcosa, non saltando da un video all'altro."
+        ]
+      },
+      "pt-BR": {
+        "titre": "dá algo melhor",
+        "paragraphes": [
+          "o scroll não some se você deixa o espaço vazio. **preenche com algo que te acrescente**.",
+          "eu troquei o primeiro scroll do dia por **uma lição curta no Sophia**: história, filosofia, ciência, geopolítica, literatura, economia.",
+          "**10 minutos e um quiz no final**. começo o dia terminando algo, não pulando de vídeo em vídeo."
+        ]
+      },
+      "de": {
+        "titre": "gib ihm was besseres",
+        "paragraphes": [
+          "das scrollen verschwindet nicht, wenn du die lücke leer lässt. **füll sie mit etwas, das dir was bringt**.",
+          "ich habe das erste scrollen am tag gegen **eine kurze lektion in Sophia** getauscht: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "**10 minuten und ein quiz am ende**. ich starte den tag, indem ich etwas beende, nicht von video zu video springe."
+        ]
+      },
+      "ro": {
+        "titre": "dă-i ceva mai bun",
+        "paragraphes": [
+          "scroll-ul nu dispare dacă lași golul gol. **umple-l cu ceva care îți aduce ceva**.",
+          "am înlocuit primul scroll al zilei cu **o lecție scurtă în Sophia**: istorie, filozofie, știință, geopolitică, literatură, economie.",
+          "**10 minute și un quiz la final**. încep ziua terminând ceva, nu sărind de la un video la altul."
+        ]
+      },
+      "hu": {
+        "titre": "adj neki jobbat",
+        "paragraphes": [
+          "a görgetés nem tűnik el, ha üresen hagyod a helyét. **töltsd ki valamivel, ami ad neked**.",
+          "én a nap első görgetését **egy rövid leckére cseréltem a Sophia appban**: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "**10 perc és egy kvíz a végén**. úgy kezdem a napot, hogy befejezek valamit, nem videóról videóra ugrálok."
+        ]
+      },
+      "es-419": {
         "titre": "dale algo mejor",
         "paragraphes": [
           "el scroll no desaparece si dejas el hueco vacío. **llénalo con algo que te aporte**.",
@@ -98,8 +406,12 @@
       "type": "point",
       "mise": "bas",
       "photos": [
-        { "image": "images/photos/minuteur.jpg" },
-        { "image": "images/photos/tiroir.jpg" }
+        {
+          "image": "images/photos/minuteur.jpg"
+        },
+        {
+          "image": "images/photos/tiroir.jpg"
+        }
       ],
       "es": {
         "titre": "una cosa cada vez.",
@@ -108,14 +420,135 @@
           "cuando acabe el bloque, descansa 5 minutos **sin pantalla**. y vuelta a empezar.",
           "al principio te costará muchísimo (es normal). cada bloque que terminas **te demuestra que puedes aguantar**."
         ]
+      },
+      "fr": {
+        "titre": "une chose à la fois.",
+        "paragraphes": [
+          "choisis **une seule tâche** et fais un bloc court: 25 minutes pour commencer. le téléphone, **dans une autre pièce** ou dans un tiroir.",
+          "à la fin du bloc, 5 minutes de pause **sans écran**. et on recommence.",
+          "au début, ce sera très dur (c'est normal). chaque bloc terminé **te prouve que tu peux tenir**."
+        ]
+      },
+      "it": {
+        "titre": "una cosa alla volta.",
+        "paragraphes": [
+          "scegli **un solo compito** e fai un blocco breve: 25 minuti per iniziare. il telefono, **in un'altra stanza** o in un cassetto.",
+          "finito il blocco, 5 minuti di pausa **senza schermo**. e si ricomincia.",
+          "all'inizio sarà durissima (è normale). ogni blocco finito **ti dimostra che ce la fai**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "uma coisa por vez.",
+        "paragraphes": [
+          "escolhe **uma tarefa só** e faz um bloco curto: 25 minutos pra começar. o celular, **em outro cômodo** ou numa gaveta.",
+          "quando o bloco acabar, 5 minutos de pausa **sem tela**. e recomeça.",
+          "no começo vai ser muito difícil (é normal). cada bloco terminado **te prova que você aguenta**."
+        ]
+      },
+      "de": {
+        "titre": "immer nur eins.",
+        "paragraphes": [
+          "wähl **eine einzige aufgabe** und mach einen kurzen block: 25 minuten für den anfang. das handy **in einen anderen raum** oder in eine schublade.",
+          "nach dem block 5 minuten pause **ohne bildschirm**. dann von vorn.",
+          "am anfang wird es richtig schwer (das ist normal). jeder fertige block **zeigt dir, dass du durchhältst**."
+        ]
+      },
+      "ro": {
+        "titre": "un lucru pe rând.",
+        "paragraphes": [
+          "alege **o singură sarcină** și fă un bloc scurt: 25 de minute la început. telefonul, **în altă cameră** sau într-un sertar.",
+          "când se termină blocul, 5 minute de pauză **fără ecran**. și o iei de la capăt.",
+          "la început o să fie foarte greu (e normal). fiecare bloc terminat **îți arată că poți rezista**."
+        ]
+      },
+      "hu": {
+        "titre": "egyszerre egy dolgot.",
+        "paragraphes": [
+          "válassz **egyetlen feladatot**, és csinálj egy rövid blokkot: kezdésnek 25 percet. a telefon **egy másik szobában** vagy egy fiókban.",
+          "a blokk végén 5 perc szünet **képernyő nélkül**. aztán újra.",
+          "az elején nagyon nehéz lesz (ez normális). minden befejezett blokk **bizonyítja, hogy bírod**."
+        ]
+      },
+      "es-419": {
+        "titre": "una cosa cada vez.",
+        "paragraphes": [
+          "elige **una sola tarea** y ponte un bloque corto: 25 minutos para empezar. el celular, **en otra habitación** o en un cajón.",
+          "cuando acabe el bloque, descansa 5 minutos **sin pantalla**. y vuelta a empezar.",
+          "al principio te costará muchísimo (es normal). cada bloque que terminas **te demuestra que puedes aguantar**."
+        ]
       }
     },
     {
       "type": "fin",
       "photos": [
-        { "image": "images/photos/escalier.jpg" }
+        {
+          "image": "images/photos/escalier.jpg"
+        }
       ],
       "es": {
+        "titre": "tu atención no está rota.",
+        "paragraphes": [
+          "solo se ha acostumbrado a **saltar cada pocos segundos**.",
+          "cada vez que eliges quedarte en una sola cosa, **le cuesta un poco menos**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo para cuando lo necesites y **empieza hoy**."
+        ]
+      },
+      "fr": {
+        "titre": "ton attention va bien.",
+        "paragraphes": [
+          "elle s'est juste habituée à **sauter toutes les deux secondes**.",
+          "chaque fois que tu choisis de rester sur une seule chose, **ça lui coûte un peu moins**.",
+          "laquelle tu vas tester en premier? commente le numéro.",
+          "enregistre-le pour le jour où tu en auras besoin et **commence aujourd'hui**."
+        ]
+      },
+      "it": {
+        "titre": "la tua attenzione sta bene.",
+        "paragraphes": [
+          "si è solo abituata a **saltare ogni pochi secondi**.",
+          "ogni volta che scegli di restare su una cosa sola, **le costa un po' meno**.",
+          "quale provi per primo? scrivi il numero nei commenti.",
+          "salvalo per quando ti servirà e **inizia oggi**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "sua atenção não quebrou.",
+        "paragraphes": [
+          "ela só se acostumou a **pular a cada poucos segundos**.",
+          "toda vez que você escolhe ficar numa coisa só, **fica um pouco mais fácil**.",
+          "qual você vai testar primeiro? comenta o número.",
+          "salva pra quando precisar e **começa hoje**."
+        ]
+      },
+      "de": {
+        "titre": "dein fokus ist nicht kaputt.",
+        "paragraphes": [
+          "er hat sich nur daran gewöhnt, **alle paar sekunden zu springen**.",
+          "jedes mal, wenn du bei einer sache bleibst, **fällt es ihm ein bisschen leichter**.",
+          "welchen probierst du zuerst? kommentier die nummer.",
+          "speicher es dir für später und **fang heute an**."
+        ]
+      },
+      "ro": {
+        "titre": "atenția ta nu e stricată.",
+        "paragraphes": [
+          "doar s-a obișnuit să **sară la câteva secunde**.",
+          "de fiecare dată când alegi să rămâi la un singur lucru, **îi e puțin mai ușor**.",
+          "pe care îl încerci primul? scrie numărul în comentarii.",
+          "salvează-l pentru când ai nevoie și **începe azi**."
+        ]
+      },
+      "hu": {
+        "titre": "a figyelmed nem romlott el.",
+        "paragraphes": [
+          "csak hozzászokott, hogy **pár másodpercenként ugorjon**.",
+          "valahányszor egy dolognál maradsz, **egy kicsit könnyebb neki**.",
+          "melyiket próbálod ki először? írd meg kommentben a számot.",
+          "mentsd el, ha szükséged lesz rá, és **kezdd el ma**."
+        ]
+      },
+      "es-419": {
         "titre": "tu atención no está rota.",
         "paragraphes": [
           "solo se ha acostumbrado a **saltar cada pocos segundos**.",

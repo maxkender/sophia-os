@@ -8,10 +8,24 @@
     "accroche": "cómo dejar de ser INSEGURO (según la neurociencia)"
   },
   "titre": {
-    "es": "cómo volver a leer (según la neurociencia)"
+    "es": "cómo volver a leer (según la neurociencia)",
+    "fr": "comment se remettre à lire (selon les neurosciences)",
+    "it": "come tornare a leggere (secondo le neuroscienze)",
+    "pt-BR": "como voltar a ler (segundo a neurociência)",
+    "de": "so fängst du wieder an zu lesen (laut neurowissenschaft)",
+    "ro": "cum să te apuci iar de citit (după neuroștiință)",
+    "hu": "hogyan kezdj újra olvasni (az idegtudomány szerint)",
+    "es-419": "cómo volver a leer (según la neurociencia)"
   },
   "legendes": {
-    "es": "#leer #libros #concentracion #habitos #detox"
+    "es": "#leer #libros #concentracion #habitos #detox",
+    "fr": "#lecture #livres #concentration #habitudes #detox",
+    "it": "#leggere #libri #concentrazione #abitudini #detox",
+    "pt-BR": "#leitura #livros #foco #habitos #detox",
+    "de": "#lesen #buecher #konzentration #gewohnheiten #detox",
+    "ro": "#citit #carti #concentrare #obiceiuri #detox",
+    "hu": "#olvasas #konyvek #koncentracio #szokasok #detox",
+    "es-419": "#leer #libros #concentracion #habitos #detox"
   },
   "musique": {
     "titre": "son original - yvesnord",
@@ -22,14 +36,64 @@
     {
       "type": "couverture",
       "photos": [
-        { "image": "images/photos/irm-axiale.jpg" },
-        { "image": "images/photos/livre-fenetre-nuit.jpg" },
-        { "image": "images/photos/cerveau-lumiere-bleue.jpg" },
-        { "image": "images/photos/bibliotheque-vide.jpg" },
-        { "image": "images/photos/irm-tete-face.jpg", "cadrage": { "y": 0.2 } },
-        { "image": "images/photos/banc-parc-livre.jpg" }
+        {
+          "image": "images/photos/irm-axiale.jpg"
+        },
+        {
+          "image": "images/photos/livre-fenetre-nuit.jpg"
+        },
+        {
+          "image": "images/photos/cerveau-lumiere-bleue.jpg"
+        },
+        {
+          "image": "images/photos/bibliotheque-vide.jpg"
+        },
+        {
+          "image": "images/photos/irm-tete-face.jpg",
+          "cadrage": {
+            "y": 0.2
+          }
+        },
+        {
+          "image": "images/photos/banc-parc-livre.jpg"
+        }
       ],
       "es": {
+        "haut": "cómo volver a",
+        "mot": "LEER",
+        "note": "(según la neurociencia)"
+      },
+      "fr": {
+        "haut": "comment se remettre à",
+        "mot": "LIRE",
+        "note": "(selon les neurosciences)"
+      },
+      "it": {
+        "haut": "come tornare a",
+        "mot": "LEGGERE",
+        "note": "(secondo le neuroscienze)"
+      },
+      "pt-BR": {
+        "haut": "como voltar a",
+        "mot": "LER",
+        "note": "(segundo a neurociência)"
+      },
+      "de": {
+        "haut": "so fängst du wieder an zu",
+        "mot": "LESEN",
+        "note": "(laut neurowissenschaft)"
+      },
+      "ro": {
+        "haut": "cum să te apuci iar de",
+        "mot": "CITIT",
+        "note": "(după neuroștiință)"
+      },
+      "hu": {
+        "haut": "hogyan kezdj újra",
+        "mot": "OLVASNI",
+        "note": "(az idegtudomány szerint)"
+      },
+      "es-419": {
         "haut": "cómo volver a",
         "mot": "LEER",
         "note": "(según la neurociencia)"
@@ -39,8 +103,12 @@
       "type": "point",
       "mise": "bas",
       "photos": [
-        { "image": "images/photos/silhouette-telephone-lit.jpg" },
-        { "image": "images/photos/pages-tournees.jpg" }
+        {
+          "image": "images/photos/silhouette-telephone-lit.jpg"
+        },
+        {
+          "image": "images/photos/pages-tournees.jpg"
+        }
       ],
       "es": {
         "titre": "no has olvidado leer.",
@@ -49,13 +117,73 @@
           "le pasó también a la neurocientífica **maryanne wolf**: volvió a una novela que le encantaba y **no podía leer despacio**. su cerebro saltaba líneas, como en el móvil.",
           "no lo has perdido. **lo has dejado de entrenar**."
         ]
+      },
+      "fr": {
+        "titre": "tu sais encore lire.",
+        "paragraphes": [
+          "tu ouvres un livre, tu lis deux pages et tu réalises que **tu n'as rien retenu**.",
+          "c'est arrivé aussi à la neuroscientifique **maryanne wolf**: elle a repris un roman qu'elle adorait et **n'arrivait plus à lire lentement**. son cerveau sautait des lignes, comme sur le téléphone.",
+          "tu ne l'as pas perdu. **tu as arrêté de l'entraîner**."
+        ]
+      },
+      "it": {
+        "titre": "sai ancora leggere.",
+        "paragraphes": [
+          "apri un libro, leggi due pagine e ti accorgi che **non hai capito niente**.",
+          "è successo anche alla neuroscienziata **maryanne wolf**: ha ripreso un romanzo che amava e **non riusciva a leggere piano**. il cervello saltava le righe, come sul telefono.",
+          "non l'hai perso. **hai smesso di allenarlo**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "você ainda sabe ler.",
+        "paragraphes": [
+          "você abre um livro, lê duas páginas e percebe que **não entendeu nada**.",
+          "aconteceu também com a neurocientista **maryanne wolf**: voltou a um romance que amava e **não conseguia ler devagar**. o cérebro pulava linhas, como no celular.",
+          "você não perdeu isso. **só parou de treinar**."
+        ]
+      },
+      "de": {
+        "titre": "du kannst noch lesen.",
+        "paragraphes": [
+          "du schlägst ein buch auf, liest zwei seiten und merkst, dass **du nichts mitbekommen hast**.",
+          "das ist auch der neurowissenschaftlerin **maryanne wolf** passiert: sie las einen roman wieder, den sie liebte, und **konnte nicht mehr langsam lesen**. ihr gehirn übersprang zeilen, wie am handy.",
+          "du hast es nicht verlernt. **du hast nur aufgehört, es zu trainieren**."
+        ]
+      },
+      "ro": {
+        "titre": "încă știi să citești.",
+        "paragraphes": [
+          "deschizi o carte, citești două pagini și îți dai seama că **n-ai reținut nimic**.",
+          "i s-a întâmplat și neurocercetătoarei **maryanne wolf**: a revenit la un roman pe care îl iubea și **nu mai putea citi încet**. creierul sărea rânduri, ca pe telefon.",
+          "nu ai pierdut asta. **doar ai încetat să-l antrenezi**."
+        ]
+      },
+      "hu": {
+        "titre": "még tudsz olvasni.",
+        "paragraphes": [
+          "kinyitsz egy könyvet, elolvasol két oldalt, és rájössz, hogy **semmit sem fogtál fel**.",
+          "ez történt **maryanne wolf** idegtudóssal is: újra elővett egy regényt, amit imádott, és **nem tudott lassan olvasni**. az agya sorokat ugrott át, mint a telefonon.",
+          "nem veszítetted el. **csak abbahagytad az edzését**."
+        ]
+      },
+      "es-419": {
+        "titre": "no has olvidado leer.",
+        "paragraphes": [
+          "abres un libro, lees dos páginas y te das cuenta de que **no te has enterado de nada**.",
+          "le pasó también a la neurocientífica **maryanne wolf**: volvió a una novela que le encantaba y **no podía leer despacio**. su cerebro saltaba líneas, como en el celular.",
+          "no lo has perdido. **lo has dejado de entrenar**."
+        ]
       }
     },
     {
       "type": "point",
       "photos": [
-        { "image": "images/photos/livre-papier-table.jpg" },
-        { "image": "images/photos/pile-livres.jpg" }
+        {
+          "image": "images/photos/livre-papier-table.jpg"
+        },
+        {
+          "image": "images/photos/pile-livres.jpg"
+        }
       ],
       "es": {
         "titre": "el papel gana",
@@ -64,15 +192,131 @@
           "resultado: se entiende mejor **en papel que en pantalla**, sobre todo con textos para aprender y cuando vamos con prisa.",
           "si quieres concentrarte, **un libro de verdad** y el móvil lejos."
         ]
+      },
+      "fr": {
+        "titre": "le papier gagne",
+        "paragraphes": [
+          "à l'université de valence, en espagne, ils ont réuni **54 études** et plus de **170 000 personnes**.",
+          "résultat: on comprend mieux **sur papier que sur écran**, surtout les textes pour apprendre et quand on lit vite.",
+          "pour te concentrer, **un vrai livre** et le téléphone loin."
+        ]
+      },
+      "it": {
+        "titre": "vince la carta",
+        "paragraphes": [
+          "all'università di valencia hanno messo insieme **54 studi** con più di **170.000 persone**.",
+          "risultato: si capisce meglio **su carta che su schermo**, soprattutto i testi per studiare e quando si va di fretta.",
+          "se vuoi concentrarti, **un libro vero** e il telefono lontano."
+        ]
+      },
+      "pt-BR": {
+        "titre": "o papel ganha",
+        "paragraphes": [
+          "na universidade de valência, na espanha, juntaram **54 estudos** com mais de **170 mil pessoas**.",
+          "resultado: se entende melhor **no papel do que na tela**, principalmente textos pra aprender e quando a gente lê com pressa.",
+          "se quer se concentrar, **um livro de verdade** e o celular longe."
+        ]
+      },
+      "de": {
+        "titre": "papier gewinnt",
+        "paragraphes": [
+          "an der universität valencia in spanien wurden **54 studien** mit mehr als **170.000 menschen** ausgewertet.",
+          "ergebnis: man versteht **auf papier besser als am bildschirm**, vor allem lerntexte und wenn man schnell liest.",
+          "wenn du dich konzentrieren willst: **ein echtes buch** und das handy weit weg."
+        ]
+      },
+      "ro": {
+        "titre": "hârtia câștigă",
+        "paragraphes": [
+          "la universitatea din valencia, în spania, au adunat **54 de studii** cu peste **170.000 de oameni**.",
+          "rezultatul: înțelegi mai bine **pe hârtie decât pe ecran**, mai ales textele de învățat și când citești în grabă.",
+          "dacă vrei să te concentrezi, **o carte adevărată** și telefonul departe."
+        ]
+      },
+      "hu": {
+        "titre": "a papír nyer",
+        "paragraphes": [
+          "a spanyolországi valenciai egyetemen **54 tanulmányt** fogtak össze, több mint **170 000 emberrel**.",
+          "az eredmény: **papíron jobban értünk, mint képernyőn**, főleg a tanulós szövegeknél és amikor sietünk.",
+          "ha koncentrálni akarsz: **egy igazi könyv**, a telefon pedig messze."
+        ]
+      },
+      "es-419": {
+        "titre": "el papel gana",
+        "paragraphes": [
+          "en la universidad de valencia juntaron **54 estudios** con más de **170.000 personas**.",
+          "resultado: se entiende mejor **en papel que en pantalla**, sobre todo con textos para aprender y cuando vamos con prisa.",
+          "si quieres concentrarte, **un libro de verdad** y el celular lejos."
+        ]
       }
     },
     {
       "type": "point",
       "photos": [
-        { "image": "images/photos/reseau-neurones.jpg" },
-        { "image": "images/photos/fauteuil-lampe.jpg" }
+        {
+          "image": "images/photos/reseau-neurones.jpg"
+        },
+        {
+          "image": "images/photos/fauteuil-lampe.jpg"
+        }
       ],
       "es": {
+        "titre": "tu cerebro cambia",
+        "paragraphes": [
+          "21 estudiantes de la universidad emory leyeron una novela cada noche durante **nueve días**. cada mañana, les escaneaban el cerebro.",
+          "las conexiones de sus zonas del lenguaje **se reforzaron**, y seguían así **cinco días después** de acabar el libro.",
+          "leer no es solo pasar el rato: **es entrenar tu cerebro**."
+        ]
+      },
+      "fr": {
+        "titre": "ton cerveau change",
+        "paragraphes": [
+          "21 étudiants de l'université emory ont lu un roman chaque soir pendant **neuf jours**. chaque matin, on scannait leur cerveau.",
+          "les connexions de leurs zones du langage **se sont renforcées**, et elles l'étaient encore **cinq jours après** la fin du livre.",
+          "lire, ce n'est pas que passer le temps: **c'est entraîner ton cerveau**."
+        ]
+      },
+      "it": {
+        "titre": "il cervello cambia",
+        "paragraphes": [
+          "21 studenti della emory university hanno letto un romanzo ogni sera per **nove giorni**. ogni mattina, gli facevano una scansione del cervello.",
+          "le connessioni delle aree del linguaggio **si sono rafforzate**, ed erano ancora così **cinque giorni dopo** la fine del libro.",
+          "leggere non è solo passare il tempo: **è allenare il cervello**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "seu cérebro muda",
+        "paragraphes": [
+          "21 alunos da universidade emory leram um romance toda noite durante **nove dias**. toda manhã, escaneavam o cérebro deles.",
+          "as conexões das áreas da linguagem **ficaram mais fortes**, e continuavam assim **cinco dias depois** de terminar o livro.",
+          "ler não é só passar o tempo: **é treinar o cérebro**."
+        ]
+      },
+      "de": {
+        "titre": "dein gehirn verändert sich",
+        "paragraphes": [
+          "21 studierende der emory university lasen **neun tage lang** jeden abend in einem roman. jeden morgen wurde ihr gehirn gescannt.",
+          "die verbindungen ihrer sprachzentren **wurden stärker**, und das noch **fünf tage nach** dem ende des buchs.",
+          "lesen ist nicht nur zeitvertreib: **es trainiert dein gehirn**."
+        ]
+      },
+      "ro": {
+        "titre": "creierul se schimbă",
+        "paragraphes": [
+          "21 de studenți de la universitatea emory au citit un roman în fiecare seară timp de **nouă zile**. în fiecare dimineață, li se scana creierul.",
+          "conexiunile zonelor limbajului **s-au întărit**, și erau tot așa **la cinci zile după** ce au terminat cartea.",
+          "cititul nu e doar un mod de a trece timpul: **îți antrenează creierul**."
+        ]
+      },
+      "hu": {
+        "titre": "az agyad változik",
+        "paragraphes": [
+          "az emory egyetem 21 diákja **kilenc napon át** minden este olvasott egy regényt. minden reggel megvizsgálták az agyukat.",
+          "a nyelvi területeik kapcsolatai **megerősödtek**, és még **öt nappal** a könyv vége után is így maradtak.",
+          "az olvasás nem csak időtöltés: **edzi az agyadat**."
+        ]
+      },
+      "es-419": {
         "titre": "tu cerebro cambia",
         "paragraphes": [
           "21 estudiantes de la universidad emory leyeron una novela cada noche durante **nueve días**. cada mañana, les escaneaban el cerebro.",
@@ -84,7 +328,9 @@
     {
       "type": "sophia",
       "photos": [
-        { "image": "images/photos/metro-lecture.jpg" }
+        {
+          "image": "images/photos/metro-lecture.jpg"
+        }
       ],
       "es": {
         "titre": "empieza por algo corto",
@@ -93,14 +339,74 @@
           "en el metro hago **una lección de 10 minutos en Sophia**, con un quiz al final sobre lo que acabo de leer.",
           "es corta, **la termino siempre**, y al día siguiente me apetece leer más."
         ]
+      },
+      "fr": {
+        "titre": "commence petit",
+        "paragraphes": [
+          "si tu n'as rien lu depuis des mois, ne commence pas par 500 pages. **commence par 10 minutes**.",
+          "dans le métro, je fais **une leçon de 10 minutes sur Sophia**, avec un quiz à la fin sur ce que je viens de lire.",
+          "elle est courte, **je la finis toujours**, et le lendemain j'ai envie de lire plus."
+        ]
+      },
+      "it": {
+        "titre": "inizia con poco",
+        "paragraphes": [
+          "se non leggi da mesi, non partire da 500 pagine. **parti da 10 minuti**.",
+          "in metro faccio **una lezione di 10 minuti su Sophia**, con un quiz alla fine su quello che ho appena letto.",
+          "è breve, **la finisco sempre**, e il giorno dopo ho voglia di leggere di più."
+        ]
+      },
+      "pt-BR": {
+        "titre": "começa com pouco",
+        "paragraphes": [
+          "se você está há meses sem ler, não começa com 500 páginas. **começa com 10 minutos**.",
+          "no metrô eu faço **uma lição de 10 minutos no Sophia**, com um quiz no final sobre o que acabei de ler.",
+          "é curta, **eu sempre termino**, e no dia seguinte dá vontade de ler mais."
+        ]
+      },
+      "de": {
+        "titre": "fang klein an",
+        "paragraphes": [
+          "wenn du seit monaten nichts gelesen hast, fang nicht mit 500 seiten an. **fang mit 10 minuten an**.",
+          "in der u-bahn mache ich **eine 10-minuten-lektion in Sophia**, mit einem quiz am ende über das, was ich gerade gelesen habe.",
+          "sie ist kurz, **ich schaffe sie immer**, und am nächsten tag will ich mehr lesen."
+        ]
+      },
+      "ro": {
+        "titre": "începe cu puțin",
+        "paragraphes": [
+          "dacă n-ai mai citit de luni de zile, nu începe cu 500 de pagini. **începe cu 10 minute**.",
+          "la metrou fac **o lecție de 10 minute în Sophia**, cu un quiz la final despre ce tocmai am citit.",
+          "e scurtă, **o termin mereu**, și a doua zi am chef să citesc mai mult."
+        ]
+      },
+      "hu": {
+        "titre": "kezdd kicsiben",
+        "paragraphes": [
+          "ha hónapok óta nem olvastál, ne 500 oldallal kezdj. **kezdd 10 perccel**.",
+          "a metrón **egy 10 perces leckét csinálok a Sophia appban**, a végén egy kvízzel arról, amit épp olvastam.",
+          "rövid, **mindig befejezem**, és másnap kedvem van többet olvasni."
+        ]
+      },
+      "es-419": {
+        "titre": "empieza por algo corto",
+        "paragraphes": [
+          "si llevas meses sin leer, no empieces con 500 páginas. **empieza con 10 minutos**.",
+          "en el metro hago **una lección de 10 minutos en Sophia**, con un quiz al final sobre lo que acabo de leer.",
+          "es corta, **la termino siempre**, y al día siguiente me dan ganas de leer más."
+        ]
       }
     },
     {
       "type": "point",
       "mise": "bas",
       "photos": [
-        { "image": "images/photos/lunettes-livre.jpg" },
-        { "image": "images/photos/livre-ouvert-lit.jpg" }
+        {
+          "image": "images/photos/lunettes-livre.jpg"
+        },
+        {
+          "image": "images/photos/livre-ouvert-lit.jpg"
+        }
       ],
       "es": {
         "titre": "diez páginas.",
@@ -109,14 +415,135 @@
           "si el libro no te engancha, **cámbialo sin culpa**. no tienes que acabarlo todo.",
           "al principio te costará. a la semana, **leerás sin darte cuenta**."
         ]
+      },
+      "fr": {
+        "titre": "dix pages.",
+        "paragraphes": [
+          "chaque soir, **dix pages sur papier**. rien de plus. le téléphone reste **hors de la chambre**.",
+          "si le livre ne t'accroche pas, **change-le sans culpabiliser**. tu n'es pas obligé de tout finir.",
+          "au début, ce sera dur. au bout d'une semaine, **tu liras sans t'en rendre compte**."
+        ]
+      },
+      "it": {
+        "titre": "dieci pagine.",
+        "paragraphes": [
+          "ogni sera, **dieci pagine su carta**. niente di più. il telefono resta **fuori dalla camera**.",
+          "se il libro non ti prende, **cambialo senza sensi di colpa**. non devi finire tutto.",
+          "all'inizio sarà dura. dopo una settimana **leggerai senza accorgertene**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "dez páginas.",
+        "paragraphes": [
+          "toda noite, **dez páginas no papel**. só isso. o celular fica **fora do quarto**.",
+          "se o livro não te prende, **troca sem culpa**. você não precisa terminar tudo.",
+          "no começo vai ser difícil. em uma semana, **você vai ler sem perceber**."
+        ]
+      },
+      "de": {
+        "titre": "zehn seiten.",
+        "paragraphes": [
+          "jeden abend **zehn seiten auf papier**. mehr nicht. das handy bleibt **außerhalb vom schlafzimmer**.",
+          "wenn dich das buch nicht packt, **tausch es ohne schlechtes gewissen**. du musst nicht alles fertig lesen.",
+          "am anfang ist es schwer. nach einer woche **liest du, ohne es zu merken**."
+        ]
+      },
+      "ro": {
+        "titre": "zece pagini.",
+        "paragraphes": [
+          "în fiecare seară, **zece pagini pe hârtie**. atât. telefonul rămâne **în afara dormitorului**.",
+          "dacă o carte nu te prinde, **schimb-o fără vinovăție**. nu trebuie să termini tot.",
+          "la început o să fie greu. după o săptămână, **o să citești fără să-ți dai seama**."
+        ]
+      },
+      "hu": {
+        "titre": "tíz oldal.",
+        "paragraphes": [
+          "minden este **tíz oldal papíron**. semmi több. a telefon **a hálószobán kívül** marad.",
+          "ha a könyv nem köt le, **cseréld le bűntudat nélkül**. nem kell mindent végigolvasnod.",
+          "az elején nehéz lesz. egy hét múlva **észre sem veszed, hogy olvasol**."
+        ]
+      },
+      "es-419": {
+        "titre": "diez páginas.",
+        "paragraphes": [
+          "cada noche, **diez páginas en papel**. nada más. el celular se queda **fuera del dormitorio**.",
+          "si el libro no te engancha, **cámbialo sin culpa**. no tienes que acabarlo todo.",
+          "al principio te costará. a la semana, **leerás sin darte cuenta**."
+        ]
       }
     },
     {
       "type": "fin",
       "photos": [
-        { "image": "images/photos/aube-fenetre.jpg" }
+        {
+          "image": "images/photos/aube-fenetre.jpg"
+        }
       ],
       "es": {
+        "titre": "tu cerebro sabe leer.",
+        "paragraphes": [
+          "solo se ha acostumbrado a **leer a saltos**.",
+          "cada página que lees despacio **le devuelve un poco de calma**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo y **abre un libro esta noche**."
+        ]
+      },
+      "fr": {
+        "titre": "ton cerveau sait lire.",
+        "paragraphes": [
+          "il s'est juste habitué à **lire en sautant**.",
+          "chaque page lue lentement **lui rend un peu de calme**.",
+          "laquelle tu vas tester en premier? commente le numéro.",
+          "enregistre-le et **ouvre un livre ce soir**."
+        ]
+      },
+      "it": {
+        "titre": "il tuo cervello sa leggere.",
+        "paragraphes": [
+          "si è solo abituato a **leggere a salti**.",
+          "ogni pagina letta piano **gli restituisce un po' di calma**.",
+          "quale provi per primo? scrivi il numero nei commenti.",
+          "salvalo e **apri un libro stasera**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "seu cérebro sabe ler.",
+        "paragraphes": [
+          "ele só se acostumou a **ler pulando**.",
+          "cada página lida devagar **devolve um pouco de calma**.",
+          "qual você vai testar primeiro? comenta o número.",
+          "salva e **abre um livro hoje à noite**."
+        ]
+      },
+      "de": {
+        "titre": "dein gehirn kann lesen.",
+        "paragraphes": [
+          "es hat sich nur ans **springende lesen** gewöhnt.",
+          "jede langsam gelesene seite **gibt ihm ein bisschen ruhe zurück**.",
+          "welchen probierst du zuerst? kommentier die nummer.",
+          "speicher es und **schlag heute abend ein buch auf**."
+        ]
+      },
+      "ro": {
+        "titre": "creierul tău știe să citească.",
+        "paragraphes": [
+          "doar s-a obișnuit să **citească sărind**.",
+          "fiecare pagină citită încet **îi aduce înapoi puțină liniște**.",
+          "pe care îl încerci primul? scrie numărul în comentarii.",
+          "salvează-l și **deschide o carte diseară**."
+        ]
+      },
+      "hu": {
+        "titre": "az agyad tud olvasni.",
+        "paragraphes": [
+          "csak hozzászokott, hogy **ugrálva olvasson**.",
+          "minden lassan elolvasott oldal **visszaad neki egy kis nyugalmat**.",
+          "melyiket próbálod ki először? írd meg kommentben a számot.",
+          "mentsd el, és **nyiss ki egy könyvet ma este**."
+        ]
+      },
+      "es-419": {
         "titre": "tu cerebro sabe leer.",
         "paragraphes": [
           "solo se ha acostumbrado a **leer a saltos**.",

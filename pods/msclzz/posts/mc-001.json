@@ -1,0 +1,182 @@
+{
+ "id": "mc-001",
+ "source": {
+  "url": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+  "vues": 203100,
+  "publie_le": "2026-10-05",
+  "accroche": "How To Make People Remember You"
+ },
+ "titre": {
+  "en": "How To Make People Remember You"
+ },
+ "legendes": {
+  "en": "Being memorable is not about saying more. It is about giving the brain something worth replaying.\n\n#psychology #charisma #socialskills #humanbehavior #socialintelligence"
+ },
+ "musique": {
+  "titre": "abandoned (Slowed) - ANGUISH & LMG & ily",
+  "url": "https://www.tiktok.com/music/abandoned-slowed-7375246696198260753"
+ },
+ "compte": {
+  "images/compte/radio-papillons.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 6
+  },
+  "images/compte/femme-floue.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 2
+  },
+  "images/compte/deux-visages.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 3
+  },
+  "images/compte/homme-masque.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 4
+  },
+  "images/compte/masques.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 5
+  },
+  "images/compte/mains-fils.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 7
+  },
+  "images/compte/mains-yeux.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 8
+  },
+  "images/compte/double-visage.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 9
+  }
+ },
+ "notes": "Remake de son tube « How To Make People Remember You » (203 k vues, 9,3 k enregistrements, 5/10 ; abandoned (Slowed)) : son texte tel quel, ses étapes dans son ordre, ses images (découpées sur son fond noir par `npm run compte`, sans IA). Sa couverture pose un couple de cinéma : on prend à la place la radiographie aux papillons de sa slide 6. Slide Sophia (6) à la place de son étape « MAKE THEM INVEST FIRST » : « GIVE THEM SOMETHING NEW », une idée dans sa ligne (on repense à qui nous a appris quelque chose), avec le logo de Sophia à la place de l'image ; cta A. Pas de slide finale de vente (son post n'en avait pas).",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/compte/radio-papillons.jpg",
+   "en": {
+    "titre": "How To Make People {Remember You}"
+   }
+  },
+  {
+   "type": "avertissement",
+   "image": "images/compte/femme-floue.jpg",
+   "en": {
+    "surtitre": "DISCLAIMER",
+    "titre": "READ THIS BEFORE YOU USE IT",
+    "avant": [
+     "This gets weird once you notice how easy it is to stay in someones head without doing much.",
+     "The strongest part happens {after the conversation is already over.}",
+     "And that is exactly why it works."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/deux-visages.jpg",
+   "en": {
+    "titre": "WHY SOME PEOPLE {DISAPPEAR FAST}",
+    "avant": [
+     "Your brain is ruthless with predictable information.",
+     "If someone behaves exactly how you expected, there is not much reason to keep replaying them later.",
+     "The people who stick usually create one small {break in the pattern.}"
+    ],
+    "apres": [
+     "Not enough to feel weird. Enough to make the brain pay attention."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/homme-masque.jpg",
+   "en": {
+    "titre": "{DO NOT} TRY TO BE INTERESTING",
+    "avant": [
+     "Trying to look interesting usually makes you more predictable because everyone uses the same signals.",
+     "The better move is giving people one thing they did not expect from you.",
+     "A different angle. A strangely precise observation. Something that slightly changes how they read you."
+    ],
+    "apres": [
+     "That little mismatch creates {mental residue.}",
+     "And now you are harder to compress into just another person."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/masques.jpg",
+   "en": {
+    "titre": "MAKE THEIR BRAIN {FINISH SOMETHING}",
+    "avant": [
+     "Information sticks harder when someone has to complete part of it themselves.",
+     "Do not explain every thought until there is nothing left.",
+     "Leave just enough space for them to connect the last piece."
+    ],
+    "apres": [
+     "When their brain finishes the thought for you, {part of the memory becomes theirs.}",
+     "That is why it keeps replaying."
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "en": {
+    "titre": "{GIVE THEM} SOMETHING NEW",
+    "avant": [
+     "People replay whoever {taught them something.}",
+     "A strange fact. A story they never heard. One small thing they did not know before talking to you."
+    ],
+    "apres": [
+     "I learn one short lesson a day on {Sophia,} so I always have one ready.",
+     "{New information gets replayed.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/mains-fils.jpg",
+   "en": {
+    "titre": "{END} BEFORE THE {ENERGY} DIES",
+    "avant": [
+     "People do not remember every minute equally.",
+     "They remember the strongest part and how the interaction felt near the end.",
+     "So dragging a good conversation until it goes flat can actually weaken the memory of the whole thing.",
+     "Leave while there is still something left.",
+     "{Do not stay long enough to become ordinary.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/mains-yeux.jpg",
+   "en": {
+    "titre": "THIS IS WHY {THEY REPLAY YOU}",
+    "avant": [
+     "You broke expectation without becoming strange.",
+     "You made them complete part of the interaction themselves.",
+     "Then you {left} before the whole thing became predictable."
+    ],
+    "apres": [
+     "Now their brain has unfinished material with your face attached to it.",
+     "{That is what keeps you in their head.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/double-visage.jpg",
+   "en": {
+    "titre": "THE PART THAT {ACTUALLY MATTERS}",
+    "avant": [
+     "Being memorable is not about demanding more attention.",
+     "It is about giving the brain a reason to return to you after the attention is gone.",
+     "Once you understand that, trying harder starts looking like the wrong move."
+    ],
+    "apres": [
+     "{Leave something worth replaying.}"
+    ]
+   }
+  }
+ ]
+}

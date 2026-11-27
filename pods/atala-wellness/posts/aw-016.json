@@ -1,0 +1,123 @@
+{
+ "id": "aw-016",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7687141407273798944",
+  "vues": 5076,
+  "accroche": "Mes petites habitudes bizarres que je fais en cachette (et qui marchent vraiment)"
+ },
+ "titre": {
+  "en": "my weird little morning habits that actually work"
+ },
+ "legendes": {
+  "en": "the morning girl era 🌅 #wellness #healthyhabits #thatgirl #selfcare #morningroutine"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « mes petites habitudes bizarres que je fais en cachette (et qui marchent vraiment) » de @healthy_with_emma6 (5,1 k), sujet : le matin (aw-004 : sans sujet, aw-010 : le soir). 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : la semaine complète ; « a running coach app like Atala » ; sans « AI »). Aucun chiffre ni étude : des habitudes, sans promesse. Photos : banque de l'OS ; Atala : 7de63a7c (plage grise, de trois quarts).",
+ "banque": {
+  "images/banque/mm-couv-a.jpg": "68c500ed-b628-492d-b8e5-e0514494a29b",
+  "images/banque/mm-couv-b.jpg": "52520d45-4cd6-4235-bfb9-03f98ef4f876",
+  "images/banque/mm-lit.jpg": "0798131b-3475-4702-b659-8eb16581db80",
+  "images/banque/mm-citron.jpg": "a13c6d97-2f8d-44fa-bea5-4547594eeb2d",
+  "images/banque/mm-livre.jpg": "1d8c78af-0fdc-4494-ab54-ecc0d1e58eab",
+  "images/banque/mm-course.jpg": "7de63a7c-9cb9-4eb4-9a30-2b8cc2f9f01b",
+  "images/banque/mm-douche.jpg": "35a4a897-a05a-443a-960d-449af264b619",
+  "images/banque/mm-fenetre.jpg": "1a8634e5-1ba9-4774-a523-f9206f7d8c4b"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/mm-couv-a.jpg",
+    "images/banque/mm-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "my weird little morning habits that actually work",
+    "note": "(that actually work)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/mm-lit.jpg",
+   "en": {
+    "titre": "i make my bed _with my eyes half closed_",
+    "intro": "before anything else, _even before water_",
+    "paragraphes": [
+     "it's the first win of the day, _done in 1 minute_",
+     "pillows, duvet, _done_. then i wake up"
+    ],
+    "chute": "one thing done, _before 7am_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/mm-citron.jpg",
+   "en": {
+    "titre": "a glass of water _with lemon_",
+    "intro": "i make it the night before, _so it's waiting for me_",
+    "paragraphes": [
+     "the cold glass is what _actually wakes me up_",
+     "lemon slices, ice, _a pretty glass_"
+    ],
+    "chute": "weird? maybe. _it works_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/mm-livre.jpg",
+   "en": {
+    "titre": "i read _before i open tiktok_",
+    "intro": "2 pages, _still in bed_",
+    "paragraphes": [
+     "my brain wakes up with _my thoughts_, not everyone else's",
+     "the book stays _on the pillow_"
+    ],
+    "chute": "pages before _posts_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/mm-course.jpg",
+   "en": {
+    "titre": "i run _before anyone's awake_",
+    "intro": "the quiet morning run is _my favourite thing_",
+    "paragraphes": [
+     "i'd wake up with no idea what to run, so i _stayed in bed_",
+     "my tip: a running coach app like Atala sets up _your whole week_, so you just lace up"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/mm-douche.jpg",
+   "en": {
+    "titre": "i sing in the shower, _loudly_",
+    "intro": "yes, _every morning_",
+    "paragraphes": [
+     "it's impossible to be grumpy _while singing_",
+     "one song, _full volume_, no talent needed"
+    ],
+    "chute": "my neighbours _hate me_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/mm-fenetre.jpg",
+   "en": {
+    "titre": "i open the window _even in winter_",
+    "intro": "5 minutes of fresh air, _blanket on_",
+    "paragraphes": [
+     "the cold air in my room _wakes me up_ better than coffee",
+     "window open, _coffee in hand_"
+    ],
+    "chute": "weird, cold, _worth it_"
+   }
+  }
+ ]
+}

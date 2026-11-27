@@ -1,0 +1,123 @@
+{
+ "id": "aw-015",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7687165284830039329",
+  "vues": 8588,
+  "accroche": "Comment réparer ta santée pour de bon (et voir la différence sur ton visage)"
+ },
+ "titre": {
+  "en": "how to actually take care of yourself (and see it on your face)"
+ },
+ "legendes": {
+  "en": "glow from the inside out ✨ #wellness #healthyhabits #thatgirl #selfcare #glow"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « comment réparer ta santé pour de bon (et voir la différence sur ton visage) » de @healthy_with_emma6 (8,6 k), adoucie en « take care of yourself » (rien de médical). 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : un plan à ton niveau, même de zéro ; « a running coach app like Atala » ; sans « AI »). Fait vérifié : la peau a besoin de vitamine C pour fabriquer son collagène (Pullar, Carr et Vissers, Nutrients 2017, revue). Les autres slides n'avancent aucun chiffre ni promesse. Photos : banque de l'OS ; Atala : 4804e77c (chemin en bord de mer, de dos).",
+ "banque": {
+  "images/banque/sc-couv-a.jpg": "8d3b59be-2134-4d16-ba98-807e17b2a2b0",
+  "images/banque/sc-couv-b.jpg": "7f6f3600-0557-4963-9e11-66e7a740292c",
+  "images/banque/sc-eau.jpg": "304fabc9-4806-4b11-91f0-e6806577a87e",
+  "images/banque/sc-taie.jpg": "0ede51d6-87a6-49b8-be93-08c44dc99dba",
+  "images/banque/sc-oranges.jpg": "1f750f34-39af-42f6-a308-5d7f1add28bf",
+  "images/banque/sc-course.jpg": "4804e77c-8381-4a71-a181-87c495c7ce29",
+  "images/banque/sc-pinceaux.jpg": "c4b6dd89-561d-4c20-b654-5ddcf9f012c5",
+  "images/banque/sc-bougie.jpg": "2b83faac-4139-4b2f-951e-df43d1e5a3e2"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/sc-couv-a.jpg",
+    "images/banque/sc-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "how to actually take care of yourself (and see it on your face)",
+    "note": "(the glow-up edition)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sc-eau.jpg",
+   "en": {
+    "titre": "_a water bottle_ you actually like",
+    "intro": "pretty bottle = _you drink more_",
+    "paragraphes": [
+     "cucumber, lemon, mint. it feels like _a treat_, not a chore",
+     "fill it in the morning, _finish it by night_"
+    ],
+    "chute": "hydrated looks _so good_ on you"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sc-taie.jpg",
+   "en": {
+    "titre": "change your pillowcase _often_",
+    "intro": "your face spends _8 hours_ on it",
+    "paragraphes": [
+     "clean sheets feel like _a fresh start_ every few days",
+     "keep a spare one _in the drawer_"
+    ],
+    "chute": "clean pillow, _calm skin_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sc-oranges.jpg",
+   "en": {
+    "titre": "eat your _vitamin c_",
+    "intro": "oranges, kiwis, berries, _peppers_",
+    "paragraphes": [
+     "your skin needs vitamin c to make _its own collagen_",
+     "a fruit bowl on the table, _always full_"
+    ],
+    "chute": "the glow starts _on your plate_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/sc-course.jpg",
+   "en": {
+    "titre": "_run_, even a little",
+    "intro": "nothing makes me glow _like a run_",
+    "paragraphes": [
+     "i thought running wasn't for me because _i'd never done it_",
+     "my tip: a running coach app like Atala starts you _at your level_, even from zero"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sc-pinceaux.jpg",
+   "en": {
+    "titre": "clean your _makeup brushes_",
+    "intro": "the habit _nobody talks about_",
+    "paragraphes": [
+     "once a week, a little soap and _warm water_",
+     "let them dry flat _overnight_"
+    ],
+    "chute": "clean tools, _clean face_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sc-bougie.jpg",
+   "en": {
+    "titre": "a slow _evening reset_",
+    "intro": "candle on, _lights low_",
+    "paragraphes": [
+     "10 minutes for you before bed: skincare, _a deep breath_, a towel on your hair",
+     "no phone, _no rush_"
+    ],
+    "chute": "take care of yourself _like it matters_"
+   }
+  }
+ ]
+}

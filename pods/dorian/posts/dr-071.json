@@ -1,0 +1,149 @@
+{
+ "id": "dr-071",
+ "format": "liste",
+ "titre": {
+  "en": "5 untranslatable words that genuinely describe your life",
+  "pt-BR": "5 palavras intraduzíveis que descrevem sua vida",
+  "hu": "5 lefordíthatatlan szó, ami leírja az életed"
+ },
+ "legendes": {
+  "en": "#words #languages #niche #smarttok",
+  "pt-BR": "#palavras #idiomas #curiosidades #aprender",
+  "hu": "#szavak #nyelvek #érdekességek #tanulás"
+ },
+ "musique": {
+  "titre": "Ashes and Embers - WATIWO LIA",
+  "url": "https://www.tiktok.com/music/original-sound-7569882137836849153"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes à cerveau en IRM. Faits : tsundoku (ère Meiji) ; Waldeinsamkeit (Tieck, Der blonde Eckbert, 1797) ; sobremesa ; Kummerspeck ; hiraeth. Tableaux : Doré, Alpine Scene (1865), Fantin-Latour, Corner of a Table (1873), Cazin, Landscape (v. 1895), tous domaine public ; deux images Seedream. En, pt-BR, hu ; une couverture par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 untranslatable words that genuinely describe your life",
+    "image": "images/cerveau-06.jpg",
+    "legende": "(no english word for these)"
+   },
+   "pt-BR": {
+    "titre": "5 palavras intraduzíveis que descrevem sua vida",
+    "image": "images/cerveau-08.jpg",
+    "legende": "(sem tradução)"
+   },
+   "hu": {
+    "titre": "5 lefordíthatatlan szó, ami leírja az életed",
+    "image": "images/cerveau-10.jpg",
+    "legende": "(nincs rá magyar szó)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Tsundoku",
+    "texte": "japanese: buying books and letting them pile up without reading them. the word has been around since the late 1800s",
+    "image": "images/tsundoku.jpg"
+   },
+   "pt-BR": {
+    "titre": "Tsundoku",
+    "texte": "japonês: comprar livros e deixar empilhar sem ler. a palavra existe desde o fim do século 19",
+    "image": "images/tsundoku.jpg"
+   },
+   "hu": {
+    "titre": "Tsundoku",
+    "texte": "japán: könyveket venni, és hagyni, hogy olvasatlanul halmozódjanak. a szó az 1800-as évek vége óta létezik",
+    "image": "images/tsundoku.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Waldeinsamkeit",
+    "texte": "german: the feeling of being alone in the woods, peaceful and a little eerie. the poet ludwig tieck made it famous in 1797",
+    "image": "images/foret-dore.jpg"
+   },
+   "pt-BR": {
+    "titre": "Waldeinsamkeit",
+    "texte": "alemão: a sensação de estar sozinho na floresta, em paz e um pouco assustado. o poeta ludwig tieck a popularizou em 1797",
+    "image": "images/foret-dore.jpg"
+   },
+   "hu": {
+    "titre": "Waldeinsamkeit",
+    "texte": "német: az erdei egyedüllét érzése, békés és kicsit hátborzongató. ludwig tieck költő tette híressé 1797-ben",
+    "image": "images/foret-dore.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "10 minutes a day, a lesson written by an actual professor, then a quiz. it's how i found all of these words",
+    "telephone": "cours"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "10 minutos por dia, uma lição escrita por um professor de verdade, e depois um quiz. foi assim que eu achei todas essas palavras",
+    "telephone": "cours"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "napi 10 perc, egy igazi professzor által írt lecke, aztán egy kvíz. így találtam rá ezekre a szavakra",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Sobremesa",
+    "texte": "spanish: the time spent talking at the table after the meal is over. nobody gets up, nobody clears the plates",
+    "image": "images/coin-table.jpg"
+   },
+   "pt-BR": {
+    "titre": "Sobremesa",
+    "texte": "espanhol: o tempo que se passa conversando à mesa depois que a comida acabou. ninguém levanta, ninguém tira os pratos",
+    "image": "images/coin-table.jpg"
+   },
+   "hu": {
+    "titre": "Sobremesa",
+    "texte": "spanyol: az az idő, amit az étkezés után az asztalnál beszélgetve töltesz. senki nem áll fel, senki nem szedi le a tányérokat",
+    "image": "images/coin-table.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Kummerspeck",
+    "texte": "german, literally \"grief bacon\": the weight you put on from eating your feelings",
+    "image": "images/kummerspeck.jpg"
+   },
+   "pt-BR": {
+    "titre": "Kummerspeck",
+    "texte": "alemão, literalmente \"bacon da tristeza\": o peso que você ganha comendo pra lidar com as emoções",
+    "image": "images/kummerspeck.jpg"
+   },
+   "hu": {
+    "titre": "Kummerspeck",
+    "texte": "német, szó szerint \"bánatszalonna\": a súly, amit érzelmi evéssel szedsz fel",
+    "image": "images/kummerspeck.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Hiraeth",
+    "texte": "welsh: homesickness for a home you can't go back to, or that maybe never existed",
+    "image": "images/paysage-cazin.jpg"
+   },
+   "pt-BR": {
+    "titre": "Hiraeth",
+    "texte": "galês: parecido com saudade, mas de um lar pra onde você não pode voltar, ou que talvez nunca tenha existido",
+    "image": "images/paysage-cazin.jpg"
+   },
+   "hu": {
+    "titre": "Hiraeth",
+    "texte": "walesi: honvágy egy otthon után, ahová nem mehetsz vissza, vagy ami talán sosem létezett",
+    "image": "images/paysage-cazin.jpg"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

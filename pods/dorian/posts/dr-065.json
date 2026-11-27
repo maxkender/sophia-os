@@ -4,12 +4,22 @@
  "titre": {
   "en": "5 philosophy ideas that genuinely rewire your brain",
   "pt-BR": "5 ideias da filosofia que reprogramam seu cérebro",
-  "sv": "5 filosofiska idéer som programmerar om din hjärna"
+  "sv": "5 filosofiska idéer som programmerar om din hjärna",
+  "de": "5 philosophische ideen, die dein gehirn neu verdrahten",
+  "hu": "5 filozófiai gondolat, ami átírja az agyad",
+  "it": "5 idee filosofiche che ti ricablano il cervello",
+  "nl": "5 filosofische ideeën die je brein herbedraden",
+  "tr": "beynini yeniden kuran 5 felsefi fikir"
  },
  "legendes": {
   "en": "#philosophy #stoicism #mindset #lockedin",
   "pt-BR": "#filosofia #estoicismo #reflexão #autodesenvolvimento",
-  "sv": "#filosofi #stoicism #tankar #självutveckling"
+  "sv": "#filosofi #stoicism #tankar #självutveckling",
+  "de": "#philosophie #stoizismus #denken #selbstverbesserung",
+  "hu": "#filozófia #sztoicizmus #gondolkodás #önfejlesztés",
+  "it": "#filosofia #stoicismo #riflessioni #crescitapersonale",
+  "nl": "#filosofie #stoïcisme #denken #zelfontwikkeling",
+  "tr": "#felsefe #stoacılık #düşünce #kişiselgelişim"
  },
  "musique": {
   "titre": "оригинальный звук - butazer",
@@ -33,6 +43,31 @@
     "titre": "5 filosofiska idéer som programmerar om din hjärna",
     "image": "images/cerveau-13.jpg",
     "legende": "(del tre)"
+   },
+   "de": {
+    "titre": "5 philosophische ideen, die dein gehirn neu verdrahten",
+    "image": "images/cerveau-26.jpg",
+    "legende": "(teil drei)"
+   },
+   "hu": {
+    "titre": "5 filozófiai gondolat, ami átírja az agyad",
+    "image": "images/cerveau-28.jpg",
+    "legende": "(harmadik rész)"
+   },
+   "it": {
+    "titre": "5 idee filosofiche che ti ricablano il cervello",
+    "image": "images/cerveau-30.jpg",
+    "legende": "(parte tre)"
+   },
+   "nl": {
+    "titre": "5 filosofische ideeën die je brein herbedraden",
+    "image": "images/cerveau-32.jpg",
+    "legende": "(deel drie)"
+   },
+   "tr": {
+    "titre": "beynini yeniden kuran 5 felsefi fikir",
+    "image": "images/cerveau-34.jpg",
+    "legende": "(üçüncü bölüm)"
    }
   },
   {
@@ -51,6 +86,31 @@
     "titre": "Memento mori",
     "texte": "\"kom ihåg att du ska dö.\" stoikerna använde det för att sluta slösa bort dagar. marcus aurelius skrev: du kan lämna livet just nu, låt det avgöra vad du gör, säger och tänker",
     "image": "images/vanite.jpg"
+   },
+   "de": {
+    "titre": "Memento mori",
+    "texte": "\"denk daran, dass du sterben wirst.\" die stoiker nutzten es, um keine tage mehr zu verschwenden. mark aurel schrieb: du könntest das leben jetzt gleich verlassen, lass das bestimmen, was du tust, sagst und denkst",
+    "image": "images/vanite.jpg"
+   },
+   "hu": {
+    "titre": "Memento mori",
+    "texte": "\"emlékezz, hogy meghalsz.\" a sztoikusok ezzel hagytak fel a napok elpazarlásával. marcus aurelius azt írta: most rögtön távozhatnál az életből, ez döntse el, mit teszel, mondasz és gondolsz",
+    "image": "images/vanite.jpg"
+   },
+   "it": {
+    "titre": "Memento mori",
+    "texte": "\"ricorda che morirai.\" gli stoici lo usavano per smettere di sprecare giorni. marco aurelio scrisse: potresti lasciare la vita in questo momento, lascia che questo decida cosa fai, dici e pensi",
+    "image": "images/vanite.jpg"
+   },
+   "nl": {
+    "titre": "Memento mori",
+    "texte": "\"bedenk dat je zult sterven.\" de stoïcijnen gebruikten het om geen dagen meer te verspillen. marcus aurelius schreef: je zou het leven nu meteen kunnen verlaten, laat dat bepalen wat je doet, zegt en denkt",
+    "image": "images/vanite.jpg"
+   },
+   "tr": {
+    "titre": "Memento mori",
+    "texte": "\"öleceğini unutma.\" stoacılar bunu günleri boşa harcamamak için kullanırdı. marcus aurelius şöyle yazdı: hayattan şu an ayrılabilirsin, yaptığını, söylediğini ve düşündüğünü buna göre belirle",
+    "image": "images/vanite.jpg"
    }
   },
   {
@@ -68,6 +128,31 @@
    "sv": {
     "titre": "Upplevelsemaskinen",
     "texte": "1974 frågade robert nozick: skulle du koppla in dig i en maskin som ger dig ett perfekt falskt liv för alltid? de flesta säger nej. alltså vill vi ha mer än njutning",
+    "image": "images/machine-experience.jpg"
+   },
+   "de": {
+    "titre": "Die erlebnismaschine",
+    "texte": "1974 fragte robert nozick: würdest du dich an eine maschine anschließen, die dir für immer ein perfektes, falsches leben gibt? die meisten sagen nein. wir wollen also mehr als vergnügen",
+    "image": "images/machine-experience.jpg"
+   },
+   "hu": {
+    "titre": "Az élménygép",
+    "texte": "1974-ben robert nozick megkérdezte: rákapcsolódnál egy gépre, ami örökre tökéletes, hamis életet ad? a legtöbben nemet mondanak. tehát többet akarunk az élvezetnél",
+    "image": "images/machine-experience.jpg"
+   },
+   "it": {
+    "titre": "La macchina delle esperienze",
+    "texte": "nel 1974 robert nozick chiese: ti collegheresti a una macchina che ti dà per sempre una vita finta perfetta? quasi tutti dicono di no. quindi vogliamo più del piacere",
+    "image": "images/machine-experience.jpg"
+   },
+   "nl": {
+    "titre": "De ervaringsmachine",
+    "texte": "in 1974 vroeg robert nozick: zou je je aansluiten op een machine die je voor altijd een perfect nepleven geeft? de meesten zeggen nee. we willen dus meer dan plezier",
+    "image": "images/machine-experience.jpg"
+   },
+   "tr": {
+    "titre": "Deneyim makinesi",
+    "texte": "1974'te robert nozick sordu: sana sonsuza kadar kusursuz ama sahte bir hayat veren bir makineye bağlanır mıydın? çoğu insan hayır diyor. demek ki hazdan fazlasını istiyoruz",
     "image": "images/machine-experience.jpg"
    }
   },
@@ -88,6 +173,31 @@
     "titre": "En lektion om dagen på Sophia",
     "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. en stor idé om dagen",
     "telephone": "cours"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "10 minuten, eine lektion von einem echten professor, dann ein quiz, damit es hängen bleibt. eine große idee am tag",
+    "telephone": "cours"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "10 perc, egy igazi professzor által írt lecke, aztán egy kvíz, hogy megmaradjon. napi egy nagy gondolat",
+    "telephone": "cours"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "10 minuti, una lezione scritta da un vero professore, poi un quiz per fissarla. una grande idea al giorno",
+    "telephone": "cours"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "10 minuten, een les geschreven door een echte professor, daarna een quiz zodat het blijft hangen. één groot idee per dag",
+    "telephone": "cours"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. günde bir büyük fikir",
+    "telephone": "cours"
    }
   },
   {
@@ -106,6 +216,31 @@
     "titre": "Wu wei",
     "texte": "den daoistiska idén att handla utan att tvinga. som vatten, som vinner över sten genom att inte kämpa emot. den finns i tao te ching, över 2 000 år gammal",
     "image": "images/paysage-wang.jpg"
+   },
+   "de": {
+    "titre": "Wu wei",
+    "texte": "die daoistische idee, zu handeln, ohne zu erzwingen. wie wasser, das den stein besiegt, indem es nicht gegen ihn kämpft. sie steht im tao te king, über 2.000 jahre alt",
+    "image": "images/paysage-wang.jpg"
+   },
+   "hu": {
+    "titre": "Wu wei",
+    "texte": "a taoista gondolat: cselekedni erőltetés nélkül. mint a víz, ami úgy győzi le a követ, hogy nem harcol vele. a tao te kingben áll, több mint 2000 éve",
+    "image": "images/paysage-wang.jpg"
+   },
+   "it": {
+    "titre": "Wu wei",
+    "texte": "l'idea taoista di agire senza forzare. come l'acqua, che vince la pietra senza combatterla. è nel tao te ching, che ha più di 2.000 anni",
+    "image": "images/paysage-wang.jpg"
+   },
+   "nl": {
+    "titre": "Wu wei",
+    "texte": "het taoïstische idee van handelen zonder te forceren. zoals water, dat steen verslaat door er niet tegen te vechten. het staat in de tao te ching, meer dan 2.000 jaar oud",
+    "image": "images/paysage-wang.jpg"
+   },
+   "tr": {
+    "titre": "Wu wei",
+    "texte": "zorlamadan hareket etmeyi anlatan taocu fikir. taşı onunla savaşmadan yenen su gibi. tao te ching'de geçiyor, 2.000 yıldan eski",
+    "image": "images/paysage-wang.jpg"
    }
   },
   {
@@ -123,6 +258,31 @@
    "sv": {
     "titre": "Spårvagnsproblemet",
     "texte": "philippa foot, 1967: en skenande spårvagn dödar fem personer om du inte drar i en spak och dödar en. de flesta drar. i en senare version ska du knuffa en man från en bro. de flesta säger nej",
+    "image": "images/aiguillage.jpg"
+   },
+   "de": {
+    "titre": "Das trolley-problem",
+    "texte": "philippa foot, 1967: eine straßenbahn außer kontrolle tötet fünf menschen, außer du ziehst einen hebel und tötest einen. die meisten ziehen. in einer späteren version stößt du einen mann von einer brücke. die meisten sagen nein",
+    "image": "images/aiguillage.jpg"
+   },
+   "hu": {
+    "titre": "A villamosprobléma",
+    "texte": "philippa foot, 1967: egy elszabadult villamos megöl öt embert, hacsak meg nem húzol egy kart, és egyet ölsz meg. a legtöbben meghúzzák. egy későbbi változatban egy embert kellene lelökni egy hídról. a legtöbben nemet mondanak",
+    "image": "images/aiguillage.jpg"
+   },
+   "it": {
+    "titre": "Il dilemma del carrello",
+    "texte": "philippa foot, 1967: un carrello fuori controllo ucciderà cinque persone, a meno che tu non tiri una leva e ne uccida una. quasi tutti tirano. in una versione successiva dovresti spingere un uomo giù da un ponte. quasi tutti dicono di no",
+    "image": "images/aiguillage.jpg"
+   },
+   "nl": {
+    "titre": "Het trolleyprobleem",
+    "texte": "philippa foot, 1967: een op hol geslagen tram doodt vijf mensen, tenzij je aan een hendel trekt en er één doodt. de meesten trekken. in een latere versie moet je een man van een brug duwen. de meesten zeggen nee",
+    "image": "images/aiguillage.jpg"
+   },
+   "tr": {
+    "titre": "Tramvay problemi",
+    "texte": "philippa foot, 1967: kontrolden çıkmış bir tramvay beş kişiyi öldürecek, meğer ki bir kolu çekip bir kişiyi öldüresin. çoğu çeker. sonraki bir versiyonda bir adamı köprüden itmen gerekiyor. çoğu hayır der",
     "image": "images/aiguillage.jpg"
    }
   }

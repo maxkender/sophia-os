@@ -1,0 +1,150 @@
+{
+ "id": "dr-070",
+ "format": "liste",
+ "titre": {
+  "en": "5 history facts that genuinely break your brain",
+  "it": "5 fatti storici che ti spaccano il cervello",
+  "nl": "5 geschiedenisfeiten die je brein breken"
+ },
+ "legendes": {
+  "en": "#history #facts #smarttok #lockedin",
+  "it": "#storia #curiosità #cultura #imparare",
+  "nl": "#geschiedenis #weetjes #kennis #leren"
+ },
+ "musique": {
+  "titre": "original sound - Neopatrickharris",
+  "url": "https://www.tiktok.com/music/original-sound-7687733674313288461"
+ },
+ "notes": "Déclinaison G1 de dr-010 : titre du parent mot pour mot, autres faits. Faits : Nintendo fondée le 23/9/1889 (cartes hanafuda), meurtres de Whitechapel 1888 ; brevet d'Alexander Bain 1843, grande migration de l'Oregon Trail 1843 ; Harvard 1636, calcul de Newton (1665-66) et Leibniz (1675) ; Grande Pyramide dépassée par la flèche de Lincoln v. 1311 ; pilules de ketchup de John Cook Bennett (1834). Images Seedream (cartes sans logo). En, it, nl ; une couverture par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 history facts that genuinely break your brain",
+    "image": "images/cerveau-43.jpg",
+    "legende": "(all true)"
+   },
+   "it": {
+    "titre": "5 fatti storici che ti spaccano il cervello",
+    "image": "images/cerveau-01.jpg",
+    "legende": "(tutto vero)"
+   },
+   "nl": {
+    "titre": "5 geschiedenisfeiten die je brein breken",
+    "image": "images/cerveau-04.jpg",
+    "legende": "(allemaal waar)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Nintendo and Jack the Ripper",
+    "texte": "nintendo was founded in kyoto in 1889, a year after the jack the ripper murders in london. it started out making playing cards",
+    "image": "images/cartes-fleurs.jpg"
+   },
+   "it": {
+    "titre": "Nintendo e Jack lo Squartatore",
+    "texte": "nintendo fu fondata a kyoto nel 1889, un anno dopo i delitti di jack lo squartatore a londra. all'inizio faceva carte da gioco",
+    "image": "images/cartes-fleurs.jpg"
+   },
+   "nl": {
+    "titre": "Nintendo en Jack the Ripper",
+    "texte": "nintendo werd in 1889 in kyoto opgericht, een jaar na de moorden van jack the ripper in londen. het begon met speelkaarten",
+    "image": "images/cartes-fleurs.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The fax and the Oregon Trail",
+    "texte": "the first fax machine was patented in 1843 by alexander bain, the same year wagon trains started heading west on the oregon trail",
+    "image": "images/chariot-prairie.jpg"
+   },
+   "it": {
+    "titre": "Il fax e l'Oregon Trail",
+    "texte": "il primo fax fu brevettato nel 1843 da alexander bain, lo stesso anno in cui le carovane iniziarono a partire verso ovest sull'oregon trail",
+    "image": "images/chariot-prairie.jpg"
+   },
+   "nl": {
+    "titre": "De fax en de Oregon Trail",
+    "texte": "de eerste fax werd in 1843 gepatenteerd door alexander bain, hetzelfde jaar waarin huifkarren over de oregon trail naar het westen begonnen te trekken",
+    "image": "images/chariot-prairie.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. history is stranger than you were told",
+    "telephone": "quiz"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "quello che apro invece di scrollare: una lezione, un quiz, fine. la storia è più strana di come te l'hanno raccontata",
+    "telephone": "quiz"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "wat ik open in plaats van scrollen: één les, één quiz, klaar. geschiedenis is vreemder dan je denkt",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Harvard is older than calculus",
+    "texte": "harvard was founded in 1636. newton and leibniz only worked out calculus in the 1660s and 1670s",
+    "image": "images/bibliotheque.jpg"
+   },
+   "it": {
+    "titre": "Harvard è più vecchia del calcolo",
+    "texte": "harvard fu fondata nel 1636. newton e leibniz svilupparono il calcolo infinitesimale solo tra gli anni 1660 e 1670",
+    "image": "images/bibliotheque.jpg"
+   },
+   "nl": {
+    "titre": "Harvard is ouder dan calculus",
+    "texte": "harvard werd opgericht in 1636. newton en leibniz bedachten de differentiaalrekening pas in de jaren 1660 en 1670",
+    "image": "images/bibliotheque.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "3,800 years at the top",
+    "texte": "the great pyramid was the tallest building on earth for about 3,800 years, until the spire of lincoln cathedral passed it around 1311",
+    "image": "images/grande-pyramide.jpg"
+   },
+   "it": {
+    "titre": "3.800 anni in cima",
+    "texte": "la grande piramide fu l'edificio più alto della terra per circa 3.800 anni, finché la guglia della cattedrale di lincoln la superò intorno al 1311",
+    "image": "images/grande-pyramide.jpg"
+   },
+   "nl": {
+    "titre": "3.800 jaar aan de top",
+    "texte": "de grote piramide was zo'n 3.800 jaar het hoogste gebouw op aarde, tot de torenspits van de kathedraal van lincoln hem rond 1311 inhaalde",
+    "image": "images/grande-pyramide.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Ketchup was medicine",
+    "texte": "in the 1830s, tomato ketchup was sold in pills as a cure for indigestion. a doctor named john cook bennett promoted it",
+    "image": "images/flacon-ancien.jpg"
+   },
+   "it": {
+    "titre": "Il ketchup era una medicina",
+    "texte": "negli anni 1830 il ketchup di pomodoro si vendeva in pillole contro l'indigestione. lo promuoveva un medico, john cook bennett",
+    "image": "images/flacon-ancien.jpg"
+   },
+   "nl": {
+    "titre": "Ketchup was medicijn",
+    "texte": "in de jaren 1830 werd tomatenketchup in pillen verkocht tegen indigestie. een arts, john cook bennett, promootte het",
+    "image": "images/flacon-ancien.jpg"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "20374d89-21ed-40de-a8da-820b4131e0f7"
+}

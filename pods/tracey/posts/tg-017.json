@@ -2,10 +2,28 @@
  "id": "tg-017",
  "type_bleo": "full_test",
  "titre": {
-  "en": "10/10 hobbies to start in your 20s if you have adhd"
+  "en": "10/10 hobbies to start in your 20s if you have adhd",
+  "bg": "10/10 хобита, с които да започнеш на 20, ако имаш адхд",
+  "de": "10/10 hobbys, die du mit 20 bei adhs anfangen solltest",
+  "el": "10/10 χόμπι να ξεκινήσεις στα 20 αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies para empezar a los 20 si tienes tdah",
+  "fr": "10/10 loisirs à commencer à 20 ans quand on a un tdah",
+  "hu": "10/10 hobbi a 20-as éveidre, ha adhd-s vagy",
+  "it": "10/10 hobby da iniziare a 20 anni se hai l'adhd",
+  "pt-BR": "10/10 hobbies pra começar aos 20 se você tem tdah",
+  "sr": "10/10 hobija za tvoje 20-e ako imaš adhd"
  },
  "legendes": {
-  "en": "#adhd #hobbies #20s #focus #brain"
+  "en": "#adhd #hobbies #20s #focus #brain",
+  "bg": "#адхд #хобита #20 #фокус #мозък",
+  "de": "#adhs #hobbys #20er #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #20άρηδες #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #20s #enfoque #cerebro",
+  "fr": "#tdah #loisirs #20ans #concentration #cerveau",
+  "hu": "#adhd #hobbi #20as #fókusz #agy",
+  "it": "#adhd #hobby #20anni #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #20e #foco #cerebro",
+  "sr": "#adhd #hobi #20e #fokus #mozak"
  },
  "musique": {
   "titre": "original sound",
@@ -23,6 +41,42 @@
    "en": {
     "titre": "10/10 hobbies to start in your\n20s if you have adhd",
     "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 хобита за твоите 20,\nако имаш адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 hobbys für deine 20er,\nwenn du adhs hast",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι να ξεκινήσεις\nστα 20 αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies para empezar\na los 20 si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs à commencer\nà 20 ans quand on a un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 hobbi a 20-as éveidre,\nha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby da iniziare a\n20 anni se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies pra começar\naos 20 se você tem tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 hobija za tvoje 20-e\nako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
    }
   },
   {
@@ -38,6 +92,78 @@
      "vocabulary comes in tiny pieces, and understanding a sentence for the first time is a _real high_"
     ],
     "chute": "ten words a day on paper flashcards"
+   },
+   "bg": {
+    "nom": "нов език",
+    "accroche": "всяка нова дума е _малко_ отключване",
+    "colonne": [
+     "думите идват на малки парчета, а да разбереш изречение за първи път е _истински кеф_"
+    ],
+    "chute": "десет думи на ден на хартиени карти"
+   },
+   "de": {
+    "nom": "eine sprache lernen",
+    "accroche": "jedes neue wort ist ein _kleines_ level",
+    "colonne": [
+     "vokabeln kommen in kleinen stücken, und einen satz zum ersten mal zu verstehen ist ein _echtes hoch_"
+    ],
+    "chute": "zehn wörter am tag auf karteikarten"
+   },
+   "el": {
+    "nom": "μαθαίνω μια γλώσσα",
+    "accroche": "κάθε νέα λέξη είναι ένα _μικρό ξεκλείδωμα_",
+    "colonne": [
+     "το λεξιλόγιο έρχεται σε μικρά κομμάτια, και η πρώτη πρόταση που καταλαβαίνεις είναι _αληθινή χαρά_"
+    ],
+    "chute": "δέκα λέξεις τη μέρα σε χάρτινες κάρτες"
+   },
+   "es-419": {
+    "nom": "aprender un idioma",
+    "accroche": "cada palabra nueva es un _pequeño logro_",
+    "colonne": [
+     "el vocabulario llega en pedacitos, y entender una frase por primera vez es una _emoción real_"
+    ],
+    "chute": "diez palabras al día en tarjetas de papel"
+   },
+   "fr": {
+    "nom": "apprendre une langue",
+    "accroche": "chaque nouveau mot _débloque_ quelque chose",
+    "colonne": [
+     "le vocabulaire arrive par petits bouts, et comprendre une phrase pour la première fois est un _vrai kif_"
+    ],
+    "chute": "dix mots par jour sur des fiches en papier"
+   },
+   "hu": {
+    "nom": "nyelvtanulás",
+    "accroche": "minden új szó egy _kis_ _feloldás_",
+    "colonne": [
+     "a szókincs apró darabokban jön, és amikor először érted meg a mondatot, az _igazi löket_"
+    ],
+    "chute": "napi tíz szó papír szókártyákon"
+   },
+   "it": {
+    "nom": "imparare una lingua",
+    "accroche": "ogni parola nuova è un piccolo _sblocco_",
+    "colonne": [
+     "il vocabolario arriva a piccoli pezzi, e capire una frase per la prima volta è una _vera scarica_"
+    ],
+    "chute": "dieci parole al giorno su flashcard di carta"
+   },
+   "pt-BR": {
+    "nom": "aprender um idioma",
+    "accroche": "cada palavra nova é um _pequeno_ desbloqueio",
+    "colonne": [
+     "o vocabulário vem em pedacinhos, e entender uma frase pela primeira vez é uma _baita sensação_"
+    ],
+    "chute": "dez palavras por dia em fichas de papel"
+   },
+   "sr": {
+    "nom": "učenje jezika",
+    "accroche": "svaka nova reč je _malo_ _otključavanje_",
+    "colonne": [
+     "reči dolaze u sitnim delovima, a kad prvi put razumeš rečenicu, to je _pravi zanos_"
+    ],
+    "chute": "deset reči dnevno na papirnim karticama"
    }
   },
   {
@@ -54,6 +180,87 @@
      "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
     ],
     "chute": "most clubs have a free beginner run"
+   },
+   "bg": {
+    "nom": "клуб по бягане",
+    "accroche": "нови приятели _и_ _финална линия_",
+    "colonne": [
+     "бягането в група дава структура на седмицата, а датата на състезание дава на мозъка _цел_",
+     "_съвет_: ползвам atala, ai треньор по бягане, който планира седмицата ми около целта ми"
+    ],
+    "chute": "повечето клубове имат безплатно бягане за начинаещи"
+   },
+   "de": {
+    "nom": "ein lauftreff",
+    "accroche": "neue freunde _und_ eine _ziellinie_",
+    "colonne": [
+     "in der gruppe laufen gibt der woche struktur, und ein renntermin gibt einem vollen kopf _ein ziel_",
+     "_pro tipp_: ich nutze atala, einen ki-laufcoach, der meine woche um mein ziel herum plant"
+    ],
+    "chute": "viele lauftreffs haben einen gratis-anfängerlauf"
+   },
+   "el": {
+    "nom": "ομάδα τρεξίματος",
+    "accroche": "νέοι φίλοι _και_ ένας _τερματισμός_",
+    "colonne": [
+     "το τρέξιμο σε ομάδα δίνει δομή στη βδομάδα, και ένας αγώνας δίνει στο μυαλό _στόχο_",
+     "_μικρό tip_: χρησιμοποιώ το atala, έναν ai προπονητή τρεξίματος που οργανώνει την εβδομάδα μου γύρω από τον στόχο μου"
+    ],
+    "chute": "οι περισσότερες ομάδες έχουν δωρεάν τρέξιμο"
+   },
+   "es-419": {
+    "nom": "un club de running",
+    "accroche": "amigos nuevos _y_ una _meta final_",
+    "colonne": [
+     "correr en grupo le da estructura a tu semana, y una fecha de carrera le da a tu cerebro _una meta_",
+     "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
+    ],
+    "chute": "casi todos los clubes tienen una salida gratis"
+   },
+   "fr": {
+    "nom": "un club de course",
+    "accroche": "de _nouveaux amis_ et une _ligne d'arrivée_",
+    "colonne": [
+     "courir en groupe structure ta semaine, et une date de course donne au cerveau _un objectif_",
+     "_petite astuce_: j'utilise atala, un coach de course par ia qui planifie ma semaine selon mon objectif"
+    ],
+    "chute": "la plupart des clubs ont une sortie débutants gratuite"
+   },
+   "hu": {
+    "nom": "futóklub",
+    "accroche": "új barátok _és_ egy _célvonal_",
+    "colonne": [
+     "a csoportos futás keretet ad a hétnek, egy verseny dátuma pedig _célt_ a pörgő agynak",
+     "_pro tip_: az atala appot használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+    ],
+    "chute": "a legtöbb klubban van ingyenes kezdő futás"
+   },
+   "it": {
+    "nom": "un gruppo di corsa",
+    "accroche": "nuovi amici _e_ un _traguardo_",
+    "colonne": [
+     "correre in gruppo dà struttura alla settimana, e una data di gara dà al cervello _un obiettivo_",
+     "_piccolo consiglio_: uso atala, un coach di corsa con l'ia che organizza la mia settimana intorno al mio obiettivo"
+    ],
+    "chute": "molti gruppi hanno una corsa gratis per principianti"
+   },
+   "pt-BR": {
+    "nom": "um clube de corrida",
+    "accroche": "novos amigos _e_ uma _linha de chegada_",
+    "colonne": [
+     "correr em grupo dá estrutura à semana, e a data de uma prova dá ao cérebro _uma meta_",
+     "_dica_: eu uso o atala, um coach de corrida com ia que planeja minha semana em torno do meu objetivo"
+    ],
+    "chute": "a maioria dos clubes tem treino grátis pra iniciantes"
+   },
+   "sr": {
+    "nom": "klub trkača",
+    "accroche": "novi prijatelji _i_ _cilj_ na kraju",
+    "colonne": [
+     "trčanje u grupi daje nedelji strukturu, a datum trke daje užurbanom mozgu _cilj_",
+     "_pro tip_: koristim aplikaciju atala, ai trenera za trčanje koji mi planira nedelju prema cilju"
+    ],
+    "chute": "većina klubova ima besplatno trčanje za početnike"
    }
   },
   {
@@ -69,6 +276,78 @@
      "someone counting on you makes it easy to show up, and the walk itself burns off _restless energy_"
     ],
     "chute": "most shelters need weekend walkers"
+   },
+   "bg": {
+    "nom": "доброволец в приют",
+    "accroche": "куче, което _има нужда_ от теб в _10 ч_",
+    "colonne": [
+     "когато някой разчита на теб, е лесно да дойдеш, а разходката изгаря _неспокойната енергия_"
+    ],
+    "chute": "повечето приюти търсят разхождачи през уикенда"
+   },
+   "de": {
+    "nom": "ehrenamt im tierheim",
+    "accroche": "ein hund, der dich um _10 uhr_ _braucht_",
+    "colonne": [
+     "wenn jemand auf dich zählt, gehst du leichter hin, und der spaziergang verbrennt _unruhige energie_"
+    ],
+    "chute": "viele tierheime suchen gassigeher fürs wochenende"
+   },
+   "el": {
+    "nom": "εθελοντισμός σε καταφύγιο",
+    "accroche": "ένας σκύλος που _σε περιμένει_ στις _10_",
+    "colonne": [
+     "κάποιος που βασίζεται σε σένα σε κάνει να πας, και η βόλτα καίει την _ανήσυχη ενέργεια_"
+    ],
+    "chute": "τα καταφύγια ψάχνουν εθελοντές το σαββατοκύριακο"
+   },
+   "es-419": {
+    "nom": "voluntariado en un refugio",
+    "accroche": "un perro que _te espera_ a las _10am_",
+    "colonne": [
+     "alguien que cuenta contigo hace fácil llegar, y la caminata quema la _energía inquieta_"
+    ],
+    "chute": "muchos refugios buscan paseadores el fin de semana"
+   },
+   "fr": {
+    "nom": "être bénévole dans un refuge",
+    "accroche": "un chien qui _t'attend_ à _10h_",
+    "colonne": [
+     "quelqu'un qui compte sur toi, c'est facile d'y aller, et la balade brûle _l'énergie en trop_"
+    ],
+    "chute": "les refuges cherchent des promeneurs le week-end"
+   },
+   "hu": {
+    "nom": "önkéntesség egy menhelyen",
+    "accroche": "egy kutya, akinek _10-kor_ _szüksége van rád_",
+    "colonne": [
+     "ha valaki számít rád, könnyű megjelenni, és a séta levezeti a _nyugtalan energiát_"
+    ],
+    "chute": "a legtöbb menhely hétvégi sétáltatókat keres"
+   },
+   "it": {
+    "nom": "volontariato in un canile",
+    "accroche": "un cane che _ti aspetta_ alle _10_",
+    "colonne": [
+     "qualcuno che conta su di te rende facile presentarti, e la passeggiata brucia l'_energia in eccesso_"
+    ],
+    "chute": "molti canili cercano volontari nel weekend"
+   },
+   "pt-BR": {
+    "nom": "ser voluntário num abrigo",
+    "accroche": "um cachorro que _precisa de você_ às _10h_",
+    "colonne": [
+     "alguém contando com você facilita aparecer, e o passeio gasta a _energia inquieta_"
+    ],
+    "chute": "a maioria dos abrigos precisa de passeadores no fim de semana"
+   },
+   "sr": {
+    "nom": "volontiranje u azilu",
+    "accroche": "pas kome si _potreban_ u _10 ujutru_",
+    "colonne": [
+     "kad neko računa na tebe, lako je pojaviti se, a šetnja izbaci _nemirnu energiju_"
+    ],
+    "chute": "većini azila trebaju šetači vikendom"
    }
   },
   {
@@ -85,6 +364,87 @@
      "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
     ],
     "chute": "start with one painting a week"
+   },
+   "bg": {
+    "nom": "да гледаш изкуство",
+    "accroche": "ще _виждаш_ картините _различно_ завинаги",
+    "colonne": [
+     "когато знаеш какво да търсиш, всеки музей и стара църква стават загадка",
+     "_съвет_: ползвам artura, по едно произведение на ден с историята му и зуум върху детайлите, които иначе пропускаш"
+    ],
+    "chute": "започни с една картина на седмица"
+   },
+   "de": {
+    "nom": "kunst sehen lernen",
+    "accroche": "du _siehst_ bilder für immer _anders_",
+    "colonne": [
+     "wenn du weißt, worauf du achten musst, wird jedes museum und jede alte kirche zum rätsel",
+     "_pro tipp_: ich nutze artura, jeden tag ein kunstwerk mit seiner geschichte, mit zoom auf details, die man sonst übersieht"
+    ],
+    "chute": "fang mit einem gemälde pro woche an"
+   },
+   "el": {
+    "nom": "μαθαίνω να κοιτάζω τέχνη",
+    "accroche": "θα _βλέπεις_ τους πίνακες _αλλιώς_ για πάντα",
+    "colonne": [
+     "μόλις μάθεις τι να ψάχνεις, κάθε μουσείο και παλιά εκκλησία γίνεται γρίφος",
+     "_μικρό tip_: χρησιμοποιώ το artura, ένα έργο τέχνης τη μέρα με την ιστορία του, με ζουμ στις λεπτομέρειες που θα έχανες"
+    ],
+    "chute": "ξεκίνα με έναν πίνακα τη βδομάδα"
+   },
+   "es-419": {
+    "nom": "aprender a mirar arte",
+    "accroche": "vas a _ver_ las pinturas _distinto_ para siempre",
+    "colonne": [
+     "cuando sabes qué buscar, cada museo e iglesia antigua se vuelve un acertijo",
+     "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
+    ],
+    "chute": "empieza con una pintura por semana"
+   },
+   "fr": {
+    "nom": "apprendre à regarder l'art",
+    "accroche": "tu verras les tableaux _autrement_ pour _toujours_",
+    "colonne": [
+     "une fois que tu sais quoi chercher, chaque musée et vieille église devient une énigme",
+     "_petite astuce_: j'utilise artura, une œuvre par jour avec son histoire, en zoomant sur les détails qu'on raterait"
+    ],
+    "chute": "commence par un tableau par semaine"
+   },
+   "hu": {
+    "nom": "megtanulni nézni a művészetet",
+    "accroche": "_másképp látod_ majd a festményeket, _örökre_",
+    "colonne": [
+     "ha tudod, mit keress, minden múzeum és régi templom rejtvénnyé válik",
+     "_pro tip_: az artura appot használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+    ],
+    "chute": "kezdd heti egy festménnyel"
+   },
+   "it": {
+    "nom": "imparare a guardare l'arte",
+    "accroche": "vedrai i dipinti _in modo diverso_ per sempre",
+    "colonne": [
+     "quando sai cosa cercare, ogni museo e ogni chiesa antica diventa un enigma",
+     "_piccolo consiglio_: uso artura, un'opera al giorno con la sua storia, zoomando sui dettagli che ti sfuggirebbero"
+    ],
+    "chute": "inizia con un dipinto a settimana"
+   },
+   "pt-BR": {
+    "nom": "aprender a olhar arte",
+    "accroche": "você vai _ver_ pinturas _de outro jeito_ pra sempre",
+    "colonne": [
+     "quando você sabe o que procurar, todo museu e igreja antiga vira um quebra-cabeça",
+     "_dica_: eu uso o artura, uma obra por dia com a sua história, com zoom nos detalhes que você perderia"
+    ],
+    "chute": "comece com uma pintura por semana"
+   },
+   "sr": {
+    "nom": "učiti da gledaš umetnost",
+    "accroche": "slike ćeš _zauvek_ gledati _drugačije_",
+    "colonne": [
+     "kad znaš šta da tražiš, svaki muzej i stara crkva postaju zagonetka",
+     "_pro tip_: koristim aplikaciju artura, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+    ],
+    "chute": "počni sa jednom slikom nedeljno"
    }
   },
   {
@@ -100,6 +460,78 @@
      "the ball moves fast, everyone needs you, and a weekly game gives your week a _fixed point_"
     ],
     "chute": "look for a local beginner league"
+   },
+   "bg": {
+    "nom": "любителска лига",
+    "accroche": "отбор, график, _истински мач_",
+    "colonne": [
+     "топката е бърза, всички имат нужда от теб, а мач всяка седмица дава на седмицата _опорна точка_"
+    ],
+    "chute": "потърси местна лига за начинаещи"
+   },
+   "de": {
+    "nom": "eine hobbyliga",
+    "accroche": "ein team, ein plan, ein _echtes spiel_",
+    "colonne": [
+     "der ball ist schnell, alle brauchen dich, und ein spiel pro woche gibt der woche einen _festen punkt_"
+    ],
+    "chute": "such eine anfängerliga in deiner nähe"
+   },
+   "el": {
+    "nom": "ερασιτεχνικό πρωτάθλημα",
+    "accroche": "ομάδα, πρόγραμμα, _αληθινός αγώνας_",
+    "colonne": [
+     "η μπάλα κινείται γρήγορα, όλοι σε χρειάζονται, και ένας αγώνας τη βδομάδα είναι _σταθερό σημείο_"
+    ],
+    "chute": "ψάξε ένα πρωτάθλημα αρχαρίων κοντά σου"
+   },
+   "es-419": {
+    "nom": "una liga amateur",
+    "accroche": "un equipo, un horario, un _partido real_",
+    "colonne": [
+     "la pelota va rápido, todos te necesitan, y un partido por semana te da un _punto fijo_"
+    ],
+    "chute": "busca una liga para principiantes cerca"
+   },
+   "fr": {
+    "nom": "une ligue amateur",
+    "accroche": "une équipe, un planning, un _vrai match_",
+    "colonne": [
+     "le ballon va vite, tout le monde compte sur toi, et un match par semaine te donne un _repère fixe_"
+    ],
+    "chute": "cherche une ligue débutants près de chez toi"
+   },
+   "hu": {
+    "nom": "amatőr bajnokság",
+    "accroche": "csapat, menetrend, _igazi meccs_",
+    "colonne": [
+     "a labda gyors, mindenkinek szüksége van rád, és a heti meccs _fix pont_ a héten"
+    ],
+    "chute": "keress egy helyi kezdő bajnokságot"
+   },
+   "it": {
+    "nom": "un campionato amatoriale",
+    "accroche": "una squadra, un calendario, una _vera partita_",
+    "colonne": [
+     "la palla va veloce, tutti hanno bisogno di te, e una partita a settimana è un _punto fisso_"
+    ],
+    "chute": "cerca un campionato per principianti vicino a te"
+   },
+   "pt-BR": {
+    "nom": "uma liga amadora",
+    "accroche": "um time, uma agenda, um _jogo de verdade_",
+    "colonne": [
+     "a bola corre rápido, todo mundo precisa de você, e um jogo semanal dá à semana um _ponto fixo_"
+    ],
+    "chute": "procure uma liga local pra iniciantes"
+   },
+   "sr": {
+    "nom": "rekreativna liga",
+    "accroche": "tim, raspored, _prava utakmica_",
+    "colonne": [
+     "lopta je brza, svima si potreban, a nedeljna utakmica je _čvrsta tačka_ u nedelji"
+    ],
+    "chute": "potraži lokalnu ligu za početnike"
    }
   }
  ]

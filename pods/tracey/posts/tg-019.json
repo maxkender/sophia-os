@@ -2,10 +2,28 @@
  "id": "tg-019",
  "type_bleo": "full_test",
  "titre": {
-  "en": "10/10 rainy day hobbies that actually work if you have adhd"
+  "en": "10/10 rainy day hobbies that actually work if you have adhd",
+  "bg": "10/10 хобита за дъждовни дни, които наистина работят при адхд",
+  "de": "10/10 regentag-hobbys, die bei adhs wirklich funktionieren",
+  "el": "10/10 χόμπι για βροχερές μέρες που δουλεύουν αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies para días de lluvia que sí funcionan si tienes tdah",
+  "fr": "10/10 loisirs pour les jours de pluie qui marchent vraiment avec un tdah",
+  "hu": "10/10 esős napi hobbi, ami tényleg működik, ha adhd-s vagy",
+  "it": "10/10 hobby per i giorni di pioggia che funzionano se hai l'adhd",
+  "pt-BR": "10/10 hobbies pra dias de chuva que funcionam se você tem tdah",
+  "sr": "10/10 hobija za kišne dane koji pomažu ako imaš adhd"
  },
  "legendes": {
-  "en": "#adhd #hobbies #rainyday #focus #brain"
+  "en": "#adhd #hobbies #rainyday #focus #brain",
+  "bg": "#адхд #хобита #дъжд #фокус #мозък",
+  "de": "#adhs #hobbys #regentag #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #βροχή #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #diaslluviosos #enfoque #cerebro",
+  "fr": "#tdah #loisirs #joursdepluie #concentration #cerveau",
+  "hu": "#adhd #hobbi #esősnap #fókusz #agy",
+  "it": "#adhd #hobby #giornidipioggia #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #diadechuva #foco #cerebro",
+  "sr": "#adhd #hobi #kišnidan #fokus #mozak"
  },
  "musique": {
   "titre": "original sound",
@@ -23,6 +41,42 @@
    "en": {
     "titre": "10/10 rainy day hobbies that\nactually work if you have adhd",
     "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 хобита за дъждовен ден,\nкоито работят при адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 regentag-hobbys, die\nbei adhs wirklich helfen",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι για βροχερές μέρες\nαν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies para días de\nlluvia si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs de jour de pluie\nqui marchent avec un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 esős napi hobbi, ami\ntényleg működik, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby per i giorni di\npioggia se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies pra dias de\nchuva que funcionam com tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 hobija za kišne dane\nkoji pomažu ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
    }
   },
   {
@@ -38,6 +92,78 @@
      "the rules give your brain structure, and other players keep the game moving _fast enough_"
     ],
     "chute": "pick a short game, 20 minutes max"
+   },
+   "bg": {
+    "nom": "настолни игри",
+    "accroche": "всеки ход е _малко_ ново _решение_",
+    "colonne": [
+     "правилата дават на мозъка структура, а другите играчи държат играта _достатъчно бърза_"
+    ],
+    "chute": "избери кратка игра, най-много 20 минути"
+   },
+   "de": {
+    "nom": "brettspiele",
+    "accroche": "jeder zug ist eine _neue_ kleine _entscheidung_",
+    "colonne": [
+     "die regeln geben dem kopf struktur, und die anderen halten das spiel _schnell genug_"
+    ],
+    "chute": "nimm ein kurzes spiel, maximal 20 minuten"
+   },
+   "el": {
+    "nom": "επιτραπέζια",
+    "accroche": "κάθε γύρος μια _νέα_ μικρή _απόφαση_",
+    "colonne": [
+     "οι κανόνες δίνουν δομή στο μυαλό, και οι άλλοι παίκτες κρατούν το παιχνίδι _γρήγορο_"
+    ],
+    "chute": "διάλεξε ένα σύντομο, 20 λεπτά το πολύ"
+   },
+   "es-419": {
+    "nom": "juegos de mesa",
+    "accroche": "cada turno es una _nueva_ pequeña _decisión_",
+    "colonne": [
+     "las reglas le dan estructura al cerebro, y los demás jugadores mantienen el juego _rápido_"
+    ],
+    "chute": "elige un juego corto, 20 minutos máximo"
+   },
+   "fr": {
+    "nom": "les jeux de société",
+    "accroche": "chaque tour, une _nouvelle_ petite _décision_",
+    "colonne": [
+     "les règles donnent un cadre au cerveau, et les autres joueurs gardent le jeu _assez rapide_"
+    ],
+    "chute": "choisis un jeu court, 20 minutes max"
+   },
+   "hu": {
+    "nom": "társasjátékok",
+    "accroche": "minden kör egy _új_ kis _döntés_",
+    "colonne": [
+     "a szabályok keretet adnak az agyadnak, a többi játékos pedig _elég gyorsan_ viszi a játékot"
+    ],
+    "chute": "válassz rövid játékot, max 20 perc"
+   },
+   "it": {
+    "nom": "giochi da tavolo",
+    "accroche": "ogni turno è una piccola _decisione nuova_",
+    "colonne": [
+     "le regole danno struttura al cervello, e gli altri giocatori tengono il gioco _abbastanza veloce_"
+    ],
+    "chute": "scegli un gioco corto, massimo 20 minuti"
+   },
+   "pt-BR": {
+    "nom": "jogos de tabuleiro",
+    "accroche": "cada rodada é uma _pequena_ nova _decisão_",
+    "colonne": [
+     "as regras dão estrutura ao cérebro, e os outros jogadores mantêm o jogo _rápido o bastante_"
+    ],
+    "chute": "escolha um jogo curto, 20 minutos no máximo"
+   },
+   "sr": {
+    "nom": "društvene igre",
+    "accroche": "svaki potez je nova _mala_ _odluka_",
+    "colonne": [
+     "pravila daju mozgu strukturu, a ostali igrači drže igru _dovoljno brzom_"
+    ],
+    "chute": "izaberi kratku igru, najviše 20 minuta"
    }
   },
   {
@@ -54,6 +180,87 @@
      "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
     ],
     "chute": "pick one room and stay until the rain stops"
+   },
+   "bg": {
+    "nom": "музей в дъждовен ден",
+    "accroche": "навън вали, вътре _цял свят_",
+    "colonne": [
+     "дъждовният следобед е идеалното извинение да се изгубиш в едно крило на музея",
+     "_съвет_: ползвам artura, по едно произведение на ден с историята му и зуум върху детайлите, които иначе пропускаш"
+    ],
+    "chute": "избери една зала и стой, докато спре дъждът"
+   },
+   "de": {
+    "nom": "museum an einem regentag",
+    "accroche": "draußen regen, drinnen _eine ganze welt_",
+    "colonne": [
+     "ein verregneter nachmittag ist die perfekte ausrede, sich in einem flügel des museums zu verlieren",
+     "_pro tipp_: ich nutze artura, jeden tag ein kunstwerk mit seiner geschichte, mit zoom auf details, die man sonst übersieht"
+    ],
+    "chute": "such dir einen raum und bleib, bis der regen aufhört"
+   },
+   "el": {
+    "nom": "μουσείο σε βροχερή μέρα",
+    "accroche": "βροχή έξω, _ένας κόσμος_ μέσα",
+    "colonne": [
+     "ένα βροχερό απόγευμα είναι η τέλεια αφορμή να χαθείς σε μια πτέρυγα του μουσείου",
+     "_μικρό tip_: χρησιμοποιώ το artura, ένα έργο τέχνης τη μέρα με την ιστορία του, με ζουμ στις λεπτομέρειες που θα έχανες"
+    ],
+    "chute": "μία αίθουσα, μέχρι να σταματήσει η βροχή"
+   },
+   "es-419": {
+    "nom": "un museo en día de lluvia",
+    "accroche": "lluvia afuera, _un mundo_ adentro",
+    "colonne": [
+     "una tarde lluviosa es la excusa perfecta para perderte en un ala del museo",
+     "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
+    ],
+    "chute": "elige una sala y quédate hasta que pare"
+   },
+   "fr": {
+    "nom": "un musée un jour de pluie",
+    "accroche": "la pluie dehors, _un monde_ dedans",
+    "colonne": [
+     "un après-midi pluvieux, c'est l'excuse parfaite pour se perdre dans une aile du musée",
+     "_petite astuce_: j'utilise artura, une œuvre par jour avec son histoire, en zoomant sur les détails qu'on raterait"
+    ],
+    "chute": "une salle, jusqu'à ce que la pluie s'arrête"
+   },
+   "hu": {
+    "nom": "múzeum esős napon",
+    "accroche": "kint eső, bent _egy egész világ_",
+    "colonne": [
+     "egy esős délután tökéletes ürügy, hogy elveszz egy múzeum egyik szárnyában",
+     "_pro tip_: az artura appot használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+    ],
+    "chute": "válassz egy termet, és maradj, amíg eláll az eső"
+   },
+   "it": {
+    "nom": "un museo in un giorno di pioggia",
+    "accroche": "pioggia fuori, _un mondo_ dentro",
+    "colonne": [
+     "un pomeriggio di pioggia è la scusa perfetta per perdersi in un'ala del museo",
+     "_piccolo consiglio_: uso artura, un'opera al giorno con la sua storia, zoomando sui dettagli che ti sfuggirebbero"
+    ],
+    "chute": "scegli una sala e resta finché smette"
+   },
+   "pt-BR": {
+    "nom": "um museu num dia de chuva",
+    "accroche": "chuva lá fora, _um mundo inteiro_ aqui dentro",
+    "colonne": [
+     "uma tarde chuvosa é a desculpa perfeita pra se perder numa ala do museu",
+     "_dica_: eu uso o artura, uma obra por dia com a sua história, com zoom nos detalhes que você perderia"
+    ],
+    "chute": "escolha uma sala e fique até a chuva parar"
+   },
+   "sr": {
+    "nom": "muzej za kišan dan",
+    "accroche": "napolju kiša, unutra _ceo svet_",
+    "colonne": [
+     "kišno popodne je savršen izgovor da se izgubiš u jednom krilu muzeja",
+     "_pro tip_: koristim aplikaciju artura, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+    ],
+    "chute": "izaberi jednu salu i ostani dok kiša ne stane"
    }
   },
   {
@@ -69,6 +276,78 @@
      "a letter has a start and an end, and writing by hand slows a racing mind to the speed of the _pen_"
     ],
     "chute": "write one to a friend this week"
+   },
+   "bg": {
+    "nom": "писане на писма",
+    "accroche": "бавно, _на хартия_, до _един човек_",
+    "colonne": [
+     "писмото има начало и край, а писането на ръка забавя ума до скоростта на _химикалката_"
+    ],
+    "chute": "напиши едно на приятел тази седмица"
+   },
+   "de": {
+    "nom": "briefe schreiben",
+    "accroche": "langsam, _auf papier_, an _eine person_",
+    "colonne": [
+     "ein brief hat anfang und ende, und mit der hand schreiben bremst den kopf auf das tempo des _stifts_"
+    ],
+    "chute": "schreib diese woche einem freund"
+   },
+   "el": {
+    "nom": "γράφω γράμματα",
+    "accroche": "αργά, _σε χαρτί_, σε _έναν άνθρωπο_",
+    "colonne": [
+     "ένα γράμμα έχει αρχή και τέλος, και το γράψιμο με το χέρι φέρνει το μυαλό στην ταχύτητα της _πένας_"
+    ],
+    "chute": "γράψε ένα σε έναν φίλο αυτή τη βδομάδα"
+   },
+   "es-419": {
+    "nom": "escribir cartas",
+    "accroche": "lento, _en papel_, para _una persona_",
+    "colonne": [
+     "una carta tiene inicio y final, y escribir a mano baja una mente acelerada a la velocidad de la _pluma_"
+    ],
+    "chute": "escríbele una a un amigo esta semana"
+   },
+   "fr": {
+    "nom": "écrire des lettres",
+    "accroche": "lentement, _sur papier_, à _une personne_",
+    "colonne": [
+     "une lettre a un début et une fin, et écrire à la main ralentit un esprit qui file à la vitesse du _stylo_"
+    ],
+    "chute": "écris-en une à un ami cette semaine"
+   },
+   "hu": {
+    "nom": "levélírás",
+    "accroche": "lassan, _papíron_, _egy embernek_",
+    "colonne": [
+     "egy levélnek eleje és vége van, a kézírás pedig a _toll_ tempójára lassítja a pörgő elmét"
+    ],
+    "chute": "írj egyet egy barátodnak ezen a héten"
+   },
+   "it": {
+    "nom": "scrivere lettere",
+    "accroche": "piano, _su carta_, a _una persona_",
+    "colonne": [
+     "una lettera ha un inizio e una fine, e scrivere a mano rallenta una mente veloce al ritmo della _penna_"
+    ],
+    "chute": "scrivine una a un amico questa settimana"
+   },
+   "pt-BR": {
+    "nom": "escrever cartas",
+    "accroche": "devagar, _no papel_, pra _uma pessoa_",
+    "colonne": [
+     "uma carta tem começo e fim, e escrever à mão desacelera a mente pra velocidade da _caneta_"
+    ],
+    "chute": "escreva uma pra um amigo esta semana"
+   },
+   "sr": {
+    "nom": "pisanje pisama",
+    "accroche": "polako, _na papiru_, _jednoj osobi_",
+    "colonne": [
+     "pismo ima početak i kraj, a pisanje rukom usporava užurban um do brzine _olovke_"
+    ],
+    "chute": "napiši jedno prijatelju ove nedelje"
    }
   },
   {
@@ -85,6 +364,87 @@
      "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
     ],
     "chute": "go out in the first dry hour"
+   },
+   "bg": {
+    "nom": "бягане след дъжда",
+    "accroche": "дъждът спира, ти си _навън_",
+    "colonne": [
+     "свежият въздух след сив ден дава на неспокойното тяло накъде да тръгне, а планът те държи да бягаш в _сиви седмици_",
+     "_съвет_: ползвам atala, ai треньор по бягане, който планира седмицата ми около целта ми"
+    ],
+    "chute": "излез в първия сух час"
+   },
+   "de": {
+    "nom": "ein lauf nach dem regen",
+    "accroche": "der regen hört auf, du bist _vor der tür_",
+    "colonne": [
+     "frische luft nach einem grauen tag gibt einem unruhigen körper ein ziel, und ein plan hält dich in _grauen wochen_ am laufen",
+     "_pro tipp_: ich nutze atala, einen ki-laufcoach, der meine woche um mein ziel herum plant"
+    ],
+    "chute": "geh in der ersten trockenen stunde raus"
+   },
+   "el": {
+    "nom": "τρέξιμο μετά τη βροχή",
+    "accroche": "σταματά η βροχή, _βγαίνεις έξω_",
+    "colonne": [
+     "ο φρέσκος αέρας μετά από γκρίζα μέρα δίνει διέξοδο στο σώμα, και ένα πλάνο σε βγάζει και τις _γκρίζες βδομάδες_",
+     "_μικρό tip_: χρησιμοποιώ το atala, έναν ai προπονητή τρεξίματος που οργανώνει την εβδομάδα μου γύρω από τον στόχο μου"
+    ],
+    "chute": "βγες την πρώτη στεγνή ώρα"
+   },
+   "es-419": {
+    "nom": "correr después de la lluvia",
+    "accroche": "para la lluvia y _sales por la puerta_",
+    "colonne": [
+     "el aire fresco tras un día gris le da al cuerpo inquieto a dónde ir, y un plan te hace correr en _semanas grises_",
+     "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
+    ],
+    "chute": "sal en la primera hora seca"
+   },
+   "fr": {
+    "nom": "courir après la pluie",
+    "accroche": "la pluie s'arrête, tu _passes la porte_",
+    "colonne": [
+     "l'air frais après une journée grise donne au corps agité un endroit où aller, et un plan te fait courir les _semaines grises_",
+     "_petite astuce_: j'utilise atala, un coach de course par ia qui planifie ma semaine selon mon objectif"
+    ],
+    "chute": "sors dès la première heure sèche"
+   },
+   "hu": {
+    "nom": "futás eső után",
+    "accroche": "eláll az eső, és már _kint is vagy_",
+    "colonne": [
+     "a friss levegő egy szürke nap után helyet ad a nyugtalan testnek, a terv pedig a _szürke heteken_ is futásban tart",
+     "_pro tip_: az atala appot használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+    ],
+    "chute": "menj ki az első száraz órában"
+   },
+   "it": {
+    "nom": "correre dopo la pioggia",
+    "accroche": "smette di piovere, sei _fuori dalla porta_",
+    "colonne": [
+     "dopo un giorno grigio l'aria fresca dà sfogo al corpo, e un piano ti fa correre nelle _settimane grigie_",
+     "_piccolo consiglio_: uso atala, un coach di corsa con l'ia che organizza la mia settimana intorno al mio obiettivo"
+    ],
+    "chute": "esci nella prima ora asciutta"
+   },
+   "pt-BR": {
+    "nom": "uma corrida depois da chuva",
+    "accroche": "a chuva parou, você _sai pela porta_",
+    "colonne": [
+     "ar fresco depois de um dia cinza dá ao corpo inquieto pra onde ir, e um plano te faz correr nas _semanas cinzas_",
+     "_dica_: eu uso o atala, um coach de corrida com ia que planeja minha semana em torno do meu objetivo"
+    ],
+    "chute": "saia na primeira hora seca"
+   },
+   "sr": {
+    "nom": "trčanje posle kiše",
+    "accroche": "kiša stane, a ti si _već napolju_",
+    "colonne": [
+     "svež vazduh posle sivog dana daje nemirnom telu kuda da ide, a plan te drži u trčanju i _sivih nedelja_",
+     "_pro tip_: koristim aplikaciju atala, ai trenera za trčanje koji mi planira nedelju prema cilju"
+    ],
+    "chute": "izađi u prvom suvom satu"
    }
   },
   {
@@ -100,6 +460,78 @@
      "it's messy, hands-on and quick, and you get to watch the plant _grow back_ all week"
     ],
     "chute": "start with one plant that looks too big for its pot"
+   },
+   "bg": {
+    "nom": "пресаждане на растения",
+    "accroche": "пръст, корени и _нещо живо_",
+    "colonne": [
+     "мръсно е, с ръце и бързо, а цяла седмица гледаш как растението _се съвзема_"
+    ],
+    "chute": "започни с растение, което е твърде голямо за саксията си"
+   },
+   "de": {
+    "nom": "pflanzen umtopfen",
+    "accroche": "erde, wurzeln und _etwas lebendiges_",
+    "colonne": [
+     "es ist dreckig, handfest und schnell, und du siehst die pflanze die ganze woche _wieder wachsen_"
+    ],
+    "chute": "fang mit einer pflanze an, die zu groß für ihren topf ist"
+   },
+   "el": {
+    "nom": "αλλάζω γλάστρες",
+    "accroche": "χώμα, ρίζες και _κάτι ζωντανό_",
+    "colonne": [
+     "είναι βρόμικο, χειροποίητο και γρήγορο, και βλέπεις το φυτό να _ξαναζωντανεύει_ όλη τη βδομάδα"
+    ],
+    "chute": "ξεκίνα με ένα φυτό που δεν χωράει στη γλάστρα του"
+   },
+   "es-419": {
+    "nom": "trasplantar plantas",
+    "accroche": "tierra, raíces y _algo vivo_",
+    "colonne": [
+     "es sucio, manual y rápido, y ves a la planta _recuperarse_ toda la semana"
+    ],
+    "chute": "empieza con una planta que ya no cabe en su maceta"
+   },
+   "fr": {
+    "nom": "rempoter des plantes",
+    "accroche": "de la terre, des racines et _du vivant_",
+    "colonne": [
+     "c'est salissant, manuel et rapide, et tu vois la plante _repartir_ toute la semaine"
+    ],
+    "chute": "commence par une plante trop grande pour son pot"
+   },
+   "hu": {
+    "nom": "növények átültetése",
+    "accroche": "föld, gyökerek és _valami élő_",
+    "colonne": [
+     "koszos, kézzel fogható és gyors, és egész héten nézheted, ahogy a növény _újra nő_"
+    ],
+    "chute": "kezdd egy növénnyel, ami kinőtte a cserepét"
+   },
+   "it": {
+    "nom": "rinvasare le piante",
+    "accroche": "terra, radici e _qualcosa di vivo_",
+    "colonne": [
+     "è sporco, manuale e veloce, e vedi la pianta _riprendersi_ per tutta la settimana"
+    ],
+    "chute": "inizia con una pianta troppo grande per il vaso"
+   },
+   "pt-BR": {
+    "nom": "trocar plantas de vaso",
+    "accroche": "terra, raiz e _algo vivo_",
+    "colonne": [
+     "é bagunçado, manual e rápido, e você vê a planta _se recuperar_ a semana toda"
+    ],
+    "chute": "comece com uma planta grande demais pro vaso"
+   },
+   "sr": {
+    "nom": "presađivanje biljaka",
+    "accroche": "zemlja, koren i _nešto živo_",
+    "colonne": [
+     "prljavo je, rukama i brzo, a celu nedelju gledaš kako biljka _ponovo raste_"
+    ],
+    "chute": "počni sa biljkom kojoj je saksija premala"
    }
   }
  ]

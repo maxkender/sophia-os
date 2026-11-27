@@ -2,10 +2,28 @@
  "id": "tg-021",
  "type_bleo": "full_test",
  "titre": {
-  "en": "10/10 hobbies for adhd brains that need to move"
+  "en": "10/10 hobbies for adhd brains that need to move",
+  "bg": "10/10 хобита за адхд мозъци, които трябва да се движат",
+  "de": "10/10 hobbys für adhs-gehirne, die sich bewegen müssen",
+  "el": "10/10 χόμπι για εγκεφάλους με ΔΕΠΥ που θέλουν κίνηση",
+  "es-419": "10/10 hobbies para cerebros con tdah que necesitan moverse",
+  "fr": "10/10 loisirs pour les cerveaux tdah qui ont besoin de bouger",
+  "hu": "10/10 hobbi adhd-s agyaknak, amiknek mozogniuk kell",
+  "it": "10/10 hobby per cervelli adhd che hanno bisogno di muoversi",
+  "pt-BR": "10/10 hobbies para cérebros com tdah que precisam se mexer",
+  "sr": "10/10 hobija za adhd mozak koji mora da se kreće"
  },
  "legendes": {
-  "en": "#adhd #hobbies #sport #focus #brain"
+  "en": "#adhd #hobbies #sport #focus #brain",
+  "bg": "#адхд #хобита #спорт #фокус #мозък",
+  "de": "#adhs #hobbys #sport #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #άθληση #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #deporte #enfoque #cerebro",
+  "fr": "#tdah #loisirs #sport #concentration #cerveau",
+  "hu": "#adhd #hobbi #sport #fókusz #agy",
+  "it": "#adhd #hobby #sport #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #esporte #foco #cerebro",
+  "sr": "#adhd #hobi #sport #fokus #mozak"
  },
  "musique": {
   "titre": "original sound",
@@ -23,6 +41,42 @@
    "en": {
     "titre": "10/10 hobbies for adhd brains\nthat need to move",
     "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 хобита за адхд мозъци,\nкоито трябва да се движат",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 hobbys für adhs-köpfe,\ndie sich bewegen müssen",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι για μυαλά με ΔΕΠΥ\nπου θέλουν κίνηση",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies para cerebros\ncon tdah que necesitan moverse",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs pour les tdah\nqui ont besoin de bouger",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 hobbi adhd-s agyaknak,\namiknek mozogniuk kell",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby per cervelli adhd\nche devono muoversi",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies para cérebros\ncom tdah que precisam mexer",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 hobija za adhd mozak\nkoji mora da se kreće",
+    "note": "(potvrđeno neuronaukom)"
    }
   },
   {
@@ -38,6 +92,78 @@
      "the rhythm keeps your mind busy and your body tired, and you can do it _anywhere_"
     ],
     "chute": "start with 30 seconds on, 30 seconds off"
+   },
+   "bg": {
+    "nom": "въже за скачане",
+    "accroche": "брои до _100_ и мозъкът _утихва_",
+    "colonne": [
+     "ритъмът занимава ума и уморява тялото, и можеш да го правиш _навсякъде_"
+    ],
+    "chute": "започни с 30 секунди скачане, 30 почивка"
+   },
+   "de": {
+    "nom": "seilspringen",
+    "accroche": "zähl bis _100_ und dein _kopf ist still_",
+    "colonne": [
+     "der rhythmus beschäftigt den kopf und macht den körper müde, und es geht _überall_"
+    ],
+    "chute": "starte mit 30 sekunden springen, 30 pause"
+   },
+   "el": {
+    "nom": "σχοινάκι",
+    "accroche": "μέτρα ως το _100_ και το _μυαλό ησυχάζει_",
+    "colonne": [
+     "ο ρυθμός απασχολεί το μυαλό και κουράζει το σώμα, και γίνεται _οπουδήποτε_"
+    ],
+    "chute": "30 δευτερόλεπτα άλμα, 30 διάλειμμα"
+   },
+   "es-419": {
+    "nom": "saltar la cuerda",
+    "accroche": "cuenta hasta _100_ y tu _cerebro se calla_",
+    "colonne": [
+     "el ritmo ocupa tu mente y cansa tu cuerpo, y lo puedes hacer _donde sea_"
+    ],
+    "chute": "30 segundos saltando, 30 descansando"
+   },
+   "fr": {
+    "nom": "la corde à sauter",
+    "accroche": "compte jusqu'à _100_ et ton _cerveau se tait_",
+    "colonne": [
+     "le rythme occupe ta tête et fatigue ton corps, et tu peux en faire _n'importe où_"
+    ],
+    "chute": "30 secondes de saut, 30 secondes de pause"
+   },
+   "hu": {
+    "nom": "ugrókötél",
+    "accroche": "számolj _100-ig_, és az _agyad elcsendesül_",
+    "colonne": [
+     "a ritmus leköti az elméd és elfárasztja a tested, és _bárhol_ csinálhatod"
+    ],
+    "chute": "kezdd 30 mp ugrás, 30 mp pihenő váltással"
+   },
+   "it": {
+    "nom": "saltare la corda",
+    "accroche": "conta fino a _100_ e il _cervello si zittisce_",
+    "colonne": [
+     "il ritmo tiene la mente occupata e il corpo stanco, e puoi farlo _ovunque_"
+    ],
+    "chute": "30 secondi di salti, 30 di pausa"
+   },
+   "pt-BR": {
+    "nom": "pular corda",
+    "accroche": "conte até _100_ e seu _cérebro silencia_",
+    "colonne": [
+     "o ritmo ocupa a mente e cansa o corpo, e dá pra fazer em _qualquer lugar_"
+    ],
+    "chute": "comece com 30 segundos pulando, 30 parado"
+   },
+   "sr": {
+    "nom": "preskakanje konopca",
+    "accroche": "izbroj do _100_ i _mozak utihne_",
+    "colonne": [
+     "ritam zaokupi um i umori telo, a možeš da ga radiš _bilo gde_"
+    ],
+    "chute": "počni sa 30 sekundi skakanja, 30 sekundi pauze"
    }
   },
   {
@@ -54,6 +180,87 @@
      "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
     ],
     "chute": "most school tracks are open in the evening"
+   },
+   "bg": {
+    "nom": "спринтове на писта",
+    "accroche": "кратко, _бързо_ и _свършва бързо_",
+    "colonne": [
+     "няколко силни спринта дават на неспокойното тяло точно каквото иска, а планът те пази да не прекалиш",
+     "_съвет_: ползвам atala, ai треньор по бягане, който планира седмицата ми около целта ми"
+    ],
+    "chute": "повечето училищни писти са отворени вечер"
+   },
+   "de": {
+    "nom": "sprints auf der bahn",
+    "accroche": "kurz, _schnell_ und _schnell vorbei_",
+    "colonne": [
+     "ein paar harte sprints geben einem unruhigen körper genau, was er will, und ein plan bremst dich, bevor du übertreibst",
+     "_pro tipp_: ich nutze atala, einen ki-laufcoach, der meine woche um mein ziel herum plant"
+    ],
+    "chute": "viele schulbahnen sind abends offen"
+   },
+   "el": {
+    "nom": "σπριντ σε στίβο",
+    "accroche": "σύντομα, _γρήγορα_ και _τελειώνουν γρήγορα_",
+    "colonne": [
+     "λίγα σπριντ δίνουν στο ανήσυχο σώμα αυτό που θέλει, και ένα πλάνο σε προστατεύει από τις υπερβολές",
+     "_μικρό tip_: χρησιμοποιώ το atala, έναν ai προπονητή τρεξίματος που οργανώνει την εβδομάδα μου γύρω από τον στόχο μου"
+    ],
+    "chute": "πολλοί σχολικοί στίβοι είναι ανοιχτοί το βράδυ"
+   },
+   "es-419": {
+    "nom": "sprints en la pista",
+    "accroche": "cortos, _rápidos_ y _se acaban pronto_",
+    "colonne": [
+     "unos sprints le dan al cuerpo inquieto lo que busca, y un plan evita que te pases",
+     "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
+    ],
+    "chute": "muchas pistas escolares abren en la tarde"
+   },
+   "fr": {
+    "nom": "des sprints sur piste",
+    "accroche": "court, _rapide_ et _vite fini_",
+    "colonne": [
+     "quelques sprints donnent au corps agité ce qu'il veut, et un plan t'évite d'en faire trop",
+     "_petite astuce_: j'utilise atala, un coach de course par ia qui planifie ma semaine selon mon objectif"
+    ],
+    "chute": "les pistes des écoles sont souvent ouvertes le soir"
+   },
+   "hu": {
+    "nom": "sprintek a pályán",
+    "accroche": "rövid, _gyors_ és _hamar vége_",
+    "colonne": [
+     "pár kemény sprint pont azt adja a nyugtalan testnek, amit akar, a terv pedig megóv a túlzástól",
+     "_pro tip_: az atala appot használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+    ],
+    "chute": "a legtöbb iskolai pálya este nyitva van"
+   },
+   "it": {
+    "nom": "scatti in pista",
+    "accroche": "brevi, _veloci_ e _finiti presto_",
+    "colonne": [
+     "qualche scatto dà al corpo inquieto quello che vuole, e un piano ti evita di esagerare",
+     "_piccolo consiglio_: uso atala, un coach di corsa con l'ia che organizza la mia settimana intorno al mio obiettivo"
+    ],
+    "chute": "molte piste scolastiche sono aperte la sera"
+   },
+   "pt-BR": {
+    "nom": "tiros na pista",
+    "accroche": "curto, _rápido_ e _acaba logo_",
+    "colonne": [
+     "alguns tiros fortes dão ao corpo inquieto exatamente o que ele quer, e um plano evita exagerar",
+     "_dica_: eu uso o atala, um coach de corrida com ia que planeja minha semana em torno do meu objetivo"
+    ],
+    "chute": "a maioria das pistas de escola abre à noite"
+   },
+   "sr": {
+    "nom": "sprintevi na stazi",
+    "accroche": "kratko, _brzo_ i _brzo gotovo_",
+    "colonne": [
+     "par jakih sprinteva daje nemirnom telu tačno ono što želi, a plan te čuva od preterivanja",
+     "_pro tip_: koristim aplikaciju atala, ai trenera za trčanje koji mi planira nedelju prema cilju"
+    ],
+    "chute": "većina školskih staza radi uveče"
    }
   },
   {
@@ -69,6 +276,78 @@
      "the repeated movement keeps your whole body busy, and the water gives your eyes _something calm_"
     ],
     "chute": "most clubs run a learn-to-row weekend"
+   },
+   "bg": {
+    "nom": "гребане",
+    "accroche": "всяко загребване е в _същия ритъм_",
+    "colonne": [
+     "повтарящото се движение занимава цялото тяло, а водата дава на очите _нещо спокойно_"
+    ],
+    "chute": "повечето клубове имат уикенд за начинаещи"
+   },
+   "de": {
+    "nom": "rudern",
+    "accroche": "jeder schlag hat den _gleichen rhythmus_",
+    "colonne": [
+     "die wiederholte bewegung beschäftigt den ganzen körper, und das wasser gibt den augen _etwas ruhiges_"
+    ],
+    "chute": "viele vereine bieten ein schnupperwochenende an"
+   },
+   "el": {
+    "nom": "κωπηλασία",
+    "accroche": "κάθε κουπιά έχει _τον ίδιο ρυθμό_",
+    "colonne": [
+     "η επαναλαμβανόμενη κίνηση απασχολεί όλο το σώμα, και το νερό δίνει στα μάτια _κάτι ήρεμο_"
+    ],
+    "chute": "οι όμιλοι κάνουν σαββατοκύριακα γνωριμίας"
+   },
+   "es-419": {
+    "nom": "remo",
+    "accroche": "cada remada tiene _el mismo ritmo_",
+    "colonne": [
+     "el movimiento repetido ocupa todo el cuerpo, y el agua le da a tus ojos _algo tranquilo_"
+    ],
+    "chute": "muchos clubes dan clases de prueba el fin"
+   },
+   "fr": {
+    "nom": "l'aviron",
+    "accroche": "chaque coup de rame a _le même rythme_",
+    "colonne": [
+     "le mouvement répété occupe tout le corps, et l'eau donne à tes yeux _quelque chose de calme_"
+    ],
+    "chute": "les clubs font des week-ends d'initiation"
+   },
+   "hu": {
+    "nom": "evezés",
+    "accroche": "minden húzásnak _ugyanaz a ritmusa_",
+    "colonne": [
+     "az ismétlődő mozdulat leköti az egész tested, a víz pedig _valami nyugodtat_ ad a szemednek"
+    ],
+    "chute": "a legtöbb klub tart kezdő evezős hétvégét"
+   },
+   "it": {
+    "nom": "canottaggio",
+    "accroche": "ogni colpo ha _lo stesso ritmo_",
+    "colonne": [
+     "il movimento ripetuto tiene occupato tutto il corpo, e l'acqua dà ai tuoi occhi _qualcosa di calmo_"
+    ],
+    "chute": "molti club fanno weekend di prova"
+   },
+   "pt-BR": {
+    "nom": "remo",
+    "accroche": "cada remada tem o _mesmo ritmo_",
+    "colonne": [
+     "o movimento repetido ocupa o corpo inteiro, e a água dá aos olhos _algo calmo_"
+    ],
+    "chute": "a maioria dos clubes tem fim de semana pra aprender"
+   },
+   "sr": {
+    "nom": "veslanje",
+    "accroche": "svaki zaveslaj ima _isti ritam_",
+    "colonne": [
+     "ponavljanje pokreta zaokupi celo telo, a voda daje očima _nešto mirno_"
+    ],
+    "chute": "većina klubova ima vikend za početnike"
    }
   },
   {
@@ -85,6 +364,87 @@
      "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
     ],
     "chute": "go on a weekday morning when it's empty"
+   },
+   "bg": {
+    "nom": "голяма изложба",
+    "accroche": "огромни зали, _ярки цветове_, _в движение_",
+    "colonne": [
+     "голямата изложба те държи в движение, а всяка нова зала е експлозия от цвят",
+     "_съвет_: ползвам artura, по едно произведение на ден с историята му и зуум върху детайлите, които иначе пропускаш"
+    ],
+    "chute": "иди в делничен ден сутрин, когато е празно"
+   },
+   "de": {
+    "nom": "eine große ausstellung",
+    "accroche": "riesige räume, _kräftige farben_, _in bewegung_",
+    "colonne": [
+     "eine große ausstellung hält dich am gehen, und jeder neue raum ist eine explosion aus farbe",
+     "_pro tipp_: ich nutze artura, jeden tag ein kunstwerk mit seiner geschichte, mit zoom auf details, die man sonst übersieht"
+    ],
+    "chute": "geh an einem wochentag morgens, wenn es leer ist"
+   },
+   "el": {
+    "nom": "βόλτα σε μεγάλη έκθεση",
+    "accroche": "τεράστιες αίθουσες, _έντονα χρώματα_, _κίνηση_",
+    "colonne": [
+     "μια μεγάλη έκθεση σε κρατά σε κίνηση, και κάθε νέα αίθουσα είναι έκρηξη χρώματος",
+     "_μικρό tip_: χρησιμοποιώ το artura, ένα έργο τέχνης τη μέρα με την ιστορία του, με ζουμ στις λεπτομέρειες που θα έχανες"
+    ],
+    "chute": "πήγαινε καθημερινή πρωί, είναι άδεια"
+   },
+   "es-419": {
+    "nom": "recorrer una gran exposición",
+    "accroche": "salas enormes, _colores vivos_, _sigue caminando_",
+    "colonne": [
+     "una gran exposición te mantiene caminando, y cada sala nueva es una explosión de color",
+     "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
+    ],
+    "chute": "ve un día entre semana en la mañana"
+   },
+   "fr": {
+    "nom": "parcourir une grande expo",
+    "accroche": "grandes salles, _couleurs vives_, _on avance_",
+    "colonne": [
+     "une grande expo te fait marcher, et chaque salle est une nouvelle explosion de couleurs",
+     "_petite astuce_: j'utilise artura, une œuvre par jour avec son histoire, en zoomant sur les détails qu'on raterait"
+    ],
+    "chute": "vas-y un matin de semaine, c'est vide"
+   },
+   "hu": {
+    "nom": "egy nagy kiállítás bejárása",
+    "accroche": "hatalmas termek, _élénk színek_, _mozgásban_",
+    "colonne": [
+     "egy nagy kiállítás sétában tart, és minden új terem egy újabb színrobbanás",
+     "_pro tip_: az artura appot használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+    ],
+    "chute": "menj egy hétköznap reggel, amikor üres"
+   },
+   "it": {
+    "nom": "girare una grande mostra",
+    "accroche": "sale enormi, _colori accesi_, _sempre in movimento_",
+    "colonne": [
+     "una grande mostra ti fa camminare, e ogni sala nuova è un'esplosione di colore",
+     "_piccolo consiglio_: uso artura, un'opera al giorno con la sua storia, zoomando sui dettagli che ti sfuggirebbero"
+    ],
+    "chute": "vai un mattino infrasettimanale, è vuota"
+   },
+   "pt-BR": {
+    "nom": "andar por uma grande exposição",
+    "accroche": "salas enormes, _cores fortes_, _sempre andando_",
+    "colonne": [
+     "uma grande exposição te mantém andando, e cada sala nova é uma explosão de cor",
+     "_dica_: eu uso o artura, uma obra por dia com a sua história, com zoom nos detalhes que você perderia"
+    ],
+    "chute": "vá num dia de semana de manhã, quando está vazio"
+   },
+   "sr": {
+    "nom": "šetnja kroz veliku izložbu",
+    "accroche": "ogromne sale, _jake boje_, _stalno u pokretu_",
+    "colonne": [
+     "velika izložba te drži u šetnji, a svaka nova sala je nova eksplozija boja",
+     "_pro tip_: koristim aplikaciju artura, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+    ],
+    "chute": "idi radnim danom ujutru, kad je prazno"
    }
   },
   {
@@ -100,6 +460,78 @@
      "you track, run and hit in one move, so a brain that needs to move has no time to _wander_"
     ],
     "chute": "public courts and a beginner group class"
+   },
+   "bg": {
+    "nom": "тенис",
+    "accroche": "топката се връща _всяка секунда_",
+    "colonne": [
+     "следиш, тичаш и удряш в едно движение, така че мозък, който трябва да се движи, няма време да се _отнесе_"
+    ],
+    "chute": "обществени кортове и групов курс за начинаещи"
+   },
+   "de": {
+    "nom": "tennis",
+    "accroche": "der ball kommt _jede sekunde_ zurück",
+    "colonne": [
+     "du verfolgst, läufst und schlägst in einer bewegung, also hat ein kopf, der sich bewegen muss, keine zeit _abzuschweifen_"
+    ],
+    "chute": "öffentliche plätze und ein anfänger-gruppenkurs"
+   },
+   "el": {
+    "nom": "τένις",
+    "accroche": "η μπάλα γυρίζει _κάθε δευτερόλεπτο_",
+    "colonne": [
+     "παρακολουθείς, τρέχεις και χτυπάς μαζί, και το μυαλό που θέλει κίνηση δεν έχει χρόνο να _ξεφύγει_"
+    ],
+    "chute": "δημόσια γήπεδα και ομαδικό μάθημα αρχαρίων"
+   },
+   "es-419": {
+    "nom": "tenis",
+    "accroche": "la pelota regresa _cada segundo_",
+    "colonne": [
+     "sigues, corres y pegas en un solo movimiento, así un cerebro que necesita moverse no tiene tiempo de _divagar_"
+    ],
+    "chute": "canchas públicas y una clase grupal para principiantes"
+   },
+   "fr": {
+    "nom": "le tennis",
+    "accroche": "la balle revient _chaque seconde_",
+    "colonne": [
+     "tu suis, tu cours et tu frappes d'un geste, alors un cerveau qui doit bouger n'a pas le temps de _divaguer_"
+    ],
+    "chute": "des courts publics et un cours collectif débutant"
+   },
+   "hu": {
+    "nom": "tenisz",
+    "accroche": "a labda _minden másodpercben_ visszajön",
+    "colonne": [
+     "követsz, futsz és ütsz egy mozdulatban, így a mozgásra vágyó agynak nincs ideje _elkalandozni_"
+    ],
+    "chute": "közpályák és egy kezdő csoportos óra"
+   },
+   "it": {
+    "nom": "tennis",
+    "accroche": "la palla torna _ogni secondo_",
+    "colonne": [
+     "segui, corri e colpisci in un solo movimento, così un cervello che deve muoversi non ha tempo di _vagare_"
+    ],
+    "chute": "campi pubblici e un corso di gruppo per principianti"
+   },
+   "pt-BR": {
+    "nom": "tênis",
+    "accroche": "a bola volta _a cada segundo_",
+    "colonne": [
+     "você acompanha, corre e bate num só movimento, então um cérebro que precisa se mexer não tem tempo de _divagar_"
+    ],
+    "chute": "quadras públicas e uma aula em grupo pra iniciantes"
+   },
+   "sr": {
+    "nom": "tenis",
+    "accroche": "loptica se vraća _svake sekunde_",
+    "colonne": [
+     "pratiš, trčiš i udaraš u jednom pokretu, pa mozak koji mora da se kreće nema kad da _odluta_"
+    ],
+    "chute": "javni tereni i grupni čas za početnike"
    }
   }
  ]

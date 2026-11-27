@@ -3,11 +3,17 @@
   "type_bleo": "full_test",
   "titre": {
     "en": "questions that will break ur brain at 3am",
-    "sv": "frågor som kommer knäcka din hjärna kl. 3 på natten"
+    "sv": "frågor som kommer knäcka din hjärna kl. 3 på natten",
+    "fr": "questions qui vont te retourner le cerveau à 3h du mat",
+    "it": "domande che alle 3 di notte ti mandano in tilt il cervello",
+    "ro": "întrebări care-ți fac praf creierul la 3 noaptea"
   },
   "legendes": {
     "en": "some questions don't have answers. that's exactly why they're worth thinking about.\n\nthe mind, how we know anything, time, right and wrong, and why anything exists at all.\n\nphilosophers have argued about these for centuries. u get to join in.\n\nsave this for the next night u can't sleep.\n\n#philosophy #deepthoughts #learning #curiosity #studytok",
-    "sv": "vissa frågor har inga svar. det är precis därför de är värda att tänka på.\n\nmedvetandet, hur vi kan veta något alls, tiden, rätt och fel och varför något existerar överhuvudtaget.\n\nfilosofer har bråkat om de här i århundraden. nu får du hänga på.\n\nspara det här till nästa natt du inte kan sova.\n\n#filosofi #djupatankar #learning #studytok #fördig"
+    "sv": "vissa frågor har inga svar. det är precis därför de är värda att tänka på.\n\nmedvetandet, hur vi kan veta något alls, tiden, rätt och fel och varför något existerar överhuvudtaget.\n\nfilosofer har bråkat om de här i århundraden. nu får du hänga på.\n\nspara det här till nästa natt du inte kan sova.\n\n#filosofi #djupatankar #learning #studytok #fördig",
+    "fr": "certaines questions ont pas de réponse. c'est justement pour ça qu'elles valent le coup d'y réfléchir.\n\nl'esprit, comment on peut savoir quoi que ce soit, le temps, le bien et le mal, et pourquoi quelque chose existe.\n\nles philosophes en débattent depuis des siècles. à toi de te joindre à eux.\n\nenregistre ça pour la prochaine nuit où tu dors pas.\n\n#philosophie #philo #reflexion #studytok #learning",
+    "it": "certe domande non hanno risposta. ed è proprio per questo che vale la pena pensarci.\n\nla mente, come facciamo a sapere qualcosa, il tempo, il bene e il male, e perché esiste qualcosa.\n\ni filosofi ne discutono da secoli. puoi unirti anche tu.\n\nsalvalo per la prossima notte in cui non riesci a dormire.\n\n#philosophy #deepthoughts #learning #curiosity #studytok #filosofia #pensieri #perte",
+    "ro": "unele întrebări n-au răspuns. exact de asta merită să te gândești la ele.\n\nmintea, cum putem ști ceva, timpul, binele și răul și de ce există ceva până la urmă.\n\nfilozofii se ceartă pe ele de secole. acum poți să intri și tu în discuție.\n\nsalvează asta pt următoarea noapte în care nu poți dormi.\n\n#studytok #learning #filozofie #ganduri #romania"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -40,6 +46,15 @@
       },
       "sv": {
         "titre": "frågor som kommer\nknäcka din hjärna\nkl. 3 på natten"
+      },
+      "fr": {
+        "titre": "questions qui vont te\nretourner le cerveau\nà 3h du mat"
+      },
+      "it": {
+        "titre": "domande che alle 3\ndi notte ti mandano\nin tilt il cervello"
+      },
+      "ro": {
+        "titre": "întrebări care-ți\nfac praf creierul\nla 3 noaptea"
       }
     },
     {
@@ -70,6 +85,48 @@
           "Problemet med andra medvetanden",
           "Personlig identitet",
           "Kropp–själ-problemet"
+        ]
+      },
+      "fr": {
+        "titre": "L'esprit",
+        "sujets": [
+          "Problème difficile de la conscience",
+          "Qualia",
+          "La chambre de Mary",
+          "Zombies philosophiques",
+          "Chambre chinoise",
+          "Cerveau dans une cuve",
+          "Problème des autres esprits",
+          "Identité personnelle",
+          "Problème corps-esprit"
+        ]
+      },
+      "it": {
+        "titre": "La mente",
+        "sujets": [
+          "Il problema difficile della coscienza",
+          "I qualia",
+          "La stanza di Mary",
+          "Gli zombie filosofici",
+          "La stanza cinese",
+          "Il cervello nella vasca",
+          "Il problema delle altre menti",
+          "L'identità personale",
+          "Il problema mente-corpo"
+        ]
+      },
+      "ro": {
+        "titre": "Mintea",
+        "sujets": [
+          "Problema dificilă a conștiinței",
+          "Qualia",
+          "Camera lui Mary",
+          "Zombii filozofici",
+          "Camera chinezească",
+          "Creierul în cuvă",
+          "Problema celorlalte minți",
+          "Identitatea personală",
+          "Problema minte-corp"
         ]
       }
     },
@@ -102,6 +159,48 @@
           "Svarta svanar",
           "Kartan är inte terrängen"
         ]
+      },
+      "fr": {
+        "titre": "Comment savoir quoi que ce soit ?",
+        "sujets": [
+          "Problème de l'induction",
+          "Problème de Gettier",
+          "Le malin génie de Descartes",
+          "Trilemme de Münchhausen",
+          "Fourche de Hume",
+          "Réfutabilité",
+          "Raisonnement bayésien",
+          "Cygnes noirs",
+          "La carte n'est pas le territoire"
+        ]
+      },
+      "it": {
+        "titre": "Come facciamo a sapere qualcosa?",
+        "sujets": [
+          "Il problema dell'induzione",
+          "Il problema di Gettier",
+          "Il genio maligno di Cartesio",
+          "Il trilemma di Münchhausen",
+          "La forchetta di Hume",
+          "La falsificabilità",
+          "Il ragionamento bayesiano",
+          "I cigni neri",
+          "La mappa non è il territorio"
+        ]
+      },
+      "ro": {
+        "titre": "Cum putem ști ceva?",
+        "sujets": [
+          "Problema inducției",
+          "Problemele lui Gettier",
+          "Geniul rău al lui Descartes",
+          "Trilema lui Münchhausen",
+          "Furca lui Hume",
+          "Falsificabilitatea",
+          "Raționamentul bayesian",
+          "Lebedele negre",
+          "Harta nu este teritoriul"
+        ]
       }
     },
     {
@@ -118,6 +217,27 @@
         "paragraphes": [
           "innan jag går ner i ett kaninhål gör jag 10-minuterslektionen på Sophia. en kort lektion om dagen: historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
           "varje lektion är skriven av riktiga professorer och slutar med ett litet quiz. filosofi var det jag trodde att jag skulle hata. nu är det min favorit."
+        ]
+      },
+      "fr": {
+        "titre": "comment j'ai commencé",
+        "paragraphes": [
+          "avant de tomber dans un rabbit hole, je fais la leçon de 10 minutes sur Sophia. une courte leçon par jour: histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "chacune est écrite par de vrais profs et finit par un petit quiz. la philo, je pensais que j'allais détester. maintenant c'est ma préférée."
+        ]
+      },
+      "it": {
+        "titre": "come ci sono arrivata",
+        "paragraphes": [
+          "prima di perdermi in un rabbit hole, faccio la lezione da 10 minuti su Sophia. una lezione breve al giorno: storia, filosofia, scienze, geopolitica, letteratura, economia.",
+          "ognuna è scritta da veri professori e finisce con un piccolo quiz. pensavo che avrei odiato la filosofia. ora è la mia preferita."
+        ]
+      },
+      "ro": {
+        "titre": "cum am ajuns aici",
+        "paragraphes": [
+          "înainte să intru într-un rabbit hole, fac lecția de 10 minute pe Sophia. o lecție scurtă pe zi: istorie, filozofie, științe, geopolitică, literatură, economie.",
+          "fiecare e scrisă de profesori adevărați și se termină cu un mic quiz. credeam că o să urăsc filozofia. acum e preferata mea."
         ]
       }
     },
@@ -148,6 +268,45 @@
           "Universums värmedöd",
           "Varför vi minns det förflutna men inte framtiden"
         ]
+      },
+      "fr": {
+        "titre": "Le temps",
+        "sujets": [
+          "Qu'est-ce que le temps ?",
+          "Flèche du temps",
+          "Univers bloc",
+          "Présentisme et éternalisme",
+          "Déterminisme",
+          "Courbes temporelles fermées",
+          "Mort thermique de l'Univers",
+          "Pourquoi on se souvient du passé"
+        ]
+      },
+      "it": {
+        "titre": "Il tempo",
+        "sujets": [
+          "Che cos'è il tempo?",
+          "La freccia del tempo",
+          "L'universo a blocco",
+          "Presentismo ed eternalismo",
+          "Il determinismo",
+          "Le curve chiuse di tipo tempo",
+          "La morte termica dell'universo",
+          "Perché ricordiamo il passato e non il futuro"
+        ]
+      },
+      "ro": {
+        "titre": "Timpul",
+        "sujets": [
+          "Ce este timpul?",
+          "Săgeata timpului",
+          "Universul-bloc",
+          "Prezentism vs eternalism",
+          "Determinismul",
+          "Curbele închise de tip timp",
+          "Moartea termică a universului",
+          "De ce ne amintim trecutul, dar nu viitorul"
+        ]
       }
     },
     {
@@ -176,6 +335,45 @@
           "Det kategoriska imperativet",
           "Dygdetik",
           "Den motbjudande slutsatsen"
+        ]
+      },
+      "fr": {
+        "titre": "Le bien et le mal",
+        "sujets": [
+          "L'anneau de Gygès",
+          "La machine à expériences",
+          "Chance morale",
+          "Guillotine de Hume",
+          "Dilemme d'Euthyphron",
+          "Impératif catégorique",
+          "Éthique de la vertu",
+          "Conclusion répugnante"
+        ]
+      },
+      "it": {
+        "titre": "Il bene e il male",
+        "sujets": [
+          "L'anello di Gige",
+          "La macchina dell'esperienza",
+          "La fortuna morale",
+          "La ghigliottina di Hume",
+          "Il dilemma di Eutifrone",
+          "L'imperativo categorico",
+          "L'etica delle virtù",
+          "La conclusione ripugnante"
+        ]
+      },
+      "ro": {
+        "titre": "Bine și rău",
+        "sujets": [
+          "Inelul lui Gyges",
+          "Mașina experiențelor",
+          "Norocul moral",
+          "Problema „este–trebuie”",
+          "Dilema lui Eutifron",
+          "Imperativul categoric",
+          "Etica virtuții",
+          "Concluzia respingătoare"
         ]
       }
     },
@@ -208,6 +406,48 @@
           "Wabi-sabi",
           "Ubuntu (filosofi)"
         ]
+      },
+      "fr": {
+        "titre": "Pourquoi quelque chose existe",
+        "sujets": [
+          "Pourquoi quelque chose plutôt que rien ?",
+          "Principe anthropique",
+          "Ajustement fin de l'Univers",
+          "Nihilisme",
+          "Le Mythe de Sisyphe",
+          "Amor fati",
+          "Memento mori",
+          "Wabi-sabi",
+          "Philosophie ubuntu"
+        ]
+      },
+      "it": {
+        "titre": "Perché esiste qualcosa",
+        "sujets": [
+          "Perché esiste qualcosa piuttosto che nulla?",
+          "Il principio antropico",
+          "Il problema della regolazione fine",
+          "Il nichilismo",
+          "Il mito di Sisifo",
+          "Amor fati",
+          "Memento mori",
+          "Wabi-sabi",
+          "La filosofia ubuntu"
+        ]
+      },
+      "ro": {
+        "titre": "De ce există ceva",
+        "sujets": [
+          "De ce există ceva și nu nimic?",
+          "Principiul antropic",
+          "Problema reglajului fin",
+          "Nihilismul",
+          "Mitul lui Sisif",
+          "Amor fati",
+          "Memento mori",
+          "Wabi-sabi",
+          "Filozofia Ubuntu"
+        ]
       }
     },
     {
@@ -219,6 +459,18 @@
       "sv": {
         "texte": "spara det här till nästa gång din hjärna inte vill stänga av. välj en fråga, läs om den och kom fram till ditt eget svar.",
         "gras": "ELLER.. ligg där och övertänk ändå."
+      },
+      "fr": {
+        "texte": "enregistre ça pour la prochaine nuit où ton cerveau veut pas s'éteindre. choisis une des questions, lis un peu dessus, et fais-toi ta propre réponse.",
+        "gras": "OU.. tourne en rond dans ton lit quand même."
+      },
+      "it": {
+        "texte": "salvalo per la prossima notte in cui la testa non si spegne. scegli una domanda, leggi qualcosa e trova la tua risposta.",
+        "gras": "O.. resta lì a rimuginare comunque."
+      },
+      "ro": {
+        "texte": "salvează asta pt data viitoare când creierul nu vrea să se oprească. alege o întrebare, citește despre ea și găsește-ți propriul răspuns.",
+        "gras": "SAU.. stai acolo și gândește-te prea mult oricum."
       }
     }
   ]

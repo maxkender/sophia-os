@@ -913,7 +913,7 @@
         "gras": "OR.. u'll be bored again tomorrow."
       },
       "de": {
-        "texte": "speicher dir das für deinen nächsten langweiligen nachmittag. such dir ein thema aus, lern es so gut, dass du es einer freundin erklären kannst, und nimm dann das nächste.",
+        "texte": "speicher dir das für so einen öden nachmittag. such dir ein thema, lern es gut genug, um es einer freundin zu erklären, und nimm dann das nächste.",
         "gras": "ODER.. morgen ist dir wieder langweilig."
       },
       "it": {
@@ -929,7 +929,7 @@
         "gras": "OU.. tu vas encore t'ennuyer demain."
       },
       "tr": {
-        "texte": "bir dahaki sıkıcı öğleden sonran için bunu kaydet. bir konu seç, bir arkadaşına anlatabilecek kadar iyi öğren, sonra bir sonrakine geç.",
+        "texte": "bir dahaki sıkıcı öğleden sonra için bunu kaydet. bir konu seç, bir arkadaşına anlatacak kadar iyi öğren, sonra sıradakine geç.",
         "gras": "YA DA.. yarın yine sıkılırsın."
       },
       "ro": {
@@ -937,8 +937,8 @@
         "gras": "SAU.. mâine o să te plictisești iar."
       },
       "hu": {
-        "texte": "mentsd el a következő unalmas délutánra. válassz egy témát, tanuld meg annyira, hogy el tudd magyarázni egy barátodnak, aztán jöhet a következő.",
-        "gras": "VAGY.. holnap megint unatkozni fogsz."
+        "texte": "mentsd el a következő unalmas délutánra. válassz egy témát, tanuld meg annyira, hogy egy barátodnak is el tudd mondani, aztán jöhet a következő.",
+        "gras": "VAGY.. holnap is unatkozni fogsz."
       }
     }
   ]

@@ -111,7 +111,7 @@
         "titre": "du bist nicht deine fehler",
         "paragraphes": [
           "du wirst sachen verbocken. das tut jeder. das heißt nicht, dass du ein wrack bist.",
-          "reparier, was du kannst, entschuldige dich, wenn's sein muss, und erlaub dir, weiterzumachen."
+          "reparier, was du kannst, sag sorry, wenn's sein muss, und erlaub dir, weiterzumachen."
         ]
       },
       "it": {
@@ -427,7 +427,7 @@
         "gras": "OR.. u'll spend 17 worrying about it."
       },
       "de": {
-        "texte": "wenn du 16 bist und das liest: du bist nicht hinterher. du bist genau da, wo du sein sollst, um die dinge rauszufinden.",
+        "texte": "wenn du 16 bist und das liest: du bist nicht hinterher. du bist genau da, wo du sein sollst, um alles rauszufinden.",
         "gras": "ODER.. du verbringst die 17 damit, dir sorgen zu machen."
       },
       "it": {
@@ -443,7 +443,7 @@
         "gras": "OU.. tu vas passer tes 17 ans à t'en inquiéter."
       },
       "tr": {
-        "texte": "16 yaşındaysan ve bunu okuyorsan: geride değilsin. tam da bir şeyleri çözmen gereken yerdesin.",
+        "texte": "16 yaşındaysan ve şu an bunu okuyorsan: geride değilsin. tam da bir şeyleri çözmen gereken yerdesin.",
         "gras": "YA DA.. 17'ni bunun için endişelenerek geçirirsin."
       },
       "ro": {

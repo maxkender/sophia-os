@@ -82,7 +82,7 @@
       },
       "hu": {
         "titre": "minek nézz utána,\nha unatkozol",
-        "sous_titre": "és napról napra kicsit okosabb leszel"
+        "sous_titre": "és minden nappal egy kicsit okosabb leszel"
       }
     },
     {
@@ -717,7 +717,7 @@
       "de": {
         "titre": "eine lektion am tag",
         "paragraphes": [
-          "ich recherchiere das alles nicht von null. jeden abend mache ich eine kurze lektion bei Sophia: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "ich recherchiere das alles nicht von null auf. jeden abend mache ich eine kurze lektion bei Sophia: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
           "jede lektion ist von echten professoren geschrieben und endet mit einem kleinen quiz, damit es wirklich hängen bleibt. 10 minuten, dann such ich mir ein thema aus dieser liste aus und geh tiefer rein."
         ]
       },
@@ -1081,8 +1081,8 @@
         "gras": "OR.. u'll forget it by tomorrow."
       },
       "de": {
-        "texte": "speicher dir das als recherche-guide. such dir heute abend ein thema aus, folg dem rabbit hole und komm zurück für teil 2.",
-        "gras": "ODER.. du hast es morgen schon vergessen."
+        "texte": "speicher dir das als guide für deine recherche. such dir heute abend ein thema aus, folg dem rabbit hole und komm für teil 2 zurück.",
+        "gras": "ODER.. morgen hast du es schon vergessen."
       },
       "it": {
         "texte": "salvalo come guida per le tue ricerche. scegli un argomento stasera, segui il rabbit hole fino in fondo e torna per la pt.2.",
@@ -1105,7 +1105,7 @@
         "gras": "SAU.. până mâine o să uiți tot."
       },
       "hu": {
-        "texte": "mentsd el kutatási útmutatónak. ma este válassz egy témát, menj le a nyúlüregbe, és gyere vissza a 2. részért.",
+        "texte": "mentsd el, ez a kutatási listád. ma este válassz egy témát, menj le a nyúlüregbe, és gyere vissza a 2. részért.",
         "gras": "VAGY.. holnapra elfelejted."
       }
     }

@@ -77,7 +77,7 @@
       },
       "hu": {
         "titre": "dolgok, amiket a suli\nsosem tanított meg",
-        "sous_titre": "szóval tanítsd meg magadnak"
+        "sous_titre": "szóval tanuld meg magadtól"
       }
     },
     {
@@ -833,7 +833,7 @@
         "gras": "OR.. keep waiting for someone to explain it."
       },
       "de": {
-        "texte": "speicher dir das und nimm dir ein thema pro woche vor. nächstes jahr weißt du dann mehr als die meisten erwachsenen darüber, wie die dinge wirklich funktionieren.",
+        "texte": "speicher dir das und nimm dir jede woche ein thema vor. nächstes jahr weißt du mehr als die meisten erwachsenen darüber, wie die dinge wirklich funktionieren.",
         "gras": "ODER.. warte weiter, bis es dir jemand erklärt."
       },
       "it": {
@@ -849,8 +849,8 @@
         "gras": "OU.. continue d'attendre que quelqu'un te l'explique."
       },
       "tr": {
-        "texte": "bunu kaydet ve haftada bir konu seç. seneye bu zamanlar, işlerin gerçekte nasıl yürüdüğünü çoğu yetişkinden iyi bileceksin.",
-        "gras": "YA DA.. birinin sana anlatmasını beklemeye devam et."
+        "texte": "bunu kaydet ve haftada bir konu seç. seneye bu zamanlar, işlerin nasıl yürüdüğünü çoğu yetişkinden daha iyi bileceksin.",
+        "gras": "YA DA.. biri gelip anlatsın diye beklemeye devam et."
       },
       "ro": {
         "texte": "salvează asta și alege un subiect pe săptămână. până la anul o să știi mai multe decât majoritatea adulților despre cum funcționează de fapt lucrurile.",

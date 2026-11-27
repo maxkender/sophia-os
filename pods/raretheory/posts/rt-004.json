@@ -549,7 +549,7 @@
       "de": {
         "titre": "eine lektion pro abend",
         "paragraphes": [
-          "ich recherchiere das alles nicht von null. jeden abend mache ich eine kurze lektion bei Sophia: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "ich recherchiere das alles nicht von null auf. jeden abend mache ich eine kurze lektion bei Sophia: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
           "die lektionen sind von echten professoren geschrieben und danach gibt's ein kleines quiz, also kann ich dinge wirklich erklären, statt nur namen fallen zu lassen."
         ]
       },
@@ -1068,8 +1068,8 @@
         "gras": "OR.. keep nodding like u know."
       },
       "de": {
-        "texte": "speicher dir das vor deinem nächsten abendessen, date oder gruppenprojekt. lern ein thema richtig und bring es dann ganz nebenbei ins gespräch.",
-        "gras": "ODER.. nick weiter, als wüsstest du's."
+        "texte": "speicher dir das vor deinem nächsten date, essen oder gruppenprojekt. lern ein thema richtig und bring es dann ganz locker ins gespräch.",
+        "gras": "ODER.. nick weiter und tu so, als wüsstest du's."
       },
       "it": {
         "texte": "salvalo prima di una cena, di un appuntamento o di un lavoro di gruppo. impara bene un argomento, poi tiralo fuori come se niente fosse.",
@@ -1084,7 +1084,7 @@
         "gras": "OU.. continue de hocher la tête comme si tu savais."
       },
       "tr": {
-        "texte": "bir sonraki yemekten, buluşmadan ya da grup ödevinden önce bunu kaydet. bir konuyu adam akıllı öğren, sonra hiçbir şey değilmiş gibi lafı oraya getir.",
+        "texte": "sonraki akşam yemeğinden, buluşmandan ya da grup ödevinden önce bunu kaydet. bir konuyu adam akıllı öğren, sonra hiçbir şey değilmiş gibi lafını aç.",
         "gras": "YA DA.. biliyormuş gibi kafa sallamaya devam et."
       },
       "ro": {
@@ -1092,7 +1092,7 @@
         "gras": "SAU.. dă din cap în continuare de parcă știi."
       },
       "hu": {
-        "texte": "mentsd el a következő vacsora, randi vagy csoportmunka előtt. tanulj meg rendesen egy témát, aztán hozd szóba, mintha semmiség lenne.",
+        "texte": "mentsd el a következő vacsora, randi vagy csoportmunka előtt. tanulj meg egy témát rendesen, aztán hozd szóba, mintha semmi se lenne.",
         "gras": "VAGY.. bólogass tovább, mintha értenéd."
       }
     }

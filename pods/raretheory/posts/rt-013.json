@@ -3,11 +3,17 @@
   "type_bleo": "full_test",
   "titre": {
     "en": "topics that make museums way more interesting",
-    "sv": "ämnen som gör att museer blir mycket roligare"
+    "sv": "ämnen som gör att museer blir mycket roligare",
+    "fr": "sujets qui rendent les musées vraiment plus intéressants",
+    "it": "cose che rendono i musei molto più interessanti",
+    "ro": "subiecte care fac muzeele mult mai interesante"
   },
   "legendes": {
     "en": "museums are boring until u know what u're looking at. then they're the best place on earth.\n\npaintings with hidden details, objects older than most countries, the techniques behind the masterpieces, famous sculptures and the museums themselves.\n\nlearn one before ur next visit and watch how different it feels.\n\nsave this for ur next museum day.\n\n#arthistory #museum #learning #curiosity #studytok",
-    "sv": "museer är tråkiga tills du vet vad du tittar på. sen är de världens bästa ställe.\n\nmålningar med dolda detaljer, föremål som är äldre än de flesta länder, teknikerna bakom mästerverken, kända skulpturer och museerna själva.\n\nlär dig ett innan ditt nästa besök och känn hur annorlunda det blir.\n\nspara det här till nästa museidag.\n\n#konsthistoria #museum #learning #studytok #fördig"
+    "sv": "museer är tråkiga tills du vet vad du tittar på. sen är de världens bästa ställe.\n\nmålningar med dolda detaljer, föremål som är äldre än de flesta länder, teknikerna bakom mästerverken, kända skulpturer och museerna själva.\n\nlär dig ett innan ditt nästa besök och känn hur annorlunda det blir.\n\nspara det här till nästa museidag.\n\n#konsthistoria #museum #learning #studytok #fördig",
+    "fr": "les musées c'est chiant jusqu'à ce que tu saches ce que tu regardes. là, ça devient le meilleur endroit du monde.\n\ndes tableaux avec des détails cachés, des objets plus vieux que la plupart des pays, les techniques derrière les chefs-d'œuvre, des sculptures célèbres et les musées eux-mêmes.\n\napprends-en un avant ta prochaine visite et regarde à quel point ça change tout.\n\nenregistre ça pour ta prochaine journée au musée.\n\n#histoiredelart #musee #culturegenerale #studytok #learning",
+    "it": "i musei sono noiosi finché non sai cosa stai guardando. poi diventano il posto più bello del mondo.\n\nquadri con dettagli nascosti, oggetti più antichi della maggior parte dei paesi, le tecniche dietro i capolavori, sculture famose e i musei stessi.\n\nimparane uno prima della tua prossima visita e senti quanto cambia.\n\nsalvalo per il tuo prossimo giorno al museo.\n\n#arthistory #museum #learning #curiosity #studytok #storiadellarte #musei #arte",
+    "ro": "muzeele sunt plictisitoare până știi la ce te uiți. atunci devin cel mai tare loc de pe pământ.\n\ntablouri cu detalii ascunse, obiecte mai vechi decât majoritatea țărilor, tehnicile din spatele capodoperelor, sculpturi celebre și muzeele în sine.\n\ninvață unul înainte de următoarea vizită și vezi cât de diferit se simte.\n\nsalvează asta pt următoarea zi la muzeu.\n\n#studytok #learning #arthistory #istoriaartei #muzeu"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -41,6 +47,15 @@
       },
       "sv": {
         "titre": "ämnen som gör att\nmuseer blir mycket\nroligare"
+      },
+      "fr": {
+        "titre": "sujets qui rendent\nles musées vraiment\nplus intéressants"
+      },
+      "it": {
+        "titre": "cose che rendono\ni musei molto più\ninteressanti"
+      },
+      "ro": {
+        "titre": "subiecte care fac\nmuzeele mult mai\ninteresante"
       }
     },
     {
@@ -78,6 +93,57 @@
           "Stjärnenatt",
           "En söndag på La Grande Jatte"
         ]
+      },
+      "fr": {
+        "titre": "Tableaux aux détails cachés",
+        "sujets": [
+          "Les Époux Arnolfini",
+          "Les Ambassadeurs",
+          "Les Ménines",
+          "Le Jardin des délices",
+          "Les Proverbes flamands",
+          "La Ronde de nuit",
+          "La Jeune Fille à la perle",
+          "La Cène",
+          "Le sfumato de la Joconde",
+          "La Naissance de Vénus",
+          "La Nuit étoilée",
+          "Un dimanche à la Grande Jatte"
+        ]
+      },
+      "it": {
+        "titre": "Quadri con dettagli nascosti",
+        "sujets": [
+          "I coniugi Arnolfini",
+          "Gli ambasciatori",
+          "Las Meninas",
+          "Il giardino delle delizie",
+          "Proverbi fiamminghi",
+          "La ronda di notte",
+          "La ragazza con l'orecchino di perla",
+          "L'Ultima Cena",
+          "Lo sfumato della Gioconda",
+          "La nascita di Venere",
+          "Notte stellata",
+          "Una domenica alla Grande-Jatte"
+        ]
+      },
+      "ro": {
+        "titre": "Tablouri cu detalii ascunse",
+        "sujets": [
+          "Portretul soților Arnolfini",
+          "Ambasadorii",
+          "Las Meninas",
+          "Grădina desfătărilor pământești",
+          "Proverbele neerlandeze",
+          "Rondul de noapte",
+          "Fata cu cercel de perlă",
+          "Cina cea de Taină",
+          "Sfumato-ul Giocondei",
+          "Nașterea lui Venus",
+          "Noapte înstelată",
+          "Duminică pe insula La Grande Jatte"
+        ]
       }
     },
     {
@@ -114,6 +180,57 @@
           "Hammurabis lag",
           "Bayeuxtapeten",
           "Book of Kells"
+        ]
+      },
+      "fr": {
+        "titre": "Objets anciens",
+        "sujets": [
+          "Pièces d'échecs de Lewis",
+          "Disque céleste de Nebra",
+          "Masque de Toutânkhamon",
+          "Buste de Néfertiti",
+          "Étendard d'Ur",
+          "Casque de Sutton Hoo",
+          "Coupe de Lycurgue",
+          "Porte d'Ishtar",
+          "Chaudron de Gundestrup",
+          "Code de Hammurabi",
+          "Tapisserie de Bayeux",
+          "Livre de Kells"
+        ]
+      },
+      "it": {
+        "titre": "Oggetti antichi",
+        "sujets": [
+          "Gli scacchi di Lewis",
+          "Il disco di Nebra",
+          "La maschera di Tutankhamon",
+          "Il busto di Nefertiti",
+          "Lo stendardo di Ur",
+          "L'elmo di Sutton Hoo",
+          "La coppa di Licurgo",
+          "La porta di Ishtar",
+          "Il calderone di Gundestrup",
+          "Il codice di Hammurabi",
+          "L'arazzo di Bayeux",
+          "Il Libro di Kells"
+        ]
+      },
+      "ro": {
+        "titre": "Obiecte antice",
+        "sujets": [
+          "Piesele de șah de pe Lewis",
+          "Discul ceresc de la Nebra",
+          "Masca lui Tutankamon",
+          "Bustul Nefertiti",
+          "Stindardul din Ur",
+          "Coiful de la Sutton Hoo",
+          "Cupa lui Licurg",
+          "Poarta Iștar",
+          "Cazanul de la Gundestrup",
+          "Codul lui Hammurabi",
+          "Tapiseria de la Bayeux",
+          "Cartea din Kells"
         ]
       }
     },
@@ -154,6 +271,60 @@
           "Glasmålning",
           "Pointillism"
         ]
+      },
+      "fr": {
+        "titre": "Comment on faisait les chefs-d'œuvre",
+        "sujets": [
+          "Fresque",
+          "Tempera à l'œuf",
+          "Glacis",
+          "Clair-obscur",
+          "Sfumato",
+          "Empâtement",
+          "Perspective linéaire",
+          "Trompe-l'œil",
+          "Feuille d'or",
+          "Encaustique",
+          "Gravure sur bois",
+          "Vitrail",
+          "Pointillisme"
+        ]
+      },
+      "it": {
+        "titre": "Come sono nati i capolavori",
+        "sujets": [
+          "L'affresco",
+          "La tempera all'uovo",
+          "Le velature a olio",
+          "Il chiaroscuro",
+          "Lo sfumato",
+          "L'impasto",
+          "La prospettiva lineare",
+          "Il trompe-l'œil",
+          "La foglia d'oro",
+          "L'encausto",
+          "La xilografia",
+          "Le vetrate",
+          "Il puntinismo"
+        ]
+      },
+      "ro": {
+        "titre": "Cum s-au făcut capodoperele",
+        "sujets": [
+          "Fresca",
+          "Tempera cu ou",
+          "Glasiul în ulei",
+          "Clarobscurul",
+          "Sfumato",
+          "Impastoul",
+          "Perspectiva liniară",
+          "Trompe-l'œil",
+          "Foița de aur",
+          "Encaustica",
+          "Xilogravura",
+          "Vitraliul",
+          "Pointilismul"
+        ]
       }
     },
     {
@@ -170,6 +341,27 @@
         "paragraphes": [
           "jag researchar inte allt det här från noll. varje kväll gör jag en kort lektion på Sophia: historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
           "de är skrivna av riktiga professorer, med ett litet quiz efteråt, så när jag står framför målningen kan jag faktiskt historien bakom den."
+        ]
+      },
+      "fr": {
+        "titre": "une leçon par soir",
+        "paragraphes": [
+          "je fais pas toutes ces recherches de zéro. chaque soir je fais une courte leçon sur Sophia: histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "elles sont écrites par de vrais profs, avec un petit quiz après, donc quand je suis devant le tableau, je connais vraiment son histoire."
+        ]
+      },
+      "it": {
+        "titre": "una lezione ogni sera",
+        "paragraphes": [
+          "non faccio ricerche su tutto partendo da zero. ogni sera faccio una lezione breve su Sophia: storia, filosofia, scienze, geopolitica, letteratura, economia.",
+          "sono scritte da veri professori, con un piccolo quiz alla fine, così quando sono davanti al quadro ne conosco davvero la storia."
+        ]
+      },
+      "ro": {
+        "titre": "o lecție pe seară",
+        "paragraphes": [
+          "nu caut toate astea de la zero. în fiecare seară fac o lecție scurtă pe Sophia: istorie, filozofie, științe, geopolitică, literatură, economie.",
+          "sunt scrise de profesori adevărați, cu un mic quiz la final, așa că atunci când ajung în fața tabloului chiar îi știu povestea."
         ]
       }
     },
@@ -208,6 +400,57 @@
           "Moai",
           "Brancusis Fågel i rymden"
         ]
+      },
+      "fr": {
+        "titre": "Sculptures à connaître",
+        "sujets": [
+          "Victoire de Samothrace",
+          "Vénus de Milo",
+          "La Pietà",
+          "Le Penseur",
+          "Le Discobole",
+          "Les Bourgeois de Calais",
+          "Apollon et Daphné du Bernin",
+          "La Vierge voilée",
+          "La Petite Danseuse",
+          "Laocoon et ses fils",
+          "Les moaï",
+          "L'Oiseau dans l'espace de Brancusi"
+        ]
+      },
+      "it": {
+        "titre": "Sculture da conoscere",
+        "sujets": [
+          "La Nike di Samotracia",
+          "La Venere di Milo",
+          "La Pietà",
+          "Il Pensatore",
+          "Il Discobolo",
+          "I borghesi di Calais",
+          "Apollo e Dafne del Bernini",
+          "La Vergine velata",
+          "La piccola danzatrice",
+          "Il Laocoonte",
+          "I moai",
+          "L'uccello nello spazio di Brâncuși"
+        ]
+      },
+      "ro": {
+        "titre": "Sculpturi care merită știute",
+        "sujets": [
+          "Victoria din Samotrace",
+          "Venus din Milo",
+          "Pietà",
+          "Gânditorul",
+          "Discobolul",
+          "Burghezii din Calais",
+          "Apollo și Daphne de Bernini",
+          "Fecioara cu văl",
+          "Mica dansatoare",
+          "Laocoon și fiii săi",
+          "Statuile moai",
+          "Pasărea în văzduh de Brâncuși"
+        ]
       }
     },
     {
@@ -245,6 +488,57 @@
           "Guggenheimmuseet i Bilbao",
           "Akropolismuseet"
         ]
+      },
+      "fr": {
+        "titre": "Les musées eux-mêmes",
+        "sujets": [
+          "Musée du Louvre",
+          "Galerie des Offices",
+          "Musée du Prado",
+          "Musée de l'Ermitage",
+          "Rijksmuseum",
+          "Musée d'Orsay",
+          "Musées du Vatican",
+          "Metropolitan Museum of Art",
+          "National Gallery",
+          "Cabinets de curiosités",
+          "Musée Guggenheim de Bilbao",
+          "Musée de l'Acropole"
+        ]
+      },
+      "it": {
+        "titre": "I musei stessi",
+        "sujets": [
+          "Il Louvre",
+          "Gli Uffizi",
+          "Il Prado",
+          "L'Ermitage",
+          "Il Rijksmuseum",
+          "Il Musée d'Orsay",
+          "I Musei Vaticani",
+          "Il Metropolitan Museum of Art",
+          "La National Gallery",
+          "Le camere delle meraviglie",
+          "Il Guggenheim di Bilbao",
+          "Il Museo dell'Acropoli"
+        ]
+      },
+      "ro": {
+        "titre": "Muzeele în sine",
+        "sujets": [
+          "Luvru",
+          "Galeria Uffizi",
+          "Muzeul Prado",
+          "Ermitaj",
+          "Rijksmuseum",
+          "Musée d'Orsay",
+          "Muzeele Vaticanului",
+          "Metropolitan Museum of Art",
+          "National Gallery",
+          "Cabinetele de curiozități",
+          "Muzeul Guggenheim din Bilbao",
+          "Muzeul Acropolei"
+        ]
       }
     },
     {
@@ -256,6 +550,18 @@
       "sv": {
         "texte": "spara det här innan nästa museibesök. välj tre saker från listan och leta upp dem på riktigt.",
         "gras": "ELLER.. gå förbi dem som alla andra."
+      },
+      "fr": {
+        "texte": "enregistre ça avant ta prochaine sortie au musée. choisis trois trucs de cette liste et va les voir en vrai.",
+        "gras": "OU.. passe devant comme tout le monde."
+      },
+      "it": {
+        "texte": "salvalo prima di andare al museo. scegli tre cose da questa lista e vai a cercarle di persona.",
+        "gras": "O.. passaci davanti come tutti gli altri."
+      },
+      "ro": {
+        "texte": "salvează asta înainte de următoarea vizită la muzeu. alege trei lucruri din lista asta și du-te să le vezi pe viu.",
+        "gras": "SAU.. treci pe lângă ele ca toată lumea."
       }
     }
   ]

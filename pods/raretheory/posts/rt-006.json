@@ -89,7 +89,7 @@
       },
       "hu": {
         "titre": "skillek, amiket jó volt\n14 évesen elkezdeni",
-        "sous_titre": "bárcsak még korábban kezdtem volna"
+        "sous_titre": "bárcsak korábban kezdtem volna"
       }
     },
     {
@@ -514,7 +514,7 @@
         "gras": "OU.. tu vas le regretter à 18 ans."
       },
       "tr": {
-        "texte": "her beceriyi paraya çevirmek zorunda değilsin. sadece kendini hazır hissetmeden birine başlaman lazım. gelecekteki sen buna güveniyor.",
+        "texte": "her beceriden para kazanmak zorunda değilsin. sadece hazır hissetmeyi beklemeden birine başla. gelecekteki sen buna güveniyor.",
         "gras": "YA DA.. 18'inde \"keşke\" dersin."
       },
       "ro": {
@@ -522,7 +522,7 @@
         "gras": "SAU.. la 18 ani o să-ți pară rău că n-ai făcut-o."
       },
       "hu": {
-        "texte": "nem kell minden skillből pénzt csinálnod. csak el kell kezdened egyet, mielőtt késznek éreznéd magad. a jövőbeli éned számít rá.",
+        "texte": "nem kell minden skillből pénzt csinálnod. csak kezdj bele egybe, még mielőtt késznek éreznéd magad. a jövőbeli éned számít rád.",
         "gras": "VAGY.. 18 évesen bánni fogod, hogy nem kezdted el."
       }
     }

@@ -77,7 +77,7 @@
       },
       "hu": {
         "titre": "nyúlüregek, amikbe\nmegéri beleesni",
-        "sous_titre": "azokra az éjszakákra, amikor nem tudsz aludni"
+        "sous_titre": "álmatlan éjszakákra"
       }
     },
     {
@@ -905,8 +905,8 @@
         "gras": "OR.. u'll spend that hour scrolling again."
       },
       "de": {
-        "texte": "speicher dir das für heute abend. nimm das, was am seltsamsten klingt, leg dein handy ans andere ende vom zimmer und gib ihm eine stunde.",
-        "gras": "ODER.. du verbringst die stunde wieder mit scrollen."
+        "texte": "speicher dir das für heute abend. nimm das, was am seltsamsten klingt, leg dein handy ans andere ende des zimmers und gib ihm eine stunde.",
+        "gras": "ODER.. du scrollst die stunde wieder weg."
       },
       "it": {
         "texte": "salvalo per stasera. scegli quello che ti sembra più strano, metti il telefono dall'altra parte della stanza e dagli un'ora.",
@@ -921,8 +921,8 @@
         "gras": "OU.. tu vas encore passer cette heure à scroller."
       },
       "tr": {
-        "texte": "bunu bu gece için kaydet. kulağa en tuhaf geleni seç, telefonunu odanın öbür ucuna koy ve ona bir saat ver.",
-        "gras": "YA DA.. o bir saati yine scroll'layarak geçirirsin."
+        "texte": "bunu bu gece için kaydet. kulağa en tuhaf geleni seç, telefonu odanın öbür ucuna koy ve ona bir saatini ver.",
+        "gras": "YA DA.. o bir saat yine scroll'la geçer."
       },
       "ro": {
         "texte": "salvează asta pt diseară. alege-l pe cel care sună cel mai ciudat, pune telefonul în partea cealaltă a camerei și dă-i o oră.",

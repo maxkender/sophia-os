@@ -74,7 +74,7 @@
       },
       "tr": {
         "titre": "canın sıkılınca bu\nkonuları araştır pt.2",
-        "sous_titre": "her seferinde bir tavşan deliği"
+        "sous_titre": "teker teker tavşan delikleri"
       },
       "ro": {
         "titre": "subiecte de cercetat\ncând te plictisești",
@@ -605,7 +605,7 @@
         "titre": "a 10 perces lecke",
         "paragraphes": [
           "mielőtt lemegyek egy nyúlüregbe, megcsinálom a 10 perces leckét a Sophia appban. napi egy rövid lecke: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
-          "igazi professzorok írják, és utána van egy kis kvíz, így tényleg megjegyzem. aztán kiválasztok egy témát erről a listáról, és megyek tovább."
+          "igazi professzorok írják, utána pedig van egy kis kvíz, így tényleg megjegyzem. aztán választok egy témát erről a listáról, és megyek tovább."
         ]
       }
     },
@@ -1081,7 +1081,7 @@
         "gras": "OR.. u'll be bored again tomorrow."
       },
       "de": {
-        "texte": "speicher dir das fürs nächste mal, wenn dir langweilig ist. such dir ein thema aus, gib ihm 20 minuten und schau, wie tief das rabbit hole geht.",
+        "texte": "speicher dir das für die nächste langeweile. such dir ein thema aus, gönn ihm 20 minuten und schau, wie tief das rabbit hole geht.",
         "gras": "ODER.. morgen ist dir wieder langweilig."
       },
       "it": {
@@ -1097,7 +1097,7 @@
         "gras": "OU.. tu vas encore t'ennuyer demain."
       },
       "tr": {
-        "texte": "bir dahaki sıkılışın için bunu kaydet. bir konu seç, ona 20 dakika ver ve tavşan deliğinin nereye kadar gittiğini gör.",
+        "texte": "sıkıldığın bir sonraki an için bunu kaydet. bir konu seç, ona 20 dakika ver ve tavşan deliği nereye kadar gidiyor, bir bak.",
         "gras": "YA DA.. yarın yine sıkılırsın."
       },
       "ro": {
@@ -1105,8 +1105,8 @@
         "gras": "SAU.. mâine o să te plictisești iar."
       },
       "hu": {
-        "texte": "mentsd el arra az esetre, ha legközelebb unatkozol. válassz egy témát, adj neki 20 percet, és nézd meg, milyen mély a nyúlüreg.",
-        "gras": "VAGY.. holnap megint unatkozni fogsz."
+        "texte": "mentsd el, ha legközelebb unatkozol. válassz egy témát, adj neki 20 percet, és nézd meg, milyen mélyre visz a nyúlüreg.",
+        "gras": "VAGY.. holnap is unatkozni fogsz."
       }
     }
   ]

@@ -3,11 +3,17 @@
   "type_bleo": "full_test",
   "titre": {
     "en": "science topics that sound fake but are real",
-    "sv": "vetenskap som låter fejk men är på riktigt"
+    "sv": "vetenskap som låter fejk men är på riktigt",
+    "fr": "sujets scientifiques qui ont l'air inventés mais qui sont vrais",
+    "it": "argomenti di scienza che sembrano finti ma sono veri",
+    "ro": "teme de știință care sună inventat, dar sunt reale"
   },
   "legendes": {
     "en": "every single one of these sounds made up. every single one is real.\n\nchemistry that looks like magic, planets that shouldn't exist, living things that ignore the rules, earth doing weird stuff, and math that feels illegal.\n\npick the one u don't believe and look it up.\n\nsave this for ur next science rabbit hole.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok",
-    "sv": "varenda en av de här låter påhittad. varenda en är på riktigt.\n\nkemi som ser ut som magi, planeter som inte borde finnas, levande saker som struntar i reglerna, jorden när den gör konstiga grejer och matte som känns olaglig.\n\nvälj den du inte tror på och kolla upp den.\n\nspara det här till ditt nästa vetenskapliga kaninhål.\n\n#learning #studytok #plugga #allmänbildning #fördig"
+    "sv": "varenda en av de här låter påhittad. varenda en är på riktigt.\n\nkemi som ser ut som magi, planeter som inte borde finnas, levande saker som struntar i reglerna, jorden när den gör konstiga grejer och matte som känns olaglig.\n\nvälj den du inte tror på och kolla upp den.\n\nspara det här till ditt nästa vetenskapliga kaninhål.\n\n#learning #studytok #plugga #allmänbildning #fördig",
+    "fr": "chacun de ces trucs a l'air inventé. chacun est vrai.\n\nde la chimie qui ressemble à de la magie, des planètes qui devraient pas exister, des êtres vivants qui ignorent les règles, la terre qui fait des trucs bizarres, et des maths qui ont l'air illégales.\n\nchoisis celui que tu crois pas et va vérifier.\n\nenregistre ça pour ton prochain rabbit hole de science.\n\n#culturegenerale #science #apprendresurtiktok #studytok #learning",
+    "it": "ognuno di questi sembra inventato. ognuno è vero.\n\nchimica che sembra magia, pianeti che non dovrebbero esistere, esseri viventi che ignorano le regole, la terra che fa cose strane e matematica che sembra illegale.\n\nscegli quello a cui non credi e cercalo.\n\nsalvalo per il tuo prossimo rabbit hole scientifico.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok #imparaconte #scienza #perte",
+    "ro": "fiecare dintre astea sună inventat. fiecare e reală.\n\nchimie care pare magie, planete care n-ar trebui să existe, viețuitoare care ignoră regulile, pământul care face chestii ciudate și matematică ce pare ilegală.\n\nalege-o pe cea pe care n-o crezi și caut-o.\n\nsalvează asta pt următorul tău rabbit hole științific.\n\n#studytok #learning #stiinta #curiozitati #romania"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -40,6 +46,15 @@
       },
       "sv": {
         "titre": "vetenskap som låter\nfejk men är på riktigt"
+      },
+      "fr": {
+        "titre": "sujets scientifiques\nqui ont l'air inventés\nmais qui sont vrais"
+      },
+      "it": {
+        "titre": "argomenti di scienza\nche sembrano finti\nma sono veri"
+      },
+      "ro": {
+        "titre": "teme de știință care\nsună inventat, dar\nsunt reale"
       }
     },
     {
@@ -78,6 +93,60 @@
           "Grafen",
           "Metalliskt väte",
           "Minnesmetall"
+        ]
+      },
+      "fr": {
+        "titre": "Chimie qui ressemble à de la magie",
+        "sujets": [
+          "Fluides non newtoniens",
+          "Eau en surfusion",
+          "Aérogel",
+          "Ferrofluide",
+          "Gallium",
+          "Larmes bataviques",
+          "Triboluminescence",
+          "Chimiluminescence",
+          "Hélium superfluide",
+          "Dentifrice d'éléphant",
+          "Graphène",
+          "Hydrogène métallique",
+          "Alliages à mémoire de forme"
+        ]
+      },
+      "it": {
+        "titre": "Chimica che sembra magia",
+        "sujets": [
+          "I fluidi non newtoniani",
+          "L'acqua sopraffusa",
+          "L'aerogel",
+          "Il ferrofluido",
+          "Il gallio",
+          "Le lacrime del principe Rupert",
+          "La triboluminescenza",
+          "La chemiluminescenza",
+          "L'elio superfluido",
+          "Il dentifricio per elefanti",
+          "Il grafene",
+          "L'idrogeno metallico",
+          "Le leghe a memoria di forma"
+        ]
+      },
+      "ro": {
+        "titre": "Chimie care pare magie",
+        "sujets": [
+          "Fluidele nenewtoniene",
+          "Apa suprarăcită",
+          "Aerogelul",
+          "Ferofluidul",
+          "Galiul",
+          "Picăturile prințului Rupert",
+          "Triboluminescența",
+          "Chemiluminescența",
+          "Heliul superfluid",
+          "Pasta de dinți pentru elefanți",
+          "Grafenul",
+          "Hidrogenul metalic",
+          "Aliajele cu memoria formei"
         ]
       }
     },
@@ -118,6 +187,60 @@
           "Enceladus gejsrar",
           "Plutos hjärta"
         ]
+      },
+      "fr": {
+        "titre": "Planètes qui ont l'air inventées",
+        "sujets": [
+          "La planète en diamant",
+          "La planète où il pleut du verre",
+          "Kepler-16b et ses deux soleils",
+          "La planète la plus sombre connue",
+          "Sur Vénus, un jour dure plus qu'un an",
+          "Uranus tourne sur le côté",
+          "Olympus Mons",
+          "L'hexagone de Saturne",
+          "Les lacs de méthane de Titan",
+          "Les volcans d'Io",
+          "L'océan caché d'Europe",
+          "Les geysers d'Encelade",
+          "Le cœur de Pluton"
+        ]
+      },
+      "it": {
+        "titre": "Pianeti che sembrano inventati",
+        "sujets": [
+          "Il pianeta di diamante",
+          "Il pianeta dove piove vetro",
+          "Kepler-16b e i suoi due soli",
+          "Il pianeta più scuro mai scoperto",
+          "Su Venere il giorno dura più dell'anno",
+          "Urano ruota su un fianco",
+          "Olympus Mons",
+          "L'esagono di Saturno",
+          "I laghi di metano di Titano",
+          "I vulcani di Io",
+          "L'oceano nascosto di Europa",
+          "I geyser di Encelado",
+          "Il cuore di Plutone"
+        ]
+      },
+      "ro": {
+        "titre": "Planete care sună inventat",
+        "sujets": [
+          "Planeta de diamant",
+          "Planeta unde plouă cu sticlă",
+          "Kepler-16b și cei doi sori ai săi",
+          "Cea mai întunecată planetă găsită",
+          "Pe Venus ziua e mai lungă decât anul",
+          "Uranus se rotește culcat pe o parte",
+          "Olympus Mons",
+          "Hexagonul de pe Saturn",
+          "Lacurile de metan de pe Titan",
+          "Vulcanii de pe Io",
+          "Oceanul ascuns de pe Europa",
+          "Gheizerele de pe Enceladus",
+          "Inima lui Pluto"
+        ]
       }
     },
     {
@@ -134,6 +257,27 @@
         "paragraphes": [
           "Sophia ger mig en lektion om dagen, skriven av riktiga professorer, med ett litet quiz efteråt. historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
           "det tar 10 minuter, och det är så jag lärde mig att hälften av grejerna jag trodde var fejk faktiskt är på riktigt."
+        ]
+      },
+      "fr": {
+        "titre": "là où je vérifie",
+        "paragraphes": [
+          "Sophia me donne une leçon par jour, écrite par de vrais profs, avec un petit quiz après. histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "c'est 10 minutes, et c'est comme ça que j'ai appris que la moitié des trucs que je croyais faux sont en fait vrais."
+        ]
+      },
+      "it": {
+        "titre": "dove controllo",
+        "paragraphes": [
+          "Sophia mi dà una lezione al giorno, scritta da veri professori, con un piccolo quiz alla fine. storia, filosofia, scienze, geopolitica, letteratura, economia.",
+          "sono 10 minuti, ed è così che ho scoperto che metà delle cose che credevo finte sono vere."
+        ]
+      },
+      "ro": {
+        "titre": "unde verific",
+        "paragraphes": [
+          "Sophia îmi dă o lecție pe zi, scrisă de profesori adevărați, cu un mic quiz la final. istorie, filozofie, științe, geopolitică, literatură, economie.",
+          "durează 10 minute și așa am aflat că jumătate din lucrurile pe care le credeam inventate sunt de fapt reale."
         ]
       }
     },
@@ -174,6 +318,60 @@
           "Likblomman",
           "Sensitiva"
         ]
+      },
+      "fr": {
+        "titre": "La vie qui casse les règles",
+        "sujets": [
+          "La limace de mer solaire",
+          "Anguilles électriques",
+          "Hydre",
+          "Lichens",
+          "Crevette-pistolet",
+          "Poisson-archer",
+          "Grenouilles de verre",
+          "Le mucus de la myxine",
+          "Dipneustes",
+          "La grenouille qui gèle",
+          "Dionée attrape-mouche",
+          "Fleur cadavre",
+          "Mimosa pudique"
+        ]
+      },
+      "it": {
+        "titre": "La vita che infrange le regole",
+        "sujets": [
+          "La lumaca di mare a energia solare",
+          "Le anguille elettriche",
+          "L'idra",
+          "I licheni",
+          "Il gambero pistola",
+          "Il pesce arciere",
+          "Le rane di vetro",
+          "La bava delle missine",
+          "I dipnoi",
+          "La rana che si congela",
+          "La dionea",
+          "Il fiore cadavere",
+          "La mimosa pudica"
+        ]
+      },
+      "ro": {
+        "titre": "Viață care încalcă regulile",
+        "sujets": [
+          "Melcul de mare care trăiește din soare",
+          "Țiparii electrici",
+          "Hidra",
+          "Lichenii",
+          "Crevetele-pistol",
+          "Peștele-arcaș",
+          "Broaștele de sticlă",
+          "Mucusul peștelui-mixină",
+          "Peștii pulmonați",
+          "Broasca ce îngheață bocnă",
+          "Dioneea",
+          "Floarea-cadavru",
+          "Mimosa pudica"
+        ]
       }
     },
     {
@@ -213,6 +411,60 @@
           "Den gröna blixten",
           "Den kokande floden"
         ]
+      },
+      "fr": {
+        "titre": "Quand la Terre est bizarre",
+        "sujets": [
+          "Pierres mouvantes",
+          "Dunes chantantes",
+          "Nuages Morning Glory",
+          "Arcs-en-ciel lunaires",
+          "Brinicles",
+          "Pénitents de glace",
+          "Arcs circumhorizontaux",
+          "Éclairs du Catatumbo",
+          "Blood Falls",
+          "Fleurs de givre",
+          "Piliers lumineux",
+          "Rayon vert",
+          "La rivière qui bout"
+        ]
+      },
+      "it": {
+        "titre": "La Terra che fa cose strane",
+        "sujets": [
+          "Le pietre mobili",
+          "Le dune che cantano",
+          "Le nuvole Morning Glory",
+          "Gli arcobaleni lunari",
+          "I brinicoli",
+          "I penitentes",
+          "Gli arcobaleni di fuoco",
+          "I fulmini del Catatumbo",
+          "Le Blood Falls",
+          "I fiori di ghiaccio",
+          "Le colonne di luce",
+          "Il raggio verde",
+          "Il fiume che bolle"
+        ]
+      },
+      "ro": {
+        "titre": "Pământul e ciudat",
+        "sujets": [
+          "Pietrele călătoare",
+          "Dunele care cântă",
+          "Norii Morning Glory",
+          "Curcubeele lunare",
+          "Stalactitele de saramură",
+          "Penitentele de zăpadă",
+          "Curcubeele de foc",
+          "Fulgerele de la Catatumbo",
+          "Cascada de Sânge",
+          "Florile de gheață",
+          "Stâlpii de lumină",
+          "Raza verde",
+          "Râul care fierbe"
+        ]
       }
     },
     {
@@ -250,6 +502,57 @@
           "Mandelbrotmängden",
           "Rumsfyllande kurvor"
         ]
+      },
+      "fr": {
+        "titre": "Des maths qui ont l'air fausses",
+        "sujets": [
+          "Nombre de Graham",
+          "Gogolplex",
+          "Paradoxe de Banach-Tarski",
+          "Trompette de Gabriel",
+          "0,999… = 1",
+          "Théorème de la boule chevelue",
+          "Théorème des quatre couleurs",
+          "Groupe Monstre",
+          "Constante de Kaprekar",
+          "Castor affairé",
+          "Ensemble de Mandelbrot",
+          "Courbes remplissantes"
+        ]
+      },
+      "it": {
+        "titre": "Matematica che sembra finta",
+        "sujets": [
+          "Il numero di Graham",
+          "Il googolplex",
+          "Il paradosso di Banach-Tarski",
+          "La tromba di Torricelli",
+          "0,999... = 1",
+          "Il teorema della palla pelosa",
+          "Il teorema dei quattro colori",
+          "Il gruppo mostro",
+          "La costante di Kaprekar",
+          "Il problema del castoro indaffarato",
+          "L'insieme di Mandelbrot",
+          "Le curve che riempiono lo spazio"
+        ]
+      },
+      "ro": {
+        "titre": "Matematică ce sună inventat",
+        "sujets": [
+          "Numărul lui Graham",
+          "Googolplex",
+          "Paradoxul Banach-Tarski",
+          "Cornul lui Gabriel",
+          "0,999... = 1",
+          "Teorema mingii păroase",
+          "Teorema celor patru culori",
+          "Grupul Monstru",
+          "Constanta lui Kaprekar",
+          "Problema castorului harnic",
+          "Mulțimea Mandelbrot",
+          "Curbele care umplu planul"
+        ]
       }
     },
     {
@@ -261,6 +564,18 @@
       "sv": {
         "texte": "spara det här och skicka det till kompisen som säger att naturvetenskap är tråkigt. välj ett ämne och bevisa att hen har fel.",
         "gras": "ELLER.. fortsätt tro att allt är påhittat."
+      },
+      "fr": {
+        "texte": "enregistre ça et envoie-le au pote qui dit que la science c'est chiant. choisis un sujet et prouve-lui qu'il a tort.",
+        "gras": "OU.. continue de croire que tout est inventé."
+      },
+      "it": {
+        "texte": "salvalo e mandalo a chi dice che la scienza è noiosa. scegli un argomento e dimostragli che si sbaglia.",
+        "gras": "O.. continua a pensare che sia tutto finto."
+      },
+      "ro": {
+        "texte": "salvează asta și trimite-o cuiva care zice că știința e plictisitoare. alege un subiect și demonstrează-i că se înșală.",
+        "gras": "SAU.. crede în continuare că totul e inventat."
       }
     }
   ]

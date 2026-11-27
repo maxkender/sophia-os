@@ -348,7 +348,7 @@
       "hu": {
         "titre": "tanulni óra után is",
         "paragraphes": [
-          "a suli miatt a tanulás kötelező robotnak tűnt. pedig nem az. minden este csinálok egy rövid leckét a Sophia appban: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "a suli miatt a tanulás kötelező robotnak tűnt, pedig nem az. minden este megcsinálok egy rövid leckét a Sophia appban: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
           "igazi professzorok írják, és utána van egy kis kvíz. 10 perc, és úgy alszom el, hogy eggyel több dolgot tudok a világról."
         ]
       }
@@ -484,7 +484,7 @@
       "hu": {
         "titre": "hagyd magad unatkozni",
         "paragraphes": [
-          "valahányszor unatkoztam, előkaptam a telefonom. sosem hagytam elég ideig kalandozni az agyam ahhoz, hogy kitaláljak bármit.",
+          "ha unatkoztam, mindig előkaptam a telefonom. sosem hagytam elég ideig kalandozni az agyamat ahhoz, hogy bármit kitaláljak.",
           "a legjobb ötleteim egy része olyan sétákon jött, amikor semmi nem szólt a fülemben."
         ]
       }
@@ -496,7 +496,7 @@
         "gras": "OR.. u'll keep learning it the hard way."
       },
       "de": {
-        "texte": "wenn ich neben meinem 16-jährigen ich sitzen könnte, würde ich sagen: mach langsamer, sei neugierig und hör auf, alle anderen zu fragen, wer du sein sollst.",
+        "texte": "wenn ich mich neben mein 16-jähriges ich setzen könnte, würde ich sagen: mach mal langsamer, sei neugierig und hör auf, alle anderen zu fragen, wer du sein sollst.",
         "gras": "ODER.. du lernst es weiter auf die harte tour."
       },
       "it": {
@@ -512,8 +512,8 @@
         "gras": "OU.. tu continueras de l'apprendre à la dure."
       },
       "tr": {
-        "texte": "16 yaşındaki halimin yanına oturabilseydim şunu derdim: yavaşla, merak et ve kim olman gerektiğini herkese sormayı bırak.",
-        "gras": "YA DA.. bunu zor yoldan öğrenmeye devam edersin."
+        "texte": "16 yaşındaki halimin yanına oturabilseydim şunu söylerdim: yavaşla, merak et ve kim olman gerektiğini herkese sormaktan vazgeç.",
+        "gras": "YA DA.. bunu hep zor yoldan öğrenirsin."
       },
       "ro": {
         "texte": "dacă aș putea să stau lângă mine cea de 16 ani, mi-aș spune: încetinește, fii curioasă și nu-i mai întreba pe toți ceilalți cine ar trebui să fii.",

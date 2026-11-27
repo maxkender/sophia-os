@@ -1,0 +1,73 @@
+{
+  "source_id": "ad-006",
+  "type_bleo": "full_test",
+  "titre": "sources in the comments if you ask 🧠 #adhd #adhdtiktok #neurodivergent #adhdcheck #fyp",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7627976183653911318",
+  "inspirations": [
+    "9f4fd230"
+  ],
+  "notes": "Format « faits » (9f4fd230, 857,6 k, son record). Accroche neuve : « ADHD facts most people have never heard ». Faits vérifiés, sans médicament ni mort : (1) 1775, M. A. Weikard, « Der Philosophische Arzt » (Barkley & Peters, J Atten Disord, 2012) ; (2) ~5 % des enfants dans le monde (Polanczyk et al., Am J Psychiatry, 2007 : 5,29 %) ; (3) ~1 adulte sur 40 avec un TDAH persistant (Song et al., J Glob Health, 2021 : 2,58 %) ; (4) héritabilité ~74 % (Faraone & Larsson, Mol Psychiatry, 2019) ; (5) sucre : méta-analyse de 16 études, aucun effet sur le comportement (Wolraich et al., JAMA, 1995) ; (6) ratio garçons/filles ~2:1 chez l'enfant, plus faible chez l'adulte (Faraone et al., World Federation of ADHD International Consensus Statement, Neurosci Biobehav Rev, 2021) ; (7) 446 enfants (223 + 223), pic d'épaisseur corticale vers 10,5 ans contre 7,5 ans, « un retard plutôt qu'une déviance » (Shaw et al., PNAS, 2007). Ses chiffres sur l'espérance de vie et le suicide écartés.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9b93132b",
+      "texte_overlay": "ADHD facts\nmost people have never heard",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "1bc96f3d",
+      "texte_overlay": "ADHD isn't new.\na german doctor described it\nin a medical book in 1775",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "85dc03a0",
+      "texte_overlay": "about 1 in 20 kids\naround the world\nhave ADHD",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "a2518cbe",
+      "texte_overlay": "and it doesn't always go away.\naround 1 in 40 adults\nstill have it",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "192a4cf7",
+      "texte_overlay": "it's one of the most\ninherited conditions there is.\ntwin studies put it at about 74%",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "f0dc1aa7",
+      "texte_overlay": "sugar doesn't make kids hyper.\na 1995 review of 16 studies\nfound no effect on behaviour",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "dc162ea8",
+      "texte_overlay": "boys get diagnosed about\ntwice as often as girls.\nin adults, the gap\ngets much smaller",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "48dcf94f",
+      "texte_overlay": "in a 2007 study of 446 kids,\nthe brain's outer layer peaked\nin thickness about 3 years later\nin kids with ADHD",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/8.jpg"
+    },
+    {
+      "position": 9,
+      "media_id": "ace95c7a",
+      "texte_overlay": "the researchers called it\na delay, not a defect.\na different timeline,\nnot a broken brain",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/9.jpg"
+    },
+    {
+      "position": 10,
+      "media_id": "56d8fb0c",
+      "texte_overlay": "follow for ADHD facts\nthat actually have a source",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/10.jpg"
+    }
+  ]
+}

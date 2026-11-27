@@ -31,6 +31,7 @@ Une fois par session : `npm install`.
 | `npm run sources` | télécharge les slides d'origine des posts du manifeste dans `sources/` (identiques d'une fois à l'autre) |
 | `npm run sources -- --compte amayareading` | scrape le compte et ajoute ses nouveaux slideshows au manifeste (statut `nouveau`) |
 | `npm run sources -- --compte mind.in.motionx --max 60 --banque` | source scrapable « banque photo » (ajoutée le 17/11) : même format page blanche, statut `banque` et champ `compte` au manifeste. Ses photos servent aux originaux et aux déclinaisons ; ses posts ne sont pas à reprendre. Écarte ses slides d'appli (Perfect Day, captures d'écran de verrouillage) et ses célébrités (acteurs de séries, etc.) |
+| `npm run sources -- --compte wellnessquitters --max 30 --banque` | source d'inspiration « banque » (ajoutée le 27/11 à la demande de l'utilisateur) : page blanche wellness, mêmes règles que mind.in.motionx (statut `banque`, posts non repris). Sert surtout de réservoir d'accroches pour les full tests (voir « Pistes wellnessquitters ») ; ses photos portent souvent « @thewellnessforquitters » en surimpression : recadre-les ou écarte-les |
 | `npm run photos -- "mots en anglais" [--limite 24]` | (20/11) cherche dans TOUTE la banque photo de l'OS (descriptions en anglais, les moins utilisées d'abord), télécharge en `sources/os_<id8>.jpg` et fait la planche `sortie/photos/<mots>.jpg`. C'est la source de photos à préférer pour les couvertures et les slides : pose-les avec « remplacer ». |
 | `npm run geometrie -- sources <sortie>` | blocs détectés + images annotées (T = texte, I = image) pour transcrire un nouveau post |
 | `npm run rendu -- sources posts/<id>.<langue>.json <sortie> <langue>` | rend un post dans une langue ; rapport des débordements |
@@ -153,3 +154,14 @@ déclinaisons de la boîte dans l'ordre.
 - **Quand une demande est floue, pose une question** au lieu de deviner.
 - **Réponds en français, court**, avec des planches à l'appui quand tu montres
   un résultat.
+
+## Pistes wellnessquitters (relevé du 27/11)
+
+Accroches qui ont fait des vues chez @wellnessquitters, à adapter en full tests (jamais copiées mot pour mot ; Sophia en slide native, une leçon par jour) :
+- « a tea for every annoying thing your body does » (326 k) : un problème du quotidien → une solution par slide, format « problème / [solution] / explication courte ».
+- « anti-vision board > vision board » (225 k) : méthode en étapes avec une grille ; décliner en « anti-to-do list », « la version de toi que tu veux éviter ».
+- « your brain responds to sound more than you think » (202 k) : « état → solution » par slide (racing thoughts → …).
+- « if you're scared to start something in 2027 do this » (194 k) : méthode pas à pas avec un tableau rempli (fear-setting) ; marche avant le Nouvel An.
+- Plus petits mais réguliers : « your golden hours » (32 k), « found these on google scholar at 2am » (22 k), procrastination (24 k).
+Ce qui marche chez eux : une promesse concrète et utile, une slide = une ligne-titre + 2 lignes + une photo douce, un outil (grille, tableau) qu'on a envie d'enregistrer.
+

@@ -1,0 +1,141 @@
+{
+  "id": "rt-014",
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "questions that will break ur brain at 3am"
+  },
+  "legendes": {
+    "en": "some questions don't have answers. that's exactly why they're worth thinking about.\n\nthe mind, how we know anything, time, right and wrong, and why anything exists at all.\n\nphilosophers have argued about these for centuries. u get to join in.\n\nsave this for the next night u can't sleep.\n\n#philosophy #deepthoughts #learning #curiosity #studytok"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/lune-mer.jpg": "11f7abf0-36e7-40ef-9c36-25be42fe3871",
+    "images/banque/croissant-lune.jpg": "40e0f32f-a8ba-4965-9db9-467d336043b0"
+  },
+  "notes": "Full test, sans post source : format et famille de @raretheory_ (« topic to research when u're bored », 652,5 k et 151,1 k), même gabarit, même musique. Demande du chef des podz du 27/11 (posts neufs aussi traduits dans les 7 langues ouvertes). Questions et notions réelles de philosophie (sujets établis), rien de religieux, violent ou médical. Slide Sophia (4, « 03 — how i got into this ») : son LOGO, jamais une capture ; cta B. Photos : tableau d'une baie au clair de lune (11f7abf0, domaine public), croissant de lune (40e0f32f), sans visage ni marque.",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/lune-mer.jpg",
+          "cadrage": {
+            "y": 0.5
+          }
+        },
+        {
+          "image": "images/banque/croissant-lune.jpg",
+          "cadrage": {
+            "y": 0.45
+          }
+        }
+      ],
+      "en": {
+        "titre": "questions that will\nbreak ur brain\nat 3am"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "The Mind",
+        "sujets": [
+          "The Hard Problem of Consciousness",
+          "Qualia",
+          "Mary's Room",
+          "Philosophical Zombies",
+          "The Chinese Room",
+          "Brain in a Vat",
+          "The Problem of Other Minds",
+          "Personal Identity",
+          "The Mind-Body Problem"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "How Do We Know Anything?",
+        "sujets": [
+          "The Problem of Induction",
+          "Gettier Problems",
+          "Descartes' Evil Demon",
+          "The Münchhausen Trilemma",
+          "Hume's Fork",
+          "Falsifiability",
+          "Bayesian Reasoning",
+          "Black Swans",
+          "The Map Is Not the Territory"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "how i got into this",
+        "paragraphes": [
+          "before i go down a rabbit hole, i do the 10-minute lesson on Sophia. one short lesson a day: history, philosophy, science, geopolitics, literature, economics.",
+          "each one is written by actual professors and ends with a little quiz. philosophy was the one i thought i'd hate. now it's my favorite."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Time",
+        "sujets": [
+          "What Is Time?",
+          "The Arrow of Time",
+          "The Block Universe",
+          "Presentism vs Eternalism",
+          "Determinism",
+          "Closed Timelike Curves",
+          "The Heat Death of the Universe",
+          "Why We Remember the Past but Not the Future"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Right & Wrong",
+        "sujets": [
+          "The Ring of Gyges",
+          "The Experience Machine",
+          "Moral Luck",
+          "The Is-Ought Problem",
+          "The Euthyphro Dilemma",
+          "The Categorical Imperative",
+          "Virtue Ethics",
+          "The Repugnant Conclusion"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Why Anything Exists",
+        "sujets": [
+          "Why Is There Something Rather Than Nothing?",
+          "The Anthropic Principle",
+          "The Fine-Tuning Problem",
+          "Nihilism",
+          "The Myth of Sisyphus",
+          "Amor Fati",
+          "Memento Mori",
+          "Wabi-Sabi",
+          "Ubuntu Philosophy"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this for the next time ur brain won't switch off. pick one question, read about it, and form ur own answer.",
+        "gras": "OR.. lie there overthinking anyway."
+      }
+    }
+  ]
+}

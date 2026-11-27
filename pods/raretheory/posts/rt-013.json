@@ -1,0 +1,160 @@
+{
+  "id": "rt-013",
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "topics that make museums way more interesting"
+  },
+  "legendes": {
+    "en": "museums are boring until u know what u're looking at. then they're the best place on earth.\n\npaintings with hidden details, objects older than most countries, the techniques behind the masterpieces, famous sculptures and the museums themselves.\n\nlearn one before ur next visit and watch how different it feels.\n\nsave this for ur next museum day.\n\n#arthistory #museum #learning #curiosity #studytok"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/musee-galerie.jpg": "9e64a088-5b72-4ea3-9318-30f7ce4b1c9b",
+    "images/banque/musee-statue.jpg": "c016f9f7-515e-40ba-b89c-415be28d9683"
+  },
+  "notes": "Full test, sans post source : format et famille de @raretheory_ (« topic to research when u're bored », 652,5 k et 151,1 k), même gabarit, même musique. Demande du chef des podz du 27/11 (posts neufs aussi traduits dans les 7 langues ouvertes). Œuvres et objets réels, vérifiés, aucun nu mis en avant, rien de violent (Laocoön reste une sculpture célèbre). Slide Sophia (5, « 04 — one lesson a night ») : son LOGO, jamais une capture ; cta A. Photos : galerie de sculptures d'un musée (9e64a088, visiteurs minuscules sans visage), statue et tableaux dans une salle (c016f9f7).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/musee-galerie.jpg",
+          "cadrage": {
+            "y": 0.55
+          }
+        },
+        {
+          "image": "images/banque/musee-statue.jpg",
+          "cadrage": {
+            "x": 0.7,
+            "y": 0.35
+          }
+        }
+      ],
+      "en": {
+        "titre": "topics that make\nmuseums way more\ninteresting"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Paintings With Hidden Details",
+        "sujets": [
+          "The Arnolfini Portrait",
+          "The Ambassadors",
+          "Las Meninas",
+          "The Garden of Earthly Delights",
+          "Netherlandish Proverbs",
+          "The Night Watch",
+          "Girl with a Pearl Earring",
+          "The Last Supper",
+          "The Mona Lisa's Sfumato",
+          "The Birth of Venus",
+          "The Starry Night",
+          "A Sunday on La Grande Jatte"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Ancient Objects",
+        "sujets": [
+          "The Lewis Chessmen",
+          "The Nebra Sky Disc",
+          "Tutankhamun's Mask",
+          "The Bust of Nefertiti",
+          "The Standard of Ur",
+          "The Sutton Hoo Helmet",
+          "The Lycurgus Cup",
+          "The Ishtar Gate",
+          "The Gundestrup Cauldron",
+          "The Code of Hammurabi",
+          "The Bayeux Tapestry",
+          "The Book of Kells"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "How Masterpieces Were Made",
+        "sujets": [
+          "Fresco",
+          "Egg Tempera",
+          "Oil Glazing",
+          "Chiaroscuro",
+          "Sfumato",
+          "Impasto",
+          "Linear Perspective",
+          "Trompe-l'œil",
+          "Gold Leaf",
+          "Encaustic",
+          "Woodblock Printing",
+          "Stained Glass",
+          "Pointillism"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "one lesson a night",
+        "paragraphes": [
+          "i don't research all of this from scratch. every night i do one short lesson on Sophia: history, philosophy, science, geopolitics, literature, economics.",
+          "they're written by actual professors, with a little quiz after, so by the time i'm in front of the painting, i actually know its story."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Sculptures Worth Knowing",
+        "sujets": [
+          "The Winged Victory of Samothrace",
+          "Venus de Milo",
+          "The Pietà",
+          "The Thinker",
+          "The Discobolus",
+          "The Burghers of Calais",
+          "Bernini's Apollo and Daphne",
+          "The Veiled Virgin",
+          "The Little Dancer",
+          "Laocoön and His Sons",
+          "The Moai",
+          "Brancusi's Bird in Space"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "The Museums Themselves",
+        "sujets": [
+          "The Louvre",
+          "The Uffizi",
+          "The Prado",
+          "The Hermitage",
+          "The Rijksmuseum",
+          "Musée d'Orsay",
+          "The Vatican Museums",
+          "The Metropolitan Museum of Art",
+          "The National Gallery",
+          "Cabinets of Curiosities",
+          "The Guggenheim Bilbao",
+          "The Acropolis Museum"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this before ur next museum trip. pick three things from this list and go find them in person.",
+        "gras": "OR.. walk past them like everyone else."
+      }
+    }
+  ]
+}

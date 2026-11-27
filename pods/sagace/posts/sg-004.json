@@ -17,7 +17,14 @@
   "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování",
   "sr": "10 veština 10/10 koje možeš da naučiš umesto skrolovanja",
   "hu": "10/10 készségek, amiket görgetés helyett megtanulhatsz",
-  "el": "10/10 δεξιότητες που μπορείς να μάθεις αντί να σκρολάρεις"
+  "el": "10/10 δεξιότητες που μπορείς να μάθεις αντί να σκρολάρεις",
+  "es": "10 habilidades 10/10 que puedes aprender en vez de hacer scroll",
+  "es-419": "10 habilidades 10/10 que puedes aprender en lugar de hacer scroll",
+  "pl": "10 umiejętności 10/10, których możesz się nauczyć zamiast scrollować",
+  "sk": "10 zručností 10/10, ktoré sa môžeš naučiť namiesto scrollovania",
+  "hr": "10 vještina 10/10 koje možeš naučiti umjesto skrolanja",
+  "sv": "10 färdigheter 10/10 du kan lära dig i stället för att scrolla",
+  "lv": "10 prasmes 10/10, ko vari apgūt ritināšanas vietā"
  },
  "legendes": {
   "fr": "10 compétences 10/10 que tu peux apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -30,7 +37,14 @@
   "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
   "sr": "10 veština 10/10 koje možeš da naučiš umesto skrolovanja #učinatiktoku #samorazvoj #veštine",
   "hu": "10/10 készségek, amiket görgetés helyett megtanulhatsz #tanuljtiktokon #önfejlesztés #készségek",
-  "el": "10/10 δεξιότητες που μπορείς να μάθεις αντί να σκρολάρεις #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες"
+  "el": "10/10 δεξιότητες που μπορείς να μάθεις αντί να σκρολάρεις #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "es": "10 habilidades 10/10 que puedes aprender en vez de hacer scroll #aprendeentiktok #desarrollopersonal #habilidades",
+  "es-419": "10 habilidades 10/10 que puedes aprender en lugar de hacer scroll #aprendeentiktok #desarrollopersonal #habilidades",
+  "pl": "10 umiejętności 10/10, których możesz się nauczyć zamiast scrollować #uczsięnatiktoku #rozwójosobisty #umiejętności",
+  "sk": "10 zručností 10/10, ktoré sa môžeš naučiť namiesto scrollovania #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "hr": "10 vještina 10/10 koje možeš naučiti umjesto skrolanja #učinatiktoku #osobnirazvoj #vještine",
+  "sv": "10 färdigheter 10/10 du kan lära dig i stället för att scrolla #lärdigpåtiktok #självutveckling #färdigheter",
+  "lv": "10 prasmes 10/10, ko vari apgūt ritināšanas vietā #mācītiestiktokā #pašattīstība #prasmes"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
@@ -277,6 +291,160 @@
      },
      {
       "t": "ΣΚΡΟΛΑΡΕΙΣ",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 110
+     },
+     {
+      "t": "PARA APRENDER",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "EN VEZ DE",
+      "cap": 118
+     },
+     {
+      "t": "HACER SCROLL",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 110
+     },
+     {
+      "t": "PARA APRENDER",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "EN LUGAR DE",
+      "cap": 118
+     },
+     {
+      "t": "HACER SCROLL",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "pl": {
+    "lignes": [
+     {
+      "t": "UMIEJĘTNOŚCI",
+      "cap": 110
+     },
+     {
+      "t": "DO NAUKI",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "ZAMIAST",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLOWANIA",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "t": "ZRUČNOSTI",
+      "cap": 110
+     },
+     {
+      "t": "NA NAUČENIE",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "NAMIESTO",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLOVANIA",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "VJEŠTINE",
+      "cap": 110
+     },
+     {
+      "t": "KOJE MOŽEŠ NAUČITI",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "UMJESTO",
+      "cap": 118
+     },
+     {
+      "t": "SKROLANJA",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "sv": {
+    "lignes": [
+     {
+      "t": "FÄRDIGHETER",
+      "cap": 110
+     },
+     {
+      "t": "ATT LÄRA DIG",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "I STÄLLET FÖR",
+      "cap": 118
+     },
+     {
+      "t": "ATT SCROLLA",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "t": "PRASMES,",
+      "cap": 110
+     },
+     {
+      "t": "KO APGŪT",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "RITINĀŠANAS",
+      "cap": 118
+     },
+     {
+      "t": "VIETĀ",
       "cap": 152,
       "couleur": "#f7b955"
      }
@@ -537,6 +705,167 @@
      "duree": "10:07",
      "avatar": "https://yt3.ggpht.com/eybTridLrFjmQPMg29DqMNjypnEmsgxkKRd3dMVBplPtZZIE1CH03lCYyGTXPz8wNzqU9RjaSA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     "SER",
+     [
+      {
+       "t": "ELOCUENTE",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 horas para aprender"
+    ],
+    "video": {
+     "id": "U2lWFRFwZLE",
+     "titre": "Técnicas para hablar fluido y claro",
+     "chaine": "Teresa Baró • Comunicación de éxito",
+     "vues": "3,6 M de visualizaciones",
+     "date": "hace 4 años",
+     "duree": "9:02",
+     "avatar": "https://yt3.ggpht.com/SpCnWtGCgzS65JJTetZqeVuZJ8u3s2e9JyUh_rMT5XR4ncLwIONo8sZn84U_6a4SENq1dG4z9ok=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "SER",
+     [
+      {
+       "t": "ELOCUENTE",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 horas para aprender"
+    ],
+    "video": {
+     "id": "i0ahlu-SPO4",
+     "titre": "¡9 TIPS PARA HABLAR FLUÍDO Y CON ELOCUENCIA! ¡FUNCIONAN!",
+     "chaine": "Paola Herrera",
+     "vues": "655 k vistas",
+     "date": "hace 6 años",
+     "duree": "26:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNuN61UoIEvX65L6wttZ1i7xoIrtpbDKXpqCMeDK2zURc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "MÓWIĆ",
+     [
+      {
+       "t": "ELOKWENTNIE",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 godziny nauki"
+    ],
+    "video": {
+     "id": "3mpMKGiJzWg",
+     "titre": "JAK MÓWIĆ ŁADNIE I ZGRABNIE / 5 PROSTYCH PODPOWIEDZI DO WYSTĄPIEŃ PUBLICZNYCH I ROZMÓW",
+     "chaine": "DOBRA MOWA. Wystąpienia publiczne",
+     "vues": "80 tys. wyświetleń",
+     "date": "2 lata temu",
+     "duree": "4:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nbfbe_iFkKmZJhsgYPbm2_jHV3lDygwnMwg2vbZM9NamM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "BYŤ",
+     [
+      {
+       "t": "VÝREČNÝ",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 hodiny na naučenie"
+    ],
+    "video": {
+     "id": "HS8EWPK_ghE",
+     "titre": "Ako Zlepšiť Svoju Komunikáciu ║ 5 TIPOV PRE SUPER KOMUNIKÁCIU",
+     "chaine": "Growth",
+     "vues": "46 tis. zhliadnutí",
+     "date": "pred 8 rokmi",
+     "duree": "4:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtbW3GwN17iM7J5UZLsX7mKMof-7zoGk9D0T5055xlSHI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "POSTATI",
+     [
+      {
+       "t": "ELOKVENTAN",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 sata učenja"
+    ],
+    "video": {
+     "id": "Og_cRwCkx4g",
+     "titre": "Komunikacijske vještine - savjet komunikacijskog stručnjaka",
+     "chaine": "Umjetnost komunikacije",
+     "vues": "7,2 tis. pregleda",
+     "date": "prije 7 godina",
+     "duree": "6:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n53ePxlrH97fa3FqGt39N9cGek7LFlgckTHVZpliOF1w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "BLI",
+     [
+      {
+       "t": "VÄLTALIG",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 timmar att lära sig"
+    ],
+    "video": {
+     "id": "0i953y8sxgs",
+     "titre": "Retorik: Så använder du ethos, pathos, logos för att få andra att lyssna",
+     "chaine": "Gabrielle Salander",
+     "vues": "88 tn visningar",
+     "date": "för 8 år sedan",
+     "duree": "4:40",
+     "avatar": "https://yt3.ggpht.com/y7QRF_MbFXAglIUXGwXNxncWixGVl7bCjqxC7ayhSmOPoXxmGPxlLXwYOLVDmiOC6x0wZO-O=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lv": {
+    "titre": [
+     "KĻŪT",
+     [
+      {
+       "t": "DAIĻRUNĪGS",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 stundas mācību"
+    ],
+    "video": {
+     "id": "9rC4kyEk868",
+     "titre": "Kā pārvarēt uztraukumu pirms uzstāšanās? [soli pa solim]",
+     "chaine": "Runas skola",
+     "vues": "6,3 tūkst. skatījumu",
+     "date": "pirms 6 gadiem",
+     "duree": "7:02",
+     "avatar": "https://yt3.ggpht.com/_iIzRgqD-Imyrgzvn1A1yuy4aXoGJ5dvaWaIXqEr5dEY6nbqLihbDMh-jUgI-HXC-GVOBqjZIA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -793,6 +1122,167 @@
      "duree": "12:40",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_nczqv5uS2LlyJCwdx3ymWMU05aA38mbXka3eYLO5Ag=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     "DORMIRTE",
+     [
+      {
+       "t": "EN 2 MINUTOS",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min para aprender"
+    ],
+    "video": {
+     "id": "w79oD9Bqak8",
+     "titre": "10 consejos para DORMIR BIEN😴😴  y mejorar el insomnio 😱😱",
+     "chaine": "FisioOnline",
+     "vues": "2,5 M de visualizaciones",
+     "date": "hace 10 años",
+     "duree": "9:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mvsVkFUGJlyAUaKbJXPRrJu-NJqkeW4DZY49jDxRE1jw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "DORMIRTE",
+     [
+      {
+       "t": "EN 2 MINUTOS",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min para aprender"
+    ],
+    "video": {
+     "id": "Saud_3WhHPk",
+     "titre": "Este TRUCO MILITAR te duerme en 120 SEGUNDOS | pruébalo hoy – explicado por SIMIO",
+     "chaine": "Simio Alpha",
+     "vues": "160 k vistas",
+     "date": "hace 8 meses",
+     "duree": "13:51",
+     "avatar": "https://yt3.ggpht.com/VQyoKwiro4_jlQo0LpVmzJEwEASPOjCzNMHG2aFCIH6Qi_bbTlegveY3xMrUygzgk62g9MSArA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "ZASNĄĆ",
+     [
+      {
+       "t": "W 2 MINUTY",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min nauki"
+    ],
+    "video": {
+     "id": "CleG6uJfasQ",
+     "titre": "Jak zasnąć w 2 minuty. Wojskowa technika szybkiego zasypiania",
+     "chaine": "dr Bartek Kulczyński",
+     "vues": "857 tys. wyświetleń",
+     "date": "3 lata temu",
+     "duree": "18:29",
+     "avatar": "https://yt3.ggpht.com/fGiSk8pOmMQE1PSMw78hSWG-CtzBtT7LXfdMZDQ2hqADX_r-27NkZWzGeQbjWSG12q22zhjdZA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "ZASPAŤ",
+     [
+      {
+       "t": "ZA 2 MINÚTY",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min na naučenie"
+    ],
+    "video": {
+     "id": "TE8_LSbOusA",
+     "titre": "Ako Rýchlo Zaspať - AKO ZASPAŤ ZA 60 SEKÚND",
+     "chaine": "Growth",
+     "vues": "387 tis. zhliadnutí",
+     "date": "pred 8 rokmi",
+     "duree": "4:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtbW3GwN17iM7J5UZLsX7mKMof-7zoGk9D0T5055xlSHI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "ZASPATI",
+     [
+      {
+       "t": "ZA 2 MINUTE",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min učenja"
+    ],
+    "video": {
+     "id": "6i8Ms-LUAjQ",
+     "titre": "Stručnjaci savjetuju ovaj trik s kojim ćete zaspati u roku od 5 minuta",
+     "chaine": "Večernji TV",
+     "vues": "1,5 tis. pregleda",
+     "date": "prije 4 godine",
+     "duree": "1:16",
+     "avatar": "https://yt3.ggpht.com/OFQd8zHNxbZS0D3DHkX7nmq6V6F1eTHnqYQA2t81br9PiHYgj760OdJ8odosM14b0vkoPoBlXw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "SOMNA",
+     [
+      {
+       "t": "PÅ 2 MINUTER",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min att lära sig"
+    ],
+    "video": {
+     "id": "w03SUntD0c8",
+     "titre": "Tips till dig som har svårt att sova",
+     "chaine": "Orka plugga",
+     "vues": "182 tn visningar",
+     "date": "för 11 år sedan",
+     "duree": "3:08",
+     "avatar": "https://yt3.ggpht.com/eFeJvCPtTbru08tvAYBziM02blJMxcSn5mjfaNDo-I-iR1B3_xFdm9FOhelCi2-z2g0W4Gq98A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lv": {
+    "titre": [
+     "AIZMIGT",
+     [
+      {
+       "t": "2 MINŪTĒS",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min mācību"
+    ],
+    "video": {
+     "id": "H4aiocr32To",
+     "titre": "Kā iemigt 5 minūtēs",
+     "chaine": "Gaismas Tīmeklis",
+     "vues": "4,3 tūkst. skatījumu",
+     "date": "pirms 8 gadiem",
+     "duree": "3:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_loWwvgPOdmlQ54bvHgXQDrs-cRvnLzfGoKzv2yawBVXQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1026,6 +1516,153 @@
      "texte": [
       "σύντομα μαθήματα",
       "από αληθινούς καθηγητές."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "HABLAR DE",
+     [
+      {
+       "t": "TODO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min al día"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "cursos cortos escritos",
+      "por profesores de verdad."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "HABLAR DE",
+     [
+      {
+       "t": "TODO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min al día"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "clases cortas escritas",
+      "por profesores de verdad."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "ROZMAWIAĆ",
+     [
+      {
+       "t": "O WSZYSTKIM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min dziennie"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krótkie lekcje od",
+      "prawdziwych nauczycieli."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "HOVORIŤ",
+     [
+      {
+       "t": "O ČOMKOĽVEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min denne"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátke lekcie od",
+      "skutočných učiteľov."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "PRIČATI",
+     [
+      {
+       "t": "O SVEMU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min dnevno"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "PRATA OM",
+     [
+      {
+       "t": "ALLT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min om dagen"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "korta lektioner skrivna",
+      "av riktiga lärare."
+     ]
+    }
+   },
+   "lv": {
+    "titre": [
+     "RUNĀT PAR",
+     [
+      {
+       "t": "JEBKO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min dienā"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "īsas nodarbības, ko raksta",
+      "īsti skolotāji."
      ]
     }
    }
@@ -1284,6 +1921,167 @@
      "duree": "4:20",
      "avatar": "https://yt3.ggpht.com/ytbQklDyFJyH23oJQMxH35aZDpuuosGyilCxw2B6PZH0AnD4bNR80_5ji07R7bhx_F69cdwdSA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     [
+      {
+       "t": "CORRER",
+       "couleur": "#a5877b"
+      }
+     ],
+     "SIN LESIONARTE"
+    ],
+    "sous": [
+     "1 hora para aprender"
+    ],
+    "video": {
+     "id": "wMq46e2AA6o",
+     "titre": "Running: consejos para correr sin lesionarse",
+     "chaine": "Sergio A.",
+     "vues": "757 K visualizaciones",
+     "date": "hace 10 años",
+     "duree": "15:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kvOqM6vwACybtJMBobDGQuVG4bF7jWA-4nYKDBjyY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     [
+      {
+       "t": "CORRER",
+       "couleur": "#a5877b"
+      }
+     ],
+     "SIN LESIONARTE"
+    ],
+    "sous": [
+     "1 hora para aprender"
+    ],
+    "video": {
+     "id": "XxGKN7EF_Wc",
+     "titre": "CONSEJOS para NO LESIONARSE al CORRER 🏃💥 Como Correr SIN Lesiones",
+     "chaine": "DeportesUncomo",
+     "vues": "8.5 K vistas",
+     "date": "hace 4 años",
+     "duree": "5:24",
+     "avatar": "https://yt3.ggpht.com/17S4LKz4DsqGzZHbeOJVWP4o4HiGCROy2qe9-ZSfFT2Zdqs3s11S4h2Bgkrrl2qQao0sUxVA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     [
+      {
+       "t": "BIEGAĆ",
+       "couleur": "#a5877b"
+      }
+     ],
+     "BEZ KONTUZJI"
+    ],
+    "sous": [
+     "1 godzina nauki"
+    ],
+    "video": {
+     "id": "LWf40CCQFos",
+     "titre": "Jak Biegać Bez Kontuzji - Technika Biegania - Nigdy Nie Miałem Kontuzji",
+     "chaine": "Trener Matner",
+     "vues": "9,7 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "14:47",
+     "avatar": "https://yt3.ggpht.com/D_WoRRsyCHJnY8TBmrkxhbr_Kt0wHYSSA_h1O5isY8p5ms31MyRZpvoXSMnVhN2-79QFRMRAQA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     [
+      {
+       "t": "BEHAŤ",
+       "couleur": "#a5877b"
+      }
+     ],
+     "BEZ ZRANENÍ"
+    ],
+    "sous": [
+     "1 hodina na naučenie"
+    ],
+    "video": {
+     "id": "FXKyeZ36vSo",
+     "titre": "Ako behať bez zranení a s radosťou | 7 chýb, ktoré ťa brzdia v progrese",
+     "chaine": "MTHIKER_SK a MTBIKER",
+     "vues": "8,4 tis. zhliadnutí",
+     "date": "pred 11 mesiacmi",
+     "duree": "11:01",
+     "avatar": "https://yt3.ggpht.com/9Y7607PR3zGb7An7qgRg5bztOlq1saAqvpvEXoeKhMAKAndGXdx3_F9REa6JOGTrwFq1nuKPrj8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     [
+      {
+       "t": "TRČATI",
+       "couleur": "#a5877b"
+      }
+     ],
+     "BEZ OZLJEDA"
+    ],
+    "sous": [
+     "1 sat učenja"
+    ],
+    "video": {
+     "id": "7QNDeCx3ras",
+     "titre": "Kako pravilno trčati - trčanje",
+     "chaine": "Danijel Takač",
+     "vues": "4,9 tis. pregleda",
+     "date": "prije 6 godina",
+     "duree": "1:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lx_QiI0sKf2tl-mTZl82SdzG5vG-m888h1MSBWYy8Ykws=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     [
+      {
+       "t": "SPRINGA",
+       "couleur": "#a5877b"
+      }
+     ],
+     "UTAN SKADOR"
+    ],
+    "sous": [
+     "1 timme att lära sig"
+    ],
+    "video": {
+     "id": "dsPGFmbZxYg",
+     "titre": "Grunderna i löpteknik och vanligaste misstagen",
+     "chaine": "Runacademy",
+     "vues": "19 tn visningar",
+     "date": "för 5 år sedan",
+     "duree": "1:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_liS9n_aKZ5tesKE82_y2TxQ3gNJWSAlvmEYzVdGbhzwkU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lv": {
+    "titre": [
+     [
+      {
+       "t": "SKRIET",
+       "couleur": "#a5877b"
+      }
+     ],
+     "BEZ TRAUMĀM"
+    ],
+    "sous": [
+     "1 stunda mācību"
+    ],
+    "video": {
+     "id": "SXmwiWDhs-I",
+     "titre": "Seši padomi iesācējiem, kā skriet pareizi",
+     "chaine": "Jauns․TV",
+     "vues": "790 skatījumu",
+     "date": "pirms 2 gadiem",
+     "duree": "5:52",
+     "avatar": "https://yt3.ggpht.com/xJEUuoGzO9b7VPS9apRxe9TpJAT1iwGMd7QxuVn60ZrrasjsBafKOHBKOCNMtjdjAwgth1ECqQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1540,6 +2338,167 @@
      "duree": "4:15",
      "avatar": "https://yt3.ggpht.com/Womec41CFbE5bM3tGIVDSZBWm17fm6F661f_HT3BRHqJEDWjrO1BusZHWeeQwrBa1AIwQgQrXA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     "HACER",
+     [
+      {
+       "t": "UN BUEN CAFÉ",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "sous": [
+     "15 min para aprender"
+    ],
+    "video": {
+     "id": "e44MyMrsZmk",
+     "titre": "CÓMO USAR LA CAFETERA ITALIANA: Guía básica para preparar café",
+     "chaine": "Las Recetas de MJ",
+     "vues": "3,7 M de visualizaciones",
+     "date": "hace 6 años",
+     "duree": "3:23",
+     "avatar": "https://yt3.ggpht.com/5GOz_LWZbY1BNrjitxFZfIugSVcsVWmEJ76KzoS2VaaL9Fm5yYo653EQiymcrXCCnpbg0N0cBA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "PREPARAR",
+     [
+      {
+       "t": "UN BUEN CAFÉ",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "sous": [
+     "15 min para aprender"
+    ],
+    "video": {
+     "id": "7OCI_JCpgTk",
+     "titre": "Como usar la Cafetera Italiana o Cafetera Moka - Moka Pot - Básico paso a paso",
+     "chaine": "Yoli Nieto | Lima con Cafeína ☕️",
+     "vues": "228 k vistas",
+     "date": "hace 3 años",
+     "duree": "2:21",
+     "avatar": "https://yt3.ggpht.com/Iml6MvmHkjFT_i_CR3q8VLg3qaQJaHf5ODVRboU_9Ch9aBICtRJzARtnBFrwIe-g43RYeYtf-Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "ZROBIĆ",
+     [
+      {
+       "t": "DOBRĄ KAWĘ",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "sous": [
+     "15 min nauki"
+    ],
+    "video": {
+     "id": "hvj9dy31aic",
+     "titre": "JAK ZAPARZYĆ KAWĘ W KAWIARCE? – parzenie kawy krok po kroku z baristą",
+     "chaine": "Wojciech Szymański",
+     "vues": "97 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "1:51",
+     "avatar": "https://yt3.ggpht.com/7o3ywuuXfIvR89xps98324i9H3s5wFbA9vApic7-6vtU6C3aeNMNygqqTVGJpQsZMI8BcVHXmgQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "UVARIŤ",
+     [
+      {
+       "t": "DOBRÚ KÁVU",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "sous": [
+     "15 min na naučenie"
+    ],
+    "video": {
+     "id": "PdXrnU_fmbM",
+     "titre": "Návod na prípravu kávy cez Moka kávovar",
+     "chaine": "COFFEEIN",
+     "vues": "20 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "1:59",
+     "avatar": "https://yt3.ggpht.com/OCp0FJPFVfoYlC4UThuS5QQVRTf-0Bnwm4r4K6RFE2AdNqExEtzAYC6gqKPrT636pXjaBbI_Xfg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "SKUHATI",
+     [
+      {
+       "t": "DOBRU KAVU",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "sous": [
+     "15 min učenja"
+    ],
+    "video": {
+     "id": "xCVKV4zzh6A",
+     "titre": "Priprema kave u moki",
+     "chaine": "Franck",
+     "vues": "15 tis. pregleda",
+     "date": "prije 4 godine",
+     "duree": "0:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ncJa9iF8NFcZKnBBFVm7rN6XTaqV_SnX3SJTlJczWWeTE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "GÖRA",
+     [
+      {
+       "t": "GOTT KAFFE",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "sous": [
+     "15 min att lära sig"
+    ],
+    "video": {
+     "id": "7MgTgUYz8y4",
+     "titre": "Bialetti Moka Express",
+     "chaine": "Kitch'n Sverige",
+     "vues": "12 tn visningar",
+     "date": "för 9 år sedan",
+     "duree": "1:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lRhL9N573znZf3EZA8HB2WW6UgkJpuL4LbFvvKEgX3dA0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lv": {
+    "titre": [
+     "PAGATAVOT",
+     [
+      {
+       "t": "LABU KAFIJU",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "sous": [
+     "15 min mācību"
+    ],
+    "video": {
+     "id": "DZ0EhoBJQrs",
+     "titre": "Kā pagatavot gardu kafiju mokas kanniņā?",
+     "chaine": "Kafijas Draugs",
+     "vues": "3,9 tūkst. skatījumu",
+     "date": "pirms 5 gadiem",
+     "duree": "2:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nwTqjzuYftsIYC7zvSeEP-UDZyZSr5KJz-HDFztBhZUaw=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1795,6 +2754,167 @@
      "date": "πριν από 13 έτη",
      "duree": "4:53",
      "avatar": "https://yt3.ggpht.com/bFKn3nqw7lFdV_Yk42qrAILDPIKTdhB10R7tUgb-f9KPJpTwJsH8P3iPD9OfQnEY1z2Av32jxw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     [
+      {
+       "t": "PLANCHAR",
+       "couleur": "#bd6851"
+      }
+     ],
+     "UNA CAMISA"
+    ],
+    "sous": [
+     "15 min para aprender"
+    ],
+    "video": {
+     "id": "VX6BZMAZCWQ",
+     "titre": "Cómo planchar una camisa perfecta",
+     "chaine": "Pepa Tabero",
+     "vues": "1,7 M de visualizaciones",
+     "date": "hace 8 años",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lWqRJ9qxW8W9YEf289zUmaO5F21gvQSGHgixauZth7cVM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     [
+      {
+       "t": "PLANCHAR",
+       "couleur": "#bd6851"
+      }
+     ],
+     "UNA CAMISA"
+    ],
+    "sous": [
+     "15 min para aprender"
+    ],
+    "video": {
+     "id": "y1bMEGU0RGY",
+     "titre": "Cómo planchar una camisa en menos de 3 minutos",
+     "chaine": "Como lo hace Diego",
+     "vues": "1.7 M de vistas",
+     "date": "hace 8 años",
+     "duree": "2:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mqYuI4Z_LuwGTmN6sZkN39nZ_P1ZRKO_Tqxf7DILNstQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     [
+      {
+       "t": "WYPRASOWAĆ",
+       "couleur": "#bd6851"
+      }
+     ],
+     "KOSZULĘ"
+    ],
+    "sous": [
+     "15 min nauki"
+    ],
+    "video": {
+     "id": "sHKaraXUTcU",
+     "titre": "Dom dla początkujących: jak wyprasować koszulę | Ula Pedantula #38",
+     "chaine": "Ula Pedantula",
+     "vues": "387 tys. wyświetleń",
+     "date": "11 lat temu",
+     "duree": "4:48",
+     "avatar": "https://yt3.ggpht.com/ttih9JnLAn59lcaSTi1vtA6zINT_wX1vPU3VcXJh6tdvCmjwq1qxdh0tpB9X9HP7ARWZD_-LcQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     [
+      {
+       "t": "VYŽEHLIŤ",
+       "couleur": "#bd6851"
+      }
+     ],
+     "KOŠEĽU"
+    ],
+    "sous": [
+     "15 min na naučenie"
+    ],
+    "video": {
+     "id": "Mcz59Cv2Lwk",
+     "titre": "Ako si vyžehliť košelu",
+     "chaine": "Alain Delon Fashion",
+     "vues": "41 tis. zhliadnutí",
+     "date": "pred 9 rokmi",
+     "duree": "1:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mQsIAHaW8bBl84Fg5ckm21eg4YdpBX5BMsy29PfxBbQA0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     [
+      {
+       "t": "IZGLAČATI",
+       "couleur": "#bd6851"
+      }
+     ],
+     "KOŠULJU"
+    ],
+    "sous": [
+     "15 min učenja"
+    ],
+    "video": {
+     "id": "qQg-n_mbkBc",
+     "titre": "Glačanje/peglanje košulje",
+     "chaine": "Stvaraonica",
+     "vues": "4,1 tis. pregleda",
+     "date": "prije 7 godina",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nVFZXbmhTjDqYzwJnz1yTv3MiBPl2GPePC1KkiNTOIIg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     [
+      {
+       "t": "STRYKA",
+       "couleur": "#bd6851"
+      }
+     ],
+     "EN SKJORTA"
+    ],
+    "sous": [
+     "15 min att lära sig"
+    ],
+    "video": {
+     "id": "vDSac3SJ4y4",
+     "titre": "Stilskolan: Så stryker du din skjorta",
+     "chaine": "Café",
+     "vues": "101 tn visningar",
+     "date": "för 13 år sedan",
+     "duree": "2:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kToPZPlsTp4FBaFhCILJ6hpv3VHBsVHbcrToeWWmP27sI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lv": {
+    "titre": [
+     [
+      {
+       "t": "IZGLUDINĀT",
+       "couleur": "#bd6851"
+      }
+     ],
+     "KREKLU"
+    ],
+    "sous": [
+     "15 min mācību"
+    ],
+    "video": {
+     "id": "Ru-i_CHLC1E",
+     "titre": "Kā gludināt vīriešu kreklu kā profesionālim",
+     "chaine": "BG Suits",
+     "vues": "245 skatījumi",
+     "date": "pirms 2 gadiem",
+     "duree": "1:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lWoN1q6iRLqAaxKajekdsD_PFn5VTIirlKPBydRbDv5w=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

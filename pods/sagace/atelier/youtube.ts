@@ -200,6 +200,11 @@ const REGION: Record<string, { hl: string; gl: string }> = {
   hu: { hl: "hu", gl: "HU" },
   el: { hl: "el", gl: "GR" },
   sr: { hl: "sr", gl: "RS" },
+  pl: { hl: "pl", gl: "PL" },
+  sk: { hl: "sk", gl: "SK" },
+  hr: { hl: "hr", gl: "HR" },
+  sv: { hl: "sv", gl: "SE" },
+  lv: { hl: "lv", gl: "LV" },
 };
 
 const ENTETES = {
@@ -312,6 +317,33 @@ export function dateAppli(date: string, langue = "en"): string {
     return `před ${cs[1]} ${mot}`;
   }
   if (langue === "sr") return dateSerbe(latin(date));
+  // sk, hr, lv, sv : la page abrège (« pred 9 r. », « prije 3 g. », « pirms 1 g. », « för 5 år sen ») ; l'appli écrit le mot entier.
+  const sk = date.match(/^pred (\d+)\s*(r\.|mes\.|týž\.|d\.|hod\.|min\.)$/);
+  if (langue === "sk" && sk) {
+    const un = sk[1] === "1";
+    const mot = { "r.": un ? "rokom" : "rokmi", "mes.": un ? "mesiacom" : "mesiacmi", "týž.": un ? "týždňom" : "týždňami", "d.": un ? "dňom" : "dňami", "hod.": un ? "hodinou" : "hodinami", "min.": un ? "minútou" : "minútami" }[sk[2]];
+    return `pred ${sk[1]} ${mot}`;
+  }
+  const hr = date.match(/^prije (\d+)\s*(g\.|mj\.|tj\.|dan\.?|d\.|h\.|sat\.?|min\.)$/);
+  if (langue === "hr" && hr) {
+    const k = Number(hr[1]);
+    const forme = (un: string, peu: string, plus: string) => (k % 10 === 1 && k % 100 !== 11 ? un : k % 10 >= 2 && k % 10 <= 4 && (k % 100 < 12 || k % 100 > 14) ? peu : plus);
+    const mots: Record<string, string> = { "g.": forme("godinu", "godine", "godina"), "mj.": forme("mjesec", "mjeseca", "mjeseci"), "tj.": forme("tjedan", "tjedna", "tjedana"), "dan.": forme("dan", "dana", "dana"), dan: forme("dan", "dana", "dana"), "d.": forme("dan", "dana", "dana"), "h.": forme("sat", "sata", "sati"), "sat.": forme("sat", "sata", "sati"), sat: forme("sat", "sata", "sati"), "min.": forme("minutu", "minute", "minuta") };
+    return `prije ${k} ${mots[hr[2]]}`;
+  }
+  const lv = date.match(/^pirms (\d+)\s*(g\.|mēn\.|ned\.|d\.|st\.|min\.)$/);
+  if (langue === "lv" && lv) {
+    const k = Number(lv[1]);
+    const un = k % 10 === 1 && k % 100 !== 11;
+    const mot = { "g.": un ? "gada" : "gadiem", "mēn.": un ? "mēneša" : "mēnešiem", "ned.": un ? "nedēļas" : "nedēļām", "d.": un ? "dienas" : "dienām", "st.": un ? "stundas" : "stundām", "min.": un ? "minūtes" : "minūtēm" }[lv[2]];
+    return `pirms ${k} ${mot}`;
+  }
+  const sv = date.match(/^för (\d+)\s*(år|mån\.|v\.|veckor|vecka|d\.|dagar|dag|tim\.|min\.)\s+sen$/);
+  if (langue === "sv" && sv) {
+    const un = sv[1] === "1";
+    const mot = { år: "år", "mån.": un ? "månad" : "månader", "v.": un ? "vecka" : "veckor", veckor: "veckor", vecka: "vecka", "d.": un ? "dag" : "dagar", dagar: "dagar", dag: "dag", "tim.": un ? "timme" : "timmar", "min.": un ? "minut" : "minuter" }[sv[2]];
+    return `för ${sv[1]} ${mot} sedan`;
+  }
   const m = date.match(/^(\d+)\s*(y|yr|mo|w|wk|d|h|min)s?\s+ago$/i);
   if (!m || langue !== "en") return date;
   const unite = { y: "year", yr: "year", mo: "month", w: "week", wk: "week", d: "day", h: "hour", min: "minute" }[m[2].toLowerCase()] ?? m[2];
@@ -333,7 +365,8 @@ export async function details(id: string, langue = "en", recherche?: string): Pr
     id,
     titre: r.titre,
     chaine: r.chaine,
-    vues: VUES_LOCALES[langue] && r.vues_courtes ? VUES_LOCALES[langue](r.vues_courtes) : r.vues_exactes !== null ? formatVues(r.vues_exactes, langue) : r.vues,
+    // Sans unité (moins de 1 000 vues), la page écrit déjà le mot accordé au nombre : on le garde.
+    vues: langue === "sv" && r.vues_exactes !== null ? vuesSuedoises(r.vues_exactes) : ["pl", "sk", "hr", "lv"].includes(langue) && !/[^\d\s.,]/.test(r.vues_courtes ?? "") ? r.vues : VUES_LOCALES[langue] && r.vues_courtes ? VUES_LOCALES[langue](r.vues_courtes) : r.vues_exactes !== null ? formatVues(r.vues_exactes, langue) : r.vues,
     date: dateAppli(r.date, langue),
     // En serbe, YouTube écrit « 9.48 » : la miniature affiche toujours « 9:48 ».
     duree: /^\d+(\.\d\d)+$/.test(r.duree) ? r.duree.replace(/\./g, ":") : r.duree,
@@ -360,7 +393,17 @@ const VUES_LOCALES: Record<string, (court: string) => string> = {
   hu: (c) => `${c} megtekintés`,
   el: (c) => `${c} προβολές`,
   sr: (c) => `${latin(c)} pregleda`,
+  pl: (c) => `${c} wyświetleń`,
+  sk: (c) => `${c} zhliadnutí`,
+  hr: (c) => `${c} pregleda`,
+  lv: (c) => `${c} skatījumu`,
 };
+
+/** Vues en sv : la page n'abrège pas, l'appli écrit « 99 tn visningar », « 1,2 mn visningar ». */
+function vuesSuedoises(n: number): string {
+  const tronque = (x: number) => String(x < 10 ? Math.floor(x * 10) / 10 : Math.floor(x)).replace(".", ",");
+  return n >= 1e9 ? `${tronque(n / 1e9)} md visningar` : n >= 1e6 ? `${tronque(n / 1e6)} mn visningar` : n >= 1e3 ? `${tronque(n / 1e3)} tn visningar` : `${n} visningar`;
+}
 
 /** « pre 8 god. » → « pre 8 godina » : l'appli écrit le mot entier, accordé au nombre. */
 export function dateSerbe(date: string): string {

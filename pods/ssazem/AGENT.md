@@ -22,7 +22,7 @@ rejette est validée toute seule 5 h après son dépôt.
 	- Jamais une formule de pub (« download », « link in bio », « free », « the best app », « app store », un @) ; jamais une autre appli (Duolingo, Headway, Calm, Headspace, Finch…, ni Atala, Artura, micabo) ; jamais son @ ni son nom ; pas de Sophia dans le titre ni la légende : `npm run livrer` le vérifie.
 - **Le label** : `ssazem` (migration 0868), qui sert **Sophia seule**, 100 % podz, genre `homme`. L'OS le range en voie 2 dès le premier remake validé (avant : `npm run boite` dit voie 1, c'est normal). Aucun compte au lancement : la règle « démarrage d'un podz » ou Adrien et Max (Pilotage). `npm run etat` te dit où il en est.
 - **Le rythme** : calculé par l'OS sur les comptes du label (`npm run boite`, ligne « Rythme du jour »).
-- **En anglais** (`LANGUES` dans `atelier/api.ts`). N'y ajoute une langue qu'une fois ses textes prêts : la déclarer l'**ouvre** pour le label (0781, `pods/ROUTINE.md` §5.6).
+- **En anglais, puis hu, de, it, sr (latin), tr, el, ro** (`LANGUES` dans `atelier/api.ts`, ouvertes le 27/11 sur demande du chef des podz, ordre d'Adrien) : chaque post est traduit à la main, au ton de ses phrases, « Sophia » jamais décliné ; un compte par langue au plus. N'y ajoute une langue qu'une fois ses textes prêts : la déclarer l'**ouvre** pour le label (0781, `pods/ROUTINE.md` §5.6).
 - **Parfait ou rien**. Un remake part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
 ## Les règles d'un remake

@@ -2,10 +2,12 @@
   "id": "rt-012",
   "type_bleo": "full_test",
   "titre": {
-    "en": "science topics that sound fake but are real"
+    "en": "science topics that sound fake but are real",
+    "sv": "vetenskap som låter fejk men är på riktigt"
   },
   "legendes": {
-    "en": "every single one of these sounds made up. every single one is real.\n\nchemistry that looks like magic, planets that shouldn't exist, living things that ignore the rules, earth doing weird stuff, and math that feels illegal.\n\npick the one u don't believe and look it up.\n\nsave this for ur next science rabbit hole.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok"
+    "en": "every single one of these sounds made up. every single one is real.\n\nchemistry that looks like magic, planets that shouldn't exist, living things that ignore the rules, earth doing weird stuff, and math that feels illegal.\n\npick the one u don't believe and look it up.\n\nsave this for ur next science rabbit hole.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok",
+    "sv": "varenda en av de här låter påhittad. varenda en är på riktigt.\n\nkemi som ser ut som magi, planeter som inte borde finnas, levande saker som struntar i reglerna, jorden när den gör konstiga grejer och matte som känns olaglig.\n\nvälj den du inte tror på och kolla upp den.\n\nspara det här till ditt nästa vetenskapliga kaninhål.\n\n#learning #studytok #plugga #allmänbildning #fördig"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -35,6 +37,9 @@
       ],
       "en": {
         "titre": "science topics that\nsound fake but\nare real"
+      },
+      "sv": {
+        "titre": "vetenskap som låter\nfejk men är på riktigt"
       }
     },
     {
@@ -55,6 +60,24 @@
           "Graphene",
           "Metallic Hydrogen",
           "Memory Metal"
+        ]
+      },
+      "sv": {
+        "titre": "Kemi som ser ut som magi",
+        "sujets": [
+          "Icke-newtonska vätskor",
+          "Underkylt vatten",
+          "Aerogel",
+          "Ferrofluid",
+          "Gallium",
+          "Prins Ruperts droppar",
+          "Triboluminiscens",
+          "Kemiluminiscens",
+          "Supraflytande helium",
+          "Elefanttandkräm",
+          "Grafen",
+          "Metalliskt väte",
+          "Minnesmetall"
         ]
       }
     },
@@ -77,6 +100,24 @@
           "The Geysers of Enceladus",
           "Pluto's Heart"
         ]
+      },
+      "sv": {
+        "titre": "Planeter som låter påhittade",
+        "sujets": [
+          "Diamantplaneten",
+          "Planeten där det regnar glas",
+          "Kepler-16b och dess två solar",
+          "Den mörkaste planeten som hittats",
+          "Ett dygn på Venus är längre än ett år",
+          "Uranus snurrar på sidan",
+          "Olympus Mons",
+          "Saturnus hexagon",
+          "Titans metansjöar",
+          "Ios vulkaner",
+          "Europas dolda hav",
+          "Enceladus gejsrar",
+          "Plutos hjärta"
+        ]
       }
     },
     {
@@ -86,6 +127,13 @@
         "paragraphes": [
           "Sophia gives me one lesson a day, written by actual professors, with a little quiz after. history, philosophy, science, geopolitics, literature, economics.",
           "it's 10 minutes, and it's how i learned that half the stuff i thought was fake is actually real."
+        ]
+      },
+      "sv": {
+        "titre": "där jag kollar",
+        "paragraphes": [
+          "Sophia ger mig en lektion om dagen, skriven av riktiga professorer, med ett litet quiz efteråt. historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
+          "det tar 10 minuter, och det är så jag lärde mig att hälften av grejerna jag trodde var fejk faktiskt är på riktigt."
         ]
       }
     },
@@ -108,6 +156,24 @@
           "The Corpse Flower",
           "Mimosa Pudica"
         ]
+      },
+      "sv": {
+        "titre": "Liv som bryter mot reglerna",
+        "sujets": [
+          "Den soldrivna havssnigeln",
+          "Darrålar",
+          "Hydra",
+          "Lavar",
+          "Pistolräkan",
+          "Skyttefisken",
+          "Glasgrodor",
+          "Pirålens slem",
+          "Lungfiskar",
+          "Grodan som fryser till is",
+          "Venusflugfälla",
+          "Likblomman",
+          "Sensitiva"
+        ]
       }
     },
     {
@@ -129,6 +195,24 @@
           "The Green Flash",
           "The Boiling River"
         ]
+      },
+      "sv": {
+        "titre": "Jorden är konstig",
+        "sujets": [
+          "De vandrande stenarna",
+          "Sjungande sanddyner",
+          "Morning Glory-moln",
+          "Månregnbågar",
+          "Brinikler",
+          "Penitentes",
+          "Eldregnbågar",
+          "Catatumboblixtarna",
+          "Blood Falls",
+          "Frostblommor",
+          "Ljuspelare",
+          "Den gröna blixten",
+          "Den kokande floden"
+        ]
       }
     },
     {
@@ -149,6 +233,23 @@
           "The Mandelbrot Set",
           "Space-Filling Curves"
         ]
+      },
+      "sv": {
+        "titre": "Matte som låter fejk",
+        "sujets": [
+          "Grahams tal",
+          "Googolplex",
+          "Banach–Tarskis paradox",
+          "Gabriels horn",
+          "0,999... = 1",
+          "Hårbollssatsen",
+          "Fyrfärgssatsen",
+          "Monstergruppen",
+          "Kaprekars konstant",
+          "Busy beaver-problemet",
+          "Mandelbrotmängden",
+          "Rumsfyllande kurvor"
+        ]
       }
     },
     {
@@ -156,6 +257,10 @@
       "en": {
         "texte": "save this and send it to the friend who says science is boring. pick one topic and prove them wrong.",
         "gras": "OR.. keep thinking it's all made up."
+      },
+      "sv": {
+        "texte": "spara det här och skicka det till kompisen som säger att naturvetenskap är tråkigt. välj ett ämne och bevisa att hen har fel.",
+        "gras": "ELLER.. fortsätt tro att allt är påhittat."
       }
     }
   ]

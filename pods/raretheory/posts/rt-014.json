@@ -2,10 +2,12 @@
   "id": "rt-014",
   "type_bleo": "full_test",
   "titre": {
-    "en": "questions that will break ur brain at 3am"
+    "en": "questions that will break ur brain at 3am",
+    "sv": "frågor som kommer knäcka din hjärna kl. 3 på natten"
   },
   "legendes": {
-    "en": "some questions don't have answers. that's exactly why they're worth thinking about.\n\nthe mind, how we know anything, time, right and wrong, and why anything exists at all.\n\nphilosophers have argued about these for centuries. u get to join in.\n\nsave this for the next night u can't sleep.\n\n#philosophy #deepthoughts #learning #curiosity #studytok"
+    "en": "some questions don't have answers. that's exactly why they're worth thinking about.\n\nthe mind, how we know anything, time, right and wrong, and why anything exists at all.\n\nphilosophers have argued about these for centuries. u get to join in.\n\nsave this for the next night u can't sleep.\n\n#philosophy #deepthoughts #learning #curiosity #studytok",
+    "sv": "vissa frågor har inga svar. det är precis därför de är värda att tänka på.\n\nmedvetandet, hur vi kan veta något alls, tiden, rätt och fel och varför något existerar överhuvudtaget.\n\nfilosofer har bråkat om de här i århundraden. nu får du hänga på.\n\nspara det här till nästa natt du inte kan sova.\n\n#filosofi #djupatankar #learning #studytok #fördig"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -35,6 +37,9 @@
       ],
       "en": {
         "titre": "questions that will\nbreak ur brain\nat 3am"
+      },
+      "sv": {
+        "titre": "frågor som kommer\nknäcka din hjärna\nkl. 3 på natten"
       }
     },
     {
@@ -51,6 +56,20 @@
           "The Problem of Other Minds",
           "Personal Identity",
           "The Mind-Body Problem"
+        ]
+      },
+      "sv": {
+        "titre": "Medvetandet",
+        "sujets": [
+          "Medvetandets svåra problem",
+          "Qualia",
+          "Marys rum",
+          "Filosofiska zombier",
+          "Det kinesiska rummet",
+          "Hjärna i ett kar",
+          "Problemet med andra medvetanden",
+          "Personlig identitet",
+          "Kropp–själ-problemet"
         ]
       }
     },
@@ -69,6 +88,20 @@
           "Black Swans",
           "The Map Is Not the Territory"
         ]
+      },
+      "sv": {
+        "titre": "Hur kan vi veta något alls?",
+        "sujets": [
+          "Induktionsproblemet",
+          "Gettierproblemet",
+          "Descartes onde demon",
+          "Münchhausentrilemmat",
+          "Humes gaffel",
+          "Falsifierbarhet",
+          "Bayesianskt resonerande",
+          "Svarta svanar",
+          "Kartan är inte terrängen"
+        ]
       }
     },
     {
@@ -78,6 +111,13 @@
         "paragraphes": [
           "before i go down a rabbit hole, i do the 10-minute lesson on Sophia. one short lesson a day: history, philosophy, science, geopolitics, literature, economics.",
           "each one is written by actual professors and ends with a little quiz. philosophy was the one i thought i'd hate. now it's my favorite."
+        ]
+      },
+      "sv": {
+        "titre": "så fastnade jag för det",
+        "paragraphes": [
+          "innan jag går ner i ett kaninhål gör jag 10-minuterslektionen på Sophia. en kort lektion om dagen: historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
+          "varje lektion är skriven av riktiga professorer och slutar med ett litet quiz. filosofi var det jag trodde att jag skulle hata. nu är det min favorit."
         ]
       }
     },
@@ -95,6 +135,19 @@
           "The Heat Death of the Universe",
           "Why We Remember the Past but Not the Future"
         ]
+      },
+      "sv": {
+        "titre": "Tiden",
+        "sujets": [
+          "Vad är tid?",
+          "Tidens pil",
+          "Blockuniversum",
+          "Presentism vs eternalism",
+          "Determinism",
+          "Slutna tidslika kurvor",
+          "Universums värmedöd",
+          "Varför vi minns det förflutna men inte framtiden"
+        ]
       }
     },
     {
@@ -110,6 +163,19 @@
           "The Categorical Imperative",
           "Virtue Ethics",
           "The Repugnant Conclusion"
+        ]
+      },
+      "sv": {
+        "titre": "Rätt och fel",
+        "sujets": [
+          "Gyges ring",
+          "Upplevelsemaskinen",
+          "Moralisk tur",
+          "Är–bör-problemet",
+          "Euthyfrons dilemma",
+          "Det kategoriska imperativet",
+          "Dygdetik",
+          "Den motbjudande slutsatsen"
         ]
       }
     },
@@ -128,6 +194,20 @@
           "Wabi-Sabi",
           "Ubuntu Philosophy"
         ]
+      },
+      "sv": {
+        "titre": "Varför något alls finns",
+        "sujets": [
+          "Varför finns det något snarare än ingenting?",
+          "Antropiska principen",
+          "Finjusteringsproblemet",
+          "Nihilism",
+          "Myten om Sisyfos",
+          "Amor fati",
+          "Memento mori",
+          "Wabi-sabi",
+          "Ubuntu (filosofi)"
+        ]
       }
     },
     {
@@ -135,6 +215,10 @@
       "en": {
         "texte": "save this for the next time ur brain won't switch off. pick one question, read about it, and form ur own answer.",
         "gras": "OR.. lie there overthinking anyway."
+      },
+      "sv": {
+        "texte": "spara det här till nästa gång din hjärna inte vill stänga av. välj en fråga, läs om den och kom fram till ditt eget svar.",
+        "gras": "ELLER.. ligg där och övertänk ändå."
       }
     }
   ]

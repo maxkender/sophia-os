@@ -14,7 +14,7 @@
     "fr": "ce que j'aurais aimé savoir à 16 ans",
     "tr": "keşke 16 yaşımda bilseydim dediklerim",
     "ro": "ce aș fi vrut să știu la 16 ani",
-    "hu": "amit bárcsak tudtam volna 16 évesen"
+    "hu": "amit jó lett volna tudni 16 évesen"
   },
   "legendes": {
     "en": "things i wish someone had told me at 16.\n\nnot because 16 was bad, but because i thought i had to figure everything out right away.\n\nturns out most things get clearer once u stop rushing them.\n\nsave this for the version of u that's still figuring it out.\n\n#selfimprovement #lifelessons #teenagers #growingup #personaldevelopment",
@@ -86,7 +86,7 @@
         "sous_titre": "pe scurt"
       },
       "hu": {
-        "titre": "amit bárcsak tudtam\nvolna 16 évesen",
+        "titre": "amit jó lett volna\ntudni 16 évesen",
         "sous_titre": "a rövid verzió"
       }
     },
@@ -219,7 +219,7 @@
         ]
       },
       "hu": {
-        "titre": "vannak szezonális barátok",
+        "titre": "barátok egy szezonra",
         "paragraphes": [
           "vannak, akik csak egy fejezetre vannak az életedben, nem az egész könyvre. ettől még nem volt kamu a barátság.",
           "lehetsz hálás valakiért úgy is, hogy hagyod eltávolodni."
@@ -287,7 +287,7 @@
         ]
       },
       "hu": {
-        "titre": "egyedül lenni nem magány",
+        "titre": "egyedül nem magányos",
         "paragraphes": [
           "régen pánikoltam, ha volt egy szabad hétvégém program nélkül. most vigyázok rájuk.",
           "ha megtanulod élvezni a saját társaságodat, sosem kell ott maradnod valahol csak azért, hogy ne legyél egyedül."

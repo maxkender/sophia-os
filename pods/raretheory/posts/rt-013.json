@@ -2,10 +2,12 @@
   "id": "rt-013",
   "type_bleo": "full_test",
   "titre": {
-    "en": "topics that make museums way more interesting"
+    "en": "topics that make museums way more interesting",
+    "sv": "ämnen som gör att museer blir mycket roligare"
   },
   "legendes": {
-    "en": "museums are boring until u know what u're looking at. then they're the best place on earth.\n\npaintings with hidden details, objects older than most countries, the techniques behind the masterpieces, famous sculptures and the museums themselves.\n\nlearn one before ur next visit and watch how different it feels.\n\nsave this for ur next museum day.\n\n#arthistory #museum #learning #curiosity #studytok"
+    "en": "museums are boring until u know what u're looking at. then they're the best place on earth.\n\npaintings with hidden details, objects older than most countries, the techniques behind the masterpieces, famous sculptures and the museums themselves.\n\nlearn one before ur next visit and watch how different it feels.\n\nsave this for ur next museum day.\n\n#arthistory #museum #learning #curiosity #studytok",
+    "sv": "museer är tråkiga tills du vet vad du tittar på. sen är de världens bästa ställe.\n\nmålningar med dolda detaljer, föremål som är äldre än de flesta länder, teknikerna bakom mästerverken, kända skulpturer och museerna själva.\n\nlär dig ett innan ditt nästa besök och känn hur annorlunda det blir.\n\nspara det här till nästa museidag.\n\n#konsthistoria #museum #learning #studytok #fördig"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -36,6 +38,9 @@
       ],
       "en": {
         "titre": "topics that make\nmuseums way more\ninteresting"
+      },
+      "sv": {
+        "titre": "ämnen som gör att\nmuseer blir mycket\nroligare"
       }
     },
     {
@@ -56,6 +61,23 @@
           "The Starry Night",
           "A Sunday on La Grande Jatte"
         ]
+      },
+      "sv": {
+        "titre": "Målningar med dolda detaljer",
+        "sujets": [
+          "Arnolfinis bröllop",
+          "Ambassadörerna",
+          "Las Meninas",
+          "Lustarnas trädgård",
+          "Nederländska ordspråk",
+          "Nattvakten",
+          "Flicka med pärlörhänge",
+          "Nattvarden",
+          "Mona Lisas sfumato",
+          "Venus födelse",
+          "Stjärnenatt",
+          "En söndag på La Grande Jatte"
+        ]
       }
     },
     {
@@ -75,6 +97,23 @@
           "The Code of Hammurabi",
           "The Bayeux Tapestry",
           "The Book of Kells"
+        ]
+      },
+      "sv": {
+        "titre": "Forntida föremål",
+        "sujets": [
+          "Lewisschackpjäserna",
+          "Himmelsskivan från Nebra",
+          "Tutankhamons mask",
+          "Nefertitibysten",
+          "Standaret från Ur",
+          "Sutton Hoo-hjälmen",
+          "Lycurguspokalen",
+          "Ishtarporten",
+          "Gundestrupkitteln",
+          "Hammurabis lag",
+          "Bayeuxtapeten",
+          "Book of Kells"
         ]
       }
     },
@@ -97,6 +136,24 @@
           "Stained Glass",
           "Pointillism"
         ]
+      },
+      "sv": {
+        "titre": "Hur mästerverk gjordes",
+        "sujets": [
+          "Freskomåleri",
+          "Äggtempera",
+          "Lasyr i olja",
+          "Chiaroscuro",
+          "Sfumato",
+          "Impasto",
+          "Centralperspektiv",
+          "Trompe-l'œil",
+          "Bladguld",
+          "Enkaustik",
+          "Träsnitt",
+          "Glasmålning",
+          "Pointillism"
+        ]
       }
     },
     {
@@ -106,6 +163,13 @@
         "paragraphes": [
           "i don't research all of this from scratch. every night i do one short lesson on Sophia: history, philosophy, science, geopolitics, literature, economics.",
           "they're written by actual professors, with a little quiz after, so by the time i'm in front of the painting, i actually know its story."
+        ]
+      },
+      "sv": {
+        "titre": "en lektion varje kväll",
+        "paragraphes": [
+          "jag researchar inte allt det här från noll. varje kväll gör jag en kort lektion på Sophia: historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
+          "de är skrivna av riktiga professorer, med ett litet quiz efteråt, så när jag står framför målningen kan jag faktiskt historien bakom den."
         ]
       }
     },
@@ -127,6 +191,23 @@
           "The Moai",
           "Brancusi's Bird in Space"
         ]
+      },
+      "sv": {
+        "titre": "Skulpturer värda att känna till",
+        "sujets": [
+          "Nike från Samothrake",
+          "Venus från Milo",
+          "Pietà",
+          "Tänkaren",
+          "Diskuskastaren",
+          "Borgarna i Calais",
+          "Berninis Apollon och Dafne",
+          "Den beslöjade jungfrun",
+          "Den lilla dansösen",
+          "Laokoon och hans söner",
+          "Moai",
+          "Brancusis Fågel i rymden"
+        ]
       }
     },
     {
@@ -147,6 +228,23 @@
           "The Guggenheim Bilbao",
           "The Acropolis Museum"
         ]
+      },
+      "sv": {
+        "titre": "Museerna själva",
+        "sujets": [
+          "Louvren",
+          "Uffizierna",
+          "Prado",
+          "Eremitaget",
+          "Rijksmuseum",
+          "Musée d'Orsay",
+          "Vatikanmuseerna",
+          "Metropolitan Museum of Art",
+          "National Gallery",
+          "Kuriosakabinett",
+          "Guggenheimmuseet i Bilbao",
+          "Akropolismuseet"
+        ]
       }
     },
     {
@@ -154,6 +252,10 @@
       "en": {
         "texte": "save this before ur next museum trip. pick three things from this list and go find them in person.",
         "gras": "OR.. walk past them like everyone else."
+      },
+      "sv": {
+        "texte": "spara det här innan nästa museibesök. välj tre saker från listan och leta upp dem på riktigt.",
+        "gras": "ELLER.. gå förbi dem som alla andra."
       }
     }
   ]

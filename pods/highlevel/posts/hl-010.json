@@ -11,7 +11,7 @@
     "titre": "M83 Solitude",
     "url": "https://www.tiktok.com/music/M83-Solitude-7116098620134394625"
   },
-  "notes": "Preuve de format : « HOW TO TEXT LIKE A MAN NOT A BOY. » (3,8 M), gabarit « Instead of: / Say: ». Accroche neuve « HOW TO REPLY WHEN SHE LEAVES YOU ON READ. », sans jamais insister ni presser. Carte Artura (4) : « Send something worth answering. », Klimt, Mäda Primavesi (The Met 436819), LOGO d'Artura ; cta A. Fait vérifié : Mäda Primavesi (1903-2000) avait neuf ans quand Klimt l'a peinte en 1912 (fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es (pas de sr : aucun compte).",
+  "notes": "Preuve de format : « HOW TO TEXT LIKE A MAN NOT A BOY. » (3,8 M), gabarit « Instead of: / Say: ». Accroche neuve « HOW TO REPLY WHEN SHE LEAVES YOU ON READ. », sans jamais insister ni presser. Carte Artura (4) : « Send something worth answering. », Klimt, Mäda Primavesi (The Met 436819), LOGO d'Artura ; cta A. Fait vérifié : Mäda Primavesi (1903-2000) avait neuf ans quand Klimt l'a peinte en 1912 (fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es + sr (latin) le 27/11.",
   "oeuvres": {
     "images/oeuvres/klimt-mada.jpg": {
       "musee": "The Met",
@@ -29,7 +29,8 @@
     "it": "Cosa fare quando ti lascia in visualizzato.",
     "hu": "Mit tegyél, ha látta, de nem válaszol.",
     "pt-BR": "O que fazer quando ela te deixa no vácuo.",
-    "es": "Qué hacer cuando te deja en visto."
+    "es": "Qué hacer cuando te deja en visto.",
+    "sr": "Šta da radiš kad te ostavi na seen."
   },
   "legendes": {
     "en": "#textingadvice #datingtips #tipsformen ",
@@ -38,7 +39,8 @@
     "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
     "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
     "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
-    "es": "#consejosdecitas #consejosparahombres #ligar "
+    "es": "#consejosdecitas #consejosparahombres #ligar ",
+    "sr": "#savetizamuškarce #veze #zavođenje "
   },
   "slides": [
     {
@@ -63,6 +65,9 @@
       },
       "es": {
         "titre": "QUÉ HACER\nCUANDO TE DEJA\nEN VISTO."
+      },
+      "sr": {
+        "titre": "ŠTA DA RADIŠ\nKAD TE OSTAVI\nNA SEEN."
       }
     },
     {
@@ -115,6 +120,13 @@
           "**En vez de:**\n“??”",
           "**Dile:**\nNada. Ella está viviendo su vida. Tú también."
         ]
+      },
+      "sr": {
+        "titre": "Prvi sat.",
+        "paragraphes": [
+          "**Umesto:**\n„??”",
+          "**Napiši:**\nNišta. Ona živi svoj život. Živi i ti svoj."
+        ]
       }
     },
     {
@@ -166,6 +178,13 @@
         "paragraphes": [
           "**En vez de:**\n“¿He dicho algo malo?”",
           "**Dile:**\nAlgo nuevo: “He encontrado los mejores tacos de la ciudad. Los aprobarías.”"
+        ]
+      },
+      "sr": {
+        "titre": "Sutradan.",
+        "paragraphes": [
+          "**Umesto:**\n„Jesam li rekao nešto pogrešno?”",
+          "**Napiši:**\nNešto novo: „Našao sam najbolje ćevape u gradu. Odobrila bi.”"
         ]
       }
     },
@@ -241,6 +260,16 @@
         "apres": [
           "Aprendo un cuadro al día en Artura, así que siempre tengo una historia lista."
         ]
+      },
+      "sr": {
+        "titre": "Pošalji nešto vredno odgovora.",
+        "avant": [
+          "**Umesto:** „halo??”",
+          "**Napiši:** „Klimt je naslikao ovu devojčicu kad je imala devet godina. Doživela je 2000.”"
+        ],
+        "apres": [
+          "Učim jednu sliku dnevno u aplikaciji Artura, pa uvek imam spremnu priču."
+        ]
       }
     },
     {
@@ -292,6 +321,13 @@
         "paragraphes": [
           "**En vez de:**\n“Vaya, por fin.”",
           "**Dile:**\n“Ahí estás. ¿Cómo va tu semana?”"
+        ]
+      },
+      "sr": {
+        "titre": "Ako odgovori kasno.",
+        "paragraphes": [
+          "**Umesto:**\n„Pa, konačno.”",
+          "**Napiši:**\n„Evo je. Kakva ti je bila nedelja?”"
         ]
       }
     },
@@ -345,6 +381,13 @@
           "**En vez de:**\nUn párrafo sobre cómo te sientes.",
           "**Dile:**\nNada. El silencio también es una respuesta."
         ]
+      },
+      "sr": {
+        "titre": "Ako nikad ne odgovori.",
+        "paragraphes": [
+          "**Umesto:**\nPasus o tome kako se osećaš.",
+          "**Napiši:**\nNišta. I tišina je odgovor."
+        ]
       }
     },
     {
@@ -397,6 +440,13 @@
           "Su silencio no es tu emergencia.",
           "**Un niño persigue una respuesta.**\n**Un hombre vive su vida.**"
         ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Njena tišina nije tvoj hitan slučaj.",
+          "**Dečak juri odgovor.**\n**Muškarac živi svoj život.**"
+        ]
       }
     },
     {
@@ -434,6 +484,11 @@
         "gras": "Sígueme",
         "milieu": " para no perderte",
         "suite": "lo que viene."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
       }
     }
   ]

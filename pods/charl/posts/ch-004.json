@@ -1,0 +1,153 @@
+{
+  "id": "ch-004",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@charl.focus/photo/7706621727106682144",
+    "vues": 362400,
+    "publie_le": "2026-11-10",
+    "accroche": "cómo arreglar tu DOPAMINA"
+  },
+  "titre": {
+    "es": "cómo dejar de hacer scroll (según la neurociencia)"
+  },
+  "legendes": {
+    "es": "#scroll #detox #concentracion #habitos #productividad"
+  },
+  "musique": {
+    "titre": "original sound - Lock-In System™",
+    "url": "https://www.tiktok.com/music/original-sound-7598651552588466967"
+  },
+  "notes": "Full test (jauge du 27/11 : 2 full tests sur 5, boîte vide) : accroche jamais faite chez nous, sa famille « cómo … tu / MOT CLÉ » (« cómo arreglar tu DOPAMINA », 362,4 k), sa musique (Lock-In System). Faits vérifiés : Aza Raskin a conçu le défilement infini (2006) et a dit plus tard le regretter (BBC, 2018) ; B. F. Skinner : les récompenses à intervalle variable (renforcement intermittent) entretiennent le comportement le plus longtemps, la comparaison avec la machine à sous est classique ; Hunt, Marx, Lipson et Young (2018, Journal of Social and Clinical Psychology, université de Pennsylvanie) : 143 étudiants, 10 minutes par réseau et par jour (30 min en tout) pendant 3 semaines, moins de solitude. Rien de médical. Slide Sophia (4) : « 3 · cambia el primer scroll », LOGO en haut de la colonne, jamais une capture ; cta A. Images : 6 Seedream (IRM, téléphone sans écran lisible) et 8 de la banque (ids dans `banque`). Format en 6 slides (3 points + Sophia), comme ses posts de 6 slides (« INSEGURO »).",
+  "banque": {
+    "images/banque/b-03a8c2c9.jpg": "03a8c2c9-517d-4193-99be-34657e732bde",
+    "images/banque/b-0219cdfc.jpg": "0219cdfc-1547-45c9-87a2-87c4c565b165",
+    "images/banque/b-05b0e654.jpg": "05b0e654-aaf5-4517-8c0e-29ea4730337e",
+    "images/banque/b-098fab75.jpg": "098fab75-c935-4192-8dc7-1884142f623d",
+    "images/banque/b-1818caef.jpg": "1818caef-0d74-4e7a-b806-6b4fd3a776c0",
+    "images/banque/b-017d702b.jpg": "017d702b-1299-4128-b900-6137f35329f1",
+    "images/banque/b-0eba7934.jpg": "0eba7934-6ef0-4c91-84e0-c2edda1cce0d",
+    "images/banque/b-06f45589.jpg": "06f45589-ff8b-4e8c-9c88-709d2b1f2d1c"
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/photos/s4-irm.jpg"
+        },
+        {
+          "image": "images/banque/b-03a8c2c9.jpg"
+        },
+        {
+          "image": "images/photos/s4-cerveau.jpg"
+        },
+        {
+          "image": "images/banque/b-0219cdfc.jpg"
+        },
+        {
+          "image": "images/photos/s4-coupes.jpg"
+        },
+        {
+          "image": "images/banque/b-05b0e654.jpg"
+        }
+      ],
+      "es": {
+        "haut": "cómo dejar de hacer",
+        "mot": "SCROLL",
+        "note": "(según la neurociencia)"
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/photos/s4-pouce.jpg"
+        },
+        {
+          "image": "images/banque/b-098fab75.jpg"
+        }
+      ],
+      "es": {
+        "titre": "no es culpa tuya.",
+        "paragraphes": [
+          "abres el móvil para mirar una cosa y, cuarenta minutos después, sigues bajando. y te dices que **no tienes fuerza de voluntad**.",
+          "el scroll infinito lo inventó **aza raskin** en 2006. años después dijo que **se arrepentía**: sin final, tu cerebro nunca recibe la señal de parar.",
+          "no eres débil. **está diseñado para que no pares**."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/b-1818caef.jpg"
+        },
+        {
+          "image": "images/photos/s4-telephone-table.jpg"
+        }
+      ],
+      "es": {
+        "titre": "la tragaperras",
+        "paragraphes": [
+          "en los años 50, **b. f. skinner** vio que las palomas picoteaban un botón sin parar cuando el premio llegaba **a veces, sin saber cuándo**.",
+          "el scroll funciona igual: casi todo te da igual, pero de vez en cuando aparece **algo que te encanta**.",
+          "por eso cuesta tanto soltarlo: **tu cerebro espera el siguiente premio**."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "photos": [
+        {
+          "image": "images/banque/b-017d702b.jpg"
+        }
+      ],
+      "es": {
+        "titre": "cambia el primer scroll",
+        "paragraphes": [
+          "el truco no es quitar el hábito, es **cambiar lo que hay dentro**.",
+          "yo cambié el primer scroll del día por **una lección corta en Sophia**: historia, ciencia, filosofía o economía.",
+          "**10 minutos y un quiz al final**. tiene un final, así que mi cerebro sabe cuándo parar."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/banque/b-0eba7934.jpg"
+        },
+        {
+          "image": "images/photos/s4-boite.jpg"
+        }
+      ],
+      "es": {
+        "titre": "ponle fricción.",
+        "paragraphes": [
+          "en la universidad de pensilvania, unos estudiantes se limitaron las redes a **10 minutos por app al día** durante tres semanas.",
+          "al final **se sentían menos solos** que los que siguieron igual.",
+          "saca las apps de la pantalla de inicio y deja el móvil **en un cajón** cuando trabajes."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "photos": [
+        {
+          "image": "images/banque/b-06f45589.jpg"
+        }
+      ],
+      "es": {
+        "titre": "no eres débil.",
+        "paragraphes": [
+          "solo juegas contra algo **hecho para ganarte**.",
+          "cada vez que lo sueltas antes, **le cuesta un poco menos**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo y **suelta el móvil esta noche**."
+        ]
+      }
+    }
+  ]
+}

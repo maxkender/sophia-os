@@ -1,0 +1,26 @@
+{
+  "name": "pod-dorianart",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 34 — icebergs de loisirs ADHD / autistes au format de @dorian.frog (2 slides : couverture bleu nuit à l'ovale, puis l'iceberg par étages, chaque loisir en objet détouré avec son nom), pour Artura, en anglais, sans IA : sa couverture (texte effacé), un iceberg dessiné par code, des objets du Met détourés sur leur fond uni ; un loisir porte le logo d'Artura.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "photos": "NODE_USE_ENV_PROXY=1 node atelier/cli-photos.ts",
+    "oeuvre": "NODE_USE_ENV_PROXY=1 node atelier/cli-oeuvre.ts",
+    "objet": "NODE_USE_ENV_PROXY=1 node atelier/cli-objet.ts"
+  }
+}

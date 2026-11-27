@@ -1,0 +1,538 @@
+{
+ "id": "tg-018",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 morning habits that actually work if you have adhd",
+  "bg": "10/10 сутрешни навика, които наистина работят при адхд",
+  "de": "10/10 morgengewohnheiten, die bei adhs wirklich funktionieren",
+  "el": "10/10 πρωινές συνήθειες που πραγματικά δουλεύουν αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hábitos de la mañana que sí funcionan si tienes tdah",
+  "fr": "10/10 habitudes du matin qui marchent vraiment quand on a un tdah",
+  "hu": "10/10 reggeli szokás, ami tényleg működik, ha adhd-s vagy",
+  "it": "10/10 abitudini del mattino che funzionano davvero se hai l'adhd",
+  "pt-BR": "10/10 hábitos matinais que funcionam se você tem tdah",
+  "sr": "10/10 jutarnjih navika koje stvarno pomažu ako imaš adhd"
+ },
+ "legendes": {
+  "en": "#adhd #morningroutine #focus #brain #selfimprovement",
+  "bg": "#адхд #сутрешнарутина #фокус #мозък #саморазвитие",
+  "de": "#adhs #morgenroutine #fokus #gehirn #selbstverbesserung",
+  "el": "#δεπυ #πρωινήρουτίνα #συγκέντρωση #εγκέφαλος #αυτοβελτίωση",
+  "es-419": "#tdah #rutinademañana #enfoque #cerebro #crecimientopersonal",
+  "fr": "#tdah #routinedumatin #concentration #cerveau #developpementpersonnel",
+  "hu": "#adhd #reggelirutin #fókusz #agy #önfejlesztés",
+  "it": "#adhd #routinemattutina #concentrazione #cervello #crescitapersonale",
+  "pt-BR": "#tdah #rotinamatinal #foco #cerebro #autodesenvolvimento",
+  "sr": "#adhd #jutarnjarutina #fokus #mozak #samorazvoj"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 morning habits that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (5ecc8d18), slide Artura sur un tableau ou un musée de la banque (0a900463), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-pov-route.jpg": "5ecc8d18-cb37-4aa8-835a-f90bc2b0fc3d",
+  "images/banque/a-aquarelle.jpg": "0a900463-f764-4091-98bb-6f21685eb8d5"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 morning habits that\nactually work if you have adhd",
+    "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 сутрешни навика, които\nнаистина работят при адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 morgenroutinen, die bei\nadhs wirklich funktionieren",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 πρωινές συνήθειες που\nδουλεύουν αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hábitos de la mañana que\nsí funcionan si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 habitudes du matin qui\nmarchent vraiment avec un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 reggeli szokás, ami\ntényleg működik, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 abitudini del mattino che\nfunzionano se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hábitos matinais que\nfuncionam se você tem tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 jutarnjih navika koje\nstvarno pomažu ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/lit.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "make your bed",
+    "accroche": "one _finished_ task before _8am_",
+    "colonne": [
+     "it takes a minute, and starting the day with something done makes the next task _easier_ to start"
+    ],
+    "chute": "do it before you touch your phone"
+   },
+   "bg": {
+    "nom": "оправи леглото",
+    "accroche": "една _свършена_ задача преди _8 ч_",
+    "colonne": [
+     "отнема минута, а да започнеш деня с нещо готово прави следващата задача _по-лесна_"
+    ],
+    "chute": "направи го, преди да хванеш телефона"
+   },
+   "de": {
+    "nom": "bett machen",
+    "accroche": "eine _erledigte_ aufgabe vor _8 uhr_",
+    "colonne": [
+     "es dauert eine minute, und mit etwas fertigem in den tag zu starten macht die nächste aufgabe _leichter_"
+    ],
+    "chute": "mach es, bevor du dein handy anfasst"
+   },
+   "el": {
+    "nom": "στρώνω το κρεβάτι",
+    "accroche": "μία δουλειά _τελειωμένη_ πριν τις _8_",
+    "colonne": [
+     "παίρνει ένα λεπτό, και αν ξεκινάς με κάτι έτοιμο η επόμενη δουλειά ξεκινά πιο _εύκολα_"
+    ],
+    "chute": "κάν' το πριν πιάσεις το κινητό"
+   },
+   "es-419": {
+    "nom": "tender tu cama",
+    "accroche": "una tarea _terminada_ antes de las _8am_",
+    "colonne": [
+     "toma un minuto, y empezar con algo hecho hace que la siguiente tarea sea más _fácil_ de empezar"
+    ],
+    "chute": "hazlo antes de tocar tu celular"
+   },
+   "fr": {
+    "nom": "faire ton lit",
+    "accroche": "une tâche _finie_ avant _8h_",
+    "colonne": [
+     "ça prend une minute, et commencer par un truc fait rend la tâche suivante plus _facile_ à lancer"
+    ],
+    "chute": "fais-le avant de toucher ton téléphone"
+   },
+   "hu": {
+    "nom": "ágyazz be",
+    "accroche": "egy _kész_ feladat _8 előtt_",
+    "colonne": [
+     "egy perc az egész, és ha a napot valami elvégzettel kezded, a következő feladat _könnyebben_ indul"
+    ],
+    "chute": "csináld meg, mielőtt a telefonhoz nyúlsz"
+   },
+   "it": {
+    "nom": "rifare il letto",
+    "accroche": "un compito _finito_ prima delle _8_",
+    "colonne": [
+     "ci vuole un minuto, e iniziare con una cosa fatta rende il compito dopo più _facile_ da iniziare"
+    ],
+    "chute": "fallo prima di toccare il telefono"
+   },
+   "pt-BR": {
+    "nom": "arrumar a cama",
+    "accroche": "uma tarefa _feita_ antes das _8h_",
+    "colonne": [
+     "leva um minuto, e começar o dia com algo pronto deixa a próxima tarefa _mais fácil_ de começar"
+    ],
+    "chute": "faça antes de pegar o celular"
+   },
+   "sr": {
+    "nom": "namesti krevet",
+    "accroche": "jedan _završen_ zadatak pre _8_",
+    "colonne": [
+     "traje minut, a kad dan počneš nečim urađenim, sledeći zadatak je _lakše_ početi"
+    ],
+    "chute": "uradi to pre nego što uzmeš telefon"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-pov-route.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a short morning run",
+    "accroche": "move first, _think_ later",
+    "colonne": [
+     "a run first thing burns off restless energy before the day can pull you in ten directions",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "15 minutes, shoes by the door"
+   },
+   "bg": {
+    "nom": "кратко сутрешно бягане",
+    "accroche": "първо движение, _мислене_ после",
+    "colonne": [
+     "бягане веднага след ставане изгаря неспокойната енергия, преди денят да те дърпа в десет посоки",
+     "_съвет_: atala нагласява бяганията ми около целта ми и ги променя всяка седмица"
+    ],
+    "chute": "15 минути, маратонките до вратата"
+   },
+   "de": {
+    "nom": "ein kurzer morgenlauf",
+    "accroche": "erst bewegen, _dann_ denken",
+    "colonne": [
+     "ein lauf direkt nach dem aufstehen verbrennt unruhige energie, bevor der tag dich in zehn richtungen zieht",
+     "_pro tipp_: atala baut meine läufe um mein ziel herum und passt sie jede woche an"
+    ],
+    "chute": "15 minuten, schuhe an der tür"
+   },
+   "el": {
+    "nom": "σύντομο πρωινό τρέξιμο",
+    "accroche": "πρώτα κινήσου, _σκέψου_ μετά",
+    "colonne": [
+     "ένα τρέξιμο με το ξύπνημα καίει την ανήσυχη ενέργεια πριν η μέρα σε τραβήξει παντού",
+     "_μικρό tip_: το atala χτίζει τα τρεξίματά μου γύρω από τον στόχο μου και τα προσαρμόζει κάθε εβδομάδα"
+    ],
+    "chute": "15 λεπτά, παπούτσια δίπλα στην πόρτα"
+   },
+   "es-419": {
+    "nom": "una carrera corta en la mañana",
+    "accroche": "primero muévete, _piensa_ después",
+    "colonne": [
+     "correr al despertar quema la energía inquieta antes de que el día te jale en diez direcciones",
+     "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
+    ],
+    "chute": "15 minutos, tenis junto a la puerta"
+   },
+   "fr": {
+    "nom": "une petite course le matin",
+    "accroche": "bouge d'abord, _réfléchis_ ensuite",
+    "colonne": [
+     "courir dès le réveil brûle l'énergie en trop avant que la journée te tire dans dix directions",
+     "_petite astuce_: atala construit mes sorties autour de mon objectif et les ajuste chaque semaine"
+    ],
+    "chute": "15 minutes, chaussures près de la porte"
+   },
+   "hu": {
+    "nom": "rövid reggeli futás",
+    "accroche": "előbb mozogj, _gondolkodj_ később",
+    "colonne": [
+     "egy futás reggel levezeti a nyugtalan energiát, mielőtt a nap tíz irányba húzna",
+     "_pro tip_: az atala a célomhoz igazítja a futásaimat, és minden héten finomít rajtuk"
+    ],
+    "chute": "15 perc, a cipő az ajtónál"
+   },
+   "it": {
+    "nom": "una corsetta al mattino",
+    "accroche": "prima muoviti, poi _pensa_",
+    "colonne": [
+     "correre appena alzato brucia l'energia in eccesso prima che la giornata ti tiri in dieci direzioni",
+     "_piccolo consiglio_: atala costruisce le mie corse intorno al mio obiettivo e le adatta ogni settimana"
+    ],
+    "chute": "15 minuti, scarpe vicino alla porta"
+   },
+   "pt-BR": {
+    "nom": "uma corrida curta de manhã",
+    "accroche": "primeiro se mexe, _pensa_ depois",
+    "colonne": [
+     "correr logo cedo gasta a energia inquieta antes que o dia te puxe pra dez lados",
+     "_dica_: o atala monta minhas corridas em torno do meu objetivo e ajusta toda semana"
+    ],
+    "chute": "15 minutos, tênis do lado da porta"
+   },
+   "sr": {
+    "nom": "kratko jutarnje trčanje",
+    "accroche": "prvo se pokreni, _razmišljaj_ kasnije",
+    "colonne": [
+     "trčanje odmah ujutru izbaci nemirnu energiju pre nego što te dan povuče na deset strana",
+     "_pro tip_: atala pravi moja trčanja prema mom cilju i prilagođava ih svake nedelje"
+    ],
+    "chute": "15 minuta, patike kraj vrata"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/petitdej.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "breakfast without your phone",
+    "accroche": "your _first_ ten minutes stay _yours_",
+    "colonne": [
+     "eating without a feed lets your brain wake up slowly instead of starting the day _overloaded_"
+    ],
+    "chute": "phone stays in another room until you're done"
+   },
+   "bg": {
+    "nom": "закуска без телефон",
+    "accroche": "първите ти _десет минути_ остават _твои_",
+    "colonne": [
+     "храненето без фийд оставя мозъка да се събуди бавно, вместо денят да започне _претоварен_"
+    ],
+    "chute": "телефонът стои в друга стая, докато свършиш"
+   },
+   "de": {
+    "nom": "frühstück ohne handy",
+    "accroche": "deine _ersten_ zehn minuten bleiben _deine_",
+    "colonne": [
+     "essen ohne feed lässt dein gehirn langsam aufwachen, statt _überladen_ in den tag zu starten"
+    ],
+    "chute": "das handy bleibt im anderen zimmer, bis du fertig bist"
+   },
+   "el": {
+    "nom": "πρωινό χωρίς κινητό",
+    "accroche": "τα _πρώτα_ δέκα λεπτά μένουν _δικά σου_",
+    "colonne": [
+     "φαγητό χωρίς feed αφήνει τον εγκέφαλο να ξυπνήσει αργά αντί να ξεκινά _υπερφορτωμένος_"
+    ],
+    "chute": "το κινητό μένει σε άλλο δωμάτιο"
+   },
+   "es-419": {
+    "nom": "desayunar sin celular",
+    "accroche": "tus _primeros_ diez minutos son _tuyos_",
+    "colonne": [
+     "comer sin feed deja que tu cerebro despierte despacio en vez de empezar el día _saturado_"
+    ],
+    "chute": "el celular se queda en otro cuarto"
+   },
+   "fr": {
+    "nom": "un petit-déj sans téléphone",
+    "accroche": "tes dix _premières_ minutes restent _à toi_",
+    "colonne": [
+     "manger sans fil d'actu laisse ton cerveau se réveiller doucement au lieu de démarrer _saturé_"
+    ],
+    "chute": "le téléphone reste dans une autre pièce"
+   },
+   "hu": {
+    "nom": "reggeli telefon nélkül",
+    "accroche": "az _első_ tíz perc a _tiéd_",
+    "colonne": [
+     "feed nélkül evés közben az agyad lassan ébred, ahelyett hogy _túlterhelten_ indulna"
+    ],
+    "chute": "a telefon másik szobában marad, amíg végzel"
+   },
+   "it": {
+    "nom": "colazione senza telefono",
+    "accroche": "i tuoi _primi_ dieci minuti restano _tuoi_",
+    "colonne": [
+     "mangiare senza feed lascia svegliare il cervello piano invece di iniziare la giornata _sovraccarico_"
+    ],
+    "chute": "il telefono resta in un'altra stanza"
+   },
+   "pt-BR": {
+    "nom": "café da manhã sem celular",
+    "accroche": "seus _primeiros_ dez minutos são _seus_",
+    "colonne": [
+     "comer sem feed deixa o cérebro acordar devagar em vez de começar o dia _sobrecarregado_"
+    ],
+    "chute": "o celular fica em outro cômodo até você terminar"
+   },
+   "sr": {
+    "nom": "doručak bez telefona",
+    "accroche": "prvih deset minuta ostaje _tvojih_",
+    "colonne": [
+     "jelo bez fida pušta mozak da se polako probudi umesto da dan počne _preopterećen_"
+    ],
+    "chute": "telefon ostaje u drugoj sobi dok ne završiš"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-aquarelle.jpg",
+   "cadrage": {
+    "y": 0.3
+   },
+   "en": {
+    "nom": "one painting with your coffee",
+    "accroche": "something _beautiful_ before _the news_",
+    "colonne": [
+     "a painting and its story is a calm, new thing to look at while your coffee cools",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "look before you open any other app"
+   },
+   "bg": {
+    "nom": "една картина с кафето",
+    "accroche": "нещо _красиво_ преди _новините_",
+    "colonne": [
+     "картина и историята ѝ са нещо спокойно и ново за гледане, докато кафето изстива",
+     "_съвет_: artura ми дава по една картина на ден и историята зад нея, за няколко минути"
+    ],
+    "chute": "погледни я, преди да отвориш друго приложение"
+   },
+   "de": {
+    "nom": "ein gemälde zum kaffee",
+    "accroche": "etwas _schönes_ vor den _nachrichten_",
+    "colonne": [
+     "ein bild und seine geschichte sind etwas ruhiges, neues zum anschauen, während der kaffee abkühlt",
+     "_pro tipp_: artura zeigt mir jeden tag ein gemälde und die geschichte dahinter, in ein paar minuten"
+    ],
+    "chute": "schau es an, bevor du eine andere app öffnest"
+   },
+   "el": {
+    "nom": "ένας πίνακας με τον καφέ",
+    "accroche": "κάτι _όμορφο_ πριν τις _ειδήσεις_",
+    "colonne": [
+     "ένας πίνακας και η ιστορία του είναι κάτι ήρεμο και νέο όσο κρυώνει ο καφές",
+     "_μικρό tip_: το artura μου δίνει έναν πίνακα τη μέρα και την ιστορία του, σε λίγα λεπτά"
+    ],
+    "chute": "κοίτα τον πριν ανοίξεις άλλη εφαρμογή"
+   },
+   "es-419": {
+    "nom": "una pintura con tu café",
+    "accroche": "algo _bonito_ antes de _las noticias_",
+    "colonne": [
+     "una pintura y su historia son algo tranquilo y nuevo para ver mientras se enfría tu café",
+     "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
+    ],
+    "chute": "mírala antes de abrir cualquier otra app"
+   },
+   "fr": {
+    "nom": "un tableau avec ton café",
+    "accroche": "quelque chose de _beau_ avant _les infos_",
+    "colonne": [
+     "un tableau et son histoire, c'est calme et nouveau à regarder pendant que ton café refroidit",
+     "_petite astuce_: artura me donne un tableau par jour et son histoire, en quelques minutes"
+    ],
+    "chute": "regarde-le avant d'ouvrir une autre appli"
+   },
+   "hu": {
+    "nom": "egy festmény a kávé mellé",
+    "accroche": "valami _szép_ még a _hírek előtt_",
+    "colonne": [
+     "egy festmény a történetével nyugodt, új látnivaló, amíg hűl a kávéd",
+     "_pro tip_: az artura minden nap ad egy festményt és a mögötte lévő történetet, pár perc alatt"
+    ],
+    "chute": "nézd meg, mielőtt bármelyik másik appot megnyitod"
+   },
+   "it": {
+    "nom": "un dipinto col caffè",
+    "accroche": "qualcosa di _bello_ prima delle _notizie_",
+    "colonne": [
+     "un dipinto e la sua storia sono una cosa calma e nuova da guardare mentre il caffè si raffredda",
+     "_piccolo consiglio_: artura mi dà un dipinto al giorno e la sua storia, in pochi minuti"
+    ],
+    "chute": "guardalo prima di aprire qualsiasi altra app"
+   },
+   "pt-BR": {
+    "nom": "uma pintura com o café",
+    "accroche": "algo _bonito_ antes das _notícias_",
+    "colonne": [
+     "uma pintura e sua história são algo calmo e novo pra olhar enquanto o café esfria",
+     "_dica_: o artura me dá uma pintura por dia e a história por trás dela, em poucos minutos"
+    ],
+    "chute": "olhe antes de abrir qualquer outro app"
+   },
+   "sr": {
+    "nom": "jedna slika uz kafu",
+    "accroche": "nešto _lepo_ pre _vesti_",
+    "colonne": [
+     "slika i njena priča su mirna, nova stvar za gledanje dok ti se kafa hladi",
+     "_pro tip_: artura mi daje jednu sliku dnevno i priču iza nje, za par minuta"
+    ],
+    "chute": "pogledaj je pre nego što otvoriš bilo koju drugu aplikaciju"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/soleil.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "10 minutes of daylight",
+    "accroche": "get outside _before_ you _sit down_",
+    "colonne": [
+     "morning light and fresh air are an easy way to feel awake before work starts"
+    ],
+    "chute": "take your coffee to the window or balcony"
+   },
+   "bg": {
+    "nom": "10 минути дневна светлина",
+    "accroche": "излез _преди_ да _седнеш_",
+    "colonne": [
+     "сутрешната светлина и свежият въздух лесно те събуждат преди работа"
+    ],
+    "chute": "изнеси кафето до прозореца или на балкона"
+   },
+   "de": {
+    "nom": "10 minuten tageslicht",
+    "accroche": "raus, _bevor_ du dich _hinsetzt_",
+    "colonne": [
+     "morgenlicht und frische luft machen dich leicht wach, bevor die arbeit beginnt"
+    ],
+    "chute": "nimm deinen kaffee mit ans fenster oder auf den balkon"
+   },
+   "el": {
+    "nom": "10 λεπτά φως",
+    "accroche": "βγες έξω _πριν_ κάτσεις _κάτω_",
+    "colonne": [
+     "το πρωινό φως και ο φρέσκος αέρας σε βοηθούν να νιώσεις ξύπνιος πριν τη δουλειά"
+    ],
+    "chute": "πάρε τον καφέ στο παράθυρο ή στο μπαλκόνι"
+   },
+   "es-419": {
+    "nom": "10 minutos de luz",
+    "accroche": "sal _antes_ de _sentarte_",
+    "colonne": [
+     "la luz de la mañana y el aire fresco ayudan a sentirte despierto antes de trabajar"
+    ],
+    "chute": "llévate el café a la ventana o al balcón"
+   },
+   "fr": {
+    "nom": "10 minutes de lumière",
+    "accroche": "sors _avant_ de _t'asseoir_",
+    "colonne": [
+     "la lumière du matin et l'air frais aident à se sentir réveillé avant le travail"
+    ],
+    "chute": "bois ton café à la fenêtre ou au balcon"
+   },
+   "hu": {
+    "nom": "10 perc napfény",
+    "accroche": "menj ki, _mielőtt_ _leülsz_",
+    "colonne": [
+     "a reggeli fény és a friss levegő egyszerű módja, hogy éber legyél munka előtt"
+    ],
+    "chute": "vidd a kávéd az ablakhoz vagy az erkélyre"
+   },
+   "it": {
+    "nom": "10 minuti di luce",
+    "accroche": "esci _prima_ di _sederti_",
+    "colonne": [
+     "la luce del mattino e l'aria fresca aiutano a sentirsi svegli prima di iniziare a lavorare"
+    ],
+    "chute": "porta il caffè alla finestra o sul balcone"
+   },
+   "pt-BR": {
+    "nom": "10 minutos de luz do dia",
+    "accroche": "saia _antes_ de _sentar_",
+    "colonne": [
+     "luz da manhã e ar fresco são um jeito fácil de despertar antes do trabalho"
+    ],
+    "chute": "leve o café pra janela ou pra varanda"
+   },
+   "sr": {
+    "nom": "10 minuta dnevnog svetla",
+    "accroche": "izađi napolje _pre_ nego što _sedneš_",
+    "colonne": [
+     "jutarnje svetlo i svež vazduh su lak način da se razbudiš pre posla"
+    ],
+    "chute": "ponesi kafu do prozora ili na terasu"
+   }
+  }
+ ]
+}

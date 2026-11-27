@@ -1,0 +1,538 @@
+{
+ "id": "tg-015",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies for adhd brains that get bored fast",
+  "bg": "10/10 хобита за адхд мозъци, на които бързо им доскучава",
+  "de": "10/10 hobbys für adhs-gehirne, die sich schnell langweilen",
+  "el": "10/10 χόμπι για εγκεφάλους με ΔΕΠΥ που βαριούνται γρήγορα",
+  "es-419": "10/10 hobbies para cerebros con tdah que se aburren rápido",
+  "fr": "10/10 loisirs pour les cerveaux tdah qui s'ennuient vite",
+  "hu": "10/10 hobbi adhd-s agyaknak, amik gyorsan unatkoznak",
+  "it": "10/10 hobby per cervelli adhd che si annoiano in fretta",
+  "pt-BR": "10/10 hobbies para cérebros com tdah que enjoam rápido",
+  "sr": "10/10 hobija za adhd mozak koji se brzo dosađuje"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #focus #brain #selfimprovement",
+  "bg": "#адхд #хобита #фокус #мозък #саморазвитие",
+  "de": "#adhs #hobbys #fokus #gehirn #selbstverbesserung",
+  "el": "#δεπυ #χόμπι #συγκέντρωση #εγκέφαλος #αυτοβελτίωση",
+  "es-419": "#tdah #hobbies #enfoque #cerebro #crecimientopersonal",
+  "fr": "#tdah #loisirs #concentration #cerveau #developpementpersonnel",
+  "hu": "#adhd #hobbi #fókusz #agy #önfejlesztés",
+  "it": "#adhd #hobby #concentrazione #cervello #crescitapersonale",
+  "pt-BR": "#tdah #hobbies #foco #cerebro #autodesenvolvimento",
+  "sr": "#adhd #hobi #fokus #mozak #samorazvoj"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies for adhd brains that get bored fast », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (3037bd2e), slide Artura sur un tableau ou un musée de la banque (081464e0), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-plage-saut.jpg": "3037bd2e-f6f8-4176-ad78-dac8a6af1932",
+  "images/banque/a-pompei.jpg": "081464e0-826e-4ea9-b9e4-dd0a2e366d6d"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 hobbies for adhd brains\nthat get bored fast",
+    "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 хобита за адхд мозъци,\nкоито бързо се отегчават",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 hobbys für adhs-köpfe,\ndie sich schnell langweilen",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι για μυαλά με ΔΕΠΥ\nπου βαριούνται γρήγορα",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies para cerebros\ncon tdah que se aburren rápido",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs pour les tdah\nqui s'ennuient vite",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 hobbi adhd-s agyaknak,\namik gyorsan unatkoznak",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby per cervelli adhd\nche si annoiano in fretta",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies para cérebros\ncom tdah que enjoam rápido",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 hobija za adhd mozak\nkoji se brzo dosađuje",
+    "note": "(potvrđeno neuronaukom)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/escape.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "escape rooms",
+    "accroche": "60 minutes, _one puzzle_ after _another_",
+    "colonne": [
+     "the clock is ticking and every lock is new, so a brain that bores fast never gets the _time_ to drift"
+    ],
+    "chute": "book the easiest room with friends"
+   },
+   "bg": {
+    "nom": "ескейп стаи",
+    "accroche": "60 минути, _една загадка_ след _друга_",
+    "colonne": [
+     "часовникът тиктака и всяка ключалка е нова, така че мозък, който бързо се отегчава, няма _време_ да се отнесе"
+    ],
+    "chute": "резервирай най-лесната стая с приятели"
+   },
+   "de": {
+    "nom": "escape rooms",
+    "accroche": "60 minuten, _ein rätsel_ nach dem _anderen_",
+    "colonne": [
+     "die uhr tickt und jedes schloss ist neu, also hat ein gehirn, das sich schnell langweilt, keine _zeit_ abzuschweifen"
+    ],
+    "chute": "buch mit freunden den leichtesten raum"
+   },
+   "el": {
+    "nom": "escape rooms",
+    "accroche": "60 λεπτά, _ένας γρίφος_ μετά τον _άλλο_",
+    "colonne": [
+     "ο χρόνος τρέχει και κάθε λουκέτο είναι καινούργιο, έτσι το μυαλό δεν βρίσκει _χρόνο_ να ξεφύγει"
+    ],
+    "chute": "κλείσε το πιο εύκολο δωμάτιο με φίλους"
+   },
+   "es-419": {
+    "nom": "escape rooms",
+    "accroche": "60 minutos, _un acertijo_ tras _otro_",
+    "colonne": [
+     "el reloj corre y cada candado es nuevo, así que un cerebro que se aburre rápido nunca tiene _tiempo_ de distraerse"
+    ],
+    "chute": "reserva la sala más fácil con amigos"
+   },
+   "fr": {
+    "nom": "l'escape game",
+    "accroche": "60 minutes, _une énigme_ après _l'autre_",
+    "colonne": [
+     "le chrono tourne et chaque cadenas est nouveau : un cerveau qui s'ennuie vite n'a jamais le _temps_ de décrocher"
+    ],
+    "chute": "réserve la salle la plus facile entre amis"
+   },
+   "hu": {
+    "nom": "szabadulószobák",
+    "accroche": "60 perc, _egyik rejtvény_ a _másik után_",
+    "colonne": [
+     "ketyeg az óra és minden zár új, így egy gyorsan unatkozó agynak nincs _ideje_ elkalandozni"
+    ],
+    "chute": "foglald le a legkönnyebb szobát a barátaiddal"
+   },
+   "it": {
+    "nom": "escape room",
+    "accroche": "60 minuti, _un enigma_ dopo _l'altro_",
+    "colonne": [
+     "il tempo scorre e ogni lucchetto è nuovo, così un cervello che si annoia non ha mai il _tempo_ di distrarsi"
+    ],
+    "chute": "prenota la stanza più facile con gli amici"
+   },
+   "pt-BR": {
+    "nom": "escape room",
+    "accroche": "60 minutos, _um enigma_ atrás do _outro_",
+    "colonne": [
+     "o relógio corre e cada cadeado é novo, então um cérebro que enjoa rápido nunca tem _tempo_ de se distrair"
+    ],
+    "chute": "reserve a sala mais fácil com amigos"
+   },
+   "sr": {
+    "nom": "sobe za bekstvo",
+    "accroche": "60 minuta, _zagonetka_ za _zagonetkom_",
+    "colonne": [
+     "sat otkucava i svaka brava je nova, pa mozak koji se brzo dosađuje nema _vremena_ da odluta"
+    ],
+    "chute": "rezerviši najlakšu sobu sa prijateljima"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-plage-saut.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "running",
+    "accroche": "every run can be a _new place_",
+    "colonne": [
+     "changing where you run keeps it new, and a goal like a first 10k gives your brain a reason to _keep going_",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "try a beach, a park, a bridge, a hill"
+   },
+   "bg": {
+    "nom": "бягане",
+    "accroche": "всяко бягане може да е _ново място_",
+    "colonne": [
+     "смяната на маршрута го прави ново, а цел като първите 10 км дава на мозъка причина да _продължи_",
+     "_съвет_: ползвам atala, ai треньор по бягане, който планира седмицата ми около целта ми"
+    ],
+    "chute": "пробвай плаж, парк, мост, хълм"
+   },
+   "de": {
+    "nom": "laufen",
+    "accroche": "jeder lauf kann ein _neuer ort_ sein",
+    "colonne": [
+     "wer die strecke wechselt, bleibt neugierig, und ein ziel wie die ersten 10 km gibt dem kopf einen grund _weiterzumachen_",
+     "_pro tipp_: ich nutze atala, einen ki-laufcoach, der meine woche um mein ziel herum plant"
+    ],
+    "chute": "probier strand, park, brücke, hügel"
+   },
+   "el": {
+    "nom": "τρέξιμο",
+    "accroche": "κάθε τρέξιμο μπορεί να είναι _νέο μέρος_",
+    "colonne": [
+     "η αλλαγή διαδρομής το κρατά καινούργιο, και τα πρώτα 10 χλμ δίνουν λόγο να _συνεχίσεις_",
+     "_μικρό tip_: χρησιμοποιώ το atala, έναν ai προπονητή τρεξίματος που οργανώνει την εβδομάδα μου γύρω από τον στόχο μου"
+    ],
+    "chute": "δοκίμασε παραλία, πάρκο, γέφυρα, λόφο"
+   },
+   "es-419": {
+    "nom": "correr",
+    "accroche": "cada carrera puede ser un _lugar nuevo_",
+    "colonne": [
+     "cambiar de lugar mantiene la carrera nueva, y una meta como tus primeros 10 km te da un motivo para _seguir_",
+     "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
+    ],
+    "chute": "prueba una playa, un parque, un puente, un cerro"
+   },
+   "fr": {
+    "nom": "la course",
+    "accroche": "chaque sortie peut être un _nouveau lieu_",
+    "colonne": [
+     "changer d'endroit garde la course nouvelle, et un objectif comme un premier 10 km donne une raison de _continuer_",
+     "_petite astuce_: j'utilise atala, un coach de course par ia qui planifie ma semaine selon mon objectif"
+    ],
+    "chute": "essaie une plage, un parc, un pont, une colline"
+   },
+   "hu": {
+    "nom": "futás",
+    "accroche": "minden futás lehet egy _új helyen_",
+    "colonne": [
+     "ha máshol futsz, új marad, és egy cél, mint az első 10 km, okot ad az agyadnak, hogy _folytasd_",
+     "_pro tip_: az atala appot használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+    ],
+    "chute": "próbálj ki egy strandot, parkot, hidat, dombot"
+   },
+   "it": {
+    "nom": "correre",
+    "accroche": "ogni corsa può essere un _posto nuovo_",
+    "colonne": [
+     "cambiare posto tiene la corsa nuova, e un obiettivo come i primi 10 km dà un motivo per _continuare_",
+     "_piccolo consiglio_: uso atala, un coach di corsa con l'ia che organizza la mia settimana intorno al mio obiettivo"
+    ],
+    "chute": "prova una spiaggia, un parco, un ponte, una collina"
+   },
+   "pt-BR": {
+    "nom": "correr",
+    "accroche": "cada corrida pode ser um _lugar novo_",
+    "colonne": [
+     "mudar o lugar da corrida mantém tudo novo, e uma meta como os primeiros 10 km dá ao cérebro um motivo pra _continuar_",
+     "_dica_: eu uso o atala, um coach de corrida com ia que planeja minha semana em torno do meu objetivo"
+    ],
+    "chute": "teste uma praia, um parque, uma ponte, um morro"
+   },
+   "sr": {
+    "nom": "trčanje",
+    "accroche": "svako trčanje može biti na _novom mestu_",
+    "colonne": [
+     "kad menjaš gde trčiš, ostaje novo, a cilj kao prvih 10 km daje mozgu razlog da _nastavi_",
+     "_pro tip_: koristim aplikaciju atala, ai trenera za trčanje koji mi planira nedelju prema cilju"
+    ],
+    "chute": "probaj plažu, park, most, brdo"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/cartes.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "nom": "card tricks",
+    "accroche": "you get _better_ every _single night_",
+    "colonne": [
+     "one trick takes ten minutes to learn, and the look on someone's face is an _instant reward_"
+    ],
+    "chute": "a plain deck and one simple trick to start"
+   },
+   "bg": {
+    "nom": "трикове с карти",
+    "accroche": "ставаш _по-добър_ всяка _вечер_",
+    "colonne": [
+     "един трик се учи за десет минути, а изражението на другия е _мигновена награда_"
+    ],
+    "chute": "обикновено тесте и един лесен трик за начало"
+   },
+   "de": {
+    "nom": "kartentricks",
+    "accroche": "du wirst _jeden abend_ besser",
+    "colonne": [
+     "ein trick dauert zehn minuten, und das gesicht der anderen ist eine _sofortige belohnung_"
+    ],
+    "chute": "ein normales kartenspiel und ein einfacher trick"
+   },
+   "el": {
+    "nom": "τράπουλα και μαγικά",
+    "accroche": "γίνεσαι _καλύτερος_ κάθε _βράδυ_",
+    "colonne": [
+     "ένα κόλπο μαθαίνεται σε δέκα λεπτά, και η έκπληξη των άλλων είναι _άμεση ανταμοιβή_"
+    ],
+    "chute": "μια απλή τράπουλα και ένα εύκολο κόλπο"
+   },
+   "es-419": {
+    "nom": "trucos de cartas",
+    "accroche": "mejoras _cada noche_",
+    "colonne": [
+     "un truco se aprende en diez minutos, y la cara de la gente es una _recompensa inmediata_"
+    ],
+    "chute": "una baraja simple y un truco fácil para empezar"
+   },
+   "fr": {
+    "nom": "les tours de cartes",
+    "accroche": "tu progresses _chaque soir_",
+    "colonne": [
+     "un tour s'apprend en dix minutes, et la tête des gens est une _récompense immédiate_"
+    ],
+    "chute": "un jeu simple et un tour facile pour commencer"
+   },
+   "hu": {
+    "nom": "kártyatrükkök",
+    "accroche": "_minden este_ egy kicsit _jobb_ leszel",
+    "colonne": [
+     "egy trükköt tíz perc alatt megtanulsz, és a másik arca _azonnali jutalom_"
+    ],
+    "chute": "egy sima pakli és egy egyszerű trükk az elejére"
+   },
+   "it": {
+    "nom": "giochi di carte",
+    "accroche": "migliori _ogni singola sera_",
+    "colonne": [
+     "un trucco si impara in dieci minuti, e la faccia di chi guarda è una _ricompensa immediata_"
+    ],
+    "chute": "un mazzo semplice e un trucco facile per iniziare"
+   },
+   "pt-BR": {
+    "nom": "truques de cartas",
+    "accroche": "você fica _melhor_ toda _noite_",
+    "colonne": [
+     "um truque leva dez minutos pra aprender, e a cara de alguém é uma _recompensa instantânea_"
+    ],
+    "chute": "um baralho simples e um truque fácil pra começar"
+   },
+   "sr": {
+    "nom": "trikovi sa kartama",
+    "accroche": "_svake večeri_ si malo _bolji_",
+    "colonne": [
+     "jedan trik naučiš za deset minuta, a izraz na tuđem licu je _instant nagrada_"
+    ],
+    "chute": "običan špil i jedan lak trik za početak"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-pompei.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning to look at art",
+    "accroche": "one painting, a _hundred_ little _stories_",
+    "colonne": [
+     "every face in a big painting has its own drama, and spotting them keeps a restless brain _hunting_",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "pick one person in the painting and guess their story"
+   },
+   "bg": {
+    "nom": "да гледаш изкуство",
+    "accroche": "една картина, _сто_ малки _истории_",
+    "colonne": [
+     "всяко лице в голяма картина има своя драма, а търсенето им държи неспокойния мозък _нащрек_",
+     "_съвет_: ползвам artura, по едно произведение на ден с историята му и зуум върху детайлите, които иначе пропускаш"
+    ],
+    "chute": "избери един човек от картината и познай историята му"
+   },
+   "de": {
+    "nom": "kunst sehen lernen",
+    "accroche": "ein gemälde, _hundert_ kleine _geschichten_",
+    "colonne": [
+     "jedes gesicht auf einem großen bild hat sein eigenes drama, und sie zu entdecken hält einen unruhigen kopf _auf der jagd_",
+     "_pro tipp_: ich nutze artura, jeden tag ein kunstwerk mit seiner geschichte, mit zoom auf details, die man sonst übersieht"
+    ],
+    "chute": "such dir eine person im bild aus und rate ihre geschichte"
+   },
+   "el": {
+    "nom": "μαθαίνω να κοιτάζω τέχνη",
+    "accroche": "ένας πίνακας, _εκατό_ μικρές _ιστορίες_",
+    "colonne": [
+     "κάθε πρόσωπο σε έναν μεγάλο πίνακα έχει το δράμα του, και το ψάξιμο κρατά το μυαλό _σε εγρήγορση_",
+     "_μικρό tip_: χρησιμοποιώ το artura, ένα έργο τέχνης τη μέρα με την ιστορία του, με ζουμ στις λεπτομέρειες που θα έχανες"
+    ],
+    "chute": "διάλεξε ένα πρόσωπο και μάντεψε την ιστορία του"
+   },
+   "es-419": {
+    "nom": "aprender a mirar arte",
+    "accroche": "una pintura, _cien_ pequeñas _historias_",
+    "colonne": [
+     "cada cara de una gran pintura tiene su drama, y encontrarlas mantiene a un cerebro inquieto _cazando_",
+     "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
+    ],
+    "chute": "elige a una persona del cuadro y adivina su historia"
+   },
+   "fr": {
+    "nom": "apprendre à regarder l'art",
+    "accroche": "un tableau, _cent_ petites _histoires_",
+    "colonne": [
+     "chaque visage d'un grand tableau a son drame, et les repérer garde un cerveau agité _en chasse_",
+     "_petite astuce_: j'utilise artura, une œuvre par jour avec son histoire, en zoomant sur les détails qu'on raterait"
+    ],
+    "chute": "choisis un personnage et invente son histoire"
+   },
+   "hu": {
+    "nom": "megtanulni nézni a művészetet",
+    "accroche": "egy festmény, _száz_ kis _történet_",
+    "colonne": [
+     "egy nagy festményen minden arcnak saját drámája van, és a keresésük _vadászatban_ tartja a nyugtalan agyat",
+     "_pro tip_: az artura appot használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+    ],
+    "chute": "válassz egy alakot a képen, és találd ki a történetét"
+   },
+   "it": {
+    "nom": "imparare a guardare l'arte",
+    "accroche": "un dipinto, _cento_ piccole _storie_",
+    "colonne": [
+     "ogni volto in un grande dipinto ha il suo dramma, e trovarli tiene un cervello inquieto _a caccia_",
+     "_piccolo consiglio_: uso artura, un'opera al giorno con la sua storia, zoomando sui dettagli che ti sfuggirebbero"
+    ],
+    "chute": "scegli un personaggio e indovina la sua storia"
+   },
+   "pt-BR": {
+    "nom": "aprender a olhar arte",
+    "accroche": "uma pintura, _cem_ pequenas _histórias_",
+    "colonne": [
+     "cada rosto numa pintura grande tem seu drama, e achar todos mantém um cérebro inquieto _caçando_",
+     "_dica_: eu uso o artura, uma obra por dia com a sua história, com zoom nos detalhes que você perderia"
+    ],
+    "chute": "escolha uma pessoa na pintura e imagine a história dela"
+   },
+   "sr": {
+    "nom": "učiti da gledaš umetnost",
+    "accroche": "jedna slika, _sto_ malih _priča_",
+    "colonne": [
+     "svako lice na velikoj slici ima svoju dramu, a traženje drži nemirni mozak _u lovu_",
+     "_pro tip_: koristim aplikaciju artura, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+    ],
+    "chute": "izaberi jednu osobu na slici i pogodi njenu priču"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/sushi.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "making sushi",
+    "accroche": "fast, hands-on and _done_ in _an hour_",
+    "colonne": [
+     "rolling, cutting and plating are short steps, and you eat the result, the best kind of _feedback_"
+    ],
+    "chute": "most cooking schools run a one-night class"
+   },
+   "bg": {
+    "nom": "суши",
+    "accroche": "бързо, с ръце и _готово_ за _час_",
+    "colonne": [
+     "навиване, рязане и сервиране са кратки стъпки, а резултатът се яде, най-добрата _обратна връзка_"
+    ],
+    "chute": "повечето кулинарни школи имат вечерен курс"
+   },
+   "de": {
+    "nom": "sushi machen",
+    "accroche": "schnell, mit den händen und in _einer stunde_ _fertig_",
+    "colonne": [
+     "rollen, schneiden, anrichten sind kurze schritte, und du isst das ergebnis, das beste _feedback_"
+    ],
+    "chute": "viele kochschulen bieten einen abendkurs an"
+   },
+   "el": {
+    "nom": "φτιάχνω σούσι",
+    "accroche": "γρήγορο, με τα χέρια, _έτοιμο_ σε _μία ώρα_",
+    "colonne": [
+     "τυλίγεις, κόβεις, σερβίρεις: μικρά βήματα, και τρως το αποτέλεσμα, το καλύτερο _feedback_"
+    ],
+    "chute": "πολλές σχολές μαγειρικής κάνουν βραδινά μαθήματα"
+   },
+   "es-419": {
+    "nom": "hacer sushi",
+    "accroche": "rápido, con las manos y _listo_ en _una hora_",
+    "colonne": [
+     "enrollar, cortar y servir son pasos cortos, y te comes el resultado: el mejor _feedback_"
+    ],
+    "chute": "muchas escuelas de cocina dan clases de una noche"
+   },
+   "fr": {
+    "nom": "faire des sushis",
+    "accroche": "rapide, manuel et _fini_ en _une heure_",
+    "colonne": [
+     "rouler, couper, dresser : des étapes courtes, et tu manges le résultat, le meilleur _retour_"
+    ],
+    "chute": "beaucoup d'écoles de cuisine font un cours d'un soir"
+   },
+   "hu": {
+    "nom": "szusikészítés",
+    "accroche": "gyors, kézzel fogható, _egy óra_ alatt _kész_",
+    "colonne": [
+     "tekerés, vágás, tálalás: rövid lépések, és megeszed az eredményt, ez a legjobb _visszajelzés_"
+    ],
+    "chute": "a legtöbb főzőiskola tart egyestés kurzust"
+   },
+   "it": {
+    "nom": "fare il sushi",
+    "accroche": "veloce, manuale e _finito_ in _un'ora_",
+    "colonne": [
+     "arrotolare, tagliare, impiattare sono passi brevi, e poi mangi il risultato: il miglior _feedback_"
+    ],
+    "chute": "molte scuole di cucina fanno corsi di una sera"
+   },
+   "pt-BR": {
+    "nom": "fazer sushi",
+    "accroche": "rápido, com as mãos e _pronto_ em _uma hora_",
+    "colonne": [
+     "enrolar, cortar e montar são passos curtos, e você come o resultado, o melhor _feedback_"
+    ],
+    "chute": "a maioria das escolas de culinária tem aula de uma noite"
+   },
+   "sr": {
+    "nom": "pravljenje sušija",
+    "accroche": "brzo, rukama, _gotovo_ za _sat vremena_",
+    "colonne": [
+     "motanje, sečenje i serviranje su kratki koraci, a rezultat pojedeš, najbolji _fidbek_"
+    ],
+    "chute": "većina kulinarskih škola ima kurs za jedno veče"
+   }
+  }
+ ]
+}

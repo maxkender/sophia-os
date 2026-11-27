@@ -1,0 +1,114 @@
+{
+ "id": "sz-001",
+ "source": {
+  "url": "https://www.tiktok.com/@ssazem/photo/7688308123127352589",
+  "vues": 222000,
+  "publie_le": "2026-09-22",
+  "accroche": "believe in sudden positive shifts, things can change for you at anytime."
+ },
+ "titre": {
+  "en": "believe in sudden positive shifts, things can change for you at anytime."
+ },
+ "legendes": {
+  "en": "#fyp #venting"
+ },
+ "musique": {
+  "titre": "original sound - Matt",
+  "url": "https://www.tiktok.com/music/original-sound-7638059143613434654"
+ },
+ "compte": {
+  "images/compte/lion-herbes.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7688424378199067918",
+   "slide": 2
+  },
+  "images/compte/vache-montagne.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7690683962598984973",
+   "slide": 5
+  },
+  "images/compte/randonneur-ciel.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7690683962598984973",
+   "slide": 2
+  },
+  "images/compte/plage-soleil.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7694002416433237262",
+   "slide": 2
+  },
+  "images/compte/capuche-galets.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7690683962598984973",
+   "slide": 4
+  }
+ },
+ "notes": "Remake de son tube « believe in sudden positive shifts » (222 k vues, 7 k enregistrements, 22/09 ; #fyp #venting, original sound - Matt) : ses phrases 1, 2, 4 et 5 telles quelles, dans sa mise en page (le début à gauche, la suite à droite, Times en minuscules). Ses photos de ce post sont des acteurs : on ne les reprend pas, on pose ses phrases sur d'autres de SES photos sans célébrité (le lion de « sily you thinking you're behind », 56,7 k ; la vache, le randonneur et la capuche de « follow your soul », 37,3 k ; la plage de « let's not try to figure out everything at once »), son texte effacé par `npm run compte` (copie de texture, sans IA). Slide Sophia (3) à la place de sa phrase 3 (« when you become better, everything around you gets better. ») : la même idée, à la première personne, avec le logo de Sophia sous la suite ; cta A.",
+ "slides": [
+  {
+   "type": "citation",
+   "image": "images/compte/lion-herbes.jpg",
+   "encre": "noir",
+   "place": {
+    "x": 252,
+    "droite": 1235,
+    "base": 440
+   },
+   "en": {
+    "gauche": "believe in\nsudden positive\nshifts,",
+    "droite": "things can\nchange for you\nat anytime."
+   }
+  },
+  {
+   "type": "citation",
+   "image": "images/compte/vache-montagne.jpg",
+   "encre": "blanc",
+   "place": {
+    "x": 140,
+    "droite": 1300,
+    "base": 250
+   },
+   "en": {
+    "gauche": "the coolest thing in\nthe world",
+    "droite": "is being\nyourself."
+   }
+  },
+  {
+   "type": "sophia",
+   "image": "images/compte/randonneur-ciel.jpg",
+   "encre": "noir",
+   "place": {
+    "x": 120,
+    "droite": 660,
+    "base": 420
+   },
+   "en": {
+    "gauche": "one small lesson\na day on Sophia,",
+    "droite": "that's how i'm\nbecoming better."
+   }
+  },
+  {
+   "type": "citation",
+   "image": "images/compte/plage-soleil.jpg",
+   "encre": "blanc",
+   "place": {
+    "x": 330,
+    "droite": 920,
+    "base": 240
+   },
+   "en": {
+    "gauche": "move like\neverything is gonna\nwork out,",
+    "droite": "and it will."
+   }
+  },
+  {
+   "type": "citation",
+   "image": "images/compte/capuche-galets.jpg",
+   "encre": "blanc",
+   "place": {
+    "x": 750,
+    "droite": 1290,
+    "base": 630
+   },
+   "en": {
+    "gauche": "seeking validation\nfrom others",
+    "droite": "is going to\ndestroy you."
+   }
+  }
+ ]
+}

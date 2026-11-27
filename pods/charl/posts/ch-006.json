@@ -1,0 +1,152 @@
+{
+  "id": "ch-006",
+  "source": {
+    "url": "https://www.tiktok.com/@charl.focus/photo/7706621727106682144",
+    "vues": 362400,
+    "publie_le": "2026-11-10",
+    "accroche": "cómo arreglar tu DOPAMINA"
+  },
+  "titre": {
+    "es": "cómo aprender cualquier cosa (más rápido)"
+  },
+  "legendes": {
+    "es": "#aprender #estudiar #memoria #productividad #disciplina"
+  },
+  "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7635567841592331030"
+  },
+  "notes": "Preuve : « cómo arreglar tu DOPAMINA » de @charl.focus (362,4 k vues, 10/11), sa famille « cómo … tu / MOT CLÉ », sa musique. Faits vérifiés : Nestojko, Bui, Kornell et Bjork (2014, Memory & Cognition, Washington University in St. Louis) : les étudiants qui croyaient devoir enseigner le texte retenaient mieux et de façon plus organisée ; Rohrer et Taylor (2007, Instructional Science, University of South Florida) : exercices mélangés, 63 % de réussite au test une semaine après contre 20 % en blocs ; Kornell, Hays et Bjork (2009, JEP: Learning, Memory, and Cognition, UCLA) : essayer de répondre avant d'apprendre, même faux, améliore le souvenir. Slide Sophia (4) : « 3 · un tema cada día », LOGO en haut de la colonne ; cta C. Images : 6 Seedream et 8 de la banque. 6 slides.",
+  "banque": {
+    "images/banque/b-02d246a1.jpg": "02d246a1-bcab-486e-97ec-94a557129250",
+    "images/banque/b-0286465b.jpg": "0286465b-e9a0-4e38-a63a-b4d1ee70a688",
+    "images/banque/b-05b78355.jpg": "05b78355-dece-4d28-9a6b-1b142acb7994",
+    "images/banque/b-00946db8.jpg": "00946db8-54ef-408b-ad19-04d7ac0c244f",
+    "images/banque/b-24b39354.jpg": "24b39354-e4c3-47e1-a06c-ce7a3af03457",
+    "images/banque/b-04e5c4f4.jpg": "04e5c4f4-1ae4-457f-b56b-6e953fcdc6cb",
+    "images/banque/b-153677ff.jpg": "153677ff-f12b-43fa-972f-2fdf6eac5ac3",
+    "images/banque/b-0287798e.jpg": "0287798e-db49-4503-a321-94702f09b1bd"
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/photos/s6-irm.jpg"
+        },
+        {
+          "image": "images/banque/b-02d246a1.jpg"
+        },
+        {
+          "image": "images/photos/s6-cerveau.jpg"
+        },
+        {
+          "image": "images/banque/b-0286465b.jpg"
+        },
+        {
+          "image": "images/photos/s6-coupes.jpg"
+        },
+        {
+          "image": "images/banque/b-05b78355.jpg"
+        }
+      ],
+      "es": {
+        "haut": "cómo aprender",
+        "mot": "CUALQUIER COSA",
+        "note": "(más rápido)"
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/banque/b-00946db8.jpg"
+        },
+        {
+          "image": "images/photos/s6-tableau.jpg"
+        }
+      ],
+      "es": {
+        "titre": "explícalo.",
+        "paragraphes": [
+          "lees algo, te parece clarísimo y a los dos días no sabrías **explicarlo**.",
+          "en un estudio de la universidad de washington en san luis, a unos estudiantes les dijeron que luego **tendrían que enseñarlo**. lo recordaron **mejor y más ordenado**.",
+          "estudia como si mañana tuvieras que **explicárselo a alguien**."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/b-24b39354.jpg"
+        },
+        {
+          "image": "images/photos/s6-objets.jpg"
+        }
+      ],
+      "es": {
+        "titre": "mézclalo todo",
+        "paragraphes": [
+          "solemos practicar **un tipo de ejercicio** hasta dominarlo y luego pasar al siguiente.",
+          "en la universidad del sur de florida probaron a **mezclarlos**. una semana después, acertaban **un 63%**. los que practicaron por bloques, un 20%.",
+          "mezcla temas: **cuesta más**, pero se queda."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "photos": [
+        {
+          "image": "images/banque/b-04e5c4f4.jpg"
+        }
+      ],
+      "es": {
+        "titre": "un tema cada día",
+        "paragraphes": [
+          "no hace falta tener horas libres. hace falta **un poco cada día**.",
+          "en el metro hago **una lección de 10 minutos en Sophia**, con un quiz al final: hoy historia, mañana economía.",
+          "cambiar de tema cada día es justo **lo que pide el punto 2**."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/banque/b-153677ff.jpg"
+        },
+        {
+          "image": "images/photos/s6-ampoule.jpg"
+        }
+      ],
+      "es": {
+        "titre": "equivócate antes.",
+        "paragraphes": [
+          "en ucla vieron que **intentar responder antes de estudiar**, aunque falles, hace que luego recuerdes mejor la respuesta.",
+          "el error deja **un hueco** que tu cerebro quiere llenar.",
+          "antes de leer un tema, **adivina la respuesta**. fallar también es aprender."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "photos": [
+        {
+          "image": "images/banque/b-0287798e.jpg"
+        }
+      ],
+      "es": {
+        "titre": "puedes aprenderlo todo.",
+        "paragraphes": [
+          "no te falta talento: te falta **un método**.",
+          "explica, mezcla y equivócate pronto: **así aprende tu cerebro**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo y elige **qué vas a aprender este mes**."
+        ]
+      }
+    }
+  ]
+}

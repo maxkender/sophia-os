@@ -1,0 +1,106 @@
+{
+ "id": "sc-001",
+ "source": {
+  "url": "https://www.tiktok.com/@scilla2047/photo/7702941157252271374",
+  "vues": 1400000,
+  "publie_le": "2026-10-31",
+  "accroche": "What you must heal from based on your coping mechanism"
+ },
+ "titre": {
+  "en": "What your eyes stopped noticing since you started scrolling"
+ },
+ "legendes": {
+  "en": "you don't need a museum ticket to start looking again\n#art #arthistory #paintings #slowliving #attention"
+ },
+ "musique": {
+  "titre": "Deep in a Wave",
+  "url": "https://www.tiktok.com/music/Deep-in-a-Wave-7080777625089690414"
+ },
+ "oeuvres": {
+  "images/oeuvres/vermeer-jeune-femme.jpg": {
+   "musee": "The Met",
+   "id": "437879",
+   "titre": "Study of a Young Woman",
+   "artiste": "Johannes Vermeer",
+   "date": "ca. 1665–67",
+   "url": "https://www.metmuseum.org/art/collection/search/437879"
+  },
+  "images/oeuvres/vermeer-luth.jpg": {
+   "musee": "The Met",
+   "id": "437880",
+   "titre": "Young Woman with a Lute",
+   "artiste": "Johannes Vermeer",
+   "date": "ca. 1662–63",
+   "url": "https://www.metmuseum.org/art/collection/search/437880"
+  },
+  "images/oeuvres/rembrandt-autoportrait.jpg": {
+   "musee": "The Met",
+   "id": "437397",
+   "titre": "Self-Portrait",
+   "artiste": "Rembrandt (Rembrandt van Rijn)",
+   "date": "1660",
+   "url": "https://www.metmuseum.org/art/collection/search/437397"
+  },
+  "images/oeuvres/bruegel-moissonneurs.jpg": {
+   "musee": "The Met",
+   "id": "435809",
+   "titre": "The Harvesters",
+   "artiste": "Pieter Bruegel the Elder",
+   "date": "1565",
+   "url": "https://www.metmuseum.org/art/collection/search/435809"
+  },
+  "images/oeuvres/friedrich-lune.jpg": {
+   "musee": "The Met",
+   "id": "438417",
+   "titre": "Two Men Contemplating the Moon",
+   "artiste": "Caspar David Friedrich",
+   "date": "ca. 1825–30",
+   "url": "https://www.metmuseum.org/art/collection/search/438417"
+  }
+ },
+ "notes": "Preuve : « What you must heal from based on your coping mechanism » de @scilla2047 (1,4 M vues, 60 k enregistrements, 31/10 ; Deep in a Wave) : son format (couverture au titre noir et sa fin en rouge, une image en bas ; puis un titre court, un paragraphe en couleur assortie, une œuvre dessous), sur l'angle d'Adrien : réapprendre à regarder. Ses œuvres contemporaines sont remplacées par de vrais tableaux du domaine public (Met) : la Study of a Young Woman de Vermeer (couverture, cadrée sur les yeux), Young Woman with a Lute (Vermeer : la lumière d'une fenêtre à gauche, qu'il a peinte dans beaucoup de ses intérieurs), l'autoportrait de Rembrandt (1660), The Harvesters (Bruegel, 1565 : plein de petites scènes), Two Men Contemplating the Moon (Friedrich). Slide Artura (4) : « Details », avec le logo d'Artura à côté du Bruegel ; cta A. Aucune promesse de soin.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/oeuvres/vermeer-jeune-femme.jpg",
+   "cadrage": {
+    "y": 0.3
+   },
+   "en": {
+    "titre": "What your eyes stopped noticing since you started {scrolling}"
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/vermeer-luth.jpg",
+   "en": {
+    "titre": "Light",
+    "texte": "You used to notice how afternoon light falls across a room. Now it's just background. Vermeer painted the same window light again and again, until you couldn't look away from it."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/rembrandt-autoportrait.jpg",
+   "en": {
+    "titre": "Faces",
+    "texte": "You scroll past hundreds of faces a day and remember none of them. Stay with one portrait for two minutes and you'll find a whole person: tired eyes, a held breath, a life."
+   }
+  },
+  {
+   "type": "artura",
+   "image": "images/oeuvres/bruegel-moissonneurs.jpg",
+   "en": {
+    "titre": "Details",
+    "texte": "Great paintings hide small things only a slow eye finds. I look at one painting a day on Artura, and now I catch details everywhere."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/friedrich-lune.jpg",
+   "en": {
+    "titre": "Stillness",
+    "texte": "Your mind forgot how to look at one thing without jumping to the next. A landscape asks for nothing. It just waits until you're ready to see it."
+   }
+  }
+ ]
+}

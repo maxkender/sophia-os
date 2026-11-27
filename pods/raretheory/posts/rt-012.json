@@ -8,7 +8,8 @@
     "it": "argomenti di scienza che sembrano finti ma sono veri",
     "ro": "teme de știință care sună inventat, dar sunt reale",
     "tr": "kulağa uydurma gibi gelen ama gerçek bilim konuları",
-    "de": "wissenschaft, die so ausgedacht klingt, aber echt ist"
+    "de": "wissenschaft, die so ausgedacht klingt, aber echt ist",
+    "hu": "tudományos témák: kitaláltnak tűnnek, pedig igazak"
   },
   "legendes": {
     "en": "every single one of these sounds made up. every single one is real.\n\nchemistry that looks like magic, planets that shouldn't exist, living things that ignore the rules, earth doing weird stuff, and math that feels illegal.\n\npick the one u don't believe and look it up.\n\nsave this for ur next science rabbit hole.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok",
@@ -17,7 +18,8 @@
     "it": "ognuno di questi sembra inventato. ognuno è vero.\n\nchimica che sembra magia, pianeti che non dovrebbero esistere, esseri viventi che ignorano le regole, la terra che fa cose strane e matematica che sembra illegale.\n\nscegli quello a cui non credi e cercalo.\n\nsalvalo per il tuo prossimo rabbit hole scientifico.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok #imparaconte #scienza #perte",
     "ro": "fiecare dintre astea sună inventat. fiecare e reală.\n\nchimie care pare magie, planete care n-ar trebui să existe, viețuitoare care ignoră regulile, pământul care face chestii ciudate și matematică ce pare ilegală.\n\nalege-o pe cea pe care n-o crezi și caut-o.\n\nsalvează asta pt următorul tău rabbit hole științific.\n\n#studytok #learning #stiinta #curiozitati #romania",
     "tr": "bunların her biri uydurma gibi duruyor. her biri gerçek.\n\nsihir gibi görünen kimya, var olmaması gereken gezegenler, kurallara uymayan canlılar, tuhaflık yapan dünya ve yasa dışıymış gibi hissettiren matematik.\n\ninanmadığın birini seç ve araştır.\n\nbir sonraki bilim tavşan deliğin için kaydet.\n\n#studytok #learning #bilim #keşfet #merak",
-    "de": "jedes einzelne davon klingt ausgedacht. jedes einzelne ist echt.\n\nchemie, die wie magie aussieht, planeten, die es eigentlich nicht geben dürfte, lebewesen, die sich an keine regel halten, eine erde, die komische sachen macht, und mathe, die sich verboten anfühlt.\n\nnimm das, was du nicht glaubst, und schau es nach.\n\nspeicher dir das für dein nächstes wissenschafts-rabbit-hole.\n\n#studytok #learning #wissenschaft #allgemeinwissen #wissen"
+    "de": "jedes einzelne davon klingt ausgedacht. jedes einzelne ist echt.\n\nchemie, die wie magie aussieht, planeten, die es eigentlich nicht geben dürfte, lebewesen, die sich an keine regel halten, eine erde, die komische sachen macht, und mathe, die sich verboten anfühlt.\n\nnimm das, was du nicht glaubst, und schau es nach.\n\nspeicher dir das für dein nächstes wissenschafts-rabbit-hole.\n\n#studytok #learning #wissenschaft #allgemeinwissen #wissen",
+    "hu": "mindegyik kitaláltnak hangzik. és mindegyik igaz.\n\nkémia, ami varázslatnak tűnik, bolygók, amiknek nem kéne létezniük, élőlények, amik fittyet hánynak a szabályokra, a Föld fura dolgai, és matek, ami szinte illegálisnak tűnik.\n\nválaszd azt, amelyiket nem hiszed el, és nézz utána.\n\nmentsd el a következő tudományos nyúlüreghez.\n\n#tanulás #önfejlesztés #magyartiktok #studytok #learning"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -65,6 +67,9 @@
       },
       "de": {
         "titre": "wissenschaft, die so\nausgedacht klingt,\naber echt ist"
+      },
+      "hu": {
+        "titre": "tudományos témák:\nkitaláltnak tűnnek,\npedig igazak"
       }
     },
     {
@@ -193,6 +198,24 @@
           "Graphen",
           "Metallischer Wasserstoff",
           "Formgedächtnislegierungen"
+        ]
+      },
+      "hu": {
+        "titre": "Kémia, ami varázslatnak tűnik",
+        "sujets": [
+          "Nemnewtoni folyadékok",
+          "Túlhűtött víz",
+          "Aerogél",
+          "Ferrofluid",
+          "Gallium",
+          "Rupert herceg cseppjei",
+          "Tribolumineszcencia",
+          "Kemilumineszcencia",
+          "Szuperfolyékony hélium",
+          "Elefántfogkrém",
+          "Grafén",
+          "Fémes hidrogén",
+          "Alakemlékező fémek"
         ]
       }
     },
@@ -323,6 +346,24 @@
           "Die Geysire von Enceladus",
           "Das Herz von Pluto"
         ]
+      },
+      "hu": {
+        "titre": "Bolygók, amik kitaláltnak hangzanak",
+        "sujets": [
+          "A gyémántbolygó",
+          "A bolygó, ahol üveg esik",
+          "A Kepler-16b és a két napja",
+          "A valaha talált legsötétebb bolygó",
+          "A Vénuszon egy nap hosszabb egy évnél",
+          "Az Uránusz az oldalán forog",
+          "Olympus Mons",
+          "A Szaturnusz hatszöge",
+          "A Titán metántavai",
+          "Az Io vulkánjai",
+          "Az Europa rejtett óceánja",
+          "Az Enceladus gejzírjei",
+          "A Plútó szíve"
+        ]
       }
     },
     {
@@ -374,6 +415,13 @@
         "paragraphes": [
           "Sophia gibt mir jeden tag eine lektion, geschrieben von echten professoren, mit einem kleinen quiz danach. geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
           "das sind 10 minuten, und so hab ich gelernt, dass die hälfte von dem, was ich für erfunden hielt, echt ist."
+        ]
+      },
+      "hu": {
+        "titre": "ahol utánanézek",
+        "paragraphes": [
+          "a Sophia minden nap ad nekem egy leckét, amit igazi professzorok írnak, és utána van egy kis kvíz. történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "10 perc, és így tudtam meg, hogy a fele annak, amit kamunak hittem, valójában igaz."
         ]
       }
     },
@@ -504,6 +552,24 @@
           "Die Titanenwurz",
           "Die Mimose"
         ]
+      },
+      "hu": {
+        "titre": "Élet, ami felrúgja a szabályokat",
+        "sujets": [
+          "A napenergiával élő tengeri csiga",
+          "Elektromos angolnák",
+          "A hidra",
+          "Zuzmók",
+          "A pisztolyrák",
+          "A lövőhal",
+          "Üvegbékák",
+          "A nyálkahal nyálkája",
+          "A tüdőshal",
+          "A béka, amely keményre fagy",
+          "A Vénusz légycsapója",
+          "A hullavirág",
+          "A szemérmes mimóza"
+        ]
       }
     },
     {
@@ -633,6 +699,24 @@
           "Der grüne Blitz",
           "Der kochende Fluss"
         ]
+      },
+      "hu": {
+        "titre": "A Föld fura dolgai",
+        "sujets": [
+          "A vándorló kövek",
+          "Éneklő homokdűnék",
+          "Morning Glory-felhők",
+          "Holdszivárvány",
+          "Tenger alatti jégcsapok",
+          "Penitentesek",
+          "Tűzszivárvány",
+          "A Catatumbo-villámlás",
+          "A Véres-vízesés",
+          "Fagyvirágok",
+          "Fényoszlopok",
+          "A zöld villanás",
+          "A forrásban lévő folyó"
+        ]
       }
     },
     {
@@ -755,6 +839,23 @@
           "Die Mandelbrot-Menge",
           "Raumfüllende Kurven"
         ]
+      },
+      "hu": {
+        "titre": "Matek, ami kamunak hangzik",
+        "sujets": [
+          "A Graham-szám",
+          "Googolplex",
+          "A Banach–Tarski-paradoxon",
+          "Gabriel kürtje",
+          "0,999... = 1",
+          "A szőrös labda tétel",
+          "A négyszíntétel",
+          "A Szörny-csoport",
+          "A Kaprekar-állandó",
+          "A szorgos hód probléma",
+          "A Mandelbrot-halmaz",
+          "Térkitöltő görbék"
+        ]
       }
     },
     {
@@ -786,6 +887,10 @@
       "de": {
         "texte": "speicher dir das und schick es an die freundin, die sagt, wissenschaft sei langweilig. nimm dir ein thema und beweis ihr das gegenteil.",
         "gras": "ODER.. glaub weiter, das ist alles erfunden."
+      },
+      "hu": {
+        "texte": "mentsd el, és küldd el annak a barátodnak, aki szerint a tudomány unalmas. válassz egy témát, és bizonyítsd be, hogy téved.",
+        "gras": "VAGY.. hidd tovább, hogy az egész kitaláció."
       }
     }
   ]

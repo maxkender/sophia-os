@@ -8,7 +8,8 @@
     "it": "cose che rendono i musei molto più interessanti",
     "ro": "subiecte care fac muzeele mult mai interesante",
     "tr": "müzeleri çok daha ilginç yapan konular",
-    "de": "themen, die museen viel spannender machen"
+    "de": "so werden museen viel spannender",
+    "hu": "így lesz a múzeum sokkal izgalmasabb"
   },
   "legendes": {
     "en": "museums are boring until u know what u're looking at. then they're the best place on earth.\n\npaintings with hidden details, objects older than most countries, the techniques behind the masterpieces, famous sculptures and the museums themselves.\n\nlearn one before ur next visit and watch how different it feels.\n\nsave this for ur next museum day.\n\n#arthistory #museum #learning #curiosity #studytok",
@@ -17,7 +18,8 @@
     "it": "i musei sono noiosi finché non sai cosa stai guardando. poi diventano il posto più bello del mondo.\n\nquadri con dettagli nascosti, oggetti più antichi della maggior parte dei paesi, le tecniche dietro i capolavori, sculture famose e i musei stessi.\n\nimparane uno prima della tua prossima visita e senti quanto cambia.\n\nsalvalo per il tuo prossimo giorno al museo.\n\n#arthistory #museum #learning #curiosity #studytok #storiadellarte #musei #arte",
     "ro": "muzeele sunt plictisitoare până știi la ce te uiți. atunci devin cel mai tare loc de pe pământ.\n\ntablouri cu detalii ascunse, obiecte mai vechi decât majoritatea țărilor, tehnicile din spatele capodoperelor, sculpturi celebre și muzeele în sine.\n\ninvață unul înainte de următoarea vizită și vezi cât de diferit se simte.\n\nsalvează asta pt următoarea zi la muzeu.\n\n#studytok #learning #arthistory #istoriaartei #muzeu",
     "tr": "müzeler, neye baktığını bilene kadar sıkıcı. sonra dünyanın en güzel yeri oluyorlar.\n\ngizli detaylı tablolar, çoğu ülkeden daha yaşlı eserler, başyapıtların arkasındaki teknikler, ünlü heykeller ve müzelerin kendisi.\n\nbir sonraki ziyaretinden önce birini öğren ve ne kadar farklı hissettirdiğini gör.\n\nbir sonraki müze günün için kaydet.\n\n#studytok #learning #sanattarihi #müze #keşfet",
-    "de": "museen sind langweilig, bis du weißt, was du dir da anschaust. dann sind sie der beste ort der welt.\n\ngemälde mit versteckten details, objekte, die älter sind als die meisten länder, die techniken hinter den meisterwerken, berühmte skulpturen und die museen selbst.\n\nlern eins vor deinem nächsten besuch und merk, wie anders es sich anfühlt.\n\nspeicher dir das für deinen nächsten museumstag.\n\n#studytok #learning #kunstgeschichte #museum #allgemeinwissen"
+    "de": "museen sind langweilig, bis du weißt, was du dir da anschaust. dann sind sie der beste ort der welt.\n\ngemälde mit versteckten details, objekte, die älter sind als die meisten länder, die techniken hinter den meisterwerken, berühmte skulpturen und die museen selbst.\n\nlern eins vor deinem nächsten besuch und merk, wie anders es sich anfühlt.\n\nspeicher dir das für deinen nächsten museumstag.\n\n#studytok #learning #kunstgeschichte #museum #allgemeinwissen",
+    "hu": "a múzeumok unalmasak, amíg nem tudod, mit nézel. utána a világ legjobb helyei.\n\nfestmények rejtett részletekkel, tárgyak, amik régebbiek a legtöbb országnál, a remekművek technikái, híres szobrok és maguk a múzeumok.\n\ntanulj meg egyet a következő látogatásod előtt, és figyeld meg, mennyire más lesz.\n\nmentsd el a következő múzeumos napodra.\n\n#művészettörténet #múzeum #magyartiktok #studytok #learning"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -65,7 +67,10 @@
         "titre": "müzeleri çok daha\nilginç yapan konular"
       },
       "de": {
-        "titre": "themen, die museen\nviel spannender\nmachen"
+        "titre": "so werden museen\nviel spannender"
+      },
+      "hu": {
+        "titre": "így lesz a múzeum\nsokkal izgalmasabb"
       }
     },
     {
@@ -188,6 +193,23 @@
           "Die Sternennacht",
           "Ein Sonntag auf La Grande Jatte"
         ]
+      },
+      "hu": {
+        "titre": "Festmények rejtett részletekkel",
+        "sujets": [
+          "Az Arnolfini házaspár",
+          "A követek",
+          "Las Meninas",
+          "A gyönyörök kertje",
+          "Németalföldi közmondások",
+          "Éjjeli őrjárat",
+          "Leány gyöngy fülbevalóval",
+          "Az utolsó vacsora",
+          "A Mona Lisa sfumatója",
+          "Vénusz születése",
+          "Csillagos éj",
+          "Vasárnap délután a Grande Jatte szigeten"
+        ]
       }
     },
     {
@@ -309,6 +331,23 @@
           "Der Codex Hammurapi",
           "Der Teppich von Bayeux",
           "Das Book of Kells"
+        ]
+      },
+      "hu": {
+        "titre": "Ősi tárgyak",
+        "sujets": [
+          "A lewisi sakkfigurák",
+          "A nebrai égkorong",
+          "Tutanhamon halotti maszkja",
+          "Nofretete mellszobra",
+          "Az uri sztenderd",
+          "A Sutton Hoo-i sisak",
+          "A Lükurgosz-kehely",
+          "Az Istár-kapu",
+          "A gundestrupi üst",
+          "Hammurapi törvényoszlopa",
+          "A bayeux-i kárpit",
+          "A kellsi kódex"
         ]
       }
     },
@@ -439,6 +478,24 @@
           "Glasmalerei",
           "Pointillismus"
         ]
+      },
+      "hu": {
+        "titre": "Hogyan készültek a remekművek",
+        "sujets": [
+          "Freskó",
+          "Tojástempera",
+          "Olajlazúr",
+          "Chiaroscuro",
+          "Sfumato",
+          "Impasto",
+          "Lineáris perspektíva",
+          "Trompe-l'œil",
+          "Aranyfüst",
+          "Enkausztika",
+          "Fametszet",
+          "Ólomüveg",
+          "Pointillizmus"
+        ]
       }
     },
     {
@@ -490,6 +547,13 @@
         "paragraphes": [
           "ich recherchiere das alles nicht von null auf. jeden abend mache ich eine kurze lektion bei Sophia: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
           "sie sind von echten professoren geschrieben, mit einem kleinen quiz danach. wenn ich dann vor dem gemälde stehe, kenn ich seine geschichte schon."
+        ]
+      },
+      "hu": {
+        "titre": "esténként egy lecke",
+        "paragraphes": [
+          "nem mindennek a nulláról nézek utána. minden este csinálok egy rövid leckét a Sophia appban: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "igazi professzorok írják, és utána van egy kis kvíz, így mire a festmény elé állok, tényleg ismerem a történetét."
         ]
       }
     },
@@ -613,6 +677,23 @@
           "Die Moai",
           "Brâncușis Vogel im Raum"
         ]
+      },
+      "hu": {
+        "titre": "Szobrok, amiket érdemes ismerni",
+        "sujets": [
+          "A számothrakéi Niké",
+          "A milói Vénusz",
+          "A Pietà",
+          "A gondolkodó",
+          "A diszkoszvető",
+          "A calais-i polgárok",
+          "Bernini: Apollón és Daphné",
+          "A fátyolos szűz",
+          "A kis táncosnő",
+          "A Laokoón-csoport",
+          "A moai szobrok",
+          "Brâncuși: Madár a térben"
+        ]
       }
     },
     {
@@ -735,6 +816,23 @@
           "Das Guggenheim-Museum Bilbao",
           "Das Akropolismuseum"
         ]
+      },
+      "hu": {
+        "titre": "Maguk a múzeumok",
+        "sujets": [
+          "A Louvre",
+          "Az Uffizi",
+          "A Prado",
+          "Az Ermitázs",
+          "A Rijksmuseum",
+          "A Musée d'Orsay",
+          "A Vatikáni Múzeumok",
+          "A Metropolitan Művészeti Múzeum",
+          "A londoni Nemzeti Galéria",
+          "Csodakamrák",
+          "A bilbaói Guggenheim Múzeum",
+          "Az Akropolisz Múzeum"
+        ]
       }
     },
     {
@@ -766,6 +864,10 @@
       "de": {
         "texte": "speicher dir das vor deinem nächsten besuch im museum. such dir drei dinge aus dieser liste aus und finde sie vor ort.",
         "gras": "ODER.. lauf wie alle anderen dran vorbei."
+      },
+      "hu": {
+        "texte": "mentsd el, mielőtt legközelebb múzeumba mész. válassz ki hármat erről a listáról, és keresd meg őket élőben.",
+        "gras": "VAGY.. sétálj el mellettük, mint mindenki más."
       }
     }
   ]

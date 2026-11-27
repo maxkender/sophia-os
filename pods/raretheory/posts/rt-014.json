@@ -8,7 +8,8 @@
     "it": "domande che alle 3 di notte ti mandano in tilt il cervello",
     "ro": "întrebări care îți fac praf creierul la 3 noaptea",
     "tr": "gece 3'te beynini yakacak sorular",
-    "de": "fragen, die dein hirn um 3 uhr nachts sprengen"
+    "de": "fragen, die dein hirn um 3 uhr nachts sprengen",
+    "hu": "kérdések, amiktől hajnali 3-kor leég az agyad"
   },
   "legendes": {
     "en": "some questions don't have answers. that's exactly why they're worth thinking about.\n\nthe mind, how we know anything, time, right and wrong, and why anything exists at all.\n\nphilosophers have argued about these for centuries. u get to join in.\n\nsave this for the next night u can't sleep.\n\n#philosophy #deepthoughts #learning #curiosity #studytok",
@@ -17,7 +18,8 @@
     "it": "certe domande non hanno risposta. ed è proprio per questo che vale la pena pensarci.\n\nla mente, come facciamo a sapere qualcosa, il tempo, il bene e il male, e perché esiste qualcosa.\n\ni filosofi ne discutono da secoli. puoi unirti anche tu.\n\nsalvalo per la prossima notte in cui non riesci a dormire.\n\n#philosophy #deepthoughts #learning #curiosity #studytok #filosofia #pensieri #perte",
     "ro": "unele întrebări n-au răspuns. exact de asta merită să te gândești la ele.\n\nmintea, cum putem ști ceva, timpul, binele și răul și de ce există ceva până la urmă.\n\nfilozofii se ceartă pe ele de secole. acum poți să intri și tu în discuție.\n\nsalvează asta pt următoarea noapte în care nu poți dormi.\n\n#studytok #learning #filozofie #ganduri #romania",
     "tr": "bazı soruların cevabı yok. tam da bu yüzden üzerine düşünmeye değerler.\n\nzihin, bir şeyi nasıl bildiğimiz, zaman, doğru ve yanlış, ve neden herhangi bir şeyin var olduğu.\n\nfilozoflar bunları yüzyıllardır tartışıyor. sen de katılabilirsin.\n\nuyuyamadığın bir sonraki gece için kaydet.\n\n#studytok #learning #felsefe #derindüşünceler #keşfet",
-    "de": "manche fragen haben keine antwort. genau deshalb lohnt es sich, über sie nachzudenken.\n\nder geist, wie wir überhaupt etwas wissen, die zeit, richtig und falsch und warum überhaupt etwas existiert.\n\nphilosophen streiten seit jahrhunderten darüber. du darfst mitmachen.\n\nspeicher dir das für die nächste nacht, in der du nicht schlafen kannst.\n\n#studytok #learning #philosophie #deepthoughts #allgemeinwissen"
+    "de": "manche fragen haben keine antwort. genau deshalb lohnt es sich, über sie nachzudenken.\n\nder geist, wie wir überhaupt etwas wissen, die zeit, richtig und falsch und warum überhaupt etwas existiert.\n\nphilosophen streiten seit jahrhunderten darüber. du darfst mitmachen.\n\nspeicher dir das für die nächste nacht, in der du nicht schlafen kannst.\n\n#studytok #learning #philosophie #deepthoughts #allgemeinwissen",
+    "hu": "vannak kérdések, amikre nincs válasz. pont ezért érdemes gondolkodni rajtuk.\n\naz elme, hogy honnan tudunk bármit is, az idő, a jó és a rossz, és hogy miért létezik egyáltalán bármi.\n\na filozófusok évszázadok óta vitatkoznak ezeken. most te is beszállhatsz.\n\nmentsd el a következő éjszakára, amikor nem tudsz aludni.\n\n#filozófia #önfejlesztés #magyartiktok #studytok #learning"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -65,6 +67,9 @@
       },
       "de": {
         "titre": "fragen, die dein hirn\num 3 uhr nachts\nsprengen"
+      },
+      "hu": {
+        "titre": "kérdések, amiktől\nhajnali 3-kor leég\naz agyad"
       }
     },
     {
@@ -165,6 +170,20 @@
           "Das Problem des Fremdpsychischen",
           "Personale Identität",
           "Das Leib-Seele-Problem"
+        ]
+      },
+      "hu": {
+        "titre": "Az elme",
+        "sujets": [
+          "A tudat nehéz problémája",
+          "Kváliák",
+          "Mary szobája",
+          "Filozófiai zombik",
+          "A kínai szoba",
+          "Agy a tartályban",
+          "A más elmék problémája",
+          "Személyes identitás",
+          "A test–elme probléma"
         ]
       }
     },
@@ -267,6 +286,20 @@
           "Schwarze Schwäne",
           "Die Karte ist nicht das Gebiet"
         ]
+      },
+      "hu": {
+        "titre": "Honnan tudunk bármit is?",
+        "sujets": [
+          "Az indukció problémája",
+          "Gettier-problémák",
+          "Descartes gonosz démona",
+          "A Münchhausen-trilemma",
+          "Hume villája",
+          "Cáfolhatóság",
+          "Bayes-i gondolkodás",
+          "Fekete hattyúk",
+          "A térkép nem azonos a területtel"
+        ]
       }
     },
     {
@@ -318,6 +351,13 @@
         "paragraphes": [
           "bevor ich in ein rabbit hole abtauche, mache ich die 10-minuten-lektion bei Sophia. eine kurze lektion am tag: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
           "jede ist von echten professoren geschrieben und endet mit einem kleinen quiz. bei philosophie dachte ich, ich würde es hassen. jetzt ist es mein lieblingsthema."
+        ]
+      },
+      "hu": {
+        "titre": "hogyan kezdtem bele",
+        "paragraphes": [
+          "mielőtt lemegyek egy nyúlüregbe, megcsinálom a 10 perces leckét a Sophia appban. napi egy rövid lecke: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "mindegyiket igazi professzorok írják, és a végén van egy kis kvíz. azt hittem, a filozófiát utálni fogom. most az a kedvencem."
         ]
       }
     },
@@ -413,6 +453,19 @@
           "Der Wärmetod des Universums",
           "Warum wir uns nur an die Vergangenheit erinnern"
         ]
+      },
+      "hu": {
+        "titre": "Az idő",
+        "sujets": [
+          "Mi az idő?",
+          "Az idő iránya",
+          "A blokkuniverzum",
+          "Prezentizmus vs. eternalizmus",
+          "Determinizmus",
+          "Zárt időszerű görbék",
+          "Az univerzum hőhalála",
+          "Miért emlékszünk a múltra, de a jövőre nem?"
+        ]
       }
     },
     {
@@ -506,6 +559,19 @@
           "Der kategorische Imperativ",
           "Tugendethik",
           "Die abstoßende Schlussfolgerung"
+        ]
+      },
+      "hu": {
+        "titre": "Jó és rossz",
+        "sujets": [
+          "Gügész gyűrűje",
+          "Az élménygép",
+          "Erkölcsi szerencse",
+          "A van–kell probléma",
+          "Az Euthüphrón-dilemma",
+          "A kategorikus imperatívusz",
+          "Erényetika",
+          "A visszataszító következtetés"
         ]
       }
     },
@@ -608,6 +674,20 @@
           "Wabi-Sabi",
           "Ubuntu-Philosophie"
         ]
+      },
+      "hu": {
+        "titre": "Miért létezik bármi is?",
+        "sujets": [
+          "Miért van inkább valami, mint semmi?",
+          "Az antropikus elv",
+          "A finomhangolás problémája",
+          "Nihilizmus",
+          "Sziszüphosz mítosza",
+          "Amor fati",
+          "Memento mori",
+          "Wabi-szabi",
+          "Ubuntu-filozófia"
+        ]
       }
     },
     {
@@ -639,6 +719,10 @@
       "de": {
         "texte": "speicher dir das fürs nächste mal, wenn dein hirn nicht abschalten will. such dir eine frage aus, lies darüber und bilde dir deine eigene antwort.",
         "gras": "ODER.. lieg da und denk trotzdem zu viel nach."
+      },
+      "hu": {
+        "texte": "mentsd el arra az estére, amikor nem tudod kikapcsolni az agyad. válassz egy kérdést, olvass róla, és alakítsd ki a saját válaszod.",
+        "gras": "VAGY.. feküdj ott, és agyalj tovább."
       }
     }
   ]

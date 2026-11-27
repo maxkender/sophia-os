@@ -335,7 +335,8 @@ export function dateAppli(date: string, langue = "en"): string {
   if (langue === "hr" && hr) {
     const k = Number(hr[1]);
     const forme = (un: string, peu: string, plus: string) => (k % 10 === 1 && k % 100 !== 11 ? un : k % 10 >= 2 && k % 10 <= 4 && (k % 100 < 12 || k % 100 > 14) ? peu : plus);
-    const mots: Record<string, string> = { "g.": forme("godinu", "godine", "godina"), "mj.": forme("mjesec", "mjeseca", "mjeseci"), "tj.": forme("tjedan", "tjedna", "tjedana"), "dan.": forme("dan", "dana", "dana"), dan: forme("dan", "dana", "dana"), "d.": forme("dan", "dana", "dana"), "h.": forme("sat", "sata", "sati"), "sat.": forme("sat", "sata", "sati"), sat: forme("sat", "sata", "sati"), "min.": forme("minutu", "minute", "minuta") };
+    // « prije » + génitif : prije 1 godine, prije 3 godine, prije 5 godina.
+    const mots: Record<string, string> = { "g.": forme("godine", "godine", "godina"), "mj.": forme("mjeseca", "mjeseca", "mjeseci"), "tj.": forme("tjedna", "tjedna", "tjedana"), "dan.": forme("dana", "dana", "dana"), dan: forme("dana", "dana", "dana"), "d.": forme("dana", "dana", "dana"), "h.": forme("sata", "sata", "sati"), "sat.": forme("sata", "sata", "sati"), sat: forme("sata", "sata", "sati"), "min.": forme("minute", "minute", "minuta") };
     return `prije ${k} ${mots[hr[2]]}`;
   }
   const lv = date.match(/^pirms (\d+)\s*(g\.|mēn\.|ned\.|d\.|st\.|min\.)$/);
@@ -412,21 +413,21 @@ function vuesSuedoises(n: number): string {
   return n >= 1e9 ? `${tronque(n / 1e9)} md visningar` : n >= 1e6 ? `${tronque(n / 1e6)} mn visningar` : n >= 1e3 ? `${tronque(n / 1e3)} tn visningar` : `${n} visningar`;
 }
 
-/** « pre 8 god. » → « pre 8 godina » : l'appli écrit le mot entier, accordé au nombre. */
+/** « pre 8 god. » → « pre 8 godina » : l'appli écrit le mot entier, au génitif (« pre 1 godine »). */
 export function dateSerbe(date: string): string {
   const m = date.match(/^pre (\d+)\s*(god\.|mes\.|ned\.|dan\.?|sat\.?|min\.)$/);
   if (!m) return date;
   const n = Number(m[1]);
   const forme = (un: string, peu: string, plus: string) => (n % 10 === 1 && n % 100 !== 11 ? un : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? peu : plus);
   const mots: Record<string, string> = {
-    "god.": forme("godinu", "godine", "godina"),
-    "mes.": forme("mesec", "meseca", "meseci"),
-    "ned.": forme("nedelju", "nedelje", "nedelja"),
-    "dan.": forme("dan", "dana", "dana"),
-    dan: forme("dan", "dana", "dana"),
-    "sat.": forme("sat", "sata", "sati"),
-    sat: forme("sat", "sata", "sati"),
-    "min.": forme("minut", "minuta", "minuta"),
+    "god.": forme("godine", "godine", "godina"),
+    "mes.": forme("meseca", "meseca", "meseci"),
+    "ned.": forme("nedelje", "nedelje", "nedelja"),
+    "dan.": forme("dana", "dana", "dana"),
+    dan: forme("dana", "dana", "dana"),
+    "sat.": forme("sata", "sata", "sati"),
+    sat: forme("sata", "sata", "sati"),
+    "min.": forme("minuta", "minuta", "minuta"),
   };
   return `pre ${n} ${mots[m[2]]}`;
 }

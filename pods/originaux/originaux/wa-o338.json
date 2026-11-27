@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o338",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "826d6509-6f96-4eb6-9b80-619c772b3820",
+ "titre": "gentle habits that made me feel elegant and feminine #feminine #elegance #softlife #selfcare #habits",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "ee1099e0-b008-42ad-93f9-70b66176ba1e"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, ee1099e0). déclinaison G2 de « habits i wish i knew sooner that made me ultra feminine » (parent 826d6509). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "09182a66-b36e-441c-ba88-c555a9f6342c",
+   "texte_overlay": "gentle habits that made me\nfeel elegant and feminine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cef9dd03-348b-4e37-8c72-5acb15ca99f1",
+   "texte_overlay": "moving with grace\n\ni started moving more slowly, walking, sitting down, turning a page. an unhurried pace gives you a soft, graceful presence that people notice from across the room.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "48eeadfe-d9cb-43a2-ab37-0b06dde7b38d",
+   "texte_overlay": "a softer voice\n\ni stopped rushing my words and let my voice settle lower and calmer. people lean in when you speak gently, and every conversation feels warmer and more intimate.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "109ff7d7-ac5c-47fc-b85e-a19fc3fd440f",
+   "texte_overlay": "lovely things to talk about\n\ni always have a beautiful story or fact ready, and it makes me feel graceful in any conversation. having something beautiful to share is the softest kind of confidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/4.jpg",
+   "texte_sophia": "lovely things to talk about\n\ni always have something lovely to share now. i spend 5 minutes a day on one lesson in the Sophia app, a myth or a painting, and it makes me feel so elegant in conversations."
+  },
+  {
+   "position": 5,
+   "media_id": "d39680d6-3084-4651-b2ec-8522dac75170",
+   "texte_overlay": "choosing peace\n\ni stopped joining every drama and argument around me. choosing calm over chaos, again and again, has made me feel softer and much more like the woman i want to be.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a0b3a599-1d89-4796-9ab9-5ef7b99aa1cc",
+   "texte_overlay": "tiny daily rituals\n\ni turned ordinary chores into small rituals with candles, music and pretty cups. it makes every day feel gentle and makes me feel like the main character of my own story.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/6.jpg"
+  }
+ ]
+}

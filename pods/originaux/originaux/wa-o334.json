@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o334",
+ "type_bleo": "full_test",
+ "titre": "small habits of gentle, calm people #calm #gentle #peace #habits #selfimprovement",
+ "musique_titre": "worry (ultra slowed)",
+ "musique_url": "https://www.tiktok.com/music/worry-ultra-slowed-7654785567999739913",
+ "inspirations": [
+  "9474b26f-d26f-4af5-9adf-75db7767f3b3"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9474b26f). full test BLEO : accroche jamais faite (format « small habits of gentle, X people »). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3c71bcd0-1e53-4f84-90e4-56eef0a63b1e",
+   "texte_overlay": "small habits of\ngentle, calm people",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6e60e47a-f844-4b8c-8ae6-4117da3158b1",
+   "texte_overlay": "they speak softly\n\nthey never raise their voice to be heard. a calm, gentle tone makes people lean in and listen more carefully than they ever would to someone shouting over them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cc3ce16b-acc2-4e88-9d49-4d8e581a46f9",
+   "texte_overlay": "they feed their mind gently\n\ncalm people give their minds something beautiful every day instead of a constant stream of noise. a mind with gentle things to think about has far less room for worry.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/3.jpg",
+   "texte_sophia": "they feed their mind gently\n\nmy mind used to feel loud all day. now i spend 5 minutes a day on one lesson in the Sophia app, a constellation or a painting, and that gentle habit keeps me calm and steady."
+  },
+  {
+   "position": 4,
+   "media_id": "982a47ad-e38e-4065-a240-1134f8c341df",
+   "texte_overlay": "they move slowly\n\nthey walk, eat and talk at an unhurried pace. moving slowly through the day keeps their nervous system calm, and everyone around them seems to relax a little too.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fe95ce35-9309-4a7b-994c-affdff485a2c",
+   "texte_overlay": "they forgive small things\n\nthey let little mistakes and clumsy words go instead of holding on to them. forgiving the small stuff saves their peace for what really matters in life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bfdc1bde-8e13-46b2-b3d9-e9d919ad0b54",
+   "texte_overlay": "they make time for nature\n\nthey take a slow walk outside most days, even just around the block. trees, sky and fresh air quietly reset a busy mind better than almost anything else can.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/6.jpg"
+  }
+ ]
+}

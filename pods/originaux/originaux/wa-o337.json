@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o337",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1efc9abc-f175-4774-ba7f-b0cd5e28deba",
+ "titre": "little signs you're more intelligent than you think #intelligence #psychology #brain #signs #selfimprovement",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "d44988d2-cdb3-45fa-86f0-7f140e11af99"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, d44988d2). déclinaison G2 de « quiet signs you re smarter than you think » (parent 1efc9abc). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "adae06c3-d208-40da-b5d4-862ab963352e",
+   "texte_overlay": "little signs you're more\nintelligent than you think",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3eca2206-f0a9-4509-9a93-9791ec69961f",
+   "texte_overlay": "you double check yourself\n\nyou question your own first answer before you trust it. people who know a lot tend to know exactly how much they don't, so a little self doubt is a very good sign.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "efc4da36-5f51-4b28-9127-9323674fc01c",
+   "texte_overlay": "routine bores you quickly\n\nrepetition and small talk drain your energy fast. a mind that needs fresh ideas to stay awake is usually a mind that is always searching for something to understand.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f916ce8a-02e7-44e5-9430-d6a7f41ce706",
+   "texte_overlay": "you can't stop wondering\n\nyou wonder why the sky is blue or how old the moon is, and you love finding out the answers. that constant wondering is the habit behind almost every brilliant mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/4.jpg",
+   "texte_sophia": "you can't stop wondering\n\ni can never stop wondering. i spend 5 minutes a day on one lesson in the Sophia app, why cats purr or how stars die, and feeding that curiosity keeps my mind sharp and happy."
+  },
+  {
+   "position": 5,
+   "media_id": "c486e654-acc5-4feb-aa9c-551d8f3f668e",
+   "texte_overlay": "you talk things through\n\nyou solve problems by thinking out loud, quietly or not. saying your thoughts in words slows them down and organises them, which is exactly why it leads to better answers.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "edf72b18-2084-4144-9747-1c26eefe077a",
+   "texte_overlay": "you notice what others miss\n\nyou spot small details nobody else sees: a change in someone's tone, a crooked picture, a pattern in numbers. close attention is one of the quietest signs of intelligence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/6.jpg"
+  }
+ ]
+}

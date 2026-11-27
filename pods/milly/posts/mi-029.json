@@ -1,0 +1,781 @@
+{
+ "id": "mi-029",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7683191907333180702",
+  "vues": 142100,
+  "publie_le": "2026-09-08",
+  "accroche": "Habits / that increase / Intelligence"
+ },
+ "fond": "bordeaux",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5c8e2731-faf9-40c2-b3bc-dd9e5d261e4c",
+ "musique": {
+  "titre": "original sound - glow 💯",
+  "url": "https://www.tiktok.com/music/original-sound-7605402756827941640"
+ },
+ "notes": "Déclinaison G1 de mi-008 « Habits that grow your Brain » (ligne 1 de la boîte du 27/11, meilleur passage es-419 5,2 k vues, r 7) : titre et couverture du parent mot pour mot dans chaque langue, autres conseils, autres images, autre fond, autre CTA. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta B. Faits vérifiés : un an de marche (40 minutes, trois fois par semaine) a augmenté le volume de l'hippocampe d'environ 2 % chez des adultes âgés, alors qu'il diminuait dans le groupe étirements (Erickson et al., PNAS 2011) ; trois mois d'apprentissage du jonglage augmentent la matière grise de zones visuelles du mouvement, qui régresse après l'arrêt (Draganski et al., Nature 2004) ; les apprentis chauffeurs de taxi londoniens qui ont obtenu « The Knowledge » ont vu grossir leur hippocampe postérieur, pas ceux qui ont échoué ni les témoins (Woollett et Maguire, Current Biology 2011). 11 langues. Images : banque (dti, hippocampe, irm-axiale), sans texte.",
+ "titre": {
+  "en": "Habits that grow your Brain",
+  "fr": "Les habitudes qui font grandir ton cerveau",
+  "es": "Hábitos que hacen crecer tu cerebro",
+  "es-419": "Hábitos que hacen crecer tu cerebro",
+  "it": "Abitudini che fanno crescere il cervello",
+  "tr": "Beynini büyüten alışkanlıklar",
+  "pt-BR": "Hábitos que fazem seu cérebro crescer",
+  "sl": "Navade, zaradi katerih možgani rastejo",
+  "hr": "Navike od kojih mozak raste",
+  "de": "Gewohnheiten, die dein Gehirn wachsen lassen",
+  "hu": "Szokások, amelyektől nő az agyad"
+ },
+ "legendes": {
+  "en": "your brain keeps changing #brain #neuroplasticity #learning #hippocampus #habits",
+  "fr": "ton cerveau change toute ta vie #cerveau #neuroplasticité #apprendre #hippocampe #habitudes",
+  "es": "tu cerebro sigue cambiando #cerebro #neuroplasticidad #aprender #hipocampo #hábitos",
+  "es-419": "tu cerebro sigue cambiando #cerebro #neuroplasticidad #aprender #hipocampo #hábitos",
+  "it": "il tuo cervello continua a cambiare #cervello #neuroplasticità #imparare #ippocampo #abitudini",
+  "tr": "beynin değişmeye devam eder #beyin #nöroplastisite #öğrenme #hipokampus #alışkanlıklar",
+  "pt-BR": "seu cérebro continua mudando #cerebro #neuroplasticidade #aprender #hipocampo #habitos",
+  "sl": "tvoji možgani se ves čas spreminjajo #možgani #nevroplastičnost #učenje #hipokampus #navade",
+  "hr": "tvoj se mozak stalno mijenja #mozak #neuroplastičnost #učenje #hipokampus #navike",
+  "de": "dein gehirn verändert sich weiter #gehirn #neuroplastizität #lernen #hippocampus #gewohnheiten",
+  "hu": "az agyad folyamatosan változik #agy #neuroplaszticitás #tanulás #hippokampusz #szokások"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/dti.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "Habits",
+      "taille": "grand"
+     },
+     {
+      "t": "that grow",
+      "taille": "petit"
+     },
+     {
+      "t": "your",
+      "taille": "petit"
+     },
+     {
+      "t": "Brain",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Habitudes",
+      "taille": "grand"
+     },
+     {
+      "t": "qui font grandir",
+      "taille": "petit"
+     },
+     {
+      "t": "ton",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerveau",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que hacen crecer",
+      "taille": "petit"
+     },
+     {
+      "t": "tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerebro",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que hacen crecer",
+      "taille": "petit"
+     },
+     {
+      "t": "tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerebro",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Abitudini",
+      "taille": "grand"
+     },
+     {
+      "t": "che fanno crescere",
+      "taille": "petit"
+     },
+     {
+      "t": "il tuo",
+      "taille": "petit"
+     },
+     {
+      "t": "Cervello",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Beynini",
+      "taille": "grand"
+     },
+     {
+      "t": "büyüten",
+      "taille": "petit"
+     },
+     {
+      "t": "Alışkanlıklar",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que fazem",
+      "taille": "petit"
+     },
+     {
+      "t": "seu cérebro",
+      "taille": "petit"
+     },
+     {
+      "t": "Crescer",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Navade",
+      "taille": "grand"
+     },
+     {
+      "t": "zaradi katerih",
+      "taille": "petit"
+     },
+     {
+      "t": "možgani",
+      "taille": "petit"
+     },
+     {
+      "t": "Rastejo",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Navike",
+      "taille": "grand"
+     },
+     {
+      "t": "od kojih",
+      "taille": "petit"
+     },
+     {
+      "t": "tvoj",
+      "taille": "petit"
+     },
+     {
+      "t": "Mozak raste",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Gewohnheiten",
+      "taille": "grand"
+     },
+     {
+      "t": "die dein Gehirn",
+      "taille": "petit"
+     },
+     {
+      "t": "wachsen",
+      "taille": "grand"
+     },
+     {
+      "t": "lassen",
+      "taille": "moyen"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Szokások",
+      "taille": "grand"
+     },
+     {
+      "t": "amelyektől",
+      "taille": "petit"
+     },
+     {
+      "t": "nő az",
+      "taille": "petit"
+     },
+     {
+      "t": "Agyad",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Walk Most Days",
+    "blocs": [
+     {
+      "p": "Your hippocampus, a key region for memory, slowly shrinks with age. In a one-year trial, older adults who walked for 40 minutes three times a week grew it by about 2%, while a group that only did stretching kept losing volume."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "You don't need a gym. A brisk walk, most days of the week, is one of the best-studied habits for a healthier brain."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Marche presque tous les jours",
+    "blocs": [
+     {
+      "p": "L'hippocampe, une région clé de la mémoire, rétrécit lentement avec l'âge. Dans un essai d'un an, des adultes âgés qui marchaient 40 minutes trois fois par semaine l'ont fait grossir d'environ 2 %, alors qu'un groupe qui faisait seulement des étirements continuait d'en perdre."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Pas besoin de salle de sport. Une marche rapide, presque tous les jours, est l'une des habitudes les mieux étudiées pour un cerveau en meilleure santé."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Camina casi todos los días",
+    "blocs": [
+     {
+      "p": "El hipocampo, una región clave para la memoria, se encoge poco a poco con la edad. En un ensayo de un año, adultos mayores que caminaban 40 minutos tres veces por semana lo hicieron crecer cerca de un 2 %, mientras que un grupo que solo hacía estiramientos seguía perdiendo volumen."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "No necesitas gimnasio. Caminar a buen ritmo casi todos los días es uno de los hábitos más estudiados para un cerebro más sano."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Camina casi todos los días",
+    "blocs": [
+     {
+      "p": "El hipocampo, una región clave para la memoria, se encoge poco a poco con la edad. En un estudio de un año, adultos mayores que caminaban 40 minutos tres veces por semana lo hicieron crecer cerca de un 2 %, mientras que un grupo que solo hacía estiramientos seguía perdiendo volumen."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "No necesitas gym. Caminar a buen paso casi todos los días es uno de los hábitos más estudiados para un cerebro más sano."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Cammina quasi ogni giorno",
+    "blocs": [
+     {
+      "p": "L'ippocampo, una regione chiave per la memoria, si riduce lentamente con l'età. In uno studio di un anno, adulti anziani che camminavano 40 minuti tre volte a settimana lo hanno fatto crescere di circa il 2 %, mentre un gruppo che faceva solo stretching continuava a perderne volume."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Non serve la palestra. Una camminata veloce, quasi tutti i giorni, è una delle abitudini più studiate per un cervello più sano."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Neredeyse her gün yürü",
+    "blocs": [
+     {
+      "p": "Hafıza için kilit bir bölge olan hipokampus yaşla birlikte yavaşça küçülür. Bir yıllık bir çalışmada haftada üç kez 40 dakika yürüyen yaşlı yetişkinlerde hipokampus yaklaşık %2 büyüdü; sadece esneme yapan grupta ise hacim kaybı sürdü."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Spor salonuna gerek yok. Haftanın çoğu günü tempolu bir yürüyüş, daha sağlıklı bir beyin için en çok araştırılmış alışkanlıklardan biri."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Caminhe quase todo dia",
+    "blocs": [
+     {
+      "p": "O hipocampo, uma região-chave da memória, encolhe devagar com a idade. Num estudo de um ano, idosos que caminhavam 40 minutos três vezes por semana o fizeram crescer cerca de 2 %, enquanto um grupo que só fazia alongamento continuou perdendo volume."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Você não precisa de academia. Uma caminhada rápida, na maioria dos dias, é um dos hábitos mais estudados para um cérebro mais saudável."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Hodi skoraj vsak dan",
+    "blocs": [
+     {
+      "p": "Hipokampus, ključno območje za spomin, se s starostjo počasi krči. V enoletni raziskavi je starejšim odraslim, ki so trikrat na teden po 40 minut hodili, zrasel za približno 2 %, skupina, ki se je samo raztezala, pa ga je še naprej izgubljala."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Fitnesa ne potrebuješ. Hitra hoja večino dni v tednu je ena najbolj raziskanih navad za bolj zdrave možgane."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Hodaj gotovo svaki dan",
+    "blocs": [
+     {
+      "p": "Hipokampus, ključno područje za pamćenje, s godinama se polako smanjuje. U jednogodišnjem istraživanju starijim je odraslima koji su tri puta tjedno hodali po 40 minuta narastao za oko 2 %, dok je skupina koja se samo istezala i dalje gubila volumen."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Ne treba ti teretana. Brzo hodanje većinu dana u tjednu jedna je od najbolje istraženih navika za zdraviji mozak."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Geh fast jeden Tag spazieren",
+    "blocs": [
+     {
+      "p": "Der Hippocampus, eine Schlüsselregion für das Gedächtnis, schrumpft mit dem Alter langsam. In einer einjährigen Studie wuchs er bei älteren Erwachsenen, die dreimal pro Woche 40 Minuten gingen, um etwa 2 %, während eine Gruppe, die nur Dehnübungen machte, weiter Volumen verlor."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Du brauchst kein Fitnessstudio. Zügiges Gehen an den meisten Tagen der Woche ist eine der am besten untersuchten Gewohnheiten für ein gesünderes Gehirn."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Sétálj szinte minden nap",
+    "blocs": [
+     {
+      "p": "A hippokampusz, az emlékezet egyik kulcsterülete, a korral lassan zsugorodik. Egy egyéves vizsgálatban azoknál az idősebb felnőtteknél, akik hetente háromszor 40 percet sétáltak, nagyjából 2 %-kal megnőtt, míg a csak nyújtó csoportban tovább csökkent."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Nem kell konditerem. A tempós séta a hét legtöbb napján az egyik legjobban kutatott szokás az egészségesebb agyért."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Learn Something New Every Night",
+    "blocs": [
+     {
+      "p": "New skills change the brain's structure. In one study, three months of learning to juggle increased grey matter in areas that process movement, and the gain faded once people stopped practising."
+     },
+     {
+      "p": "The lesson: keep learning, regularly. One short lesson every evening, like a training session, keeps your brain working on something new."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia makes this easy: one short lesson a night, on a different subject each time."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Apprends du neuf chaque soir",
+    "blocs": [
+     {
+      "p": "Les nouvelles compétences changent la structure du cerveau. Dans une étude, trois mois d'apprentissage du jonglage ont augmenté la matière grise de zones qui traitent le mouvement, et le gain s'estompait une fois l'entraînement arrêté."
+     },
+     {
+      "p": "La leçon : continuer d'apprendre, régulièrement. Une courte leçon chaque soir, comme une séance d'entraînement, garde ton cerveau occupé à quelque chose de neuf."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia rend ça facile : une courte leçon par soir, sur un sujet différent à chaque fois."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Aprende algo nuevo cada noche",
+    "blocs": [
+     {
+      "p": "Las habilidades nuevas cambian la estructura del cerebro. En un estudio, tres meses aprendiendo malabares aumentaron la materia gris en zonas que procesan el movimiento, y la mejora se desvanecía al dejar de practicar."
+     },
+     {
+      "p": "La lección: seguir aprendiendo, con regularidad. Una lección corta cada noche, como una sesión de entrenamiento, mantiene a tu cerebro trabajando en algo nuevo."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo pone fácil: una lección corta por noche, cada vez sobre un tema distinto."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Aprende algo nuevo cada noche",
+    "blocs": [
+     {
+      "p": "Las habilidades nuevas cambian la estructura del cerebro. En un estudio, tres meses aprendiendo malabares aumentaron la materia gris en zonas que procesan el movimiento, y la mejora desaparecía al dejar de practicar."
+     },
+     {
+      "p": "La lección: seguir aprendiendo, con constancia. Una lección corta cada noche, como una sesión de entrenamiento, mantiene a tu cerebro trabajando en algo nuevo."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo hace fácil: una lección corta cada noche, sobre un tema diferente cada vez."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Impara qualcosa ogni sera",
+    "blocs": [
+     {
+      "p": "Le nuove abilità cambiano la struttura del cervello. In uno studio, tre mesi passati a imparare la giocoleria hanno aumentato la materia grigia in aree che elaborano il movimento, e il guadagno svaniva quando si smetteva di esercitarsi."
+     },
+     {
+      "p": "La lezione: continuare a imparare, con regolarità. Una breve lezione ogni sera, come un allenamento, tiene il cervello al lavoro su qualcosa di nuovo."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo rende facile: una breve lezione a sera, ogni volta su un argomento diverso."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Her akşam yeni bir şey öğren",
+    "blocs": [
+     {
+      "p": "Yeni beceriler beynin yapısını değiştirir. Bir çalışmada üç ay boyunca jonglörlük öğrenmek, hareketi işleyen bölgelerde gri maddeyi artırdı; çalışmayı bırakınca bu artış azaldı."
+     },
+     {
+      "p": "Ders şu: düzenli olarak öğrenmeye devam et. Her akşam bir antrenman gibi kısa bir ders, beynini yeni bir şeyle meşgul tutar."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia bunu kolaylaştırıyor: her gece kısa bir ders, her seferinde farklı bir konuda."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Aprenda algo novo toda noite",
+    "blocs": [
+     {
+      "p": "Habilidades novas mudam a estrutura do cérebro. Num estudo, três meses aprendendo malabarismo aumentaram a massa cinzenta em áreas que processam movimento, e o ganho sumia quando as pessoas paravam de praticar."
+     },
+     {
+      "p": "A lição: continuar aprendendo, com regularidade. Uma lição curta toda noite, como um treino, mantém seu cérebro trabalhando em algo novo."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophia facilita isso: uma lição curta por noite, cada vez sobre um assunto diferente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Vsak večer se nauči kaj novega",
+    "blocs": [
+     {
+      "p": "Nove veščine spreminjajo zgradbo možganov. V eni raziskavi so trije meseci učenja žongliranja povečali sivino v območjih, ki obdelujejo gibanje, pridobitev pa je izginila, ko so ljudje nehali vaditi."
+     },
+     {
+      "p": "Nauk: uči se še naprej, redno. Kratka lekcija vsak večer, kot trening, ohranja možgane pri delu z nečim novim."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia to olajša: ena kratka lekcija na večer, vsakič o drugi temi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Svake večeri nauči nešto novo",
+    "blocs": [
+     {
+      "p": "Nove vještine mijenjaju građu mozga. U jednom istraživanju tri mjeseca učenja žongliranja povećala su sivu tvar u područjima koja obrađuju pokret, a dobitak je nestao kad su ljudi prestali vježbati."
+     },
+     {
+      "p": "Pouka: nastavi učiti, redovito. Kratka lekcija svake večeri, kao trening, drži mozak zaposlenim nečim novim."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia to olakšava: jedna kratka lekcija navečer, svaki put o drugoj temi."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lerne jeden Abend etwas Neues",
+    "blocs": [
+     {
+      "p": "Neue Fähigkeiten verändern die Struktur des Gehirns. In einer Studie erhöhten drei Monate Jonglieren-Lernen die graue Substanz in Bereichen, die Bewegung verarbeiten, und der Zuwachs ging zurück, als die Leute aufhörten zu üben."
+     },
+     {
+      "p": "Die Lehre: weiterlernen, regelmäßig. Eine kurze Lektion jeden Abend, wie eine Trainingseinheit, hält dein Gehirn mit etwas Neuem beschäftigt."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia macht es leicht: eine kurze Lektion pro Abend, jedes Mal zu einem anderen Thema."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tanulj valami újat minden este",
+    "blocs": [
+     {
+      "p": "Az új készségek megváltoztatják az agy szerkezetét. Egy vizsgálatban három hónap zsonglőrködés-tanulás megnövelte a szürkeállományt a mozgást feldolgozó területeken, és a növekedés eltűnt, amikor abbahagyták a gyakorlást."
+     },
+     {
+      "p": "A tanulság: tanulj tovább, rendszeresen. Egy rövid lecke minden este, mint egy edzés, valami újjal foglalkoztatja az agyadat."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophia ezt könnyűvé teszi: egy rövid lecke esténként, mindig más témáról."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Find Your Way Without GPS",
+    "blocs": [
+     {
+      "p": "London taxi drivers spend years memorising the city's streets. Trainees who passed the exam showed growth in the back of the hippocampus, while those who failed, and non-drivers, did not."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Try navigating from memory now and then: plan your route, look at the map once, then put your phone away."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Trouve ton chemin sans GPS",
+    "blocs": [
+     {
+      "p": "Les chauffeurs de taxi londoniens passent des années à mémoriser les rues de la ville. Les apprentis qui ont réussi l'examen ont vu grossir l'arrière de leur hippocampe, pas ceux qui ont échoué, ni les non-chauffeurs."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Essaie de temps en temps de t'orienter de mémoire : prépare ton trajet, regarde la carte une fois, puis range ton téléphone."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Oriéntate sin GPS",
+    "blocs": [
+     {
+      "p": "Los taxistas de Londres pasan años memorizando las calles de la ciudad. Los aprendices que aprobaron el examen mostraron crecimiento en la parte posterior del hipocampo; los que suspendieron y quienes no eran taxistas, no."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Prueba de vez en cuando a orientarte de memoria: planea tu ruta, mira el mapa una vez y guarda el móvil."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Ubícate sin GPS",
+    "blocs": [
+     {
+      "p": "Los taxistas de Londres pasan años memorizando las calles de la ciudad. Los aprendices que pasaron el examen mostraron crecimiento en la parte posterior del hipocampo; los que reprobaron y quienes no eran taxistas, no."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Prueba de vez en cuando a ubicarte de memoria: planea tu ruta, mira el mapa una vez y guarda el celular."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Orientati senza GPS",
+    "blocs": [
+     {
+      "p": "I tassisti di Londra passano anni a memorizzare le strade della città. Gli aspiranti che hanno superato l'esame mostravano una crescita nella parte posteriore dell'ippocampo; chi era stato bocciato e chi non guidava taxi, no."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Ogni tanto prova a orientarti a memoria: pianifica il percorso, guarda la mappa una volta, poi metti via il telefono."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Yolunu GPS'siz bul",
+    "blocs": [
+     {
+      "p": "Londra'daki taksi şoförleri şehrin sokaklarını ezberlemek için yıllar harcar. Sınavı geçen adaylarda hipokampusun arka kısmı büyüdü; sınavı geçemeyenlerde ve taksi şoförü olmayanlarda büyümedi."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Arada bir yolunu hafızadan bulmayı dene: rotanı planla, haritaya bir kez bak, sonra telefonunu kaldır."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Ache o caminho sem GPS",
+    "blocs": [
+     {
+      "p": "Os taxistas de Londres passam anos decorando as ruas da cidade. Os aprendizes que passaram na prova tiveram crescimento na parte de trás do hipocampo; os que reprovaram e quem não era taxista, não."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "De vez em quando, tente se orientar de memória: planeje o trajeto, olhe o mapa uma vez e guarde o celular."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Najdi pot brez GPS-a",
+    "blocs": [
+     {
+      "p": "Londonski taksisti leta pomnijo mestne ulice. Pri vajencih, ki so izpit opravili, je zadnji del hipokampusa zrasel, pri tistih, ki so padli, in pri netaksistih pa ne."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Tu in tam poskusi najti pot po spominu: načrtuj pot, enkrat poglej zemljevid, nato pospravi telefon."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Snađi se bez GPS-a",
+    "blocs": [
+     {
+      "p": "Londonski taksisti godinama pamte gradske ulice. Kod polaznika koji su položili ispit stražnji dio hipokampusa je narastao, a kod onih koji su pali i kod onih koji nisu taksisti nije."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Povremeno se pokušaj snaći po sjećanju: isplaniraj put, jednom pogledaj kartu, pa spremi mobitel."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Finde den Weg ohne GPS",
+    "blocs": [
+     {
+      "p": "Londoner Taxifahrer lernen jahrelang die Straßen der Stadt auswendig. Bei Anwärtern, die die Prüfung bestanden, wuchs der hintere Teil des Hippocampus, bei denen, die durchfielen, und bei Nicht-Fahrern nicht."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Versuch ab und zu, dich aus dem Gedächtnis zu orientieren: Route planen, einmal auf die Karte schauen, dann das Handy wegstecken."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Találj utat GPS nélkül",
+    "blocs": [
+     {
+      "p": "A londoni taxisok éveken át tanulják meg a város utcáit. Azoknál a jelölteknél, akik letették a vizsgát, megnőtt a hippokampusz hátsó része; akik megbuktak, és akik nem taxisok, azoknál nem."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Néha próbálj fejből tájékozódni: tervezd meg az utat, nézz rá egyszer a térképre, aztán tedd el a telefont."
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -21,6 +21,7 @@ import {
   labelsFermesConnus,
   lireReglagesChoixLabel,
   normaliserStatLabel,
+  palierPlein,
   partsPlafonnees,
   placeLibrePod,
   poidsLabel,
@@ -492,7 +493,10 @@ Deno.test("rien à choisir : null ; doublons ignorés ; lignes RPC normalisées"
       pod_seul: false,
       livre_langue: true,
       niveau_pod: null,
+      contenus_valides: null,
       langue_ouverte: false,
+      palier_podz: null,
+      cible_langue: null,
     },
   );
   const vide = normaliserStatLabel({ label_id: "x" });
@@ -690,4 +694,54 @@ Deno.test("place libre : deux podz avec une place se départagent comme d'habitu
   const ordre = classerLabels([stat({ label_id: "alpha_male" }), a, b], R).map((c) => c.label_id);
   assertEquals(ordre[2], "alpha_male");
   assertEquals(new Set(ordre.slice(0, 2)), new Set(["milly", "polytay"]));
+});
+
+// ── Paliers des labels 100 % podz (0874) : 7 langues × 1, 14 × 1, 14 × 2, sans test ──
+
+Deno.test("palier : un label au palier n'est jamais en test, même à 0 compte et 0 post", () => {
+  const neuf = stat({ ...FATHOMLY, label_id: "msclzz", comptes_total: 0, passages: 0, palier_podz: 1, cible_langue: 1, langue_ouverte: true });
+  assertEquals(enTestPod(neuf, R, APP), false);
+  assertEquals(testPodPlein({ ...neuf, comptes_total: 9 }, R, APP), false);
+  assertEquals(demarragePod(neuf, R, APP), false);
+  // Sa langue ouverte sans compte : une place, devant tout.
+  assert(placeLibrePod(neuf));
+  assertEquals(choisirLabel([...FR_24_10, neuf], R), "msclzz");
+});
+
+Deno.test("palier 3 : deux comptes par langue, le second passe encore devant tout", () => {
+  const un = stat({ ...FATHOMLY, label_id: "sagace", comptes_total: 15, comptes_langue: 1, palier_podz: 3, cible_langue: 2, langue_ouverte: true });
+  assert(placeLibrePod(un));
+  assertEquals(choisirLabel([...FR_24_10, un], R), "sagace");
+  // Deux comptes dans la langue : plein, écarté (il ne prend rien hors de ses places).
+  const deux = { ...un, comptes_langue: 2 };
+  assertEquals(placeLibrePod(deux), false);
+  assert(palierPlein(deux));
+  assertEquals(classerLabels([...FR_24_10, deux], R).some((c) => c.label_id === "sagace"), false);
+});
+
+Deno.test("palier : hors de ses langues (cible 0) ou sans rien livré, aucune place et écarté", () => {
+  const hors = stat({ ...FATHOMLY, label_id: "scilla_art", comptes_total: 2, palier_podz: 1, cible_langue: 0 });
+  assertEquals(placeLibrePod(hors), false);
+  assert(palierPlein(hors));
+  assertEquals(classerLabels([stat({ label_id: "alpha_male" }), hors], R).map((c) => c.label_id), ["alpha_male"]);
+  const rienLivre = stat({ ...FATHOMLY, label_id: "dorian_art", palier_podz: 1, cible_langue: 1, langue_ouverte: true, livre_langue: false });
+  assert(palierPlein(rienLivre));
+  // Un ancien label (sans palier) garde l'ancienne règle : une seule place par langue, puis le test.
+  const ancien = stat({ ...FATHOMLY, comptes_langue: 1, langue_ouverte: true, cible_langue: 1 });
+  assertEquals(placeLibrePod(ancien), false);
+  assertEquals(palierPlein(ancien), false);
+});
+
+Deno.test("palier : un label fermé reste fermé, même avec une place", () => {
+  const place = stat({ ...FATHOMLY, label_id: "msclzz", palier_podz: 1, cible_langue: 1, langue_ouverte: true });
+  const ferme = reglages({ fermes: ["msclzz"] });
+  assertEquals(choisirLabel([place, stat({ label_id: "alpha_male" })], ferme), "alpha_male");
+});
+
+Deno.test("palier : normaliserStatLabel lit le palier et la cible", () => {
+  const s = normaliserStatLabel({ label_id: "x", palier_podz: 2, cible_langue: "1" });
+  assertEquals(s.palier_podz, 2);
+  assertEquals(s.cible_langue, 1);
+  const sans = normaliserStatLabel({ label_id: "x" });
+  assertEquals(sans.palier_podz, null);
 });

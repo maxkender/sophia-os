@@ -47,6 +47,7 @@ import {
 import { candidatesRepartition } from "@/features/moteur/repartition/candidates";
 import { CarteFileLabels } from "@/features/moteur/repartition/CarteFileLabels";
 import { CartePodz } from "@/features/moteur/repartition/CartePodz";
+import { lirePaliersPodz } from "@/features/moteur/repartition/paliersPodz";
 import { ReaffectationLabelFerme } from "@/features/moteur/repartition/ReaffectationLabelFerme";
 import { fileDeLApplication } from "@/features/moteur/repartition/fileApplication";
 import {
@@ -238,18 +239,34 @@ export function AdminRepartitionPage() {
     parApp.some((q) => q.isPending);
   const pret = !chargement && !erreur && candidates.length > 0;
 
+  /**
+   * Les paliers des labels 100 % podz (0874), lus à part : la simulation ne les
+   * rend pas. Posés sur les stats, ils font sortir ces labels du « test ».
+   */
+  const paliers = useQuery({ queryKey: ["podz-paliers"], queryFn: lirePaliersPodz });
+  const avecPaliers = React.useCallback(
+    (stats: StatLabel[]): StatLabel[] => {
+      const parLabel = new Map((paliers.data ?? []).filter((p) => p.palier).map((p) => [p.label_id, p.palier]));
+      return parLabel.size ? stats.map((s) => (parLabel.has(s.label_id) ? { ...s, palier_podz: parLabel.get(s.label_id) } : s)) : stats;
+    },
+    [paliers.data],
+  );
+
   /** Les stats de chaque application, indexées par marché. */
   const statsParAppEtMarche = React.useMemo(() => {
     const out: Record<string, Record<string, StatLabel[]>> = {};
     candidates.forEach((a, i) => {
-      for (const m of parApp[i]?.data ?? []) (out[cleMarche(m)] ??= {})[a.id] = m.stats;
+      for (const m of parApp[i]?.data ?? []) (out[cleMarche(m)] ??= {})[a.id] = avecPaliers(m.stats);
     });
     return out;
-  }, [candidates, parApp]);
+  }, [candidates, parApp, avecPaliers]);
 
   const marchesParApp = React.useMemo(
-    () => Object.fromEntries(candidates.map((a, i) => [a.id, parApp[i]?.data ?? []])),
-    [candidates, parApp],
+    () =>
+      Object.fromEntries(
+        candidates.map((a, i) => [a.id, (parApp[i]?.data ?? []).map((m) => ({ ...m, stats: avecPaliers(m.stats) }))]),
+      ),
+    [candidates, parApp, avecPaliers],
   );
 
   /** Les labels 100 % podz (0352), toutes applications : leur nom porte la marque pod. */
@@ -308,7 +325,7 @@ export function AdminRepartitionPage() {
             marchesParApp={marchesParApp}
             reglages={reglages.data}
           />
-          <CartePodz applications={candidates} marchesParApp={marchesParApp} reglages={reglages.data} />
+          <CartePodz applications={candidates} marchesParApp={marchesParApp} reglages={reglages.data} paliers={paliers.data ?? []} />
           <CarteFileLabels
             slugsEnPreparation={slugsEnPreparation}
             // Sans cible posée, le moteur s'abstient : rien à dire sur les parts.

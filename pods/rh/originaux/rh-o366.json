@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o366",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6f40ca82-d1c0-48aa-9881-ae71ff69b16c",
+ "titre": "9 mois de chômage : ce que j'aurais dû faire dès le premier #chomage #rechercheemploi #emploi #candidature #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "BLEO voie 1, routine du 27/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Déclinaison G2 de la ligne #10 (parent 6f40ca82), 2e : même promesse, autres mots, conseils différents de rh-o133 et rh-o355. Sujet traité en général. Inspirations reprises de rh-o133. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c374adee",
+   "texte_overlay": "9 mois de chômage :\nce que j'aurais dû faire\ndès le premier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3c93b1d5",
+   "texte_overlay": "prévenir mon réseau tout de suite\npas au 6e mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6aeee230",
+   "texte_overlay": "faire une liste de 20 boîtes qui me plaisaient\net les contacter une par une",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3a4ae2dd",
+   "texte_overlay": "garder une routine\nréveil, sport, recherche le matin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "75c1271c",
+   "texte_overlay": "accepter les petites missions\nelles mènent souvent aux grandes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "042602fc",
+   "texte_overlay": "rester à jour\nmes 3 sources : des webinaires, des livres, 5 minutes par jour",
+   "texte_sophia": "rester à jour\nmes 3 sources : des webinaires, des livres, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "23b38f8b",
+   "texte_overlay": "t'es pas seule.\ncommence par un truc aujourd'hui",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  }
+ ]
+}

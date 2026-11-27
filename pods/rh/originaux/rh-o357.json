@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o357",
+ "type_bleo": "full_test",
+ "titre": "les 5 trucs que je note juste après chaque entretien #entretien #rechercheemploi #emploi #preparation #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 27/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (les notes d'après entretien). Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f5ee806e",
+   "texte_overlay": "les 5 trucs que je note\njuste après\nchaque entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d360c2a7",
+   "texte_overlay": "le prénom de chaque personne\npour le mail de remerciement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d01b3b2b",
+   "texte_overlay": "les questions qui m'ont gênée\npour les préparer la prochaine fois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b96e4c9f",
+   "texte_overlay": "ce qui m'a plu, ce qui m'a fait peur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b18e0aa2",
+   "texte_overlay": "la prochaine étape et sa date",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fd867341",
+   "texte_overlay": "ce que je dois apprendre\nmes 3 sources : un tuto, un pro du métier, 5 minutes par jour",
+   "texte_sophia": "ce que je dois apprendre\nmes 3 sources : un tuto, un pro du métier, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b8657045",
+   "texte_overlay": "tu prends des notes, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

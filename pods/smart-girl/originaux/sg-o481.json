@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o481",
+ "type_bleo": "full_test",
+ "titre": "women who had to write under men's names #booktok #literature #womeninhistory #smartgirl #books",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 1/9 (la jauge en demande 9 sur 31) : accroche jamais faite chez nous (« men's names » absent des accroches du label et de nos originaux). Accroches écrites : « women who had to write under men's names » (retenue : injustice + littérature, très partageable), « famous pen names » (écartée : sèche), « female authors you should read » (écartée : liste de livres, à éviter selon le playbook). Faits vérifiés : George Eliot (Mary Ann Evans), les sœurs Brontë publiées en 1847 sous Currer, Ellis et Acton Bell, George Sand (Amantine Aurore Dupin), Isak Dinesen (Karen Blixen), Louisa May Alcott en A. M. Barnard pour ses thrillers, J.K. Rowling à qui l'éditeur a demandé des initiales. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2084ad1a",
+   "texte_overlay": "women who had to write\nunder men's names",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e6921cb3",
+   "texte_overlay": "george eliot\n\nreally mary ann evans.\n\"middlemarch\", 1871.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "25a5edef",
+   "texte_overlay": "currer, ellis and acton bell\n\nreally charlotte, emily and anne brontë,\nin 1847.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "68ef475f",
+   "texte_overlay": "george sand\n\nreally amantine aurore dupin.",
+   "texte_sophia": "george sand, really amantine aurore dupin.\ni learned their stories on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "098497fd",
+   "texte_overlay": "isak dinesen\n\nreally karen blixen,\n\"out of africa\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "155e573b",
+   "texte_overlay": "a. m. barnard\n\nlouisa may alcott's name\nfor her secret thrillers.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "98967071",
+   "texte_overlay": "j.k. rowling\n\nher publisher asked for initials,\nso boys would buy the book.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a8a030f2",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

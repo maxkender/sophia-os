@@ -1,0 +1,56 @@
+{
+ "source_id": "sg-o484",
+ "type_bleo": "full_test",
+ "titre": "the history of afternoon tea you didn't know #afternoontea #tea #history #smartgirl #etiquette",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Full test 4/9 (la jauge en demande 9 sur 31) : accroche jamais faite chez nous (« afternoon tea » absent des accroches du label et de nos originaux). Accroches écrites : « the history of afternoon tea you didn't know » (retenue : élégance + histoire), « afternoon tea etiquette » (écartée : proche des « règles » déjà faites), « british traditions » (écartée : large). Faits vérifiés : Anna, duchesse de Bedford, vers 1840, le creux entre déjeuner et dîner ; le « high tea » était un repas ouvrier du soir ; le lait d'abord pour protéger la porcelaine fragile (tradition rapportée) ; le petit doigt levé est un mythe ; les sandwichs au concombre signe d'aisance. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "95e1a138",
+   "texte_overlay": "the history of afternoon tea\nyou didn't know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e3a463f7",
+   "texte_overlay": "it started with a hungry duchess\n\nanna of bedford, around 1840:\ndinner was served at 8pm.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "110c51e2",
+   "texte_overlay": "\"high tea\" isn't fancy\n\nit was the working families'\nevening meal.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4228d024",
+   "texte_overlay": "milk first or last?\n\nmilk first was said to protect\nthin porcelain cups.",
+   "texte_sophia": "milk first was said to protect thin porcelain.\ni learned it on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "72b86364",
+   "texte_overlay": "the raised pinkie is a myth",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "84c155ba",
+   "texte_overlay": "cucumber sandwiches\n\nonce a sign of wealth: you needed\na greenhouse to grow them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5538562c",
+   "texte_overlay": "save this for your next tea",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+  "source_id": "sg-o501",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "84420210-e182-45ad-a18c-752b39189ddc",
+  "titre": "how to feel hot 24/7 (my self care tips as a model) #selfcare #glowup #confidence #smartgirl #thatgirl",
+  "musique_titre": "original sound - ᯓsky✮",
+  "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+  "inspirations": [
+    "84420210-e182-45ad-a18c-752b39189ddc"
+  ],
+  "notes": "cta A. Déclinaison G1 de la ligne 13 de la boîte (parent 84420210, langue source en) : accroche du parent mot pour mot. Conseils du parent (eau au réveil, pauses des réseaux, apprendre chaque jour, un détail signature) et neufs. Sophia en 3 comme chez le parent (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6f73c246",
+      "texte_overlay": "how to feel hot 24/7\n(my self care tips as a model)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7628081296207629588/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "50c67da9",
+      "texte_overlay": "1. water first thing in the morning",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7628081296207629588/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "47661d3d",
+      "texte_overlay": "2. take social media breaks\n\nlikes are a validation loop.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7628081296207629588/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "be144bf5",
+      "texte_overlay": "3. learn something new every day\n\ni read one short lesson\nevery morning.",
+      "texte_sophia": "3. learn something new every day\n\ni read one short lesson a day on an app\nlike Sophia.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7628081296207629588/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "8221def4",
+      "texte_overlay": "4. one signature thing\n\na scent, a ring, a hairstyle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7628081296207629588/4.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "aa8c4b68",
+      "texte_overlay": "5. sleep like it's your job",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7628081296207629588/4.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3ccad693",
+      "texte_overlay": "save this",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7628081296207629588/4.jpg"
+    }
+  ]
+}

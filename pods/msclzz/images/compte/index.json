@@ -1,0 +1,90 @@
+{
+ "images/compte/femme-floue.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+  "slide": 2,
+  "zone": [
+   330,
+   1104,
+   940,
+   1822
+  ]
+ },
+ "images/compte/deux-visages.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+  "slide": 3,
+  "zone": [
+   324,
+   1084,
+   814,
+   1556
+  ]
+ },
+ "images/compte/homme-masque.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+  "slide": 4,
+  "zone": [
+   512,
+   928,
+   880,
+   1498
+  ]
+ },
+ "images/compte/masques.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+  "slide": 5,
+  "zone": [
+   308,
+   922,
+   896,
+   1442
+  ]
+ },
+ "images/compte/radio-papillons.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+  "slide": 6,
+  "zone": [
+   236,
+   888,
+   948,
+   1580
+  ]
+ },
+ "images/compte/mains-fils.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+  "slide": 7,
+  "zone": [
+   296,
+   1246,
+   854,
+   1928
+  ]
+ },
+ "images/compte/mains-yeux.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+  "slide": 8,
+  "zone": [
+   230,
+   790,
+   940,
+   1504
+  ],
+  "noircir": [
+   [
+    230,
+    790,
+    300,
+    850
+   ]
+  ]
+ },
+ "images/compte/double-visage.jpg": {
+  "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+  "slide": 9,
+  "zone": [
+   324,
+   1024,
+   924,
+   1536
+  ]
+ }
+}

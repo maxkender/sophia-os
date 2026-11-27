@@ -1,0 +1,25 @@
+{
+  "name": "pod-msclzz",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 32 — remakes de @msclzz (guides de psychologie sociale « How To Make People Remember You » : fond noir, titres en capitales aux mots en violet, paragraphes courts, une image noir et blanc détourée), pour Sophia, en anglais, sans IA : ses propres images, découpées sur son fond noir ; une étape du milieu porte le logo de Sophia, jamais une capture de l'appli.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "photos": "NODE_USE_ENV_PROXY=1 node atelier/cli-photos.ts",
+    "compte": "node atelier/cli-compte.ts"
+  }
+}

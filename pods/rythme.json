@@ -33,5 +33,7 @@
  "ssazem": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 27/11 (0868), en test" },
  "msclzz": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 27/11 (0869), en test" },
  "scilla": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 27/11 (0870), en test ; Artura encore inactive" },
- "dorianart": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 27/11 (0871), en test ; Artura encore inactive" }
+ "dorianart": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 27/11 (0871), en test ; Artura encore inactive" },
+ "adhd": { "par_jour": 10, "motif": "lancé le 27/11 (0872), en test : originaux en texte sur la banque du label adhd (Artura), traduits par l'OS dans ses 17 langues ; réserve du label à 0,9 jour au lancement" },
+ "arthistoire": { "par_jour": 5, "motif": "lancé le 27/11 (0873), en test : originaux en texte sur des tableaux du Met ajoutés à la banque du label art_histoire (Artura), traduits par l'OS dans ses 24 langues ; 40 images par 24 h au plus, environ 4 tableaux neufs par jour ; réserve du label à 0 jour au lancement" }
 }

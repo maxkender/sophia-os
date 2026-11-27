@@ -1,53 +1,53 @@
 {
   "source_id": "cs-o214",
   "type_bleo": "full_test",
-  "titre": "how i answer an exam question so i get every point #studytok #studytips #exams",
+  "titre": "how i study when my house is never quiet #studytok #studytips #school",
   "musique_titre": "Vibin",
   "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
   "inspirations": [],
-  "notes": "Full test (BLEO, jauge du 27/11 : 6 full tests sur 13, plus 1 car la boîte n'a que 6 lignes utilisables). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Gestes vrais : souligner le verbe de la consigne, compter les points, un plan de 3 lignes, une idée par paragraphe avec un exemple, des exemples de culture générale (slide Sophia, 6), relire la question à la fin. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "notes": "Full test (BLEO, jauge du 27/11). Remplace l'accroche « how i answer an exam question so i get every point », refusée par le guichet (theme_gagnant). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour sa situation précise et sa promesse modeste et vraie. Gestes vrais : repérer les heures calmes, un coin fixe, du bruit de fond régulier plutôt que des voix, prévenir sa famille, les tâches de mémoire au calme et les exercices dans le bruit, une pause de culture générale (slide Sophia, 6), la bibliothèque comme plan B. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
   "slides": [
     {
       "position": 1,
       "media_id": "e5482a5a",
-      "texte_overlay": "how i answer an exam question\nso i get every point",
+      "texte_overlay": "how i study when my house\nis never quiet",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
     },
     {
       "position": 2,
       "media_id": "fc8ad074",
-      "texte_overlay": "i underline the verb first.\ndescribe, explain and compare are three different jobs.",
+      "texte_overlay": "i find the quiet hours.\nearly morning is mine.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
     },
     {
       "position": 3,
       "media_id": "9427f1d4",
-      "texte_overlay": "i check how many points it's worth.\n4 points = about 4 ideas.",
+      "texte_overlay": "one fixed spot, always the same.\nmy brain knows it's study time there.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
     },
     {
       "position": 4,
       "media_id": "7dbc15c9",
-      "texte_overlay": "a 3-line plan in the margin.\nbefore i write a single sentence.",
+      "texte_overlay": "steady background noise beats voices.\nrain sounds, a fan, anything without words.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
     },
     {
       "position": 5,
       "media_id": "8926172e",
-      "texte_overlay": "one idea per paragraph.\nand one example for each.",
+      "texte_overlay": "memorizing in the quiet hours.\nexercises when it's loud.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
     },
     {
       "position": 6,
       "media_id": "9b66c623",
-      "texte_overlay": "my examples come from what i read outside class.\na date, a work, a discovery.",
+      "texte_overlay": "on my breaks, i escape for 5 minutes.\none short story about a place far away.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
-      "texte_sophia": "my examples come from what i read outside class\non a micro-learning app like the Sophia app.\na date, a work, a discovery."
+      "texte_sophia": "on my breaks, i escape for 5 minutes.\none short story about a place far away\non a micro-learning app like the Sophia app."
     },
     {
       "position": 7,
       "media_id": "7da70ceb",
-      "texte_overlay": "at the end, i reread the question.\ndid i actually answer it?",
+      "texte_overlay": "and on the loudest days:\nthe library. no debate.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
     }
   ]

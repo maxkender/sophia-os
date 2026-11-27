@@ -8,10 +8,24 @@
     "accroche": "cómo arreglar tu DOPAMINA"
   },
   "titre": {
-    "es": "cómo dejar de hacer scroll (según la neurociencia)"
+    "es": "cómo dejar de hacer scroll (según la neurociencia)",
+    "fr": "comment arrêter de scroller (selon les neurosciences)",
+    "it": "come smettere di fare scroll (secondo le neuroscienze)",
+    "pt-BR": "como parar de dar scroll (segundo a neurociência)",
+    "de": "so hörst du auf mit dem scrollen (laut neurowissenschaft)",
+    "ro": "cum să te oprești din scroll (după neuroștiință)",
+    "hu": "hogyan hagyd abba a görgetést (az idegtudomány szerint)",
+    "es-419": "cómo dejar de hacer scroll (según la neurociencia)"
   },
   "legendes": {
-    "es": "#scroll #detox #concentracion #habitos #productividad"
+    "es": "#scroll #detox #concentracion #habitos #productividad",
+    "fr": "#scroll #detox #concentration #habitudes #productivite",
+    "it": "#scroll #detox #concentrazione #abitudini #produttivita",
+    "pt-BR": "#scroll #detox #foco #habitos #produtividade",
+    "de": "#scrollen #detox #fokus #gewohnheiten #produktivitaet",
+    "ro": "#scroll #detox #concentrare #obiceiuri #productivitate",
+    "hu": "#gorgetes #detox #koncentracio #szokasok #produktivitas",
+    "es-419": "#scroll #detox #concentracion #habitos #productividad"
   },
   "musique": {
     "titre": "original sound - Lock-In System™",
@@ -55,6 +69,41 @@
         "haut": "cómo dejar de hacer",
         "mot": "SCROLL",
         "note": "(según la neurociencia)"
+      },
+      "fr": {
+        "haut": "comment arrêter de",
+        "mot": "SCROLLER",
+        "note": "(selon les neurosciences)"
+      },
+      "it": {
+        "haut": "come smettere di fare",
+        "mot": "SCROLL",
+        "note": "(secondo le neuroscienze)"
+      },
+      "pt-BR": {
+        "haut": "como parar de dar",
+        "mot": "SCROLL",
+        "note": "(segundo a neurociência)"
+      },
+      "de": {
+        "haut": "so hörst du auf mit dem",
+        "mot": "SCROLLEN",
+        "note": "(laut neurowissenschaft)"
+      },
+      "ro": {
+        "haut": "cum să te oprești din",
+        "mot": "SCROLL",
+        "note": "(după neuroștiință)"
+      },
+      "hu": {
+        "haut": "hogyan hagyd abba a",
+        "mot": "GÖRGETÉST",
+        "note": "(az idegtudomány szerint)"
+      },
+      "es-419": {
+        "haut": "cómo dejar de hacer",
+        "mot": "SCROLL",
+        "note": "(según la neurociencia)"
       }
     },
     {
@@ -72,6 +121,62 @@
         "titre": "no es culpa tuya.",
         "paragraphes": [
           "abres el móvil para mirar una cosa y, cuarenta minutos después, sigues bajando. y te dices que **no tienes fuerza de voluntad**.",
+          "el scroll infinito lo inventó **aza raskin** en 2006. años después dijo que **se arrepentía**: sin final, tu cerebro nunca recibe la señal de parar.",
+          "no eres débil. **está diseñado para que no pares**."
+        ]
+      },
+      "fr": {
+        "titre": "ce n'est pas ta faute.",
+        "paragraphes": [
+          "tu ouvres ton téléphone pour regarder un truc et, quarante minutes après, tu descends encore. et tu te dis que **tu n'as aucune volonté**.",
+          "le scroll infini a été inventé par **aza raskin** en 2006. des années plus tard, il a dit **le regretter**: sans fin, ton cerveau ne reçoit jamais le signal d'arrêter.",
+          "tu n'es pas faible. **c'est fait pour que tu n'arrêtes pas**."
+        ]
+      },
+      "it": {
+        "titre": "non è colpa tua.",
+        "paragraphes": [
+          "apri il telefono per guardare una cosa e, quaranta minuti dopo, stai ancora scorrendo. e ti dici che **non hai forza di volontà**.",
+          "lo scroll infinito l'ha inventato **aza raskin** nel 2006. anni dopo ha detto di **essersene pentito**: senza fine, il cervello non riceve mai il segnale per fermarsi.",
+          "non sei debole. **è fatto apposta perché non smetti**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "não é culpa sua.",
+        "paragraphes": [
+          "você abre o celular pra ver uma coisa e, quarenta minutos depois, continua descendo. e diz pra si mesmo que **não tem força de vontade**.",
+          "o scroll infinito foi inventado por **aza raskin** em 2006. anos depois, ele disse que **se arrependia**: sem fim, o cérebro nunca recebe o sinal pra parar.",
+          "você não é fraco. **foi feito pra você não parar**."
+        ]
+      },
+      "de": {
+        "titre": "nicht deine schuld.",
+        "paragraphes": [
+          "du öffnest das handy für eine sache und scrollst vierzig minuten später immer noch. und sagst dir, **du hast keine willenskraft**.",
+          "das endlose scrollen hat **aza raskin** 2006 erfunden. jahre später sagte er, **er bereue es**: ohne ende bekommt dein gehirn nie das signal zum aufhören.",
+          "du bist nicht schwach. **es ist so gebaut, dass du nicht aufhörst**."
+        ]
+      },
+      "ro": {
+        "titre": "nu e vina ta.",
+        "paragraphes": [
+          "deschizi telefonul să te uiți la ceva și, după patruzeci de minute, încă dai scroll. și îți spui că **n-ai voință**.",
+          "scroll-ul infinit l-a inventat **aza raskin** în 2006. ani mai târziu a spus că **regretă**: fără final, creierul tău nu primește niciodată semnalul să se oprească.",
+          "nu ești slab. **e făcut ca să nu te oprești**."
+        ]
+      },
+      "hu": {
+        "titre": "nem a te hibád.",
+        "paragraphes": [
+          "megnyitod a telefont, hogy megnézz egy dolgot, és negyven perc múlva még mindig görgetsz. és azt mondod magadnak, hogy **nincs akaraterőd**.",
+          "a végtelen görgetést **aza raskin** találta ki 2006-ban. évekkel később azt mondta, **megbánta**: vég nélkül az agyad sosem kapja meg a jelet, hogy álljon meg.",
+          "nem vagy gyenge. **úgy tervezték, hogy ne hagyd abba**."
+        ]
+      },
+      "es-419": {
+        "titre": "no es culpa tuya.",
+        "paragraphes": [
+          "abres el celular para mirar una cosa y, cuarenta minutos después, sigues bajando. y te dices que **no tienes fuerza de voluntad**.",
           "el scroll infinito lo inventó **aza raskin** en 2006. años después dijo que **se arrepentía**: sin final, tu cerebro nunca recibe la señal de parar.",
           "no eres débil. **está diseñado para que no pares**."
         ]
@@ -94,6 +199,62 @@
           "el scroll funciona igual: casi todo te da igual, pero de vez en cuando aparece **algo que te encanta**.",
           "por eso cuesta tanto soltarlo: **tu cerebro espera el siguiente premio**."
         ]
+      },
+      "fr": {
+        "titre": "la machine à sous",
+        "paragraphes": [
+          "dans les années 50, **b. f. skinner** a vu que des pigeons picoraient un bouton sans arrêt quand la récompense arrivait **parfois, sans savoir quand**.",
+          "le scroll marche pareil: presque tout t'est égal, mais de temps en temps arrive **un truc que tu adores**.",
+          "c'est pour ça que c'est si dur à lâcher: **ton cerveau attend la prochaine récompense**."
+        ]
+      },
+      "it": {
+        "titre": "la slot machine",
+        "paragraphes": [
+          "negli anni '50, **b. f. skinner** vide che i piccioni beccavano un pulsante senza sosta quando il premio arrivava **ogni tanto, senza sapere quando**.",
+          "lo scroll funziona uguale: quasi tutto ti è indifferente, ma ogni tanto spunta **qualcosa che ami**.",
+          "per questo è così difficile mollarlo: **il cervello aspetta il prossimo premio**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "o caça-níquel",
+        "paragraphes": [
+          "nos anos 50, **b. f. skinner** viu que pombos bicavam um botão sem parar quando o prêmio vinha **às vezes, sem saber quando**.",
+          "o scroll funciona igual: quase tudo tanto faz, mas de vez em quando aparece **algo que você ama**.",
+          "por isso é tão difícil largar: **o cérebro espera o próximo prêmio**."
+        ]
+      },
+      "de": {
+        "titre": "der spielautomat",
+        "paragraphes": [
+          "in den 50ern sah **b. f. skinner**, dass tauben pausenlos auf einen knopf pickten, wenn die belohnung **manchmal kam, ohne zu wissen wann**.",
+          "scrollen funktioniert genauso: fast alles ist dir egal, aber ab und zu kommt **etwas, das du liebst**.",
+          "darum ist es so schwer loszulassen: **dein gehirn wartet auf die nächste belohnung**."
+        ]
+      },
+      "ro": {
+        "titre": "păcănelele",
+        "paragraphes": [
+          "în anii '50, **b. f. skinner** a văzut că porumbeii ciuguleau un buton fără oprire când recompensa venea **uneori, fără să știe când**.",
+          "scroll-ul merge la fel: aproape totul îți e indiferent, dar din când în când apare **ceva ce adori**.",
+          "de asta e atât de greu să-l lași: **creierul așteaptă următoarea recompensă**."
+        ]
+      },
+      "hu": {
+        "titre": "a nyerőgép",
+        "paragraphes": [
+          "az 50-es években **b. f. skinner** látta, hogy a galambok megállás nélkül csipkedtek egy gombot, ha a jutalom **néha jött, kiszámíthatatlanul**.",
+          "a görgetés ugyanígy működik: szinte minden mindegy, de néha felbukkan **valami, amit imádsz**.",
+          "ezért olyan nehéz letenni: **az agyad a következő jutalomra vár**."
+        ]
+      },
+      "es-419": {
+        "titre": "el tragamonedas",
+        "paragraphes": [
+          "en los años 50, **b. f. skinner** vio que las palomas picoteaban un botón sin parar cuando el premio llegaba **a veces, sin saber cuándo**.",
+          "el scroll funciona igual: casi todo te da igual, pero de vez en cuando aparece **algo que te encanta**.",
+          "por eso cuesta tanto soltarlo: **tu cerebro espera el siguiente premio**."
+        ]
       }
     },
     {
@@ -104,6 +265,62 @@
         }
       ],
       "es": {
+        "titre": "cambia el primer scroll",
+        "paragraphes": [
+          "el truco no es quitar el hábito, es **cambiar lo que hay dentro**.",
+          "yo cambié el primer scroll del día por **una lección corta en Sophia**: historia, ciencia, filosofía o economía.",
+          "**10 minutos y un quiz al final**. tiene un final, así que mi cerebro sabe cuándo parar."
+        ]
+      },
+      "fr": {
+        "titre": "change le premier scroll",
+        "paragraphes": [
+          "le truc, ce n'est pas de supprimer l'habitude, c'est de **changer ce qu'il y a dedans**.",
+          "j'ai remplacé le premier scroll de la journée par **une leçon courte sur Sophia**: histoire, sciences, philosophie ou économie.",
+          "**10 minutes et un quiz à la fin**. il y a une fin, donc mon cerveau sait quand s'arrêter."
+        ]
+      },
+      "it": {
+        "titre": "cambia il primo scroll",
+        "paragraphes": [
+          "il trucco non è eliminare l'abitudine, è **cambiare cosa c'è dentro**.",
+          "ho sostituito il primo scroll della giornata con **una lezione breve su Sophia**: storia, scienza, filosofia o economia.",
+          "**10 minuti e un quiz alla fine**. ha una fine, così il mio cervello sa quando fermarsi."
+        ]
+      },
+      "pt-BR": {
+        "titre": "troca o primeiro scroll",
+        "paragraphes": [
+          "o truque não é tirar o hábito, é **trocar o que tem dentro**.",
+          "eu troquei o primeiro scroll do dia por **uma lição curta no Sophia**: história, ciência, filosofia ou economia.",
+          "**10 minutos e um quiz no final**. tem um fim, então meu cérebro sabe quando parar."
+        ]
+      },
+      "de": {
+        "titre": "tausch das erste scrollen",
+        "paragraphes": [
+          "der trick ist nicht, die gewohnheit zu streichen, sondern **zu ändern, was drin ist**.",
+          "ich habe das erste scrollen am tag gegen **eine kurze lektion in Sophia** getauscht: geschichte, wissenschaft, philosophie oder wirtschaft.",
+          "**10 minuten und ein quiz am ende**. es hat ein ende, also weiß mein gehirn, wann schluss ist."
+        ]
+      },
+      "ro": {
+        "titre": "schimbă primul scroll",
+        "paragraphes": [
+          "trucul nu e să scoți obiceiul, ci **să schimbi ce e în el**.",
+          "am înlocuit primul scroll al zilei cu **o lecție scurtă în Sophia**: istorie, știință, filozofie sau economie.",
+          "**10 minute și un quiz la final**. are un sfârșit, așa că creierul meu știe când să se oprească."
+        ]
+      },
+      "hu": {
+        "titre": "cseréld le az elsőt",
+        "paragraphes": [
+          "a trükk nem az, hogy kidobod a szokást, hanem hogy **lecseréled, ami benne van**.",
+          "én a nap első görgetését **egy rövid leckére cseréltem a Sophia appban**: történelem, tudomány, filozófia vagy közgazdaságtan.",
+          "**10 perc és egy kvíz a végén**. van vége, így az agyam tudja, mikor álljon meg."
+        ]
+      },
+      "es-419": {
         "titre": "cambia el primer scroll",
         "paragraphes": [
           "el truco no es quitar el hábito, es **cambiar lo que hay dentro**.",
@@ -130,6 +347,62 @@
           "al final **se sentían menos solos** que los que siguieron igual.",
           "saca las apps de la pantalla de inicio y deja el móvil **en un cajón** cuando trabajes."
         ]
+      },
+      "fr": {
+        "titre": "ajoute de la friction.",
+        "paragraphes": [
+          "à l'université de pennsylvanie, des étudiants ont limité les réseaux à **10 minutes par appli et par jour** pendant trois semaines.",
+          "à la fin, **ils se sentaient moins seuls** que ceux qui avaient continué pareil.",
+          "sors les applis de l'écran d'accueil et laisse le téléphone **dans un tiroir** quand tu travailles."
+        ]
+      },
+      "it": {
+        "titre": "aggiungi attrito.",
+        "paragraphes": [
+          "all'università della pennsylvania, alcuni studenti hanno limitato i social a **10 minuti per app al giorno** per tre settimane.",
+          "alla fine **si sentivano meno soli** di chi aveva continuato come prima.",
+          "togli le app dalla schermata principale e lascia il telefono **in un cassetto** quando lavori."
+        ]
+      },
+      "pt-BR": {
+        "titre": "coloca atrito.",
+        "paragraphes": [
+          "na universidade da pensilvânia, alunos limitaram as redes a **10 minutos por app por dia** durante três semanas.",
+          "no final, **se sentiam menos sozinhos** do que quem continuou igual.",
+          "tira os apps da tela inicial e deixa o celular **numa gaveta** quando for trabalhar."
+        ]
+      },
+      "de": {
+        "titre": "bau hürden ein.",
+        "paragraphes": [
+          "an der university of pennsylvania begrenzten studierende soziale netzwerke drei wochen lang auf **10 minuten pro app am tag**.",
+          "am ende **fühlten sie sich weniger einsam** als die, die weitermachten wie vorher.",
+          "nimm die apps vom startbildschirm und leg das handy beim arbeiten **in eine schublade**."
+        ]
+      },
+      "ro": {
+        "titre": "pune-i piedici.",
+        "paragraphes": [
+          "la universitatea din pennsylvania, niște studenți și-au limitat rețelele la **10 minute pe aplicație pe zi**, timp de trei săptămâni.",
+          "la final **se simțeau mai puțin singuri** decât cei care au continuat la fel.",
+          "scoate aplicațiile de pe ecranul principal și lasă telefonul **într-un sertar** când lucrezi."
+        ]
+      },
+      "hu": {
+        "titre": "nehezítsd meg.",
+        "paragraphes": [
+          "a pennsylvaniai egyetemen diákok három hétig **napi 10 percre korlátozták appenként** a közösségi médiát.",
+          "a végén **kevésbé érezték magukat magányosnak**, mint akik ugyanúgy folytatták.",
+          "vedd le az appokat a kezdőképernyőről, és munka közben tedd a telefont **egy fiókba**."
+        ]
+      },
+      "es-419": {
+        "titre": "ponle fricción.",
+        "paragraphes": [
+          "en la universidad de pensilvania, unos estudiantes se limitaron las redes a **10 minutos por app al día** durante tres semanas.",
+          "al final **se sentían menos solos** que los que siguieron igual.",
+          "saca las apps de la pantalla de inicio y deja el celular **en un cajón** cuando trabajes."
+        ]
       }
     },
     {
@@ -146,6 +419,69 @@
           "cada vez que lo sueltas antes, **le cuesta un poco menos**.",
           "¿cuál vas a probar primero? comenta el número.",
           "guárdalo y **suelta el móvil esta noche**."
+        ]
+      },
+      "fr": {
+        "titre": "tu n'es pas faible.",
+        "paragraphes": [
+          "tu joues juste contre un truc **fait pour te battre**.",
+          "chaque fois que tu le lâches plus tôt, **ça te coûte un peu moins**.",
+          "laquelle tu vas tester en premier? commente le numéro.",
+          "enregistre-le et **lâche ton téléphone ce soir**."
+        ]
+      },
+      "it": {
+        "titre": "non sei debole.",
+        "paragraphes": [
+          "stai solo giocando contro qualcosa **fatto per batterti**.",
+          "ogni volta che lo molli prima, **ti costa un po' meno**.",
+          "quale provi per primo? scrivi il numero nei commenti.",
+          "salvalo e **molla il telefono stasera**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "você não é fraco.",
+        "paragraphes": [
+          "só está jogando contra algo **feito pra te vencer**.",
+          "cada vez que você larga antes, **fica um pouco mais fácil**.",
+          "qual você vai testar primeiro? comenta o número.",
+          "salva e **larga o celular hoje à noite**."
+        ]
+      },
+      "de": {
+        "titre": "du bist nicht schwach.",
+        "paragraphes": [
+          "du spielst nur gegen etwas, **das gebaut ist, um dich zu schlagen**.",
+          "jedes mal, wenn du früher loslässt, **fällt es dir leichter**.",
+          "welchen probierst du zuerst? kommentier die nummer.",
+          "speicher es und **leg heute abend das handy weg**."
+        ]
+      },
+      "ro": {
+        "titre": "nu ești slab.",
+        "paragraphes": [
+          "doar joci împotriva a ceva **făcut să te învingă**.",
+          "de fiecare dată când îl lași mai devreme, **îți e puțin mai ușor**.",
+          "pe care îl încerci primul? scrie numărul în comentarii.",
+          "salvează-l și **lasă telefonul diseară**."
+        ]
+      },
+      "hu": {
+        "titre": "nem vagy gyenge.",
+        "paragraphes": [
+          "csak valami ellen játszol, amit **arra terveztek, hogy legyőzzön**.",
+          "minden alkalommal, amikor hamarabb leteszed, **egy kicsit könnyebb**.",
+          "melyiket próbálod ki először? írd meg kommentben a számot.",
+          "mentsd el, és **tedd le a telefont ma este**."
+        ]
+      },
+      "es-419": {
+        "titre": "no eres débil.",
+        "paragraphes": [
+          "solo juegas contra algo **hecho para ganarte**.",
+          "cada vez que lo sueltas antes, **le cuesta un poco menos**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo y **suelta el celular esta noche**."
         ]
       }
     }

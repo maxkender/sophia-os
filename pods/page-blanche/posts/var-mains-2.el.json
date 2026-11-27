@@ -1,0 +1,362 @@
+{
+ "post_id": "var-mains-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "extremely disciplined"
+     ],
+     "fr": "",
+     "texte": "πράγματα να κάνεις με τα [[χέρια]] σου για να αφήσεις το κινητό"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience edition)"
+     ],
+     "fr": "",
+     "texte": "(οι αντίχειρές σου θα σ' ευχαριστούν)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_13678e4e.jpg",
+      "boite": [
+       0,
+       900,
+       1664,
+       1260
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself be bored"
+     ],
+     "fr": "accepte de t'[[ennuyer]]",
+     "texte": "φτιάξε ένα μπολ από [[πηλό]]"
+    },
+    "T2": {
+     "en": [
+      "every queue, walk and",
+      "bathroom break gets filled",
+      "with input now"
+     ],
+     "fr": "[[chaque]] file d'attente, balade, pause pipi : on remplit tout",
+     "texte": "πηλός που στεγνώνει στον αέρα κι ένα παλιό τραπεζομάντιλο. ούτε φούρνος ούτε τροχός"
+    },
+    "T3": {
+     "en": [
+      "that sounds harmless, but",
+      "you're removing every",
+      "chance your attention has",
+      "to sit still"
+     ],
+     "fr": "ça a l'air de rien, mais ton attention n'a [[plus jamais l'occasion]] de se poser",
+     "texte": "τα δάχτυλά σου είναι γεμάτα πηλό, άρα [[δεν ξεκλειδώνεις την οθόνη]]"
+    },
+    "T4": {
+     "en": [
+      "spend 20–30 minutes a day with no podcast,",
+      "music, scrolling or second screen"
+     ],
+     "fr": "chaque jour, [[20-30 minutes]] sans podcast, musique, scroll ni deuxième écran",
+     "texte": "το μπολ θα βγει άσχημο, αυτό είναι το νόημα. [[έφτιαξες κάτι που υπάρχει στ' αλήθεια]]"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "fr": "[[écoute tes pensées]]",
+     "texte": "[[και βάζεις μέσα τα κλειδιά]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_7ec38bc5.jpg",
+      "boite": [
+       300,
+       0,
+       2068,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop procrastinating and",
+      "make a first draft"
+     ],
+     "fr": "[[arrête de procrastiner]] et fais un premier jet",
+     "texte": "μάθε [[τρεις συγχορδίες]] στην κιθάρα"
+    },
+    "T2": {
+     "en": [
+      "an idiot in motion goes",
+      "further than a genius at",
+      "rest"
+     ],
+     "fr": "[[un idiot qui avance va plus loin qu'un génie assis]]",
+     "texte": "μια μεταχειρισμένη κιθάρα, τρεις συγχορδίες και [[τα δυο χέρια πιασμένα]]"
+    },
+    "T3": {
+     "en": [
+      "get the first draft out",
+      "first, even if it feels",
+      "embarrassing"
+     ],
+     "fr": "sors ton premier jet d'abord, [[même si t'as un peu honte]]",
+     "texte": "στην αρχή πονάνε οι άκρες των δαχτύλων, μετά [[σκληραίνουν]]"
+    },
+    "T4": {
+     "en": [
+      "once something exists, you can fix it. staring at a blank",
+      "page gives you nothing to improve"
+     ],
+     "fr": "une fois que t'as un truc, tu peux le corriger. une page blanche, y'a rien à améliorer",
+     "texte": "άφησέ τη έξω από τη θήκη δίπλα στον καναπέ και παίξε [[δύο λεπτά]] κάθε φορά που πας να σκρολάρεις"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_01ab08c9.jpg",
+      "boite": [
+       0,
+       1200,
+       1504,
+       1504
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis un livre [[au lieu de scroller]]",
+     "texte": "κι όταν [[ξαναπιάνεις]] το κινητό"
+    },
+    "T2": {
+     "en": [
+      "every hour you spend scrolling is an hour you could"
+     ],
+     "fr": "une heure de scroll, c'est une heure de moins pour [[muscler ton cerveau]]",
+     "texte": "συμβαίνει, μην αγχώνεσαι"
+    },
+    "T3": {
+     "en": [
+      "read 10 pages a day, even",
+      "when you don't feel like it"
+     ],
+     "fr": "[[lis 10 pages par jour]], même quand t'as pas envie",
+     "texte": "αλλά [[άλλαξε τι κάνεις μ' αυτό]]"
+    },
+    "T4": {
+     "en": [
+      "you say you want to read",
+      "more, but get caught in the",
+      "algorithm every time"
+     ],
+     "fr": "tu dis que tu [[veux lire plus]], mais [[l'algo]] te happe à chaque fois",
+     "texte": "5 λεπτά για να μάθεις κάτι αληθινό, και το αφήνεις. [[τίποτα δεν κυλάει]] ατελείωτα"
+    },
+    "T5": {
+     "en": [
+      "i used to doomscroll all day",
+      "but now use this thing that",
+      "blocks my apps until i read"
+     ],
+     "fr": "avant je scrollais H24, maintenant j'ouvre l'appli Sophia et j'apprends un truc en 5 min",
+     "texte": "σήμερα έμαθα γιατί η αναγέννηση ξεκίνησε στην Ιταλία, σε 5 λεπτά στην [[εφαρμογή Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "ζωγράφισε [[ό,τι έχεις μπροστά σου]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "ένα τετράδιο, ένα μολύβι, την κούπα ή τα παπούτσια σου. δεν χρειάζεται να ξέρεις σχέδιο"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "προσέχεις λεπτομέρειες [[που δεν είχες δει ποτέ]], όπως τη σκιά κάτω από την κούπα"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "ένα τετράδιο γεμάτο αποτυχημένα σκίτσα [[αξίζει πιο πολύ από ένα ιστορικό βίντεο]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_4d902aba.jpg",
+      "boite": [
+       0,
+       300,
+       1664,
+       1900
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[qui servent à rien]]",
+     "texte": "μαγείρεψε χωρίς [[συνταγή στο κινητό]]"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
+     "texte": "ξεφλουδίζεις, κόβεις, δοκιμάζεις, ανακατεύεις: τα χέρια σου είναι πιασμένα ως το τέλος"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[pas besoin de rentabiliser chaque heure]]",
+     "texte": "[[δοκίμαζε αντί να διαβάζεις]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "plus t'as de culture, plus ton cerveau a d'idées à relier le jour où tu dois vraiment régler un problème",
+     "texte": "γράψε τη συνταγή σε χαρτί, κόλλησέ τη στο ψυγείο και ξαναφτιάξ' τη χωρίς οθόνη μέχρι να την ξέρεις απ' έξω"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis, [[la culture, c'est trop cool !!]]",
+     "texte": "κι επιπλέον, [[τρως καλύτερα!!]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_c623247f.jpg",
+      "boite": [
+       500,
+       0,
+       1300,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on long walks without music"
+     ],
+     "fr": "fais [[de longues balades sans musique]]",
+     "texte": "γράψε ένα [[γράμμα με το χέρι]]"
+    },
+    "T2": {
+     "en": [
+      "most people fill every walk with podcasts or music",
+      "and think they're being productive"
+     ],
+     "fr": "tout le monde marche avec [[un podcast ou de la musique]] et se croit [[super productif]]",
+     "texte": "στη γιαγιά σου, σε μια φίλη που ζει μακριά. ένα χαρτί, ένα στυλό, ένα γραμματόσημο. τόσο απλά"
+    },
+    "T3": {
+     "en": [
+      "but your brain only",
+      "starts thinking for",
+      "itself when nothing is",
+      "feeding it input"
+     ],
+     "fr": "mais ton cerveau [[pense par lui-même]] seulement quand [[plus rien ne le nourrit]]",
+     "texte": "δεν μπορείς να σβήσεις, άρα [[διαλέγεις κάθε φράση]] πριν τη γράψεις"
+    },
+    "T4": {
+     "en": [
+      "walk in silence, let your mind wander, and your best",
+      "ideas will come from walks"
+     ],
+     "fr": "marche en silence, laisse-toi rêvasser, [[tes meilleures idées]] viendront [[en marchant]]",
+     "texte": "κι όταν φτάσει η απάντηση στο γραμματοκιβώτιο, [[είναι η καλύτερη ειδοποίηση της εβδομάδας]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_09dd6248.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

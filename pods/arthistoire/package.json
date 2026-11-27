@@ -1,0 +1,27 @@
+{
+  "name": "pod-arthistoire",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 36 — originaux art_histoire (Artura) : l'histoire d'un tableau en français au style de @glacis1, un détail par slide, tableaux du domaine public (Met) ajoutés à la banque, traduites par l'OS, Artura placée par l'OS.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "suivi": "NODE_USE_ENV_PROXY=1 node atelier/cli-suivi.ts",
+    "label": "NODE_USE_ENV_PROXY=1 node atelier/cli-label.ts",
+    "images": "NODE_USE_ENV_PROXY=1 node atelier/cli-images.ts",
+    "top-posts": "NODE_USE_ENV_PROXY=1 node atelier/cli-top-posts.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-apercu.ts",
+    "deposer": "NODE_USE_ENV_PROXY=1 node atelier/cli-deposer.ts",
+    "doublons": "NODE_USE_ENV_PROXY=1 node atelier/cli-doublons.ts",
+    "tableau": "NODE_USE_ENV_PROXY=1 node atelier/cli-tableau.ts"
+  }
+}

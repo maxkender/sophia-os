@@ -93,7 +93,7 @@ Les podz :
 
 ## BLEO, voie 1 (depuis le 1/11) et voie 2 (depuis le 5/11)
 
-Les podz de la voie 1 (2, 4, 5, 7, 8, 9, 12 et 14) passent sur BLEO quand
+Les podz de la voie 1 (2, 4, 5, 7, 8, 9, 12, 14, 35 et 36) passent sur BLEO quand
 `select valeur->'podz'->>'type_obligatoire' from reglages where cle = 'bleo';`
 vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont les premières sur BLEO). Dès lors, pour eux :
 

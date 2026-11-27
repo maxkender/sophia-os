@@ -69,11 +69,11 @@
       "url": "https://www.metmuseum.org/art/collection/search/437380"
     }
   },
-  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Herri met de Bles, La Tentation de saint Antoine (vers 1550-60) : héritier de Bosch, surnommé « Civetta » pour la chouette glissée dans ses tableaux. Carpaccio, La Méditation sur la Passion (vers 1490) : le Christ mort sur un trône brisé entre Job et saint Jérôme (notice du Met). Patinir, La Pénitence de saint Jérôme (vers 1515) : panneau central du triptyque, recadré sans les volets ni le cadre ; Dürer l'appelle « der gute Landschaftsmaler » dans son journal (1521) ; chameaux bâtés à droite derrière les rochers. Redon, Le Char d'Apollon (1905-16) : les « noirs » (fusains et lithographies) jusqu'aux années 1890, Redon né en 1840. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou, une tache de lumière).",
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Herri met de Bles, La Tentation de saint Antoine (vers 1550-60) : héritier de Bosch, surnommé « Civetta » pour la chouette glissée dans ses tableaux. Carpaccio, La Méditation sur la Passion (vers 1490) : le Christ mort sur un trône brisé entre Job et saint Jérôme (notice du Met). Patinir, La Pénitence de saint Jérôme (vers 1515) : panneau central du triptyque, recadré sans les volets ni le cadre ; Dürer l'appelle « der gute Landschaftsmaler » dans son journal (1521) ; chameaux bâtés à droite derrière les rochers. Redon, Le Char d'Apollon (1905-16) : les « noirs » (fusains et lithographies) jusqu'aux années 1890, Redon né en 1840. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA (refaite le 27/11).",
   "slides": [
     {
       "type": "couverture",
-      "image": "images/photos/musee-reve.jpg",
+      "image": "images/banque/b-salle-bleue.jpg",
       "en": {
         "titre": "Paintings That Feel Like A Fever Dream"
       },
@@ -321,5 +321,8 @@
         "artiste": "Odilon Redon"
       }
     }
-  ]
+  ],
+  "banque": {
+    "images/banque/b-salle-bleue.jpg": "5d125b1a-2585-40e9-82a8-958264573f6d"
+  }
 }

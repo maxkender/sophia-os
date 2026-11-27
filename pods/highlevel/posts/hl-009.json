@@ -1,0 +1,440 @@
+{
+  "id": "hl-009",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7692830169836309782",
+    "vues": 2100000,
+    "publie_le": "2026-10-04",
+    "accroche": "DESTROY HER EGO WITH THESE WORDS."
+  },
+  "musique": {
+    "titre": "M83 Solitude",
+    "url": "https://www.tiktok.com/music/M83-Solitude-7116098620134394625"
+  },
+  "notes": "Preuve de format : « DESTROY HER EGO WITH THESE WORDS. » (2,1 M), gabarit « She says: / You say: ». Accroche neuve « WHAT TO SAY WHEN SHE ASKS HARD QUESTIONS. ». Carte Artura (4) : « Have a real answer. », Renoir, Madame Georges Charpentier and Her Children (The Met 438815), LOGO d'Artura ; cta C. Fait vérifié : le petit Paul, 3 ans, est habillé comme sa sœur Georgette, selon la mode de l'époque (fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es (pas de sr : aucun compte).",
+  "oeuvres": {
+    "images/oeuvres/renoir-charpentier.jpg": {
+      "musee": "The Met",
+      "id": "438815",
+      "titre": "Madame Georges Charpentier (Marguerite-Louise Lemonnier, 1848–1904) and Her Children, Georgette-Berthe (1872–1945) and Paul-Emile-Charles (1875–1895)",
+      "artiste": "Auguste Renoir",
+      "date": "1878",
+      "url": "https://www.metmuseum.org/art/collection/search/438815"
+    }
+  },
+  "titre": {
+    "en": "What to say when she asks hard questions.",
+    "el": "Τι να πεις όταν κάνει δύσκολες ερωτήσεις.",
+    "es-419": "Qué decir cuando te hace preguntas difíciles.",
+    "it": "Cosa dire quando fa domande difficili.",
+    "hu": "Mit mondj, ha nehéz kérdést tesz fel.",
+    "pt-BR": "O que dizer quando ela faz perguntas difíceis.",
+    "es": "Qué decir cuando te hace preguntas difíciles."
+  },
+  "legendes": {
+    "en": "#datingadvice #adviceformen #tipsformen ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "en": {
+        "titre": "WHAT TO SAY\nWHEN SHE ASKS\nHARD QUESTIONS."
+      },
+      "el": {
+        "titre": "ΤΙ ΝΑ ΠΕΙΣ\nΟΤΑΝ ΚΑΝΕΙ\nΔΥΣΚΟΛΕΣ\nΕΡΩΤΗΣΕΙΣ."
+      },
+      "es-419": {
+        "titre": "QUÉ DECIR\nCUANDO TE HACE\nPREGUNTAS\nDIFÍCILES."
+      },
+      "it": {
+        "titre": "COSA DIRE\nQUANDO FA\nDOMANDE\nDIFFICILI."
+      },
+      "hu": {
+        "titre": "MIT MONDJ,\nHA NEHÉZ\nKÉRDÉST TESZ FEL."
+      },
+      "pt-BR": {
+        "titre": "O QUE DIZER\nQUANDO ELA FAZ\nPERGUNTAS\nDIFÍCEIS."
+      },
+      "es": {
+        "titre": "QUÉ DECIR\nCUANDO TE HACE\nPREGUNTAS\nDIFÍCILES."
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "When she asks why you're single.",
+        "paragraphes": [
+          "**She says:**\n“Why are you still single?”",
+          "**You say:**\n“I'm picky. So far, you're passing.”"
+        ]
+      },
+      "el": {
+        "titre": "Όταν ρωτάει γιατί είσαι μόνος.",
+        "paragraphes": [
+          "**Εκείνη λέει:**\n«Γιατί είσαι ακόμα μόνος;»",
+          "**Εσύ λες:**\n«Είμαι επιλεκτικός. Μέχρι στιγμής, περνάς.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Cuando pregunta por tu soltería.",
+        "paragraphes": [
+          "**Ella dice:**\n“¿Por qué sigues soltero?”",
+          "**Tú dices:**\n“Soy exigente. Por ahora, vas aprobando.”"
+        ]
+      },
+      "it": {
+        "titre": "Quando ti chiede perché sei single.",
+        "paragraphes": [
+          "**Lei dice:**\n“Perché sei ancora single?”",
+          "**Tu dici:**\n“Sono esigente. Per ora, stai passando l'esame.”"
+        ]
+      },
+      "hu": {
+        "titre": "Ha megkérdezi, miért vagy egyedül.",
+        "paragraphes": [
+          "**Ő mondja:**\n„Miért vagy még mindig egyedül?”",
+          "**Te mondod:**\n„Válogatós vagyok. Eddig átmentél.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Quando ela pergunta da solteirice.",
+        "paragraphes": [
+          "**Ela diz:**\n“Por que você ainda está solteiro?”",
+          "**Você diz:**\n“Sou exigente. Até agora, você está passando.”"
+        ]
+      },
+      "es": {
+        "titre": "Cuando pregunta por tu soltería.",
+        "paragraphes": [
+          "**Ella dice:**\n“¿Por qué sigues soltero?”",
+          "**Tú dices:**\n“Soy exigente. Por ahora, vas aprobando.”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "When she asks about your ex.",
+        "paragraphes": [
+          "**She says:**\n“What happened with your ex?”",
+          "**You say:**\n“We wanted different things.\nI wish her well.”"
+        ]
+      },
+      "el": {
+        "titre": "Όταν ρωτάει για την πρώην σου.",
+        "paragraphes": [
+          "**Εκείνη λέει:**\n«Τι έγινε με την πρώην σου;»",
+          "**Εσύ λες:**\n«Θέλαμε άλλα πράγματα. Της εύχομαι τα καλύτερα.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Cuando pregunta por tu ex.",
+        "paragraphes": [
+          "**Ella dice:**\n“¿Qué pasó con tu ex?”",
+          "**Tú dices:**\n“Queríamos cosas distintas. Le deseo lo mejor.”"
+        ]
+      },
+      "it": {
+        "titre": "Quando ti chiede della tua ex.",
+        "paragraphes": [
+          "**Lei dice:**\n“Cos'è successo con la tua ex?”",
+          "**Tu dici:**\n“Volevamo cose diverse. Le auguro il meglio.”"
+        ]
+      },
+      "hu": {
+        "titre": "Ha az exedről kérdez.",
+        "paragraphes": [
+          "**Ő mondja:**\n„Mi történt az exeddel?”",
+          "**Te mondod:**\n„Mást akartunk. Minden jót kívánok neki.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Quando ela pergunta da sua ex.",
+        "paragraphes": [
+          "**Ela diz:**\n“O que aconteceu com a sua ex?”",
+          "**Você diz:**\n“Queríamos coisas diferentes. Desejo o melhor a ela.”"
+        ]
+      },
+      "es": {
+        "titre": "Cuando pregunta por tu ex.",
+        "paragraphes": [
+          "**Ella dice:**\n“¿Qué pasó con tu ex?”",
+          "**Tú dices:**\n“Queríamos cosas distintas. Le deseo lo mejor.”"
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/renoir-charpentier.jpg",
+      "en": {
+        "titre": "Have a real answer.",
+        "avant": [
+          "**She says:** “What's your passion?”",
+          "**You say:** “Art. In this Renoir,\nthe little boy wears a dress.\nAsk me why.”"
+        ],
+        "apres": [
+          "I didn't know anything about art.\nArtura fixed that, one painting a day."
+        ]
+      },
+      "el": {
+        "titre": "Έχε μια αληθινή απάντηση.",
+        "avant": [
+          "**Εκείνη λέει:** «Τι σε παθιάζει;»",
+          "**Εσύ λες:** «Η τέχνη. Σε αυτόν τον Ρενουάρ, το αγοράκι είναι ντυμένο σαν την αδερφή του. Ρώτα με γιατί.»"
+        ],
+        "apres": [
+          "Δεν ήξερα τίποτα για την τέχνη. Το Artura το έφτιαξε αυτό, έναν πίνακα τη μέρα."
+        ]
+      },
+      "es-419": {
+        "titre": "Ten una respuesta real.",
+        "avant": [
+          "**Ella dice:** “¿Qué te apasiona?”",
+          "**Tú dices:** “El arte. En este Renoir, el niño está vestido como su hermana. Pregúntame por qué.”"
+        ],
+        "apres": [
+          "No sabía nada de arte. Artura lo arregló, un cuadro al día."
+        ]
+      },
+      "it": {
+        "titre": "Abbi una risposta vera.",
+        "avant": [
+          "**Lei dice:** “Cosa ti appassiona?”",
+          "**Tu dici:** “L'arte. In questo Renoir il bambino è vestito come sua sorella. Chiedimi perché.”"
+        ],
+        "apres": [
+          "Non sapevo niente di arte. Artura ha sistemato tutto, un quadro al giorno."
+        ]
+      },
+      "hu": {
+        "titre": "Legyen igazi válaszod.",
+        "avant": [
+          "**Ő mondja:** „Mi lelkesít?”",
+          "**Te mondod:** „A művészet. Ezen a Renoir-képen a kisfiú úgy öltözik, mint a nővére. Kérdezd meg, miért.”"
+        ],
+        "apres": [
+          "Semmit sem tudtam a művészetről. Az Artura ezt megoldotta, napi egy festménnyel."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Tenha uma resposta de verdade.",
+        "avant": [
+          "**Ela diz:** “Pelo que você é apaixonado?”",
+          "**Você diz:** “Arte. Neste Renoir, o menino está vestido como a irmã. Me pergunte por quê.”"
+        ],
+        "apres": [
+          "Eu não sabia nada de arte. O Artura resolveu isso, um quadro por dia."
+        ]
+      },
+      "es": {
+        "titre": "Ten una respuesta real.",
+        "avant": [
+          "**Ella dice:** “¿Qué te apasiona?”",
+          "**Tú dices:** “El arte. En este Renoir, el niño está vestido como su hermana. Pregúntame por qué.”"
+        ],
+        "apres": [
+          "No sabía nada de arte. Artura lo arregló, un cuadro al día."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "When she asks what you want.",
+        "paragraphes": [
+          "**She says:**\n“So what are you looking for?”",
+          "**You say:**\n“Something real.\nNo rush to label it.”"
+        ]
+      },
+      "el": {
+        "titre": "Όταν ρωτάει τι ψάχνεις.",
+        "paragraphes": [
+          "**Εκείνη λέει:**\n«Τι ψάχνεις τελικά;»",
+          "**Εσύ λες:**\n«Κάτι αληθινό. Χωρίς βιασύνη για ταμπέλες.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Cuando pregunta qué buscas.",
+        "paragraphes": [
+          "**Ella dice:**\n“¿Y qué estás buscando?”",
+          "**Tú dices:**\n“Algo real. Sin prisa por ponerle nombre.”"
+        ]
+      },
+      "it": {
+        "titre": "Quando ti chiede cosa cerchi.",
+        "paragraphes": [
+          "**Lei dice:**\n“Allora, cosa cerchi?”",
+          "**Tu dici:**\n“Qualcosa di vero. Senza fretta di dargli un nome.”"
+        ]
+      },
+      "hu": {
+        "titre": "Ha megkérdezi, mit keresel.",
+        "paragraphes": [
+          "**Ő mondja:**\n„És mit keresel?”",
+          "**Te mondod:**\n„Valami igazit. Nem sietek a címkékkel.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Quando ela pergunta o que você quer.",
+        "paragraphes": [
+          "**Ela diz:**\n“E o que você está procurando?”",
+          "**Você diz:**\n“Algo de verdade. Sem pressa de dar nome.”"
+        ]
+      },
+      "es": {
+        "titre": "Cuando pregunta qué buscas.",
+        "paragraphes": [
+          "**Ella dice:**\n“¿Y qué estás buscando?”",
+          "**Tú dices:**\n“Algo real. Sin prisa por ponerle nombre.”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "When she asks if you're nervous.",
+        "paragraphes": [
+          "**She says:**\n“Are you nervous?”",
+          "**You say:**\n“A little. That's how I know\nI like you.”"
+        ]
+      },
+      "el": {
+        "titre": "Όταν ρωτάει αν έχεις άγχος.",
+        "paragraphes": [
+          "**Εκείνη λέει:**\n«Έχεις άγχος;»",
+          "**Εσύ λες:**\n«Λίγο. Έτσι ξέρω ότι μου αρέσεις.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Cuando pregunta si estás nervioso.",
+        "paragraphes": [
+          "**Ella dice:**\n“¿Estás nervioso?”",
+          "**Tú dices:**\n“Un poco. Así sé que me gustas.”"
+        ]
+      },
+      "it": {
+        "titre": "Quando ti chiede se sei nervoso.",
+        "paragraphes": [
+          "**Lei dice:**\n“Sei nervoso?”",
+          "**Tu dici:**\n“Un po'. È così che so che mi piaci.”"
+        ]
+      },
+      "hu": {
+        "titre": "Ha megkérdezi, izgulsz-e.",
+        "paragraphes": [
+          "**Ő mondja:**\n„Izgulsz?”",
+          "**Te mondod:**\n„Egy kicsit. Ebből tudom, hogy tetszel.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Quando ela pergunta se está nervoso.",
+        "paragraphes": [
+          "**Ela diz:**\n“Você está nervoso?”",
+          "**Você diz:**\n“Um pouco. É assim que sei que gosto de você.”"
+        ]
+      },
+      "es": {
+        "titre": "Cuando pregunta si estás nervioso.",
+        "paragraphes": [
+          "**Ella dice:**\n“¿Estás nervioso?”",
+          "**Tú dices:**\n“Un poco. Así sé que me gustas.”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "Hard questions aren't traps.\nThey're her way of getting closer.",
+          "**A boy dodges.**\n**A man answers, and smiles.**"
+        ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Οι δύσκολες ερωτήσεις δεν είναι παγίδες. Είναι ο τρόπος της να έρθει πιο κοντά.",
+          "**Το αγόρι αποφεύγει.**\n**Ο άντρας απαντά και χαμογελά.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Las preguntas difíciles no son trampas. Son su forma de acercarse.",
+          "**Un niño esquiva.**\n**Un hombre responde y sonríe.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "Le domande difficili non sono trappole. Sono il suo modo di avvicinarsi.",
+          "**Un ragazzino schiva.**\n**Un uomo risponde e sorride.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "A nehéz kérdések nem csapdák. Így próbál közelebb kerülni.",
+          "**A kisfiú kitér.**\n**A férfi válaszol és mosolyog.**"
+        ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Perguntas difíceis não são armadilhas. São o jeito dela de se aproximar.",
+          "**O garoto foge.**\n**O homem responde e sorri.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Las preguntas difíciles no son trampas. Son su forma de acercarse.",
+          "**Un niño esquiva.**\n**Un hombre responde y sonríe.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      }
+    }
+  ]
+}

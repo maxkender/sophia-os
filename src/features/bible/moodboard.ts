@@ -152,6 +152,12 @@ export interface CarteLabel {
   a_podzer: boolean;
   /** Le podz est validé : le bloc et ses comptes se rangent dans « Mise à jour hebdo », catégorie Podz. */
   podz_valide_at: string | null;
+  /**
+   * 26/11 : le genre des comptes de ce label (prénom, bio, photo de profil). Choisi à la création, obligatoire pour
+   * créer le label dans l'OS (`label_propose_valider`, 0856). Sans lui, un label comme `looksmaxxing_man` donnait des
+   * comptes féminins.
+   */
+  genre?: GenreLabel | null;
   /** Le nom du vrai label (carte « existe »). */
   label_nom?: string | null;
   /**
@@ -166,7 +172,10 @@ export const blocsVersesDans = (carte: CarteLabel, cartes: CarteLabel[]): CarteL
   cartes.filter((c) => c.rattachement?.fusion && c.rattachement.vers === carte.id && c.rattachement.comptes.length > 0);
 
 const COLONNES = "id, handle, etape, label_propose_id, autres_cartes, note_import, remarque, supprime_at, langue, posts, miniatures_statut, miniatures_erreur, vues_mediane, meilleur_post_vues, abonnes, ajoute_at";
-const COLONNES_CARTE = "id, nom, titre, section, badge, description_da, label_id, ordre, statut, a_podzer, podz_valide_at";
+const COLONNES_CARTE = "id, nom, titre, section, badge, description_da, label_id, ordre, statut, a_podzer, podz_valide_at, genre";
+
+/** Le genre des comptes d'un label. */
+export type GenreLabel = "homme" | "femme";
 
 export async function lireComptes(): Promise<CompteBible[]> {
   const { data, error } = await supabase.from("bible_comptes").select(COLONNES).order("ajoute_at").limit(3000);
@@ -351,16 +360,20 @@ export async function detacherCarte(carteId: string): Promise<{ comptes: number;
 }
 
 /** Le nom, l'app et la DA d'un label encore proposé (un vrai label se modifie dans Labels & applications). */
-export async function modifierCarte(id: string, p: { nom: string; section: Section; description: string }): Promise<void> {
+export async function modifierCarte(id: string, p: { nom: string; section: Section; description: string; genre?: GenreLabel | null }): Promise<void> {
   const { error } = await supabase.from("labels_proposes")
-    .update({ nom: p.nom, description_da: p.description.trim() || null, section: p.section, ...appsDeSection(p.section) }).eq("id", id).is("label_id", null);
+    .update({
+      nom: p.nom, description_da: p.description.trim() || null, section: p.section, ...appsDeSection(p.section),
+      ...(p.genre ? { genre: p.genre } : {}),
+    }).eq("id", id).is("label_id", null);
   if (error) throw new Error(error.message);
 }
 
 /** « + nouveau label » : une proposition à valider (jamais un vrai label). */
-export async function creerCarte(p: { nom: string; section: Section; description: string }): Promise<CarteLabel> {
+export async function creerCarte(p: { nom: string; section: Section; description: string; genre?: GenreLabel | null }): Promise<CarteLabel> {
   const { data, error } = await supabase.from("labels_proposes").insert({
     nom: p.nom, description_da: p.description || null, statut: "a_valider", section: p.section, badge: "nouveau", ordre: 99,
+    genre: p.genre ?? null,
     ...appsDeSection(p.section),
   }).select(COLONNES_CARTE).single();
   if (error) throw new Error(error.message);

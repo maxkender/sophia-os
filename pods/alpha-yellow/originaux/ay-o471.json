@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o471",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8c5758d5-2fca-4957-a052-1e7c16a30c15",
+ "titre": "Things I find super cool #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Try",
+ "musique_url": "https://www.tiktok.com/music/try-7533289206400027394",
+ "inspirations": [
+  "8c5758d5-2fca-4957-a052-1e7c16a30c15"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 11 de la boîte (8c5758d5, @celonstudio) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (jeans, sneakers, sweats, voiture, bracelets, pull). Format adapté : une chose par slide avec une phrase, aucune marque citée. Les lignes 9 et 10 (« niche ») sont sautées, accroches voisines de la ligne 8 le même jour..",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bd255007-7e8c-48f7-b5a6-4ed9d30374de",
+   "texte_overlay": "Things\nI find\nsuper\ncool",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A man who can cook for his friends without a recipe. A big pot of pasta, good music, everyone around the table.",
+   "media_id": "f65466ce-09f0-42ff-bb4d-78682e4ba67b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Someone who knows the stars. Pointing out constellations on a summer night is one of the coolest quiet skills there is.",
+   "media_id": "f69e5b9a-f541-430a-a699-d965af2e5088"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "A well-worn leather jacket. The kind that looks better after ten years than on the first day. Character over trend.",
+   "media_id": "f74a49b9-2c44-4c89-aa3d-40ea71de03c0"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "People who travel slowly. A week in one small town instead of five cities in five days. You really get to know a place, its people and its food that way.",
+   "media_id": "f78354f8-ce50-4688-ae6a-93aae5ea3fdd"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Knowing random fascinating facts. I do five minutes a day of history, art or science, and my friends love the stories I bring.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. My friends love the stories I bring.",
+   "media_id": "0e38397c-bfb5-4c75-a1bb-d14aa72e2103"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "A handwritten note left on someone's desk. Small, unexpected and remembered much longer than a text. Try it once.",
+   "media_id": "f7d86de0-e58e-4efd-aa2e-9abb0fc2bf41"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Men who are calm on the road. No honking, no anger, just patience. It's rarer and cooler than any car. Patience is cool.",
+   "media_id": "f815e238-38d4-4980-b96e-e669d9d1d1c6"
+  }
+ ]
+}

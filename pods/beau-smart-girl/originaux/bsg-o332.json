@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o332",
+  "type_bleo": "full_test",
+  "titre": "les traditions de noël à travers le monde #noel #traditions #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Traditions connues (Sainte-Lucie en Suède, posadas au Mexique, Befana en Italie, marchés de Noël en Allemagne). Fait vérifié le 9/11 sur https://en.wikipedia.org/wiki/The_Little_Prince. Routine du 27/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 6 full tests et 12 déclinaisons ; seules les lignes 1 et 15 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale « how to destroy yourself »), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12, 13 et 14 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "7b6c2f84",
+      "texte_overlay": "les traditions de noël\nà travers le monde",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "9a9e75e3",
+      "texte_overlay": "1. la suède\n\nla sainte-lucie,\ndes bougies sur la tête.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2ba4913c",
+      "texte_overlay": "2. le mexique\n\nles posadas,\nneuf soirs de fête avant noël.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ddfa6de4",
+      "texte_overlay": "3. l'italie\n\nla befana, une gentille sorcière\nqui apporte des bonbons.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6fce8af8",
+      "texte_overlay": "4. l'allemagne\n\nles marchés de noël\net le vin chaud.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "e10b5ba0",
+      "texte_overlay": "5. et un livre sous le sapin\n\nce matin, j'ai appris que le petit prince a été publié pour la première fois à new york, en 1943.\nje l'offre à tout le monde cette année.",
+      "texte_sophia": "5. et un livre sous le sapin\n\nce matin, l'appli Sophia m'a appris que le petit prince a été publié pour la première fois à new york, en 1943.\nje l'offre à tout le monde cette année.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "337f7a69",
+      "texte_overlay": "c'est quoi ta tradition préférée ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

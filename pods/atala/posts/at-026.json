@@ -1,0 +1,431 @@
+{
+ "id": "at-026",
+ "style": "objets",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+  "vues": 278500,
+  "publie_le": "2026-10-31",
+  "accroche": "courir l’hiver : / les do & don’ts"
+ },
+ "titre": {
+  "en": "low energy days do and don’ts",
+  "fr": "les jours sans : les do & don’ts",
+  "de": "müde tage: die do & don’ts",
+  "it": "giorni no: i do & don’ts",
+  "es-419": "días sin energía: los do & don’ts",
+  "hu": "fáradt napok: a do & don’ts",
+  "ro": "zile fără chef: do & don’ts",
+  "tr": "enerjisiz günler: do & don’ts",
+  "el": "κουρασμένες μέρες: τα do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #runningtips #girlswhorun #runningmotivation #tired",
+  "fr": "#courseapied #motivation #running #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
+ },
+ "musique": {
+  "titre": "La Mentira",
+  "url": "https://www.tiktok.com/music/la-mentira-6705056394258679809"
+ },
+ "notes": "Full test (accroche jamais faite chez nous), au format de leur tube (@hannah.run5, 279 k), style `objets`. Aucun objet neuf ; couverture : coureuse-matin. Logo d'Atala au milieu des « Do » de la slide 2. Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec le mot pour « appli », jamais « AI »). Aucune page d'appli. Livré dans les 9 langues du label.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-matin.png",
+   "en": {
+    "titre": "low energy days\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "les jours sans :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "müde tage:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "giorni no:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "días sin energía:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "fáradt napok:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "zile fără chef:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "enerjisiz günler:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "κουρασμένες μέρες:\nτα do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/banane.png",
+    "atala",
+    "images/objets/verre-eau.png"
+   ],
+   "dont": [
+    "images/objets/cafes.png",
+    "images/objets/telephone.png"
+   ],
+   "en": {
+    "titre": "before",
+    "do": [
+     "a banana",
+     "a coach app\nlike atala",
+     "a big glass\nof water"
+    ],
+    "dont": [
+     "three coffees",
+     "scrolling\nfor an hour"
+    ]
+   },
+   "fr": {
+    "titre": "avant",
+    "do": [
+     "une banane",
+     "appli coach\ncomme atala",
+     "un grand\nverre d’eau"
+    ],
+    "dont": [
+     "trois cafés",
+     "scroller\nune heure"
+    ]
+   },
+   "de": {
+    "titre": "vorher",
+    "do": [
+     "eine banane",
+     "coach-app\nwie atala",
+     "ein großes\nglas wasser"
+    ],
+    "dont": [
+     "drei kaffee",
+     "stundenlang\nam handy"
+    ]
+   },
+   "it": {
+    "titre": "prima",
+    "do": [
+     "una banana",
+     "app coach\ncome atala",
+     "tanta acqua"
+    ],
+    "dont": [
+     "tre caffè",
+     "un’ora\nsul telefono"
+    ]
+   },
+   "es-419": {
+    "titre": "antes",
+    "do": [
+     "un plátano",
+     "app con coach\ncomo atala",
+     "un vaso\ngrande de agua"
+    ],
+    "dont": [
+     "tres cafés",
+     "una hora\nen el celular"
+    ]
+   },
+   "hu": {
+    "titre": "előtte",
+    "do": [
+     "egy banán",
+     "edzős app,\nmint az atala",
+     "egy nagy\npohár víz"
+    ],
+    "dont": [
+     "három kávé",
+     "órás görgetés"
+    ]
+   },
+   "ro": {
+    "titre": "înainte",
+    "do": [
+     "o banană",
+     "aplicație de\ncoach ca atala",
+     "un pahar\nmare cu apă"
+    ],
+    "dont": [
+     "trei cafele",
+     "o oră\npe telefon"
+    ]
+   },
+   "tr": {
+    "titre": "önce",
+    "do": [
+     "bir muz",
+     "atala gibi\nkoç uygulaması",
+     "büyük bir\nbardak su"
+    ],
+    "dont": [
+     "üç kahve",
+     "uzun scroll"
+    ]
+   },
+   "el": {
+    "titre": "πριν",
+    "do": [
+     "μια μπανάνα",
+     "εφαρμογή coach\nσαν το atala",
+     "ένα μεγάλο\nποτήρι νερό"
+    ],
+    "dont": [
+     "τρεις καφέδες",
+     "μια ώρα\nστο κινητό"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/montre.png",
+    "images/objets/chaussures.png",
+    "images/objets/ecouteurs.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/cone.png"
+   ],
+   "en": {
+    "titre": "the run",
+    "do": [
+     "a shorter run",
+     "an easy pace",
+     "your playlist"
+    ],
+    "dont": [
+     "forcing\nthe pace",
+     "intervals\nat all costs"
+    ]
+   },
+   "fr": {
+    "titre": "la sortie",
+    "do": [
+     "une sortie\nplus courte",
+     "un rythme cool",
+     "ta playlist"
+    ],
+    "dont": [
+     "forcer\nle rythme",
+     "fractionné\nà tout prix"
+    ]
+   },
+   "de": {
+    "titre": "der lauf",
+    "do": [
+     "kürzer laufen",
+     "lockeres tempo",
+     "deine playlist"
+    ],
+    "dont": [
+     "tempo\nmit gewalt",
+     "intervalle\num jeden preis"
+    ]
+   },
+   "it": {
+    "titre": "la corsa",
+    "do": [
+     "un’uscita\npiù corta",
+     "ritmo lento",
+     "la playlist"
+    ],
+    "dont": [
+     "forzare\nil ritmo",
+     "ripetute\na ogni costo"
+    ]
+   },
+   "es-419": {
+    "titre": "la salida",
+    "do": [
+     "salida\nmás corta",
+     "ritmo suave",
+     "tu playlist"
+    ],
+    "dont": [
+     "forzar\nel ritmo",
+     "series\na toda costa"
+    ]
+   },
+   "hu": {
+    "titre": "a futás",
+    "do": [
+     "rövidebb futás",
+     "laza tempó",
+     "a playlisted"
+    ],
+    "dont": [
+     "tempó erőből",
+     "résztáv\nbármi áron"
+    ]
+   },
+   "ro": {
+    "titre": "alergarea",
+    "do": [
+     "o ieșire\nmai scurtă",
+     "ritm lejer",
+     "playlistul tău"
+    ],
+    "dont": [
+     "ritm forțat",
+     "intervale\ncu orice preț"
+    ]
+   },
+   "tr": {
+    "titre": "koşu",
+    "do": [
+     "daha kısa koşu",
+     "rahat tempo",
+     "playlistin"
+    ],
+    "dont": [
+     "zorlama tempo",
+     "zorla interval"
+    ]
+   },
+   "el": {
+    "titre": "η έξοδος",
+    "do": [
+     "σύντομη έξοδος",
+     "χαλαρός ρυθμός",
+     "η playlist σου"
+    ],
+    "dont": [
+     "ζορίζεις\nτον ρυθμό",
+     "interval\nμε το ζόρι"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/pates.png",
+    "images/objets/masque.png",
+    "images/objets/the.png"
+   ],
+   "dont": [
+    "images/objets/vin.png",
+    "images/objets/sac-sport.png"
+   ],
+   "en": {
+    "titre": "after",
+    "do": [
+     "a real meal",
+     "an early night",
+     "a hot tea"
+    ],
+    "dont": [
+     "a glass\nof wine",
+     "a gym session\nto make up"
+    ]
+   },
+   "fr": {
+    "titre": "après",
+    "do": [
+     "un vrai repas",
+     "au lit tôt",
+     "un thé chaud"
+    ],
+    "dont": [
+     "un verre\nde vin",
+     "une séance\npour rattraper"
+    ]
+   },
+   "de": {
+    "titre": "danach",
+    "do": [
+     "richtig essen",
+     "früh ins bett",
+     "heißer tee"
+    ],
+    "dont": [
+     "ein glas wein",
+     "extra-training\nzum aufholen"
+    ]
+   },
+   "it": {
+    "titre": "dopo",
+    "do": [
+     "un vero pasto",
+     "a letto presto",
+     "un tè caldo"
+    ],
+    "dont": [
+     "un bicchiere\ndi vino",
+     "palestra\nper recuperare"
+    ]
+   },
+   "es-419": {
+    "titre": "después",
+    "do": [
+     "comer bien",
+     "temprano\na la cama",
+     "un té caliente"
+    ],
+    "dont": [
+     "una copa\nde vino",
+     "gym\npara compensar"
+    ]
+   },
+   "hu": {
+    "titre": "utána",
+    "do": [
+     "rendes étel",
+     "korán ágyba",
+     "forró tea"
+    ],
+    "dont": [
+     "egy pohár bor",
+     "pótló edzés"
+    ]
+   },
+   "ro": {
+    "titre": "după",
+    "do": [
+     "masă bună",
+     "somn devreme",
+     "ceai fierbinte"
+    ],
+    "dont": [
+     "un pahar\nde vin",
+     "sală\nde recuperare"
+    ]
+   },
+   "tr": {
+    "titre": "sonra",
+    "do": [
+     "gerçek yemek",
+     "erken uyku",
+     "sıcak çay"
+    ],
+    "dont": [
+     "şarap içmek",
+     "telafi için\nspor salonu"
+    ]
+   },
+   "el": {
+    "titre": "μετά",
+    "do": [
+     "σωστό φαγητό",
+     "νωρίς ύπνος",
+     "ζεστό τσάι"
+    ],
+    "dont": [
+     "ποτήρι κρασί",
+     "γυμναστήριο\nγια κάλυψη"
+    ]
+   }
+  }
+ ]
+}

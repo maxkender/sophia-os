@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o378",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d5e82854-9454-4ec0-bd5d-f534b98e7dfd",
+ "titre": "The quiet manners of a real gentleman #men #etiquette #respect #gentleman #manners",
+ "musique_titre": "i dont like sand",
+ "musique_url": "https://www.tiktok.com/music/i-dont-like-sand-7504007316666993430",
+ "inspirations": [
+  "d5e82854-9454-4ec0-bd5d-f534b98e7dfd"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 27/11. Déclinaison G2 de la ligne 1 de la boîte (parent d5e82854 = notre am-o262 ; 1e déclinaison). Promesse reformulée. Langue source de la boîte : en (accroche du parent en danois, promesse reformulée en anglais). Format : « N. règle » en une ou deux lignes. Items neufs, ni de am-o262. reference_url de am-o262 (1 à 3, 5 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "718695c6",
+   "texte_overlay": "The quiet manners of\na real gentleman",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4659252d",
+   "texte_overlay": "1. If you invite, you pay.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "08a975ed",
+   "texte_overlay": "2. Take your shoes off\nwithout being asked.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5deb6d77",
+   "texte_overlay": "3. Never let a friend\nwalk home alone at night.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6814cc81",
+   "texte_overlay": "4. Bring something to talk about.\nLearn a little every day.",
+   "texte_sophia": "4. Bring something to talk about.\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "325db327",
+   "texte_overlay": "5. Answer texts within a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6973dc4c",
+   "texte_overlay": "See you soon.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/8.jpg"
+  }
+ ]
+}

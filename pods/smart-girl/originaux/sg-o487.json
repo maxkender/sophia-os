@@ -1,0 +1,62 @@
+{
+  "source_id": "sg-o487",
+  "type_bleo": "full_test",
+  "titre": "the surprising history of the wedding dress #wedding #history #bride #smartgirl #vintage",
+  "musique_titre": "music to watch boys to x i wanna be yours mashup",
+  "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+  "inspirations": [
+    "905ac33d-906a-4223-9d93-29df2e258b6f"
+  ],
+  "notes": "cta C. Full test 7/9 (la jauge en demande 9 sur 31) : accroche jamais faite chez nous (« wedding » absent des accroches du label et de nos originaux). Accroches écrites : « the surprising history of the wedding dress » (retenue : romantique + histoire), « wedding traditions explained » (écartée : large), « why brides wear white » (écartée : réponse dans le titre). Faits vérifiés : avant 1840 les mariées portaient leur plus belle robe, de toute couleur ; la reine Victoria lance le blanc en 1840 ; le voile orangé (flammeum) des Romaines ; les bouquets d'herbes contre le mauvais sort ; la comptine victorienne « something old, something new » ; la robe de Grace Kelly en 1956. Sophia à la fin comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ba0e6d82",
+      "texte_overlay": "the surprising history of\nthe wedding dress",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e1209788",
+      "texte_overlay": "before 1840\n\nbrides wore their best dress,\nin any colour.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "e9a5f38e",
+      "texte_overlay": "then queen victoria wore white\n\nand everyone copied her.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ae630f4e",
+      "texte_overlay": "roman brides\n\nwore a flame-coloured veil.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6c7b621b",
+      "texte_overlay": "bouquets\n\nonce made of herbs to keep\nbad luck away.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "c11e8116",
+      "texte_overlay": "\"something old, something new\"\n\na victorian rhyme.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6090508a",
+      "texte_overlay": "1956\n\ngrace kelly's lace dress\nis still copied today.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "dd0632e7",
+      "texte_overlay": "one curious story a day beats\nten minutes of scrolling.",
+      "texte_sophia": "one curious story a day on an app like\nSophia beats ten minutes of scrolling.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o387",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5dc1eb85-3f8a-47c5-b03d-d05b9c4ecc0f",
+ "titre": "Things to do instead of always scrolling #men #noscroll #hobbies #growth #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7652148333531663135",
+ "inspirations": [
+  "5dc1eb85-3f8a-47c5-b03d-d05b9c4ecc0f"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 27/11. Déclinaison G1 de la ligne 47 de la boîte (parent 5dc1eb85, @livingondreambig, langue source en). Accroche du parent mot pour mot. Format : activité en titre puis une ligne. Items neufs, aucun du parent. reference_url du parent (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5855dfdf",
+   "texte_overlay": "things to do instead of\nalways scrolling",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649405065727397142/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5ebb9db3",
+   "texte_overlay": "cook something from another country\n\none new cuisine a week.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649405065727397142/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "067d29e8",
+   "texte_overlay": "fix something that's been broken\nfor months\n\nthat drawer. that bike.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649405065727397142/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6180fc0f",
+   "texte_overlay": "take a photo walk\n\nten photos, one hour.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649405065727397142/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e6e147b7",
+   "texte_overlay": "learn one thing you've always\nwondered about\n\nwhy is the sky blue?",
+   "texte_sophia": "learn one thing you've always\nwondered about\n\nuse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649405065727397142/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "841272c9",
+   "texte_overlay": "call a friend you haven't\nseen in a year",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649405065727397142/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o455",
+ "type_bleo": "full_test",
+ "titre": "What cold showers actually do for your mind #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « What cold showers actually do for your mind » (retenue), « Cold shower challenge » (écartée : vu partout), « Why I take cold showers » (écartée : récit). Ton prudent, sans promesse médicale.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "178b575b-29c1-4bd2-9248-91bd16e5b8cf",
+   "texte_overlay": "What cold showers actually\ndo for your mind",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "They train you to stay calm under stress. The first seconds feel like panic. Learning to breathe slowly through it builds a calm you can use elsewhere.",
+   "media_id": "1cfd2eb6-7950-41d9-95f2-f7137efe9d7e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "They wake you up fast. A short cold rinse at the end of a shower clears morning fog better than scrolling in bed.",
+   "media_id": "215bd88e-7be2-4a08-87e9-319c4206cd5f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "They build a daily win. Doing something uncomfortable first thing tells your brain you can handle hard things today.",
+   "media_id": "25191200-ea59-4ff7-ae4b-80938f785dbe"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "They teach you about your breathing. Fast, shallow breaths make it worse. Slow exhales make it easier. That lesson works everywhere.",
+   "media_id": "2979667b-3543-4bde-a370-39a4ced83a53"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Pair it with your cold shower and start every morning with two wins.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Pair it with your cold shower and start every morning with two wins.",
+   "media_id": "001d31ba-86bf-4874-9a58-7a2181442e33"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Start small. Thirty seconds of cold at the end of a warm shower is enough. Add a few seconds each week. Consistency matters more than intensity.",
+   "media_id": "355e6aa8-01b1-460a-b2cf-2b045f38e7eb"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Listen to your body. Cold showers aren't for everyone. If you have a heart condition or feel unwell, ask a doctor first.",
+   "media_id": "38041cfe-48ec-4a7e-bcda-38392984880a"
+  }
+ ]
+}

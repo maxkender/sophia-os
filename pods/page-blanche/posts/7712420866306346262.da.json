@@ -1,0 +1,444 @@
+{
+ "post_id": "7712420866306346262",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6 habits that are secretly",
+      "killing your productivity"
+     ],
+     "fr": "6 habitudes qui flinguent ta productivité en douce",
+     "texte": "6 vaner, der i al hemmelighed dræber din produktivitet"
+    },
+    "T3": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(neurovidenskaben er enig)",
+     "alignement": "droite"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0adaafd0.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 81,
+      "y": 227,
+      "l": 673,
+      "h": 132
+     },
+     "lignes": [
+      {
+       "x": 81,
+       "y": 227,
+       "l": 673,
+       "h": 59,
+       "base": 272
+      },
+      {
+       "x": 82,
+       "y": 298,
+       "l": 624,
+       "h": 61,
+       "base": 345
+      }
+     ],
+     "pas": 73,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 84,
+      "y": 384,
+      "l": 768,
+      "h": 467
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 391,
+      "y": 902,
+      "l": 446,
+      "h": 40
+     },
+     "lignes": [
+      {
+       "x": 391,
+       "y": 902,
+       "l": 446,
+       "h": 40,
+       "base": 933
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 1040,
+      "y": 1302,
+      "l": 40,
+      "h": 40
+     },
+     "lignes": [
+      {
+       "x": 1040,
+       "y": 1302,
+       "l": 40,
+       "h": 40,
+       "base": 1304
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "working from your bed"
+     ],
+     "fr": "bosser [[depuis ton lit]]",
+     "texte": "at arbejde [[fra sengen]]"
+    },
+    "T2": {
+     "en": [
+      "your brain links your bed with sleep and scrolling, so it",
+      "never fully switches into work mode"
+     ],
+     "fr": "ton cerveau associe ton lit [[au sommeil et au scroll]], du coup il passe jamais vraiment en mode boulot",
+     "texte": "din hjerne forbinder sengen med [[søvn og scrolling]], så den skifter aldrig helt over til arbejde"
+    },
+    "T3": {
+     "en": [
+      "that's why you feel",
+      "sleepy and distracted",
+      "the second you open",
+      "your laptop there"
+     ],
+     "fr": "voilà pourquoi [[t'as sommeil et la tête ailleurs]] dès que t'ouvres ton ordi dessus",
+     "texte": "derfor bliver du [[søvnig og distraheret]], så snart du åbner computeren der"
+    },
+    "T4": {
+     "en": [
+      "work at a desk, even a",
+      "kitchen table"
+     ],
+     "fr": "bosse à un bureau, ou [[sur la table de la cuisine]]",
+     "texte": "arbejd ved et bord, selv [[køkkenbordet]]"
+    },
+    "T5": {
+     "en": [
+      "and keep your bed for sleep, so you actually",
+      "sleep better too"
+     ],
+     "fr": "et garde ton lit pour dormir, comme ça [[tu dors mieux en plus]]",
+     "texte": "og brug sengen til at sove, så [[sover du også bedre]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "doing two things at once"
+     ],
+     "fr": "faire [[deux trucs à la fois]]",
+     "texte": "at gøre [[to ting på én gang]]"
+    },
+    "T2": {
+     "en": [
+      "every time you switch,",
+      "your brain has to drop",
+      "one task and load the",
+      "other one again"
+     ],
+     "fr": "à chaque fois que tu switches, ton cerveau doit lâcher une tâche et [[recharger l'autre]]",
+     "texte": "hver gang du skifter, skal hjernen droppe én opgave og [[loade den anden igen]]"
+    },
+    "T3": {
+     "en": [
+      "replying to texts while",
+      "you study feels",
+      "productive, but you're",
+      "doing both worse and",
+      "slower"
+     ],
+     "fr": "répondre aux messages en révisant, [[ça fait productif]], mais tu fais tout [[moins bien et moins vite]]",
+     "texte": "at skrive beskeder, mens du læser, [[føles produktivt]], men du gør det hele [[værre og langsommere]]"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "fr": "une tâche, un onglet, [[jusqu'au bout]]",
+     "texte": "én opgave, én fane, [[til den er færdig]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "doomscrolling everyday"
+     ],
+     "fr": "doomscroller tous les jours",
+     "texte": "doomscrolling hver dag"
+    },
+    "T2": {
+     "en": [
+      "do you remember what tiktok you saw",
+      "5 scrolls ago?"
+     ],
+     "fr": "tu te souviens du tiktok que t'as vu [[il y a 5 scrolls]] ?",
+     "texte": "kan du huske, hvilken tiktok du så [[for 5 scrolls siden]]?"
+    },
+    "T3": {
+     "en": [
+      "exactly. short form content",
+      "is frying your attention span"
+     ],
+     "fr": "[[exactement]]. les vidéos courtes [[te grillent l'attention]]",
+     "texte": "[[præcis]]. korte videoer [[steger din koncentration]]"
+    },
+    "T4": {
+     "en": [
+      "books that survived",
+      "50–100+ years usually",
+      "survived for a reason"
+     ],
+     "fr": "les livres qui ont tenu 50 à 100 ans et plus, c'est pas pour rien",
+     "texte": "bøger, der har overlevet 50–100+ år, gjorde det som regel af en grund"
+    },
+    "T5": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "avant je [[scrollais H24]], maintenant j'apprends un truc en 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et Sisyphe",
+     "texte": "før [[doomscrollede]] jeg, nu tager jeg [[5 min i Sophia-appen]] hver dag. i dag: hvorfor renæssancen opstod i Italien"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "saying yes to everything"
+     ],
+     "fr": "dire oui [[à tout]]",
+     "texte": "at sige ja [[til alt]]"
+    },
+    "T2": {
+     "en": [
+      "every yes takes time",
+      "from your own work"
+     ],
+     "fr": "chaque oui grignote [[ton temps de taf]]",
+     "texte": "hvert ja tager tid fra [[dit eget arbejde]]"
+    },
+    "T3": {
+     "en": [
+      "the extra favour, the",
+      "random call, the plan",
+      "you didn't want"
+     ],
+     "fr": "le service en plus, l'appel imprévu, le plan dont t'avais pas envie",
+     "texte": "den ekstra tjeneste, det tilfældige opkald, planen du ikke ville"
+    },
+    "T4": {
+     "en": [
+      "suddenly your week",
+      "belongs to other",
+      "people"
+     ],
+     "fr": "et d'un coup ta semaine [[appartient aux autres]]",
+     "texte": "og pludselig [[tilhører din uge andre mennesker]]"
+    },
+    "T5": {
+     "en": [
+      "say no more often!!"
+     ],
+     "fr": "[[dis non plus souvent]] !!",
+     "texte": "[[sig oftere nej]]!!"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "writing a 20 item to-do list"
+     ],
+     "fr": "écrire une [[to-do de 20 trucs]]",
+     "texte": "[[en to-do-liste på 20 punkter]]"
+    },
+    "T2": {
+     "en": [
+      "a long list feels productive, but it just",
+      "makes you pick the easiest tasks"
+     ],
+     "fr": "une longue liste [[fait productif]], mais tu finis par [[choisir les trucs faciles]]",
+     "texte": "en lang liste [[føles produktiv]], men får dig bare til at [[vælge de nemmeste opgaver]]"
+    },
+    "T3": {
+     "en": [
+      "you tick off 15 small",
+      "things and never touch",
+      "the one that matters"
+     ],
+     "fr": "tu coches 15 petits trucs et [[jamais celui qui compte]]",
+     "texte": "du krydser 15 små ting af og [[rører aldrig den, der betyder noget]]"
+    },
+    "T4": {
+     "en": [
+      "write down your top 3",
+      "and do those first"
+     ],
+     "fr": "note ton [[top 3]] et fais-les en premier",
+     "texte": "skriv dine [[top 3]] ned og tag dem først"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "working with notifications on"
+     ],
+     "fr": "bosser avec [[les notifs activées]]",
+     "texte": "at arbejde med [[notifikationer tændt]]"
+    },
+    "T2": {
+     "en": [
+      "every ping pulls you out,",
+      "and it takes your brain a",
+      "while to get back into what",
+      "you were doing"
+     ],
+     "fr": "chaque notif te sort de ta bulle, et ton cerveau met du temps à [[se remettre dans ce que tu faisais]]",
+     "texte": "hver notifikation trækker dig ud, og hjernen er længe om at [[komme tilbage til det, du lavede]]"
+    },
+    "T3": {
+     "en": [
+      "turn them all off while you",
+      "work and check them",
+      "when you choose"
+     ],
+     "fr": "coupe-les toutes quand tu bosses et [[regarde-les quand toi tu décides]]",
+     "texte": "slå dem alle fra, mens du arbejder, og [[tjek dem, når du selv vil]]"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_30148fe8.jpg",
+      "boite": [
+       0,
+       1050,
+       1504,
+       1600
+      ]
+     }
+    }
+   }
+  }
+ }
+}

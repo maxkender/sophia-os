@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o215",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "a539055d-45bb-43ac-8a9c-2c7ef55202a0",
+  "titre": "how i finally got every school subject plus my own little tricks #studytok #studytips #school",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [
+    "a539055d-45bb-43ac-8a9c-2c7ef55202a0"
+  ],
+  "notes": "Déclinaison G2 de a539055d, ligne 1 de la boîte, 3e et dernière déclinaison de la famille. Accroche reformulée (même promesse, autres mots). Matières neuves, aucune de cs-o188 ni cs-o202 : musique (slide Sophia, 5), sciences de la Terre, informatique, latin, éducation civique, grammaire espagnole. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "d7e108a5",
+      "texte_overlay": "how i finally got every school subject\nplus my own little tricks",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "4d06004b",
+      "texte_overlay": "Earth sciences\nlook at real places, not just diagrams.\nmy trick: find each rock or landform on a map.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ba48e963",
+      "texte_overlay": "Computer science\ntype the code yourself, never copy-paste.\nmy trick: break the program on purpose and fix it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "e19d9c6e",
+      "texte_overlay": "Latin\nfind the verb first, then everything else.\nmy trick: spot latin roots in english words.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "bbf425c8",
+      "texte_overlay": "Music\nlisten before you analyse.\nmy trick: learn the story of one composer a week.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "Music\nlisten before you analyse.\nmy trick: learn the story of one composer a week\non a micro-learning app like the Sophia app."
+    },
+    {
+      "position": 6,
+      "media_id": "00736c3e",
+      "texte_overlay": "Civics\nlink each rule to a real situation.\nmy trick: ask \"who decides this, and how?\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "f8f554e1",
+      "texte_overlay": "Spanish grammar\nlearn verbs in short sentences, not lists.\nmy trick: 3 sentences about my day, every evening.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -4,6 +4,8 @@
  */
 export const TEXTES_SETUP_EN = {
   titre: "To get paid on Monday, finish your Ruul setup:",
+  /** 26/11 (Max) : tant que la première semaine n'est pas payable (lundi de départ + 7 jours pas encore passé). */
+  titre_plus_tard: "Ruul is how you get paid. You can set it up later: it's not required to start, just before your first pay.",
   inscrit: "Sign up on app.ruul.io with {email}",
   identite: "Verify your identity",
   banque: "Add your bank account",

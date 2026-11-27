@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o511",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "17a49fa2-55e3-49a4-b583-49e20c56c3b3",
+ "titre": "5 social cues that whisper you're rich #oldmoney #socialskills #elegance #smartgirl #quietluxury",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "17a49fa2-55e3-49a4-b583-49e20c56c3b3"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 26 de la boîte (parent 17a49fa2, langue source en) : accroche du parent mot pour mot. Signes sociaux neufs (parler doucement, ne jamais parler d'argent, être à l'aise avec le silence, savoir recevoir, la culture). Sophia sur la culture à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1d40a003",
+   "texte_overlay": "5 social cues that whisper\nyou're rich",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641203730360175892/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "81e879be",
+   "texte_overlay": "1. you speak softly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641203730360175892/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0021045c",
+   "texte_overlay": "2. you never talk about money",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641203730360175892/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d5cc2418",
+   "texte_overlay": "3. you're comfortable in silence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641203730360175892/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1b3d0f66",
+   "texte_overlay": "4. you know how to host",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641203730360175892/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4a87b5dc",
+   "texte_overlay": "5. you can talk about anything\n\ni read one short lesson every morning.",
+   "texte_sophia": "5. you can talk about anything\n\ni read one short lesson a day on an app like\nSophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641203730360175892/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "df60aa7f",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641203730360175892/7.jpg"
+  }
+ ]
+}

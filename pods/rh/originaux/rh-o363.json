@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o363",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "243cd195-5691-444b-997b-afd4d55bafe7",
+ "titre": "ex-rh : tes réponses d'entretien, notées sans filtre #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 27/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G2 de la ligne #3 (parent 243cd195, notre rh-o251) : même promesse, autres mots, autres réponses. Inspirations reprises de rh-o251. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d2427888",
+   "texte_overlay": "ex-rh :\ntes réponses d'entretien,\nnotées sans filtre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cf457095",
+   "texte_overlay": "« je suis organisée »\n3/10\ncomment ? montre ton agenda de la semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cb17a47b",
+   "texte_overlay": "« j'ai fait un stage où j'ai beaucoup appris »\n4/10\nquoi ? une chose précise",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d76a6f2c",
+   "texte_overlay": "« j'ai mis en place un tableau de suivi qui a fait gagner 2h par semaine »\n9/10\nconcret, chiffré",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "879bb811",
+   "texte_overlay": "« mes centres d'intérêt : la lecture, le sport, les voyages »\n2/10\ntout le monde dit ça. mes 3 préférés : un livre précis, un club, 5 minutes par jour sur un sujet",
+   "texte_sophia": "« mes centres d'intérêt : la lecture, le sport, les voyages »\n2/10\ntout le monde dit ça. mes 3 préférés : un livre précis, un club, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ea4a5e70",
+   "texte_overlay": "« je n'ai pas de question »\n1/10\nil en faut une",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "957b65f9",
+   "texte_overlay": "note ta réponse à « présentez-vous »\nen commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  }
+ ]
+}

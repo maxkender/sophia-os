@@ -1,0 +1,1798 @@
+{
+ "id": "sg-045",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0c93a7b8-7809-42ef-914d-ebbfa89ffa40",
+ "titre": {
+  "fr": "Compétences 10/10 qu'aucun prof ne t'enseignera jamais",
+  "en": "10/10 skills no teacher will ever teach you",
+  "de": "10/10-Skills, die dir kein Lehrer je beibringt",
+  "it": "Abilità 10/10 che nessun prof ti insegnerà mai",
+  "pt-BR": "Habilidades 10/10 que nenhum professor vai te ensinar",
+  "tr": "Hiçbir öğretmenin öğretmeyeceği 10/10 beceriler",
+  "ro": "Abilități 10/10 pe care niciun profesor nu ți le va preda",
+  "cs": "Dovednosti 10/10, které tě žádný učitel nikdy nenaučí",
+  "hu": "10/10-es készségek, amikre egyetlen tanár sem tanít meg",
+  "el": "Δεξιότητες 10/10 που κανένας καθηγητής δεν θα σου μάθει",
+  "sr": "Veštine 10/10 koje te nijedan profesor neće naučiti"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 qu'aucun prof ne t'enseignera jamais #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills no teacher will ever teach you #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die dir kein Lehrer je beibringt #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che nessun prof ti insegnerà mai #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que nenhum professor vai te ensinar #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Hiçbir öğretmenin öğretmeyeceği 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 pe care niciun profesor nu ți le va preda #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které tě žádný učitel nikdy nenaučí #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10-es készségek, amikre egyetlen tanár sem tanít meg #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 που κανένας καθηγητής δεν θα σου μάθει #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 koje te nijedan profesor neće naučiti #učinatiktoku #samorazvoj #veštine"
+ },
+ "musique": {
+  "titre": "original sound - クリスティーナ",
+  "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
+ },
+ "notes": "Déclinaison G2 de sg-030 (27/11) : même promesse, autres mots (« Compétences 10/10 qu'aucun prof ne t'enseignera jamais »), couverture neuve dans son style, musique de sg-030 ; 5 autres compétences que l'école n'apprend pas (comprendre un crédit, gérer sa colère, faire bonne impression, prendre une décision, louer un appart), vraies vidéos natives ; Sophia en étape 4, cta B « APPRENDRE / CE QUI COMPTE ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 111
+     },
+     {
+      "t": "QU'AUCUN PROF",
+      "cap": 160,
+      "couleur": "brun"
+     },
+     {
+      "t": "NE T'ENSEIGNERA",
+      "cap": 120
+     },
+     {
+      "t": "JAMAIS",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 111
+     },
+     {
+      "t": "NO TEACHER",
+      "cap": 160,
+      "couleur": "brun"
+     },
+     {
+      "t": "WILL EVER",
+      "cap": 120
+     },
+     {
+      "t": "TEACH YOU",
+      "cap": 230,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS, DIE DIR",
+      "cap": 111
+     },
+     {
+      "t": "KEIN LEHRER",
+      "cap": 160,
+      "couleur": "brun"
+     },
+     {
+      "t": "JE",
+      "cap": 120
+     },
+     {
+      "t": "BEIBRINGT",
+      "cap": 230,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ CHE",
+      "cap": 111
+     },
+     {
+      "t": "NESSUN PROF",
+      "cap": 160,
+      "couleur": "brun"
+     },
+     {
+      "t": "TI INSEGNERÀ",
+      "cap": 120
+     },
+     {
+      "t": "MAI",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES QUE",
+      "cap": 111
+     },
+     {
+      "t": "NENHUM PROFESSOR",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "VAI TE",
+      "cap": 120
+     },
+     {
+      "t": "ENSINAR",
+      "cap": 250,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "HİÇBİR",
+      "cap": 111
+     },
+     {
+      "t": "ÖĞRETMENİN",
+      "cap": 160,
+      "couleur": "brun"
+     },
+     {
+      "t": "ÖĞRETMEYECEĞİ",
+      "cap": 120
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 220,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI PE CARE",
+      "cap": 100
+     },
+     {
+      "t": "NICIUN PROFESOR",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "NU ȚI LE VA",
+      "cap": 120
+     },
+     {
+      "t": "PREDA",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI, KTERÉ TĚ",
+      "cap": 80
+     },
+     {
+      "t": "ŽÁDNÝ UČITEL",
+      "cap": 160,
+      "couleur": "brun"
+     },
+     {
+      "t": "NIKDY",
+      "cap": 120
+     },
+     {
+      "t": "NENAUČÍ",
+      "cap": 260,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK, AMIKRE",
+      "cap": 100
+     },
+     {
+      "t": "EGYETLEN TANÁR",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "SEM TANÍT",
+      "cap": 120
+     },
+     {
+      "t": "MEG",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ ΠΟΥ",
+      "cap": 100
+     },
+     {
+      "t": "ΚΑΝΕΝΑΣ ΚΑΘΗΓΗΤΗΣ",
+      "cap": 140,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΔΕΝ ΘΑ ΣΟΥ",
+      "cap": 120
+     },
+     {
+      "t": "ΜΑΘΕΙ",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE KOJE TE",
+      "cap": 111
+     },
+     {
+      "t": "NIJEDAN PROFESOR",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "NEĆE",
+      "cap": 120
+     },
+     {
+      "t": "NAUČITI",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COMPRENDRE",
+     [
+      {
+       "t": "UN CRÉDIT",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iEve3_sXflM",
+     "titre": "Qu'est-ce qu'un crédit ? - C'est Pas Sorcier",
+     "chaine": "C'est pas sorcier",
+     "vues": "35 k vues",
+     "date": "il y a 8 ans",
+     "duree": "1:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mM6iBpwKwzyyA6sGUzXdRgJbsEY_9RzW5m8GCkbqwgoHM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "UNDERSTAND",
+     [
+      {
+       "t": "LOANS",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fuiiJuB7tJs",
+     "titre": "Loans 101 (Loan Basics 1/3)",
+     "chaine": "MoneyCoach",
+     "vues": "403K views",
+     "date": "10 years ago",
+     "duree": "3:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mluwaURtoGTFZgB04Z_ENG8nR-PnuhiuM7WcJHJERhOA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KREDITE",
+       "couleur": "#3f8f3a"
+      }
+     ],
+     "VERSTEHEN"
+    ],
+    "video": {
+     "id": "d-BzyWvylLI",
+     "titre": "Kredite erklärt! Tilgung, Zinsen, Annuität...",
+     "chaine": "Finanzhappen",
+     "vues": "69.789 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "9:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mwdTyaC5dlTYWbW_k6a95GKZvLjkZ-xXhVD48M1xr2Ag=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CAPIRE",
+     [
+      {
+       "t": "UN PRESTITO",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1j2LddTieWE",
+     "titre": "PRESTITO: cos’è, come funziona, quali tipi esistono",
+     "chaine": "Investiamo",
+     "vues": "11K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "8:25",
+     "avatar": "https://yt3.ggpht.com/ym4hdhXJNfwOVakoxSh9EE-6ORy4D_ngKuw7kXRIVKY-dnpDMR5f2LFQcE0jEMjzC-FglYNC2Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ENTENDER",
+     [
+      {
+       "t": "EMPRÉSTIMOS",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6JNaIA8SDJo",
+     "titre": "Aprenda a calcular juros dos empréstimos",
+     "chaine": "Cooperativas Ailos",
+     "vues": "240 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "3:21",
+     "avatar": "https://yt3.ggpht.com/JrdlkLz0k0G8G-GwRxd0zPQM9fGPnr8HPVeNRL6mS4DRWQTROEIhV7RuXfHcDG1oKOiYQK1zoA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KREDİYİ",
+       "couleur": "#3f8f3a"
+      }
+     ],
+     "ANLAMAK"
+    ],
+    "video": {
+     "id": "s2R5gRJ1W_o",
+     "titre": "Faiz Nasıl Hesaplanır? Kredi Hesaplama Mantığı Basit Anlatım",
+     "chaine": "Murat Çelebi",
+     "vues": "33 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "6:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lbg3jy1gtt9L3V1LlGd7ZRQLL4a04cBHoHWfioGsWRDw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNȚELEGI",
+     [
+      {
+       "t": "UN CREDIT",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SxF6SNry4Ks",
+     "titre": "Faci un credit? La ce să ai grijă (bine de știut)",
+     "chaine": "Dezaburit",
+     "vues": "324 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "5:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kt6vS0Bp6bzCuXlNV8AauKbuR39pswg2vxUNQeyHrNiQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "POCHOPIT",
+     [
+      {
+       "t": "ÚVĚRY",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "o51ToJu5EWA",
+     "titre": "Spotřebitelské úvěry - Jak fungují a na co si dát pozor??",
+     "chaine": "Váš konzultant",
+     "vues": "1,8 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "2:23",
+     "avatar": "https://yt3.ggpht.com/4ndiC5LYry-g-vYZwHgMvtNeu7v4UGzaDvYd4do5-dHEUnBG4SpuJBweXQ8QVt0Je8kl4ukHe3Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ÉRTSD MEG",
+     [
+      {
+       "t": "A HITELT",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AOM65ML31ZU",
+     "titre": "Hiteltörlesztés",
+     "chaine": "Pénziránytű Alapítvány",
+     "vues": "13 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "2:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nYm9EV3u6LB_4Gsl6_cevERtbSv2iVk8uEXCXFPCXW0A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΚΑΤΑΛΑΒΕ ΤΑ",
+     [
+      {
+       "t": "ΔΑΝΕΙΑ",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kOxKCHl4HgI",
+     "titre": "Δάνειο: Όλα όσα πρέπει να ξέρεις πριν πάρεις",
+     "chaine": "Maria Kokonou",
+     "vues": "728 προβολές",
+     "date": "πριν από 1 έτος",
+     "duree": "10:30",
+     "avatar": "https://yt3.ggpht.com/xbAIynBaQ3v5bAwcDXrkJWlrB3J1-D0WbbvGaLNTaCLWEO0vPMWmhl_ctTTMDl5yOwkzZkVH=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "RAZUMETI",
+     [
+      {
+       "t": "KREDITE",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pZiaRfXRV2s",
+     "titre": "Stambeni krediti detaljno objašnjeni | Kako se računa kamata? Kako se menja rata stambenog kredita?",
+     "chaine": "Lične Finansije",
+     "vues": "15 hilj. pregleda",
+     "date": "pre 3 godine",
+     "duree": "14:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kY1aNdZ1f69JR35wXAEAJsJaHCMQRJcB6NIStnXcCHlw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "GÉRER",
+     [
+      {
+       "t": "SA COLÈRE",
+       "couleur": "#2a4b8d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MDpDfRp1PQg",
+     "titre": "Comment gérer sa colère ? Voici mes conseils",
+     "chaine": "Nathalie Martin",
+     "vues": "29 k vues",
+     "date": "il y a 3 ans",
+     "duree": "8:45",
+     "avatar": "https://yt3.ggpht.com/acknJynekE4XSYGXdEDSufWaXbKAcvbpS49KJpK8a8LSCQIcB4KyWQkcwu45BzX9whJPfNZKMf8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs semaines"
+    ]
+   },
+   "en": {
+    "titre": [
+     "CONTROL",
+     [
+      {
+       "t": "YOUR ANGER",
+       "couleur": "#2a4b8d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "laRWVbeS6OE",
+     "titre": "Your Anger Doesn't Have to Control You",
+     "chaine": "Dr. Daniel Fox",
+     "vues": "72K views",
+     "date": "7 years ago",
+     "duree": "13:41",
+     "avatar": "https://yt3.ggpht.com/Sv_vvAqf9nwZ2nD_6eEOUuXZfbW5kWgvIqpCZ5sL5zTGQiWwJD0Hr-_G-UKw5sshtGw6BjM_lA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several weeks"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "WUT",
+       "couleur": "#2a4b8d"
+      }
+     ],
+     "KONTROLLIEREN"
+    ],
+    "video": {
+     "id": "2DnaM5IO7P0",
+     "titre": "Umgang mit Wut - 12 Tricks um loszulassen",
+     "chaine": "Glücksdetektiv",
+     "vues": "272.989 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "12:12",
+     "avatar": "https://yt3.ggpht.com/juomaG_-u0aydhVeCvb9FNkSoRu7NOvFVrpTzDblerCoSaUvLXszASOvuORCAB5UDd0aL3fLfw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "GESTIRE",
+     [
+      {
+       "t": "LA RABBIA",
+       "couleur": "#2a4b8d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3aPETwzjSRU",
+     "titre": "Come gestire la rabbia",
+     "chaine": "Flavio Cannistrà - Terapie Brevi",
+     "vues": "4,9K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "6:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m9hKi45ic_yDjQl1oWTG9Fa02R86KX0mQVnCUsONnpbw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più settimane"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CONTROLAR",
+     [
+      {
+       "t": "A RAIVA",
+       "couleur": "#2a4b8d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IgO1pA1BppU",
+     "titre": "11 Passos para manejar a raiva",
+     "chaine": "Gabriela Affonso",
+     "vues": "122 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "8:38",
+     "avatar": "https://yt3.ggpht.com/VAGYYfpqzCkK4XpDK5hxeXF6j2avmLDEt1DQq1crCE_FsG4qBW0atILMpKq2FGbmHGarejbtjg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de várias semanas"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ÖFKENİ",
+       "couleur": "#2a4b8d"
+      }
+     ],
+     "KONTROL ETMEK"
+    ],
+    "video": {
+     "id": "n8w3-zN7HUA",
+     "titre": "Öfke kontrolü nasıl yapılır? | 12 Adımda Pozitif Psikoloji",
+     "chaine": "Üsküdar Üniversitesi",
+     "vues": "50 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "4:23",
+     "avatar": "https://yt3.ggpht.com/okkMN_DOqSrYOR8WfLGpbnM60hvaw17j38updSZYqmr3z9ZBJw9n38Bi3oHkbDPvUnV2p_3m6Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç hafta pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI STĂPÂNEȘTI",
+     [
+      {
+       "t": "FURIA",
+       "couleur": "#2a4b8d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Ol_AEjiDsVY",
+     "titre": "Gestionarea furiei - Cum să fii mai răbdător și mai calm | Daniel Cirț",
+     "chaine": "Daniel Cirt",
+     "vues": "50 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "15:22",
+     "avatar": "https://yt3.ggpht.com/L9R46bjfxKUJWCk_RR5_yrq4Yeen7RplLIlUEzR_XiMPR5bAv64gkAJPA3yEOxh_4LzI7z7elg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva săptămâni"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZVLÁDAT",
+     [
+      {
+       "t": "VZTEK",
+       "couleur": "#2a4b8d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Un138Vc7lZA",
+     "titre": "Jak ovládat vztek a zůstat klidný?",
+     "chaine": "TrochuLepší",
+     "vues": "117 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "17:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kjInIyfhJFAa4OsEBFfvoCXUIWyc868ZwkwJmlg5fdhQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik týdnů"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "KEZELD",
+     [
+      {
+       "t": "A DÜHÖD",
+       "couleur": "#2a4b8d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nf7dq0Y_2Io",
+     "titre": "Ezt csináld, ha elönt a düh! Technikák.",
+     "chaine": "Marianna Dezső",
+     "vues": "2,2 E megtekintés",
+     "date": "2 évvel ezelőtt",
+     "duree": "18:39",
+     "avatar": "https://yt3.ggpht.com/9D9d4TacdvZamoBhZ65Y9R4LDk_hZ91XFfPGz31x-1hk9UYzc7_kvgqPhV3IVmQkfHPSWcdK=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több hetes gyakorlás"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΕΛΕΓΞΕ ΤΟΝ",
+     [
+      {
+       "t": "ΘΥΜΟ ΣΟΥ",
+       "couleur": "#2a4b8d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_D5qy-Af0Jk",
+     "titre": "Πώς να Διαχειριστείς το Θυμό Μέσα σου!",
+     "chaine": "Nancy Mallerou",
+     "vues": "17 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "10:32",
+     "avatar": "https://yt3.ggpht.com/RbL6nTjs5IlQOazNE7Ga13YIdqe82vf9AtIxGrvsfZ-2Am98S6HiJX6R0r_62_eTRJ5_CTvn1g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "εξάσκηση μερικών εβδομάδων"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "KONTROLISATI",
+     [
+      {
+       "t": "BES",
+       "couleur": "#2a4b8d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BadsZwZYsyY",
+     "titre": "Kako da kontrolišem svoj bes?",
+     "chaine": "Dr Vladimir Mišić",
+     "vues": "839 pregleda",
+     "date": "pre 1 godinu",
+     "duree": "3:36",
+     "avatar": "https://yt3.ggpht.com/5wYO2ynxSODmqy-HYMrpH9rDlXBgTq25n1uKfY_b9mK3J00AHC95z4beaYNrakM8RvXH7-5qLg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "vežba nekoliko nedelja"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "CE QUI COMPTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "WHAT MATTERS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "LERNEN,",
+     [
+      {
+       "t": "WAS ZÄHLT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "CIÒ CHE CONTA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "O QUE IMPORTA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ÖNEMLİ OLANI",
+     [
+      {
+       "t": "ÖĞRENMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "CE CONTEAZĂ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČIT SE,",
+     [
+      {
+       "t": "CO JE DŮLEŽITÉ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TANULD MEG,",
+     [
+      {
+       "t": "AMI SZÁMÍT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj valami újat",
+      "minden nap."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ",
+     [
+      {
+       "t": "ΟΣΑ ΜΕΤΡΑΝΕ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "μάθε κάτι καινούργιο",
+      "κάθε μέρα."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČITI",
+     [
+      {
+       "t": "ŠTA JE VAŽNO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo",
+      "svaki dan."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "BONNE IMPRESSION",
+       "couleur": "#d9822b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cWP5ixDP5io",
+     "titre": "Comment faire une excellente première impression ?",
+     "chaine": "Michael AGUILAR, CSP",
+     "vues": "119 k vues",
+     "date": "il y a 2 ans",
+     "duree": "9:08",
+     "avatar": "https://yt3.ggpht.com/0Eew5K3q6CuKR-yZO2pTI0EYbGdFw9MvYdLI6X7pCARHdmSGp1fd7_kO1_WPW94sdRPwuoOM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE A GREAT",
+     [
+      {
+       "t": "FIRST IMPRESSION",
+       "couleur": "#d9822b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GWQRFMlvAVc",
+     "titre": "How to Make a Great First Impression",
+     "chaine": "Vanessa Van Edwards",
+     "vues": "161K views",
+     "date": "7 years ago",
+     "duree": "8:19",
+     "avatar": "https://yt3.ggpht.com/UibvtC7PDQITwvPfJScV5kZrs9kLsblugpVrn0O8OfGBDdJ4OHOuOj_g3dGKGgtSQt6BpDvm3Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "GUTEN EINDRUCK",
+       "couleur": "#d9822b"
+      }
+     ],
+     "MACHEN"
+    ],
+    "video": {
+     "id": "lx8pxtMPByU",
+     "titre": "4 Tipps für einen guten ersten Eindruck | Psychologie des ersten  Eindrucks",
+     "chaine": "EINFACH CLEVER",
+     "vues": "6044 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "5:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lMss9HZcu__jjB2K4ps6ccFEygDNVAa9gvuUwiQFn2sNM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE UNA",
+     [
+      {
+       "t": "BUONA IMPRESSIONE",
+       "couleur": "#d9822b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WJOZs6Mmals",
+     "titre": "Come fare un'ottima prima impressione?",
+     "chaine": "Marco Montemagno",
+     "vues": "301K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "4:06",
+     "avatar": "https://yt3.ggpht.com/EOMbOyBvSy-zofGVKXy0JJ8RCbXZSXo9ZJHgFvCOqXe0LXx6q5WRZ4SecYtjZMtnjGUJlcU3=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CAUSAR UMA",
+     [
+      {
+       "t": "BOA IMPRESSÃO",
+       "couleur": "#d9822b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9nNyUleQlKM",
+     "titre": "COMO CAUSAR UMA BOA PRIMEIRA IMPRESSÃO| SejaUmaPessoaMelhor",
+     "chaine": "SejaUmaPessoaMelhor",
+     "vues": "104 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "6:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kBEKiwRwi0Fnd_43I8K9BP7JDviZrrCnjPcF2077o1K5M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "İYİ İZLENİM",
+       "couleur": "#d9822b"
+      }
+     ],
+     "BIRAKMAK"
+    ],
+    "video": {
+     "id": "gJ7vJ0Xrtq4",
+     "titre": "Güçlü Bir İlk İzlenim Nasıl Oluşturulur?",
+     "chaine": "Rüzgar Mira Okan",
+     "vues": "116 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "10:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_liDTRK7Gz76dl-IPqtTm1HHmmhpdYAWVklJCMQSEHkzL4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "O IMPRESIE BUNĂ",
+       "couleur": "#d9822b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8XAPNrsIX9s",
+     "titre": "Cum sa faci o prima impresie de neuitat",
+     "chaine": "Cristian Stan",
+     "vues": "10 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "6:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nPRh224MsnPnaurMfz4xgbZdq8MZM_h3VwMpb6VukNroU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UDĚLAT",
+     [
+      {
+       "t": "DOBRÝ DOJEM",
+       "couleur": "#d9822b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SFcrxq_zTAw",
+     "titre": "JAK UDĚLAT SKVĚLÝ PRVNÍ DOJEM",
+     "chaine": "AlfaBeing",
+     "vues": "13 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "7:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lRcZi4K9UkxvhRcUMhgrFsdj7DRD3rrMtI4luN1qaLKi4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TEGYÉL",
+     [
+      {
+       "t": "JÓ BENYOMÁST",
+       "couleur": "#d9822b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xgy_wLj6uqU",
+     "titre": "Hogyan alakítsunk ki pozitív első benyomást az új munkahelyen és illeszkedjünk be könnyedén",
+     "chaine": "Modern Pincér Akadémia",
+     "vues": "4 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "9:14",
+     "avatar": "https://yt3.ggpht.com/DXnDI1ZXZcDW2tb1P9l_PaeM-2FS5V3c-kyWmkgdhWbhhuqKeNKMFAHtnafEkatOb6K0h-A9yQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΚΑΝΕ ΚΑΛΗ",
+     [
+      {
+       "t": "ΠΡΩΤΗ ΕΝΤΥΠΩΣΗ",
+       "couleur": "#d9822b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oqIbiWR1M0I",
+     "titre": "3 Μυστικά για Άριστη Πρώτη Εντύπωση σε Επαγγελματική Συνάντηση | Νίνα Καλούτσα",
+     "chaine": "Nina Kaloutsa - VOICE. PUBLIC SPEAKING. PRESENCE.",
+     "vues": "12 χιλ. προβολές",
+     "date": "πριν από 8 έτη",
+     "duree": "3:11",
+     "avatar": "https://yt3.ggpht.com/KOXn-EzywU8PzoMq488A8WyrcpXpMS4pfr_vARxHlY1Ds20DEElkgzWOVwNJD-a2o0X6iOxW3g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "OSTAVITI",
+     [
+      {
+       "t": "DOBAR UTISAK",
+       "couleur": "#d9822b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7rraJHtrNgk",
+     "titre": "Tri kontraintuitivna pravila za dobar prvi utisak",
+     "chaine": "Boris Teodosijević",
+     "vues": "41 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "17:40",
+     "avatar": "https://yt3.ggpht.com/ai0iqA8A5K8p6K9miRSy2pdFQZEHeCDsPY96078M7RcDrQ2QoiTpLuSGPRfLPXVa1bNWOL6Z=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "PRENDRE",
+     [
+      {
+       "t": "UNE DÉCISION",
+       "couleur": "#c0303a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7SC-CFtl0ak",
+     "titre": "Comment prendre une DÉCISION ?! - Prouvé scientifiquement",
+     "chaine": "David Laroche FR",
+     "vues": "108 k vues",
+     "date": "il y a 6 ans",
+     "duree": "6:56",
+     "avatar": "https://yt3.ggpht.com/XBE0kjauzD2dau0GXUUy9jpINQeTwpV9Qu4IQeDJtld-EwlmYp4TGdDQ87hqYlMYQuc1jBbUngo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE",
+     [
+      {
+       "t": "BETTER DECISIONS",
+       "couleur": "#c0303a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "X7j8F16eSqs",
+     "titre": "How to make smart decisions more easily",
+     "chaine": "TED-Ed",
+     "vues": "2.3M views",
+     "date": "2 years ago",
+     "duree": "5:16",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "ENTSCHEIDUNGEN",
+       "couleur": "#c0303a"
+      }
+     ],
+     "TREFFEN"
+    ],
+    "video": {
+     "id": "undmT0Jh7H4",
+     "titre": "Die besten Entscheidungen treffen mit der WRAP-Methode | Quarks Studio Q",
+     "chaine": "Quarks",
+     "vues": "155.068 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "12:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4bDvezc36i3vmptDIlmT9_Hc_kYlyVJg3zlJmsjBf1_M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PRENDERE",
+     [
+      {
+       "t": "UNA DECISIONE",
+       "couleur": "#c0303a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PXNHxOmItOU",
+     "titre": "Come prendere una decisione importante | Filippo Ongaro",
+     "chaine": "Dr. Filippo Ongaro",
+     "vues": "65K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "8:50",
+     "avatar": "https://yt3.ggpht.com/h6rUuIJy2Gq35UIFROwcxOtvJOCfAz8aCu2NCOgBpXes4U8lY1NHWYQGshWQtMBFisMSNKkP=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TOMAR",
+     [
+      {
+       "t": "DECISÕES",
+       "couleur": "#c0303a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l6tqrhdVIHg",
+     "titre": "3 Técnicas Para Tomar a Decisão Certa | Psicologia e Ciência",
+     "chaine": "SUPERLEITURAS",
+     "vues": "413 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/3vnq5esjpt6MUGrzeJDZlBZ1fFOHRRhJxK4Gk0u2UyRH7acwiXD4dJqD6fXnEkf3-84r096Qshg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "DOĞRU KARAR",
+       "couleur": "#c0303a"
+      }
+     ],
+     "VERMEK"
+    ],
+    "video": {
+     "id": "zaQyIhfzfmM",
+     "titre": "En Doğru Kararı Vermek İçin 6 Teknik",
+     "chaine": "Beyhan Budak",
+     "vues": "190 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "10:50",
+     "avatar": "https://yt3.ggpht.com/CuslZcad93sGBkQlQOcPs7W_2UKO6aB9290uMqQRQWik4WOeSbo7OJojA6suqIsihiFoPY5VLOg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ IEI",
+     [
+      {
+       "t": "DECIZII BUNE",
+       "couleur": "#c0303a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gr66rMdBVXs",
+     "titre": "Cum să iei decizii bune - Lecții învățate din psihoterapie - Episod 21",
+     "chaine": "Pera Novacovici",
+     "vues": "8,3 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "6:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBYKho60qjssHL7PPQCAZPKzlVYnsQYzbh9bSKZJSatQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SPRÁVNĚ SE",
+     [
+      {
+       "t": "ROZHODOVAT",
+       "couleur": "#c0303a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "n3iJU9LDdHg",
+     "titre": "Jak se správně rozhodovat a mít lepší život? Dá se to naučit!",
+     "chaine": "Pavel Procházka",
+     "vues": "65 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "14:35",
+     "avatar": "https://yt3.ggpht.com/7qkSLG6DKlK2W6XEWnTyvausSZCtVTpRyxtGC58uUFKYU4am-5ikSlkJePB6SUw6zlhL1aaK=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOZZ",
+     [
+      {
+       "t": "JÓ DÖNTÉSEKET",
+       "couleur": "#c0303a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DFb4869K3NA",
+     "titre": "Hogyan hozz meg nehéz döntéseket?",
+     "chaine": "Tanulom Magam",
+     "vues": "35 E megtekintés",
+     "date": "2 évvel ezelőtt",
+     "duree": "18:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mk4-sIgdbmYJ9OxCU5-01xr8j-pdnrKsVK50fEZAft5w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΠΑΡΕ ΣΩΣΤΕΣ",
+     [
+      {
+       "t": "ΑΠΟΦΑΣΕΙΣ",
+       "couleur": "#c0303a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Qc3WhQ_CEVg",
+     "titre": "Πώς να κάνεις καλές επιλογές και αποφάσεις | Agnes Alice Mariakaki",
+     "chaine": "Agnes Alice Mariakaki",
+     "vues": "33 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "8:39",
+     "avatar": "https://yt3.ggpht.com/rkttEp8D4t2dpQQ8g7V-cUvWKCZpecKEyBeEawkJAWvPyCOjRG2ynSfltGfDPqcWUgUy_c5jyw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "DONETI",
+     [
+      {
+       "t": "DOBRU ODLUKU",
+       "couleur": "#c0303a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "22DDx6Jy4G0",
+     "titre": "Kako doneti pravu odluku?",
+     "chaine": "Marko Maodus",
+     "vues": "10 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "23:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lVv4e_jUzpN_2Xxe78ObkCn55Xe2k1oVRZNSP440QLzZM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "LOUER",
+     [
+      {
+       "t": "UN APPART",
+       "couleur": "#d4a017"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Sw2Y_CmmTRM",
+     "titre": "Le Dossier de Location Parfait - Tuto",
+     "chaine": "Edouard Niepce - Immobilier",
+     "vues": "49 k vues",
+     "date": "il y a 6 ans",
+     "duree": "3:50",
+     "avatar": "https://yt3.ggpht.com/yz8zODUdJ-76vVt5dIy6q7J8FKyKPBBOl5-XCkajiYxD9V_japs4LfMhUaYnRTaa7AXT8eoqVA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "RENT",
+     [
+      {
+       "t": "AN APARTMENT",
+       "couleur": "#d4a017"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ORutIfxU8KM",
+     "titre": "Renting an Apartment for the First Time",
+     "chaine": "Practical Personal Finance",
+     "vues": "328K views",
+     "date": "5 years ago",
+     "duree": "12:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mcfpa3xxLgne30HcBEmTR3JUqdCfzeR3izza-03VWkVA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "WOHNUNG",
+       "couleur": "#d4a017"
+      }
+     ],
+     "MIETEN"
+    ],
+    "video": {
+     "id": "6f8FfCHQGY8",
+     "titre": "Das sind die Kosten für deine erste Wohnung!",
+     "chaine": "Mehr als Geld — by Sparkasse",
+     "vues": "264.221 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "3:54",
+     "avatar": "https://yt3.ggpht.com/Zok7wUJ4J8um7tg1qtPM7oqjQlcLEkiTyxCxEMUujvxWWuBSGzyQ27UvVxeCm8IcGtxhl_PASg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "AFFITTARE",
+     [
+      {
+       "t": "UNA CASA",
+       "couleur": "#d4a017"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rTUqWPS6c74",
+     "titre": "AFFITTO: 8 errori da evitare | Avv. Angelo Greco",
+     "chaine": "Angelo Greco",
+     "vues": "280K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "7:56",
+     "avatar": "https://yt3.ggpht.com/8lVgEdQTFj0hwBUPsrq4uIEdi-qha1JS8KKhlVEGtIuGixOE91ZkRAhxjLFtg37BXDEpaRxTA0o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ALUGAR",
+     [
+      {
+       "t": "UM IMÓVEL",
+       "couleur": "#d4a017"
+      }
+     ]
+    ],
+    "video": {
+     "id": "C-xuZ6H3Z2Y",
+     "titre": "como ALUGAR um IMÓVEL | MORAR SOZINHO 004",
+     "chaine": "Manual do Homem Moderno",
+     "vues": "347 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "14:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mVTK_vK_onbT2udbgwbUQPecgJlYAooLxVGpd4Gk7kv2I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "EV",
+       "couleur": "#d4a017"
+      }
+     ],
+     "KİRALAMAK"
+    ],
+    "video": {
+     "id": "Z146e1hwK90",
+     "titre": "EV KİRALARKEN DİKKAT EDİLMESİ GEREKENLER!",
+     "chaine": "Emlak Kılavuzu",
+     "vues": "31 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "5:17",
+     "avatar": "https://yt3.ggpht.com/9t8t_2R7tzgT_lH809SUG-7vr8eyAWZ5jE-Y0I9rLxSnlcudRKevanjQV1W0sS2_2Gb5izU4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNCHIRIEZI",
+     [
+      {
+       "t": "UN APARTAMENT",
+       "couleur": "#d4a017"
+      }
+     ]
+    ],
+    "video": {
+     "id": "95iH516zN4s",
+     "titre": "Cum faci un contract de inchiriere apartament / casa online de pe telefon | Inregistrare la ANAF",
+     "chaine": "Tutoriale Top",
+     "vues": "891 vizionări",
+     "date": "acum 1 an",
+     "duree": "3:02",
+     "avatar": "https://yt3.ggpht.com/snYoYUuILZ15GTHWFPP6aBvZURMU2Ui81Dk-0ExeIFwsCDiJ8fw8HtfyfqUGtvS3eDO6SdfH6w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PRONAJMOUT SI",
+     [
+      {
+       "t": "BYT",
+       "couleur": "#d4a017"
+      }
+     ]
+    ],
+    "video": {
+     "id": "d9uaO9qUtww",
+     "titre": "Na co si dát pozor v nájemní smlouvě | Ideální nájemce.cz",
+     "chaine": "Ideální Nájemce",
+     "vues": "5,2 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "2:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mVp2BgUgTVg5fHm3FQ2bLiwovC6pRA6DicwA2W_rQ66w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hodiny na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "BÉRELJ",
+     [
+      {
+       "t": "LAKÁST",
+       "couleur": "#d4a017"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uCh7ImKcqkI",
+     "titre": "5 tipp az albérlet választáshoz!",
+     "chaine": "Christopher Miska",
+     "vues": "5 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "3:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k4ggyujO_3tcXfyTGF1BOtWBbzvcg1NndcjSRVLNQ2bBA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΟΙΚΙΑΣΕ",
+     [
+      {
+       "t": "ΣΠΙΤΙ",
+       "couleur": "#d4a017"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qoiniMoHmyY",
+     "titre": "Προσέξτε αυτά πριν νοικιάσετε ένα σπίτι",
+     "chaine": "Georgia Karatzoglou",
+     "vues": "1,3 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "5:25",
+     "avatar": "https://yt3.ggpht.com/vPLYCA7-Cz0FRJZtAw1r1KDa3_jnG5b5QFLM6dm7k7VjixgXThGkIf5RgAvi3-ANL41rgkgHkPo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ώρες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "IZNAJMITI",
+     [
+      {
+       "t": "STAN",
+       "couleur": "#d4a017"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NKfwJKiu_iI",
+     "titre": "Iznajmljivanje stana - koje sve troškove imate kao zakupac stana ?",
+     "chaine": "Real House",
+     "vues": "4,6 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "4:33",
+     "avatar": "https://yt3.ggpht.com/Q30Pu8kaJDqeFJ8BCIAZyinQk75512iK04s-AM2A6XnR30gINI1GSrXpU93lZv-jMS2sojtv=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 sata za učenje"
+    ]
+   }
+  }
+ ]
+}

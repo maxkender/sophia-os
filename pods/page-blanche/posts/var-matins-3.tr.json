@@ -1,0 +1,270 @@
+{
+ "post_id": "var-matins-3",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "texte": "sabahını baştan batırmanın 5 altın kuralı"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "texte": "(uzmanından tavsiye)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_049e9282.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "challenge your own biases"
+     ],
+     "texte": "[[hüzünlü playlisti]] aç"
+    },
+    "T2": {
+     "en": [
+      "your brain loves evidence that proves what you",
+      "already believe"
+     ],
+     "texte": "sabah 7'de ayrılık şarkılarından daha iyi uyandıran ne var ki?"
+    },
+    "T3": {
+     "en": [
+      "actively look for the",
+      "strongest argument",
+      "against your opinion"
+     ],
+     "texte": "üçüncü şarkıda camdan dışarı bakıyorsun, [[2004 klibi]] gibi"
+    },
+    "T4": {
+     "en": [
+      "getting smarter",
+      "means getting better",
+      "at noticing when your",
+      "own thinking is wrong"
+     ],
+     "texte": "ve işe [[kötü biten bir film enerjisiyle]] gidiyorsun. süper motive !!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_2df8d9a7.jpg",
+      "boite": [
+       200,
+       0,
+       2024,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "5. do your hardest task first"
+     ],
+     "texte": "kendine [[6'da koşu]] sözü ver"
+    },
+    "T1b": {
+     "en": [
+      "your prefrontal cortex",
+      "handles planning, focus and",
+      "self-control"
+     ],
+     "texte": "alarm 5.45'te, spor ayakkabılar yatağın dibinde, kıyafet sandalyede"
+    },
+    "T2": {
+     "en": [
+      "don't waste your freshest",
+      "attention on emails and",
+      "tiny tasks"
+     ],
+     "texte": "6.01'de dışarısının [[biraz fazla soğuk]] olduğuna karar veriyorsun"
+    },
+    "T3": {
+     "en": [
+      "spend the first 60–90",
+      "minutes on the thing",
+      "you're most likely to avoid",
+      "late"
+     ],
+     "texte": "tekrar uyuyorsun ve 8'de [[bonus suçluluk duygusuyla]] kalkıyorsun. tam bir atlet !!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1bfc4ef3.jpg",
+      "boite": [
+       0,
+       700,
+       1760,
+       1364
+      ]
+     }
+    }
+   },
+   "scissions": {
+    "T1": 1
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "texte": "[[hava durumuna]] 5 kez bak"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "texte": "yatakta, lavaboda, kahvenin başında, merdivende: « %90 yağmur ». tamamdır"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "texte": "sonra yine de [[şemsiyesiz]] çıkıyorsun, çünkü içinden bir ses birazdan dinecek diyor"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "texte": "8.10'da [[sırılsıklam çoraplar]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_4e4b6d23.jpg",
+      "boite": [
+       0,
+       450,
+       1080,
+       818
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "texte": "kahvaltıda « [[sadece bir bölüm]] »"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "texte": "mısır gevreği kasesi ekranın önünde, 20 dakika nasılsa yeter diyorsun"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "texte": "bölüm heyecanlı yerde bitiyor, sonraki kendi başlıyor ve gevrekler [[lapa oluyor]]"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "texte": "8.50'de hâlâ pijamayla 3. bölümdesin ve [[tren sensiz çoktan gitti]]. helal olsun"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_026615c0.jpg",
+      "boite": [
+       0,
+       554,
+       1760,
+       1814
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "not reading books"
+     ],
+     "texte": "[[ex'ini stalkla]]"
+    },
+    "T2": {
+     "en": [
+      "if most of what you consume",
+      "is short posts, clips, and",
+      "headlines, your brain rarely",
+      "has to hold attention for long"
+     ],
+     "texte": "daha yorganın altında onun 14 hikâyesini, sonra yeni arkadaşlarınınkini, sonra [[yemek yedikleri restoranı]] izliyorsun"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea across pages, remember",
+      "context, and resist the urge for",
+      "something new"
+     ],
+     "texte": "7.30'da moralin çoktan bozuk ve [[asla gitmeyeceğin bir restoranın menüsünü]] ezbere biliyorsun"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "texte": "sabahı iyi geçenler başka şey yapıyor: camın önünde kahve, biraz esneme ve [[Sophia uygulamasında]] 5 dakika. ne sıkıcı !!"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  }
+ }
+}

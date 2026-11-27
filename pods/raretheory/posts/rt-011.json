@@ -1,0 +1,144 @@
+{
+  "id": "rt-011",
+  "source": {
+    "url": "https://www.tiktok.com/@raretheory_/photo/7688593822456040724",
+    "vues": 17800,
+    "publie_le": "2026-09-23",
+    "accroche": "part 2 of things i wish i knew at 16"
+  },
+  "titre": {
+    "en": "things i wish i knew at 16 pt.2"
+  },
+  "legendes": {
+    "en": "part 2 of things i wish i knew at 16.\n\ni thought growing up meant having all the answers early. turns out it's more about learning to sit with the questions.\n\nnot everything has to make sense yet. it will.\n\nsave this for the version of u that's still figuring it out.\n\n#selfimprovement #lifelessons #teenagers #growingup #personaldevelopment"
+  },
+  "musique": {
+    "titre": "original sound - Megspam",
+    "url": "https://www.tiktok.com/music/original-sound-7549521904802712342"
+  },
+  "banque": {
+    "images/banque/vue-montagne.jpg": "47a97e2a-a74f-4a60-811d-659de7eb8f13",
+    "images/banque/cafe-noir.jpg": "1587c202-1ea9-4df5-8341-19d752ab6771",
+    "images/banque/montagnes.jpg": "2e1aba7f-85ef-499b-8dda-32daf4b385b8",
+    "images/banque/oiseau-soir.jpg": "5b002702-beab-45e3-9e6c-c099d984206d",
+    "images/banque/bateau-soleil.jpg": "8eb36f9e-5b40-4b67-a6d3-671015b1e40c",
+    "images/banque/soleil-mer.jpg": "1e99b5f4-205f-4a2c-bdad-ba86a8c73486"
+  },
+  "notes": "Preuve : « part 2 of things i wish i knew at 16 » de @raretheory_ (17,8 k vues, 23/09), suite de son « life lesson that i wish i knew at 16 » (96 k) et de notre rt-007 : même gabarit (« 01 — … », une petite photo à droite, des paragraphes justifiés), même musique (original sound - Megspam). Leçons et textes à nous. Slide Sophia (4, « 03 — curiosity is a habit ») : son LOGO, jamais une capture ; cta B. Photos : banques de Sophia, sans visage ni marque (couverture : vue de montagne depuis une chambre 47a97e2a, café noir 1587c202 ; points : montagnes 2e1aba7f, oiseaux au coucher du soleil 5b002702, sillage d'un bateau 8eb36f9e, soleil sur la mer 1e99b5f4).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/vue-montagne.jpg",
+          "cadrage": {
+            "y": 0.5
+          }
+        },
+        {
+          "image": "images/banque/cafe-noir.jpg",
+          "cadrage": {
+            "y": 0.55
+          }
+        }
+      ],
+      "en": {
+        "titre": "things i wish i knew\nat 16 pt.2",
+        "sous_titre": "the short version"
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/montagnes.jpg",
+          "cadrage": {
+            "x": 0.5,
+            "y": 0.6
+          }
+        }
+      ],
+      "en": {
+        "titre": "u are not ur mistakes",
+        "paragraphes": [
+          "u'll mess things up. everyone does. it doesn't mean u're a mess.",
+          "fix what u can, say sorry when u should, and let urself move on."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/oiseau-soir.jpg",
+          "cadrage": {
+            "x": 0.6,
+            "y": 0.5
+          }
+        }
+      ],
+      "en": {
+        "titre": "not everyone gets u",
+        "paragraphes": [
+          "some people will misunderstand u no matter how clearly u explain urself.",
+          "that's okay. u don't need everyone. u need a few people who actually listen."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "curiosity is a habit",
+        "paragraphes": [
+          "before i go down a rabbit hole, i do the 10-minute lesson on Sophia. one short lesson a day: history, philosophy, science, geopolitics, literature, economics.",
+          "each one is written by actual professors and ends with a little quiz. it turned learning from a chore into something i actually look forward to."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/bateau-soleil.jpg",
+          "cadrage": {
+            "x": 0.45,
+            "y": 0.55
+          }
+        }
+      ],
+      "en": {
+        "titre": "rest isn't lazy",
+        "paragraphes": [
+          "i used to feel guilty every time i wasn't being productive.",
+          "rest is part of the work. a tired brain makes worse decisions about everything."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/soleil-mer.jpg",
+          "cadrage": {
+            "x": 0.5,
+            "y": 0.6
+          }
+        }
+      ],
+      "en": {
+        "titre": "small habits win",
+        "paragraphes": [
+          "i kept waiting for a big moment to change everything. it never came.",
+          "what changed my life was boring stuff done every day: sleeping earlier, reading a little, walking more."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "if u're 16 and reading this: u're not behind. u're exactly where u're supposed to be figuring things out.",
+        "gras": "OR.. u'll spend 17 worrying about it."
+      }
+    }
+  ]
+}

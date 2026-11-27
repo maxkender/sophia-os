@@ -12,7 +12,9 @@
   "it": "5 abilità inutili che ti rendono subito più figo",
   "es-419": "5 habilidades inútiles que te hacen más cool al instante",
   "fr": "5 talents inutiles qui te rendent instantanément plus cool",
-  "es": "5 habilidades inútiles que te hacen más cool al instante"
+  "es": "5 habilidades inútiles que te hacen más cool al instante",
+  "pl": "5 bezużytecznych umiejętności, które od razu czynią cię fajniejszym",
+  "tr": "Seni anında daha havalı yapan 5 gereksiz beceri"
  },
  "legendes": {
   "en": "5 Pointless Skills That Make You Instantly Cooler #skills #learnontiktok #selfimprovement",
@@ -21,13 +23,15 @@
   "it": "5 abilità inutili che ti rendono subito più figo #imparacontiktok #crescitapersonale #abilità",
   "es-419": "5 habilidades inútiles que te hacen más cool al instante #aprendeentiktok #desarrollopersonal #habilidades",
   "fr": "5 talents inutiles qui te rendent instantanément plus cool #apprendresurtiktok #astuces #talents",
-  "es": "5 habilidades inútiles que te hacen más cool al instante #aprendeentiktok #trucos #habilidades"
+  "es": "5 habilidades inútiles que te hacen más cool al instante #aprendeentiktok #trucos #habilidades",
+  "pl": "5 bezużytecznych umiejętności, które od razu czynią cię fajniejszym #umiejętności #rozwójosobisty #nauka",
+  "tr": "Seni anında daha havalı yapan 5 gereksiz beceri #beceriler #kişiselgelişim #öğrenme"
  },
  "musique": {
   "titre": "Cinderella (Instrumental)",
   "url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864"
  },
- "notes": "Variante de fa-003 (sa reprise à 2,5 M, sans « ! »). cta A. Sophia à l'étape 3 « KNOW A FUN FACT FOR EVERY SITUATION ». Pas d'UnSwipe. Autres compétences (siffler avec les doigts, rouler une pièce, mélanger les cartes, moonwalk), autres vidéos. en, de et pt (Portugal).",
+ "notes": "Variante de fa-003 (sa reprise à 2,5 M, sans « ! »). cta A. Sophia à l'étape 3 « KNOW A FUN FACT FOR EVERY SITUATION ». Pas d'UnSwipe. Autres compétences (siffler avec les doigts, rouler une pièce, mélanger les cartes, moonwalk), autres vidéos. en, de et pt (Portugal). 27/11 : ajouté en pl et tr ; faute de moonwalk natif sans visage de Michael Jackson, le moonwalk devient le pen spinning en pl.",
  "slides": [
   {
    "type": "couverture",
@@ -175,6 +179,48 @@
       }
      ]
     ]
+   },
+   "pl": {
+    "lignes": [
+     [
+      {
+       "t": "5",
+       "bronze": true
+      }
+     ],
+     "BEZUŻYTECZNYCH",
+     "UMIEJĘTNOŚCI, KTÓRE OD RAZU",
+     [
+      {
+       "t": "CZYNIĄ CIĘ "
+      },
+      {
+       "t": "FAJNIEJSZYM",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "tr": {
+    "lignes": [
+     [
+      {
+       "t": "5",
+       "bronze": true
+      }
+     ],
+     "GEREKSİZ BECERİ",
+     "SENİ ANINDA",
+     [
+      {
+       "t": "DAHA HAVALI ",
+       "bronze": true
+      },
+      {
+       "t": "YAPAN"
+      }
+     ]
+    ]
    }
   },
   {
@@ -282,6 +328,36 @@
      "date": "hace 3 años",
      "duree": "3:45",
      "avatar": "https://yt3.ggpht.com/AKMtNUf1B0YAxIv1PY8MHM79L7LYB-lFxiQHEp3MKpPyBBjkq_MKrcpVuA-ee925bR965Vem=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "GWIZDANIE",
+     "NA PALCACH"
+    ],
+    "video": {
+     "id": "AFjm9lBICdE",
+     "titre": "Jak gwizdać na palcach?",
+     "chaine": "WszystkoVlog",
+     "vues": "438 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "11:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n5UmsFZukiMfbFhkwpog63mur6e5HqhIB1lh7vNgFTdSA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "PARMAKLARLA",
+     "ISLIK ÇALMAK"
+    ],
+    "video": {
+     "id": "YaZx80MEyKs",
+     "titre": "Parmaklarla Nasıl Islık Çalınır?",
+     "chaine": "YAPYAP",
+     "vues": "6,1 Mn görüntüleme",
+     "date": "11 yıl önce",
+     "duree": "2:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwYFyWD2yAthoaQvJCe0DfxeK9H1w35Clg5dSvT28fQA=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -391,6 +467,36 @@
      "duree": "9:48",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpUTHVfjXcdJfS76L-0iUtgwOlU79mJviqPxR5Y7F-=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "pl": {
+    "titre": [
+     "TOCZENIE MONETY",
+     "PO PALCACH"
+    ],
+    "video": {
+     "id": "M9dl12EovoM",
+     "titre": "Toczenie monety w palcach – Porady iluzjonistyczne #5",
+     "chaine": "TYMON Cubes&Magic",
+     "vues": "27 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "3:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lL3gRE3nRRMErjNTnPJRuZFeifOT4sPwl1s6r1Wa9dRLU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "PARMAKLARDA",
+     "PARA GEZDİRMEK"
+    ],
+    "video": {
+     "id": "ybaKpsdlp3k",
+     "titre": "ARKADAŞLARINI ŞAŞIRT !!/Parmakta para gezdirme nasıl yapılır ? (Batuhan Yılmaz)",
+     "chaine": "Batuhan Yılmaz",
+     "vues": "99 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "3:08",
+     "avatar": "https://yt3.ggpht.com/9UShcnRNBnvykgR69mWC1ZMQChf_os_bhUFKtMe6mHX7T2R2yw2Yqg_gUwVvvaS2YTPY8T4=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -484,6 +590,32 @@
      "texte": [
       "aprende algo nuevo cada día,",
       "en 5 minutos."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "CIEKAWOSTKA NA",
+     "KAŻDĄ OKAZJĘ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ucz się codziennie czegoś nowego,",
+      "w 5 minut."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "HER DURUMA",
+     "BİR İLGİNÇ BİLGİ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni bir şey öğren,",
+      "5 dakikada."
      ]
     }
    }
@@ -594,6 +726,36 @@
      "duree": "5:46",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpUTHVfjXcdJfS76L-0iUtgwOlU79mJviqPxR5Y7F-=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "pl": {
+    "titre": [
+     "TASOWANIE KART",
+     "JAK KRUPIER"
+    ],
+    "video": {
+     "id": "BbNeB-xHMBM",
+     "titre": "Jak tasować karty? // Riffle Shuffle Poradnik",
+     "chaine": "Nevers",
+     "vues": "1,3 tys. wyświetleń",
+     "date": "10 mies. temu",
+     "duree": "4:09",
+     "avatar": "https://yt3.ggpht.com/MYDSbcRwuTy819ugnLQ2DnsgEaHYfGU5u_BI7XUDXwj55OyKpbCEJWXT7_ZR2Kj2cQy0tkWFUtw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "KARTLARI KRUPİYE",
+     "GİBİ KARIŞTIRMAK"
+    ],
+    "video": {
+     "id": "1KM3WkQ3zTs",
+     "titre": "Havalı kart karıştırma hareketi - Riffle Shuffle nasıl yapılır ? (Batuhan Yılmaz)",
+     "chaine": "Batuhan Yılmaz",
+     "vues": "12 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "6:52",
+     "avatar": "https://yt3.ggpht.com/9UShcnRNBnvykgR69mWC1ZMQChf_os_bhUFKtMe6mHX7T2R2yw2Yqg_gUwVvvaS2YTPY8T4=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -694,6 +856,35 @@
      "date": "hace 5 años",
      "duree": "7:10",
      "avatar": "https://yt3.ggpht.com/1vI3CQHm387wdluYo7uYPbGGHtZ1w4MV7WoW0v41TWV2F3d32TIzOBZlVH7u1eJPwVAPk0aX=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "KRĘCENIE",
+     "DŁUGOPISEM"
+    ],
+    "video": {
+     "id": "-U11AWotdQo",
+     "titre": "Penspinning - filmik instruktażowy - naucz się kręcić długopisem",
+     "chaine": "Pixel by Emerson",
+     "vues": "220 tys. wyświetleń",
+     "date": "9 lat temu",
+     "duree": "1:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ltIl5u_7reO4j-44oHTp_uZJvd647zzs4FT5eHPcE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "MOONWALK"
+    ],
+    "video": {
+     "id": "jpeiIJ0yI-Y",
+     "titre": "michael jackson moonwalk ay yürüyüşü nasıl yapılır?",
+     "chaine": "ERHAN KIRCA DANCE ACADEMY",
+     "vues": "299 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "7:24",
+     "avatar": "https://yt3.ggpht.com/tJKGGozJ6rbQvP6FQEB8325JKSgQ_M3Wxzd_WQokK6KD5mllWSu-S1X_XBy_bhLMJpYuxLS3rg=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

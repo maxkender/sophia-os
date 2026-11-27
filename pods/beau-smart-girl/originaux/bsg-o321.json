@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o321",
+  "type_bleo": "full_test",
+  "titre": "les habitudes d'une fille qui écrit bien #ecriture #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Aucun fait daté. Routine du 27/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 6 full tests et 12 déclinaisons ; seules les lignes 1 et 15 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale « how to destroy yourself »), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12, 13 et 14 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "11862066",
+      "texte_overlay": "les habitudes d'une fille\nqui écrit bien",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6c373130",
+      "texte_overlay": "1. elle lit beaucoup\n\non écrit comme on lit.\nc'est le secret.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "5248033b",
+      "texte_overlay": "2. elle coupe ses phrases\n\nune idée par phrase.\nc'est plus clair.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "6b281436",
+      "texte_overlay": "3. elle relit à voix haute\n\nl'oreille trouve\nce que les yeux ratent.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0d51ba03",
+      "texte_overlay": "4. elle garde un carnet de mots\n\nun mot beau, un mot juste.\nprêt pour le bon moment.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "10162c5c",
+      "texte_overlay": "5. elle a des choses à dire\n\navant, je fixais la page blanche.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'ai toujours une idée à écrire.",
+      "texte_sophia": "5. elle a des choses à dire\n\navant, je fixais la page blanche.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'ai toujours une idée à écrire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "426474b4",
+      "texte_overlay": "tu aimes écrire ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

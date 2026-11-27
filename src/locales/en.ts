@@ -28,6 +28,8 @@ export const en = {
       ruulPretTitre: "Your Ruul account is ready ✅",
       ruulPretTexte: "You'll be paid every Monday.",
       ruulSetupTitre: "Set up Ruul — required to get paid (5 min)",
+      // 26/11 (Max) : avant la première semaine payable (lundi de départ + 7 jours).
+      ruulSetupTitrePlusTard: "Set up Ruul — you can do it later, before your first pay (5 min)",
       ruulSetupBouton: "Open my Ruul setup",
       ruulPasBesoin: "You don't need Ruul to start posting — it's only to get paid.",
       ruulSetupErreur: "We couldn't open your Ruul setup. Please try again in a minute.",
@@ -602,6 +604,7 @@ export const en = {
             couverture: {
               ligne: "{{n}} shown out of {{N}} active posters ({{M}} accounts)",
               absents: "Not in the list ({{n}})",
+              enSetup: "{{n}} poster(s) still setting up, not ready (upcoming cohort: recruits tab, not counted).",
               sansCompte: "{{n}} active poster(s) with no active account (not counted; recruits card).",
               raisons: { ruul: "RUUL cohort (excluded)", pas_perso: "no active personal account", sans_compte: "no active account", inconnue: "missing from the list: to check" },
             },
@@ -7267,6 +7270,7 @@ export const en = {
       genre: "Gender",
       genreHomme: "Male",
       genreFemme: "Female",
+      genreAChoisir: "To choose",
       genreAide:
         "Label gender sets TikTok first/last names for creators that carry this label.",
       creer: "Create",
@@ -9823,12 +9827,14 @@ export const en = {
       quandTitre: "When you are paid",
       quand: "Every Monday, we pay you for the week of posts that just ended (Monday → Sunday). Ruul then sends the money to your bank account, usually within 1 business day. Your weekly amount is in your acceptance email.",
       premier: "Your first payment: {{paiement}}, for your first week of posts ({{lundi}} → {{dimanche}}).",
-      compteTitre: "Your Ruul account (once, before your first Monday)",
+      compteTitre: "Your Ruul account (once — you can do it later, before your first pay)",
       compteIntro: "Ruul is free for you. Without a complete Ruul account, we cannot pay you.",
-      etape1: "Within 24 hours you'll receive an invitation email from Ruul. Create your account FROM that email, with the email address you applied with.",
-      etape1Email: "Within 24 hours you'll receive an invitation email from Ruul. Create your account FROM that email, with this address: {{email}}.",
+      // 26/11 (Max) : plus d'invitation de Ruul : le lien personnel (API Ruul), par email et sur le dashboard ; l'OS voit
+      // seul quand le compte est prêt (plus de « It's done »).
+      etape1: "Open your personal Ruul link: we send it to you by email, and it's also on your dashboard (« Open my Ruul setup »). Create your account with the email address you applied with.",
+      etape1Email: "Open your personal Ruul link: we send it to you by email, and it's also on your dashboard (« Open my Ruul setup »). Create your account with this address: {{email}}.",
       etape2: "Verify your ID (ID and selfie, about 10 minutes).",
-      etape3: "Add your bank account, then click It's done on your dashboard.",
+      etape3: "Add your bank account. We see on our side when your account is ready: nothing else to click.",
       memeEmailTitre: "Same email address.",
       memeEmail: "If you create your Ruul account with another email address, we cannot pay you.",
       creerCompte: "Create my Ruul account",

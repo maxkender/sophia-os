@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o485",
+ "type_bleo": "full_test",
+ "titre": "how people woke up before alarm clocks #history #didyouknow #morning #smartgirl #funfacts",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 5/9 (la jauge en demande 9 sur 31) : accroche jamais faite chez nous (« alarm » absent des accroches du label et de nos originaux). Accroches écrites : « how people woke up before alarm clocks » (retenue : curiosité du quotidien), « history of sleep » (écartée : vague), « weird old jobs » (écartée : large). Faits vérifiés : les « knocker-uppers » britanniques et leurs perches ou sarbacanes à pois (jusqu'au XXe siècle), les horloges à bougie avec un clou qui tombe, la clepsydre-réveil attribuée à Platon, le réveil de Levi Hutchins (1787) qui ne sonnait qu'à 4 h, le réveil réglable breveté par Seth Thomas en 1876, et le « premier » et « second » sommeil décrit par l'historien Roger Ekirch. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "795528bd",
+   "texte_overlay": "how people woke up before\nalarm clocks",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f66ba806",
+   "texte_overlay": "the knocker-upper\n\nsomeone paid to tap on your window\nwith a long stick, or a pea shooter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "addd583e",
+   "texte_overlay": "candle clocks\n\na nail in the wax fell\nand clanged when it burned.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "dcbde9ee",
+   "texte_overlay": "water alarms\n\nplato is said to have used one\nto wake his students.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f9dd96ac",
+   "texte_overlay": "1787\n\nthe first american alarm clock\nonly rang at 4am.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ed351bcb",
+   "texte_overlay": "1876\n\nfinally, one you could set\nto any time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "27232958",
+   "texte_overlay": "and many slept in two parts\n\na \"first\" and \"second\" sleep. i learned\nthat this morning.",
+   "texte_sophia": "and many slept in two parts\n\na \"first\" and \"second\" sleep. i learned that on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2b529184",
+   "texte_overlay": "which one would wake you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

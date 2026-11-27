@@ -10,12 +10,22 @@
  "titre": {
   "en": "5 niche ways to disgustingly improve your writing",
   "de": "5 nischen-tricks für absurd gutes schreiben",
-  "sv": "5 nischade sätt att skriva sjukt mycket bättre"
+  "sv": "5 nischade sätt att skriva sjukt mycket bättre",
+  "hu": "5 niche módszer, amivel brutálisan jobban írsz",
+  "it": "5 modi di nicchia per scrivere molto meglio",
+  "nl": "5 niche manieren om veel beter te schrijven",
+  "pt-BR": "5 jeitos nichados de escrever absurdamente melhor",
+  "tr": "yazını iğrenç derecede geliştirmenin 5 niş yolu"
  },
  "legendes": {
   "en": "#niche #writing #lockedin #selfimprovement",
   "de": "#schreiben #sprache #lernen #selbstverbesserung",
-  "sv": "#skrivande #språk #lärande #självutveckling"
+  "sv": "#skrivande #språk #lärande #självutveckling",
+  "hu": "#írás #fogalmazás #tanulás #önfejlesztés",
+  "it": "#scrittura #scrivere #imparare #crescitapersonale",
+  "nl": "#schrijven #taal #leren #zelfontwikkeling",
+  "pt-BR": "#escrita #redação #aprender #autodesenvolvimento",
+  "tr": "#yazmak #kompozisyon #öğrenmek #kişiselgelişim"
  },
  "musique": {
   "titre": "son original - leonardo®",
@@ -39,6 +49,31 @@
     "titre": "5 nischade sätt att skriva sjukt mycket bättre",
     "image": "images/cerveau-25.jpg",
     "legende": "(ingen ai behövs)"
+   },
+   "hu": {
+    "titre": "5 niche módszer, amivel brutálisan jobban írsz",
+    "image": "images/cerveau-36.jpg",
+    "legende": "(ai nélkül)"
+   },
+   "it": {
+    "titre": "5 modi di nicchia per scrivere molto meglio",
+    "image": "images/cerveau-38.jpg",
+    "legende": "(senza ia)"
+   },
+   "nl": {
+    "titre": "5 niche manieren om veel beter te schrijven",
+    "image": "images/cerveau-40.jpg",
+    "legende": "(geen ai nodig)"
+   },
+   "pt-BR": {
+    "titre": "5 jeitos nichados de escrever absurdamente melhor",
+    "image": "images/cerveau-42.jpg",
+    "legende": "(sem ia)"
+   },
+   "tr": {
+    "titre": "yazını iğrenç derecede geliştirmenin 5 niş yolu",
+    "image": "images/cerveau-44.jpg",
+    "legende": "(yapay zekâ yok)"
    }
   },
   {
@@ -57,6 +92,31 @@
     "titre": "Stryk varje \"väldigt\"",
     "texte": "\"väldigt trött\" blir utmattad. \"väldigt stor\" blir enorm. ett starkt ord slår två svaga",
     "image": "images/objets/plume.png"
+   },
+   "hu": {
+    "titre": "Húzd ki a \"nagyon\"-t",
+    "texte": "a \"nagyon fáradt\" helyett kimerült. a \"nagyon nagy\" helyett hatalmas. egy erős szó többet ér két gyengénél",
+    "image": "images/objets/plume.png"
+   },
+   "it": {
+    "titre": "Taglia ogni \"molto\"",
+    "texte": "\"molto stanco\" diventa esausto. \"molto grande\" diventa enorme. una parola forte batte due parole deboli",
+    "image": "images/objets/plume.png"
+   },
+   "nl": {
+    "titre": "Schrap elk \"heel\"",
+    "texte": "\"heel moe\" wordt uitgeput. \"heel groot\" wordt enorm. één sterk woord wint van twee zwakke",
+    "image": "images/objets/plume.png"
+   },
+   "pt-BR": {
+    "titre": "Corte todo \"muito\"",
+    "texte": "\"muito cansado\" vira exausto. \"muito grande\" vira enorme. uma palavra forte vale mais que duas fracas",
+    "image": "images/objets/plume.png"
+   },
+   "tr": {
+    "titre": "Her \"çok\"u sil",
+    "texte": "\"çok yorgun\" bitkin olur. \"çok büyük\" devasa olur. tek güçlü kelime iki zayıf kelimeyi yener",
+    "image": "images/objets/plume.png"
    }
   },
   {
@@ -74,6 +134,31 @@
    "sv": {
     "titre": "Läs det högt",
     "texte": "örat hör det ögat hoppar över: hackig rytm, upprepade ord, meningar som aldrig tar slut",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "hu": {
+    "titre": "Olvasd fel hangosan",
+    "texte": "a füled elkapja, amit a szemed átugrik: döcögő ritmust, ismétlődő szavakat, véget nem érő mondatokat",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "it": {
+    "titre": "Leggilo ad alta voce",
+    "texte": "l'orecchio coglie quello che l'occhio salta: ritmo goffo, parole ripetute, frasi che non finiscono mai",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "nl": {
+    "titre": "Lees het hardop",
+    "texte": "je oor hoort wat je oog overslaat: houterig ritme, herhaalde woorden, zinnen die nooit eindigen",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "pt-BR": {
+    "titre": "Leia em voz alta",
+    "texte": "seu ouvido pega o que seu olho pula: ritmo travado, palavras repetidas, frases que nunca acabam",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "tr": {
+    "titre": "Sesli oku",
+    "texte": "kulağın gözünün atladığını yakalar: aksak ritim, tekrar eden kelimeler, hiç bitmeyen cümleler",
     "image": "images/femme-ecrivant.jpg"
    }
   },
@@ -94,6 +179,31 @@
     "titre": "En lektion om dagen på Sophia",
     "texte": "bra skribenter läser mycket. 10 minuter om dagen med välskrivna lektioner om historia, filosofi och vetenskap, sen ett quiz",
     "telephone": "accueil"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "a jó írók sokat olvasnak. napi 10 perc jól megírt lecke történelemről, filozófiáról és tudományról, aztán egy kvíz",
+    "telephone": "accueil"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "chi scrive bene legge tanto. 10 minuti al giorno di lezioni ben scritte di storia, filosofia e scienza, poi un quiz",
+    "telephone": "accueil"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "goede schrijvers lezen veel. elke dag 10 minuten goed geschreven lessen over geschiedenis, filosofie en wetenschap, daarna een quiz",
+    "telephone": "accueil"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "quem escreve bem lê muito. 10 minutos por dia de lições bem escritas de história, filosofia e ciência, e depois um quiz",
+    "telephone": "accueil"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "iyi yazarlar çok okur. günde 10 dakika tarih, felsefe ve bilim üzerine iyi yazılmış dersler, sonra bir quiz",
+    "telephone": "accueil"
    }
   },
   {
@@ -112,6 +222,31 @@
     "titre": "Skriv fult först",
     "texte": "ett dåligt första utkast är meningen. man kan inte redigera en tom sida. fixa det i morgon, med nya ögon",
     "image": "images/machine-ecrire-scene.jpg"
+   },
+   "hu": {
+    "titre": "Írj előbb csúnyán",
+    "texte": "a rossz első vázlat a lényeg. üres lapot nem lehet szerkeszteni. holnap javítsd ki, friss szemmel",
+    "image": "images/machine-ecrire-scene.jpg"
+   },
+   "it": {
+    "titre": "Prima scrivi brutto",
+    "texte": "una prima bozza brutta è il punto. non puoi correggere una pagina bianca. sistemala domani, con occhi nuovi",
+    "image": "images/machine-ecrire-scene.jpg"
+   },
+   "nl": {
+    "titre": "Schrijf eerst lelijk",
+    "texte": "een slechte eerste versie is juist de bedoeling. een leeg vel kun je niet verbeteren. pas het morgen aan, met frisse ogen",
+    "image": "images/machine-ecrire-scene.jpg"
+   },
+   "pt-BR": {
+    "titre": "Escreva feio primeiro",
+    "texte": "um primeiro rascunho ruim é a ideia. não dá pra editar uma página em branco. arrume amanhã, com olhos descansados",
+    "image": "images/machine-ecrire-scene.jpg"
+   },
+   "tr": {
+    "titre": "Önce çirkin yaz",
+    "texte": "kötü bir ilk taslak işin ta kendisi. boş sayfayı düzeltemezsin. yarın taze gözlerle düzelt",
+    "image": "images/machine-ecrire-scene.jpg"
    }
   },
   {
@@ -129,6 +264,31 @@
    "sv": {
     "titre": "Skriv av en mening du älskar",
     "texte": "skriv av den för hand, ord för ord. benjamin franklin lärde sig skriva genom att skriva om essäer ur en tidskrift han beundrade",
+    "image": "images/homme-billet.jpg"
+   },
+   "hu": {
+    "titre": "Másolj le egy mondatot",
+    "texte": "írd le kézzel, szóról szóra. benjamin franklin úgy tanult meg írni, hogy egy általa csodált magazin esszéit írta újra",
+    "image": "images/homme-billet.jpg"
+   },
+   "it": {
+    "titre": "Copia una frase che ami",
+    "texte": "riscrivila a mano, parola per parola. benjamin franklin imparò a scrivere riscrivendo i saggi di una rivista che ammirava",
+    "image": "images/homme-billet.jpg"
+   },
+   "nl": {
+    "titre": "Kopieer een mooie zin",
+    "texte": "schrijf hem met de hand over, woord voor woord. benjamin franklin leerde zichzelf schrijven door essays over te schrijven uit een tijdschrift dat hij bewonderde",
+    "image": "images/homme-billet.jpg"
+   },
+   "pt-BR": {
+    "titre": "Copie uma frase que você ama",
+    "texte": "escreva à mão, palavra por palavra. benjamin franklin aprendeu a escrever sozinho reescrevendo ensaios de uma revista que admirava",
+    "image": "images/homme-billet.jpg"
+   },
+   "tr": {
+    "titre": "Sevdiğin cümleyi kopyala",
+    "texte": "elle, kelimesi kelimesine yaz. benjamin franklin hayran olduğu bir derginin denemelerini yeniden yazarak kendi kendine yazmayı öğrendi",
     "image": "images/homme-billet.jpg"
    }
   }

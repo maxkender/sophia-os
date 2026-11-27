@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o364",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b73b36d2-c6f5-426c-b213-1cd136363692",
+ "titre": "j'ai découvert que ma remplaçante serait mieux payée que moi, pour le même poste #salaire #carriere #travail #emploi #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "BLEO voie 1, routine du 27/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Déclinaison G2 de la ligne #5 (parent b73b36d2, notre rh-o300) : même promesse, autres mots, autre suite. Aucune fausse contre-offre, aucune vraie entreprise. Inspirations reprises de rh-o300. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "15a5dc8b",
+   "texte_overlay": "j'ai découvert que ma remplaçante\nserait mieux payée que moi,\npour le même poste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6a568cf2",
+   "texte_overlay": "l'annonce était publique\nla fourchette aussi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d1c96831",
+   "texte_overlay": "j'ai d'abord été en colère\npuis j'ai fait mes calculs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "eefc2f7b",
+   "texte_overlay": "j'ai listé ce que j'avais apporté\nen 3 ans, avec des chiffres",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "986d5496",
+   "texte_overlay": "j'ai demandé un rendez-vous\npour parler de mon salaire, pas de l'annonce",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "434a3a18",
+   "texte_overlay": "j'ai aussi montré ce que j'apprenais\nmes 3 sources : une formation, un mentor, 5 minutes par jour",
+   "texte_sophia": "j'ai aussi montré ce que j'apprenais\nmes 3 sources : une formation, un mentor, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4cd96962",
+   "texte_overlay": "retiens ça\nton salaire ne bouge pas tout seul",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "dd1f7dad",
+   "texte_overlay": "t'as déjà regardé les annonces pour ton poste ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

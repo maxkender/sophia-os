@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o389",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6d56363b-863d-4cd8-8489-4461c9085644",
+ "titre": "The 6 laws of maturity #men #maturity #growth #wisdom #mindset",
+ "musique_titre": "alkuperäinen ääni",
+ "musique_url": "https://www.tiktok.com/music/alkuperainen-aani-7438536346848742177",
+ "inspirations": [
+  "6d56363b-863d-4cd8-8489-4461c9085644"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 27/11. Déclinaison G1 de la ligne 54 de la boîte (parent 6d56363b, @selfsculpt_, langue source en). Accroche du parent mot pour mot. Format : « N. Loi » + une ligne. Items neufs, aucun du parent. reference_url du parent (1 à 7) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "657ca9b0",
+   "texte_overlay": "The 6 laws of maturity",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638916234288958742/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1ecd7ed3",
+   "texte_overlay": "1. Not everything needs\na response.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638916234288958742/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "070e17e0",
+   "texte_overlay": "2. You can disagree\nwithout disrespect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638916234288958742/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "85d1849a",
+   "texte_overlay": "3. People don't owe you\nthe version you expect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638916234288958742/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "76e30843",
+   "texte_overlay": "4. Own your part, even if\nit's small.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638916234288958742/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "94585368",
+   "texte_overlay": "5. Admit what you don't know,\nthen learn it.",
+   "texte_sophia": "5. Admit what you don't know,\nthen learn it on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638916234288958742/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "07d8832a",
+   "texte_overlay": "6. Peace is worth more\nthan being right.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638916234288958742/7.jpg"
+  }
+ ]
+}

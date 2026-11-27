@@ -6,6 +6,7 @@ const api = vi.hoisted(() => ({
   lireMonOnboardingRuul: vi.fn(),
   jeSuisPretRuul: vi.fn(),
   enregistrerMonEmailRuul: vi.fn(),
+  monLienRuul: vi.fn(),
 }));
 // La niche du label du compte (19/11) : null = inconnue ; on garde si elle a été demandée.
 const niche = vi.hoisted(() => ({ valeur: null as string | null, actif: [] as boolean[] }));
@@ -119,6 +120,18 @@ describe("ChecklistRuul (0592)", () => {
     await new Promise((r) => setTimeout(r, 0));
     expect(niche.actif.length).toBeGreaterThan(0);
     expect(niche.actif.every((a) => a === false)).toBe(true);
+  });
+
+  it("26/11 : lien Ruul automatique, « you can do it later » avant la première paie ; après : « required to get paid »", async () => {
+    // Départ lointain : la première semaine n'est pas encore payable.
+    api.lireMonOnboardingRuul.mockResolvedValue({ ...base, cohorte_lundi: "2099-01-05", ruul_lien_auto: true, ruul_onboarding: "NOT_REGISTERED" });
+    const a = rendu();
+    expect(await screen.findByTestId("setup-ruul-titre")).toHaveTextContent("Set up Ruul — you can do it later, before your first pay (5 min)");
+    a.unmount();
+    // Lundi de départ passé de plus de 7 jours : le texte habituel.
+    api.lireMonOnboardingRuul.mockResolvedValue({ ...base, cohorte_lundi: "2026-11-16", ruul_lien_auto: true, ruul_onboarding: "NOT_REGISTERED" });
+    rendu();
+    expect(await screen.findByTestId("setup-ruul-titre")).toHaveTextContent("Set up Ruul — required to get paid (5 min)");
   });
 
   it("invité sur Ruul : « It's done » marque le compte prêt", async () => {

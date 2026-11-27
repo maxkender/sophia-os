@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o365",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "47c0e02a-286a-438c-9ff2-673ddaf397f9",
+ "titre": "les règles que j'ai posées en télétravail (et que mon équipe respecte) #teletravail #travail #limites #santementale #jobtips",
+ "musique_titre": "take a moment to breathe.",
+ "musique_url": "https://www.tiktok.com/music/take-a-moment-to-breathe-7200846574183221250",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 27/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G2 de la ligne #7 (parent 47c0e02a), 3e et dernière : même promesse, autres mots, règles différentes de rh-o182, rh-o341 et rh-o353. Inspirations reprises de rh-o182. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f12795b7",
+   "texte_overlay": "les règles que j'ai posées\nen télétravail\n(et que mon équipe respecte)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d5dff13c",
+   "texte_overlay": "mon agenda est à jour\nsi c'est bloqué, c'est bloqué",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "114b62c2",
+   "texte_overlay": "je réponds dans la demi-journée\npas dans la minute",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ff30ba12",
+   "texte_overlay": "caméra allumée en réunion d'équipe\néteinte pour les grandes réunions",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "067cba61",
+   "texte_overlay": "un message d'au revoir à 18h\net je me déconnecte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2945e309",
+   "texte_overlay": "une pause pour moi l'après-midi\n5 minutes pour apprendre un truc, loin des mails",
+   "texte_sophia": "une pause pour moi l'après-midi\nutilise l'appli Sophia 5 minutes, loin des mails",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c5f4e53d",
+   "texte_overlay": "tes règles à toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  }
+ ]
+}

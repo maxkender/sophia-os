@@ -1,0 +1,617 @@
+{
+ "id": "pt-024",
+ "titre": {
+  "en": "things to put in your week so you always have something new to talk about",
+  "fr": "quoi mettre dans ta semaine pour toujours avoir un sujet de conversation",
+  "es": "cosas para meter en tu semana y tener siempre algo nuevo de qué hablar",
+  "es-419": "cosas para poner en tu semana y siempre tener algo nuevo de qué hablar",
+  "it": "cose da mettere nella settimana per avere sempre qualcosa da dire",
+  "tr": "hep konuşacak yeni bir şeyin olsun diye haftana ekleyeceklerin",
+  "pt-BR": "coisas pra colocar na sua semana e sempre ter assunto novo",
+  "sl": "kaj dodati v teden, da imaš vedno kaj novega za povedati",
+  "de": "was in deine woche gehört, damit du immer etwas neues zu erzählen hast",
+  "sk": "čo pridať do týždňa, aby si mala vždy o čom rozprávať",
+  "sv": "saker att lägga in i veckan så att du alltid har något nytt att prata om"
+ },
+ "legendes": {
+  "en": "one tiny thing a day and the week fills itself. save it <3 #girlblogger #selfimprovement #learning #studytok #thatgirl",
+  "fr": "une petite chose par jour et la semaine se remplit toute seule. enregistre-la <3 #girlblogger #developpementpersonnel #apprendre #studytok #thatgirl",
+  "es": "una cosita al día y la semana se llena sola. guárdala <3 #girlblogger #desarrollopersonal #aprender #studytok #thatgirl",
+  "es-419": "una cosita al día y la semana se llena sola. guárdala <3 #girlblogger #desarrollopersonal #aprender #studytok #thatgirl",
+  "it": "una piccola cosa al giorno e la settimana si riempie da sola. salvala <3 #girlblogger #crescitapersonale #imparare #studytok #thatgirl",
+  "tr": "günde küçük bir şey ve hafta kendiliğinden dolar. kaydet <3 #girlblogger #kişiselgelişim #öğrenmek #studytok #thatgirl",
+  "pt-BR": "uma coisinha por dia e a semana se enche sozinha. salva <3 #girlblogger #autodesenvolvimento #aprender #studytok #thatgirl",
+  "sl": "ena majhna stvar na dan in teden se napolni sam. shrani si ga <3 #girlblogger #osebnirazvoj #učenje #studytok #thatgirl",
+  "de": "eine kleine sache am tag und die woche füllt sich von allein. speicher sie dir <3 #girlblogger #selbstverbesserung #lernen #studytok #thatgirl",
+  "sk": "jedna malá vec denne a týždeň sa naplní sám. ulož si ho <3 #girlblogger #osobnyrozvoj #ucenie #studytok #thatgirl",
+  "sv": "en liten sak om dagen och veckan fyller sig själv. spara den <3 #girlblogger #självutveckling #lärande #studytok #thatgirl"
+ },
+ "musique": {
+  "titre": "bleu de nuit",
+  "url": "https://www.tiktok.com/music/bleu-de-nuit-7617883902271457297"
+ },
+ "notes": "Déclinaison G1 (BLEO, 27/11) de pt-007 « things to put in your week so you always have something new to talk about » (2e déclinaison ; famille : es 2,8 k r 2,41 ; en 2,5 k r 3,12), titre du parent mot pour mot. Tout le reste change : autres jours (ce jour dans l'histoire le lundi ; un détail d'un tableau le mardi ; Sophia le mercredi ; un mythe le jeudi : perséphone et les saisons, mythe grec réel ; un lieu nouveau le vendredi), autres photos (neuves), cta A (reformulé). Titres traduits repris du parent.",
+ "banque": {
+  "images/banque/couv-etang-sombre.jpg": "51b6120e-6c78-4f97-9cc4-8ff23a9edc90",
+  "images/banque/couv-the-citron-lit.jpg": "91e4494d-26fa-4118-a964-8da3142bf54b",
+  "images/banque/tasse-bleue-bois.jpg": "7086dab1-7eab-461a-be14-5e098924c2a0",
+  "images/banque/cafe-noir.jpg": "3ccc59df-74b4-47c7-86e0-03f9486b6dd0",
+  "images/banque/tableau-main.jpg": "56b7cf29-b039-46fb-a2a5-7dfee48dcd6f",
+  "images/banque/tableau-arbre-colore.jpg": "176fb282-0c2b-4772-b6ef-2b41558a18b6",
+  "images/banque/soleil-mer.jpg": "1e99b5f4-205f-4a2c-bdad-ba86a8c73486",
+  "images/banque/fleurs-eau.jpg": "455e3090-d49f-467b-9c27-ba4386edea65",
+  "images/banque/hortensias-papier.jpg": "1c7a3a17-32a6-450d-9618-05f87d0eb25d",
+  "images/banque/temple-brume.jpg": "7dabaacf-a118-4b91-b809-cf5ff16e3e52",
+  "images/banque/batiment-palmiers.jpg": "26fe70d7-acfe-4ae9-a123-7195ddb0b926"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-etang-sombre.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-the-citron-lit.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "things to put in your\nweek so you always\nhave something new\nto talk about"
+   },
+   "fr": {
+    "titre": "quoi mettre dans ta\nsemaine pour avoir\ntoujours un sujet\nde conversation"
+   },
+   "es": {
+    "titre": "cosas para meter en\ntu semana y tener\nsiempre algo nuevo\nde qué hablar"
+   },
+   "es-419": {
+    "titre": "cosas para poner en\ntu semana y siempre\ntener algo nuevo\nde qué hablar"
+   },
+   "it": {
+    "titre": "cose da mettere\nnella settimana per\navere sempre\nqualcosa da dire"
+   },
+   "tr": {
+    "titre": "hep konuşacak yeni\nbir şeyin olsun diye\nhaftana\nekleyeceklerin"
+   },
+   "pt-BR": {
+    "titre": "coisas pra colocar\nna sua semana e\nsempre ter\nassunto novo"
+   },
+   "sl": {
+    "titre": "kaj dodati v teden,\nda imaš vedno kaj\nnovega povedati"
+   },
+   "de": {
+    "titre": "was in deine woche\ngehört, damit du\nimmer etwas neues\nzu erzählen hast"
+   },
+   "sk": {
+    "titre": "čo pridať do týždňa,\naby si mala vždy\no čom rozprávať"
+   },
+   "sv": {
+    "titre": "saker att lägga in i\nveckan så att du\nalltid har något nytt\natt prata om"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/tasse-bleue-bois.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/cafe-noir.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. monday: this day in history",
+    "paragraphes": [
+     "With your monday coffee, look up what happened on this exact date a hundred or a thousand years ago.",
+     "There's always something surprising, and it's the easiest way to start a conversation"
+    ]
+   },
+   "fr": {
+    "titre": "1. lundi : ce jour dans l'histoire",
+    "paragraphes": [
+     "Avec ton café du lundi, cherche ce qui s'est passé à cette date exacte il y a cent ou mille ans.",
+     "Il y a toujours une surprise, et c'est la façon la plus simple de lancer une conversation"
+    ]
+   },
+   "es": {
+    "titre": "1. lunes: tal día como hoy",
+    "paragraphes": [
+     "Con tu café del lunes, busca qué pasó en esta misma fecha hace cien o mil años.",
+     "Siempre hay algo sorprendente, y es la forma más fácil de empezar una conversación"
+    ]
+   },
+   "es-419": {
+    "titre": "1. lunes: un día como hoy",
+    "paragraphes": [
+     "Con tu café del lunes, busca qué pasó en esta misma fecha hace cien o mil años.",
+     "Siempre hay algo sorprendente, y es la forma más fácil de empezar una plática"
+    ]
+   },
+   "it": {
+    "titre": "1. lunedì: accadde oggi",
+    "paragraphes": [
+     "Con il caffè del lunedì, cerca cosa è successo in questa stessa data cento o mille anni fa.",
+     "C'è sempre qualcosa di sorprendente, ed è il modo più facile per iniziare una conversazione"
+    ]
+   },
+   "tr": {
+    "titre": "1. pazartesi: tarihte bugün",
+    "paragraphes": [
+     "Pazartesi kahvenle, tam bu tarihte yüz ya da bin yıl önce ne olduğuna bak.",
+     "Hep şaşırtıcı bir şey çıkar, ve sohbet başlatmanın en kolay yolu budur"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. segunda: hoje na história",
+    "paragraphes": [
+     "Com o café de segunda, pesquisa o que aconteceu nessa mesma data cem ou mil anos atrás.",
+     "Sempre tem algo surpreendente, e é o jeito mais fácil de puxar conversa"
+    ]
+   },
+   "sl": {
+    "titre": "1. ponedeljek: na današnji dan",
+    "paragraphes": [
+     "Ob ponedeljkovi kavi poglej, kaj se je zgodilo na točno ta datum pred sto ali tisoč leti.",
+     "Vedno je kaj presenetljivega, in to je najlažji način, da začneš pogovor"
+    ]
+   },
+   "de": {
+    "titre": "1. montag: heute in der geschichte",
+    "paragraphes": [
+     "Schau beim montagskaffee nach, was genau an diesem datum vor hundert oder tausend jahren passiert ist.",
+     "Es gibt immer eine überraschung, und so fängt man am leichtesten ein gespräch an"
+    ]
+   },
+   "sk": {
+    "titre": "1. pondelok: v tento deň v histórii",
+    "paragraphes": [
+     "Pri pondelkovej káve si pozri, čo sa stalo presne v tento dátum pred sto či tisíc rokmi.",
+     "Vždy je tam niečo prekvapivé, a je to najľahší spôsob, ako začať rozhovor"
+    ]
+   },
+   "sv": {
+    "titre": "1. måndag: idag i historien",
+    "paragraphes": [
+     "Med måndagskaffet, kolla vad som hände på exakt det här datumet för hundra eller tusen år sedan.",
+     "Det finns alltid något överraskande, och det är det lättaste sättet att starta ett samtal"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/tableau-main.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/tableau-arbre-colore.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. tuesday: one detail",
+    "paragraphes": [
+     "Open one famous painting in full size and zoom into one tiny detail: a hand, a reflection, a dog in a corner.",
+     "You'll see what most people never notice, and you'll want to tell someone"
+    ]
+   },
+   "fr": {
+    "titre": "2. mardi : un détail",
+    "paragraphes": [
+     "Ouvre un tableau célèbre en grand et zoome sur un tout petit détail : une main, un reflet, un chien dans un coin.",
+     "Tu vois ce que presque personne ne remarque, et tu as envie de le raconter"
+    ]
+   },
+   "es": {
+    "titre": "2. martes: un detalle",
+    "paragraphes": [
+     "Abre un cuadro famoso a tamaño completo y haz zoom en un detalle diminuto: una mano, un reflejo, un perro en una esquina.",
+     "Verás lo que casi nadie nota, y querrás contárselo a alguien"
+    ]
+   },
+   "es-419": {
+    "titre": "2. martes: un detalle",
+    "paragraphes": [
+     "Abre una pintura famosa en tamaño completo y haz zoom en un detalle diminuto: una mano, un reflejo, un perro en una esquina.",
+     "Vas a ver lo que casi nadie nota, y vas a querer contárselo a alguien"
+    ]
+   },
+   "it": {
+    "titre": "2. martedì: un dettaglio",
+    "paragraphes": [
+     "Apri un quadro famoso a grandezza piena e zooma su un dettaglio minuscolo: una mano, un riflesso, un cane in un angolo.",
+     "Vedrai quello che quasi nessuno nota, e vorrai raccontarlo a qualcuno"
+    ]
+   },
+   "tr": {
+    "titre": "2. salı: bir detay",
+    "paragraphes": [
+     "Ünlü bir tabloyu tam boyutta aç ve minik bir detaya yakınlaş: bir el, bir yansıma, köşedeki bir köpek.",
+     "Çoğu insanın hiç fark etmediğini görürsün, ve birine anlatmak istersin"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. terça: um detalhe",
+    "paragraphes": [
+     "Abre uma pintura famosa em tamanho cheio e dá zoom num detalhe minúsculo: uma mão, um reflexo, um cachorro no canto.",
+     "Você vê o que quase ninguém nota, e vai querer contar pra alguém"
+    ]
+   },
+   "sl": {
+    "titre": "2. torek: ena podrobnost",
+    "paragraphes": [
+     "Odpri slavno sliko v polni velikosti in povečaj eno drobno podrobnost: roko, odsev, psa v kotu.",
+     "Videla boš, česar skoraj nihče ne opazi, in to boš hotela nekomu povedati"
+    ]
+   },
+   "de": {
+    "titre": "2. dienstag: ein detail",
+    "paragraphes": [
+     "Öffne ein berühmtes gemälde in voller größe und zoom in ein winziges detail: eine hand, eine spiegelung, ein hund in der ecke.",
+     "Du siehst, was fast niemand bemerkt, und willst es jemandem erzählen"
+    ]
+   },
+   "sk": {
+    "titre": "2. utorok: jeden detail",
+    "paragraphes": [
+     "Otvor slávny obraz v plnej veľkosti a priblíž si jeden drobný detail: ruku, odraz, psa v rohu.",
+     "Uvidíš, čo takmer nikto nevšimne, a budeš to chcieť niekomu povedať"
+    ]
+   },
+   "sv": {
+    "titre": "2. tisdag: en detalj",
+    "paragraphes": [
+     "Öppna en berömd målning i full storlek och zooma in på en pytteliten detalj: en hand, en spegling, en hund i ett hörn.",
+     "Du ser det nästan ingen märker, och du vill berätta det för någon"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/soleil-mer.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. wednesday: one lesson",
+    "paragraphes": [
+     "On wednesday night I do one short lesson on Sophia instead of scrolling. history, philosophy or science, written by actual professors, with a little quiz after.",
+     "Halfway through the week, and I always have something new to bring up"
+    ]
+   },
+   "fr": {
+    "titre": "3. mercredi : une leçon",
+    "paragraphes": [
+     "Le mercredi soir, je fais une courte leçon sur Sophia au lieu de scroller. histoire, philo ou sciences, écrites par de vrais profs, avec un petit quiz après.",
+     "Le milieu de la semaine, et j'ai toujours un nouveau sujet à sortir"
+    ]
+   },
+   "es": {
+    "titre": "3. miércoles: una lección",
+    "paragraphes": [
+     "El miércoles por la noche hago una lección corta en Sophia en vez de hacer scroll. historia, filosofía o ciencia, escritas por profesores de verdad, con un pequeño quiz al final.",
+     "A mitad de semana, y siempre tengo algo nuevo que sacar"
+    ]
+   },
+   "es-419": {
+    "titre": "3. miércoles: una lección",
+    "paragraphes": [
+     "El miércoles en la noche hago una lección corta en Sophia en vez de scrollear. historia, filosofía o ciencia, escritas por profesores de verdad, con un pequeño quiz al final.",
+     "A mitad de semana, y siempre tengo algo nuevo de qué hablar"
+    ]
+   },
+   "it": {
+    "titre": "3. mercoledì: una lezione",
+    "paragraphes": [
+     "Il mercoledì sera faccio una breve lezione su Sophia invece di scrollare. storia, filosofia o scienza, scritte da veri professori, con un piccolo quiz alla fine.",
+     "A metà settimana, e ho sempre qualcosa di nuovo da tirare fuori"
+    ]
+   },
+   "tr": {
+    "titre": "3. çarşamba: bir ders",
+    "paragraphes": [
+     "Çarşamba akşamları kaydırmak yerine Sophia'da kısa bir ders yapıyorum. tarih, felsefe ya da bilim, gerçek profesörlerin kaleminden, sonunda küçük bir test.",
+     "Haftanın ortası, ve hep açacak yeni bir konum oluyor"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. quarta: uma aula",
+    "paragraphes": [
+     "Na quarta à noite eu faço uma aula curta no Sophia em vez de rolar o feed. história, filosofia ou ciência, escritas por professores de verdade, com um quiz no final.",
+     "Metade da semana, e eu sempre tenho um assunto novo"
+    ]
+   },
+   "sl": {
+    "titre": "3. sreda: ena lekcija",
+    "paragraphes": [
+     "V sredo zvečer namesto skrolanja naredim kratko lekcijo v aplikaciji Sophia. zgodovina, filozofija ali znanost, ki jih pišejo pravi profesorji, na koncu pa kratek kviz.",
+     "Sredina tedna, in vedno imam kaj novega za povedati"
+    ]
+   },
+   "de": {
+    "titre": "3. mittwoch: eine lektion",
+    "paragraphes": [
+     "Mittwochabends mache ich statt zu scrollen eine kurze lektion auf Sophia. geschichte, philosophie oder wissenschaft, geschrieben von echten professoren, mit einem kleinen quiz danach.",
+     "Mitte der woche, und ich habe immer etwas neues zu erzählen"
+    ]
+   },
+   "sk": {
+    "titre": "3. streda: jedna lekcia",
+    "paragraphes": [
+     "V stredu večer si namiesto scrollovania dám krátku lekciu v aplikácii Sophia. história, filozofia alebo veda od skutočných profesorov, a na konci malý kvíz.",
+     "Polovica týždňa, a vždy mám niečo nové, o čom hovoriť"
+    ]
+   },
+   "sv": {
+    "titre": "3. onsdag: en lektion",
+    "paragraphes": [
+     "På onsdagskvällen gör jag en kort lektion på Sophia i stället för att scrolla. historia, filosofi eller vetenskap, skrivna av riktiga professorer, med ett litet quiz efteråt.",
+     "Mitt i veckan, och jag har alltid något nytt att ta upp"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/fleurs-eau.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/hortensias-papier.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. thursday: one myth",
+    "paragraphes": [
+     "Read one old myth. the greeks said winter comes because persephone goes back to the underworld every year.",
+     "Myths are the oldest stories we have, and they still explain so much"
+    ]
+   },
+   "fr": {
+    "titre": "4. jeudi : un mythe",
+    "paragraphes": [
+     "Lis un vieux mythe. les grecs disaient que l'hiver arrive parce que perséphone redescend aux enfers chaque année.",
+     "Les mythes sont nos plus vieilles histoires, et ils expliquent encore tellement de choses"
+    ]
+   },
+   "es": {
+    "titre": "4. jueves: un mito",
+    "paragraphes": [
+     "Lee un mito antiguo. los griegos decían que el invierno llega porque perséfone vuelve al inframundo cada año.",
+     "Los mitos son las historias más antiguas que tenemos, y aún explican muchísimo"
+    ]
+   },
+   "es-419": {
+    "titre": "4. jueves: un mito",
+    "paragraphes": [
+     "Lee un mito antiguo. los griegos decían que el invierno llega porque perséfone vuelve al inframundo cada año.",
+     "Los mitos son las historias más antiguas que tenemos, y todavía explican muchísimo"
+    ]
+   },
+   "it": {
+    "titre": "4. giovedì: un mito",
+    "paragraphes": [
+     "Leggi un mito antico. i greci dicevano che l'inverno arriva perché persefone torna negli inferi ogni anno.",
+     "I miti sono le storie più antiche che abbiamo, e spiegano ancora tantissimo"
+    ]
+   },
+   "tr": {
+    "titre": "4. perşembe: bir mit",
+    "paragraphes": [
+     "Eski bir mit oku. yunanlılar, persephone her yıl yeraltına döndüğü için kışın geldiğini söylerdi.",
+     "Mitler elimizdeki en eski hikâyeler, ve hâlâ çok şeyi açıklıyorlar"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. quinta: um mito",
+    "paragraphes": [
+     "Lê um mito antigo. os gregos diziam que o inverno chega porque perséfone volta pro submundo todo ano.",
+     "Os mitos são as histórias mais antigas que a gente tem, e ainda explicam tanta coisa"
+    ]
+   },
+   "sl": {
+    "titre": "4. četrtek: en mit",
+    "paragraphes": [
+     "Preberi star mit. grki so pravili, da zima pride, ker se perzefona vsako leto vrne v podzemlje.",
+     "Miti so naše najstarejše zgodbe, in še vedno toliko razložijo"
+    ]
+   },
+   "de": {
+    "titre": "4. donnerstag: ein mythos",
+    "paragraphes": [
+     "Lies einen alten mythos. die griechen sagten, der winter kommt, weil persephone jedes jahr in die unterwelt zurückkehrt.",
+     "Mythen sind unsere ältesten geschichten, und sie erklären immer noch so viel"
+    ]
+   },
+   "sk": {
+    "titre": "4. štvrtok: jeden mýtus",
+    "paragraphes": [
+     "Prečítaj si starý mýtus. gréci hovorili, že zima prichádza, lebo persefona sa každý rok vracia do podsvetia.",
+     "Mýty sú naše najstaršie príbehy, a stále toho toľko vysvetľujú"
+    ]
+   },
+   "sv": {
+    "titre": "4. torsdag: en myt",
+    "paragraphes": [
+     "Läs en gammal myt. grekerna sa att vintern kommer för att persefone återvänder till underjorden varje år.",
+     "Myter är de äldsta berättelser vi har, och de förklarar fortfarande så mycket"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/temple-brume.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/batiment-palmiers.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. friday: one new place",
+    "paragraphes": [
+     "Find one place near you that you've never visited, a garden, a chapel, a bookshop, and go after work.",
+     "Your weekend starts with a discovery, and you have a story for saturday"
+    ]
+   },
+   "fr": {
+    "titre": "5. vendredi : un nouveau lieu",
+    "paragraphes": [
+     "Trouve un endroit près de chez toi où tu n'es jamais allée, un jardin, une chapelle, une librairie, et vas-y après le travail.",
+     "Ton week-end commence par une découverte, et tu as une histoire pour samedi"
+    ]
+   },
+   "es": {
+    "titre": "5. viernes: un sitio nuevo",
+    "paragraphes": [
+     "Busca un sitio cerca de ti donde nunca has estado, un jardín, una capilla, una librería, y ve después del trabajo.",
+     "Tu finde empieza con un descubrimiento, y tienes una historia para el sábado"
+    ]
+   },
+   "es-419": {
+    "titre": "5. viernes: un lugar nuevo",
+    "paragraphes": [
+     "Busca un lugar cerca de ti donde nunca has estado, un jardín, una capilla, una librería, y ve después del trabajo.",
+     "Tu fin de semana empieza con un descubrimiento, y tienes una historia para el sábado"
+    ]
+   },
+   "it": {
+    "titre": "5. venerdì: un posto nuovo",
+    "paragraphes": [
+     "Trova un posto vicino a te dove non sei mai stata, un giardino, una cappella, una libreria, e vacci dopo il lavoro.",
+     "Il weekend inizia con una scoperta, e hai una storia per il sabato"
+    ]
+   },
+   "tr": {
+    "titre": "5. cuma: yeni bir yer",
+    "paragraphes": [
+     "Yakınında hiç gitmediğin bir yer bul, bir bahçe, bir şapel, bir kitapçı, ve işten sonra git.",
+     "Hafta sonun bir keşifle başlar, ve cumartesiye bir hikâyen olur"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. sexta: um lugar novo",
+    "paragraphes": [
+     "Acha um lugar perto de você onde nunca foi, um jardim, uma capela, uma livraria, e vai depois do trabalho.",
+     "Seu fim de semana começa com uma descoberta, e você tem uma história pro sábado"
+    ]
+   },
+   "sl": {
+    "titre": "5. petek: nov kraj",
+    "paragraphes": [
+     "Poišči kraj blizu sebe, kjer še nisi bila, vrt, kapelo, knjigarno, in pojdi tja po službi.",
+     "Vikend se začne z odkritjem, in imaš zgodbo za soboto"
+    ]
+   },
+   "de": {
+    "titre": "5. freitag: ein neuer ort",
+    "paragraphes": [
+     "Such dir einen ort in deiner nähe, an dem du nie warst, einen garten, eine kapelle, einen buchladen, und geh nach der arbeit hin.",
+     "Dein wochenende beginnt mit einer entdeckung, und du hast eine geschichte für samstag"
+    ]
+   },
+   "sk": {
+    "titre": "5. piatok: nové miesto",
+    "paragraphes": [
+     "Nájdi miesto blízko seba, kde si ešte nebola, záhradu, kaplnku, kníhkupectvo, a choď tam po práci.",
+     "Víkend začne objavom, a máš príbeh na sobotu"
+    ]
+   },
+   "sv": {
+    "titre": "5. fredag: ett nytt ställe",
+    "paragraphes": [
+     "Hitta ett ställe nära dig som du aldrig besökt, en trädgård, ett kapell, en bokaffär, och gå dit efter jobbet.",
+     "Helgen börjar med en upptäckt, och du har en historia till lördagen"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c9240f9d-3723-4c91-8dcd-449ab3bc558b"
+}

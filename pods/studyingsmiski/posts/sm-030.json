@@ -1,0 +1,432 @@
+{
+ "id": "sm-030",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "New Jeans",
+  "url": "https://www.tiktok.com/music/new-jeans-7251860325203593218"
+ },
+ "notes": "Full test du 27/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, papier vert, stickers, bulle) : « apps that help me romanticize my study life ». Sophia en 3e carte (cta C), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Tiimo (planificateur visuel), Tide (sons de nature, minuteur), Daylio (micro-journal d'humeur). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 21 et du 22/11). Musique : la sienne de sa liste du 04/11 (70 k).",
+ "titre": {
+  "en": "apps that help me romanticize my study life",
+  "fr": "les applis qui m'aident à romantiser ma vie d'étudiante",
+  "es": "apps que me ayudan a romantizar mi vida de estudiante",
+  "es-419": "apps que me ayudan a romantizar mi vida de estudiante",
+  "it": "app che mi aiutano a romanticizzare la mia vita da studentessa",
+  "tr": "ders hayatımı güzelleştiren uygulamalar",
+  "pt-BR": "apps que me ajudam a romantizar minha vida de estudante",
+  "de": "apps, mit denen ich mein studentenleben romantisiere",
+  "sl": "aplikacije, s katerimi romantiziram študentsko življenje",
+  "hu": "appok, amikkel romantikussá teszem a diákéletem"
+ },
+ "legendes": {
+  "en": "main character study era 🎀📖 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "l'ère de l'étudiante héroïne 🎀📖 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "era de protagonista estudiosa 🎀📖 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "era de protagonista estudiosa 🎀📖 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "era da protagonista studiosa 🎀📖 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "baş karakter ders dönemi 🎀📖 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "era de protagonista estudiosa 🎀📖 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "main-character-lernphase 🎀📖 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "obdobje glavne junakinje 🎀📖 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "főszereplős tanulós korszak 🎀📖 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 50,
+     "y": 160,
+     "l": 200,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/matcha.png",
+     "x": 830,
+     "y": 130,
+     "l": 180,
+     "rotation": 10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 830,
+     "y": 760,
+     "l": 180,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps that help\nme romanticize\nstudying",
+    "sous": "main character\nstudy era"
+   },
+   "fr": {
+    "titre": "les applis pour\nromantiser\nmes révisions",
+    "sous": "ère de\nl'héroïne"
+   },
+   "es": {
+    "titre": "apps para\nromantizar\nmis estudios",
+    "sous": "era\nprotagonista"
+   },
+   "es-419": {
+    "titre": "apps para\nromantizar\nmis estudios",
+    "sous": "era\nprotagonista"
+   },
+   "it": {
+    "titre": "app per\nromanticizzare\nlo studio",
+    "sous": "era da\nprotagonista"
+   },
+   "tr": {
+    "titre": "ders hayatımı\ngüzelleştiren\nuygulamalar",
+    "sous": "baş karakter\ndönemi"
+   },
+   "pt-BR": {
+    "titre": "apps pra\nromantizar\nos estudos",
+    "sous": "era de\nprotagonista"
+   },
+   "de": {
+    "titre": "apps, mit\ndenen lernen\nschöner wird",
+    "sous": "main-character-\nphase"
+   },
+   "sl": {
+    "titre": "aplikacije za\nromantično\nučenje",
+    "sous": "obdobje glavne\njunakinje"
+   },
+   "hu": {
+    "titre": "appok,\namikkel szebb\na tanulás",
+    "sous": "főszereplős\nkorszak"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/tiimo/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/washi.png",
+     "x": 60,
+     "y": 760,
+     "l": 220,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 730,
+     "l": 200,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "my day as soft colorful blocks with little icons. planning feels like decorating a page in a journal."
+   },
+   "fr": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "ma journée en jolis blocs colorés avec de petites icônes. planifier ressemble à décorer une page de journal."
+   },
+   "es": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "mi día en bloques de colores suaves con iconitos. planificar se siente como decorar una página de diario."
+   },
+   "es-419": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "mi día en bloques de colores suaves con iconitos. planear se siente como decorar una página de diario."
+   },
+   "it": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "la mia giornata in blocchi colorati con piccole icone. pianificare sembra decorare una pagina di diario."
+   },
+   "tr": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "günüm küçük ikonlarla yumuşak renkli bloklarda. plan yapmak günlük sayfası süslemek gibi."
+   },
+   "pt-BR": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "meu dia em blocos coloridos com iconezinhos. planejar parece decorar uma página de diário."
+   },
+   "de": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "mein tag als bunte blöcke mit kleinen icons. planen fühlt sich an wie eine tagebuchseite gestalten."
+   },
+   "sl": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "moj dan v nežnih barvnih blokih z ikonicami. načrtovanje je kot okraševanje strani v dnevniku."
+   },
+   "hu": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "a napom puha színes blokkokban, kis ikonokkal. a tervezés olyan, mint egy naplóoldal díszítése."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/tide/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 40,
+     "y": 730,
+     "l": 300,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "rain, ocean or a crackling fire while i study. with a candle on, my desk feels like a cozy café."
+   },
+   "fr": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "pluie, océan ou feu qui crépite pendant que je bosse. avec une bougie, mon bureau devient un petit café cosy."
+   },
+   "es": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "lluvia, mar o chimenea mientras estudio. con una vela encendida, mi escritorio parece un café cozy."
+   },
+   "es-419": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "lluvia, mar o chimenea mientras estudio. con una vela prendida, mi escritorio parece un café cozy."
+   },
+   "it": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "pioggia, mare o camino mentre studio. con una candela accesa la scrivania sembra un caffè cozy."
+   },
+   "tr": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "çalışırken yağmur, okyanus ya da şömine sesi. bir mum yakınca masam cozy bir kafeye dönüyor."
+   },
+   "pt-BR": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "chuva, mar ou lareira enquanto estudo. com uma vela acesa, minha mesa vira um café aconchegante."
+   },
+   "de": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "regen, meer oder kaminfeuer beim lernen. mit einer kerze wird mein schreibtisch zum gemütlichen café."
+   },
+   "sl": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "dež, morje ali prasketajoč ogenj med učenjem. s prižgano svečo je moja miza prijetna kavarna."
+   },
+   "hu": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "eső, tenger vagy pattogó tűz tanulás közben. egy gyertyával az asztalom hangulatos kávézó lesz."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bibliotheque.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 840,
+     "y": 100,
+     "l": 180,
+     "rotation": 8
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks!",
+    "bulle": "my little main character moment!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir !",
+    "bulle": "mon petit moment d'héroïne !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡mi momento de protagonista!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡mi momento de protagonista!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta!",
+    "bulle": "il mio momento da protagonista!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test!",
+    "bulle": "küçük baş karakter anım!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "você aprende uma coisa nova por dia, tipo por que a gente sonha, com um quiz rapidinho depois pra fixar!",
+    "bulle": "meu momentinho de protagonista!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "du lernst jeden tag etwas neues, zum beispiel warum wir träumen, mit einem kleinen quiz danach, damit es hängen bleibt!",
+    "bulle": "mein kleiner moment nur für mich!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan se naučiš nekaj novega, na primer zakaj sanjamo, potem pa kratek kviz, da ti ostane v glavi!",
+    "bulle": "moj mali trenutek glavne junakinje!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "minden nap tanulsz valami újat, például hogy miért álmodunk, utána egy kis kvíz, hogy megmaradjon!",
+    "bulle": "a kis főszereplős pillanatom!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/daylio/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 220,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "a tiny mood diary with cute icons. scrolling back through my good weeks is my favorite sunday ritual."
+   },
+   "fr": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "un mini journal d'humeur avec de jolies icônes. relire mes belles semaines, c'est mon rituel du dimanche."
+   },
+   "es": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "un diario de ánimo con iconos monos. repasar mis semanas bonitas es mi ritual de los domingos."
+   },
+   "es-419": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "un diario de ánimo con iconos lindos. repasar mis semanas bonitas es mi ritual de los domingos."
+   },
+   "it": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "un mini diario dell'umore con icone carine. rileggere le settimane belle è il mio rito della domenica."
+   },
+   "tr": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "tatlı ikonlu minik bir ruh hali günlüğü. güzel haftalarıma geri bakmak pazar ritüelim."
+   },
+   "pt-BR": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "um mini diário de humor com ícones fofos. rever minhas semanas boas é meu ritual de domingo."
+   },
+   "de": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "ein kleines stimmungstagebuch mit süßen icons. durch meine schönen wochen scrollen ist mein sonntagsritual."
+   },
+   "sl": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "mali dnevnik razpoloženja s srčkanimi ikonami. pregled lepih tednov je moj nedeljski ritual."
+   },
+   "hu": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "kis hangulatnapló cuki ikonokkal. a szép heteim visszanézése a vasárnapi rituálém."
+   }
+  }
+ ]
+}

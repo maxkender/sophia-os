@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o465",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5f38bcac-4f80-4e2c-b6ef-caa743c7b23e",
+ "titre": "Skills that make people want to be around you #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "5f38bcac-4f80-4e2c-b6ef-caa743c7b23e"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 3 de la boîte (5f38bcac, notre ay-o295), 2e déclinaison après ay-o446. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o295, o310, o446. Sans « magnetic » pour ne pas toucher la ligne 12.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b15f3de2-51e3-4703-ab91-d63439d96551",
+   "texte_overlay": "Skills that make people\nwant to be around you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695144994897661216/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Remembering people's stories. Their new job, their trip, their dog's name. Asking about it later makes people feel important.",
+   "media_id": "eb2a35be-49f3-4e26-9bdb-5f885b957e08"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Being easy to plan with. Quick replies, flexible, on time. People love friends who make life simpler. Be that friend.",
+   "media_id": "eb37be33-0982-459a-bcb0-336151494656"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Bringing calm to tense moments. Arguments, delays, problems. A steady man makes everyone around him feel safer.",
+   "media_id": "eb38b92a-eb30-455a-88c5-f72420c53ef4"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Sharing what you love with enthusiasm. A book, a band, a recipe. Passion is contagious and makes you fun to talk to.",
+   "media_id": "eb3c185e-879f-49dd-a96e-197cd19a4923"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Fresh stories make every conversation better.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Fresh stories make every conversation better.",
+   "media_id": "f41970fd-287a-4b6f-9dc7-b2b744bb6386"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Being generous without keeping score. Paying for coffee, helping with a move, giving your time. People remember.",
+   "media_id": "eb575137-406b-40ed-a099-dbee7386462e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Knowing how to listen. Full attention, good questions, no rushing to talk. It's the rarest social skill of all.",
+   "media_id": "eb76b6ad-faff-483a-895d-765de1608396"
+  }
+ ]
+}

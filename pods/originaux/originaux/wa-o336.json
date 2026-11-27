@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o336",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b78b1b68-88d7-4bc3-b9f3-5c11809fd7c1",
+ "titre": "small things people judge you on within seconds #firstimpressions #psychology #bodylanguage #confidence #socialskills",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "f2859d4a-2767-473f-be8d-7dbbd477b759"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f2859d4a). déclinaison G2 de « what people notice about you in the first 7 seconds » (parent b78b1b68). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "be548116-222c-4c5d-8bf6-7d7fe6ff169c",
+   "texte_overlay": "small things people judge\nyou on within seconds",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2a6fe7ba-cf41-4db7-a3a5-27d08ebc3688",
+   "texte_overlay": "how you hold yourself\n\nbefore you speak, people read your posture. shoulders relaxed and back, chin level, tell everyone you're comfortable, and that calm confidence spreads around the room.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d900d128-cd52-4d42-9d7b-a8b1f0a89765",
+   "texte_overlay": "your handshake or wave\n\na warm, steady greeting tells people you're glad to see them. a rushed or limp one can make even a kind person seem nervous, distracted or a little uninterested.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "07ae90ac-8e20-42a8-b69e-f5e95cdf694f",
+   "texte_overlay": "your smile\n\na real smile reaches your eyes, not just your mouth. people notice the difference within a second, and a genuine smile makes them instantly relax and trust you more.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0bc89707-746a-49ef-8b1e-1bfe074aad25",
+   "texte_overlay": "how curious you seem\n\ncuriosity shows on your face before you say a word, and it grows when you feed your mind daily. a curious face looks open, warm and easy to approach at once.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/5.jpg",
+   "texte_sophia": "how curious you seem\n\ncuriosity shows on your face. the Sophia app turns learning into one short lesson a day, a planet or a painting, and 5 minutes makes you look open, warm and easy to talk to."
+  },
+  {
+   "position": 6,
+   "media_id": "13ea8d5f-552f-4e62-a2bc-586579e6439a",
+   "texte_overlay": "how you listen\n\npeople notice within seconds whether you're really listening or just waiting to talk. nodding, eye contact and a follow up question make them feel heard straight away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/6.jpg"
+  }
+ ]
+}

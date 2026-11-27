@@ -35,7 +35,7 @@ export const TEXTES_SITUATIONS = {
   son: "Use the sound shown on your dashboard. If it's unavailable, pick a similar trending sound. A post already published with another sound can stay up, no need to delete it.",
   liberte: "That's fine, thanks for letting us know.",
   commentaires: "You can ignore or like those comments, no need to answer them. If someone asks for the link or what the app is, reply with the app link shown on your dashboard.",
-  frais_ruul: "Vik Studios pays the Ruul fees, so your $10 arrives in full. After Monday's payment, the bank validation takes 1 to 2 business days (Tuesday or Wednesday).",
+  frais_ruul: "Vik Studios pays the Ruul fees, so your weekly pay arrives in full, nothing is deducted. After Monday's payment, the bank validation takes 1 to 2 business days (Tuesday or Wednesday).",
   /** 22/11 (Max) : un posteur Ruul à 2 comptes TikTok n'ouvre pas un 2e compte Ruul. */
   ruul_deux_comptes: PAIE_RUUL_DEUX_COMPTES,
   pas_freelance: "No need to be a freelancer, Ruul pays you as an individual. Just finish your Ruul sign-up.",

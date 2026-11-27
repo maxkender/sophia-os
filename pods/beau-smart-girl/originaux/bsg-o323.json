@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o323",
+  "type_bleo": "full_test",
+  "titre": "comment je fais un herbier et tout ce qu'il m'apprend #herbier #nature #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Récit « je », aucun fait daté. Routine du 27/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 6 full tests et 12 déclinaisons ; seules les lignes 1 et 15 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale « how to destroy yourself »), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12, 13 et 14 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "180ee8c4",
+      "texte_overlay": "comment je fais un herbier\net tout ce qu'il m'apprend",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6b002efe",
+      "texte_overlay": "1. je cueille pendant mes balades\n\nune feuille, une fleur.\njamais les plantes protégées.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "096b414f",
+      "texte_overlay": "2. je les sèche dans un gros livre\n\nentre deux feuilles de papier.\nune semaine suffit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0f808dbe",
+      "texte_overlay": "3. je cherche leur nom\n\nen français et en latin.\nça sonne comme une formule magique.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "4d724290",
+      "texte_overlay": "4. j'écris où et quand\n\nchaque page devient un souvenir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "037e3034",
+      "texte_overlay": "5. j'apprends leur histoire\n\navant, je ne voyais que du vert.\nmaintenant, j'apprends un truc sur le monde chaque matin. et chaque plante a son histoire.",
+      "texte_sophia": "5. j'apprends leur histoire\n\navant, je ne voyais que du vert.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et chaque plante a son histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "18e0f706",
+      "texte_overlay": "tu as déjà fait un herbier ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

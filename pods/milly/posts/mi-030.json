@@ -1,0 +1,765 @@
+{
+ "id": "mi-030",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7681333188714646814",
+  "vues": 367000,
+  "publie_le": "2026-09-03",
+  "accroche": "The secret / to / Memorizing / Anything"
+ },
+ "fond": "creme",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fbca5151-5443-4f10-a3ac-3b93ce51ebbe",
+ "musique": {
+  "titre": "son original",
+  "url": "https://www.tiktok.com/music/son-original-7487620221440674582"
+ },
+ "notes": "Déclinaison G1 de mi-009 « The secret to Understanding Anything » (ligne 2 de la boîte du 27/11, passage es-419 5,8 k vues, r 7,75) : titre et couverture du parent mot pour mot dans chaque langue, autres conseils, autres images, autre fond, autre CTA. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta C. Faits vérifiés : illusion de profondeur explicative, on surestime sa compréhension d'objets courants (fermeture éclair, chasse d'eau) et la note baisse après avoir tenté une explication pas à pas (Rozenblit et Keil, Cognitive Science 2002) ; les experts en physique classent les problèmes selon le principe sous-jacent, les novices selon leurs traits de surface (Chi, Feltovich et Glaser, Cognitive Science 1981) ; des élèves invités à s'expliquer chaque ligne d'un texte sur le système circulatoire l'ont mieux compris, surtout ceux qui s'expliquaient le plus (Chi, de Leeuw, Chiu et LaVancher, Cognitive Science 1994). 11 langues. Images : banque (epines, golgi, neurones), sans texte.",
+ "titre": {
+  "en": "The secret to Understanding Anything",
+  "fr": "Le secret pour tout comprendre",
+  "es": "El secreto para entender cualquier cosa",
+  "es-419": "El secreto para entender cualquier cosa",
+  "it": "Il segreto per capire qualsiasi cosa",
+  "tr": "Her şeyi anlamanın sırrı",
+  "pt-BR": "O segredo para entender qualquer coisa",
+  "sl": "Skrivnost, kako razumeti karkoli",
+  "hr": "Tajna razumijevanja bilo čega",
+  "de": "Das Geheimnis, alles zu verstehen",
+  "hu": "A titok, hogy bármit megérts"
+ },
+ "legendes": {
+  "en": "explain it to really get it #learning #understanding #studytips #brain #psychology",
+  "fr": "explique-le pour vraiment le comprendre #apprendre #comprendre #méthodedetravail #cerveau #psychologie",
+  "es": "explícalo para entenderlo de verdad #aprender #entender #técnicasdeestudio #cerebro #psicología",
+  "es-419": "explícalo para entenderlo de verdad #aprender #entender #tipsdeestudio #cerebro #psicología",
+  "it": "spiegalo per capirlo davvero #imparare #capire #metododistudio #cervello #psicologia",
+  "tr": "gerçekten anlamak için anlat #öğrenme #anlamak #dersçalışma #beyin #psikoloji",
+  "pt-BR": "explique para entender de verdade #aprender #entender #dicasdeestudo #cerebro #psicologia",
+  "sl": "razloži, da res razumeš #učenje #razumevanje #učnenavade #možgani #psihologija",
+  "hr": "objasni da bi stvarno razumio #učenje #razumijevanje #tehnikeučenja #mozak #psihologija",
+  "de": "erklär es, um es wirklich zu verstehen #lernen #verstehen #lerntipps #gehirn #psychologie",
+  "hu": "magyarázd el, hogy tényleg megértsd #tanulás #megértés #tanulásimódszerek #agy #pszichológia"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/epines.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "The secret",
+      "taille": "moyen"
+     },
+     {
+      "t": "to",
+      "taille": "petit"
+     },
+     {
+      "t": "Understanding",
+      "taille": "grand"
+     },
+     {
+      "t": "Anything",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Le secret",
+      "taille": "moyen"
+     },
+     {
+      "t": "pour",
+      "taille": "petit"
+     },
+     {
+      "t": "tout",
+      "taille": "petit"
+     },
+     {
+      "t": "Comprendre",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "El secreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Entender",
+      "taille": "grand"
+     },
+     {
+      "t": "cualquier cosa",
+      "taille": "moyen"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "El secreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Entender",
+      "taille": "grand"
+     },
+     {
+      "t": "cualquier cosa",
+      "taille": "moyen"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Il segreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "per",
+      "taille": "petit"
+     },
+     {
+      "t": "Capire",
+      "taille": "grand"
+     },
+     {
+      "t": "qualsiasi cosa",
+      "taille": "moyen"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Her şeyi",
+      "taille": "moyen"
+     },
+     {
+      "t": "anlamanın",
+      "taille": "grand"
+     },
+     {
+      "t": "Sırrı",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 1
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "O segredo",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Entender",
+      "taille": "grand"
+     },
+     {
+      "t": "qualquer coisa",
+      "taille": "moyen"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Skrivnost",
+      "taille": "grand"
+     },
+     {
+      "t": "kako razumeti",
+      "taille": "petit"
+     },
+     {
+      "t": "Karkoli",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 1
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Tajna",
+      "taille": "grand"
+     },
+     {
+      "t": "razumijevanja",
+      "taille": "petit"
+     },
+     {
+      "t": "bilo čega",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 1
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Das Geheimnis",
+      "taille": "moyen"
+     },
+     {
+      "t": "um alles zu",
+      "taille": "petit"
+     },
+     {
+      "t": "Verstehen",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "A titok",
+      "taille": "moyen"
+     },
+     {
+      "t": "hogy bármit",
+      "taille": "petit"
+     },
+     {
+      "t": "Megérts",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Test What You Think You Know",
+    "blocs": [
+     {
+      "p": "Most people believe they understand how a zip or a toilet works. In a study at Yale, people rated their understanding of everyday objects, then tried to explain them step by step, and their ratings dropped sharply."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Feeling familiar is not the same as understanding. Before you move on, try to explain the idea in your own words: the gaps appear the moment you get stuck."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Teste ce que tu crois savoir",
+    "blocs": [
+     {
+      "p": "La plupart des gens pensent comprendre comment marche une fermeture éclair ou une chasse d'eau. Dans une étude à Yale, des participants notaient leur compréhension d'objets du quotidien, puis tentaient de les expliquer pas à pas, et leur note chutait nettement."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Trouver quelque chose familier, ce n'est pas le comprendre. Avant de passer à la suite, essaie d'expliquer l'idée avec tes mots : les trous apparaissent dès que tu bloques."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Pon a prueba lo que crees saber",
+    "blocs": [
+     {
+      "p": "Casi todos creemos entender cómo funciona una cremallera o una cisterna. En un estudio en Yale, los participantes puntuaban cuánto entendían objetos cotidianos, luego intentaban explicarlos paso a paso, y su puntuación caía mucho."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Que algo te suene no es lo mismo que entenderlo. Antes de seguir, intenta explicar la idea con tus palabras: los huecos aparecen en cuanto te atascas."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Pon a prueba lo que crees saber",
+    "blocs": [
+     {
+      "p": "Casi todos creemos entender cómo funciona un cierre o un excusado. En un estudio en Yale, los participantes calificaban cuánto entendían objetos cotidianos, luego intentaban explicarlos paso a paso, y su calificación bajaba mucho."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Que algo te suene conocido no es lo mismo que entenderlo. Antes de seguir, intenta explicar la idea con tus propias palabras: los huecos aparecen en cuanto te atoras."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Metti alla prova ciò che credi di sapere",
+    "blocs": [
+     {
+      "p": "Quasi tutti pensano di capire come funziona una cerniera lampo o uno sciacquone. In uno studio a Yale, i partecipanti valutavano quanto capivano oggetti di tutti i giorni, poi provavano a spiegarli passo per passo, e il voto crollava."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Trovare qualcosa familiare non vuol dire capirlo. Prima di andare avanti, prova a spiegare l'idea con parole tue: le lacune emergono appena ti blocchi."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Bildiğini sandığın şeyi test et",
+    "blocs": [
+     {
+      "p": "Çoğu insan fermuarın ya da sifonun nasıl çalıştığını anladığını sanır. Yale'deki bir çalışmada katılımcılar gündelik nesneleri ne kadar anladıklarını puanladı, sonra onları adım adım açıklamaya çalıştı ve puanları belirgin şekilde düştü."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Bir şeyin tanıdık gelmesi, onu anlamak demek değildir. Devam etmeden önce fikri kendi kelimelerinle açıklamayı dene: boşluklar takıldığın anda ortaya çıkar."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Teste o que você acha que sabe",
+    "blocs": [
+     {
+      "p": "Quase todo mundo acha que entende como funciona um zíper ou uma descarga. Num estudo em Yale, os participantes davam nota ao quanto entendiam objetos do dia a dia, depois tentavam explicá-los passo a passo, e a nota caía muito."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Achar algo familiar não é o mesmo que entender. Antes de seguir, tente explicar a ideia com suas palavras: as lacunas aparecem assim que você trava."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Preizkusi, kar misliš, da veš",
+    "blocs": [
+     {
+      "p": "Večina ljudi misli, da razume, kako deluje zadrga ali splakovalnik. V raziskavi na Yalu so udeleženci ocenili, kako dobro razumejo vsakdanje predmete, nato so jih poskusili razložiti korak za korakom, in ocene so močno padle."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Da se ti nekaj zdi znano, še ne pomeni, da to razumeš. Preden greš naprej, poskusi idejo razložiti s svojimi besedami: vrzeli se pokažejo, ko se zatakneš."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Provjeri ono što misliš da znaš",
+    "blocs": [
+     {
+      "p": "Većina ljudi misli da razumije kako radi patentni zatvarač ili vodokotlić. U istraživanju na Yaleu sudionici su ocijenili koliko razumiju svakodnevne predmete, zatim ih pokušali objasniti korak po korak, i ocjene su naglo pale."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Kad ti je nešto poznato, to još ne znači da to razumiješ. Prije nego nastaviš, pokušaj objasniti ideju svojim riječima: rupe se pokažu čim zapneš."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Prüf, was du zu wissen glaubst",
+    "blocs": [
+     {
+      "p": "Die meisten glauben zu verstehen, wie ein Reißverschluss oder eine Toilettenspülung funktioniert. In einer Studie in Yale bewerteten Teilnehmende ihr Verständnis alltäglicher Dinge, versuchten sie dann Schritt für Schritt zu erklären, und ihre Bewertung sank deutlich."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Etwas vertraut zu finden heißt nicht, es zu verstehen. Bevor du weitermachst, versuch die Idee in eigenen Worten zu erklären: Die Lücken zeigen sich, sobald du hängen bleibst."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Teszteld, amit tudni vélsz",
+    "blocs": [
+     {
+      "p": "A legtöbben úgy hiszik, értik, hogyan működik egy cipzár vagy egy vécétartály. Egy Yale-en végzett vizsgálatban a résztvevők értékelték, mennyire értenek hétköznapi tárgyakat, aztán lépésről lépésre megpróbálták elmagyarázni őket, és az értékelésük jócskán visszaesett."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Ha valami ismerősnek tűnik, az még nem megértés. Mielőtt továbblépsz, próbáld a saját szavaiddal elmagyarázni: a hiányok abban a pillanatban kiderülnek, amikor elakadsz."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Learn The Principles First",
+    "blocs": [
+     {
+      "p": "Experts and beginners see the same problem differently. When physics experts sorted problems, they grouped them by the principle needed to solve them; beginners grouped them by surface details such as springs or slopes."
+     },
+     {
+      "p": "Understanding grows from core ideas you can connect new facts to. Build that base one lesson at a time, every evening, like a training session."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "My nightly rep is one lesson on Sophia before I sleep."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Apprends d'abord les principes",
+    "blocs": [
+     {
+      "p": "Experts et débutants ne voient pas le même problème. Quand des experts en physique classaient des problèmes, ils les regroupaient selon le principe qui permet de les résoudre ; les débutants, selon des détails de surface comme des ressorts ou des pentes."
+     },
+     {
+      "p": "La compréhension se construit sur des idées de base auxquelles relier les faits nouveaux. Construis cette base une leçon à la fois, chaque soir, comme une séance d'entraînement."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ma répétition du soir, c'est une leçon sur Sophia avant de dormir."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Aprende primero los principios",
+    "blocs": [
+     {
+      "p": "Expertos y principiantes ven el mismo problema de forma distinta. Al clasificar problemas, los expertos en física los agrupaban por el principio necesario para resolverlos; los principiantes, por detalles de superficie como muelles o planos inclinados."
+     },
+     {
+      "p": "La comprensión crece sobre ideas básicas a las que conectar los datos nuevos. Construye esa base lección a lección, cada noche, como una sesión de entrenamiento."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Aprende primero los principios",
+    "blocs": [
+     {
+      "p": "Expertos y principiantes ven el mismo problema de forma diferente. Al clasificar problemas, los expertos en física los agrupaban por el principio necesario para resolverlos; los principiantes, por detalles superficiales como resortes o planos inclinados."
+     },
+     {
+      "p": "La comprensión crece sobre ideas básicas a las que puedes conectar datos nuevos. Construye esa base lección por lección, cada noche, como una sesión de entrenamiento."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Impara prima i principi",
+    "blocs": [
+     {
+      "p": "Esperti e principianti vedono lo stesso problema in modo diverso. Quando gli esperti di fisica classificavano i problemi, li raggruppavano per il principio necessario a risolverli; i principianti, per dettagli superficiali come molle o piani inclinati."
+     },
+     {
+      "p": "La comprensione cresce su idee di base a cui collegare i fatti nuovi. Costruisci questa base una lezione alla volta, ogni sera, come un allenamento."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "La mia ripetizione serale è una lezione su Sophia prima di dormire."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Önce ilkeleri öğren",
+    "blocs": [
+     {
+      "p": "Uzmanlar ve yeni başlayanlar aynı problemi farklı görür. Fizik uzmanları problemleri sınıflandırırken onları çözmek için gereken ilkeye göre grupladı; yeni başlayanlar ise yaylar ya da eğik düzlemler gibi yüzeysel ayrıntılara göre."
+     },
+     {
+      "p": "Anlamak, yeni bilgileri bağlayabileceğin temel fikirlerin üzerinde büyür. Bu temeli her akşam bir antrenman gibi, ders ders kur."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Benim akşam tekrarım, uyumadan önce Sophia'da bir ders."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Aprenda os princípios primeiro",
+    "blocs": [
+     {
+      "p": "Especialistas e iniciantes veem o mesmo problema de jeitos diferentes. Ao classificar problemas, especialistas em física os agrupavam pelo princípio necessário para resolvê-los; os iniciantes, por detalhes de superfície como molas ou rampas."
+     },
+     {
+      "p": "A compreensão cresce sobre ideias básicas às quais você liga os fatos novos. Construa essa base uma lição por vez, toda noite, como um treino."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Minha repetição da noite é uma lição na Sophia antes de dormir."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Najprej se nauči načel",
+    "blocs": [
+     {
+      "p": "Strokovnjaki in začetniki isti problem vidijo drugače. Ko so strokovnjaki za fiziko razvrščali naloge, so jih združevali po načelu, potrebnem za rešitev; začetniki pa po površinskih podrobnostih, kot so vzmeti ali klančine."
+     },
+     {
+      "p": "Razumevanje raste na temeljnih idejah, na katere lahko pripneš nova dejstva. To osnovo gradi lekcijo za lekcijo, vsak večer, kot trening."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moja večerna ponovitev je ena lekcija na Sophii pred spanjem."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Najprije nauči načela",
+    "blocs": [
+     {
+      "p": "Stručnjaci i početnici isti problem vide drukčije. Kad su stručnjaci za fiziku razvrstavali zadatke, grupirali su ih prema načelu potrebnom za rješenje; početnici prema površinskim detaljima poput opruga ili kosina."
+     },
+     {
+      "p": "Razumijevanje raste na temeljnim idejama na koje vežeš nove činjenice. Gradi tu osnovu lekciju po lekciju, svake večeri, kao trening."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moje večernje ponavljanje je jedna lekcija na Sophiji prije spavanja."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lerne zuerst die Prinzipien",
+    "blocs": [
+     {
+      "p": "Experten und Anfänger sehen dasselbe Problem unterschiedlich. Physikexperten sortierten Aufgaben nach dem Prinzip, das man zur Lösung braucht; Anfänger nach Oberflächendetails wie Federn oder schiefen Ebenen."
+     },
+     {
+      "p": "Verständnis wächst auf Grundideen, an die man neue Fakten knüpfen kann. Bau diese Basis Lektion für Lektion auf, jeden Abend, wie eine Trainingseinheit."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Meine Abendwiederholung ist eine Lektion auf Sophia vor dem Schlafen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Előbb az elveket tanuld meg",
+    "blocs": [
+     {
+      "p": "A szakértők és a kezdők ugyanazt a feladatot másképp látják. A fizikus szakértők a megoldáshoz szükséges elv szerint csoportosították a feladatokat, a kezdők felszíni részletek, például rugók vagy lejtők szerint."
+     },
+     {
+      "p": "A megértés alapgondolatokra épül, amelyekhez az új tényeket kötheted. Építsd ezt az alapot leckéről leckére, minden este, mint egy edzést."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Az én esti ismétlésem egy lecke a Sophián lefekvés előtt."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Explain Each Step To Yourself",
+    "blocs": [
+     {
+      "p": "In one study, students read a text about the heart and blood circulation. Those asked to explain each line to themselves understood it better, and the students who explained the most built the most accurate picture of how it works."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "As you read, pause after each paragraph and ask: what does this mean, and how does it connect to what I already know?"
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Explique-toi chaque étape",
+    "blocs": [
+     {
+      "p": "Dans une étude, des élèves lisaient un texte sur le cœur et la circulation du sang. Ceux à qui l'on demandait de s'expliquer chaque ligne le comprenaient mieux, et ceux qui s'expliquaient le plus se faisaient l'image la plus juste de son fonctionnement."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "En lisant, fais une pause après chaque paragraphe et demande-toi : qu'est-ce que ça veut dire, et comment ça se relie à ce que je sais déjà ?"
+     }
+    ]
+   },
+   "es": {
+    "titre": "Explícate cada paso",
+    "blocs": [
+     {
+      "p": "En un estudio, unos alumnos leían un texto sobre el corazón y la circulación de la sangre. A quienes se les pidió explicarse cada línea lo entendieron mejor, y quienes más se lo explicaban se hacían la idea más exacta de cómo funciona."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Mientras lees, para después de cada párrafo y pregúntate: ¿qué significa esto y cómo se conecta con lo que ya sé?"
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Explícate cada paso",
+    "blocs": [
+     {
+      "p": "En un estudio, unos estudiantes leían un texto sobre el corazón y la circulación de la sangre. Quienes tenían que explicarse cada línea lo entendieron mejor, y quienes más se lo explicaban se hicieron la idea más exacta de cómo funciona."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Mientras lees, haz una pausa después de cada párrafo y pregúntate: ¿qué significa esto y cómo se conecta con lo que ya sé?"
+     }
+    ]
+   },
+   "it": {
+    "titre": "Spiegati ogni passaggio",
+    "blocs": [
+     {
+      "p": "In uno studio, alcuni studenti leggevano un testo sul cuore e la circolazione del sangue. Quelli a cui si chiedeva di spiegarsi ogni riga lo capivano meglio, e chi si spiegava di più si faceva l'idea più precisa di come funziona."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Mentre leggi, fermati dopo ogni paragrafo e chiediti: che cosa significa, e come si collega a ciò che so già?"
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Her adımı kendine açıkla",
+    "blocs": [
+     {
+      "p": "Bir çalışmada öğrenciler kalp ve kan dolaşımı hakkında bir metin okudu. Her satırı kendilerine açıklamaları istenenler metni daha iyi anladı; en çok açıklama yapanlar da sistemin nasıl işlediğine dair en doğru resmi kurdu."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Okurken her paragraftan sonra dur ve kendine sor: bu ne anlama geliyor ve zaten bildiklerimle nasıl bağlantılı?"
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Explique cada passo para si",
+    "blocs": [
+     {
+      "p": "Num estudo, alunos liam um texto sobre o coração e a circulação do sangue. Os que tinham de explicar cada linha para si mesmos entenderam melhor, e os que mais explicavam formaram a imagem mais correta de como ele funciona."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Enquanto lê, pare depois de cada parágrafo e pergunte: o que isso quer dizer, e como se liga ao que eu já sei?"
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Razloži si vsak korak",
+    "blocs": [
+     {
+      "p": "V eni raziskavi so učenci brali besedilo o srcu in krvnem obtoku. Tisti, ki so si morali razložiti vsako vrstico, so ga bolje razumeli, tisti, ki so si razlagali največ, pa so si ustvarili najbolj natančno sliko delovanja."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Med branjem se po vsakem odstavku ustavi in se vprašaj: kaj to pomeni in kako se poveže s tem, kar že vem?"
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Objasni si svaki korak",
+    "blocs": [
+     {
+      "p": "U jednom istraživanju učenici su čitali tekst o srcu i krvotoku. Oni od kojih se tražilo da si objasne svaki redak bolje su ga razumjeli, a oni koji su si najviše objašnjavali stvorili su najtočniju sliku njegova rada."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Dok čitaš, zastani nakon svakog odlomka i pitaj se: što to znači i kako se povezuje s onim što već znam?"
+     }
+    ]
+   },
+   "de": {
+    "titre": "Erklär dir jeden Schritt",
+    "blocs": [
+     {
+      "p": "In einer Studie lasen Schüler einen Text über das Herz und den Blutkreislauf. Wer jede Zeile sich selbst erklären sollte, verstand ihn besser, und wer sich am meisten erklärte, hatte am Ende das genaueste Bild davon, wie er funktioniert."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Halte beim Lesen nach jedem Absatz kurz an und frag dich: Was bedeutet das, und wie hängt es mit dem zusammen, was ich schon weiß?"
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Magyarázz el magadnak minden lépést",
+    "blocs": [
+     {
+      "p": "Egy vizsgálatban diákok egy szöveget olvastak a szívről és a vérkeringésről. Akiknek minden sort el kellett magyarázniuk maguknak, jobban megértették, és akik a legtöbbet magyaráztak, azoknak lett a legpontosabb képük a működéséről."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Olvasás közben állj meg minden bekezdés után, és kérdezd meg magadtól: mit jelent ez, és hogyan kapcsolódik ahhoz, amit már tudok?"
+     }
+    ]
+   }
+  }
+ ]
+}

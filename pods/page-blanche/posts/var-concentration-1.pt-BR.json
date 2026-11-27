@@ -1,0 +1,430 @@
+{
+ "post_id": "var-concentration-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things destroying your",
+      "attention span"
+     ],
+     "fr": "10/10 trucs qui te bousillent la concentration",
+     "texte": "10/10 coisas que tão detonando sua atenção"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": ""
+    },
+    "T4": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(edição nichada)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0306ea97.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    },
+    "I2": {
+     "remplacer": {
+      "source": "sources/os_335a7f64.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 81,
+      "y": 226,
+      "l": 770,
+      "h": 132
+     },
+     "lignes": [
+      {
+       "x": 84,
+       "y": 226,
+       "l": 767,
+       "h": 60,
+       "base": 272
+      },
+      {
+       "x": 81,
+       "y": 299,
+       "l": 388,
+       "h": 59,
+       "base": 345
+      }
+     ],
+     "pas": 73,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 499,
+      "y": 431,
+      "l": 336,
+      "h": 432
+     }
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 123,
+      "y": 432,
+      "l": 332,
+      "h": 425
+     }
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 126,
+      "y": 630,
+      "l": 4,
+      "h": 69
+     },
+     "lignes": [
+      {
+       "x": 126,
+       "y": 630,
+       "l": 4,
+       "h": 69,
+       "base": 692
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 830,
+      "y": 656,
+      "l": 3,
+      "h": 43
+     },
+     "lignes": [
+      {
+       "x": 830,
+       "y": 656,
+       "l": 3,
+       "h": 43,
+       "base": 693
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 606,
+      "y": 960,
+      "l": 252,
+      "h": 38
+     },
+     "lignes": [
+      {
+       "x": 606,
+       "y": 960,
+       "l": 252,
+       "h": 38,
+       "base": 991
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "scrollar [[assim que acorda]]"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "mal abriu o olho e já tá vendo mensagens, notícias, stories e 40 notificações"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "sua atenção já tá [[em pedaços]] antes das 8h"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "você começa toda manhã reagindo aos outros, então focar em [[algo que você escolheu]] fica impossível depois"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7706606327589621006_5.jpg",
+      "boite": [
+       99,
+       554,
+       394,
+       394
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to multitask"
+     ],
+     "fr": "arrête [[le multitâche]]",
+     "texte": "responder [[toda notificação]]"
+    },
+    "T2": {
+     "en": [
+      "texting, watching youtube, and doing homework",
+      "isn't doing 3 things at once"
+     ],
+     "fr": "texter, mater des vidéos, faire tes devoirs : c'est pas [[3 trucs à la fois]]",
+     "texte": "mensagens, grupos, e-mails, curtidas: você larga o que tá fazendo pra ver tudo"
+    },
+    "T3": {
+     "en": [
+      "a stanford study",
+      "found heavy",
+      "multitaskers get",
+      "worse at",
+      "ignoring",
+      "distractions"
+     ],
+     "fr": "une étude de stanford montre que les pros du multitâche [[se laissent plus distraire]]",
+     "texte": "cada notificação te tira do foco, e voltar [[demora mais]] que a resposta"
+    },
+    "T4": {
+     "en": [
+      "pick one thing and finish it before",
+      "you start the next"
+     ],
+     "fr": "choisis un truc et [[finis-le]] avant d'attaquer le suivant",
+     "texte": "celular no silencioso enquanto trabalha. [[pode esperar]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7708848668530707726_5.jpg",
+      "boite": [
+       99,
+       554,
+       394,
+       394
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop opening the comments",
+      "during a video"
+     ],
+     "fr": "arrête d'ouvrir [[les coms pendant une vidéo]]",
+     "texte": "deixar [[30 abas abertas]] o tempo todo"
+    },
+    "T2": {
+     "en": [
+      "a tiktok is already a large dose of artificial dopamine,",
+      "but it's not enough"
+     ],
+     "fr": "un tiktok, c'est déjà une dose de [[dopamine artificielle]], mais ça suffit pas",
+     "texte": "artigos pra ler depois, vídeos pra terminar depois, coisas pela metade"
+    },
+    "T3": {
+     "en": [
+      "so you open the",
+      "comments instead",
+      "of watching a 20",
+      "second clip"
+     ],
+     "fr": "alors t'ouvres les coms au lieu de [[regarder un clip de 20 secondes]]",
+     "texte": "cada aba aberta é [[algo inacabado]] que fica te cutucando"
+    },
+    "T4": {
+     "en": [
+      "your brain skips the hard part, and you just",
+      "copy the top comment"
+     ],
+     "fr": "ton cerveau zappe l'effort et tu [[recopies le com le plus liké]]",
+     "texte": "feche o que não tá usando e [[termine uma coisa antes de abrir outra]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705127204539092237_2.jpg",
+      "boite": [
+       99,
+       511,
+       394,
+       395
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never stop scrolling"
+     ],
+     "fr": "scrolle non-stop",
+     "texte": "deixar [[o algoritmo]] decidir"
+    },
+    "T2": {
+     "en": [
+      "maybe the next tiktok will finally",
+      "solve your problems"
+     ],
+     "fr": "le [[prochain tiktok]] va [[enfin]] régler tes problèmes, qui sait",
+     "texte": "você abre o celular e assiste o que ele te entrega"
+    },
+    "T3": {
+     "en": [
+      "don’t limit your screen time,",
+      "don’t start reading, don’t give",
+      "your brain a chance to get",
+      "bored"
+     ],
+     "fr": "limite pas ton temps d'écran, ouvre surtout pas [[l'appli Sophia]] 5 min, laisse jamais ton cerveau [[s'ennuyer]]",
+     "texte": "você nunca escolhe no que focar, então sua atenção se acostuma a [[ser guiada]]"
+    },
+    "T4": {
+     "en": [
+      "just keep feeding the algorithm",
+      "until it knows what you want",
+      "better than you do"
+     ],
+     "fr": "continue de [[nourrir l'algo]] jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]",
+     "texte": "antes o algoritmo escolhia. agora escolho eu, hoje: por que o Renascimento nasceu na Itália"
+    },
+    "T5": {
+     "en": [
+      "keep giving them your data,",
+      "they deserve it!"
+     ],
+     "fr": "file-leur [[tes données]], ils le méritent !",
+     "texte": "numa aula de 5 min [[no app Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "[[mesa bagunçada]]"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "caneca suja, carregador, anotação velha, lanche e seu celular, tudo à vista"
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "tudo na sua frente [[puxa seu olhar]], e seu cérebro se cansa tentando ignorar"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "arrume antes de começar. [[menos coisa pra ver, menos coisa pra ignorar]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705127204539092237_5.jpg",
+      "boite": [
+       99,
+       554,
+       394,
+       394
+      ]
+     }
+    }
+   }
+  }
+ }
+}

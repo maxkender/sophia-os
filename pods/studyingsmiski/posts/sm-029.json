@@ -1,0 +1,432 @@
+{
+ "id": "sm-029",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "pipo pipo",
+  "url": "https://www.tiktok.com/music/pipo-pipo-7181874531974531886"
+ },
+ "notes": "Full test du 27/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, son ciel, stickers, bulle) : « apps for a 5-minute brain break between classes ». Sophia en 2e carte (slide 3, cta B), ni première ni dernière. Autres applis douces et sans langue, lues sur leur fiche App Store : Sudoku.com, Endel (paysages sonores), Flow Free. Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 20 et du 21/11). Musique : la sienne de « apps that will make you smarter instead of doomscrolling » (75 k).",
+ "titre": {
+  "en": "apps for a 5-minute brain break between classes",
+  "fr": "les applis pour une pause cerveau de 5 minutes entre deux cours",
+  "es": "apps para un descanso mental de 5 minutos entre clases",
+  "es-419": "apps para un descanso mental de 5 minutos entre clases",
+  "it": "app per una pausa mentale di 5 minuti tra una lezione e l'altra",
+  "tr": "dersler arasında 5 dakikalık beyin molası için uygulamalar",
+  "pt-BR": "apps pra uma pausa de 5 minutos pro cérebro entre as aulas",
+  "de": "apps für eine 5-minuten-denkpause zwischen den vorlesungen",
+  "sl": "aplikacije za 5-minutni odmor za možgane med predavanji",
+  "hu": "appok egy 5 perces agyszünethez órák között"
+ },
+ "legendes": {
+  "en": "5 minutes, a fresh brain ☁️🧩 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "5 minutes, un cerveau tout neuf ☁️🧩 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "5 minutos, un cerebro nuevo ☁️🧩 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "5 minutos, un cerebro nuevo ☁️🧩 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "5 minuti, un cervello nuovo ☁️🧩 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "5 dakika, yepyeni bir beyin ☁️🧩 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "5 minutos, um cérebro novinho ☁️🧩 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "5 minuten, ein frischer kopf ☁️🧩 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "5 minut, sveži možgani ☁️🧩 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "5 perc, friss agy ☁️🧩 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/puzzle.png",
+     "x": 50,
+     "y": 160,
+     "l": 210,
+     "rotation": -15
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/matcha.png",
+     "x": 830,
+     "y": 130,
+     "l": 180,
+     "rotation": 10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 40,
+     "y": 740,
+     "l": 240,
+     "rotation": -5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps for a\n5-minute\nbrain break",
+    "sous": "between\nclasses"
+   },
+   "fr": {
+    "titre": "les applis pour\nune pause\nde 5 minutes",
+    "sous": "entre deux\ncours"
+   },
+   "es": {
+    "titre": "apps para un\ndescanso de\n5 minutos",
+    "sous": "entre\nclases"
+   },
+   "es-419": {
+    "titre": "apps para un\ndescanso de\n5 minutos",
+    "sous": "entre\nclases"
+   },
+   "it": {
+    "titre": "app per una\npausa di\n5 minuti",
+    "sous": "tra una lezione\ne l'altra"
+   },
+   "tr": {
+    "titre": "5 dakikalık\nbeyin molası\niçin\nuygulamalar",
+    "sous": "dersler\narasında"
+   },
+   "pt-BR": {
+    "titre": "apps pra uma\npausa de\n5 minutos",
+    "sous": "entre as\naulas"
+   },
+   "de": {
+    "titre": "apps für eine\n5-minuten-\ndenkpause",
+    "sous": "zwischen den\nvorlesungen"
+   },
+   "sl": {
+    "titre": "aplikacije za\n5-minutni\nodmor",
+    "sous": "med\npredavanji"
+   },
+   "hu": {
+    "titre": "appok egy\n5 perces\nagyszünethez",
+    "sous": "órák\nközött"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/sudoku/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/crayon.png",
+     "x": 60,
+     "y": 770,
+     "l": 290,
+     "rotation": -20
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "one quick easy sudoku between lectures. it resets my focus without the brain fog scrolling gives me."
+   },
+   "fr": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "un sudoku facile entre deux amphis. ça relance ma concentration sans le brouillard que me laisse le scroll."
+   },
+   "es": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "un sudoku fácil entre clase y clase. me reactiva sin la niebla mental que me deja el scroll."
+   },
+   "es-419": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "un sudoku fácil entre clase y clase. me reactiva sin la niebla mental que me deja el scroll."
+   },
+   "it": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "un sudoku facile tra una lezione e l'altra. rimette in moto la concentrazione senza la nebbia dello scroll."
+   },
+   "tr": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "iki ders arasında kolay bir sudoku. kaydırmanın bıraktığı sis olmadan odağımı tazeliyor."
+   },
+   "pt-BR": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "um sudoku fácil entre uma aula e outra. reativa meu foco sem a névoa que o scroll deixa."
+   },
+   "de": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "ein leichtes sudoku zwischen zwei vorlesungen. es bringt meinen fokus zurück, ohne den nebel vom scrollen."
+   },
+   "sl": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "lahek sudoku med dvema predavanjema. osveži zbranost brez megle, ki jo pusti skrolanje."
+   },
+   "hu": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "egy könnyű sudoku két óra között. visszahozza a fókuszt a görgetés okozta köd nélkül."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/cafe.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/washi.png",
+     "x": 830,
+     "y": 110,
+     "l": 200,
+     "rotation": 12
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "short lessons written by actual professors, so you learn something new every day in 10 minutes!",
+    "bulle": "my favorite 5 minutes of the day!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes !",
+    "bulle": "mes 5 minutes préférées de la journée !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡mis 5 minutos favoritos del día!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡mis 5 minutos favoritos del día!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti!",
+    "bulle": "i miei 5 minuti preferiti della giornata!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için!",
+    "bulle": "günün en sevdiğim 5 dakikası!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aulas curtas escritas por professores de verdade, pra aprender algo novo todo dia em 10 minutos!",
+    "bulle": "meus 5 minutos favoritos do dia!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kurze lektionen von echten profs, damit du jeden tag in 10 minuten etwas neues lernst!",
+    "bulle": "meine liebsten 5 minuten am tag!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kratke lekcije, ki jih pišejo pravi profesorji, da se vsak dan v 10 minutah naučiš nekaj novega!",
+    "bulle": "mojih najljubših 5 minut v dnevu!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "rövid leckék, amiket igazi tanárok írnak, hogy minden nap 10 perc alatt tanulj valami újat!",
+    "bulle": "a nap kedvenc 5 perce!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/endel/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/ecouteurs.png",
+     "x": 50,
+     "y": 740,
+     "l": 270,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 220,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "five minutes of calming soundscape with my eyes closed. i walk into the next class actually present."
+   },
+   "fr": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "cinq minutes d'ambiance sonore apaisante, les yeux fermés. j'arrive au cours suivant vraiment présente."
+   },
+   "es": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "cinco minutos de sonido relajante con los ojos cerrados. llego a la siguiente clase presente de verdad."
+   },
+   "es-419": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "cinco minutos de sonido relajante con los ojos cerrados. llego a la siguiente clase presente de verdad."
+   },
+   "it": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "cinque minuti di suoni rilassanti a occhi chiusi. arrivo alla lezione dopo davvero presente."
+   },
+   "tr": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "gözlerim kapalı beş dakika sakinleştirici ses. bir sonraki derse gerçekten orada olarak giriyorum."
+   },
+   "pt-BR": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "cinco minutos de som relaxante de olhos fechados. chego na próxima aula presente de verdade."
+   },
+   "de": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "fünf minuten beruhigende klangwelt mit geschlossenen augen. ich bin in der nächsten vorlesung wirklich da."
+   },
+   "sl": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "pet minut pomirjujočih zvokov z zaprtimi očmi. na naslednje predavanje pridem res prisotna."
+   },
+   "hu": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "öt perc nyugtató hangtáj csukott szemmel. a következő órán tényleg jelen vagyok."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/flow-free/icone.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 70,
+     "y": 760,
+     "l": 200,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 810,
+     "y": 700,
+     "l": 200,
+     "rotation": 12
+    }
+   ],
+   "en": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "connect the colors and fill the board. two or three levels and my head feels clear again."
+   },
+   "fr": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "relie les couleurs et remplis le plateau. deux ou trois niveaux et j'ai de nouveau la tête claire."
+   },
+   "es": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "une los colores y llena el tablero. dos o tres niveles y vuelvo a tener la cabeza despejada."
+   },
+   "es-419": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "une los colores y llena el tablero. dos o tres niveles y vuelvo a tener la cabeza despejada."
+   },
+   "it": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "collega i colori e riempi il tabellone. due o tre livelli e la testa è di nuovo libera."
+   },
+   "tr": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "renkleri birleştir, tahtayı doldur. iki üç seviye ve kafam yine berrak."
+   },
+   "pt-BR": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "liga as cores e preenche o tabuleiro. dois ou três níveis e minha cabeça fica leve de novo."
+   },
+   "de": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "farben verbinden, feld füllen. zwei, drei level und mein kopf ist wieder klar."
+   },
+   "sl": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "poveži barve in zapolni ploščo. dve, tri stopnje in glava je spet bistra."
+   },
+   "hu": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "kösd össze a színeket, töltsd ki a táblát. két-három szint, és újra tiszta a fejem."
+   }
+  }
+ ]
+}

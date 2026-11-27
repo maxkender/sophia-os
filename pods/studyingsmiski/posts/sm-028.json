@@ -1,0 +1,432 @@
+{
+ "id": "sm-028",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "doodle - Slowed",
+  "url": "https://www.tiktok.com/music/doodle-slowed-7397023128725833744"
+ },
+ "notes": "Full test du 27/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, papier vert, stickers, bulle) : « apps that make adulting in college easier ». Sophia en 3e carte (cta A), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Splitwise (dépenses partagées), Todoist (tâches et calendrier), Sleep Cycle (réveil intelligent). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 21 et du 22/11). Musique : la sienne de son tube (678 k).",
+ "titre": {
+  "en": "apps that make adulting in college easier",
+  "fr": "les applis qui rendent la vie d'adulte plus facile à la fac",
+  "es": "apps que hacen más fácil ser adulta en la uni",
+  "es-419": "apps que hacen más fácil ser adulta en la universidad",
+  "it": "app che rendono più facile la vita da adulta all'università",
+  "tr": "üniversitede yetişkinliği kolaylaştıran uygulamalar",
+  "pt-BR": "apps que deixam a vida adulta na facul mais fácil",
+  "de": "apps, die das erwachsensein im studium leichter machen",
+  "sl": "aplikacije, ki olajšajo odraslost na faksu",
+  "hu": "appok, amik megkönnyítik a felnőttlétet az egyetemen"
+ },
+ "legendes": {
+  "en": "adulting is hard, these help 🏠📚 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "être adulte c'est dur, elles aident 🏠📚 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "ser adulta es difícil, estas ayudan 🏠📚 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "ser adulta es difícil, estas ayudan 🏠📚 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "fare l'adulta è dura, queste aiutano 🏠📚 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "yetişkinlik zor, bunlar yardım ediyor 🏠📚 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "ser adulta é difícil, esses ajudam 🏠📚 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "erwachsensein ist schwer, die helfen 🏠📚 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "odraslost je težka, te pomagajo 🏠📚 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "felnőttnek lenni nehéz, ezek segítenek 🏠📚 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tirelire.png",
+     "x": 40,
+     "y": 160,
+     "l": 230,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/pince.png",
+     "x": 830,
+     "y": 150,
+     "l": 170,
+     "rotation": 10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 740,
+     "l": 210,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps that make\nadulting in\ncollege easier",
+    "sous": "for my first\napartment girlies"
+   },
+   "fr": {
+    "titre": "les applis\npour gérer sa\nvie d'adulte",
+    "sous": "pour mes copines\nen premier appart"
+   },
+   "es": {
+    "titre": "apps para\nsobrevivir a la\nvida adulta",
+    "sous": "para las de\nsu primer piso"
+   },
+   "es-419": {
+    "titre": "apps para\nsobrevivir a la\nvida adulta",
+    "sous": "para las de\nsu primer depa"
+   },
+   "it": {
+    "titre": "app per la\nvita da adulta\nall'uni",
+    "sous": "per chi ha la\nprima casa"
+   },
+   "tr": {
+    "titre": "üniversitede\nyetişkinliği\nkolaylaştıran\nuygulamalar",
+    "sous": "ilk evine\nçıkanlara"
+   },
+   "pt-BR": {
+    "titre": "apps pra\nsobreviver à\nvida adulta",
+    "sous": "pras meninas do\nprimeiro apê"
+   },
+   "de": {
+    "titre": "apps fürs\nerwachsensein\nim studium",
+    "sous": "für alle in der\nersten wohnung"
+   },
+   "sl": {
+    "titre": "aplikacije za\nodraslo\nživljenje",
+    "sous": "za punce v\nprvem stanovanju"
+   },
+   "hu": {
+    "titre": "appok a\nfelnőttléthez\naz egyetemen",
+    "sous": "az első albérletes\nlányoknak"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/splitwise/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tirelire.png",
+     "x": 60,
+     "y": 740,
+     "l": 250,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 220,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "rent, utilities and grocery runs split with your roommates, with a running tab of who owes who. zero awkward reminders."
+   },
+   "fr": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "loyer, charges et courses partagés avec tes colocs, avec un compte de qui doit quoi. zéro rappel gênant."
+   },
+   "es": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "alquiler, facturas y compras divididas con tus compis de piso, con la cuenta de quién debe qué. cero recordatorios incómodos."
+   },
+   "es-419": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "renta, servicios y súper divididos con tus roomies, con la cuenta de quién debe qué. cero recordatorios incómodos."
+   },
+   "it": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "affitto, bollette e spesa divisi con le coinquiline, con il conto di chi deve cosa. zero promemoria imbarazzanti."
+   },
+   "tr": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "kira, faturalar ve market ev arkadaşlarınla bölünüyor, kimin kime borçlu olduğu hep belli. garip hatırlatmalara son."
+   },
+   "pt-BR": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "aluguel, contas e mercado divididos com as colegas de casa, com o controle de quem deve o quê. zero cobrança chata."
+   },
+   "de": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "miete, nebenkosten und einkäufe mit der wg teilen, mit einer liste, wer wem was schuldet. keine peinlichen erinnerungen."
+   },
+   "sl": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "najemnina, stroški in nakupi razdeljeni s cimrami, z evidenco, kdo komu kaj dolguje. nič več nerodnih opominov."
+   },
+   "hu": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "lakbér, rezsi és bevásárlás megosztva a lakótársakkal, és mindig látod, ki kinek tartozik. nincs több kínos emlékeztetés."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/todoist/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/fiches.png",
+     "x": 60,
+     "y": 740,
+     "l": 250,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "every deadline, bill and appointment in one list with due dates. my brain finally has room for actual studying."
+   },
+   "fr": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "chaque date limite, facture et rendez-vous dans une seule liste avec des échéances. mon cerveau a enfin de la place pour réviser."
+   },
+   "es": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "cada entrega, factura y cita en una lista con fechas. por fin mi cabeza tiene sitio para estudiar de verdad."
+   },
+   "es-419": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "cada entrega, pago y cita en una lista con fechas. por fin mi cabeza tiene espacio para estudiar de verdad."
+   },
+   "it": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "ogni scadenza, bolletta e appuntamento in un'unica lista con le date. finalmente la testa ha spazio per studiare."
+   },
+   "tr": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "her teslim, fatura ve randevu tarihleriyle tek bir listede. beynimde sonunda ders için yer kaldı."
+   },
+   "pt-BR": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "cada prazo, conta e compromisso numa lista com datas. finalmente minha cabeça tem espaço pra estudar de verdade."
+   },
+   "de": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "jede deadline, rechnung und jeder termin in einer liste mit datum. endlich hat mein kopf platz fürs eigentliche lernen."
+   },
+   "sl": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "vsak rok, račun in termin na enem seznamu z datumi. končno imam v glavi prostor za pravo učenje."
+   },
+   "hu": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "minden határidő, számla és időpont egy listában dátumokkal. végre van hely a fejemben a tanulásnak."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bibliotheque.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 850,
+     "y": 100,
+     "l": 170,
+     "rotation": 14
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks!",
+    "bulle": "the one thing i do just for me!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment !",
+    "bulle": "le seul truc que je fais juste pour moi !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y luego un quiz para que se te quede de verdad!",
+    "bulle": "¡lo único que hago solo para mí!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y después un quiz para que de verdad se te quede!",
+    "bulle": "¡lo único que hago solo para mí!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero!",
+    "bulle": "l'unica cosa che faccio solo per me!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test!",
+    "bulle": "sadece kendim için yaptığım tek şey!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "uma aula de 10 minutos por dia de história, filosofia ou ciências, e depois um quiz pra fixar de verdade!",
+    "bulle": "a única coisa que faço só pra mim!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "jeden tag 10 minuten geschichte, philosophie oder wissenschaft, dann ein quiz, damit es wirklich hängen bleibt!",
+    "bulle": "das einzige, was ich nur für mich mache!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan 10-minutna lekcija iz zgodovine, filozofije ali znanosti, nato pa kviz, da ti res ostane v glavi!",
+    "bulle": "edino, kar naredim samo zase!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "napi 10 perc történelem, filozófia vagy tudomány, utána egy kvíz, hogy tényleg megmaradjon!",
+    "bulle": "az egyetlen, amit csak magamért csinálok!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/sleep-cycle/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 40,
+     "y": 730,
+     "l": 300,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 830,
+     "y": 750,
+     "l": 180,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "a smart alarm that wakes me in my lightest sleep phase, because adulting starts with getting up on time."
+   },
+   "fr": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "un réveil intelligent qui me réveille dans mon sommeil le plus léger, parce que la vie d'adulte commence par se lever à l'heure."
+   },
+   "es": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "un despertador inteligente que me despierta en mi sueño más ligero, porque ser adulta empieza por levantarse a tiempo."
+   },
+   "es-419": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "una alarma inteligente que me despierta en mi sueño más ligero, porque ser adulta empieza por levantarse a tiempo."
+   },
+   "it": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "una sveglia intelligente che mi sveglia nel sonno più leggero, perché la vita da adulta inizia alzandosi in orario."
+   },
+   "tr": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "beni en hafif uykumda uyandıran akıllı alarm, çünkü yetişkinlik zamanında kalkmakla başlıyor."
+   },
+   "pt-BR": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "um despertador inteligente que me acorda no sono mais leve, porque a vida adulta começa levantando na hora."
+   },
+   "de": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "ein smarter wecker, der mich in der leichtesten schlafphase weckt, denn erwachsensein fängt mit pünktlich aufstehen an."
+   },
+   "sl": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "pametna budilka, ki me zbudi v najlažjem spanju, ker se odraslost začne z vstajanjem ob pravem času."
+   },
+   "hu": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "okos ébresztő, ami a legkönnyebb alvásomban ébreszt, mert a felnőttlét az időben felkeléssel kezdődik."
+   }
+  }
+ ]
+}

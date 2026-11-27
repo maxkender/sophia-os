@@ -17,7 +17,14 @@
   "cs": "10 dovedností na 10/10, které se naučíš místo scrollování",
   "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja",
   "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni",
-  "el": "10 δεξιότητες 10/10 να μάθεις αντί να σκρολάρεις"
+  "el": "10 δεξιότητες 10/10 να μάθεις αντί να σκρολάρεις",
+  "es": "10 habilidades 10/10 para aprender en vez de hacer scroll",
+  "es-419": "10 habilidades 10/10 para aprender en lugar de hacer scroll",
+  "pl": "10 umiejętności 10/10 do nauczenia się zamiast scrollowania",
+  "sk": "10 zručností na 10/10, ktoré sa naučíš namiesto scrollovania",
+  "hr": "10 vještina 10/10 koje vrijedi naučiti umjesto skrolanja",
+  "sv": "10 färdigheter 10/10 att lära sig i stället för att scrolla",
+  "lv": "10 prasmes 10/10, ko apgūt ritināšanas vietā"
  },
  "legendes": {
   "fr": "10 compétences 10/10 à apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -30,7 +37,14 @@
   "cs": "10 dovedností na 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
   "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja #učinatiktoku #samorazvoj #veštine",
   "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni #tanuljtiktokon #önfejlesztés #készségek",
-  "el": "10 δεξιότητες 10/10 να μάθεις αντί να σκρολάρεις #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες"
+  "el": "10 δεξιότητες 10/10 να μάθεις αντί να σκρολάρεις #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "es": "10 habilidades 10/10 para aprender en vez de hacer scroll #aprendeentiktok #desarrollopersonal #habilidades",
+  "es-419": "10 habilidades 10/10 para aprender en lugar de hacer scroll #aprendeentiktok #desarrollopersonal #habilidades",
+  "pl": "10 umiejętności 10/10 do nauczenia się zamiast scrollowania #uczsięnatiktoku #rozwójosobisty #umiejętności",
+  "sk": "10 zručností na 10/10, ktoré sa naučíš namiesto scrollovania #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "hr": "10 vještina 10/10 koje vrijedi naučiti umjesto skrolanja #učinatiktoku #osobnirazvoj #vještine",
+  "sv": "10 färdigheter 10/10 att lära sig i stället för att scrolla #lärdigpåtiktok #självutveckling #färdigheter",
+  "lv": "10 prasmes 10/10, ko apgūt ritināšanas vietā #mācītiestiktokā #pašattīstība #prasmes"
  },
  "musique": {
   "titre": "original sound - m - m",
@@ -277,6 +291,160 @@
      },
      {
       "t": "ΣΚΡΟΛΑΡΕΙΣ",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 138
+     },
+     {
+      "t": "PARA APRENDER",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "EN VEZ DE",
+      "cap": 149
+     },
+     {
+      "t": "HACER SCROLL",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 138
+     },
+     {
+      "t": "PARA APRENDER",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "EN LUGAR DE",
+      "cap": 149
+     },
+     {
+      "t": "HACER SCROLL",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pl": {
+    "lignes": [
+     {
+      "t": "UMIEJĘTNOŚCI",
+      "cap": 138
+     },
+     {
+      "t": "DO NAUCZENIA",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "ZAMIAST",
+      "cap": 149
+     },
+     {
+      "t": "SCROLLOWANIA",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "t": "ZRUČNOSTI",
+      "cap": 138
+     },
+     {
+      "t": "NA NAUČENIE",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "NAMIESTO",
+      "cap": 149
+     },
+     {
+      "t": "SCROLLOVANIA",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "VJEŠTINE",
+      "cap": 138
+     },
+     {
+      "t": "ZA NAUČITI",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "UMJESTO",
+      "cap": 149
+     },
+     {
+      "t": "SKROLANJA",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sv": {
+    "lignes": [
+     {
+      "t": "FÄRDIGHETER",
+      "cap": 138
+     },
+     {
+      "t": "ATT LÄRA SIG",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "I STÄLLET FÖR",
+      "cap": 149
+     },
+     {
+      "t": "ATT SCROLLA",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "t": "PRASMES,",
+      "cap": 138
+     },
+     {
+      "t": "KO APGŪT",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "RITINĀŠANAS",
+      "cap": 149
+     },
+     {
+      "t": "VIETĀ",
       "cap": 188,
       "couleur": "brun"
      }
@@ -603,6 +771,174 @@
      "duree": "9:51",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_k7uYJYWgNVLwHRstAHpg4QERAXbsdj-B1_wj-Tns0k7yo=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     "APRENDE",
+     [
+      {
+       "t": "A CORTAR",
+       "couleur": "#406f27"
+      }
+     ],
+     "VERDURAS"
+    ],
+    "video": {
+     "id": "Z7SwhTZ5tOM",
+     "titre": "🔪 Tipos de CORTES BÁSICOS en COCINA | Cómo usar los CUCHILLOS  y cortes de  VERDURAS 🥕",
+     "chaine": "Fuego Loco",
+     "vues": "3,4 M de visualizaciones",
+     "date": "hace 6 años",
+     "duree": "13:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyzsIkeTiAbodPxws1jYltIZ2vITC2RihSRrRmOVtmUOs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE",
+     [
+      {
+       "t": "A PICAR",
+       "couleur": "#406f27"
+      }
+     ],
+     "VERDURAS"
+    ],
+    "video": {
+     "id": "IVYkb-Vn6TQ",
+     "titre": "Aprende a cortar verduras como un chef profesional🔪 l Sumito Estévez",
+     "chaine": "Sumito Estévez",
+     "vues": "825 k vistas",
+     "date": "hace 6 años",
+     "duree": "25:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kNrgQm2xPcQ5sQcGrEsYbSzS6EJdj-sKkvOsj4tSwHDw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "NAUCZ SIĘ",
+     [
+      {
+       "t": "KROIĆ",
+       "couleur": "#406f27"
+      }
+     ],
+     "WARZYWA"
+    ],
+    "video": {
+     "id": "KnnhQoR04PA",
+     "titre": "Jak kroimy warzywa - poznaj popularne i przydatne sposoby krojenia!",
+     "chaine": "Zwieger",
+     "vues": "9,6 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "1:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mFzwkNw0eHNNbFxcezpS43EDuWe0QOK_F4lWnjRkr1BA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "NAUČ SA",
+     [
+      {
+       "t": "KRÁJAŤ",
+       "couleur": "#406f27"
+      }
+     ],
+     "ZELENINU"
+    ],
+    "video": {
+     "id": "fv8NNy3SKjM",
+     "titre": "Ako krájať cibuľu | Viktor Nagy | recepty",
+     "chaine": "Viktor Nagy",
+     "vues": "18 tis. zhliadnutí",
+     "date": "pred 8 rokmi",
+     "duree": "4:56",
+     "avatar": "https://yt3.ggpht.com/gO9ynpQ6mVhZ3VKO8YbJJ1Asywl3-jli9LwBBApEIZZk2z4uM4kd9kMbK15xHTwTyCM2wu5X=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hodiny na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "NAUČI",
+     [
+      {
+       "t": "REZATI",
+       "couleur": "#406f27"
+      }
+     ],
+     "POVRĆE"
+    ],
+    "video": {
+     "id": "klSuZX6YhXs",
+     "titre": "Pravilno rezanje povrća",
+     "chaine": "KREATIVNA KUHINJA ZAGREB",
+     "vues": "17 tis. pregleda",
+     "date": "prije 13 godina",
+     "duree": "1:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_leJ0LwehGIjPyNjHdCshIRj3XBENaBcpB9f9UeDGfUOA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 sata za naučiti"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "LÄR DIG",
+     [
+      {
+       "t": "HACKA",
+       "couleur": "#406f27"
+      }
+     ],
+     "GRÖNSAKER"
+    ],
+    "video": {
+     "id": "RZFF6S0OC_8",
+     "titre": "Knivskola – Hacka lök som Kocklandslaget",
+     "chaine": "Globalknivar",
+     "vues": "32 tn visningar",
+     "date": "för 4 år sedan",
+     "duree": "2:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kW2HqxwzcYuBSFJS9g9Ct6B6A62Q2tZlXksfY_bud2mA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 timmar att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "IEMĀCIES",
+     [
+      {
+       "t": "GRIEZT",
+       "couleur": "#406f27"
+      }
+     ],
+     "DĀRZEŅUS"
+    ],
+    "video": {
+     "id": "g9LP0hofEx4",
+     "titre": "Virtuve - Padomi - Nažu asināšana un griešanas tehnika",
+     "chaine": "Gatis Zogla",
+     "vues": "6,8 tūkst. skatījumu",
+     "date": "pirms 9 gadiem",
+     "duree": "18:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k7O6Oii3-d1-eFJnqjyqf4kQsrF5gj_4nM26FNXll62BE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 stundas, lai iemācītos"
+    ]
    }
   },
   {
@@ -980,6 +1316,209 @@
      "duree": "9:29",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_kLa01dkQUqdwIwDUZTrfdzEFs84eNlJ1XR722DabTybcI=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     [
+      {
+       "t": "APRENDE",
+       "couleur": "#66696f"
+      }
+     ],
+     "A TENER",
+     [
+      {
+       "t": "BUENA POSTURA",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9uC-UzbDdos",
+     "titre": "5 EJERCICIOS para CORREGIR la POSTURA ENCORVADA #fisioterapiatualcance",
+     "chaine": "Marcos Sacristán | Fisioterapia a tu alcance",
+     "vues": "186 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "28:52",
+     "avatar": "https://yt3.ggpht.com/_-zMIHxmwmdhTWLV3-lca3rXCK6EOhuQ1PvzSTX6Oljd7FiTp7BLz1kf8ZgHeje7BNbtusyq14o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     [
+      {
+       "t": "APRENDE",
+       "couleur": "#66696f"
+      }
+     ],
+     "A TENER",
+     [
+      {
+       "t": "BUENA POSTURA",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Fpkp1Zxut3I",
+     "titre": "Rutina de Pilates Diaria para Mejorar la Postura Corporal (15 min)",
+     "chaine": "Anabel Otero",
+     "vues": "101 k vistas",
+     "date": "hace 11 meses",
+     "duree": "15:34",
+     "avatar": "https://yt3.ggpht.com/zkO-32K0z_w1wmprB042X4GGauQ_aMx4rf4iQey9HDemlmLiBHRqUqVrHRatBn5sQ9vrDokYd6s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     [
+      {
+       "t": "NAUCZ SIĘ",
+       "couleur": "#66696f"
+      }
+     ],
+     "MIEĆ",
+     [
+      {
+       "t": "DOBRĄ POSTAWĘ",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zk-VzT1ySdQ",
+     "titre": "Popraw swoja POSTAWĘ CIAŁA dzięki tej technice",
+     "chaine": "Marek Purczyński",
+     "vues": "63 tys. wyświetleń",
+     "date": "2 lata temu",
+     "duree": "13:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mMM_dq9kKaErtAFYgNHYDx18iwN6vgT84wnoJa0oGIQ-Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     [
+      {
+       "t": "NAUČ SA",
+       "couleur": "#66696f"
+      }
+     ],
+     "SPRÁVNE",
+     [
+      {
+       "t": "DRŽAŤ TELO",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "I4Wern8lm0A",
+     "titre": "Ako napraviť zlé držanie tela",
+     "chaine": "Michal MC Čech",
+     "vues": "21 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "10:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mOZglzqjBXEd6ngxb_3ZySVQF9UnoZZnmHYCUdyjt0BA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     [
+      {
+       "t": "NAUČI",
+       "couleur": "#66696f"
+      }
+     ],
+     "IMATI",
+     [
+      {
+       "t": "DOBRO DRŽANJE",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kvd45iEdJi0",
+     "titre": "ISPRAVITE LOŠE DRŽANJE u samo 4 koraka! 🚶‍♂️",
+     "chaine": "Fitzone.hr by Borna Butijer",
+     "vues": "698 tis. pregleda",
+     "date": "prije 7 godina",
+     "duree": "10:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mVvvhb3h4bP1jIaDGL4O0XnOVxCj1oebLU8LMmyYt5=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za naučiti"
+    ]
+   },
+   "sv": {
+    "titre": [
+     [
+      {
+       "t": "LÄR DIG",
+       "couleur": "#66696f"
+      }
+     ],
+     "FÅ EN",
+     [
+      {
+       "t": "BRA HÅLLNING",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Zwu_dj1sQa8",
+     "titre": "5 ENKLA STEG FÖR BÄTTRE KROPPSHÅLLNING",
+     "chaine": "Jonathan Fogelberg",
+     "vues": "15 tn visningar",
+     "date": "för 2 år sedan",
+     "duree": "6:06",
+     "avatar": "https://yt3.ggpht.com/9YVi2jffq5-NPmUQPCcEex-4k4jJ1IrjDdve_WiU3m9kx_XTRCTMR8dx1Eor0jRkCDt9aoBkPg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     [
+      {
+       "t": "IEMĀCIES",
+       "couleur": "#66696f"
+      }
+     ],
+     "TURĒT",
+     [
+      {
+       "t": "PAREIZU STĀJU",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WhysFkwau6U",
+     "titre": "8 MIN MUGURAS TRENIŅŠ - DZIĻĀ MUGURAS MUSKULATŪRA// Bez inventāra | Raivis Smukais",
+     "chaine": "WEIGHT RACE PROJECT",
+     "vues": "83 tūkst. skatījumu",
+     "date": "pirms 5 gadiem",
+     "duree": "9:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mqg56KSWgx_dFwUQwm4jRc6kXe3lhLtNh4M4exWWIseZc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min, lai iemācītos"
+    ]
    }
   },
   {
@@ -1215,6 +1754,153 @@
       "κάθε μέρα."
      ]
     }
+   },
+   "es": {
+    "titre": [
+     "CULTÍVATE",
+     [
+      {
+       "t": "EN 5 MIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo",
+      "cada día."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "CULTÍVATE",
+     [
+      {
+       "t": "EN 5 MIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo",
+      "todos los días."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "POSZERZAJ WIEDZĘ",
+     [
+      {
+       "t": "W 5 MINUT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "naucz się czegoś",
+      "nowego każdego dnia."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "VZDELÁVAJ SA",
+     [
+      {
+       "t": "ZA 5 MINÚT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč sa každý deň",
+      "niečo nové."
+     ]
+    },
+    "sous": [
+     "5 min denne"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "OBRAZUJ SE",
+     [
+      {
+       "t": "ZA 5 MINUTA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo",
+      "svaki dan."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "BILDA DIG",
+     [
+      {
+       "t": "PÅ 5 MIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lär dig något nytt",
+      "varje dag."
+     ]
+    },
+    "sous": [
+     "5 min om dagen"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "IZGLĪTOJIES",
+     [
+      {
+       "t": "5 MINŪTĒS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "uzzini ko jaunu",
+      "katru dienu."
+     ]
+    },
+    "sous": [
+     "5 min dienā"
+    ]
    }
   },
   {
@@ -1537,6 +2223,174 @@
      "duree": "11:28",
      "avatar": "https://yt3.ggpht.com/kExZFMIgQld0E2iemHVsnz3KvG3QV-FvtBtUJqvPBJduD2lmlKkdzQ-LBXghreFBTw2E6baSXQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     "APRENDE",
+     [
+      {
+       "t": "A RECONOCER",
+       "couleur": "#b131c4"
+      }
+     ],
+     "CONSTELACIONES"
+    ],
+    "video": {
+     "id": "SO4PFN_ON8w",
+     "titre": "Astronomía para principiantes: Reconocer Constelaciones",
+     "chaine": "Astronomiaweb",
+     "vues": "1,8 M de visualizaciones",
+     "date": "hace 9 años",
+     "duree": "14:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mRziZ7jDHUaVsl7qvkr0OZn7_j8ycJfRoAwFQpzgSV0Lw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE",
+     [
+      {
+       "t": "A RECONOCER",
+       "couleur": "#b131c4"
+      }
+     ],
+     "CONSTELACIONES"
+    ],
+    "video": {
+     "id": "HcEICmaG2tU",
+     "titre": "5 Constelaciones para reconocer a simple vista",
+     "chaine": "Supercurioso",
+     "vues": "283 k vistas",
+     "date": "hace 11 años",
+     "duree": "2:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPrk58T3b0r1nROeTFeBA0tMpiSnIRewRwOzaW3m2zr2s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "NAUCZ SIĘ",
+     [
+      {
+       "t": "ROZPOZNAWAĆ",
+       "couleur": "#b131c4"
+      }
+     ],
+     "GWIAZDOZBIORY"
+    ],
+    "video": {
+     "id": "vJ6qJmjt5NU",
+     "titre": "Gwiazdozbiory czyli co jest gdzie na niebie - Astrofaza obserwacje nieba",
+     "chaine": "Astrofaza",
+     "vues": "231 tys. wyświetleń",
+     "date": "10 lat temu",
+     "duree": "16:34",
+     "avatar": "https://yt3.ggpht.com/eqhx21VczB2uWgcZBYyX24zGQICgB8_a9N7vE7oLZ_fkNY1YfwUjnZNnrq5Zm0-K5eOpWYx6hQM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "NAUČ SA",
+     [
+      {
+       "t": "SPOZNÁVAŤ",
+       "couleur": "#b131c4"
+      }
+     ],
+     "SÚHVEZDIA"
+    ],
+    "video": {
+     "id": "uedUI-fmKAs",
+     "titre": "Vedeli ste? - Súhvezdia - ako sa ľahko orientovať na nočnej oblohe ale aj mnoho ďalšieho...",
+     "chaine": "Apropó... Katarína Prevužňáková",
+     "vues": "2,6 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "6:58",
+     "avatar": "https://yt3.ggpht.com/WP8BzgnDwGXe0SM_PJ7e6xV4n9P657U3n2-oqavqdnMYUacUvFLByfI8XMuX1qt9Ai5EzumHuQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hodiny na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "NAUČI",
+     [
+      {
+       "t": "PREPOZNATI",
+       "couleur": "#b131c4"
+      }
+     ],
+     "ZVIJEŽĐA"
+    ],
+    "video": {
+     "id": "QBkslGrmT50",
+     "titre": "Zvjezdoznanci - Orion",
+     "chaine": "Zvjezdoznanci",
+     "vues": "7,5 tis. pregleda",
+     "date": "prije 12 godina",
+     "duree": "7:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mLN7hyFFeQ1IP-MYGvhInLpJZpQoMrdtkecjscBBec8g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 sata za naučiti"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "LÄR DIG",
+     [
+      {
+       "t": "HITTA",
+       "couleur": "#b131c4"
+      }
+     ],
+     "STJÄRNBILDER"
+    ],
+    "video": {
+     "id": "IjDdnhkgrUQ",
+     "titre": "Astronomi för nybörjare – lär dig universums hemligheter",
+     "chaine": "Anders på landet",
+     "vues": "17 tn visningar",
+     "date": "för 5 år sedan",
+     "duree": "8:46",
+     "avatar": "https://yt3.ggpht.com/CsS9af3wWQpNX0OgpyJnBnLOs5GO3qlSQM0hTVc966S4dR9KnNLZoeDQbvh-qTe8Y1Kitry3HdI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 timmar att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "IEMĀCIES",
+     [
+      {
+       "t": "ATPAZĪT",
+       "couleur": "#b131c4"
+      }
+     ],
+     "ZVAIGZNĀJUS"
+    ],
+    "video": {
+     "id": "Hv5Y4o5gQ1I",
+     "titre": "Zvaigznāji",
+     "chaine": "Laboratorium Zinātnes Skola",
+     "vues": "2,2 tūkst. skatījumu",
+     "date": "pirms 5 gadiem",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/BMY6_NbSjItrZDPDMMpxLWYdEmiseiU2l37OJBehr_NoUmMLKHDTzVI3HbBfYX8JctLMgobViw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 stundas, lai iemācītos"
+    ]
    }
   },
   {
@@ -1864,6 +2718,181 @@
      "duree": "5:35",
      "avatar": "https://yt3.ggpht.com/Xn5VcSrrvtn14JJOPGNV6vT83f-v4rCwaUhBSNe3ejbqejgEsleQW5sGAb3HfkN9OuOlYiTV=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     "APRENDE",
+     "A HACER",
+     [
+      {
+       "t": "EL PINO",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8rP5zFeazsc",
+     "titre": "TUTORIAL PINO💥 CÓMO hacer el PINO desde CERO PASO a PASO (Handstand)",
+     "chaine": "Juan BautiVa",
+     "vues": "760 K visualizaciones",
+     "date": "hace 6 años",
+     "duree": "9:48",
+     "avatar": "https://yt3.ggpht.com/K7szV2OAa15oYrxcXcqwVSque2E3UoNLTDvgSRcvsFQZ-Dcnx-3Vs_S1f8bwmPtjb6NypL_8ug=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas al día",
+     "para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE",
+     "A HACER",
+     [
+      {
+       "t": "PARADA DE MANOS",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KNOIhx0UegA",
+     "titre": "COMO PARARSE DE MANOS en 10 minutos | JuanFe",
+     "chaine": "JuanFe Castro",
+     "vues": "668 k vistas",
+     "date": "hace 6 años",
+     "duree": "13:40",
+     "avatar": "https://yt3.ggpht.com/A9ATdzHwJf2kYLhSNV5J9AjvcUPlHOAqQgdaxK-SRpZJ31XaXN1wT43KeOne_7clFMykGvP5CA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas al día",
+     "para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "NAUCZ SIĘ",
+     "STAĆ",
+     [
+      {
+       "t": "NA RĘKACH",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7rZko49z_Hc",
+     "titre": "Jak nauczyć się stania na rękach?",
+     "chaine": "Owsianapl",
+     "vues": "63 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "11:06",
+     "avatar": "https://yt3.ggpht.com/rRdvPculws049OCHsGoW3HZPSx3XQ25RQUlIQAQUN4F9l4hBQhkGkPAhvxmNwQ-Dl5-tyCHK6Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 godziny dziennie",
+     "nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "NAUČ SA",
+     "UROBIŤ",
+     [
+      {
+       "t": "STOJKU",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uz2OhjtN-Lk",
+     "titre": "Ako sa naučiť stojku na rukách",
+     "chaine": "Šport&Hudba",
+     "vues": "637 zhliadnutí",
+     "date": "pred 7 rokmi",
+     "duree": "5:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nCupUoiC3Smz23i_hK45x4XzftQjilegyfPVre4UgGzg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny denne",
+     "na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "NAUČI",
+     "NAPRAVITI",
+     [
+      {
+       "t": "STOJ NA RUKAMA",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FB_BXb_5mBc",
+     "titre": "Kako naučiti STOJ NA RUKAMA (u 5 koraka)!?",
+     "chaine": "Gimnastička Gimnazija",
+     "vues": "16 tis. pregleda",
+     "date": "prije 4 godine",
+     "duree": "5:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k4I1UlZBD-EoaoJB_Epy48SEVhHRUg-tpvMeEfOrsO8Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata dnevno",
+     "za naučiti"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "LÄR DIG",
+     "ATT STÅ",
+     [
+      {
+       "t": "PÅ HÄNDER",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lJ94oTu1Nv8",
+     "titre": "Hur lär jag mig att stå på händer?",
+     "chaine": "Henrik Valis",
+     "vues": "1 tn visningar",
+     "date": "för 2 år sedan",
+     "duree": "6:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lo4RiGpE3qk0prEgKTOVxYvhIS37jY1YZ2EC1l-Mbv5es=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 timmar om dagen",
+     "att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "IEMĀCIES",
+     "STĀVĒT",
+     [
+      {
+       "t": "UZ ROKĀM",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PGHsTTU7Ehk",
+     "titre": "Stāja uz rokām",
+     "chaine": "Capoeira CDO Jelgava",
+     "vues": "409 skatījumi",
+     "date": "pirms 6 gadiem",
+     "duree": "1:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k3aZjxvdFz69m__HzeXePaPZRlU6KcsK9_EBFW6S8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 stundas dienā,",
+     "lai iemācītos"
+    ]
    }
   },
   {
@@ -2186,6 +3215,174 @@
      "duree": "4:18",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nLYu4FZHeTD0jDwqB1RhsRwa0_oE_HWzfXzM6uTkk93Fw=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es": {
+    "titre": [
+     "APRENDE",
+     [
+      {
+       "t": "LOS 15 NUDOS",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "IMPRESCINDIBLES"
+    ],
+    "video": {
+     "id": "60ckP0RNnHI",
+     "titre": "LOS 10 NUDOS QUE TIENES QUE APRENDER",
+     "chaine": "Basquecraft",
+     "vues": "359 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "19:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k-2PD0FQUsD7EjW15ubWmY7pLEf3TIcGR61-0jhFZ-Qw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE",
+     [
+      {
+       "t": "LOS 15 NUDOS",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "QUE TODOS NECESITAN"
+    ],
+    "video": {
+     "id": "itTXRnnpKJw",
+     "titre": "Cinco Nudos Útiles de la Vida Diaria que toda Persona debe Conocer - Nudos al Instante",
+     "chaine": "Nudos Al Instante",
+     "vues": "18 k vistas",
+     "date": "hace 4 años",
+     "duree": "4:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k-AIKuBd4JkuP7DIbcfaHIaP8UZd1xTTE-Ty57sozsvQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "NAUCZ SIĘ",
+     [
+      {
+       "t": "15 PODSTAWOWYCH",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "WĘZŁÓW"
+    ],
+    "video": {
+     "id": "2nAma4Ocnso",
+     "titre": "6 węzłów, które musisz znać i wykorzystasz do wszystkiego - Szkoła Biwakowania 28",
+     "chaine": "Bushcraftowy",
+     "vues": "121 tys. wyświetleń",
+     "date": "2 lata temu",
+     "duree": "19:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mZEWydJRhbNuzEAEvKDTITi4GgeVAqrF1O7BJlwPb6qus=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "NAUČ SA",
+     [
+      {
+       "t": "15 ZÁKLADNÝCH",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "UZLOV"
+    ],
+    "video": {
+     "id": "pVbtoD82VMI",
+     "titre": "Osmičkový uzol",
+     "chaine": "u Bieleho Medveďa",
+     "vues": "40 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "2:10",
+     "avatar": "https://yt3.ggpht.com/AoqSPGQcKLckeA3KQXSrJhqLWPgSk-eqFOmZa3geA-M0q3Pk6W5tJGpXkp87X2DaSTpMl0ln=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hodiny na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "NAUČI",
+     [
+      {
+       "t": "15 OSNOVNIH",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "ČVOROVA"
+    ],
+    "video": {
+     "id": "3gMGrA1nHjk",
+     "titre": "Mornarski čvorovi - Pašnjak",
+     "chaine": "Sea Master Class",
+     "vues": "294 tis. pregleda",
+     "date": "prije 6 godina",
+     "duree": "0:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kjHAeHQIzzgHimpDcCeaZl_Urn2KiqAsXWuzreKj62RA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 sata za naučiti"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "LÄR DIG",
+     [
+      {
+       "t": "15 KNOPAR",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "ALLA BEHÖVER"
+    ],
+    "video": {
+     "id": "NW2zmrqc45k",
+     "titre": "Knoparna du behöver kunna",
+     "chaine": "Nautilus Boat Club",
+     "vues": "44 tn visningar",
+     "date": "för 5 år sedan",
+     "duree": "6:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lAXMABgXP9MqGQAG-ER5-4K5BuPW84OmCHI8F-Or71kRA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 timmar att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "IEMĀCIES",
+     [
+      {
+       "t": "15 SVARĪGĀKOS",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "MEZGLUS"
+    ],
+    "video": {
+     "id": "ANZIPeJBADI",
+     "titre": "Mezglu veidošana - TV Projekts \"Ko darī,ja?\"",
+     "chaine": "Zemgales Reģionālā televizija",
+     "vues": "767 skatījumi",
+     "date": "pirms 7 gadiem",
+     "duree": "5:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n2jNFgDW7fbxnqTPkzH89gLQgITZWsBjsU29GEMZfd2Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 stundas, lai iemācītos"
+    ]
    }
   }
  ]

@@ -1,0 +1,2918 @@
+{
+  "id": "sg-047",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "517ed881-2544-47e1-8563-a2fad9c63adf",
+  "titre": {
+    "fr": "Compétences totalement inutiles mais tellement stylées",
+    "en": "Totally useless but insanely cool skills",
+    "de": "Total nutzlose, aber mega coole Skills",
+    "it": "Abilità totalmente inutili ma stilosissime",
+    "pt-BR": "Habilidades totalmente inúteis, mas muito estilosas",
+    "tr": "Tamamen gereksiz ama çok havalı beceriler",
+    "ro": "Abilități complet inutile, dar super stilate",
+    "cs": "Úplně zbytečné, ale strašně stylové dovednosti",
+    "hu": "Teljesen haszontalan, de nagyon menő készségek",
+    "el": "Δεξιότητες εντελώς άχρηστες αλλά τόσο κουλ",
+    "sr": "Potpuno beskorisne, ali tako kul veštine",
+    "es": "Habilidades totalmente inútiles pero muy chulas",
+    "es-419": "Habilidades totalmente inútiles pero bien cool",
+    "pl": "Totalnie bezużyteczne, ale mega stylowe umiejętności",
+    "sk": "Úplne zbytočné, ale strašne štýlové zručnosti",
+    "hr": "Potpuno beskorisne, ali tako kul vještine",
+    "sv": "Helt onödiga men sjukt coola färdigheter",
+    "lv": "Pilnīgi nevajadzīgas, bet ļoti foršas prasmes"
+  },
+  "legendes": {
+    "fr": "Compétences totalement inutiles mais tellement stylées #apprendresurtiktok #learnontiktok #developpementpersonnel",
+    "en": "Totally useless but insanely cool skills #learnontiktok #selfimprovement #skills",
+    "de": "Total nutzlose, aber mega coole Skills #lernenmittiktok #persönlichkeitsentwicklung #skills",
+    "it": "Abilità totalmente inutili ma stilosissime #imparacontiktok #crescitapersonale #skills",
+    "pt-BR": "Habilidades totalmente inúteis, mas muito estilosas #aprendanotiktok #desenvolvimentopessoal #habilidades",
+    "tr": "Tamamen gereksiz ama çok havalı beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+    "ro": "Abilități complet inutile, dar super stilate #invatapetiktok #dezvoltarepersonala #abilitati",
+    "cs": "Úplně zbytečné, ale strašně stylové dovednosti #učímesenatiktoku #osobnírozvoj #dovednosti",
+    "hu": "Teljesen haszontalan, de nagyon menő készségek #tanuljtiktokon #önfejlesztés #készségek",
+    "el": "Δεξιότητες εντελώς άχρηστες αλλά τόσο κουλ #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+    "sr": "Potpuno beskorisne, ali tako kul veštine #učinatiktoku #samorazvoj #veštine",
+    "es": "Habilidades totalmente inútiles pero muy chulas #aprendeentiktok #desarrollopersonal #habilidades",
+    "es-419": "Habilidades totalmente inútiles pero bien cool #aprendeentiktok #desarrollopersonal #habilidades",
+    "pl": "Totalnie bezużyteczne, ale mega stylowe umiejętności #uczsięnatiktoku #rozwójosobisty #umiejętności",
+    "sk": "Úplne zbytočné, ale strašne štýlové zručnosti #učímesanatiktoku #osobnýrozvoj #zručnosti",
+    "hr": "Potpuno beskorisne, ali tako kul vještine #učinatiktoku #osobnirazvoj #vještine",
+    "sv": "Helt onödiga men sjukt coola färdigheter #lärdigpåtiktok #självutveckling #färdigheter",
+    "lv": "Pilnīgi nevajadzīgas, bet ļoti foršas prasmes #mācītiestiktokā #pašattīstība #prasmes"
+  },
+  "musique": {
+    "titre": "original sound - Jacob . P",
+    "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+  },
+  "notes": "Déclinaison G2 de sg-027 (27/11) : même promesse (« compétences inutiles mais cool »), autres mots (« Compétences totalement inutiles mais tellement stylées »), couverture neuve dans son style, musique de sg-027 ; 5 compétences hors sg-027/sg-005 (siffler avec les doigts, Rubik's Cube, lire dans les pensées, jongler à 3 balles, oiseau en origami), vraies vidéos natives dans les 18 langues ; Sophia en étape 4, cta C « COLLECTIONNER / LES ANECDOTES ».",
+  "slides": [
+    {
+      "type": "couverture",
+      "fr": {
+        "lignes": [
+          {
+            "t": "COMPÉTENCES",
+            "cap": 111
+          },
+          {
+            "t": "TOTALEMENT INUTILES",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "MAIS TELLEMENT",
+            "cap": 93
+          },
+          {
+            "t": "STYLÉES",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "en": {
+        "lignes": [
+          {
+            "t": "TOTALLY",
+            "cap": 111
+          },
+          {
+            "t": "USELESS",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "BUT INSANELY",
+            "cap": 93
+          },
+          {
+            "t": "COOL SKILLS",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "de": {
+        "lignes": [
+          {
+            "t": "TOTAL",
+            "cap": 111
+          },
+          {
+            "t": "NUTZLOSE,",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "ABER MEGA",
+            "cap": 93
+          },
+          {
+            "t": "COOLE SKILLS",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "it": {
+        "lignes": [
+          {
+            "t": "ABILITÀ",
+            "cap": 111
+          },
+          {
+            "t": "TOTALMENTE INUTILI",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "MA",
+            "cap": 93
+          },
+          {
+            "t": "STILOSISSIME",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "pt-BR": {
+        "lignes": [
+          {
+            "t": "HABILIDADES",
+            "cap": 111
+          },
+          {
+            "t": "TOTALMENTE INÚTEIS",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "MAS MUITO",
+            "cap": 93
+          },
+          {
+            "t": "ESTILOSAS",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "tr": {
+        "lignes": [
+          {
+            "t": "TAMAMEN",
+            "cap": 111
+          },
+          {
+            "t": "GEREKSİZ",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "AMA ÇOK HAVALI",
+            "cap": 93
+          },
+          {
+            "t": "BECERİLER",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "ro": {
+        "lignes": [
+          {
+            "t": "ABILITĂȚI",
+            "cap": 111
+          },
+          {
+            "t": "COMPLET INUTILE",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "DAR SUPER",
+            "cap": 93
+          },
+          {
+            "t": "STILATE",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "cs": {
+        "lignes": [
+          {
+            "t": "DOVEDNOSTI",
+            "cap": 111
+          },
+          {
+            "t": "ÚPLNĚ ZBYTEČNÉ,",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "ALE STRAŠNĚ",
+            "cap": 93
+          },
+          {
+            "t": "STYLOVÉ",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "hu": {
+        "lignes": [
+          {
+            "t": "TELJESEN",
+            "cap": 111
+          },
+          {
+            "t": "HASZONTALAN,",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "DE NAGYON MENŐ",
+            "cap": 93
+          },
+          {
+            "t": "KÉSZSÉGEK",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "el": {
+        "lignes": [
+          {
+            "t": "ΔΕΞΙΟΤΗΤΕΣ",
+            "cap": 111
+          },
+          {
+            "t": "ΕΝΤΕΛΩΣ ΑΧΡΗΣΤΕΣ",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "ΑΛΛΑ ΤΟΣΟ",
+            "cap": 93
+          },
+          {
+            "t": "ΚΟΥΛ",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "sr": {
+        "lignes": [
+          {
+            "t": "VEŠTINE",
+            "cap": 111
+          },
+          {
+            "t": "POTPUNO BESKORISNE,",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "ALI TAKO",
+            "cap": 93
+          },
+          {
+            "t": "KUL",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "es": {
+        "lignes": [
+          {
+            "t": "HABILIDADES",
+            "cap": 111
+          },
+          {
+            "t": "TOTALMENTE INÚTILES",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "PERO MUY",
+            "cap": 93
+          },
+          {
+            "t": "CHULAS",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "es-419": {
+        "lignes": [
+          {
+            "t": "HABILIDADES",
+            "cap": 111
+          },
+          {
+            "t": "TOTALMENTE INÚTILES",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "PERO BIEN",
+            "cap": 93
+          },
+          {
+            "t": "COOL",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "pl": {
+        "lignes": [
+          {
+            "t": "UMIEJĘTNOŚCI",
+            "cap": 111
+          },
+          {
+            "t": "TOTALNIE BEZUŻYTECZNE,",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "ALE MEGA",
+            "cap": 93
+          },
+          {
+            "t": "STYLOWE",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "sk": {
+        "lignes": [
+          {
+            "t": "ZRUČNOSTI",
+            "cap": 111
+          },
+          {
+            "t": "ÚPLNE ZBYTOČNÉ,",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "ALE STRAŠNE",
+            "cap": 93
+          },
+          {
+            "t": "ŠTÝLOVÉ",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "hr": {
+        "lignes": [
+          {
+            "t": "VJEŠTINE",
+            "cap": 111
+          },
+          {
+            "t": "POTPUNO BESKORISNE,",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "ALI TAKO",
+            "cap": 93
+          },
+          {
+            "t": "KUL",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "sv": {
+        "lignes": [
+          {
+            "t": "FÄRDIGHETER",
+            "cap": 111
+          },
+          {
+            "t": "HELT ONÖDIGA",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "MEN SJUKT",
+            "cap": 93
+          },
+          {
+            "t": "COOLA",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      },
+      "lv": {
+        "lignes": [
+          {
+            "t": "PRASMES",
+            "cap": 111
+          },
+          {
+            "t": "PILNĪGI NEVAJADZĪGAS,",
+            "cap": 130,
+            "couleur": "brun"
+          },
+          {
+            "t": "BET ĻOTI",
+            "cap": 93
+          },
+          {
+            "t": "FORŠAS",
+            "cap": 198,
+            "couleur": "brun"
+          }
+        ]
+      }
+    },
+    {
+      "type": "etape",
+      "fr": {
+        "titre": [
+          "SIFFLER",
+          [
+            {
+              "t": "AVEC LES DOIGTS",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "TZAttahXqjY",
+          "titre": "Apprendre à siffler avec les doigts en 1 minute",
+          "chaine": "L'astucerie",
+          "vues": "3,2 M de vues",
+          "date": "il y a 9 ans",
+          "duree": "0:59",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mx3lILLNxDiSeEEkGJ2klPHs8NMyiUm42UknbU7ePKs1Y=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 min pour apprendre"
+        ]
+      },
+      "en": {
+        "titre": [
+          "WHISTLE",
+          [
+            {
+              "t": "WITH YOUR FINGERS",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "FCVDBmISkb0",
+          "titre": "Learn How To Whistle With Your Fingers Correctly In One Minute",
+          "chaine": "Cleverly",
+          "vues": "6.2M views",
+          "date": "9 years ago",
+          "duree": "1:00",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mGARwanznO9v7FNvqNU3Y-rCazCyf3MdPkpPSRMx-w-g=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 min to learn"
+        ]
+      },
+      "de": {
+        "titre": [
+          "PFEIFEN",
+          [
+            {
+              "t": "MIT DEN FINGERN",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "wplrsLNlcCQ",
+          "titre": "Finger Pfeifen lernen in 1 Minute: Ganz einfacher Trick!",
+          "chaine": "Geniale Tricks",
+          "vues": "1,1 Mio. Aufrufe",
+          "date": "vor 9 Jahren",
+          "duree": "1:00",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_kdBmeG7-5-th3cc0TKCNATjhyWimQJmHiR-B3S2EyoZR0=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 Min. zum Lernen"
+        ]
+      },
+      "it": {
+        "titre": [
+          "FISCHIARE",
+          [
+            {
+              "t": "CON LE DITA",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "-o6tdcjLEE0",
+          "titre": "Imparo a fischiare FORTISSIMO con le dita",
+          "chaine": "KAR!M",
+          "vues": "44K visualizzazioni",
+          "date": "3 anni fa",
+          "duree": "3:58",
+          "avatar": "https://yt3.ggpht.com/KgCos4M6L4DmtjCvQ_1bG8KZQuiw1H7uZ6L7uNjXOVVPCrs4edCczb98QxJS_MfnSAZeMWHK=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 min per imparare"
+        ]
+      },
+      "pt-BR": {
+        "titre": [
+          "ASSOBIAR",
+          [
+            {
+              "t": "COM OS DEDOS",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "bIWnVG86JPA",
+          "titre": "Como ASSOBIAR BEM ALTO com os dedos",
+          "chaine": "FELIJAO",
+          "vues": "1,4 mi visualizações",
+          "date": "há 5 anos",
+          "duree": "7:34",
+          "avatar": "https://yt3.ggpht.com/gNuv8IFbrxGoISet4nU0bzVz-nYvXINLPugdukDj2Hqsy_b3BV97Iz-PShjAcNm87jc7Rm7STg=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 min para aprender"
+        ]
+      },
+      "tr": {
+        "titre": [
+          "PARMAKLA",
+          [
+            {
+              "t": "ISLIK ÇALMAK",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "YaZx80MEyKs",
+          "titre": "Parmaklarla Nasıl Islık Çalınır?",
+          "chaine": "YAPYAP",
+          "vues": "6,1 Mn görüntüleme",
+          "date": "11 yıl önce",
+          "duree": "2:03",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwYFyWD2yAthoaQvJCe0DfxeK9H1w35Clg5dSvT28fQA=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 dakikada öğrenilir"
+        ]
+      },
+      "ro": {
+        "titre": [
+          "SĂ FLUIERI",
+          [
+            {
+              "t": "CU DEGETELE",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "EUOeRfgoPeg",
+          "titre": "Invata sa fluieri",
+          "chaine": "Iuliu Berca",
+          "vues": "4,5 K vizionări",
+          "date": "acum 2 ani",
+          "duree": "1:31",
+          "avatar": "https://yt3.ggpht.com/zU8pHTpdpQSXI3aEJ6LfHuSBn_dIlEm-0muqRTIFJacWHr-1o0SLxPrahw9nDGZlrhUNDYoRdg=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 min de învățat"
+        ]
+      },
+      "cs": {
+        "titre": [
+          "PÍSKAT",
+          [
+            {
+              "t": "NA PRSTY",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "ZHTLpGB4Rik",
+          "titre": "Jak pískat na prsty?",
+          "chaine": "Kasi",
+          "vues": "647 tis. zhlédnutí",
+          "date": "před 16 lety",
+          "duree": "2:27",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_kfuD_ZZ-Jm0iypmE_QRSdaWXZY9hKs_q_gew3EaZgYaaM=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 min na naučení"
+        ]
+      },
+      "hu": {
+        "titre": [
+          "FÜTYÜLNI",
+          [
+            {
+              "t": "UJJAL",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "qr4u73Owq2Y",
+          "titre": "futyuljunk.hu",
+          "chaine": "Futyuljunk.hu",
+          "vues": "831 megtekintés",
+          "date": "11 évvel ezelőtt",
+          "duree": "1:57",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mao2srrSPCBLCo2PG4jkrM0cHfwqYCd9tER39Rktk=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 perc a tanuláshoz"
+        ]
+      },
+      "el": {
+        "titre": [
+          "ΣΦΥΡΙΞΕ",
+          [
+            {
+              "t": "ΜΕ ΤΑ ΔΑΧΤΥΛΑ",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "m7XAXCGpRK4",
+          "titre": "Kalashnikov.gr | Πως να σφυρίζετε με τα δάχτυλα.",
+          "chaine": "KalashnikovGR",
+          "vues": "107 χιλ. προβολές",
+          "date": "πριν από 11 έτη",
+          "duree": "1:42",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lcQPyoTIC6FUcUOoPIpK343KxQl2RY-RgIGlLUlpl9QA=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 λεπτά για να μάθεις"
+        ]
+      },
+      "sr": {
+        "titre": [
+          "ZVIŽDATI",
+          [
+            {
+              "t": "PRSTIMA",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "kLs1sUFT7Rk",
+          "titre": "Kako zvizdati pomocu prstiju",
+          "chaine": "ZigulogoDejan",
+          "vues": "250 hilj. pregleda",
+          "date": "pre 10 godina",
+          "duree": "1:16",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_ka58tQyZiURY_4-0eFsH98lZhYoTVlU0dbmqMh3XEVaUM=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 min za učenje"
+        ]
+      },
+      "es": {
+        "titre": [
+          "SILBAR",
+          [
+            {
+              "t": "CON LOS DEDOS",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "xJS4W1NHwJ8",
+          "titre": "¿Sabes silbar fuerte? Con estos pasos puedes aprenderlo en 1 minuto",
+          "chaine": "Tipo Listo",
+          "vues": "1,1 M de visualizaciones",
+          "date": "hace 9 años",
+          "duree": "1:00",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lDKIYox6Vwc8Ysi2jJg2-qvffU0tCVm-MaqJyeXZxAPA=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 min para aprender"
+        ]
+      },
+      "es-419": {
+        "titre": [
+          "SILBAR",
+          [
+            {
+              "t": "CON LOS DEDOS",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "VOSEDsWNYAY",
+          "titre": "Aprende a Silbar con los dedos | Serie de silibidos | Tutorial 51",
+          "chaine": "Orodreth",
+          "vues": "721 k vistas",
+          "date": "hace 4 años",
+          "duree": "3:30",
+          "avatar": "https://yt3.ggpht.com/_965lGYf0ZAbF26hVlgR9mE64pJ60gEHXJhx4Y5LpUGTOunQNugct2I0ONeHFIaJO0m1HuCcvQ=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 min para aprender"
+        ]
+      },
+      "pl": {
+        "titre": [
+          "GWIZDAĆ",
+          [
+            {
+              "t": "NA PALCACH",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "AFjm9lBICdE",
+          "titre": "Jak gwizdać na palcach?",
+          "chaine": "WszystkoVlog",
+          "vues": "438 tys. wyświetleń",
+          "date": "7 lat temu",
+          "duree": "11:36",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_n5UmsFZukiMfbFhkwpog63mur6e5HqhIB1lh7vNgFTdSA=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 min nauki"
+        ]
+      },
+      "sk": {
+        "titre": [
+          "PÍSKAŤ",
+          [
+            {
+              "t": "NA PRSTOCH",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "jzBZRoscdIs",
+          "titre": "Návod na pískanie na prstoch",
+          "chaine": "Planet D",
+          "vues": "13 tis. zhliadnutí",
+          "date": "pred 3 rokmi",
+          "duree": "3:14",
+          "avatar": "https://yt3.ggpht.com/adct5-buydAvMBwO1ciy2sqV17cWaoUnZ54aBj1EVzMFYXnX5Du_XL41xpJPwP0cimSKN23AJw=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 min na naučenie"
+        ]
+      },
+      "hr": {
+        "titre": [
+          "ZVIŽDATI",
+          [
+            {
+              "t": "PRSTIMA",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "ou5kHutiOy8",
+          "titre": "Kako zvizdati pomocu prstiju 2 (TRYHARD NA MAX)",
+          "chaine": "ZigulogoDejan",
+          "vues": "11 tis. pregleda",
+          "date": "prije 3 godine",
+          "duree": "1:46",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_ka58tQyZiURY_4-0eFsH98lZhYoTVlU0dbmqMh3XEVaUM=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 min učenja"
+        ]
+      },
+      "sv": {
+        "titre": [
+          "VISSLA",
+          [
+            {
+              "t": "MED FINGRARNA",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "jm6xU-5rQmk",
+          "titre": "Lär dig bus vissla",
+          "chaine": "Anka",
+          "vues": "3,3 tn visningar",
+          "date": "för 3 år sedan",
+          "duree": "0:36",
+          "avatar": "https://yt3.ggpht.com/4F6A94lw4DYAwnGeXfN2dFJOVmGXMdH7zsguZRxrlllqw3WWoIjLcW6clfsbPviALPv9Zx0bTQ=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 min att lära sig"
+        ]
+      },
+      "lv": {
+        "titre": [
+          "SVILPT",
+          [
+            {
+              "t": "AR PIRKSTIEM",
+              "couleur": "#c2393d"
+            }
+          ]
+        ],
+        "video": {
+          "id": "H529k_DLquE",
+          "titre": "Kā iemācīties svilpt? / Dari gudri #45",
+          "chaine": "darigudri",
+          "vues": "5,9 tūkst. skatījumu",
+          "date": "pirms 14 gadiem",
+          "duree": "1:21",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_nOd0r4ius_DD1BZLPe3WB8qTrqnDJ7ql2RSrsJOhk=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "30 min mācību"
+        ]
+      }
+    },
+    {
+      "type": "etape",
+      "fr": {
+        "titre": [
+          "RÉSOUDRE UN",
+          [
+            {
+              "t": "RUBIK'S CUBE",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "PLsT1SY1cgg",
+          "titre": "Comment résoudre un Rubik's Cube ? [Tutoriel Débutant]",
+          "chaine": "neanto",
+          "vues": "587 k vues",
+          "date": "il y a 1 an",
+          "duree": "22:42",
+          "avatar": "https://yt3.ggpht.com/mD_vAIo6NgIGZyv_HWLClupqgffqvz4EPJsBwrph-UhlYVpTDlZME1__VlYEmq9rncxi-DU_d_s=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "Entraînement sur plusieurs jours"
+        ]
+      },
+      "en": {
+        "titre": [
+          "SOLVE A",
+          [
+            {
+              "t": "RUBIK'S CUBE",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "v8Fdu8to0fs",
+          "titre": "How To Solve A Rubik's Cube (Beginner Method) | Cubeorithms",
+          "chaine": "Cubeorithms",
+          "vues": "5M views",
+          "date": "4 years ago",
+          "duree": "13:08",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_nutEmHyXQlsOPTNU9vjRI5DVHtgGjOF3RG76c-8fb9oos=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "practice over several days"
+        ]
+      },
+      "de": {
+        "titre": [
+          [
+            {
+              "t": "ZAUBERWÜRFEL",
+              "couleur": "#d0a239"
+            }
+          ],
+          "LÖSEN"
+        ],
+        "video": {
+          "id": "mzRV7Q5dZUY",
+          "titre": "Zauberwürfel lösen für Anfänger - einfach und mit Bildersprache erklärt",
+          "chaine": "DyingWizard Odo",
+          "vues": "10 Mio. Aufrufe",
+          "date": "vor 15 Jahren",
+          "duree": "44:46",
+          "avatar": "https://yt3.ggpht.com/9e3yt8I2dx24cqcGNo5_F9UNKoHmbf54_72Z3Cb-cNsy34nJAMA95st--PBPOvY54nKHllQdlHI=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "Übung über mehrere Tage"
+        ]
+      },
+      "it": {
+        "titre": [
+          "RISOLVERE IL",
+          [
+            {
+              "t": "CUBO DI RUBIK",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "vd3thARCzww",
+          "titre": "IMPARA a risolvere il CUBO DI RUBIK in pochi minuti!",
+          "chaine": "Carolina - Una Realtà al Cubo",
+          "vues": "2,2 Mln visualizzazioni",
+          "date": "4 anni fa",
+          "duree": "20:35",
+          "avatar": "https://yt3.ggpht.com/tJ5Q62q_fMXOR5Lh8ZZ3A7aLjxXUTlzChZ_VQILmGkBIulJoXC44WPWFwDuRGJAsdy3NtXvC=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "allenamento in più giorni"
+        ]
+      },
+      "pt-BR": {
+        "titre": [
+          "MONTAR O",
+          [
+            {
+              "t": "CUBO MÁGICO",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "zxBmjCvby0I",
+          "titre": "APRENDA A MONTAR O CUBO MÁGICO 3x3x3 | @matematicadatamires",
+          "chaine": "Matemática da Támires",
+          "vues": "1,1 mi visualizações",
+          "date": "há 1 ano",
+          "duree": "31:51",
+          "avatar": "https://yt3.ggpht.com/ATi2CEnJ_32JO664SDrNgA8PjS1cVTB5HlOOXewE40wuJkLhIsMQnmo6GLtZNwhaHNd-dO9QcbM=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "treino ao longo de vários dias"
+        ]
+      },
+      "tr": {
+        "titre": [
+          [
+            {
+              "t": "ZEKA KÜPÜ",
+              "couleur": "#d0a239"
+            }
+          ],
+          "ÇÖZMEK"
+        ],
+        "video": {
+          "id": "JDCqOW4K1jc",
+          "titre": "ZEKA KÜPÜ NASIL YAPILIR? - SADE VE YAVAŞ ANLATIM",
+          "chaine": "Furkan Akman",
+          "vues": "6,6 Mn görüntüleme",
+          "date": "9 yıl önce",
+          "duree": "30:19",
+          "avatar": "https://yt3.ggpht.com/hfGOMOHqN8d5-UY0582NKVsyvWsjoRl6FfYdhYyCryi8DBhrpbcZi4dO99J0ikKpJ9BLzTjd=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "birkaç gün pratik"
+        ]
+      },
+      "ro": {
+        "titre": [
+          "SĂ REZOLVI",
+          [
+            {
+              "t": "CUBUL RUBIK",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "7Pp7S8UJeI0",
+          "titre": "Cum sa rezolvi Cubul Rubik in 9 MINUTE | Cea mai simpla metoda - Tutorial pentru incepatori",
+          "chaine": "Domnu' Puzzle - Cristian Leana",
+          "vues": "100 K vizionări",
+          "date": "acum 1 an",
+          "duree": "8:51",
+          "avatar": "https://yt3.ggpht.com/jlhnq0Mmx_QH1mF-MM5FQRVY2CGuBaZUekAxo31pTSLF2C48buiMtQiDlx7wPwCJCgHsS4vm=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "exercițiu câteva zile"
+        ]
+      },
+      "cs": {
+        "titre": [
+          "SLOŽIT",
+          [
+            {
+              "t": "RUBIKOVU KOSTKU",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "B1NyZI_uva4",
+          "titre": "Jak složit 3x3 Rubikovu kostku pro začátečníky | FYFT.cz",
+          "chaine": "FYFT",
+          "vues": "482 tis. zhlédnutí",
+          "date": "před 2 lety",
+          "duree": "32:49",
+          "avatar": "https://yt3.ggpht.com/sddxRMGkrNIv0Pb4JCGs0lHz5KTnC14BcBugdJMr6QePRyNuI7ccdgKPn4lEns26tDNgnEx7=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "trénink několik dní"
+        ]
+      },
+      "hu": {
+        "titre": [
+          "KIRAKNI A",
+          [
+            {
+              "t": "RUBIK-KOCKÁT",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "10pPLsTPmHg",
+          "titre": "A LEGEGYSZERŰBB Módszer a Rubik Kocka Kirakására  | Rubik Kocka Kirakása Kezdőknek Magyarul",
+          "chaine": "Rubik kocka - Rkocka",
+          "vues": "77 E megtekintés",
+          "date": "1 évvel ezelőtt",
+          "duree": "18:01",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgxUeV-bIdnPgufzxqs0VRrmeKkPiRSNDudd0evgh-Hw=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "több napos gyakorlás"
+        ]
+      },
+      "el": {
+        "titre": [
+          "ΛΥΣΕ ΤΟΝ",
+          [
+            {
+              "t": "ΚΥΒΟ ΤΟΥ ΡΟΥΜΠΙΚ",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "4_w5W97IBuQ",
+          "titre": "Πως να λύσετε τον Κύβο του Ρούμπικ ♠ Λύση σε 8 απλά βήματα με τον μάγο Τρίσταν!",
+          "chaine": "Tristan Magic",
+          "vues": "690 χιλ. προβολές",
+          "date": "πριν από 5 έτη",
+          "duree": "23:00",
+          "avatar": "https://yt3.ggpht.com/mPLjL8a1-Gd1F-opzBgg6B_mDwXJfyMiJNgez6o-9hSoK_SRrMP0lsnJ2Ii8vzepAfPx-5Br=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "εξάσκηση για αρκετές μέρες"
+        ]
+      },
+      "sr": {
+        "titre": [
+          "SLOŽITI",
+          [
+            {
+              "t": "RUBIKOVU KOCKU",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "ZZjwkbkt5qc",
+          "titre": "KAKO SLOŽITI RUBIKOVU KOCKU - NAJLAKŠA METODA | TheCubeX.rs",
+          "chaine": "Aleksa Radovanović",
+          "vues": "60 hilj. pregleda",
+          "date": "pre 1 godinu",
+          "duree": "13:40",
+          "avatar": "https://yt3.ggpht.com/DiPHPcJYbS73zuBD57drZBVQcW5YAtUQuNRjGDkW2sWxcB7-eOzfmmxdGo5oplz_nARvoEV4=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "vežbanje nekoliko dana"
+        ]
+      },
+      "es": {
+        "titre": [
+          "RESOLVER EL",
+          [
+            {
+              "t": "CUBO DE RUBIK",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "GyY0OxDk5lI",
+          "titre": "Resolver cubo de Rubik 3x3 (Principiantes) | Rápido y Fácil | EL MEJOR TUTORIAL | Español",
+          "chaine": "Cuby",
+          "vues": "85 M de visualizaciones",
+          "date": "hace 11 años",
+          "duree": "38:31",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_ki1hWmCujGbk4_8wNHIVdZOe9p81HW8rK5uiib7ecptlU=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "entrenamiento de varios días"
+        ]
+      },
+      "es-419": {
+        "titre": [
+          "ARMAR EL",
+          [
+            {
+              "t": "CUBO RUBIK",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "rac_f5keP98",
+          "titre": "✅️EL TUTORIAL MÁS FÁCIL de COMO ARMAR EL CUBO RUBIK. Con este SI PODRÁS resolver el cubo!",
+          "chaine": "WeCube",
+          "vues": "5.4 M de vistas",
+          "date": "hace 2 años",
+          "duree": "25:15",
+          "avatar": "https://yt3.ggpht.com/dRMtHVOe3AbKtYcS0bS86Je7vaLxmtyQGJ54F2KEaSIXzaf8-cOgQCi5v2FHhZxk3t2NBrmTHg=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "entrenamiento de varios días"
+        ]
+      },
+      "pl": {
+        "titre": [
+          "UŁOŻYĆ",
+          [
+            {
+              "t": "KOSTKĘ RUBIKA",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "OKzlK3Qq-L8",
+          "titre": "JAK UŁOŻYĆ KOSTKĘ RUBIKA? - Najłatwiejszy sposób dla każdego!",
+          "chaine": "Świat Kostek",
+          "vues": "346 tys. wyświetleń",
+          "date": "2 lata temu",
+          "duree": "21:43",
+          "avatar": "https://yt3.ggpht.com/6H8LYnFWq6R4-5wkm36vSmbtO13_RuvCCGV4UBhYL2OVDSMb0y0sRGcXEhRRzFyIndqkVhK_=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "trening przez kilka dni"
+        ]
+      },
+      "sk": {
+        "titre": [
+          "POSKLADAŤ",
+          [
+            {
+              "t": "RUBIKOVU KOCKU",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "qC3LbTmV8EQ",
+          "titre": "Najlepší návod na zloženie Rubikovej kocky (funguje na 100 %)",
+          "chaine": "Nandy Kudry",
+          "vues": "30 tis. zhliadnutí",
+          "date": "pred 10 mesiacmi",
+          "duree": "33:50",
+          "avatar": "https://yt3.ggpht.com/LcQRWoTUBEdEfTewnrZev9vYWBSY7ekAt_ri3VWdI5h85Ob0Xpb1W1ogQrl2ClK5YSinkzbZsQ=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "tréning niekoľko dní"
+        ]
+      },
+      "hr": {
+        "titre": [
+          "SLOŽITI",
+          [
+            {
+              "t": "RUBIKOVU KOCKU",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "W1QyIOKyJvs",
+          "titre": "Rubikova kocka, Pocetnicka metoda, Korak po korak tutorial",
+          "chaine": "Alen Duronjic",
+          "vues": "1,3 mil. pregleda",
+          "date": "prije 9 godina",
+          "duree": "24:09",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mTMg9YMDGAW2iai124tmSZLvQ1d7dtVs-mTWz7QUU=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "vježbanje nekoliko dana"
+        ]
+      },
+      "sv": {
+        "titre": [
+          "LÖSA",
+          [
+            {
+              "t": "RUBIKS KUB",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "IJccn2LELIM",
+          "titre": "HUR MAN LÖSER EN RUBIKS KUB (3x3x3) (SVENSKA) | TommyLjung",
+          "chaine": "Tommy Ljung",
+          "vues": "333 tn visningar",
+          "date": "för 9 år sedan",
+          "duree": "14:27",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_kFEW2NuhDYvzKXv8fTudI45ewXara47VlppHkESiyeyWw=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "övning i flera dagar"
+        ]
+      },
+      "lv": {
+        "titre": [
+          "SALIKT",
+          [
+            {
+              "t": "RUBIKA KUBU",
+              "couleur": "#d0a239"
+            }
+          ]
+        ],
+        "video": {
+          "id": "igNeNjVM9oU",
+          "titre": "VIEGLĀKAIS VEIDS KĀ SALIKT 3X3 RUBIKA KUBU ( KUBIKU RUBIKU)",
+          "chaine": "Latviancuber",
+          "vues": "91 tūkst. skatījumu",
+          "date": "pirms 10 gadiem",
+          "duree": "20:17",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_na8LjeVBAE45z5uYdOz4t-nRd2TPyk4QWpZyQD5yXteQ=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "vairāku dienu treniņš"
+        ]
+      }
+    },
+    {
+      "type": "etape",
+      "fr": {
+        "titre": [
+          "LIRE DANS",
+          [
+            {
+              "t": "LES PENSÉES",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "xsoZbciqQUU",
+          "titre": "Explication d'un tour de mentalisme puissant !",
+          "chaine": "Charlie Haid",
+          "vues": "149 k vues",
+          "date": "il y a 6 ans",
+          "duree": "3:07",
+          "avatar": "https://yt3.ggpht.com/pLqbD1B1VFBfarRFjXGmlZ0VlgM41NtuDNGzHn-pE_AdjygM-4_7R6VmKSYEz94igVhw3Kv96I8=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 heure pour apprendre"
+        ]
+      },
+      "en": {
+        "titre": [
+          "READ",
+          [
+            {
+              "t": "MINDS",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "PtDXH7dtyKM",
+          "titre": "5 Simple Ways to Read Anyone's Mind | Revealed",
+          "chaine": "Oscar Owen Magic",
+          "vues": "1.9M views",
+          "date": "3 years ago",
+          "duree": "17:36",
+          "avatar": "https://yt3.ggpht.com/at3omuhyoOdPp4lxH00Lmy-yjzCSMB-bwtAwT4W0id6qK3Soxhm0k6q5zgBjnOD-VrCD15Od=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 hour to learn"
+        ]
+      },
+      "de": {
+        "titre": [
+          [
+            {
+              "t": "GEDANKEN",
+              "couleur": "#6a4bb3"
+            }
+          ],
+          "LESEN"
+        ],
+        "video": {
+          "id": "cIfbcSmu318",
+          "titre": "3 einfache Mentalisten-Tricks // Beeindrucke deine Freunde // Mentalist Timon Krause",
+          "chaine": "Timon Krause",
+          "vues": "164.689 Aufrufe",
+          "date": "vor 6 Jahren",
+          "duree": "2:19",
+          "avatar": "https://yt3.ggpht.com/sKP1R3ktO8r-JOseiErr58km7JliyJQ-vK8ebnJAjwf16LWSL-srsi9OcDfY5AlzjwcS9EKMYg=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 Stunde zum Lernen"
+        ]
+      },
+      "it": {
+        "titre": [
+          "LEGGERE",
+          [
+            {
+              "t": "NEL PENSIERO",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "2GFDxaXjy6g",
+          "titre": "SPIEGAZIONE MAGIA MENTALE: Pensa STOP!",
+          "chaine": "Jack Nobile",
+          "vues": "159K visualizzazioni",
+          "date": "6 anni fa",
+          "duree": "8:11",
+          "avatar": "https://yt3.ggpht.com/SUyrlrFnx2vnJ0YZvqpZv74Hiyx0ueS1n7Us3KBXvpUoqk3O-B0BdSPCHExzthxt0n1QZH7Svw=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 ora per imparare"
+        ]
+      },
+      "pt-BR": {
+        "titre": [
+          "LER",
+          [
+            {
+              "t": "MENTES",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "Skvuk6EL2bg",
+          "titre": "A MÁGICA DE MENTALISMO MAIS FÁCIL DE TODAS | feat. Felipe Solari",
+          "chaine": "Felipe Barbieri",
+          "vues": "148 mil visualizações",
+          "date": "há 5 anos",
+          "duree": "16:26",
+          "avatar": "https://yt3.ggpht.com/hiKeUuhODZtLDpaRg_3sV4M9JkiJjPH4OP3p0AKDiHb46Cm1KcfNb-XbO8RXxJJumRWLWxOn=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 hora para aprender"
+        ]
+      },
+      "tr": {
+        "titre": [
+          [
+            {
+              "t": "AKIL",
+              "couleur": "#6a4bb3"
+            }
+          ],
+          "OKUMAK"
+        ],
+        "video": {
+          "id": "0AZbglabP6Q",
+          "titre": "AKIL OKUMA SİHİRBAZLIK NUMARASI VE SIRRI!-KOLAY SİHİRBAZLIK NUMARALARI NASIL YAPILIR?-SİHİR NUMARASI",
+          "chaine": "Magic Osman",
+          "vues": "31 B görüntüleme",
+          "date": "5 yıl önce",
+          "duree": "3:45",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_kRv1TPqixf378bT1v8eYYQs2zoJW_HOJUFv-pMbeqNIOw=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 saatte öğrenilir"
+        ]
+      },
+      "ro": {
+        "titre": [
+          "SĂ CITEȘTI",
+          [
+            {
+              "t": "GÂNDURILE",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "LMWBgqOJBaw",
+          "titre": "Psihic Simplu !!! Truc mentalist pentru incepatori | OraDeMagie |",
+          "chaine": "Ora de Magie - Barbu Alexandru",
+          "vues": "262 K vizionări",
+          "date": "acum 11 ani",
+          "duree": "5:20",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mMx4aQBcFxOnQhBgipN6akem-PocgfUy8vvYXFZxI3OV4=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 oră de învățat"
+        ]
+      },
+      "cs": {
+        "titre": [
+          "ČÍST",
+          [
+            {
+              "t": "MYŠLENKY",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "5h6S3bn0WNY",
+          "titre": "Čtení myšlenek - mentalistický karetní trik s vysvětlením",
+          "chaine": "Exit8472",
+          "vues": "4,1 tis. zhlédnutí",
+          "date": "před 12 lety",
+          "duree": "4:43",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_kEghG64tYjWfI7Hx0zD_In8vanBCx--wWhLq067wFfTrY=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 hodina na naučení"
+        ]
+      },
+      "hu": {
+        "titre": [
+          [
+            {
+              "t": "GONDOLATOT",
+              "couleur": "#6a4bb3"
+            }
+          ],
+          "OLVASNI"
+        ],
+        "video": {
+          "id": "cCUPqqIJp6Q",
+          "titre": "Így Olvass Mások Gondolataiban | Egyszerű Kártyatrükk Magyarázattal Kezdőknek",
+          "chaine": "Forzor",
+          "vues": "6,6 E megtekintés",
+          "date": "6 évvel ezelőtt",
+          "duree": "10:06",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mpDzoDuCpPfbsRkLC-S-JdjatqK9QDF4B1y6DIB-ZB4w8=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 óra a tanuláshoz"
+        ]
+      },
+      "el": {
+        "titre": [
+          "ΔΙΑΒΑΣΕ",
+          [
+            {
+              "t": "ΣΚΕΨΕΙΣ",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "37UyJWHpLa8",
+          "titre": "Mind reading μαγικό κόλπο με τράπουλα και πως να το κάνετε",
+          "chaine": "Dimitris Yolo Guy",
+          "vues": "130 προβολές",
+          "date": "πριν από 8 έτη",
+          "duree": "9:36",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lHflE0qvJtEVxRmzhaRebliG5is_zt_eThhnj3SqZl-A=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 ώρα για να μάθεις"
+        ]
+      },
+      "sr": {
+        "titre": [
+          "ČITATI",
+          [
+            {
+              "t": "MISLI",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "vBjbknkhIaA",
+          "titre": "Kako CITATI MISLI madjionicarski trik - OBJASNJENJE",
+          "chaine": "Jacks&Jokers15",
+          "vues": "453 hilj. pregleda",
+          "date": "pre 12 godina",
+          "duree": "5:11",
+          "avatar": "https://yt3.ggpht.com/H4CJR2exrE5vHLR2kWMw6c7tYKy5h34-SVZF5wjanb-J5gpPmldgBUcH9E0dVH7W_s-47ysVeg=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 sat za učenje"
+        ]
+      },
+      "es": {
+        "titre": [
+          "LEER",
+          [
+            {
+              "t": "LA MENTE",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "q69N8Pk-0Is",
+          "titre": "LEE la mente de una persona y acierta SIEMPRE con este truco de MENTALISMO revelado",
+          "chaine": "Santi Marcilla",
+          "vues": "81 K visualizaciones",
+          "date": "hace 2 años",
+          "duree": "15:09",
+          "avatar": "https://yt3.ggpht.com/a7ADEThSPxBOUEnA5sCnF3TqO04Er7oysAEhuWHeOvj6nejyUAoseoY3q27Yub6QF6REqLQF=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 hora para aprender"
+        ]
+      },
+      "es-419": {
+        "titre": [
+          "LEER",
+          [
+            {
+              "t": "LA MENTE",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "cV9epr3wZjE",
+          "titre": "Cómo leer la mente - TRUCO de MENTALISMO explicado",
+          "chaine": "Magia & Cardistry",
+          "vues": "247 k vistas",
+          "date": "hace 5 años",
+          "duree": "10:44",
+          "avatar": "https://yt3.ggpht.com/1K_xjY-oap87GEm8vOUmgxYjP4flBCKzlTAhEFdJWQ1fS_D3YradkSt_gPE8JNnbYmWt0wHE5A=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 hora para aprender"
+        ]
+      },
+      "pl": {
+        "titre": [
+          "CZYTAĆ",
+          [
+            {
+              "t": "W MYŚLACH",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "vy0iheljyQk",
+          "titre": "Jak czytać w myślach? - MENTALIZM",
+          "chaine": "Mentalista • KX • Sztuka Iluzji",
+          "vues": "13 tys. wyświetleń",
+          "date": "3 lata temu",
+          "duree": "8:42",
+          "avatar": "https://yt3.ggpht.com/SEVvAR8HeJaQrY_SvE03XtqksEhMOwZUv24TMn_q57kJyp8v0b6W78OqrUzRjZe_8B3IXRMmOA=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 godzina nauki"
+        ]
+      },
+      "sk": {
+        "titre": [
+          "ČÍTAŤ",
+          [
+            {
+              "t": "MYŠLIENKY",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "DCjWhgSRUmg",
+          "titre": "Ako prečítať ľuďom myšlienky? | Návod na kúzlo",
+          "chaine": "Michal Ďurovič",
+          "vues": "52 tis. zhliadnutí",
+          "date": "pred 6 rokmi",
+          "duree": "8:01",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mL_FMihwyWJE-gNkf6M0tH0twM3lDIjfGgvWDuiiy6EQit=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 hodina na naučenie"
+        ]
+      },
+      "hr": {
+        "titre": [
+          "ČITATI",
+          [
+            {
+              "t": "MISLI",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "AVyGZBaJrW0",
+          "titre": "Čitanje misli putem videa | Magic Leon",
+          "chaine": "Magic Leon",
+          "vues": "121 tis. pregleda",
+          "date": "prije 10 godina",
+          "duree": "3:25",
+          "avatar": "https://yt3.ggpht.com/xKIOUW80dhqs04oyjkf5uzcAiqf7th3W-YwPMnKnGcqclV_u65oaos4SwKeZBUU5EvJBQCWU=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 sat učenja"
+        ]
+      },
+      "sv": {
+        "titre": [
+          "LÄSA",
+          [
+            {
+              "t": "TANKAR",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "uccZ86MGJHQ",
+          "titre": "LÄR DIG LÄSA TANKAR! TROLLERISKOLA DEL 13",
+          "chaine": "Douglas Nordenbelt",
+          "vues": "35 tn visningar",
+          "date": "för 6 år sedan",
+          "duree": "9:40",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPPqDaGgNcgsSt1roPcZkAXbf0rb3M82Y9iYLQSJp6ZQ=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 timme att lära sig"
+        ]
+      },
+      "lv": {
+        "titre": [
+          "LASĪT",
+          [
+            {
+              "t": "DOMAS",
+              "couleur": "#6a4bb3"
+            }
+          ]
+        ],
+        "video": {
+          "id": "WrbK_0d9690",
+          "titre": "Es Spēju Nolasīt TAVAS Domas!",
+          "chaine": "Iluzionists Edžus",
+          "vues": "12 tūkst. skatījumu",
+          "date": "pirms 8 gadiem",
+          "duree": "4:23",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_nJUO-PjA-p4vteo78YasHI4wIhDAlvv089sYGNgPYVzHg=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "1 stunda mācību"
+        ]
+      }
+    },
+    {
+      "type": "etape",
+      "app": "sophia",
+      "fr": {
+        "titre": [
+          "COLLECTIONNER",
+          [
+            {
+              "t": "LES ANECDOTES",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "ce que j'ouvre",
+            "au lieu de scroller."
+          ]
+        },
+        "sous": [
+          "5 min par jour"
+        ]
+      },
+      "en": {
+        "titre": [
+          "COLLECT",
+          [
+            {
+              "t": "FUN FACTS",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "what I open",
+            "instead of scrolling."
+          ]
+        },
+        "sous": [
+          "5 min a day"
+        ]
+      },
+      "de": {
+        "titre": [
+          "FUN FACTS",
+          [
+            {
+              "t": "SAMMELN",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "was ich öffne,",
+            "statt zu scrollen."
+          ]
+        },
+        "sous": [
+          "5 Min. am Tag"
+        ]
+      },
+      "it": {
+        "titre": [
+          "COLLEZIONARE",
+          [
+            {
+              "t": "CURIOSITÀ",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "quello che apro",
+            "invece di scrollare."
+          ]
+        },
+        "sous": [
+          "5 min al giorno"
+        ]
+      },
+      "pt-BR": {
+        "titre": [
+          "COLECIONAR",
+          [
+            {
+              "t": "CURIOSIDADES",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "o que eu abro",
+            "em vez de rolar o feed."
+          ]
+        },
+        "sous": [
+          "5 min por dia"
+        ]
+      },
+      "tr": {
+        "titre": [
+          "İLGİNÇ BİLGİLER",
+          [
+            {
+              "t": "BİRİKTİR",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "kaydırmak yerine",
+            "açtığım şey."
+          ]
+        },
+        "sous": [
+          "günde 5 dk"
+        ]
+      },
+      "ro": {
+        "titre": [
+          "SĂ STRÂNGI",
+          [
+            {
+              "t": "CURIOZITĂȚI",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "ce deschid",
+            "în loc să dau scroll."
+          ]
+        },
+        "sous": [
+          "5 min pe zi"
+        ]
+      },
+      "cs": {
+        "titre": [
+          "SBÍRAT",
+          [
+            {
+              "t": "ZAJÍMAVOSTI",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "co otevírám",
+            "místo scrollování."
+          ]
+        },
+        "sous": [
+          "5 min denně"
+        ]
+      },
+      "hu": {
+        "titre": [
+          "GYŰJTS",
+          [
+            {
+              "t": "ÉRDEKESSÉGEKET",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "ezt nyitom meg",
+            "görgetés helyett."
+          ]
+        },
+        "sous": [
+          "napi 5 perc"
+        ]
+      },
+      "el": {
+        "titre": [
+          "ΜΑΖΕΨΕ",
+          [
+            {
+              "t": "ΠΕΡΙΕΡΓΑ ΓΕΓΟΝΟΤΑ",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "αυτό ανοίγω",
+            "αντί να σκρολάρω."
+          ]
+        },
+        "sous": [
+          "5 λεπτά τη μέρα"
+        ]
+      },
+      "sr": {
+        "titre": [
+          "SKUPLJATI",
+          [
+            {
+              "t": "ZANIMLJIVOSTI",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "ovo otvaram",
+            "umesto skrolovanja."
+          ]
+        },
+        "sous": [
+          "5 min dnevno"
+        ]
+      },
+      "es": {
+        "titre": [
+          "COLECCIONAR",
+          [
+            {
+              "t": "CURIOSIDADES",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "lo que abro",
+            "en vez de hacer scroll."
+          ]
+        },
+        "sous": [
+          "5 min al día"
+        ]
+      },
+      "es-419": {
+        "titre": [
+          "COLECCIONAR",
+          [
+            {
+              "t": "CURIOSIDADES",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "lo que abro",
+            "en lugar de hacer scroll."
+          ]
+        },
+        "sous": [
+          "5 min al día"
+        ]
+      },
+      "pl": {
+        "titre": [
+          "ZBIERAĆ",
+          [
+            {
+              "t": "CIEKAWOSTKI",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "to otwieram",
+            "zamiast scrollować."
+          ]
+        },
+        "sous": [
+          "5 min dziennie"
+        ]
+      },
+      "sk": {
+        "titre": [
+          "ZBIERAŤ",
+          [
+            {
+              "t": "ZAUJÍMAVOSTI",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "toto otváram",
+            "namiesto scrollovania."
+          ]
+        },
+        "sous": [
+          "5 min denne"
+        ]
+      },
+      "hr": {
+        "titre": [
+          "SKUPLJATI",
+          [
+            {
+              "t": "ZANIMLJIVOSTI",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "ovo otvaram",
+            "umjesto skrolanja."
+          ]
+        },
+        "sous": [
+          "5 min dnevno"
+        ]
+      },
+      "sv": {
+        "titre": [
+          "SAMLA PÅ",
+          [
+            {
+              "t": "KUL FAKTA",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "det jag öppnar",
+            "i stället för att scrolla."
+          ]
+        },
+        "sous": [
+          "5 min om dagen"
+        ]
+      },
+      "lv": {
+        "titre": [
+          "KRĀT",
+          [
+            {
+              "t": "INTERESANTUS FAKTUS",
+              "couleur": "#e07aa6"
+            }
+          ]
+        ],
+        "carte": {
+          "nom": "SOPHIA",
+          "texte": [
+            "to es atveru",
+            "ritināšanas vietā."
+          ]
+        },
+        "sous": [
+          "5 min dienā"
+        ]
+      }
+    },
+    {
+      "type": "etape",
+      "fr": {
+        "titre": [
+          "JONGLER",
+          [
+            {
+              "t": "AVEC 3 BALLES",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "2DzwmIYhNVc",
+          "titre": "Comment Jongler à 3 balles | Tuto Jonglage",
+          "chaine": "Le Livre de la Jongle",
+          "vues": "96 k vues",
+          "date": "il y a 5 ans",
+          "duree": "4:21",
+          "avatar": "https://yt3.ggpht.com/SzylGAX_zSP9MkGMQ3uxXtHl7WWfhAPFAWipPnTY3IxVp8ZuZcOUFLs4sw9MczYmiqIzmOrCvg=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 heures pour apprendre"
+        ]
+      },
+      "en": {
+        "titre": [
+          "JUGGLE",
+          [
+            {
+              "t": "3 BALLS",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "p4_IUMS4yc8",
+          "titre": "How to Juggle 3 Balls IN TWO MINUTES (Step by Step Tutorial)",
+          "chaine": "Juggleboy",
+          "vues": "1.3M views",
+          "date": "8 years ago",
+          "duree": "2:01",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mJbpfGIvh7brJHJrAh0QtK9rWmml7BnKXGTCAa0vYs_tw=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 hours to learn"
+        ]
+      },
+      "de": {
+        "titre": [
+          "MIT 3 BÄLLEN",
+          [
+            {
+              "t": "JONGLIEREN",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "N4y6P6P2T5o",
+          "titre": "Jonglieren lernen mit 3 Bällen in 3 Minuten 💡 Jonglieren Tutorial",
+          "chaine": "Der Schlaumacher | Geniale Fakten, Tipps & Lifehacks",
+          "vues": "857.726 Aufrufe",
+          "date": "vor 11 Jahren",
+          "duree": "3:15",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lfTS9KM2CJ-tY3C1k3_sRqukgW7aWFBjRUyuiQdUzLJmw=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 Stunden zum Lernen"
+        ]
+      },
+      "it": {
+        "titre": [
+          "GIOCOLERIA",
+          [
+            {
+              "t": "CON 3 PALLINE",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "fF2HJ4iSkKk",
+          "titre": "COME FARE IL GIOCOLIERE CON TRE PALLINE - Le basi della giocoleria!",
+          "chaine": "Dylan magic life",
+          "vues": "114K visualizzazioni",
+          "date": "6 anni fa",
+          "duree": "9:50",
+          "avatar": "https://yt3.ggpht.com/Hc3RW0eSG3QRqNSOa4h1uAUtMP-XtsPLHI6X_baBrtxDAyNSoinTkMNJV17WCSmiTf05AxY8Ag=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 ore per imparare"
+        ]
+      },
+      "pt-BR": {
+        "titre": [
+          "MALABARISMO",
+          [
+            {
+              "t": "COM 3 BOLINHAS",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "vNTioD4U9CM",
+          "titre": "Aprenda fácil em casa: malabarismo com 3 bolas",
+          "chaine": "O Amigo do Treino",
+          "vues": "293 mil visualizações",
+          "date": "há 6 anos",
+          "duree": "6:31",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_nLFqojBZ2Ed3ft2_NjdCrU7RmUpMzS-s8SeC5JWE7YwQ=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 horas para aprender"
+        ]
+      },
+      "tr": {
+        "titre": [
+          "3 TOPLA",
+          [
+            {
+              "t": "JONGLÖRLÜK",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "ucIUmujGq7E",
+          "titre": "JONGLÖRLÜK: 3 TOP NASIL ÇEVRİLİR? / CASCADE",
+          "chaine": "Jonglörlük Eğitimleri",
+          "vues": "7,8 B görüntüleme",
+          "date": "6 yıl önce",
+          "duree": "5:58",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mGk7LzNqk8dyGN_JBQYYeDuuOdF4rM6xEfWVyNSITVskE=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 saatte öğrenilir"
+        ]
+      },
+      "ro": {
+        "titre": [
+          "SĂ JONGLEZI",
+          [
+            {
+              "t": "CU 3 MINGI",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "fYVZoyf8Pek",
+          "titre": "cum sa jonglezi cu 3 mingi",
+          "chaine": "Wiki Freaks",
+          "vues": "976 vizionări",
+          "date": "acum 8 ani",
+          "duree": "4:28",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_nd9aK0H5waYsjmRgh96k8p96NKHTotUZ1KD1vttqXdPA=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 ore de învățat"
+        ]
+      },
+      "cs": {
+        "titre": [
+          "ŽONGLOVAT",
+          [
+            {
+              "t": "SE 3 MÍČKY",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "TfBcaMNL5qg",
+          "titre": "NÁVOD - Jak se naučit žonglovat",
+          "chaine": "HXIM",
+          "vues": "34 tis. zhlédnutí",
+          "date": "před 9 lety",
+          "duree": "3:34",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkQTWwewMP1aiDY18dWPc_ePqb6qMvAjLtQWJj6KZqj-o=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2–3 hodiny na naučení"
+        ]
+      },
+      "hu": {
+        "titre": [
+          "ZSONGLŐRKÖDNI",
+          [
+            {
+              "t": "3 LABDÁVAL",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "FeYTIP0tTyY",
+          "titre": "Hogyan tanulj meg zsonglőrködni 1 óra alatt, 3 egyszerű lépésben!",
+          "chaine": "Gábor Simkó",
+          "vues": "66 E megtekintés",
+          "date": "9 évvel ezelőtt",
+          "duree": "7:26",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_kp-88O3cOXpIOg8_PbUxQkI4WwR0_UYj38JX8gYC-hdPs=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 óra a tanuláshoz"
+        ]
+      },
+      "el": {
+        "titre": [
+          "ΖΟΓΚΛΑΡΕ",
+          [
+            {
+              "t": "ΜΕ 3 ΜΠΑΛΑΚΙΑ",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "OaSHXKXOzEo",
+          "titre": "Βασικά κόλπα με μπαλάκια",
+          "chaine": "StamaLoco",
+          "vues": "775 προβολές",
+          "date": "πριν από 4 έτη",
+          "duree": "1:46",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mDV56NDDHZKpi-lPd529IDizAAqm-U5gIupYm6iAujxg=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 ώρες για να μάθεις"
+        ]
+      },
+      "sr": {
+        "titre": [
+          "ŽONGLIRATI",
+          [
+            {
+              "t": "SA 3 LOPTICE",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "X0sULDnW2e4",
+          "titre": "KAKO ŽONGLIRATI SA 3 LOPTICE",
+          "chaine": "DULEPLAY",
+          "vues": "4,5 hilj. pregleda",
+          "date": "pre 8 godina",
+          "duree": "4:01",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lfRx9D14frftUi8vhDIvT01v05k2T3ACjRIDhvRMvVWhc=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 sata za učenje"
+        ]
+      },
+      "es": {
+        "titre": [
+          "HACER MALABARES",
+          [
+            {
+              "t": "CON 3 PELOTAS",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "iOm5RvTSq0w",
+          "titre": "MALABARES CON 3 BOLAS - APRENDE POR FIN",
+          "chaine": "Juan Expósito",
+          "vues": "6,9 K visualizaciones",
+          "date": "hace 10 meses",
+          "duree": "12:19",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_npy9f6Jpp_DKVk4C2guWXTzbNLTVVAgiaL22ZZvMk5NPw=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 horas para aprender"
+        ]
+      },
+      "es-419": {
+        "titre": [
+          "HACER MALABARES",
+          [
+            {
+              "t": "CON 3 PELOTAS",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "Ys5cJ6fMBOc",
+          "titre": "Tutorial Malabares - 3 pelotas - Cascada",
+          "chaine": "Juggler Master",
+          "vues": "538 k vistas",
+          "date": "hace 9 años",
+          "duree": "3:56",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lEZnXAlvG06saIMplUt6JF_kSsXrNaTSlljYO6kVvecg=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 horas para aprender"
+        ]
+      },
+      "pl": {
+        "titre": [
+          "ŻONGLOWAĆ",
+          [
+            {
+              "t": "3 PIŁKAMI",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "gi0qOA2Jkp0",
+          "titre": "WF w domu - Jak nauczyć się żonglować 3 piłeczkami w mniej niż 5 minut - trening w domu",
+          "chaine": "BIELECKI-ES",
+          "vues": "95 tys. wyświetleń",
+          "date": "6 lat temu",
+          "duree": "5:53",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_nGEbxE3mQHl6xl08i2qsLNyySIOvnWjUMUe38Ey32-IV0=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 godziny nauki"
+        ]
+      },
+      "sk": {
+        "titre": [
+          "ŽONGLOVAŤ",
+          [
+            {
+              "t": "S 3 LOPTIČKAMI",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "mgzLm4Fy0vI",
+          "titre": "Ako sa naučiť žonglovať s 3 loptičkami",
+          "chaine": "Alena Štefunková",
+          "vues": "9,4 tis. zhliadnutí",
+          "date": "pred 5 rokmi",
+          "duree": "4:33",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lTzbIwr2J2KANPnJdI1pLsL_mBZR_m6At9HzBS-BUvirPO=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 hodiny na naučenie"
+        ]
+      },
+      "hr": {
+        "titre": [
+          "ŽONGLIRATI",
+          [
+            {
+              "t": "S 3 LOPTICE",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "0eTqPkeaTPI",
+          "titre": "Kako Žonglirati Sa 3 Loptice?",
+          "chaine": "DakiMC",
+          "vues": "68 tis. pregleda",
+          "date": "prije 7 godina",
+          "duree": "3:44",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mCTo2OptHGpxKfCm31FcG8rB52wT03jIJPmQLPkbvqmA=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 sata učenja"
+        ]
+      },
+      "sv": {
+        "titre": [
+          "JONGLERA",
+          [
+            {
+              "t": "MED 3 BOLLAR",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "IWQGUnqXdk4",
+          "titre": "LÄR DIG JONGLERA!",
+          "chaine": "Douglas Nordenbelt",
+          "vues": "74 tn visningar",
+          "date": "för 7 år sedan",
+          "duree": "9:53",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPPqDaGgNcgsSt1roPcZkAXbf0rb3M82Y9iYLQSJp6ZQ=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 timmar att lära sig"
+        ]
+      },
+      "lv": {
+        "titre": [
+          "ŽONGLĒT",
+          [
+            {
+              "t": "AR 3 BUMBIŅĀM",
+              "couleur": "#2f8f5b"
+            }
+          ]
+        ],
+        "video": {
+          "id": "X173FTIq2dg",
+          "titre": "3. Žonglēšanas ievadkurss. Kaskāde ar 3 bumbiņām",
+          "chaine": "Rīgas cirka skola",
+          "vues": "4,5 tūkst. skatījumu",
+          "date": "pirms 6 gadiem",
+          "duree": "12:09",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_mSQkC-Eu52rYOAXJFaujJ0l8PZE59I_18_WojWRyvoWA=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "2-3 stundas mācību"
+        ]
+      }
+    },
+    {
+      "type": "etape",
+      "fr": {
+        "titre": [
+          "PLIER UN OISEAU",
+          [
+            {
+              "t": "EN ORIGAMI",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "YuLWOToOWBE",
+          "titre": "Comment faire une grue traditionnelle en origami (facile !)",
+          "chaine": "L'Atelier de Thomas",
+          "vues": "23 k vues",
+          "date": "il y a 1 an",
+          "duree": "4:38",
+          "avatar": "https://yt3.ggpht.com/7rqyaoG0qMafPaa37JOyZuskBzwZwWDID-RyfsEDqJbxEY2gmT_3MVh4iWynPbYT7QbO3UXI=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 min pour apprendre"
+        ]
+      },
+      "en": {
+        "titre": [
+          "FOLD AN",
+          [
+            {
+              "t": "ORIGAMI BIRD",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "NXs0ckqVYwg",
+          "titre": "How to Fold an Origami Crane",
+          "chaine": "Japanese American National Museum",
+          "vues": "268K views",
+          "date": "6 years ago",
+          "duree": "4:19",
+          "avatar": "https://yt3.ggpht.com/Sdnoh2bgEwJbIinR6o52fKRABOOY1tuF-ay6OvAYCLMWGz31sDZHai2cP-UVPnF0RYQqdRqMIw=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 min to learn"
+        ]
+      },
+      "de": {
+        "titre": [
+          [
+            {
+              "t": "ORIGAMI-VÖGEL",
+              "couleur": "#2f6fb5"
+            }
+          ],
+          "FALTEN"
+        ],
+        "video": {
+          "id": "NyrQDdHCXMs",
+          "titre": "Origami-Anleitung: Kranich",
+          "chaine": "Tavins Origami-Anleitungen",
+          "vues": "2 Mio. Aufrufe",
+          "date": "vor 16 Jahren",
+          "duree": "6:02",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkCf0gfFaEzevZxd82GOYZ2-a5UhsYrIZNi3hitLvLwA=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 Min. zum Lernen"
+        ]
+      },
+      "it": {
+        "titre": [
+          "PIEGARE UN UCCELLO",
+          [
+            {
+              "t": "IN ORIGAMI",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "_7-3OyY5nXc",
+          "titre": "Tutorial Origami Gru | Come Fare una Gru di Carta | Uccelli di Origami",
+          "chaine": "Sig. Origami facili : Mestieri di carta",
+          "vues": "927 visualizzazioni",
+          "date": "1 anno fa",
+          "duree": "4:01",
+          "avatar": "https://yt3.ggpht.com/W5XCYwDR4_CHB3xN1UfwrK3x47Te6nIgO1qpIDRKhJdpQ6pwz6gsf6P1_XIWMJsWauJEJPQewA=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 min per imparare"
+        ]
+      },
+      "pt-BR": {
+        "titre": [
+          "FAZER UM PÁSSARO",
+          [
+            {
+              "t": "DE ORIGAMI",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "ns3GEOA87qE",
+          "titre": "ORIGAMI - COMO FAZER UM TSURU: Passo A Passo Fácil e Simples",
+          "chaine": "Inspirando Ideias",
+          "vues": "129 mil visualizações",
+          "date": "há 5 anos",
+          "duree": "6:51",
+          "avatar": "https://yt3.ggpht.com/GNxfBiAeKs4itGZW5muiAIHTHFLScKkxmjp88miSaNBzJJZD3i9-Fdsdj3sMMbtcKkwsKuo39w=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 min para aprender"
+        ]
+      },
+      "tr": {
+        "titre": [
+          "ORİGAMİ",
+          [
+            {
+              "t": "KUŞ YAPMAK",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "eUiR3_1QW-s",
+          "titre": "Origami Turna Kuşu Yapımı Kolay, Kağıttan Kuş Nasıl Yapılır?",
+          "chaine": "Origami Mate",
+          "vues": "165 B görüntüleme",
+          "date": "5 yıl önce",
+          "duree": "9:09",
+          "avatar": "https://yt3.ggpht.com/i_3vIHPGKFuZtzT_7pCsQDVEyqgWIJ1eHouWSapJkp6Gz24pbKg_R_gnI_31n1O4BqPW6rYH-w=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "öğrenmek için 15 dk"
+        ]
+      },
+      "ro": {
+        "titre": [
+          "SĂ FACI O PASĂRE",
+          [
+            {
+              "t": "ORIGAMI",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "pXKaFs-kfl8",
+          "titre": "Lecția de origami - Cum se face un cocor japonez",
+          "chaine": "Romania Libera",
+          "vues": "65 K vizionări",
+          "date": "acum 15 ani",
+          "duree": "6:29",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_k9_UCQ8t3RgeRyRxQ_PC3puhRzOGIpXDLA0fly0TKgcA=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 min ca să înveți"
+        ]
+      },
+      "cs": {
+        "titre": [
+          "SLOŽIT",
+          [
+            {
+              "t": "ORIGAMI PTÁČKA",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "FrBidKzGrhM",
+          "titre": "Návod na origami jeřába",
+          "chaine": "Brýdová Monika",
+          "vues": "4,7 tis. zhlédnutí",
+          "date": "před 9 lety",
+          "duree": "6:27",
+          "avatar": "https://yt3.ggpht.com/dKBtf51dRoPWH3m8FjQXSQyjncd_uU19wpBK_mewY4S27yoFAhTfPy0Kd-nQKeWTVQZF5pmCTA=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 minut na naučení"
+        ]
+      },
+      "hu": {
+        "titre": [
+          "ORIGAMI",
+          [
+            {
+              "t": "MADARAT HAJTOGATNI",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "AW6OtmIRXDQ",
+          "titre": "Daru hajtogatás: Origami papír daru madár DIY - OszlánszkiART",
+          "chaine": "Oszlánszki Marcsi",
+          "vues": "53 E megtekintés",
+          "date": "9 évvel ezelőtt",
+          "duree": "6:01",
+          "avatar": "https://yt3.ggpht.com/y1oBEKqoDU-zPFFKBb_QKbVBMLO2GMcR1vkvVTKZwq0h7R5UK8uSVjU9YEwMT43oG-zUp8_v=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 perc a tanuláshoz"
+        ]
+      },
+      "el": {
+        "titre": [
+          "ΦΤΙΑΞΕ ΠΟΥΛΙ",
+          [
+            {
+              "t": "ΟΡΙΓΚΑΜΙ",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "v3Y9J84CEI4",
+          "titre": "Θέλω να φτιάξω...Οριγκάμι Γερανό!!!",
+          "chaine": "Greek DIY",
+          "vues": "11 χιλ. προβολές",
+          "date": "πριν από 6 έτη",
+          "duree": "5:22",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_kEZo2O0_iy2ICnP_eLc4iPIXKcz9D1UTta3D_hsHMjSg=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 λεπτά για να το μάθεις"
+        ]
+      },
+      "sr": {
+        "titre": [
+          "NAPRAVITI",
+          [
+            {
+              "t": "ORIGAMI PTICU",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "bfbqGYBox-o",
+          "titre": "🔴KAKO SE PRAVI ORIGAMI ŽDRAL",
+          "chaine": "NadatheatreTV",
+          "vues": "6,2 hilj. pregleda",
+          "date": "pre 4 godine",
+          "duree": "4:11",
+          "avatar": "https://yt3.ggpht.com/R4FoKjxXZdZZ-0fmSKO7pPvznPLtAgV0C-NSrYfeFnVKrxczM0MApGMNj_GF8lulsVBU2xbmDA=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 min za učenje"
+        ]
+      },
+      "es": {
+        "titre": [
+          "HACER UN PÁJARO",
+          [
+            {
+              "t": "DE PAPIROFLEXIA",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "LLbWxDWqtQg",
+          "titre": "Cómo hacer grulla de papel (origami - papiroflexia)",
+          "chaine": "Papelisimo",
+          "vues": "5,9 M de visualizaciones",
+          "date": "hace 11 años",
+          "duree": "7:25",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_kZ8-6Z5EhWGTY_Wo5z5mopp6vN5c1ATWWX3Dx4RZdLtA=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 min para aprender"
+        ]
+      },
+      "es-419": {
+        "titre": [
+          "HACER UN PÁJARO",
+          [
+            {
+              "t": "DE ORIGAMI",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "UkA-v1g5hu4",
+          "titre": "Cómo hacer una grulla de papel con origami ¡Fácil! Tutorial paso a paso",
+          "chaine": "Manualidades Play",
+          "vues": "3.1 M de vistas",
+          "date": "hace 4 años",
+          "duree": "4:33",
+          "avatar": "https://yt3.ggpht.com/ebUZcUT-pZZm1MHvMXoLMMKkNS143JeRCivKEcCnJIzz7264KyODt1crMNwTOmMNrA7CxLJ45Q=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 min para aprender"
+        ]
+      },
+      "pl": {
+        "titre": [
+          "ZŁOŻYĆ PTAKA",
+          [
+            {
+              "t": "ORIGAMI",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "RAPyfgFk14k",
+          "titre": "Żuraw Origami - prosta instrukcja / Origami Crane - easy instruction",
+          "chaine": "Lubię Tworzyć",
+          "vues": "55 tys. wyświetleń",
+          "date": "10 lat temu",
+          "duree": "7:44",
+          "avatar": "https://yt3.ggpht.com/KK84JU-N1pl8KlD-_id2ZhqiXHqq3oHIvbAIqNoZM6iGEYgH64UEzFZYtkHJ3a5xB-I_VxmP4Q=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 min nauki"
+        ]
+      },
+      "sk": {
+        "titre": [
+          "ZLOŽIŤ",
+          [
+            {
+              "t": "ORIGAMI VTÁČIKA",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "kWUkAq3OlLA",
+          "titre": "Vtáčik ktorý máva krídlami, ľahká skladačka, zábava pre deti,výrobky z papiera, veci z papiera",
+          "chaine": "Marwin TV",
+          "vues": "15 tis. zhliadnutí",
+          "date": "pred 6 rokmi",
+          "duree": "5:07",
+          "avatar": "https://yt3.ggpht.com/ytc/AIdro_lPDVvGaEonTO--2LxytSnKoV0LmDdlUM-fv3fAbOB_lQ=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 min na naučenie"
+        ]
+      },
+      "hr": {
+        "titre": [
+          "NAPRAVITI",
+          [
+            {
+              "t": "ORIGAMI PTICU",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "CjFZ9sbo8xM",
+          "titre": "Origami ždral - Tagai",
+          "chaine": "Tagai",
+          "vues": "60 tis. pregleda",
+          "date": "prije 10 godina",
+          "duree": "5:03",
+          "avatar": "https://yt3.ggpht.com/Ia2hCFTA8x8iNlq2GMErPlKtSInI4FHy5A6q-LtmT5l0YfQFRRDofk5UWc419wrA-DDtgibQeg=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 min učenja"
+        ]
+      },
+      "sv": {
+        "titre": [
+          "VIKA EN",
+          [
+            {
+              "t": "ORIGAMIFÅGEL",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "64aoBTHy5kY",
+          "titre": "Lär dig vika en trana -  origami",
+          "chaine": "Världskulturmuseerna",
+          "vues": "47 tn visningar",
+          "date": "för 5 år sedan",
+          "duree": "6:07",
+          "avatar": "https://yt3.ggpht.com/WqyyhDEqb5rWpZs40fU3a0y3n9lUoz3c0xtR8XtORm2GAgxivWO5i532bFcDRtd4qcrplEnbhQ=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 min att lära sig"
+        ]
+      },
+      "lv": {
+        "titre": [
+          "SALOCĪT",
+          [
+            {
+              "t": "ORIGAMI PUTNU",
+              "couleur": "#2f6fb5"
+            }
+          ]
+        ],
+        "video": {
+          "id": "rx1hJgn60lI",
+          "titre": "Origami papīra dzērve | Kā izgatavot papīra dzērvi | Origami putns",
+          "chaine": "RAIDO TV",
+          "vues": "411 skatījumu",
+          "date": "pirms 4 gadiem",
+          "duree": "8:28",
+          "avatar": "https://yt3.ggpht.com/K9M6dr9Z6Dwd5u_1ITU9rUkdmDGSQ08IigH848WDgTU8Jt3ZO9BY8wt9LmokO9MHwv9T4ZxWWQ=s176-c-k-c0x00ffffff-no-rj"
+        },
+        "sous": [
+          "15 min mācību"
+        ]
+      }
+    }
+  ]
+}

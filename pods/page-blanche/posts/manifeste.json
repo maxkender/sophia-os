@@ -6839,6 +6839,60 @@
    "notes": "declinaison G2 de var-mains-1, cta B",
    "type_bleo": "declinaison",
    "parent_contenu_id": "46826ee9-104f-43f7-ac7c-c9f0fc8aa61e"
+  },
+  {
+   "post_id": "var-concentration-3",
+   "url": "https://www.tiktok.com/@amayareading/video/7695416366886604064?variante=var-concentration-1?variante=var-concentration-3",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#focus #concentration #etudes",
+   "musique": {
+    "titre": "deftones",
+    "auteur": "shmeswon",
+    "original": true,
+    "id": "7373989994559556385",
+    "url_tiktok": "https://www.tiktok.com/music/x-7373989994559556385"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7695416366886604064_1",
+    "2": "7695416366886604064_2",
+    "3": "7695416366886604064_4",
+    "4": "7695416366886604064_5",
+    "5": "7688807102764092705_4",
+    "6": "7695416366886604064_6"
+   },
+   "notes": "declinaison G2 de var-concentration-1, cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "e33727f2-8bdc-4610-9630-785e61c1e892"
+  },
+  {
+   "post_id": "var-matins-3",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#matin #routine #ironie",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "Jacob . P",
+    "original": true,
+    "id": "7578950962941840150",
+    "url_tiktok": "https://www.tiktok.com/music/x-7578950962941840150"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7680975889932225814_1",
+    "2": "7692093201968090401_5",
+    "3": "7684726544442346774_6",
+    "4": "7684726544442346774_3",
+    "5": "7692093201968090401_2",
+    "6": "7695416366886604064_4"
+   },
+   "notes": "declinaison G2 de var-weekend-4, cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "5e74117a-ae6f-49a2-a593-a5e8a912bae4"
   }
  ]
 }

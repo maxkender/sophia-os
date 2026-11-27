@@ -69,11 +69,11 @@
       "url": "https://www.metmuseum.org/art/collection/search/437397"
     }
   },
-  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Van Gogh, Roses (1890) : peint à Saint-Rémy en mai 1890 avant le départ pour Auvers (16 mai) ; mort le 29 juillet 1890 ; roses à l'origine roses, le pigment rouge (laque) a pâli (notice du Met). Manet, La Famille Monet dans son jardin à Argenteuil (1874) : Camille et Jean Monet, Monet au jardin ; Renoir peint la même scène à côté (National Gallery of Art, Washington) ; Camille morte en septembre 1879 à 32 ans. Chardin, Les Bulles de savon (vers 1733-34) : au moins trois versions (Met, LACMA, NGA) ; thème de la vanité. Rembrandt, Autoportrait (1660) : 54 ans ; faillite en 1656, maison et collection vendues (1657-58). Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou).",
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Van Gogh, Roses (1890) : peint à Saint-Rémy en mai 1890 avant le départ pour Auvers (16 mai) ; mort le 29 juillet 1890 ; roses à l'origine roses, le pigment rouge (laque) a pâli (notice du Met). Manet, La Famille Monet dans son jardin à Argenteuil (1874) : Camille et Jean Monet, Monet au jardin ; Renoir peint la même scène à côté (National Gallery of Art, Washington) ; Camille morte en septembre 1879 à 32 ans. Chardin, Les Bulles de savon (vers 1733-34) : au moins trois versions (Met, LACMA, NGA) ; thème de la vanité. Rembrandt, Autoportrait (1660) : 54 ans ; faillite en 1656, maison et collection vendues (1657-58). Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
   "slides": [
     {
       "type": "couverture",
-      "image": "images/photos/musee-adieu.jpg",
+      "image": "images/banque/musee-couloir-sombre.jpg",
       "en": {
         "titre": "Paintings That Feel Like A Goodbye"
       },
@@ -321,5 +321,8 @@
         "artiste": "Rembrandt"
       }
     }
-  ]
+  ],
+  "banque": {
+    "images/banque/musee-couloir-sombre.jpg": "0c839a5a-827d-4442-82c1-6e774a3fd4bd"
+  }
 }

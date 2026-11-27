@@ -35,7 +35,8 @@ rejette est validée toute seule 5 h après son dépôt.
 - **Les images** :
 	- la couverture : six images (trois en haut, trois en bas) : trois IRM ou cerveaux en fausses couleurs (`npm run image -- <nom> "<la vue>" --scan`) et trois silhouettes ou scènes sombres ;
 	- les points : deux photos sombres par slide (une seule pour la fin), en Seedream (`npm run image -- <nom> "<la scène>"`) ou de la banque de l'OS (`npm run photos -- "<mots>" --toute-banque`, puis `--garder <id> <nom>` et l'id dans `banque` du post) ;
-	- jamais une célébrité ni une scène de film (lui en met : jamais chez nous), jamais un visage reconnaissable, jamais une marque ni un écran lisible ; regarde chaque image en taille réelle, une image ratée (mains, texte, filigrane) part à la poubelle ;
+	- **ses propres images d'abord** (Adrien, 27/11 : célébrités, scènes de film et visages autorisés, comme dans `pods/ROUTINE.md` §4) : `npm run veille` garde ses slides en taille réelle, `npm run compte` en découpe les photos (`sortie/compte/`, planches à regarder), `npm run compte -- --garder <case> <nom>` en garde une dans `images/photos/c-<nom>.jpg` ; une case qui mélange deux photos ou mord sur du texte ne se garde pas ;
+	- une seule limite : la photo de la **slide Sophia** n'est jamais une personne reconnaissable ; regarde chaque image en taille réelle, une image ratée (mains, texte parasite, filigrane) part à la poubelle ;
 	- jamais deux fois la même image dans un post ; change d'images d'un post à l'autre.
 
 ## Son style, déjà dans l'atelier
@@ -55,6 +56,7 @@ Lance `npm install` une fois par session. `photos`, `livrer`, `etat` et `boite` 
 | Commande | Effet |
 | --- | --- |
 | `npm run veille` | Relève ses posts en direct (Apify) et en fait des planches. Budget : 1 $ par semaine glissante. |
+| `npm run compte [-- --garder <case> <nom>]` | Découpe les photos de ses slides relevées par `npm run veille` (`sortie/compte/`, planches) ; `--garder` en copie une dans `images/photos/c-<nom>.jpg`. |
 | `npm run image -- <nom> "<la scène>" [--scan]` | Une image Seedream carrée dans `images/photos/` : une photo sombre, ou une IRM en fausses couleurs (`--scan`). |
 | `npm run photos -- "<mots>" [--toute-banque] [--personnes]` | Cherche dans la banque de l'OS : la planche `sortie/photos/<mots>.jpg`. `--garder <id> <nom>` garde une photo. |
 | `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/es/<n>.jpg`) et la planche `sortie/apercus/<id>.es.jpg`. |

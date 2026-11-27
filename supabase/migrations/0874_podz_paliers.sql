@@ -39,8 +39,8 @@
 -- Une tâche horaire (`podz-paliers`) fait entrer les nouveaux labels, monte
 -- les paliers et ouvre leurs langues.
 --
--- ⏳ À appliquer (MCP) : la première tentative du 27/11 attend l'accord
--- d'Adrien. Additive : deux colonnes, un journal, un
+-- ✅ Appliquée le 2026-11-27 (MCP), après l'accord d'Adrien ; premier passage :
+-- ssazem, msclzz, scilla_art et dorian_art au palier 1. Additive : deux colonnes, un journal, un
 -- réglage, six fonctions, une tâche ; la soupape exclut les labels au palier.
 -- Retour arrière : `select cron.unschedule('podz-paliers')`, mettre
 -- `labels.palier_podz` à null partout (le moteur retombe sur l'ancien test),

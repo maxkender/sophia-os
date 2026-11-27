@@ -85,6 +85,15 @@
  * label 100 % podz en texte + banque (aucune liste de langues) ou dont le podz
  * est en pause n'a pas de place.
  *
+ * PALIERS DES LABELS 100 % PODZ (0874, décision d'Adrien du 27/11). Un label
+ * au palier n'est plus testé : palier 1 = 7 langues × 1 compte, palier 2 =
+ * 14 × 1, palier 3 = 14 × 2 (une semaine à r > 0,9 fait monter, tâche
+ * `podz_paliers_maj`, qui ouvre aussi les langues). Ses places (langue
+ * ouverte, moins de comptes que sa cible) passent avant tout, comme la place
+ * libre ; hors de ses places il est écarté (`palierPlein`). Les nouveaux
+ * labels 100 % podz y entrent d'office, un ancien par `podz_passer_en_paliers`.
+ * Palier et cible viennent de `podz_places_langue` (`statsChoixLabel`).
+ *
  * Module pur : les chiffres viennent de `stats_choix_label` (migration 0287),
  * les réglages de `reglages.choix_labels` (`lireReglagesChoixLabel`).
  */
@@ -141,6 +150,18 @@ export interface StatLabelCreation {
    * Posé par `statsChoixLabel`, absent des vieilles lectures : faux.
    */
   langue_ouverte?: boolean;
+  /**
+   * PALIER du label 100 % podz (0874) : 1, 2 ou 3 ; nul ou absent = l'ancien
+   * test (`testPodComptes` comptes, `testPodPosts` posts). Posé par
+   * `statsChoixLabel` (`podz_places_langue`).
+   */
+  palier_podz?: number | null;
+  /**
+   * Comptes que le label peut avoir dans la langue du compte (0874) : celle de
+   * son palier (1 ou 2) si un podz actif l'a ouverte, 1 sans palier, 0 pour un
+   * label au palier hors de ses langues. Absent : 1.
+   */
+  cible_langue?: number | null;
 }
 
 /** Une fermeture mémorisée : clé `cleFermeture(application, label)`. */
@@ -310,6 +331,8 @@ export function normaliserStatLabel(brut: Record<string, unknown>): StatLabelCre
     niveau_pod: nombreOuNull(brut.niveau_pod),
     contenus_valides: nombreOuNull(brut.contenus_valides),
     langue_ouverte: brut.langue_ouverte === true,
+    palier_podz: nombreOuNull(brut.palier_podz),
+    cible_langue: nombreOuNull(brut.cible_langue),
   };
 }
 
@@ -416,6 +439,8 @@ export function enAvanceRemplissage(s: StatLabelCreation): boolean {
  */
 export function enTestPod(s: StatLabelCreation, r: ReglagesChoixLabel, applicationId: string): boolean {
   if (!estPodSeul(s)) return false;
+  // 0874 : un label au palier n'est jamais en test, ses places font la règle.
+  if (s.palier_podz) return false;
   if (s.comptes_total > r.testPodComptes) return false;
   if (r.ouvertsApp.includes(cleFermeture(applicationId, s.label_id)) || r.ouverts.includes(s.label_id)) return false;
   const rel = perfRelative(s);
@@ -451,7 +476,18 @@ export function placeLibrePod(s: StatLabelCreation): boolean {
   // `livre_langue` faux : le label n'a encore AUCUN contenu pour l'application
   // (0654). Un podz qui n'a rien livré ne tire pas de compte : il n'aurait rien
   // à poster.
-  return estPodSeul(s) && s.langue_ouverte === true && s.livre_langue !== false && s.comptes_langue === 0;
+  // 0874 : jusqu'à la cible de la langue (1 compte, ou 2 au palier 3), plus seulement une langue vide.
+  return estPodSeul(s) && s.langue_ouverte === true && s.livre_langue !== false &&
+    s.comptes_langue < Math.max(1, s.cible_langue ?? 1);
+}
+
+/**
+ * PALIER PLEIN (0874) : un label au palier ne reçoit un compte QUE sur une de
+ * ses places (langue ouverte, sous sa cible). Ailleurs, il est écarté comme un
+ * label fermé : il attend sa semaine à r > 0,9 (tâche `podz_paliers_maj`).
+ */
+export function palierPlein(s: StatLabelCreation): boolean {
+  return estPodSeul(s) && Boolean(s.palier_podz) && !placeLibrePod(s);
 }
 
 /** Stock compté dans le poids ; un label 100 % pod n'est pas jugé sur son stock. */
@@ -592,7 +628,7 @@ export function classerLabels(
     // 0794 : une place libre passe le plafond du test (la langue ouverte est la décision).
     (s) =>
       opts.ignorerFermeture ||
-      (!estFerme(s.label_id, app, r, s) && (!testPodPlein(s, r, app) || placeLibrePod(s))),
+      (!estFerme(s.label_id, app, r, s) && !palierPlein(s) && (!testPodPlein(s, r, app) || placeLibrePod(s))),
   );
   if (liste.length === 0) return [];
 

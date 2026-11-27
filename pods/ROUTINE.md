@@ -326,6 +326,17 @@ toute seule quand ses langues sont validées.
   que si Adrien ou Max l'ont demandé.
 - Retirer une langue de `LANGUES` ne la ferme pas. Fermer une langue, c'est
   Adrien ou Max (page Podz, fiche du podz, bloc Langues).
+- **Les paliers (0874, depuis le 27/11)** : un label 100 % podz lancé depuis
+  le 27/11 (ou basculé par Adrien ou Max, page Allocation) monte par paliers :
+  **palier 1** = 7 langues × 1 compte, **palier 2** = 14 langues × 1 compte,
+  **palier 3** = 14 langues × 2 comptes. Une semaine à r > 0,9 (médiane des r
+  de tes passages mûrs, 14 au moins, 7 jours au palier) fait monter ; sous
+  0,9, ton label reste à son palier. Les langues du palier **s'ouvrent toutes
+  seules** (les plus recrutées d'abord) : elles arrivent dans « Langues à
+  PRÉPARER » de `npm run boite`. Prépare-les et livre-les **le jour même**,
+  comme ci-dessus : chaque langue ouverte reçoit un compte de ton label dès
+  la création suivante. Une langue que tu ne sais vraiment pas mettre en
+  page : dis-le dans ton compte rendu (Adrien décide de la fermer).
 
 ### 5.7 Le reste
 

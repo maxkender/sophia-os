@@ -1,0 +1,465 @@
+{
+ "id": "bm-013",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@thebiomechanic/photo/7695054241534168342",
+  "vues": 397500,
+  "publie_le": "2026-10-10",
+  "accroche": "Sports Tierlist For Optimal Health (Science based)"
+ },
+ "titre": {
+  "en": "new runner tierlist for optimal health",
+  "it": "tierlist del nuovo runner per una salute ottimale",
+  "hu": "kezdő futó tierlist az optimális egészségért",
+  "sr": "tierlista početnika u trčanju za optimalno zdravlje"
+ },
+ "legendes": {
+  "en": "what i wish i knew in my first month 🏃 #running #beginnerrunner #health #biohacking #fitness",
+  "it": "quello che avrei voluto sapere il primo mese 🏃 #corsa #principianti #salute #benessere #fitness",
+  "hu": "amit bárcsak tudtam volna az első hónapban 🏃 #futás #kezdőfutó #egészség #biohacking #fitness",
+  "sr": "šta bih voleo da sam znao prvog meseca 🏃 #trčanje #početnici #zdravlje #biohacking #fitnes"
+ },
+ "musique": {
+  "titre": "Becha (Sped Up)",
+  "url": "https://www.tiktok.com/music/Becha-Sped-Up-7680166793501575185"
+ },
+ "banque": {
+  "images/banque/db-maxi.jpg": "3649bc05-5bdd-463f-9346-fe7d1a933bd9",
+  "images/banque/db-douleur.jpg": "6318c5e5-4b91-4fe6-80d2-10f3f27f447f",
+  "images/banque/db-motivation.jpg": "4aba2b3f-7898-4323-ba06-00ac0014c5c2",
+  "images/banque/db-meme.jpg": "cf423203-aea2-418d-a7ce-c6b4a2349cc1",
+  "images/banque/db-tapis.jpg": "6197019c-b078-491b-b473-a4664b589b28",
+  "images/banque/db-marche.jpg": "1a353d73-96a5-4ae9-baab-fcf9497f5948",
+  "images/banque/db-amis.jpg": "0f7d97ec-d9e0-4e83-9e49-b106b3191749",
+  "images/banque/db-trois.jpg": "688dd1a8-29fe-455c-81a1-d82779a0a62b",
+  "images/banque/db-plan.jpg": "6b0e946d-5cbc-4b50-b6da-e75b41479381",
+  "images/banque/db-patience.jpg": "8fca54d8-3b36-4bef-8882-94b5e8b7f00d"
+ },
+ "notes": "Full test du 27/11 : « New Runner Tierlist For Optimal Health (Science based) », famille « Sports Tierlist » de @thebiomechanic (398 k), sujet course débutant. Source gardée pour mémoire. En, it, hu, sr (traduits à la main). Croquis neuf (debutant.jpg, Seedream). Slide Atala (10) : le premier S tier « A Plan At Your Level », une coureuse de la banque et le logo d'Atala. Texte selon placement_atala : hook de 6 mots → TOUCHE PERSO (« I started from zero with a running coach app like Atala… »), ligne « il débute », un seul argument : un plan qui part de son niveau, même de zéro, et monte petit à petit ; prévention par la méthode seulement ; version « cta M' ». Faits : les structures conjonctives (tendons, os) s'adaptent plus lentement que le système cardiorespiratoire (Magnusson et al., 2010) ; la majorité de l'entraînement des coureurs d'endurance à allure facile (Seiler) ; méthode course-marche pour débutants ; 2 à 3 séances hebdomadaires suffisent à progresser au début ; douleur aiguë qui s'aggrave pendant l'effort : s'arrêter (conseil de prudence générale, aucun diagnostic). Rien de médical.",
+ "slides": [
+  {
+   "type": "couverture",
+   "icone": "images/dessins/tete.png",
+   "dessin": "images/dessins/debutant.jpg",
+   "en": {
+    "lignes": [
+     "New Runner Tierlist",
+     "For *Optimal* Health"
+    ],
+    "note": "(Science based)"
+   },
+   "it": {
+    "lignes": [
+     "Tierlist Principianti",
+     "Salute *Ottimale*"
+    ],
+    "note": "(Basata sulla scienza)"
+   },
+   "hu": {
+    "lignes": [
+     "Kezdő Futó Tierlist",
+     "*Optimális* Egészség"
+    ],
+    "note": "(Tudományosan megalapozva)"
+   },
+   "sr": {
+    "lignes": [
+     "Tierlista Početnika",
+     "*Optimalno* Zdravlje"
+    ],
+    "note": "(Naučno zasnovano)"
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/db-maxi.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Going All Out On Day One",
+    "paragraphes": [
+     "Your heart and lungs adapt in weeks, but your tendons and bones need months. Sprinting from the first run asks too much of them.",
+     "Start slower than feels necessary. That's how you last."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "A Tutta dal Primo Giorno",
+    "paragraphes": [
+     "Cuore e polmoni si adattano in poche settimane, ma tendini e ossa hanno bisogno di mesi. Sprintare dalla prima uscita chiede loro troppo.",
+     "Parti più piano di quanto ti sembra necessario. È così che continui."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Első Nap Maxon",
+    "paragraphes": [
+     "A szív és a tüdő hetek alatt alkalmazkodik, az inak és a csontok hónapok alatt. Az első futástól sprintelni túl sokat kér tőlük.",
+     "Kezdj lassabban, mint amennyire szükségesnek tűnik. Így maradsz benne."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Maksimum od Prvog Dana",
+    "paragraphes": [
+     "Srce i pluća se prilagode za nekoliko nedelja, ali tetivama i kostima trebaju meseci. Sprint od prvog trčanja traži previše od njih.",
+     "Kreni sporije nego što ti se čini potrebnim. Tako nastavljaš."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/db-douleur.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Running Through Sharp Pain",
+    "paragraphes": [
+     "Soreness the next day is normal. A sharp pain that changes your stride is not.",
+     "If it gets worse as you run, stop and rest."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Correre col Dolore Acuto",
+    "paragraphes": [
+     "L'indolenzimento il giorno dopo è normale. Un dolore acuto che cambia la tua falcata no.",
+     "Se peggiora mentre corri, fermati e riposa."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Futás Éles Fájdalommal",
+    "paragraphes": [
+     "A másnapi izomláz normális. Az éles fájdalom, ami megváltoztatja a lépésed, nem az.",
+     "Ha futás közben rosszabb lesz, állj meg és pihenj."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Trčanje Kroz Oštar Bol",
+    "paragraphes": [
+     "Upala mišića sutradan je normalna. Oštar bol koji menja tvoj korak nije.",
+     "Ako se pojačava dok trčiš, stani i odmori."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/db-motivation.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Only When You Feel Like It",
+    "paragraphes": [
+     "Motivation comes and goes. Running only on good days means weeks off, and starting from zero again.",
+     "Fixed days beat good moods."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Solo Quando Ne Hai Voglia",
+    "paragraphes": [
+     "La motivazione va e viene. Correre solo nei giorni buoni vuol dire settimane di stop e ripartire da zero.",
+     "I giorni fissi battono il buonumore."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Csak Ha Kedved Van",
+    "paragraphes": [
+     "A motiváció jön és megy. Ha csak a jó napokon futsz, hetek maradnak ki, és újra nulláról kezdesz.",
+     "A fix napok legyőzik a jó hangulatot."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Samo Kad Ti se Trči",
+    "paragraphes": [
+     "Motivacija dolazi i odlazi. Trčanje samo u dobre dane znači nedelje pauze i kretanje od nule.",
+     "Stalni dani pobeđuju dobro raspoloženje."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/db-meme.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "The Same Pace Every Time",
+    "paragraphes": [
+     "Every run at the same speed, usually a bit too fast. It feels productive, but it slows your progress.",
+     "Most runs should feel easy enough to talk."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Sempre lo Stesso Ritmo",
+    "paragraphes": [
+     "Ogni uscita alla stessa velocità, di solito un po' troppo veloce. Sembra produttivo, ma rallenta i progressi.",
+     "Quasi tutte le corse dovrebbero permetterti di parlare."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Mindig Ugyanaz a Tempó",
+    "paragraphes": [
+     "Minden futás ugyanazzal a sebességgel, általában kicsit túl gyorsan. Hasznosnak tűnik, de lassítja a fejlődést.",
+     "A legtöbb futás legyen olyan könnyű, hogy beszélni tudj közben."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Uvek Isti Tempo",
+    "paragraphes": [
+     "Svako trčanje istom brzinom, obično malo prebrzo. Deluje korisno, ali usporava napredak.",
+     "Većina trčanja treba da bude dovoljno laka da možeš da pričaš."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/db-tapis.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Treadmill Only",
+    "paragraphes": [
+     "A treadmill is a great way to start: soft, flat and out of the rain.",
+     "It stays in C: outdoor runs teach your feet and ankles real ground."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Solo Tapis Roulant",
+    "paragraphes": [
+     "Il tapis è un ottimo modo per iniziare: morbido, piatto e al riparo dalla pioggia.",
+     "Resta in C perché fuori piedi e caviglie imparano a gestire il terreno vero."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Csak Futópad",
+    "paragraphes": [
+     "A futópad remek kezdés: puha, sík és nem ázol meg.",
+     "Azért C, mert kint a lábfejed és a bokád megtanulja a valódi talajt."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Samo Traka",
+    "paragraphes": [
+     "Traka je odličan početak: mekana, ravna i zaklonjena od kiše.",
+     "U C je jer napolju stopala i članci uče da prate pravi teren."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/db-marche.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Run-Walk Intervals",
+    "paragraphes": [
+     "Alternating a few minutes of running with a minute of walking lets you go further, with far less strain.",
+     "It's not cheating. It's how most beginners build up."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Alternare Corsa e Camminata",
+    "paragraphes": [
+     "Alternare qualche minuto di corsa con un minuto di camminata ti fa andare più lontano, con molta meno fatica.",
+     "Non è barare. È così che quasi tutti i principianti crescono in sicurezza."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Futás és Séta Váltva",
+    "paragraphes": [
+     "Ha pár perc futást egy perc sétával váltasz, messzebbre jutsz, sokkal kisebb terheléssel.",
+     "Ez nem csalás. A legtöbb kezdő így épít biztonságosan."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Trčanje i Hodanje",
+    "paragraphes": [
+     "Kad smenjuješ par minuta trčanja sa minutom hoda, stigneš dalje, uz mnogo manje opterećenja.",
+     "To nije varanje. Tako većina početnika napreduje bezbedno."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/db-amis.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Running With Friends",
+    "paragraphes": [
+     "Someone waiting for you makes it much harder to skip, and the time goes by faster.",
+     "Keep the pace easy enough that everyone can talk."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Correre con gli Amici",
+    "paragraphes": [
+     "Qualcuno che ti aspetta rende molto più difficile saltare, e il tempo passa più in fretta.",
+     "Tieni un ritmo che permetta a tutti di parlare."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Futás Barátokkal",
+    "paragraphes": [
+     "Ha valaki vár rád, sokkal nehezebb kihagyni, és gyorsabban telik az idő.",
+     "A tempó legyen olyan könnyű, hogy mindenki tudjon beszélni."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Trčanje sa Prijateljima",
+    "paragraphes": [
+     "Kad te neko čeka, mnogo je teže da preskočiš, a vreme brže prolazi.",
+     "Neka tempo bude dovoljno lak da svi mogu da pričaju."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/db-trois.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "A",
+    "nom": "Three Easy Runs A Week",
+    "paragraphes": [
+     "Two or three short, easy runs a week are enough to build your base without wearing you out.",
+     "It misses S tier because it works best with a plan."
+    ]
+   },
+   "it": {
+    "tier": "A",
+    "nom": "Tre Corse Facili a Settimana",
+    "paragraphes": [
+     "Due o tre corse brevi e facili a settimana bastano per costruire la base senza sfinirti.",
+     "Manca la S solo perché funziona meglio con un piano dietro."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Heti Három Könnyű Futás",
+    "paragraphes": [
+     "Heti két-három rövid, könnyű futás elég az alap építéséhez, kimerítés nélkül.",
+     "Csak azért nem S, mert egy tervvel működik a legjobban."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Tri Laka Trčanja Nedeljno",
+    "paragraphes": [
+     "Dva ili tri kratka, laka trčanja nedeljno su dovoljna da izgradiš bazu bez iscrpljivanja.",
+     "Nije S samo zato što najbolje radi uz plan."
+    ]
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/db-plan.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "format": "carre",
+   "en": {
+    "tier": "S",
+    "nom": "A Plan At Your Level",
+    "paragraphes": [
+     "Most beginners do too much, too soon, and stop after a few weeks.",
+     "I started from zero with a running coach app like Atala, which builds up from my level, little by little."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Un Piano al Tuo Livello",
+    "paragraphes": [
+     "Quasi tutti i principianti fanno troppo, troppo presto, e smettono dopo poche settimane.",
+     "Io sono partito da zero con un'app con coach per la corsa come Atala, che sale dal mio livello poco a poco."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Terv a Szintedhez",
+    "paragraphes": [
+     "A legtöbb kezdő túl sokat fut túl hamar, és pár hét után abbahagyja.",
+     "Én nulláról kezdtem egy futóedző appal, mint az Atala, ami a szintemről apránként emel."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Plan po Tvom Nivou",
+    "paragraphes": [
+     "Većina početnika radi previše prebrzo i odustane posle nekoliko nedelja.",
+     "Krenuo sam od nule sa aplikacijom sa trenerom za trčanje kao što je Atala, koja diže od mog nivoa malo po malo."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/db-patience.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Patience",
+    "paragraphes": [
+     "Your fitness grows slowly, then all at once. Most of the change comes after the first few months.",
+     "The runners who improve the most are simply the ones who don't stop."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Pazienza",
+    "paragraphes": [
+     "La forma cresce piano, poi tutta insieme. Quasi tutto il cambiamento arriva dopo i primi mesi.",
+     "Chi migliora di più è semplicemente chi non smette."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Türelem",
+    "paragraphes": [
+     "A forma lassan nő, aztán egyszerre. A változás nagy része az első hónapok után jön.",
+     "Azok fejlődnek a legtöbbet, akik egyszerűen nem hagyják abba."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Strpljenje",
+    "paragraphes": [
+     "Forma raste polako, pa odjednom. Najveći deo promene dolazi posle prvih meseci.",
+     "Najviše napreduju oni koji jednostavno ne odustanu."
+    ]
+   }
+  }
+ ]
+}

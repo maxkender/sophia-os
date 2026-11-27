@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o468",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e4d18681-6747-43ef-8fda-427f855a0529",
+ "titre": "Conversation habits of really intelligent men #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "e4d18681-6747-43ef-8fda-427f855a0529"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 6 de la boîte (e4d18681), 3e et dernière déclinaison après ay-o432 et ay-o449. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o432, o449, o293, o308, o325.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b9fae1c0-59bd-4fe4-b296-9e94497ae520",
+   "texte_overlay": "Conversation habits of\nreally intelligent men",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "They ask what you mean before disagreeing. \"What do you mean by fair?\" Clarifying words avoids pointless arguments.",
+   "media_id": "f1b482f2-df98-441e-8685-13fc68170acd"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "They use analogies. \"It's like a traffic jam for data.\" A good comparison makes complex ideas easy to understand.",
+   "media_id": "f24c8417-f7fb-4d23-b044-5e1ca2e5eb7a"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "They say less but mean more. Short, thoughtful remarks carry more weight than long speeches. Brevity shows a clear and confident mind.",
+   "media_id": "f2fdab95-0f44-4a80-aa15-1a6af9cb662b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "They admit good points from others. \"That's a strong argument.\" Intelligent men care about the truth, not about winning.",
+   "media_id": "f3024ccb-3fbd-4bac-b492-07ef5880b852"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "They keep learning. I do five minutes a day of history, art or science, and it gives me examples for almost any topic.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It gives me examples for almost any topic.",
+   "media_id": "05e518da-f54a-495f-b117-784b1030fafd"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "They stay curious about people. They ask about your job, your ideas, your experiences. Everyone knows something they don't.",
+   "media_id": "f325118e-189b-446e-a8df-5b0c80b74769"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "They stay calm in debates. A relaxed tone makes their arguments sound stronger and keeps the discussion friendly.",
+   "media_id": "f3252914-003c-4c28-8763-9618401dfcee"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o469",
+ "type_bleo": "full_test",
+ "titre": "Ce que la vie finit par t'apprendre #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque. full test (v3) : la déclinaison de e53a9aec a été refusée au guichet (quota de 3 déclinaisons atteint) et la boîte n'avait plus de ligne libre pour aujourd'hui, d'où un 9e full test en français sur une accroche jamais faite. Accroches écrites : « Ce que la vie finit par t'apprendre » (retenue), « Les vérités de la trentaine » (écartée : trop étroit).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ba1d3764-10ea-4a90-b8f5-5f7f18fd6565",
+   "texte_overlay": "Ce que la vie finit\npar t'apprendre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Tu ne peux pas plaire à tout le monde. Et ce n'est pas grave. Ceux qui t'aiment vraiment t'aiment avec tes défauts.",
+   "media_id": "f32c4a3c-0296-4302-a53b-b70a7370d0f8"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Les vacances ne réparent pas une vie qui ne te plaît pas. Change ton quotidien plutôt que d'attendre la prochaine fuite.",
+   "media_id": "f387dfee-0276-4647-b9d6-d0630ba1e8fa"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Tes parents ont fait de leur mieux avec ce qu'ils savaient. Les comprendre apporte souvent plus de paix que les juger.",
+   "media_id": "f3cdabac-ad9a-495a-962f-540d807038ef"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Le confort trop long rend la vie fade. Un peu d'effort et de nouveauté chaque semaine garde ta vie vivante. Ose la nouveauté.",
+   "media_id": "f49fcccf-8357-459e-8b34-1c3c4ea874db"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Avant : je pensais avoir fini d'apprendre. Après : cinq minutes d'histoire, d'art ou de science par jour, et le monde me paraît plus grand.",
+   "texte_sophia": "Avant : je pensais avoir fini d'apprendre. Après : Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Le monde me paraît plus grand.",
+   "media_id": "612e5e5d-5370-4460-8768-6a46d6de8f1e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "L'amitié demande de l'entretien. Un message, un appel, un dîner. Sans effort, même les meilleures amitiés s'éteignent.",
+   "media_id": "f502a98d-d35e-410e-bddf-6b916753d36f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Tu as plus de temps que tu ne crois, mais moins que tu n'espères. Commence ce qui compte, dès cette semaine. Pas lundi, maintenant.",
+   "media_id": "f524a682-3945-4522-aef4-5723e498390d"
+  }
+ ]
+}

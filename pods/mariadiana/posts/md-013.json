@@ -1,0 +1,325 @@
+{
+  "id": "md-013",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings People Laughed At",
+    "fr": "Des tableaux dont on s'est moqué",
+    "es-419": "Pinturas de las que se burlaron",
+    "it": "Quadri che la gente derideva",
+    "el": "Πίνακες που τους κορόιδεψαν",
+    "hu": "Festmények, amelyeken nevettek",
+    "sr": "Slike kojima su se smejali",
+    "hr": "Slike kojima su se smijali",
+    "lv": "Gleznas, par kurām smējās",
+    "ro": "Tablouri de care lumea a râs"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #cezanne #manet #museum",
+    "fr": "#histoiredelart #peinture #cezanne #manet #musee",
+    "es-419": "#historiadelarte #pintura #cezanne #manet #museo",
+    "it": "#storiadellarte #pittura #cezanne #manet #museo",
+    "el": "#ιστορίατηςτέχνης #ζωγραφική #σεζάν #μανέ #μουσείο",
+    "hu": "#művészettörténet #festészet #cezanne #manet #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #sezan #mane #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #cezanne #manet #muzej",
+    "lv": "#mākslasvēsture #glezniecība #cezanne #manet #muzejs",
+    "ro": "#istoriaartei #pictura #cezanne #manet #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/demoiselles-village.jpg": {
+      "musee": "The Met",
+      "id": "438820",
+      "titre": "Young Ladies of the Village",
+      "artiste": "Gustave Courbet",
+      "date": "1851–52",
+      "url": "https://www.metmuseum.org/art/collection/search/438820"
+    },
+    "images/oeuvres/mlle-v.jpg": {
+      "musee": "The Met",
+      "id": "436945",
+      "titre": "Mademoiselle V. . . in the Costume of an Espada",
+      "artiste": "Edouard Manet",
+      "date": "1862",
+      "url": "https://www.metmuseum.org/art/collection/search/436945"
+    },
+    "images/oeuvres/sainte-victoire.jpg": {
+      "musee": "The Met",
+      "id": "435878",
+      "titre": "Mont Sainte-Victoire",
+      "artiste": "Paul Cézanne",
+      "date": "ca. 1902–6",
+      "url": "https://www.metmuseum.org/art/collection/search/435878"
+    },
+    "images/oeuvres/bievre-rousseau.jpg": {
+      "musee": "The Met",
+      "id": "437512",
+      "titre": "The Banks of the Bièvre near Bicêtre",
+      "artiste": "Henri Rousseau (le Douanier)",
+      "date": "ca. 1908–09",
+      "url": "https://www.metmuseum.org/art/collection/search/437512"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Courbet, Les Demoiselles de village (1851-52) : ses trois sœurs, Ornans ; Salon de 1852, critiques sur les vaches minuscules et les « demoiselles » jugées vulgaires (notice du Met). Manet, Mlle V. en costume d'espada (1862) : Victorine Meurent ; Salon des Refusés 1863 avec Le Déjeuner sur l'herbe ; la corrida du fond hors d'échelle, critiquée. Cézanne, Mont Sainte-Victoire (vers 1902-06) : plus de 80 œuvres sur la montagne ; moqué aux expositions impressionnistes de 1874 et 1877 ; « faire du Poussin sur nature », « rendre l'impressionnisme solide comme l'art des musées ». Rousseau, Les Bords de la Bièvre près de Bicêtre (vers 1908-09) : employé de l'octroi, autodidacte ; banquet Rousseau au Bateau-Lavoir chez Picasso en novembre 1908. Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-rire.jpg",
+      "en": {
+        "titre": "Paintings People Laughed At"
+      },
+      "fr": {
+        "titre": "Des tableaux dont on s'est moqué"
+      },
+      "es-419": {
+        "titre": "Pinturas de las que se burlaron"
+      },
+      "it": {
+        "titre": "Quadri che la gente derideva"
+      },
+      "el": {
+        "titre": "Πίνακες που τους κορόιδεψαν"
+      },
+      "hu": {
+        "titre": "Festmények, amelyeken nevettek"
+      },
+      "sr": {
+        "titre": "Slike kojima su se smejali"
+      },
+      "hr": {
+        "titre": "Slike kojima su se smijali"
+      },
+      "lv": {
+        "titre": "Gleznas, par kurām smējās"
+      },
+      "ro": {
+        "titre": "Tablouri de care lumea a râs"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/demoiselles-village.jpg",
+      "en": {
+        "titre": "Young Ladies of the Village",
+        "texte": "shows Courbet's three sisters giving alms to a little cowherd near Ornans. At the 1852 Salon, critics laughed at the tiny cows and called the sisters vulgar. Courbet answered by painting even bigger.",
+        "artiste": "Gustave Courbet"
+      },
+      "fr": {
+        "titre": "Les Demoiselles de village",
+        "texte": "montrent les trois sœurs de Courbet faisant l'aumône à une petite vachère près d'Ornans. Au Salon de 1852, les critiques ont ri des vaches minuscules et trouvé les sœurs vulgaires. Courbet a répondu en peignant encore plus grand.",
+        "artiste": "Gustave Courbet"
+      },
+      "es-419": {
+        "titre": "Señoritas de pueblo",
+        "texte": "muestra a las tres hermanas de Courbet dando limosna a una pequeña vaquera cerca de Ornans. En el Salón de 1852, los críticos se rieron de las vacas diminutas y llamaron vulgares a las hermanas. Courbet respondió pintando aún más grande.",
+        "artiste": "Gustave Courbet"
+      },
+      "it": {
+        "titre": "Signorine del villaggio",
+        "texte": "mostra le tre sorelle di Courbet che fanno l'elemosina a una piccola mandriana vicino a Ornans. Al Salon del 1852 i critici risero delle mucche minuscole e definirono volgari le sorelle. Courbet rispose dipingendo ancora più in grande.",
+        "artiste": "Gustave Courbet"
+      },
+      "el": {
+        "titre": "Οι δεσποινίδες του χωριού",
+        "texte": "δείχνει τις τρεις αδελφές του Κουρμπέ να δίνουν ελεημοσύνη σε μια μικρή βοσκοπούλα κοντά στην Ορνάν. Στο Σαλόν του 1852 οι κριτικοί γέλασαν με τις μικροσκοπικές αγελάδες και αποκάλεσαν χυδαίες τις αδελφές. Ο Κουρμπέ απάντησε ζωγραφίζοντας ακόμη πιο μεγάλα.",
+        "artiste": "Γκυστάβ Κουρμπέ"
+      },
+      "hu": {
+        "titre": "Falusi kisasszonyok",
+        "texte": "Courbet három lánytestvérét mutatja, amint alamizsnát adnak egy kis tehénpásztorlánynak Ornans közelében. Az 1852-es Szalonon a kritikusok kinevették az apró teheneket, a lányokat pedig közönségesnek nevezték. Courbet azzal felelt, hogy még nagyobbat festett.",
+        "artiste": "Gustave Courbet"
+      },
+      "sr": {
+        "titre": "Seoske gospođice",
+        "texte": "prikazuju tri Kurbeove sestre kako daju milostinju maloj čobanici kraj Ornana. Na Salonu 1852. kritičari su se smejali sićušnim kravama, a sestre nazvali vulgarnim. Kurbe je odgovorio tako što je slikao još veće slike.",
+        "artiste": "Gistav Kurbe"
+      },
+      "hr": {
+        "titre": "Seoske gospođice",
+        "texte": "prikazuju tri Courbetove sestre kako daju milostinju maloj pastirici kraj Ornansa. Na Salonu 1852. kritičari su se smijali sićušnim kravama, a sestre nazvali vulgarnima. Courbet je odgovorio tako što je slikao još veće slike.",
+        "artiste": "Gustave Courbet"
+      },
+      "lv": {
+        "titre": "Ciema jaunkundzes",
+        "texte": "attēlo trīs Kurbē māsas, kas dod žēlastības dāvanu mazai govju ganītei pie Ornānas. 1852. gada Salonā kritiķi smējās par sīkajām govīm un nosauca māsas par vulgārām. Kurbē atbildēja, gleznojot vēl lielāk.",
+        "artiste": "Gistavs Kurbē"
+      },
+      "ro": {
+        "titre": "Domnișoarele din sat",
+        "texte": "le arată pe cele trei surori ale lui Courbet dând de pomană unei mici văcărițe lângă Ornans. La Salonul din 1852, criticii au râs de vacile minuscule și le-au numit vulgare pe surori. Courbet a răspuns pictând și mai mare.",
+        "artiste": "Gustave Courbet"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/mlle-v.jpg",
+      "en": {
+        "titre": "Mademoiselle V. as a Bullfighter",
+        "texte": "is the model Victorine Meurent dressed as a matador. Shown at the Salon des Refusés in 1863, next to Manet's Luncheon on the Grass, it was mocked for its flat colors and its bullfight floating in the background.",
+        "artiste": "Édouard Manet"
+      },
+      "fr": {
+        "titre": "Mlle V. en costume d'espada",
+        "texte": "montre le modèle Victorine Meurent habillée en matador. Présenté au Salon des Refusés en 1863, à côté du Déjeuner sur l'herbe de Manet, il a été moqué pour ses couleurs plates et sa corrida qui flotte au fond.",
+        "artiste": "Édouard Manet"
+      },
+      "es-419": {
+        "titre": "Mademoiselle V. vestida de torero",
+        "texte": "es la modelo Victorine Meurent vestida de matador. Expuesto en el Salón de los Rechazados en 1863, junto a El almuerzo sobre la hierba de Manet, fue ridiculizado por sus colores planos y por la corrida que flota al fondo.",
+        "artiste": "Édouard Manet"
+      },
+      "it": {
+        "titre": "Mademoiselle V. in costume da espada",
+        "texte": "è la modella Victorine Meurent vestita da matador. Esposto al Salon des Refusés nel 1863, accanto alla Colazione sull'erba di Manet, fu deriso per i colori piatti e per la corrida che fluttua sullo sfondo.",
+        "artiste": "Édouard Manet"
+      },
+      "el": {
+        "titre": "Η δεσποινίς Β. ως ταυρομάχος",
+        "texte": "είναι το μοντέλο Βικτορίν Μεράν ντυμένη ματαδόρ. Εκτέθηκε στο Σαλόν των Απορριφθέντων το 1863, δίπλα στο «Πρόγευμα στη χλόη» του Μανέ, και χλευάστηκε για τα επίπεδα χρώματα και την ταυρομαχία που αιωρείται στο βάθος.",
+        "artiste": "Εντουάρ Μανέ"
+      },
+      "hu": {
+        "titre": "V. kisasszony espada-jelmezben",
+        "texte": "Victorine Meurent modellt ábrázolja matadornak öltözve. Az 1863-as Visszautasítottak Szalonján, Manet „Reggeli a szabadban” című képe mellett állították ki, és kigúnyolták lapos színei és a háttérben lebegő bikaviadal miatt.",
+        "artiste": "Édouard Manet"
+      },
+      "sr": {
+        "titre": "Gospođica V. u kostimu toreadora",
+        "texte": "je model Viktorin Meran obučena kao matador. Prikazana na Salonu odbijenih 1863, pored Maneovog „Doručka na travi”, ismevana je zbog ravnih boja i koride koja lebdi u pozadini.",
+        "artiste": "Eduar Mane"
+      },
+      "hr": {
+        "titre": "Gospođica V. u kostimu toreadora",
+        "texte": "je model Victorine Meurent odjevena kao matador. Izložena na Salonu odbijenih 1863., pokraj Manetova „Doručka na travi”, ismijavana je zbog plošnih boja i korride koja lebdi u pozadini.",
+        "artiste": "Édouard Manet"
+      },
+      "lv": {
+        "titre": "Mademuazele V. matadora tērpā",
+        "texte": "ir modele Viktorīna Merāna, ģērbusies kā matadors. 1863. gadā to izstādīja Noraidīto salonā līdzās Manē „Brokastīm zālē”, un to izsmēja par plakanajām krāsām un vēršu cīņu, kas peld fonā.",
+        "artiste": "Eduārs Manē"
+      },
+      "ro": {
+        "titre": "Domnișoara V. în costum de espada",
+        "texte": "este modelul Victorine Meurent îmbrăcată în matador. Expus la Salonul Refuzaților în 1863, lângă „Dejunul pe iarbă” al lui Manet, a fost luat în râs pentru culorile plate și corida care plutește în fundal.",
+        "artiste": "Édouard Manet"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/sainte-victoire.jpg",
+      "en": {
+        "titre": "Mont Sainte-Victoire",
+        "texte": "is the mountain Cézanne painted over and over at the end of his life, after decades of being mocked in Paris. He wanted to make painting as solid as museum art. I learned to see how the whole mountain is built from small blocks of color on Artura, one artwork a day with its story.",
+        "artiste": "Paul Cézanne"
+      },
+      "fr": {
+        "titre": "La Montagne Sainte-Victoire",
+        "texte": "est la montagne que Cézanne a peinte encore et encore à la fin de sa vie, après des décennies de moqueries à Paris. Il voulait rendre la peinture aussi solide que l'art des musées. J'ai appris à voir comment toute la montagne est faite de petits blocs de couleur sur Artura, une œuvre par jour avec son histoire.",
+        "artiste": "Paul Cézanne"
+      },
+      "es-419": {
+        "titre": "Monte Sainte-Victoire",
+        "texte": "es la montaña que Cézanne pintó una y otra vez al final de su vida, tras décadas de burlas en París. Quería que la pintura fuera tan sólida como el arte de los museos. Aprendí a ver cómo toda la montaña está hecha de pequeños bloques de color en Artura, una obra al día con su historia.",
+        "artiste": "Paul Cézanne"
+      },
+      "it": {
+        "titre": "Il monte Sainte-Victoire",
+        "texte": "è la montagna che Cézanne dipinse ancora e ancora alla fine della vita, dopo decenni di derisioni a Parigi. Voleva rendere la pittura solida come l'arte dei musei. Ho imparato a vedere come tutta la montagna sia fatta di piccoli blocchi di colore su Artura, un'opera al giorno con la sua storia.",
+        "artiste": "Paul Cézanne"
+      },
+      "el": {
+        "titre": "Το όρος Σεντ-Βικτουάρ",
+        "texte": "είναι το βουνό που ο Σεζάν ζωγράφιζε ξανά και ξανά στο τέλος της ζωής του, μετά από δεκαετίες χλευασμού στο Παρίσι. Ήθελε να κάνει τη ζωγραφική στέρεη σαν την τέχνη των μουσείων. Έμαθα να βλέπω πώς όλο το βουνό χτίζεται από μικρά κομμάτια χρώματος στην Artura, ένα έργο τη μέρα με την ιστορία του.",
+        "artiste": "Πολ Σεζάν"
+      },
+      "hu": {
+        "titre": "A Sainte-Victoire-hegy",
+        "texte": "az a hegy, amelyet Cézanne élete végén újra és újra megfestett, miután Párizsban évtizedekig gúnyolták. A festészetet olyan szilárddá akarta tenni, mint a múzeumok művészetét. Az Artura appban tanultam meg látni, hogyan épül fel az egész hegy apró színtömbökből: minden nap egy műalkotás a történetével.",
+        "artiste": "Paul Cézanne"
+      },
+      "sr": {
+        "titre": "Planina Sent-Viktoar",
+        "texte": "je planina koju je Sezan slikao iznova i iznova na kraju života, posle decenija ismevanja u Parizu. Želeo je da slikarstvo učini čvrstim kao umetnost muzeja. Naučila sam da vidim kako je cela planina sazdana od malih blokova boje u aplikaciji Artura, jedno delo dnevno sa svojom pričom.",
+        "artiste": "Pol Sezan"
+      },
+      "hr": {
+        "titre": "Planina Sainte-Victoire",
+        "texte": "je planina koju je Cézanne slikao iznova i iznova na kraju života, nakon desetljeća ismijavanja u Parizu. Želio je slikarstvo učiniti čvrstim poput umjetnosti muzeja. Naučila sam vidjeti kako je cijela planina sazdana od malih blokova boje u aplikaciji Artura, jedno djelo dnevno s njegovom pričom.",
+        "artiste": "Paul Cézanne"
+      },
+      "lv": {
+        "titre": "Sentviktuāras kalns",
+        "texte": "ir kalns, ko Sezans gleznoja atkal un atkal savas dzīves beigās, pēc gadu desmitiem ilgas izsmiešanas Parīzē. Viņš gribēja padarīt glezniecību tikpat stabilu kā muzeju mākslu. Lietotnē Artura es iemācījos redzēt, kā viss kalns ir veidots no maziem krāsu blokiem: viens mākslas darbs dienā ar savu stāstu.",
+        "artiste": "Pols Sezans"
+      },
+      "ro": {
+        "titre": "Muntele Sainte-Victoire",
+        "texte": "este muntele pe care Cézanne l-a pictat iar și iar la sfârșitul vieții, după decenii în care a fost luat în râs la Paris. Voia să facă pictura la fel de solidă ca arta din muzee. Am învățat să văd cum tot muntele e construit din mici blocuri de culoare în aplicația Artura, o operă pe zi cu povestea ei.",
+        "artiste": "Paul Cézanne"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/bievre-rousseau.jpg",
+      "en": {
+        "titre": "The Banks of the Bièvre",
+        "texte": "was painted by a former toll collector who taught himself to paint. For years Henri Rousseau was a joke to critics. In 1908, Picasso gave a banquet in his honor, half homage, half prank.",
+        "artiste": "Henri Rousseau"
+      },
+      "fr": {
+        "titre": "Les Bords de la Bièvre",
+        "texte": "ont été peints par un ancien employé de l'octroi qui avait appris seul à peindre. Pendant des années, Henri Rousseau a fait rire les critiques. En 1908, Picasso a donné un banquet en son honneur, moitié hommage, moitié farce.",
+        "artiste": "Henri Rousseau"
+      },
+      "es-419": {
+        "titre": "Orillas del Bièvre",
+        "texte": "fue pintado por un antiguo cobrador de impuestos que aprendió a pintar solo. Durante años, Henri Rousseau fue el hazmerreír de los críticos. En 1908, Picasso organizó un banquete en su honor, mitad homenaje, mitad broma.",
+        "artiste": "Henri Rousseau"
+      },
+      "it": {
+        "titre": "Le rive della Bièvre",
+        "texte": "furono dipinte da un ex impiegato del dazio che aveva imparato a dipingere da solo. Per anni Henri Rousseau fu lo zimbello dei critici. Nel 1908 Picasso diede un banchetto in suo onore, metà omaggio, metà scherzo.",
+        "artiste": "Henri Rousseau"
+      },
+      "el": {
+        "titre": "Οι όχθες του Μπιέβρ",
+        "texte": "ζωγραφίστηκαν από έναν πρώην εισπράκτορα φόρων που έμαθε μόνος του ζωγραφική. Για χρόνια ο Ανρί Ρουσό ήταν ο περίγελος των κριτικών. Το 1908 ο Πικάσο έδωσε ένα συμπόσιο προς τιμήν του, μισό φόρος τιμής, μισό φάρσα.",
+        "artiste": "Ανρί Ρουσό"
+      },
+      "hu": {
+        "titre": "A Bièvre partja",
+        "texte": "egy volt vámszedő festette, aki magától tanult meg festeni. Henri Rousseau-n évekig nevettek a kritikusok. 1908-ban Picasso bankettet adott a tiszteletére, félig hódolatból, félig tréfából.",
+        "artiste": "Henri Rousseau"
+      },
+      "sr": {
+        "titre": "Obale Bjevra",
+        "texte": "naslikao je bivši naplatilac trošarine koji je sam naučio da slika. Godinama su se kritičari smejali Anriju Rusou. Godine 1908. Pikaso je priredio banket u njegovu čast, pola omaž, pola šala.",
+        "artiste": "Anri Ruso"
+      },
+      "hr": {
+        "titre": "Obale Bièvrea",
+        "texte": "naslikao ih je bivši ubirač trošarine koji je sam naučio slikati. Godinama su se kritičari smijali Henriju Rousseauu. Godine 1908. Picasso je priredio banket u njegovu čast, pola hommage, pola šala.",
+        "artiste": "Henri Rousseau"
+      },
+      "lv": {
+        "titre": "Bjēvras krasti",
+        "texte": "gleznojis bijušais nodevu iekasētājs, kurš pats iemācījās gleznot. Gadiem ilgi kritiķi smējās par Anrī Ruso. 1908. gadā Pikaso sarīkoja banketu viņam par godu, pa pusei cieņas apliecinājums, pa pusei joks.",
+        "artiste": "Anrī Ruso"
+      },
+      "ro": {
+        "titre": "Malurile râului Bièvre",
+        "texte": "au fost pictate de un fost perceptor de taxe care a învățat singur să picteze. Ani la rând, Henri Rousseau a fost ținta glumelor criticilor. În 1908, Picasso a dat un banchet în onoarea lui, pe jumătate omagiu, pe jumătate farsă.",
+        "artiste": "Henri Rousseau"
+      }
+    }
+  ]
+}

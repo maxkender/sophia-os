@@ -1,0 +1,325 @@
+{
+  "id": "md-012",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Feel Like A Goodbye",
+    "fr": "Des tableaux qui ressemblent à un adieu",
+    "es-419": "Pinturas que se sienten como un adiós",
+    "it": "Quadri che sembrano un addio",
+    "el": "Πίνακες που μοιάζουν με αντίο",
+    "hu": "Festmények, mint egy búcsú",
+    "sr": "Slike koje deluju kao zbogom",
+    "hr": "Slike koje djeluju kao zbogom",
+    "lv": "Gleznas, kas izskatās pēc atvadām",
+    "ro": "Tablouri care par un rămas-bun"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #vangogh #rembrandt #museum",
+    "fr": "#histoiredelart #peinture #vangogh #rembrandt #musée",
+    "es-419": "#historiadelarte #pintura #vangogh #rembrandt #museo",
+    "it": "#storiadellarte #pittura #vangogh #rembrandt #museo",
+    "el": "#ιστορίατέχνης #ζωγραφική #vangogh #rembrandt #μουσείο",
+    "hu": "#művészettörténet #festészet #vangogh #rembrandt #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #vangogh #rembrandt #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #vangogh #rembrandt #muzej",
+    "lv": "#mākslasvēsture #glezniecība #vangogh #rembrandt #muzejs",
+    "ro": "#istoriaartei #pictură #vangogh #rembrandt #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/roses-vangogh.jpg": {
+      "musee": "The Met",
+      "id": "436534",
+      "titre": "Roses",
+      "artiste": "Vincent van Gogh",
+      "date": "1890",
+      "url": "https://www.metmuseum.org/art/collection/search/436534"
+    },
+    "images/oeuvres/famille-monet.jpg": {
+      "musee": "The Met",
+      "id": "436965",
+      "titre": "The Monet Family in Their Garden at Argenteuil",
+      "artiste": "Edouard Manet",
+      "date": "1874",
+      "url": "https://www.metmuseum.org/art/collection/search/436965"
+    },
+    "images/oeuvres/bulles-chardin.jpg": {
+      "musee": "The Met",
+      "id": "435888",
+      "titre": "Soap Bubbles",
+      "artiste": "Jean Siméon Chardin",
+      "date": "ca. 1733–34",
+      "url": "https://www.metmuseum.org/art/collection/search/435888"
+    },
+    "images/oeuvres/rembrandt-1660.jpg": {
+      "musee": "The Met",
+      "id": "437397",
+      "titre": "Self-Portrait",
+      "artiste": "Rembrandt (Rembrandt van Rijn)",
+      "date": "1660",
+      "url": "https://www.metmuseum.org/art/collection/search/437397"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Van Gogh, Roses (1890) : peint à Saint-Rémy en mai 1890 avant le départ pour Auvers (16 mai) ; mort le 29 juillet 1890 ; roses à l'origine roses, le pigment rouge (laque) a pâli (notice du Met). Manet, La Famille Monet dans son jardin à Argenteuil (1874) : Camille et Jean Monet, Monet au jardin ; Renoir peint la même scène à côté (National Gallery of Art, Washington) ; Camille morte en septembre 1879 à 32 ans. Chardin, Les Bulles de savon (vers 1733-34) : au moins trois versions (Met, LACMA, NGA) ; thème de la vanité. Rembrandt, Autoportrait (1660) : 54 ans ; faillite en 1656, maison et collection vendues (1657-58). Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-adieu.jpg",
+      "en": {
+        "titre": "Paintings That Feel Like A Goodbye"
+      },
+      "fr": {
+        "titre": "Des tableaux qui ressemblent à un adieu"
+      },
+      "es-419": {
+        "titre": "Pinturas que se sienten como un adiós"
+      },
+      "it": {
+        "titre": "Quadri che sembrano un addio"
+      },
+      "el": {
+        "titre": "Πίνακες που μοιάζουν με αντίο"
+      },
+      "hu": {
+        "titre": "Festmények, mint egy búcsú"
+      },
+      "sr": {
+        "titre": "Slike koje deluju kao zbogom"
+      },
+      "hr": {
+        "titre": "Slike koje djeluju kao zbogom"
+      },
+      "lv": {
+        "titre": "Gleznas, kas izskatās pēc atvadām"
+      },
+      "ro": {
+        "titre": "Tablouri care par un rămas-bun"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/roses-vangogh.jpg",
+      "en": {
+        "titre": "Roses",
+        "texte": "was painted in May 1890, in Van Gogh's last days at the asylum in Saint-Rémy, just before he left for Auvers. He died two months later. The roses were pink; the red pigment has faded, and today they look almost white.",
+        "artiste": "Vincent van Gogh"
+      },
+      "fr": {
+        "titre": "Roses",
+        "texte": "ont été peintes en mai 1890, dans les derniers jours de Van Gogh à l'asile de Saint-Rémy, juste avant son départ pour Auvers. Il est mort deux mois plus tard. Les roses étaient roses ; le pigment rouge a pâli, et aujourd'hui elles paraissent presque blanches.",
+        "artiste": "Vincent van Gogh"
+      },
+      "es-419": {
+        "titre": "Rosas",
+        "texte": "fue pintado en mayo de 1890, en los últimos días de Van Gogh en el asilo de Saint-Rémy, justo antes de irse a Auvers. Murió dos meses después. Las rosas eran rosadas; el pigmento rojo se desvaneció y hoy se ven casi blancas.",
+        "artiste": "Vincent van Gogh"
+      },
+      "it": {
+        "titre": "Rose",
+        "texte": "fu dipinto nel maggio 1890, negli ultimi giorni di Van Gogh al manicomio di Saint-Rémy, poco prima di partire per Auvers. Morì due mesi dopo. Le rose erano rosa; il pigmento rosso è sbiadito e oggi sembrano quasi bianche.",
+        "artiste": "Vincent van Gogh"
+      },
+      "el": {
+        "titre": "Τριαντάφυλλα",
+        "texte": "ζωγραφίστηκαν τον Μάιο του 1890, τις τελευταίες μέρες του Βαν Γκογκ στο άσυλο του Σεν-Ρεμί, λίγο πριν φύγει για το Οβέρ. Πέθανε δύο μήνες αργότερα. Τα τριαντάφυλλα ήταν ροζ· η κόκκινη χρωστική ξεθώριασε και σήμερα μοιάζουν σχεδόν λευκά.",
+        "artiste": "Βίνσεντ βαν Γκογκ"
+      },
+      "hu": {
+        "titre": "Rózsák",
+        "texte": "1890 májusában készült, Van Gogh utolsó napjaiban a Saint-Rémy-i elmegyógyintézetben, közvetlenül Auvers-be indulása előtt. Két hónappal később meghalt. A rózsák rózsaszínek voltak; a vörös pigment kifakult, ma szinte fehérnek látszanak.",
+        "artiste": "Vincent van Gogh"
+      },
+      "sr": {
+        "titre": "Ruže",
+        "texte": "naslikane su u maju 1890, u poslednjim danima Van Goga u azilu u Sen Remiju, neposredno pre odlaska u Over. Umro je dva meseca kasnije. Ruže su bile ružičaste; crveni pigment je izbledeo i danas izgledaju skoro bele.",
+        "artiste": "Vinsent van Gog"
+      },
+      "hr": {
+        "titre": "Ruže",
+        "texte": "naslikane su u svibnju 1890., u posljednjim danima Van Gogha u azilu u Saint-Rémyju, neposredno prije odlaska u Auvers. Umro je dva mjeseca poslije. Ruže su bile ružičaste; crveni pigment je izblijedio i danas izgledaju gotovo bijele.",
+        "artiste": "Vincent van Gogh"
+      },
+      "lv": {
+        "titre": "Rozes",
+        "texte": "gleznotas 1890. gada maijā, Van Goga pēdējās dienās Senremī patversmē, tieši pirms došanās uz Overu. Divus mēnešus vēlāk viņš nomira. Rozes bija rozā; sarkanais pigments ir izbalējis, un šodien tās šķiet gandrīz baltas.",
+        "artiste": "Vinsents van Gogs"
+      },
+      "ro": {
+        "titre": "Trandafiri",
+        "texte": "a fost pictat în mai 1890, în ultimele zile ale lui Van Gogh la azilul din Saint-Rémy, chiar înainte să plece la Auvers. A murit două luni mai târziu. Trandafirii erau roz; pigmentul roșu s-a decolorat, iar azi par aproape albi.",
+        "artiste": "Vincent van Gogh"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/famille-monet.jpg",
+      "en": {
+        "titre": "The Monet Family in Their Garden",
+        "texte": "shows Camille Monet and her son resting on the grass in Argenteuil in the summer of 1874, while Monet tends the garden. Manet painted it in an afternoon, and Renoir arrived and painted the same scene beside him. Camille died five years later, at 32.",
+        "artiste": "Édouard Manet"
+      },
+      "fr": {
+        "titre": "La Famille Monet au jardin",
+        "texte": "montre Camille Monet et son fils allongés dans l'herbe à Argenteuil, à l'été 1874, pendant que Monet jardine. Manet l'a peinte en un après-midi, et Renoir, arrivé entre-temps, a peint la même scène à côté de lui. Camille est morte cinq ans plus tard, à 32 ans.",
+        "artiste": "Édouard Manet"
+      },
+      "es-419": {
+        "titre": "La familia Monet en su jardín",
+        "texte": "muestra a Camille Monet y a su hijo descansando en el pasto en Argenteuil, en el verano de 1874, mientras Monet cuida el jardín. Manet lo pintó en una tarde, y Renoir llegó y pintó la misma escena a su lado. Camille murió cinco años después, a los 32.",
+        "artiste": "Édouard Manet"
+      },
+      "it": {
+        "titre": "La famiglia Monet in giardino",
+        "texte": "mostra Camille Monet e il figlio sdraiati sull'erba ad Argenteuil, nell'estate del 1874, mentre Monet cura il giardino. Manet lo dipinse in un pomeriggio, e Renoir arrivò e dipinse la stessa scena accanto a lui. Camille morì cinque anni dopo, a 32 anni.",
+        "artiste": "Édouard Manet"
+      },
+      "el": {
+        "titre": "Η οικογένεια Μονέ στον κήπο",
+        "texte": "δείχνει την Καμίγ Μονέ και τον γιο της να ξεκουράζονται στο γρασίδι στην Αρζαντέιγ, το καλοκαίρι του 1874, ενώ ο Μονέ φροντίζει τον κήπο. Ο Μανέ τον ζωγράφισε σε ένα απόγευμα και ο Ρενουάρ ζωγράφισε την ίδια σκηνή δίπλα του. Η Καμίγ πέθανε πέντε χρόνια μετά, στα 32.",
+        "artiste": "Εντουάρ Μανέ"
+      },
+      "hu": {
+        "titre": "A Monet család a kertben",
+        "texte": "Camille Monet-t és fiát mutatja a fűben pihenve Argenteuil-ben, 1874 nyarán, miközben Monet a kertet gondozza. Manet egy délután alatt festette meg, Renoir pedig mellette ugyanezt a jelenetet festette. Camille öt évvel később, 32 évesen halt meg.",
+        "artiste": "Édouard Manet"
+      },
+      "sr": {
+        "titre": "Porodica Mone u vrtu",
+        "texte": "prikazuje Kamij Mone i njenog sina kako se odmaraju na travi u Aržanteju, leta 1874, dok Mone uređuje vrt. Mane ju je naslikao za jedno popodne, a Renoar je stigao i naslikao istu scenu pored njega. Kamij je umrla pet godina kasnije, sa 32.",
+        "artiste": "Eduar Mane"
+      },
+      "hr": {
+        "titre": "Obitelj Monet u vrtu",
+        "texte": "prikazuje Camille Monet i njezina sina kako se odmaraju na travi u Argenteuilu, ljeta 1874., dok Monet uređuje vrt. Manet ju je naslikao u jednom popodnevu, a Renoir je stigao i naslikao istu scenu pokraj njega. Camille je umrla pet godina poslije, s 32.",
+        "artiste": "Édouard Manet"
+      },
+      "lv": {
+        "titre": "Monē ģimene dārzā",
+        "texte": "rāda Kamillu Monē un viņas dēlu atpūšamies zālē Aržantejā 1874. gada vasarā, kamēr Monē kopj dārzu. Manē to uzgleznoja vienā pēcpusdienā, un Renuārs ieradās un uzgleznoja to pašu ainu viņam blakus. Kamilla nomira piecus gadus vēlāk, 32 gadu vecumā.",
+        "artiste": "Eduārs Manē"
+      },
+      "ro": {
+        "titre": "Familia Monet în grădină",
+        "texte": "o arată pe Camille Monet și pe fiul ei odihnindu-se în iarbă la Argenteuil, în vara lui 1874, în timp ce Monet îngrijește grădina. Manet l-a pictat într-o după-amiază, iar Renoir a sosit și a pictat aceeași scenă lângă el. Camille a murit cinci ani mai târziu, la 32 de ani.",
+        "artiste": "Édouard Manet"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/bulles-chardin.jpg",
+      "en": {
+        "titre": "Soap Bubbles",
+        "texte": "is a young man blowing a bubble that is about to burst. For Chardin's time, a soap bubble meant one thing: how short life is. He painted the scene at least three times around 1733.",
+        "artiste": "Jean-Siméon Chardin"
+      },
+      "fr": {
+        "titre": "Les Bulles de savon",
+        "texte": "montrent un jeune homme qui souffle une bulle sur le point d'éclater. À l'époque de Chardin, une bulle de savon voulait dire une seule chose : la vie est courte. Il a peint la scène au moins trois fois vers 1733.",
+        "artiste": "Chardin"
+      },
+      "es-419": {
+        "titre": "Pompas de jabón",
+        "texte": "es un joven que sopla una burbuja a punto de reventar. En la época de Chardin, una pompa de jabón significaba una sola cosa: lo corta que es la vida. Pintó la escena al menos tres veces hacia 1733.",
+        "artiste": "Chardin"
+      },
+      "it": {
+        "titre": "Bolle di sapone",
+        "texte": "è un giovane che soffia una bolla sul punto di scoppiare. Ai tempi di Chardin, una bolla di sapone voleva dire una cosa sola: quanto è breve la vita. Dipinse la scena almeno tre volte intorno al 1733.",
+        "artiste": "Chardin"
+      },
+      "el": {
+        "titre": "Σαπουνόφουσκες",
+        "texte": "είναι ένας νέος που φυσά μια φούσκα έτοιμη να σκάσει. Στην εποχή του Σαρντέν, η σαπουνόφουσκα σήμαινε ένα πράγμα: πόσο σύντομη είναι η ζωή. Ζωγράφισε τη σκηνή τουλάχιστον τρεις φορές γύρω στο 1733.",
+        "artiste": "Σαρντέν"
+      },
+      "hu": {
+        "titre": "Szappanbuborékok",
+        "texte": "egy fiatalember, aki éppen kipukkanni készülő buborékot fúj. Chardin korában a szappanbuborék egyet jelentett: milyen rövid az élet. A jelenetet legalább háromszor megfestette 1733 körül.",
+        "artiste": "Chardin"
+      },
+      "sr": {
+        "titre": "Mehurići od sapuna",
+        "texte": "su mladić koji duva mehur pred pucanje. U Šardenovo vreme, mehur od sapuna značio je jedno: koliko je život kratak. Scenu je naslikao bar tri puta oko 1733.",
+        "artiste": "Šarden"
+      },
+      "hr": {
+        "titre": "Mjehurići od sapuna",
+        "texte": "su mladić koji puše mjehur pred pucanje. U Chardinovo doba mjehur od sapuna značio je jedno: koliko je život kratak. Scenu je naslikao barem tri puta oko 1733.",
+        "artiste": "Chardin"
+      },
+      "lv": {
+        "titre": "Ziepju burbuļi",
+        "texte": "ir jauneklis, kas pūš burbuli, kurš tūlīt plīsīs. Šardēna laikā ziepju burbulis nozīmēja tikai vienu: cik īsa ir dzīve. Viņš šo ainu gleznoja vismaz trīs reizes ap 1733. gadu.",
+        "artiste": "Šardēns"
+      },
+      "ro": {
+        "titre": "Baloane de săpun",
+        "texte": "este un tânăr care suflă un balon gata să se spargă. Pe vremea lui Chardin, un balon de săpun însemna un singur lucru: cât de scurtă e viața. A pictat scena de cel puțin trei ori în jurul lui 1733.",
+        "artiste": "Chardin"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/rembrandt-1660.jpg",
+      "en": {
+        "titre": "Self-Portrait",
+        "texte": "was painted in 1660, when Rembrandt was 54 and had lost almost everything: his house and his collection had been sold after his bankruptcy. He looks at us without hiding anything. Artura gives me one painting a day and the story behind it; this one stayed with me.",
+        "artiste": "Rembrandt"
+      },
+      "fr": {
+        "titre": "Autoportrait",
+        "texte": "a été peint en 1660, quand Rembrandt avait 54 ans et avait presque tout perdu : sa maison et sa collection avaient été vendues après sa faillite. Il nous regarde sans rien cacher. Artura me donne un tableau par jour et l'histoire qui va avec ; celui-ci m'est resté.",
+        "artiste": "Rembrandt"
+      },
+      "es-419": {
+        "titre": "Autorretrato",
+        "texte": "fue pintado en 1660, cuando Rembrandt tenía 54 años y lo había perdido casi todo: su casa y su colección se vendieron tras su bancarrota. Nos mira sin esconder nada. Artura me da una pintura al día y la historia detrás; esta se me quedó grabada.",
+        "artiste": "Rembrandt"
+      },
+      "it": {
+        "titre": "Autoritratto",
+        "texte": "fu dipinto nel 1660, quando Rembrandt aveva 54 anni e aveva perso quasi tutto: la casa e la collezione erano state vendute dopo la bancarotta. Ci guarda senza nascondere nulla. Artura mi regala un quadro al giorno e la storia che c'è dietro; questo mi è rimasto dentro.",
+        "artiste": "Rembrandt"
+      },
+      "el": {
+        "titre": "Αυτοπροσωπογραφία",
+        "texte": "ζωγραφίστηκε το 1660, όταν ο Ρέμπραντ ήταν 54 και είχε χάσει σχεδόν τα πάντα: το σπίτι και η συλλογή του πουλήθηκαν μετά τη χρεοκοπία. Μας κοιτά χωρίς να κρύβει τίποτα. Η Artura μού δίνει έναν πίνακα τη μέρα και την ιστορία του· αυτός μού έμεινε.",
+        "artiste": "Ρέμπραντ"
+      },
+      "hu": {
+        "titre": "Önarckép",
+        "texte": "1660-ban készült, amikor Rembrandt 54 éves volt, és szinte mindent elvesztett: csődje után házát és gyűjteményét eladták. Semmit sem rejtve néz ránk. Az Artura app minden nap ad egy festményt és a mögötte álló történetet; ez megmaradt bennem.",
+        "artiste": "Rembrandt"
+      },
+      "sr": {
+        "titre": "Autoportret",
+        "texte": "naslikan je 1660, kada je Rembrant imao 54 godine i izgubio skoro sve: kuća i zbirka prodate su posle bankrota. Gleda nas ne skrivajući ništa. Aplikacija Artura mi daje jednu sliku dnevno i priču iza nje; ova mi je ostala u sećanju.",
+        "artiste": "Rembrant"
+      },
+      "hr": {
+        "titre": "Autoportret",
+        "texte": "naslikan je 1660., kad je Rembrandt imao 54 godine i izgubio gotovo sve: kuća i zbirka prodane su nakon bankrota. Gleda nas ne skrivajući ništa. Aplikacija Artura daje mi jednu sliku dnevno i priču iza nje; ova mi je ostala u sjećanju.",
+        "artiste": "Rembrandt"
+      },
+      "lv": {
+        "titre": "Pašportrets",
+        "texte": "gleznots 1660. gadā, kad Rembrantam bija 54 gadi un viņš bija zaudējis gandrīz visu: pēc bankrota viņa māja un kolekcija tika pārdotas. Viņš skatās uz mums neko neslēpjot. Lietotne Artura man dod vienu gleznu dienā un stāstu aiz tās; šī palika ar mani.",
+        "artiste": "Rembrants"
+      },
+      "ro": {
+        "titre": "Autoportret",
+        "texte": "a fost pictat în 1660, când Rembrandt avea 54 de ani și pierduse aproape tot: casa și colecția îi fuseseră vândute după faliment. Ne privește fără să ascundă nimic. Aplicația Artura îmi dă un tablou pe zi și povestea din spatele lui; acesta mi-a rămas în minte.",
+        "artiste": "Rembrandt"
+      }
+    }
+  ]
+}

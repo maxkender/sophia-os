@@ -1,0 +1,325 @@
+{
+  "id": "md-015",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Look Like Photographs",
+    "fr": "Des tableaux qui ressemblent à des photos",
+    "it": "Quadri che sembrano fotografie",
+    "es-419": "Pinturas que parecen fotografías",
+    "el": "Πίνακες που μοιάζουν με φωτογραφίες",
+    "hu": "Festmények, amelyek fotónak tűnnek",
+    "sr": "Slike koje izgledaju kao fotografije",
+    "hr": "Slike koje izgledaju kao fotografije",
+    "lv": "Gleznas, kas izskatās pēc fotogrāfijām",
+    "ro": "Picturi care arată ca niște fotografii"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #ingres #holbein #museum",
+    "fr": "#histoiredelart #peinture #ingres #holbein #musée",
+    "it": "#storiadellarte #pittura #ingres #holbein #museo",
+    "es-419": "#historiadelarte #pintura #ingres #holbein #museo",
+    "el": "#ιστορίατηςτέχνης #ζωγραφική #ingres #holbein #μουσείο",
+    "hu": "#művészettörténet #festészet #ingres #holbein #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #ingres #holbein #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #ingres #holbein #muzej",
+    "lv": "#mākslasvēsture #glezniecība #ingres #holbein #muzejs",
+    "ro": "#istoriaartei #pictura #ingres #holbein #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/holbein-wedigh.jpg": {
+      "musee": "The Met",
+      "id": "436658",
+      "titre": "Hermann von Wedigh III (died 1560)",
+      "artiste": "Hans Holbein the Younger",
+      "date": "1532",
+      "url": "https://www.metmuseum.org/art/collection/search/436658"
+    },
+    "images/oeuvres/haverman-fleurs.jpg": {
+      "musee": "The Met",
+      "id": "436634",
+      "titre": "A Vase of Flowers",
+      "artiste": "Margareta Haverman",
+      "date": "1716",
+      "url": "https://www.metmuseum.org/art/collection/search/436634"
+    },
+    "images/oeuvres/princesse-broglie.jpg": {
+      "musee": "The Met",
+      "id": "459106",
+      "titre": "Joséphine-Éléonore-Marie-Pauline de Galard de Brassac de Béarn (1825–1860), Princesse de Broglie",
+      "artiste": "Jean Auguste Dominique Ingres",
+      "date": "1851–53",
+      "url": "https://www.metmuseum.org/art/collection/search/459106"
+    },
+    "images/oeuvres/friedland.jpg": {
+      "musee": "The Met",
+      "id": "437052",
+      "titre": "1807, Friedland",
+      "artiste": "Ernest Meissonier",
+      "date": "ca. 1861–75",
+      "url": "https://www.metmuseum.org/art/collection/search/437052"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Holbein, Hermann von Wedigh III (1532) : marchand hanséatique du Steelyard à Londres ; inscription « ANNO 1532 AETATIS SVAE 29 ». Margareta Haverman, Vase de fleurs (1716) : seule élève de Jan van Huysum ; reçue à l'Académie royale de Paris en 1722, exclue en 1723 sur le soupçon que son morceau de réception était de Van Huysum (notice du Met). Ingres, Princesse de Broglie (1851-53) : morte de tuberculose en 1860 à 35 ans. Meissonier, 1807, Friedland (vers 1861-75) : plus de dix ans de travail ; Meissonier fit poser un petit rail à Poissy pour suivre les chevaux au galop dans un chariot. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-detail.jpg",
+      "en": {
+        "titre": "Paintings That Look Like Photographs"
+      },
+      "fr": {
+        "titre": "Des tableaux qui ressemblent à des photos"
+      },
+      "it": {
+        "titre": "Quadri che sembrano fotografie"
+      },
+      "es-419": {
+        "titre": "Pinturas que parecen fotografías"
+      },
+      "el": {
+        "titre": "Πίνακες που μοιάζουν με φωτογραφίες"
+      },
+      "hu": {
+        "titre": "Festmények, amelyek fotónak tűnnek"
+      },
+      "sr": {
+        "titre": "Slike koje izgledaju kao fotografije"
+      },
+      "hr": {
+        "titre": "Slike koje izgledaju kao fotografije"
+      },
+      "lv": {
+        "titre": "Gleznas, kas izskatās pēc fotogrāfijām"
+      },
+      "ro": {
+        "titre": "Picturi care arată ca niște fotografii"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/holbein-wedigh.jpg",
+      "en": {
+        "titre": "Hermann von Wedigh",
+        "texte": "was a German merchant in London when Holbein painted him in 1532. The inscription says he was 29. The black coat, the gloves, the paper slipped into the book: you could almost touch them.",
+        "artiste": "Hans Holbein the Younger"
+      },
+      "fr": {
+        "titre": "Hermann von Wedigh",
+        "texte": "était un marchand allemand installé à Londres quand Holbein l'a peint en 1532. L'inscription dit qu'il avait 29 ans. Le manteau noir, les gants, le papier glissé dans le livre : on pourrait presque les toucher.",
+        "artiste": "Hans Holbein le Jeune"
+      },
+      "it": {
+        "titre": "Hermann von Wedigh",
+        "texte": "era un mercante tedesco a Londra quando Holbein lo ritrasse nel 1532. L'iscrizione dice che aveva 29 anni. Il cappotto nero, i guanti, il foglio infilato nel libro: sembra quasi di poterli toccare.",
+        "artiste": "Hans Holbein il Giovane"
+      },
+      "es-419": {
+        "titre": "Hermann von Wedigh",
+        "texte": "era un comerciante alemán en Londres cuando Holbein lo retrató en 1532. La inscripción dice que tenía 29 años. El abrigo negro, los guantes, el papel metido en el libro: casi se pueden tocar.",
+        "artiste": "Hans Holbein el Joven"
+      },
+      "el": {
+        "titre": "Χέρμαν φον Βέντιχ",
+        "texte": "ήταν Γερμανός έμπορος στο Λονδίνο όταν τον ζωγράφισε ο Χόλμπαϊν το 1532. Η επιγραφή λέει ότι ήταν 29 ετών. Το μαύρο παλτό, τα γάντια, το χαρτί μέσα στο βιβλίο: σχεδόν μπορείς να τα αγγίξεις.",
+        "artiste": "Χανς Χόλμπαϊν ο Νεότερος"
+      },
+      "hu": {
+        "titre": "Hermann von Wedigh",
+        "texte": "német kereskedő volt Londonban, amikor Holbein 1532-ben megfestette. A felirat szerint 29 éves volt. A fekete kabát, a kesztyű, a könyvbe csúsztatott papír: szinte meg lehet érinteni őket.",
+        "artiste": "ifj. Hans Holbein"
+      },
+      "sr": {
+        "titre": "Herman fon Vedig",
+        "texte": "bio je nemački trgovac u Londonu kada ga je Holbajn naslikao 1532. Natpis kaže da je imao 29 godina. Crni kaput, rukavice, papir uvučen u knjigu: skoro da možete da ih dodirnete.",
+        "artiste": "Hans Holbajn Mlađi"
+      },
+      "hr": {
+        "titre": "Hermann von Wedigh",
+        "texte": "bio je njemački trgovac u Londonu kada ga je Holbein naslikao 1532. Natpis kaže da je imao 29 godina. Crni kaput, rukavice, papir umetnut u knjigu: gotovo ih možete dodirnuti.",
+        "artiste": "Hans Holbein Mlađi"
+      },
+      "lv": {
+        "titre": "Hermanis fon Vēdihs",
+        "texte": "bija vācu tirgotājs Londonā, kad Holbeins viņu uzgleznoja 1532. gadā. Uzraksts vēsta, ka viņam bija 29 gadi. Melnais mētelis, cimdi, grāmatā ieliktais papīrs: tos gandrīz var aizskart.",
+        "artiste": "Hanss Holbeins jaunākais"
+      },
+      "ro": {
+        "titre": "Hermann von Wedigh",
+        "texte": "era un negustor german la Londra când Holbein l-a pictat, în 1532. Inscripția spune că avea 29 de ani. Haina neagră, mănușile, hârtia strecurată în carte: aproape că le poți atinge.",
+        "artiste": "Hans Holbein cel Tânăr"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/haverman-fleurs.jpg",
+      "en": {
+        "titre": "A Vase of Flowers",
+        "texte": "was painted in 1716 by Margareta Haverman, the only pupil of the great flower painter Jan van Huysum. In 1722 she joined the French Academy, then was thrown out when people claimed her teacher had painted her work.",
+        "artiste": "Margareta Haverman"
+      },
+      "fr": {
+        "titre": "Vase de fleurs",
+        "texte": "a été peint en 1716 par Margareta Haverman, la seule élève du grand peintre de fleurs Jan van Huysum. En 1722, elle entre à l'Académie royale, puis en est exclue quand on prétend que son maître a peint son tableau.",
+        "artiste": "Margareta Haverman"
+      },
+      "it": {
+        "titre": "Vaso di fiori",
+        "texte": "fu dipinto nel 1716 da Margareta Haverman, l'unica allieva del grande pittore di fiori Jan van Huysum. Nel 1722 entrò nell'Accademia francese, poi ne fu espulsa quando si disse che il quadro l'aveva dipinto il suo maestro.",
+        "artiste": "Margareta Haverman"
+      },
+      "es-419": {
+        "titre": "Jarrón de flores",
+        "texte": "fue pintado en 1716 por Margareta Haverman, la única alumna del gran pintor de flores Jan van Huysum. En 1722 entró a la Academia francesa y luego la expulsaron cuando dijeron que su maestro había pintado su obra.",
+        "artiste": "Margareta Haverman"
+      },
+      "el": {
+        "titre": "Βάζο με λουλούδια",
+        "texte": "το ζωγράφισε το 1716 η Μαργκαρέτα Χάβερμαν, η μόνη μαθήτρια του μεγάλου ζωγράφου λουλουδιών Γιαν βαν Χάουσουμ. Το 1722 μπήκε στη Γαλλική Ακαδημία και μετά διώχτηκε, όταν είπαν ότι το έργο της το είχε ζωγραφίσει ο δάσκαλός της.",
+        "artiste": "Μαργκαρέτα Χάβερμαν"
+      },
+      "hu": {
+        "titre": "Virágcsendélet vázában",
+        "texte": "1716-ban festette Margareta Haverman, a nagy virágfestő, Jan van Huysum egyetlen tanítványa. 1722-ben felvették a francia Akadémiára, aztán kizárták, amikor azt állították, hogy a mestere festette a képét.",
+        "artiste": "Margareta Haverman"
+      },
+      "sr": {
+        "titre": "Vaza s cvećem",
+        "texte": "naslikala je 1716. Margareta Haverman, jedina učenica velikog slikara cveća Jana van Hejsuma. Godine 1722. primljena je u Francusku akademiju, a zatim izbačena kada se tvrdilo da je njen učitelj naslikao njeno delo.",
+        "artiste": "Margareta Haverman"
+      },
+      "hr": {
+        "titre": "Vaza s cvijećem",
+        "texte": "naslikala je 1716. Margareta Haverman, jedina učenica velikog slikara cvijeća Jana van Huysuma. Godine 1722. primljena je u Francusku akademiju, a zatim izbačena kad se tvrdilo da je njezin učitelj naslikao njezino djelo.",
+        "artiste": "Margareta Haverman"
+      },
+      "lv": {
+        "titre": "Ziedu vāze",
+        "texte": "1716. gadā gleznoja Margarēta Hāvermane, vienīgā lielā ziedu gleznotāja Jana van Heisuma skolniece. 1722. gadā viņu uzņēma Francijas Akadēmijā, bet pēc tam izslēdza, kad apgalvoja, ka viņas darbu gleznojis skolotājs.",
+        "artiste": "Margarēta Hāvermane"
+      },
+      "ro": {
+        "titre": "Vază cu flori",
+        "texte": "a fost pictată în 1716 de Margareta Haverman, singura elevă a marelui pictor de flori Jan van Huysum. În 1722 a intrat în Academia franceză, apoi a fost exclusă când s-a spus că profesorul ei îi pictase lucrarea.",
+        "artiste": "Margareta Haverman"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/princesse-broglie.jpg",
+      "en": {
+        "titre": "Princesse de Broglie",
+        "texte": "took Ingres almost three years: the satin, the lace, the gold of the chair, every reflection on her pearls. She died of tuberculosis seven years later, at 35. Artura gives me one painting a day and the story behind it; this one stayed with me.",
+        "artiste": "Ingres"
+      },
+      "fr": {
+        "titre": "La Princesse de Broglie",
+        "texte": "a demandé presque trois ans à Ingres : le satin, la dentelle, l'or du fauteuil, chaque reflet sur ses perles. Elle est morte de la tuberculose sept ans plus tard, à 35 ans. Artura me donne un tableau par jour et l'histoire qui va avec ; celui-ci m'est resté.",
+        "artiste": "Ingres"
+      },
+      "it": {
+        "titre": "La principessa de Broglie",
+        "texte": "richiese a Ingres quasi tre anni: il raso, il pizzo, l'oro della poltrona, ogni riflesso sulle perle. Lei morì di tubercolosi sette anni dopo, a 35 anni. Artura mi regala un quadro al giorno e la storia che c'è dietro; questo mi è rimasto dentro.",
+        "artiste": "Ingres"
+      },
+      "es-419": {
+        "titre": "La princesa de Broglie",
+        "texte": "le llevó a Ingres casi tres años: el satén, el encaje, el dorado del sillón, cada reflejo en sus perlas. Ella murió de tuberculosis siete años después, a los 35. Artura me da una pintura al día y la historia detrás; esta se quedó conmigo.",
+        "artiste": "Ingres"
+      },
+      "el": {
+        "titre": "Η πριγκίπισσα ντε Μπρολί",
+        "texte": "κόστισε στον Ενγκρ σχεδόν τρία χρόνια: το σατέν, η δαντέλα, το χρυσό της πολυθρόνας, κάθε αντανάκλαση στα μαργαριτάρια. Πέθανε από φυματίωση επτά χρόνια μετά, στα 35. Η Artura μού δίνει έναν πίνακα τη μέρα και την ιστορία του· αυτός μου έμεινε.",
+        "artiste": "Ενγκρ"
+      },
+      "hu": {
+        "titre": "De Broglie hercegnő",
+        "texte": "közel három évébe telt Ingres-nek: a szatén, a csipke, a fotel aranya, a gyöngyök minden csillanása. A hercegnő hét évvel később tuberkulózisban halt meg, 35 évesen. Az Artura app minden nap ad egy festményt a történetével; ez bennem maradt.",
+        "artiste": "Ingres"
+      },
+      "sr": {
+        "titre": "Princeza de Brolj",
+        "texte": "oduzela je Engru skoro tri godine: saten, čipka, zlato fotelje, svaki odsjaj na biserima. Umrla je od tuberkuloze sedam godina kasnije, sa 35. Aplikacija Artura mi daje jednu sliku dnevno i priču iza nje; ova mi je ostala u srcu.",
+        "artiste": "Engr"
+      },
+      "hr": {
+        "titre": "Princeza de Broglie",
+        "texte": "Ingresu je oduzela gotovo tri godine: saten, čipka, zlato naslonjača, svaki odsjaj na biserima. Umrla je od tuberkuloze sedam godina poslije, u 35. godini. Aplikacija Artura daje mi jednu sliku dnevno i priču iza nje; ova mi je ostala u srcu.",
+        "artiste": "Ingres"
+      },
+      "lv": {
+        "titre": "Princese de Brolji",
+        "texte": "Engram prasīja gandrīz trīs gadus: atlass, mežģīnes, krēsla zelts, katrs atspīdums pērlēs. Viņa nomira no tuberkulozes septiņus gadus vēlāk, 35 gadu vecumā. Lietotne Artura man katru dienu dod vienu gleznu un tās stāstu; šī man palika atmiņā.",
+        "artiste": "Engrs"
+      },
+      "ro": {
+        "titre": "Prințesa de Broglie",
+        "texte": "i-a luat lui Ingres aproape trei ani: satinul, dantela, aurul fotoliului, fiecare reflex de pe perle. Ea a murit de tuberculoză șapte ani mai târziu, la 35 de ani. Aplicația Artura îmi dă o pictură pe zi și povestea din spatele ei; aceasta mi-a rămas în minte.",
+        "artiste": "Ingres"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/friedland.jpg",
+      "en": {
+        "titre": "1807, Friedland",
+        "texte": "shows Napoleon saluted by his cuirassiers on the day of a great victory. Meissonier worked on it for more than ten years and studied horses at a gallop so obsessively that he had a small rail track built to follow them.",
+        "artiste": "Ernest Meissonier"
+      },
+      "fr": {
+        "titre": "1807, Friedland",
+        "texte": "montre Napoléon salué par ses cuirassiers un jour de grande victoire. Meissonier y a travaillé plus de dix ans et étudiait les chevaux au galop avec une telle obsession qu'il fit installer un petit rail pour les suivre.",
+        "artiste": "Ernest Meissonier"
+      },
+      "it": {
+        "titre": "1807, Friedland",
+        "texte": "mostra Napoleone salutato dai suoi corazzieri nel giorno di una grande vittoria. Meissonier ci lavorò per più di dieci anni e studiava i cavalli al galoppo con tale ossessione da farsi costruire un piccolo binario per seguirli.",
+        "artiste": "Ernest Meissonier"
+      },
+      "es-419": {
+        "titre": "1807, Friedland",
+        "texte": "muestra a Napoleón saludado por sus coraceros el día de una gran victoria. Meissonier trabajó en ella más de diez años y estudiaba a los caballos al galope con tanta obsesión que mandó construir una pequeña vía para seguirlos.",
+        "artiste": "Ernest Meissonier"
+      },
+      "el": {
+        "titre": "1807, Φρίντλαντ",
+        "texte": "δείχνει τον Ναπολέοντα να τον χαιρετούν οι θωρακοφόροι του τη μέρα μιας μεγάλης νίκης. Ο Μεσονιέ δούλεψε πάνω του πάνω από δέκα χρόνια και μελετούσε τα άλογα στον καλπασμό τόσο εμμονικά, που έφτιαξε μια μικρή ράγα για να τα ακολουθεί.",
+        "artiste": "Ερνέστ Μεσονιέ"
+      },
+      "hu": {
+        "titre": "1807, Friedland",
+        "texte": "Napóleont mutatja, akit vértesei köszöntenek egy nagy győzelem napján. Meissonier több mint tíz évig dolgozott rajta, és olyan megszállottan tanulmányozta a vágtázó lovakat, hogy kis sínpályát építtetett, hogy követhesse őket.",
+        "artiste": "Ernest Meissonier"
+      },
+      "sr": {
+        "titre": "1807, Fridland",
+        "texte": "prikazuje Napoleona kog pozdravljaju njegovi kirasiri na dan velike pobede. Mesonje je radio na njoj više od deset godina i toliko opsesivno proučavao konje u galopu da je dao da se izgradi mali kolosek kako bi ih pratio.",
+        "artiste": "Ernest Mesonje"
+      },
+      "hr": {
+        "titre": "1807., Friedland",
+        "texte": "prikazuje Napoleona kojeg pozdravljaju njegovi kirasiri na dan velike pobjede. Meissonier je na njoj radio više od deset godina i toliko je opsesivno proučavao konje u galopu da je dao izgraditi malu prugu kako bi ih pratio.",
+        "artiste": "Ernest Meissonier"
+      },
+      "lv": {
+        "titre": "1807. gads, Frīdlande",
+        "texte": "rāda Napoleonu, ko lielas uzvaras dienā sveic viņa kirasīri. Meisonjē pie tās strādāja vairāk nekā desmit gadus un tik apsēsti pētīja lēkšojošus zirgus, ka lika uzbūvēt nelielas sliedes, lai varētu tiem sekot.",
+        "artiste": "Ernests Meisonjē"
+      },
+      "ro": {
+        "titre": "1807, Friedland",
+        "texte": "îl arată pe Napoleon salutat de cuirasierii săi în ziua unei mari victorii. Meissonier a lucrat la ea peste zece ani și studia caii în galop atât de obsesiv, încât și-a construit o mică linie de cale ferată ca să-i urmărească.",
+        "artiste": "Ernest Meissonier"
+      }
+    }
+  ]
+}

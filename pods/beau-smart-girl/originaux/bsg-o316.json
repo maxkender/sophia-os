@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o316",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8889918a-4791-4f04-9bfb-1b144b863fba",
+  "titre": "ce que je demande en cours pour que mes profs se rappellent de moi toute l'année #etudes #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [
+    "8889918a-4791-4f04-9bfb-1b144b863fba"
+  ],
+  "notes": "G2, déclinaison de 8889918a (« les questions à poser en cours pour que tes profs se souviennent de toi », G1 gagnante, génération 1 en français ; meilleur passage it 6,7 k vues, r 4,67), en français, 2e déclinaison (après bsg-o298). Accroche reformulée : « ce que je demande en cours pour que mes profs se rappellent de moi toute l'année ». cta A. Questions neuves (rien du parent ni de bsg-o298). Routine du 27/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 6 full tests et 12 déclinaisons ; seules les lignes 1 et 15 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale « how to destroy yourself »), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12, 13 et 14 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4167fbf9",
+      "texte_overlay": "ce que je demande en cours\npour que mes profs se rappellent de moi\ntoute l'année",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6c0a7720",
+      "texte_overlay": "1. « on peut voir un exemple concret ? »\n\nles profs adorent en donner.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "148514cc",
+      "texte_overlay": "2. « et si on changeait cette donnée ? »\n\nça montre que tu joues avec l'idée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "532a14c3",
+      "texte_overlay": "3. « vous avez un article à me conseiller ? »\n\net tu le lis vraiment.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6f48b3c5",
+      "texte_overlay": "4. « je n'ai pas compris ce passage »\n\noser le dire, c'est déjà être sérieuse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "58263b7f",
+      "texte_overlay": "5. « c'est un peu comme… »\n\navant, je restais muette au fond de la classe.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'ai toujours un exemple à rapprocher du cours.",
+      "texte_sophia": "5. « c'est un peu comme… »\n\navant, je restais muette au fond de la classe.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'ai toujours un exemple à rapprocher du cours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6e5b9103",
+      "texte_overlay": "garde-la pour la rentrée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

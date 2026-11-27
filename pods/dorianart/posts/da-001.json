@@ -1,0 +1,221 @@
+{
+ "id": "da-001",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696990065343532309",
+  "vues": 1100000,
+  "publie_le": "2026-10-15",
+  "accroche": "Iceberg of ADHD hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of ADHD hobbies"
+ },
+ "legendes": {
+  "en": "#lockedin #adhdtiktok #hobbies #selfimprovement #iceberg"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7603872322981874462"
+ },
+ "oeuvres": {
+  "images/objets/violon.png": {
+   "musee": "The Met",
+   "id": "503057",
+   "titre": "Violin",
+   "artiste": "Nicolò Amati (Cremona 1596–1684 Cremona)",
+   "date": "1669",
+   "url": "https://www.metmuseum.org/art/collection/search/503057"
+  },
+  "images/objets/dame-echecs.png": {
+   "musee": "The Met",
+   "id": "201581",
+   "titre": "Chessman (Queen)",
+   "artiste": "Elkington & Co.",
+   "date": "ca. 1870",
+   "url": "https://www.metmuseum.org/art/collection/search/201581"
+  },
+  "images/objets/theiere.png": {
+   "musee": "The Met",
+   "id": "687439",
+   "titre": "Teapot",
+   "artiste": "Saint-Cloud factory",
+   "date": "ca. 1720–30",
+   "url": "https://www.metmuseum.org/art/collection/search/687439"
+  },
+  "images/objets/ours-leonard.png": {
+   "musee": "The Met",
+   "id": "459184",
+   "titre": "A Bear Walking",
+   "artiste": "Leonardo da Vinci",
+   "date": "ca. 1482–85",
+   "url": "https://www.metmuseum.org/art/collection/search/459184"
+  },
+  "images/objets/globe-celeste.png": {
+   "musee": "The Met",
+   "id": "207816",
+   "titre": "Celestial globe",
+   "artiste": "Willem Jansz Blaeu",
+   "date": "after 1621",
+   "url": "https://www.metmuseum.org/art/collection/search/207816"
+  },
+  "images/objets/casque-armet.png": {
+   "musee": "The Met",
+   "id": "22901",
+   "titre": "Armet",
+   "artiste": "",
+   "date": "ca. 1500–1510",
+   "url": "https://www.metmuseum.org/art/collection/search/22901"
+  },
+  "images/objets/horloge-table.png": {
+   "musee": "The Met",
+   "id": "194107",
+   "titre": "Table clock",
+   "artiste": "Bartholomew Newsam",
+   "date": "1580–85",
+   "url": "https://www.metmuseum.org/art/collection/search/194107"
+  },
+  "images/objets/tablette-cuneiforme.png": {
+   "musee": "The Met",
+   "id": "321878",
+   "titre": "Cuneiform tablet: student exercise tablet",
+   "artiste": "",
+   "date": "ca. 20th–16th century BCE",
+   "url": "https://www.metmuseum.org/art/collection/search/321878"
+  },
+  "images/objets/pierre-lettre.png": {
+   "musee": "The Met",
+   "id": "61762",
+   "titre": "Scholar's rock",
+   "artiste": "",
+   "date": "18th–19th century",
+   "url": "https://www.metmuseum.org/art/collection/search/61762"
+  },
+  "images/objets/faucon.png": {
+   "musee": "The Met",
+   "id": "570747",
+   "titre": "Falcon",
+   "artiste": "",
+   "date": "664–30 BCE",
+   "url": "https://www.metmuseum.org/art/collection/search/570747"
+  },
+  "images/objets/amphore.png": {
+   "musee": "The Met",
+   "id": "240111",
+   "titre": "Amphora",
+   "artiste": "",
+   "date": "600–480 BCE",
+   "url": "https://www.metmuseum.org/art/collection/search/240111"
+  },
+  "images/objets/astrolabe.png": {
+   "musee": "The Met",
+   "id": "923639",
+   "titre": "Astrolabe",
+   "artiste": "Regiomontanus",
+   "date": "1462",
+   "url": "https://www.metmuseum.org/art/collection/search/923639"
+  },
+  "images/objets/luth.png": {
+   "musee": "The Met",
+   "id": "505741",
+   "titre": "Lute",
+   "artiste": "Pietro Railich",
+   "date": "1669",
+   "url": "https://www.metmuseum.org/art/collection/search/505741"
+  },
+  "images/objets/portrait-leonard.png": {
+   "musee": "The Met",
+   "id": "411913",
+   "titre": "Portrait of Leonardo da Vinci, from \"Characaturas by Leonardo da Vinci, from Drawings by Wincelslaus Hollar, out of the Portland Museum\"",
+   "artiste": "Leonardo da Vinci",
+   "date": "1786",
+   "url": "https://www.metmuseum.org/art/collection/search/411913"
+  }
+ },
+ "notes": "Original sur son iceberg « Iceberg of ADHD hobbies » (1,1 M vues, 20 k enregistrements, 15/10 ; ses hashtags, sa musique) : même format (sa couverture à l'ovale, puis l'iceberg en 5 étages, 4, 4, 4, 2 et 1 loisirs, « disagreed? »), des loisirs ADHD de plus en plus pointus. Sans IA : sa couverture (texte effacé sur l'aplat bleu nuit), un iceberg dessiné par code, et chaque objet un vrai objet du Met détouré sur son fond (`npm run objet`) : violon (1669), dame d'échecs (vers 1870), théière en porcelaine (vers 1720-30), l'ours de Léonard (dessin, vers 1482-85), globe céleste (après 1621), armet (vers 1500-1510), horloge de table (1580-85), tablette cunéiforme d'exercice d'élève, pierre de lettré, faucon égyptien, amphore, astrolabe (1462), luth (1669), et le portrait de Léonard gravé d'après Hollar (1786) pour « polymathy ». Loisir Artura au 2e étage : « art history on artura », le logo d'Artura ; cta A.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "ADHD hobbies"
+   }
+  },
+  {
+   "type": "iceberg",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "playing an instrument",
+       "image": "images/objets/violon.png"
+      },
+      {
+       "t": "chess",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "tea rituals",
+       "image": "images/objets/theiere.png"
+      },
+      {
+       "t": "sketching",
+       "image": "images/objets/ours-leonard.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomy",
+       "image": "images/objets/globe-celeste.png"
+      },
+      {
+       "t": "art history on artura",
+       "image": "artura"
+      },
+      {
+       "t": "medieval history",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "fixing old clocks",
+       "image": "images/objets/horloge-table.png"
+      }
+     ],
+     [
+      {
+       "t": "dead languages",
+       "image": "images/objets/tablette-cuneiforme.png"
+      },
+      {
+       "t": "rock collecting",
+       "image": "images/objets/pierre-lettre.png"
+      },
+      {
+       "t": "egyptology",
+       "image": "images/objets/faucon.png"
+      },
+      {
+       "t": "greek myths",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "star navigation",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "learning the lute",
+       "image": "images/objets/luth.png"
+      }
+     ],
+     [
+      {
+       "t": "polymathy",
+       "image": "images/objets/portrait-leonard.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   }
+  }
+ ]
+}

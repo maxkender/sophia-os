@@ -11,7 +11,7 @@
     "titre": "Les (Instrumental Slowed)",
     "url": "https://www.tiktok.com/music/Les-Instrumental-Slowed-7601037808778708993"
   },
-  "notes": "Preuve de format : « HOW TO GIVE A GIRL BUTTERFLIES. » (1,4 M), famille « HOW TO … », conseils titrés. Accroche neuve « HOW TO BE CONFIDENT ON A FIRST DATE. ». Carte Artura (5) : « Have a story ready. », Cézanne, The Card Players (The Met 435868), LOGO d'Artura ; cta B. Fait vérifié : Cézanne a peint cinq tableaux de joueurs de cartes (1890-1895, fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es (pas de sr : aucun compte).",
+  "notes": "Preuve de format : « HOW TO GIVE A GIRL BUTTERFLIES. » (1,4 M), famille « HOW TO … », conseils titrés. Accroche neuve « HOW TO BE CONFIDENT ON A FIRST DATE. ». Carte Artura (5) : « Have a story ready. », Cézanne, The Card Players (The Met 435868), LOGO d'Artura ; cta B. Fait vérifié : Cézanne a peint cinq tableaux de joueurs de cartes (1890-1895, fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es + sr (latin) le 27/11.",
   "oeuvres": {
     "images/oeuvres/cezanne-joueurs.jpg": {
       "musee": "The Met",
@@ -29,7 +29,8 @@
     "it": "Come essere sicuro al primo appuntamento.",
     "hu": "Hogyan légy magabiztos az első randin.",
     "pt-BR": "Como ser confiante no primeiro encontro.",
-    "es": "Cómo tener seguridad en la primera cita."
+    "es": "Cómo tener seguridad en la primera cita.",
+    "sr": "Kako da budeš siguran na prvom sastanku."
   },
   "legendes": {
     "en": "#firstdate #datingadvice #tipsformen ",
@@ -38,7 +39,8 @@
     "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
     "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
     "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
-    "es": "#consejosdecitas #consejosparahombres #ligar "
+    "es": "#consejosdecitas #consejosparahombres #ligar ",
+    "sr": "#savetizamuškarce #veze #zavođenje "
   },
   "slides": [
     {
@@ -63,6 +65,9 @@
       },
       "es": {
         "titre": "CÓMO TENER\nSEGURIDAD EN\nLA PRIMERA CITA."
+      },
+      "sr": {
+        "titre": "KAKO DA BUDEŠ\nSIGURAN NA\nPRVOM SASTANKU."
       }
     },
     {
@@ -114,6 +119,13 @@
         "paragraphes": [
           "Elige la mesa. Pídele un agua.",
           "Cuando entre, tú ya estás como en casa."
+        ]
+      },
+      "sr": {
+        "titre": "Stigni prvi.",
+        "paragraphes": [
+          "Izaberi sto. Naruči joj vodu.",
+          "Kad ona uđe, ti si već kao kod kuće."
         ]
       }
     },
@@ -167,6 +179,13 @@
           "Habla más despacio. Muévete más despacio. Haz una pausa antes de responder.",
           "Los nerviosos tienen prisa. Los tranquilos se toman su tiempo."
         ]
+      },
+      "sr": {
+        "titre": "Uspori.",
+        "paragraphes": [
+          "Pričaj sporije. Kreći se sporije. Zastani pre nego što odgovoriš.",
+          "Nervozni žure. Mirni imaju vremena."
+        ]
       }
     },
     {
@@ -218,6 +237,13 @@
         "paragraphes": [
           "Cuando hable, mírala. No a la puerta, no al móvil.",
           "Un segundo más de lo que te parece normal."
+        ]
+      },
+      "sr": {
+        "titre": "Drži kontakt očima.",
+        "paragraphes": [
+          "Kad priča, gledaj nju. Ne vrata, ne telefon.",
+          "Sekundu duže nego što ti deluje normalno."
         ]
       }
     },
@@ -300,6 +326,17 @@
           "Artura me da una obra al día y su historia.",
           "Diez minutos, y eres el hombre más interesante del lugar."
         ]
+      },
+      "sr": {
+        "titre": "Imaj spremnu priču.",
+        "avant": [
+          "Sezan je pet puta slikao kartaroše. Niko ne priča.",
+          "Pitaj je o čemu razmišljaju."
+        ],
+        "apres": [
+          "Artura mi daje jedno delo dnevno i njegovu priču.",
+          "Deset minuta, i ti si najzanimljiviji muškarac u sobi."
+        ]
       }
     },
     {
@@ -351,6 +388,13 @@
         "paragraphes": [
           "No lo conviertas en un momento. Solo encárgate.",
           "Si insiste, deja que invite la próxima."
+        ]
+      },
+      "sr": {
+        "titre": "Plati, bez govora.",
+        "paragraphes": [
+          "Ne pravi od toga trenutak. Samo reši.",
+          "Ako insistira, neka ona plati sledeći put."
         ]
       }
     },
@@ -404,6 +448,13 @@
           "La seguridad no hace ruido. Es estar cómodo en el silencio.",
           "**Un niño quiere impresionar.**\n**Un hombre está tranquilo.**"
         ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Samopouzdanje nije glasno. To je kad ti je prijatno u tišini.",
+          "**Dečak hoće da impresionira.**\n**Muškarac je opušten.**"
+        ]
       }
     },
     {
@@ -441,6 +492,11 @@
         "gras": "Sígueme",
         "milieu": " para no perderte",
         "suite": "lo que viene."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
       }
     }
   ]

@@ -1,0 +1,495 @@
+{
+  "id": "hl-015",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7686199268775939350",
+    "vues": 1400000,
+    "publie_le": "2026-09-16",
+    "accroche": "HOW TO GIVE A GIRL BUTTERFLIES."
+  },
+  "musique": {
+    "titre": "Les (Instrumental Slowed)",
+    "url": "https://www.tiktok.com/music/Les-Instrumental-Slowed-7601037808778708993"
+  },
+  "notes": "Preuve de format : « HOW TO GIVE A GIRL BUTTERFLIES. » (1,4 M), famille « HOW TO … », conseils titrés. Accroche neuve « HOW TO PLAN A SECOND DATE SHE'LL REMEMBER. ». Carte Artura (4) : « Add one surprise. », Canaletto, The Grand Canal, Venice, Looking South toward the Rialto Bridge (The Met 438100), LOGO d'Artura ; cta B. Fait vérifié : Canaletto vendait ses vues de Venise aux voyageurs du Grand Tour, surtout anglais (fiche du Met). Full test (accroche jamais faite chez nous), routine du 27/11. En en, el, es-419, it, hu, sr (latin), pt-BR, es.",
+  "oeuvres": {
+    "images/oeuvres/canaletto-canal.jpg": {
+      "musee": "The Met",
+      "id": "438100",
+      "titre": "The Grand Canal, Venice, Looking South toward the Rialto Bridge",
+      "artiste": "Canaletto (Giovanni Antonio Canal)",
+      "date": "1730s",
+      "url": "https://www.metmuseum.org/art/collection/search/438100"
+    }
+  },
+  "titre": {
+    "en": "How to plan a second date she'll remember.",
+    "el": "Πώς να κάνεις το δεύτερο ραντεβού αξέχαστο.",
+    "es-419": "Cómo planear una segunda cita inolvidable.",
+    "it": "Come rendere indimenticabile il secondo appuntamento.",
+    "hu": "Hogyan legyen felejthetetlen a második randi.",
+    "sr": "Kako da drugi sastanak bude nezaboravan.",
+    "pt-BR": "Como fazer um segundo encontro inesquecível.",
+    "es": "Cómo planear una segunda cita inolvidable."
+  },
+  "legendes": {
+    "en": "#seconddate #datingadvice #tipsformen ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "sr": "#savetizamuškarce #veze #zavođenje ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "en": {
+        "titre": "HOW TO PLAN\nA SECOND DATE\nSHE'LL REMEMBER."
+      },
+      "el": {
+        "titre": "ΠΩΣ ΝΑ ΚΑΝΕΙΣ\nΤΟ ΔΕΥΤΕΡΟ\nΡΑΝΤΕΒΟΥ\nΑΞΕΧΑΣΤΟ."
+      },
+      "es-419": {
+        "titre": "CÓMO PLANEAR\nUNA SEGUNDA CITA\nINOLVIDABLE."
+      },
+      "it": {
+        "titre": "COME RENDERE\nINDIMENTICABILE\nIL SECONDO\nAPPUNTAMENTO."
+      },
+      "hu": {
+        "titre": "HOGYAN LEGYEN\nFELEJTHETETLEN\nA MÁSODIK RANDI."
+      },
+      "sr": {
+        "titre": "KAKO DA DRUGI\nSASTANAK BUDE\nNEZABORAVAN."
+      },
+      "pt-BR": {
+        "titre": "COMO FAZER\nUM SEGUNDO\nENCONTRO\nINESQUECÍVEL."
+      },
+      "es": {
+        "titre": "CÓMO PLANEAR\nUNA SEGUNDA CITA\nINOLVIDABLE."
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Use what she told you.",
+        "paragraphes": [
+          "She said she misses the sea?\nFind the best fish place in town.",
+          "Proof you listened is the best gift."
+        ]
+      },
+      "el": {
+        "titre": "Χρησιμοποίησε όσα σου είπε.",
+        "paragraphes": [
+          "Είπε ότι της λείπει η θάλασσα; Βρες την καλύτερη ψαροταβέρνα της πόλης.",
+          "Η απόδειξη ότι άκουσες είναι το καλύτερο δώρο."
+        ]
+      },
+      "es-419": {
+        "titre": "Usa lo que te contó.",
+        "paragraphes": [
+          "¿Dijo que extraña el mar? Busca el mejor lugar de mariscos de la ciudad.",
+          "La prueba de que escuchaste es el mejor regalo."
+        ]
+      },
+      "it": {
+        "titre": "Usa quello che ti ha detto.",
+        "paragraphes": [
+          "Ha detto che le manca il mare? Trova il miglior ristorante di pesce della città.",
+          "La prova che hai ascoltato è il regalo migliore."
+        ]
+      },
+      "hu": {
+        "titre": "Használd, amit mesélt.",
+        "paragraphes": [
+          "Azt mondta, hiányzik neki a tenger? Keresd meg a város legjobb halétteremét.",
+          "A legjobb ajándék a bizonyíték, hogy figyeltél."
+        ]
+      },
+      "sr": {
+        "titre": "Iskoristi ono što ti je rekla.",
+        "paragraphes": [
+          "Rekla je da joj fali more? Nađi najbolji riblji restoran u gradu.",
+          "Dokaz da si slušao je najbolji poklon."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Use o que ela te contou.",
+        "paragraphes": [
+          "Ela disse que sente falta do mar? Ache o melhor restaurante de frutos do mar da cidade.",
+          "A prova de que você ouviu é o melhor presente."
+        ]
+      },
+      "es": {
+        "titre": "Usa lo que te contó.",
+        "paragraphes": [
+          "¿Dijo que echa de menos el mar? Busca el mejor sitio de marisco de la ciudad.",
+          "La prueba de que escuchaste es el mejor regalo."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Do something together.",
+        "paragraphes": [
+          "Not dinner and a movie.\nA cooking class, a market,\na long walk.",
+          "Doing beats sitting."
+        ]
+      },
+      "el": {
+        "titre": "Κάντε κάτι μαζί.",
+        "paragraphes": [
+          "Όχι φαγητό και σινεμά. Μάθημα μαγειρικής, μια λαϊκή, μια μεγάλη βόλτα.",
+          "Το να κάνετε κάτι νικάει το να κάθεστε."
+        ]
+      },
+      "es-419": {
+        "titre": "Hagan algo juntos.",
+        "paragraphes": [
+          "No cena y película. Una clase de cocina, un mercado, una caminata larga.",
+          "Hacer gana a estar sentados."
+        ]
+      },
+      "it": {
+        "titre": "Fate qualcosa insieme.",
+        "paragraphes": [
+          "Non cena e film. Un corso di cucina, un mercato, una lunga passeggiata.",
+          "Fare batte stare seduti."
+        ]
+      },
+      "hu": {
+        "titre": "Csináljatok valamit együtt.",
+        "paragraphes": [
+          "Ne vacsora és mozi. Főzőtanfolyam, piac, hosszú séta.",
+          "A közös csinálás jobb, mint az üldögélés."
+        ]
+      },
+      "sr": {
+        "titre": "Radite nešto zajedno.",
+        "paragraphes": [
+          "Ne večera i bioskop. Kurs kuvanja, pijaca, duga šetnja.",
+          "Raditi nešto je bolje nego sedeti."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Façam algo juntos.",
+        "paragraphes": [
+          "Não jantar e cinema. Uma aula de culinária, uma feira, uma longa caminhada.",
+          "Fazer ganha de ficar sentado."
+        ]
+      },
+      "es": {
+        "titre": "Haced algo juntos.",
+        "paragraphes": [
+          "No cena y película. Una clase de cocina, un mercado, un paseo largo.",
+          "Hacer gana a estar sentados."
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/canaletto-canal.jpg",
+      "en": {
+        "titre": "Add one surprise.",
+        "avant": [
+          "Canaletto sold views of Venice like this one to travelers, like postcards. Show her one."
+        ],
+        "apres": [
+          "Artura gives me one artwork a day\nand the story behind it.",
+          "Ten minutes, and you're the most\ninteresting man in the room."
+        ]
+      },
+      "el": {
+        "titre": "Βάλε μια έκπληξη.",
+        "avant": [
+          "Ο Καναλέτο πουλούσε τέτοιες εικόνες της Βενετίας σε ταξιδιώτες, σαν καρτ ποστάλ. Δείξε της μία."
+        ],
+        "apres": [
+          "Το Artura μου δίνει ένα έργο τη μέρα και την ιστορία του.",
+          "Δέκα λεπτά, και είσαι ο πιο ενδιαφέρων άντρας στο δωμάτιο."
+        ]
+      },
+      "es-419": {
+        "titre": "Agrega una sorpresa.",
+        "avant": [
+          "Canaletto vendía vistas de Venecia como esta a los viajeros, como postales. Muéstrale una."
+        ],
+        "apres": [
+          "Artura me da una obra al día y su historia.",
+          "Diez minutos, y eres el hombre más interesante del lugar."
+        ]
+      },
+      "it": {
+        "titre": "Aggiungi una sorpresa.",
+        "avant": [
+          "Canaletto vendeva vedute di Venezia come questa ai viaggiatori, come cartoline. Mostragliene una."
+        ],
+        "apres": [
+          "Artura mi dà un'opera al giorno e la sua storia.",
+          "Dieci minuti, e sei l'uomo più interessante della stanza."
+        ]
+      },
+      "hu": {
+        "titre": "Csempéssz bele egy meglepetést.",
+        "avant": [
+          "Canaletto ilyen velencei látképeket árult az utazóknak, mint képeslapokat. Mutass neki egyet."
+        ],
+        "apres": [
+          "Az Artura naponta ad egy műalkotást és a történetét.",
+          "Tíz perc, és te vagy a legérdekesebb férfi a teremben."
+        ]
+      },
+      "sr": {
+        "titre": "Dodaj jedno iznenađenje.",
+        "avant": [
+          "Kanaleto je ovakve prizore Venecije prodavao putnicima, kao razglednice. Pokaži joj jedan."
+        ],
+        "apres": [
+          "Artura mi daje jedno delo dnevno i njegovu priču.",
+          "Deset minuta, i ti si najzanimljiviji muškarac u sobi."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Inclua uma surpresa.",
+        "avant": [
+          "Canaletto vendia vistas de Veneza como esta para viajantes, como cartões-postais. Mostre uma a ela."
+        ],
+        "apres": [
+          "O Artura me dá uma obra por dia e a história dela.",
+          "Dez minutos, e você é o homem mais interessante da sala."
+        ]
+      },
+      "es": {
+        "titre": "Añade una sorpresa.",
+        "avant": [
+          "Canaletto vendía vistas de Venecia como esta a los viajeros, como postales. Muéstrale una."
+        ],
+        "apres": [
+          "Artura me da una obra al día y su historia.",
+          "Diez minutos, y eres el hombre más interesante del lugar."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Plan it, but stay flexible.",
+        "paragraphes": [
+          "Have a plan A. If she's tired, change it.",
+          "Leading isn't controlling."
+        ]
+      },
+      "el": {
+        "titre": "Οργάνωσέ το, αλλά μείνε ευέλικτος.",
+        "paragraphes": [
+          "Έχε ένα σχέδιο Α. Αν είναι κουρασμένη, άλλαξέ το.",
+          "Το να οδηγείς δεν είναι να ελέγχεις."
+        ]
+      },
+      "es-419": {
+        "titre": "Planéalo, pero sé flexible.",
+        "paragraphes": [
+          "Ten un plan A. Si está cansada, cámbialo.",
+          "Guiar no es controlar."
+        ]
+      },
+      "it": {
+        "titre": "Organizza, ma resta flessibile.",
+        "paragraphes": [
+          "Abbi un piano A. Se è stanca, cambialo.",
+          "Guidare non è controllare."
+        ]
+      },
+      "hu": {
+        "titre": "Tervezd meg, de légy rugalmas.",
+        "paragraphes": [
+          "Legyen A-terved. Ha fáradt, változtass.",
+          "Vezetni nem azt jelenti, hogy irányítasz."
+        ]
+      },
+      "sr": {
+        "titre": "Isplaniraj, ali budi fleksibilan.",
+        "paragraphes": [
+          "Imaj plan A. Ako je umorna, promeni ga.",
+          "Voditi ne znači kontrolisati."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Planeje, mas seja flexível.",
+        "paragraphes": [
+          "Tenha um plano A. Se ela estiver cansada, mude.",
+          "Conduzir não é controlar."
+        ]
+      },
+      "es": {
+        "titre": "Planéalo, pero sé flexible.",
+        "paragraphes": [
+          "Ten un plan A. Si está cansada, cámbialo.",
+          "Guiar no es controlar."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "End with a small ritual.",
+        "paragraphes": [
+          "The same café after every date,\na photo at the same spot.",
+          "Rituals turn dates into a story."
+        ]
+      },
+      "el": {
+        "titre": "Κλείσε με μια μικρή συνήθεια.",
+        "paragraphes": [
+          "Το ίδιο καφέ μετά από κάθε ραντεβού, μια φωτογραφία στο ίδιο σημείο.",
+          "Οι συνήθειες κάνουν τα ραντεβού ιστορία."
+        ]
+      },
+      "es-419": {
+        "titre": "Termina con un pequeño ritual.",
+        "paragraphes": [
+          "El mismo café después de cada cita, una foto en el mismo lugar.",
+          "Los rituales convierten las citas en una historia."
+        ]
+      },
+      "it": {
+        "titre": "Chiudi con un piccolo rito.",
+        "paragraphes": [
+          "Lo stesso bar dopo ogni appuntamento, una foto nello stesso posto.",
+          "I riti trasformano gli appuntamenti in una storia."
+        ]
+      },
+      "hu": {
+        "titre": "Zárd egy kis rituáléval.",
+        "paragraphes": [
+          "Ugyanaz a kávézó minden randi után, egy fotó ugyanott.",
+          "A rituálék történetté teszik a randikat."
+        ]
+      },
+      "sr": {
+        "titre": "Završi malim ritualom.",
+        "paragraphes": [
+          "Isti kafić posle svakog sastanka, fotografija na istom mestu.",
+          "Rituali pretvaraju sastanke u priču."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Termine com um pequeno ritual.",
+        "paragraphes": [
+          "O mesmo café depois de cada encontro, uma foto no mesmo lugar.",
+          "Rituais transformam encontros em uma história."
+        ]
+      },
+      "es": {
+        "titre": "Termina con un pequeño ritual.",
+        "paragraphes": [
+          "El mismo café después de cada cita, una foto en el mismo lugar.",
+          "Los rituales convierten las citas en una historia."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "The first date is about chemistry.\nThe second is about effort.",
+          "**A boy repeats the first date.**\n**A man raises the bar.**"
+        ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Το πρώτο ραντεβού είναι χημεία. Το δεύτερο είναι προσπάθεια.",
+          "**Το αγόρι επαναλαμβάνει το πρώτο.**\n**Ο άντρας ανεβάζει τον πήχη.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "La primera cita es química. La segunda es esfuerzo.",
+          "**Un niño repite la primera cita.**\n**Un hombre sube el nivel.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "Il primo appuntamento è chimica. Il secondo è impegno.",
+          "**Un ragazzino ripete il primo.**\n**Un uomo alza l'asticella.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "Az első randi a kémiáról szól. A második az igyekezetről.",
+          "**A kisfiú megismétli az elsőt.**\n**A férfi feljebb teszi a lécet.**"
+        ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Prvi sastanak je hemija. Drugi je trud.",
+          "**Dečak ponavlja prvi sastanak.**\n**Muškarac podiže lestvicu.**"
+        ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "O primeiro encontro é química. O segundo é esforço.",
+          "**O garoto repete o primeiro.**\n**O homem eleva o nível.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "La primera cita es química. La segunda es esfuerzo.",
+          "**Un niño repite la primera cita.**\n**Un hombre sube el nivel.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      }
+    }
+  ]
+}

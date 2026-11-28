@@ -1,0 +1,268 @@
+{
+ "id": "sz-002",
+ "source": {
+  "url": "https://www.tiktok.com/@ssazem/photo/7688424378199067918",
+  "vues": 56700,
+  "publie_le": "2026-09-22",
+  "accroche": "what a privilege it is to have another day to try again & again."
+ },
+ "titre": {
+  "en": "what a privilege it is to have another day to try again & again.",
+  "de": "was für ein privileg, noch einen tag zu haben, um es immer wieder zu versuchen.",
+  "it": "che privilegio avere un altro giorno per riprovarci ancora e ancora.",
+  "hu": "micsoda kiváltság, hogy van még egy napod, hogy újra és újra próbálkozz.",
+  "sr": "kakva privilegija, imati još jedan dan da pokušaš opet i opet.",
+  "tr": "tekrar tekrar denemek için bir gün daha olması ne büyük bir ayrıcalık.",
+  "el": "τι προνόμιο να έχεις άλλη μια μέρα να προσπαθήσεις ξανά και ξανά.",
+  "ro": "ce privilegiu să mai ai o zi ca să încerci iar și iar."
+ },
+ "legendes": {
+  "en": "#fyp #venting",
+  "de": "#fyp #venting",
+  "it": "#fyp #venting",
+  "hu": "#fyp #venting",
+  "sr": "#fyp #venting",
+  "tr": "#fyp #venting",
+  "el": "#fyp #venting",
+  "ro": "#fyp #venting"
+ },
+ "musique": {
+  "titre": "original sound - Matt",
+  "url": "https://www.tiktok.com/music/original-sound-7638059143613434654"
+ },
+ "compte": {
+  "images/compte/roue-pre.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7688424378199067918",
+   "slide": 1
+  },
+  "images/compte/crete-neige.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7689190085761223950",
+   "slide": 5
+  },
+  "images/compte/ours-herbe.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7696962767064026382",
+   "slide": 4
+  },
+  "images/compte/falaise-ciel.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7688795724003216653",
+   "slide": 4
+  },
+  "images/compte/singe-couchant.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7692490578273062158",
+   "slide": 2
+  }
+ },
+ "notes": "Remake de son 2e tube « what a privilege it is to have another day to try again & again. » (56,7 k vues, 1,4 k enregistrements, 22/09 ; #fyp #venting, original sound - Matt) : ses phrases 1, 2 (« sily » corrigé en « silly »), 3 et 5 telles quelles, dans sa mise en page. Photos : sa slide 1 (la roue dans l'herbe) ; sa photo 2 (le lion) déjà dans sz-001 et sa 4 (un acteur) écartées : la crête enneigée (« how silly of me to forget », 15,5 k), l'ours dans l'herbe (« give yourself permission », 14,3 k), l'inconnu sur la falaise (« the less you care », 26 k) et le singe au couchant (« the dont let bad people ruin », 15,1 k) ; sa 5 (un fumeur à sa fenêtre) laissée. Textes effacés par `npm run compte`, sans IA. Slide Sophia (4) à la place de sa phrase 4 (« maybe you don't realize how good you're doing, because you keep raising the bar. ») : cta B. Traduit à la main en de, it, hu, sr (latin), tr, el, ro.",
+ "slides": [
+  {
+   "type": "citation",
+   "image": "images/compte/roue-pre.jpg",
+   "encre": "blanc",
+   "place": {
+    "x": 675,
+    "droite": 1310,
+    "base": 705
+   },
+   "en": {
+    "gauche": "what a privilege\nit is to have",
+    "droite": "another day to\ntry again &\nagain."
+   },
+   "de": {
+    "gauche": "was für ein\nprivileg, noch\neinen tag",
+    "droite": "zu haben, um es\nimmer wieder zu\nversuchen."
+   },
+   "it": {
+    "gauche": "che privilegio\navere un altro\ngiorno",
+    "droite": "per riprovarci\nancora e ancora."
+   },
+   "hu": {
+    "gauche": "micsoda kiváltság,\nhogy van még\negy napod,",
+    "droite": "hogy újra és\nújra próbálkozz."
+   },
+   "sr": {
+    "gauche": "kakva privilegija,\nimati još\njedan dan",
+    "droite": "da pokušaš\nopet i opet."
+   },
+   "tr": {
+    "gauche": "tekrar tekrar\ndenemek için",
+    "droite": "bir gün daha olması\nne büyük\nbir ayrıcalık."
+   },
+   "el": {
+    "gauche": "τι προνόμιο\nνα έχεις\nάλλη μια μέρα",
+    "droite": "να προσπαθήσεις\nξανά και ξανά."
+   },
+   "ro": {
+    "gauche": "ce privilegiu\nsă mai ai\no zi",
+    "droite": "ca să încerci\niar și iar."
+   }
+  },
+  {
+   "type": "citation",
+   "image": "images/compte/crete-neige.jpg",
+   "encre": "blanc",
+   "place": {
+    "x": 520,
+    "droite": 1150,
+    "base": 755
+   },
+   "en": {
+    "gauche": "silly you thinking\nyou're behind",
+    "droite": "when you've\nalready come this\nfar."
+   },
+   "de": {
+    "gauche": "wie dumm von dir\nzu denken, du\nhängst hinterher,",
+    "droite": "dabei bist du\nschon so weit\ngekommen."
+   },
+   "it": {
+    "gauche": "sciocco tu\nche pensi\ndi essere indietro,",
+    "droite": "quando sei già\narrivato\nfin qui."
+   },
+   "hu": {
+    "gauche": "milyen butaság\nazt hinni, hogy\nle vagy maradva,",
+    "droite": "amikor már\nilyen messzire\njutottál."
+   },
+   "sr": {
+    "gauche": "smešno je\nšto misliš\nda kasniš,",
+    "droite": "kad si već\nstigao\novoliko daleko."
+   },
+   "tr": {
+    "gauche": "geride kaldığını\ndüşünmen\nne saçma,",
+    "droite": "zaten bu kadar\nyol almışken."
+   },
+   "el": {
+    "gauche": "τι αστείο\nνα νομίζεις\nότι έμεινες πίσω,",
+    "droite": "ενώ έχεις ήδη\nφτάσει\nτόσο μακριά."
+   },
+   "ro": {
+    "gauche": "ce prostuț ești\nsă crezi că\nai rămas în urmă,",
+    "droite": "când ai ajuns\ndeja\natât de departe."
+   }
+  },
+  {
+   "type": "citation",
+   "image": "images/compte/ours-herbe.jpg",
+   "encre": "noir",
+   "place": {
+    "x": 284,
+    "droite": 1270,
+    "base": 285
+   },
+   "en": {
+    "gauche": "you cannot always\nbe happy,",
+    "droite": "but you\ncan be brave."
+   },
+   "de": {
+    "gauche": "du kannst nicht\nimmer glücklich sein,",
+    "droite": "aber du kannst\nmutig sein."
+   },
+   "it": {
+    "gauche": "non puoi essere\nsempre felice,",
+    "droite": "ma puoi essere\ncoraggioso."
+   },
+   "hu": {
+    "gauche": "nem lehetsz\nmindig boldog,",
+    "droite": "de lehetsz\nbátor."
+   },
+   "sr": {
+    "gauche": "ne možeš uvek\nbiti srećan,",
+    "droite": "ali možeš biti\nhrabar."
+   },
+   "tr": {
+    "gauche": "her zaman\nmutlu olamazsın,",
+    "droite": "ama cesur\nolabilirsin."
+   },
+   "el": {
+    "gauche": "δεν μπορείς\nνα είσαι πάντα\nευτυχισμένος,",
+    "droite": "μπορείς όμως\nνα είσαι γενναίος."
+   },
+   "ro": {
+    "gauche": "nu poți fi\nmereu fericit,",
+    "droite": "dar poți fi\ncurajos."
+   }
+  },
+  {
+   "type": "sophia",
+   "image": "images/compte/falaise-ciel.jpg",
+   "encre": "noir",
+   "place": {
+    "x": 456,
+    "droite": 1084,
+    "base": 395
+   },
+   "en": {
+    "gauche": "i stopped scrolling\nand started learning\non Sophia,",
+    "droite": "my mind got\nquieter."
+   },
+   "de": {
+    "gauche": "statt zu scrollen\nlerne ich jetzt\nauf Sophia,",
+    "droite": "mein kopf ist\nruhiger geworden."
+   },
+   "it": {
+    "gauche": "non scrollo più,\nora imparo\nsu Sophia,",
+    "droite": "la mia mente\nè più tranquilla."
+   },
+   "hu": {
+    "gauche": "nem görgetek,\ntanulok a Sophia\nalkalmazásban,",
+    "droite": "a fejem\nlecsendesedett."
+   },
+   "sr": {
+    "gauche": "ne skrolujem više,\nučim u aplikaciji\nSophia,",
+    "droite": "um mi je\nmirniji."
+   },
+   "tr": {
+    "gauche": "kaydırmayı bıraktım,\nSophia'da\nöğrenmeye başladım,",
+    "droite": "zihnim\nsakinleşti."
+   },
+   "el": {
+    "gauche": "σταμάτησα\nτο σκρολάρισμα,\nμαθαίνω στο Sophia,",
+    "droite": "το μυαλό μου\nησύχασε."
+   },
+   "ro": {
+    "gauche": "nu mai dau scroll,\nînvăț\npe Sophia,",
+    "droite": "mintea mea\ns-a liniștit."
+   }
+  },
+  {
+   "type": "citation",
+   "image": "images/compte/singe-couchant.jpg",
+   "encre": "noir",
+   "place": {
+    "x": 134,
+    "droite": 1296,
+    "base": 515
+   },
+   "en": {
+    "gauche": "as long as i\ntry,",
+    "droite": "i am probably doing\nway better than i\nthink."
+   },
+   "de": {
+    "gauche": "solange ich\nes versuche,",
+    "droite": "geht es mir wohl\nviel besser,\nals ich denke."
+   },
+   "it": {
+    "gauche": "fintanto che ci provo,",
+    "droite": "probabilmente sto\nandando molto meglio\ndi quanto penso."
+   },
+   "hu": {
+    "gauche": "amíg próbálkozom,",
+    "droite": "valószínűleg\nsokkal jobban állok,\nmint gondolom."
+   },
+   "sr": {
+    "gauche": "dok god pokušavam,",
+    "droite": "verovatno mi ide\nmnogo bolje\nnego što mislim."
+   },
+   "tr": {
+    "gauche": "denediğim sürece,",
+    "droite": "muhtemelen\nsandığımdan çok\ndaha iyiyim."
+   },
+   "el": {
+    "gauche": "όσο προσπαθώ,",
+    "droite": "μάλλον τα πάω\nπολύ καλύτερα\nαπ' όσο νομίζω."
+   },
+   "ro": {
+    "gauche": "cât timp încerc,",
+    "droite": "probabil mă descurc\nmult mai bine\ndecât cred."
+   }
+  }
+ ]
+}

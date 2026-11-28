@@ -1,1 +1,180 @@
-{"images/compte/lion-herbes.jpg": {"post": "https://www.tiktok.com/@ssazem/photo/7688424378199067918", "slide": 2, "encre_effacee": "noir", "zones": [[240, 380, 730, 532], [730, 515, 1248, 722]]}, "images/compte/vache-montagne.jpg": {"post": "https://www.tiktok.com/@ssazem/photo/7690683962598984973", "slide": 5, "encre_effacee": "blanc", "zones": [[815, 850, 1200, 1130]]}, "images/compte/randonneur-ciel.jpg": {"post": "https://www.tiktok.com/@ssazem/photo/7690683962598984973", "slide": 2, "encre_effacee": "noir", "zones": [[170, 375, 670, 645]]}, "images/compte/capuche-galets.jpg": {"post": "https://www.tiktok.com/@ssazem/photo/7690683962598984973", "slide": 4, "encre_effacee": "blanc", "zones": [[740, 570, 1235, 920]]}, "images/compte/plage-soleil.jpg": {"post": "https://www.tiktok.com/@ssazem/photo/7694002416433237262", "slide": 2, "encre_effacee": "blanc", "zones": [[480, 375, 960, 548], [770, 515, 1175, 695]]}, "images/compte/roue-pre.jpg": {"post": "https://www.tiktok.com/@ssazem/photo/7688424378199067918", "slide": 1, "encre_effacee": "blanc", "zones": [[665, 650, 1140, 795], [865, 775, 1315, 985]]}, "images/compte/crete-neige.jpg": {"post": "https://www.tiktok.com/@ssazem/photo/7689190085761223950", "slide": 5, "encre_effacee": "blanc", "zones": [[445, 700, 995, 875], [625, 850, 995, 1010]]}, "images/compte/ours-herbe.jpg": {"post": "https://www.tiktok.com/@ssazem/photo/7696962767064026382", "slide": 4, "encre_effacee": "noir", "zones": [[270, 222, 880, 458], [855, 432, 1285, 515], [1090, 512, 1285, 598]]}, "images/compte/falaise-ciel.jpg": {"post": "https://www.tiktok.com/@ssazem/photo/7688795724003216653", "slide": 4, "encre_effacee": "noir", "zones": [[445, 342, 1095, 500], [725, 478, 1095, 660]]}, "images/compte/singe-couchant.jpg": {"post": "https://www.tiktok.com/@ssazem/photo/7692490578273062158", "slide": 2, "encre_effacee": "blanc", "zones": [[125, 462, 595, 628], [845, 602, 1305, 770]]}}
+{
+ "images/compte/lion-herbes.jpg": {
+  "post": "https://www.tiktok.com/@ssazem/photo/7688424378199067918",
+  "slide": 2,
+  "encre_effacee": "noir",
+  "zones": [
+   [
+    240,
+    380,
+    730,
+    532
+   ],
+   [
+    730,
+    515,
+    1248,
+    722
+   ]
+  ]
+ },
+ "images/compte/vache-montagne.jpg": {
+  "post": "https://www.tiktok.com/@ssazem/photo/7690683962598984973",
+  "slide": 5,
+  "encre_effacee": "blanc",
+  "zones": [
+   [
+    815,
+    850,
+    1200,
+    1130
+   ]
+  ]
+ },
+ "images/compte/randonneur-ciel.jpg": {
+  "post": "https://www.tiktok.com/@ssazem/photo/7690683962598984973",
+  "slide": 2,
+  "encre_effacee": "noir",
+  "zones": [
+   [
+    170,
+    375,
+    670,
+    645
+   ]
+  ]
+ },
+ "images/compte/capuche-galets.jpg": {
+  "post": "https://www.tiktok.com/@ssazem/photo/7690683962598984973",
+  "slide": 4,
+  "encre_effacee": "blanc",
+  "zones": [
+   [
+    740,
+    570,
+    1235,
+    920
+   ]
+  ]
+ },
+ "images/compte/plage-soleil.jpg": {
+  "post": "https://www.tiktok.com/@ssazem/photo/7694002416433237262",
+  "slide": 2,
+  "encre_effacee": "blanc",
+  "zones": [
+   [
+    480,
+    375,
+    960,
+    548
+   ],
+   [
+    770,
+    515,
+    1175,
+    695
+   ]
+  ]
+ },
+ "images/compte/roue-pre.jpg": {
+  "post": "https://www.tiktok.com/@ssazem/photo/7688424378199067918",
+  "slide": 1,
+  "encre_effacee": "blanc",
+  "zones": [
+   [
+    665,
+    650,
+    1140,
+    795
+   ],
+   [
+    865,
+    775,
+    1315,
+    985
+   ]
+  ]
+ },
+ "images/compte/crete-neige.jpg": {
+  "post": "https://www.tiktok.com/@ssazem/photo/7689190085761223950",
+  "slide": 5,
+  "encre_effacee": "blanc",
+  "zones": [
+   [
+    445,
+    700,
+    995,
+    875
+   ],
+   [
+    625,
+    850,
+    995,
+    1010
+   ]
+  ]
+ },
+ "images/compte/ours-herbe.jpg": {
+  "post": "https://www.tiktok.com/@ssazem/photo/7696962767064026382",
+  "slide": 4,
+  "encre_effacee": "noir",
+  "zones": [
+   [
+    270,
+    222,
+    880,
+    458
+   ],
+   [
+    855,
+    432,
+    1285,
+    515
+   ],
+   [
+    1090,
+    512,
+    1285,
+    598
+   ]
+  ]
+ },
+ "images/compte/falaise-ciel.jpg": {
+  "post": "https://www.tiktok.com/@ssazem/photo/7688795724003216653",
+  "slide": 4,
+  "encre_effacee": "noir",
+  "zones": [
+   [
+    445,
+    342,
+    1095,
+    500
+   ],
+   [
+    725,
+    478,
+    1095,
+    660
+   ]
+  ]
+ },
+ "images/compte/singe-couchant.jpg": {
+  "post": "https://www.tiktok.com/@ssazem/photo/7692490578273062158",
+  "slide": 2,
+  "encre_effacee": "blanc",
+  "zones": [
+   [
+    125,
+    462,
+    595,
+    628
+   ],
+   [
+    845,
+    602,
+    1305,
+    770
+   ]
+  ]
+ }
+}

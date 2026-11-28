@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o227",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "c6a791b1-eee7-4aa1-9754-d9f030734285",
+  "titre": "what i do the day a teacher hands back a test #studytok #studytips #school",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [
+    "c6a791b1-eee7-4aa1-9754-d9f030734285"
+  ],
+  "notes": "Déclinaison G1 de c6a791b1, ligne 5 de la boîte, 3e et dernière déclinaison de la famille. Accroche du parent mot pour mot. Gestes neufs, aucun de cs-o204 ni de cs-o217. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "302278a4",
+      "texte_overlay": "what i do the day a teacher\nhands back a test",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "907048f0",
+      "texte_overlay": "i wait until i'm home to really look at it.\nnot in the hallway.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "54b08cb2",
+      "texte_overlay": "i find the question that cost me the most.\nthat's the one i study first.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "9e2a76ab",
+      "texte_overlay": "i check the corrected version in class.\nand copy the right method in my notebook.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "12c5d705",
+      "texte_overlay": "i note what went well too.\nthat's what i keep doing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "d76f7445",
+      "texte_overlay": "then a walk or a short lesson about anything but school.\nmy head needs air.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "then a walk, or a short lesson about anything but school\non a micro-learning app like the Sophia app.\nmy head needs air."
+    },
+    {
+      "position": 7,
+      "media_id": "c6caad22",
+      "texte_overlay": "and i tell my parents myself.\nbefore the online grade does.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

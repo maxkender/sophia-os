@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o233",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "762e0f11-42b1-4add-a07c-77610a7ec6ed",
+  "titre": "i always start studying the night before #studytok #studytips #procrastination",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [
+    "762e0f11-42b1-4add-a07c-77610a7ec6ed"
+  ],
+  "notes": "Déclinaison G1 de 762e0f11 (notre cs-o118), ligne 11 de la boîte, 2e déclinaison de la famille. Accroche du parent mot pour mot (entre guillemets). Fond neuf, aucune étape du parent ni de cs-o118 : la règle des 2 minutes, la date d'avant, le premier pas minuscule. Pas de nuit blanche. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "a29bfe29",
+      "texte_overlay": "“i always start studying\nthe night before”",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "26c5bf95",
+      "texte_overlay": "same. here's what changed it for me:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "95e28308",
+      "texte_overlay": "i set my own deadline 3 days before the real one.\nand i treat it as real.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2c972d94",
+      "texte_overlay": "the first step is tiny on purpose.\nopen the notebook. read one page.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1a952b44",
+      "texte_overlay": "2 minutes rule: if it takes less, i do it now.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3e666873",
+      "texte_overlay": "my phone time became learning time.\n5 minutes of a short lesson before any scrolling.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "my phone time became learning time.\n5 minutes on a micro-learning app like the Sophia app\nbefore any scrolling."
+    },
+    {
+      "position": 7,
+      "media_id": "fefd7557",
+      "texte_overlay": "the night before is now for sleep.\nnot for panic.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

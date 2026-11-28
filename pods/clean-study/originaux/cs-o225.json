@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o225",
+  "type_bleo": "full_test",
+  "titre": "how i make a group project actually work #studytok #studytips #school",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 28/11 : 5 full tests sur 13, plus 1 car la boîte n'a que 7 lignes utilisables). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Gestes vrais : un document commun, une tâche par personne avec une date, une réunion courte, s'entraîner à l'oral ensemble, une idée originale venue de la culture générale (slide Sophia, 5), finir un jour avant. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b1d3bd1c",
+      "texte_overlay": "how i make a group project\nactually work",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3d1b2dc6",
+      "texte_overlay": "day one: one shared plan.\nwho does what, by when.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "cd1f96ad",
+      "texte_overlay": "one task per person, with a date.\n\"we'll see\" is not a deadline.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ff96d1ea",
+      "texte_overlay": "short meetings. 20 minutes max.\nwith a list of what to decide.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "767619e3",
+      "texte_overlay": "someone brings the original angle.\na fun fact or a story nobody else will have.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "someone brings the original angle.\na fun fact found on a micro-learning app\nlike the Sophia app. nobody else will have it."
+    },
+    {
+      "position": 6,
+      "media_id": "66957b6e",
+      "texte_overlay": "we rehearse the presentation together.\nout loud, timer on.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "39a9cf8c",
+      "texte_overlay": "we finish a day early.\nthe last day is for fixing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

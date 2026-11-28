@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o223",
+  "type_bleo": "full_test",
+  "titre": "how i learn geography maps so i stop mixing up countries #studytok #studytips #geography",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 28/11 : 5 full tests sur 13, plus 1 car la boîte n'a que 7 lignes utilisables). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Gestes vrais : une région à la fois, dessiner la carte à main levée, des repères (fleuves, côtes), placer de mémoire puis vérifier, une histoire par pays (slide Sophia, 5), revoir les erreurs le lendemain. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "5a8b139a",
+      "texte_overlay": "how i learn geography maps\nso i stop mixing up countries",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2d6e899d",
+      "texte_overlay": "one region at a time.\nnever the whole continent at once.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c0c049ab",
+      "texte_overlay": "i draw the map by hand, roughly.\nugly is fine.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "24994b6d",
+      "texte_overlay": "i use landmarks first: rivers, coasts, mountains.\nthe countries fit around them.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c6f3d122",
+      "texte_overlay": "one small story per country.\na painter, a dish, a historical moment.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "one small story per country\nfrom a micro-learning app like the Sophia app.\na painter, a dish, a historical moment."
+    },
+    {
+      "position": 6,
+      "media_id": "d31938b3",
+      "texte_overlay": "then a blank map: i place them from memory.\nand check.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "36783b80",
+      "texte_overlay": "the ones i got wrong are tomorrow's first 5 minutes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

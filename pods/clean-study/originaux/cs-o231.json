@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o231",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "28baf772-4036-4909-9848-7f4db0aa1205",
+  "titre": "how i revise for a test in 3 days without cramming #studytok #studytips #exams",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [
+    "28baf772-4036-4909-9848-7f4db0aa1205"
+  ],
+  "notes": "Déclinaison G1 de 28baf772 (notre cs-o108), ligne 9 de la boîte, 2e déclinaison de la famille. Accroche du parent mot pour mot. Étapes neuves, aucune du parent ni de cs-o108. Santé générale : se coucher tôt la veille. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "3ca6a911",
+      "texte_overlay": "how i revise for a test in 3 days\nwithout cramming",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2d5c4ee4",
+      "texte_overlay": "day 1: i rewrite the course plan from memory.\nthe gaps show me where to start.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ac6610ae",
+      "texte_overlay": "day 1, evening: i fill the gaps.\none part at a time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "78b14345",
+      "texte_overlay": "day 2: practice questions only.\nreading is not revising.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "3e7db004",
+      "texte_overlay": "day 2, evening: a real break.\na short lesson on something totally different.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "day 2, evening: a real break.\na short lesson on something totally different\non a micro-learning app like the Sophia app."
+    },
+    {
+      "position": 6,
+      "media_id": "6706d879",
+      "texte_overlay": "day 3: i teach the chapter to my wall.\nout loud, no notes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "50a28854",
+      "texte_overlay": "night before: 15 minutes on my weak spots.\nthen lights off early.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

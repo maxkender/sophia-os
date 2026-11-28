@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o337",
+  "type_bleo": "full_test",
+  "titre": "pourquoi j'adore les musées d'histoire naturelle #musee #nature #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Récit « je », aucun fait daté. Routine du 28/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 et 16 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12 à 15 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "64160978",
+      "texte_overlay": "pourquoi j'adore\nles musées d'histoire naturelle",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "86d23891",
+      "texte_overlay": "1. les squelettes de dinosaures\n\non se sent toute petite.\net c'est merveilleux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "26ea8255",
+      "texte_overlay": "2. les minéraux\n\ndes couleurs\nqu'aucun peintre n'a inventées.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "08832e92",
+      "texte_overlay": "3. les papillons épinglés\n\ndes centaines de motifs.\nla nature est une artiste.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "41584a3b",
+      "texte_overlay": "4. les vieux cabinets de curiosités\n\nles collections d'autrefois,\nentre science et rêve.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "2e6542de",
+      "texte_overlay": "5. on ressort avec mille questions\n\navant, je trouvais ces musées réservés aux enfants.\nmaintenant, j'apprends un truc sur le monde chaque matin. et je pose mille questions en sortant.",
+      "texte_sophia": "5. on ressort avec mille questions\n\navant, je trouvais ces musées réservés aux enfants.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et je pose mille questions en sortant.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "85bc8695",
+      "texte_overlay": "tu y es déjà allée ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

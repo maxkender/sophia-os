@@ -1,0 +1,49 @@
+{
+  "source_id": "ad-008",
+  "type_bleo": "full_test",
+  "titre": "my mornings used to be chaos #adhd #adhdtiktok #neurodivergent #adhdcheck #fyp",
+  "musique_titre": "Genesis",
+  "musique_url": "https://www.tiktok.com/music/genesis-6751217134107363329",
+  "inspirations": [
+    "98ed5b10"
+  ],
+  "notes": "Format « hacks » à la première personne (98ed5b10, 173,3 k). Accroche neuve : « as someone with ADHD, these 4 things made my mornings so much easier ». Sa slide de fin (pub) remplacée par un « follow for more ». Gestes sans appli ni produit.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "577ca102",
+      "texte_overlay": "as someone with ADHD,\nthese 4 things made\nmy mornings so much easier",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688796098298793238/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "ad61ba83",
+      "texte_overlay": "1. the launch pad\n\nkeys, wallet, headphones, bag,\nall in one spot by the door the night before.\nmorning me doesn't think,\njust grabs and goes",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688796098298793238/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d826f386",
+      "texte_overlay": "2. water before phone\n\na glass of water on the nightstand.\ni drink it before i touch my phone,\nso the first win of the day\nisn't a scroll",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688796098298793238/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c44a12e9",
+      "texte_overlay": "3. the 2 song shower\n\ni play 2 songs.\nwhen the second one ends, i'm out.\nno more losing 40 minutes in there",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688796098298793238/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d96854b0",
+      "texte_overlay": "4. one thing on a sticky note\n\nnot a to-do list. one thing.\nthe one that would make today\nfeel like a win",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688796098298793238/2.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "4b80815c",
+      "texte_overlay": "follow for more ADHD tricks\nthat work in real life",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688796098298793238/3.jpg"
+    }
+  ]
+}

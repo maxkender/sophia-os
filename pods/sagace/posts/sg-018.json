@@ -11,7 +11,14 @@
   "ro": "Abilități 10/10 care îți economisesc timp",
   "cs": "Dovednosti 10/10, které ti ušetří čas",
   "hu": "10/10-es készségek, amikkel időt spórolsz",
-  "sr": "Veštine 10/10 koje ti štede vreme"
+  "sr": "Veštine 10/10 koje ti štede vreme",
+  "es": "Habilidades 10/10 que te hacen ganar tiempo",
+  "es-419": "Habilidades 10/10 que te ahorran tiempo",
+  "pl": "Umiejętności 10/10, które oszczędzają ci czas",
+  "sk": "Zručnosti 10/10, ktoré ti ušetria čas",
+  "hr": "Vještine 10/10 koje ti štede vrijeme",
+  "sv": "10/10-färdigheter som sparar dig tid",
+  "lv": "10/10 prasmes, kas tev ietaupa laiku"
  },
  "legendes": {
   "fr": "Compétences 10/10 qui te font gagner du temps #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -23,13 +30,20 @@
   "ro": "Abilități 10/10 care îți economisesc timp #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "Dovednosti 10/10, které ti ušetří čas #učímesenatiktoku #osobnírozvoj #dovednosti",
   "hu": "10/10-es készségek, amikkel időt spórolsz #tanuljtiktokon #önfejlesztés #készségek",
-  "sr": "Veštine 10/10 koje ti štede vreme #učinatiktoku #samorazvoj #veštine"
+  "sr": "Veštine 10/10 koje ti štede vreme #učinatiktoku #samorazvoj #veštine",
+  "es": "Habilidades 10/10 que te hacen ganar tiempo #aprendeentiktok #desarrollopersonal #habilidades",
+  "es-419": "Habilidades 10/10 que te ahorran tiempo #aprendeentiktok #desarrollopersonal #habilidades",
+  "pl": "Umiejętności 10/10, które oszczędzają ci czas #uczsięnatiktoku #rozwójosobisty #umiejętności",
+  "sk": "Zručnosti 10/10, ktoré ti ušetria čas #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "hr": "Vještine 10/10 koje ti štede vrijeme #učinatiktoku #osobnirazvoj #vještine",
+  "sv": "10/10-färdigheter som sparar dig tid #lärdigpåtiktok #självutveckling #färdigheter",
+  "lv": "10/10 prasmes, kas tev ietaupa laiku #mācītiestiktokā #pašattīstība #prasmes"
  },
  "musique": {
   "titre": "original sound - m - m",
   "url": "https://www.tiktok.com/music/original-sound-m-7638549822647159565"
  },
- "notes": "Full test du 18/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 qui te font gagner du temps », sa couverture (décor, lignes brun/noir, « DU TEMPS » en brun géant ; 3 lignes en tr), 5 compétences qui font gagner du temps (raccourcis clavier, plier un t-shirt, puis Sophia, faire sa valise, ranger, se lever du premier coup), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta A : « 5 MIN / BIEN INVESTIES »). Deck sr ajouté le 26/11 (rattrapage) : Michael Tech, Redberet (« za tri sekunde »), Dragana Nikitovic, Jana Dačović, Online Lekcije.",
+ "notes": "Full test du 18/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 qui te font gagner du temps », sa couverture (décor, lignes brun/noir, « DU TEMPS » en brun géant ; 3 lignes en tr), 5 compétences qui font gagner du temps (raccourcis clavier, plier un t-shirt, puis Sophia, faire sa valise, ranger, se lever du premier coup), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta A : « 5 MIN / BIEN INVESTIES »). Deck sr ajouté le 26/11 (rattrapage) : Michael Tech, Redberet (« za tri sekunde »), Dragana Nikitovic, Jana Dačović, Online Lekcije. Decks es, es-419, pl, sk, hr, sv, lv ajoutés le 27/11 (7 langues ouvertes par le chef des podz), cta A, une vraie vidéo native par langue.",
  "slides": [
   {
    "type": "couverture",
@@ -244,6 +258,160 @@
      },
      {
       "t": "VREME",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE TE HACEN",
+      "cap": 120
+     },
+     {
+      "t": "GANAR",
+      "cap": 169
+     },
+     {
+      "t": "TIEMPO",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE TE",
+      "cap": 120
+     },
+     {
+      "t": "AHORRAN",
+      "cap": 169
+     },
+     {
+      "t": "TIEMPO",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pl": {
+    "lignes": [
+     {
+      "t": "UMIEJĘTNOŚCI",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "KTÓRE",
+      "cap": 120
+     },
+     {
+      "t": "OSZCZĘDZAJĄ CI",
+      "cap": 169
+     },
+     {
+      "t": "CZAS",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "t": "ZRUČNOSTI",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "KTORÉ TI",
+      "cap": 120
+     },
+     {
+      "t": "UŠETRIA",
+      "cap": 169
+     },
+     {
+      "t": "ČAS",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "VJEŠTINE",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "KOJE TI",
+      "cap": 120
+     },
+     {
+      "t": "ŠTEDE",
+      "cap": 169
+     },
+     {
+      "t": "VRIJEME",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sv": {
+    "lignes": [
+     {
+      "t": "FÄRDIGHETER",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "SOM SPARAR",
+      "cap": 120
+     },
+     {
+      "t": "DIG",
+      "cap": 169
+     },
+     {
+      "t": "TID",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "t": "PRASMES,",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "KAS TEV",
+      "cap": 120
+     },
+     {
+      "t": "IETAUPA",
+      "cap": 169
+     },
+     {
+      "t": "LAIKU",
       "cap": 283,
       "couleur": "brun"
      }
@@ -481,6 +649,167 @@
     "sous": [
      "1 sat za učenje"
     ]
+   },
+   "es": {
+    "titre": [
+     "DOMINAR",
+     [
+      {
+       "t": "LOS ATAJOS",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xwUh5VaFf9I",
+     "titre": "Los 25 mejores atajos de teclado en Mac | La GUÍA DEFINITIVA",
+     "chaine": "La Manzana Mordida - Todo sobre Apple",
+     "vues": "242 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "11:17",
+     "avatar": "https://yt3.ggpht.com/um3wAGLgz_ICWdeDCYe_kNQMvbYhRMp78f7mJE-TbP39IBy5Mz6tfT8xWWGobf9pmcw4AgBdug=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "DOMINAR",
+     [
+      {
+       "t": "LOS ATAJOS",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PsCgZqLTd2E",
+     "titre": "25 Atajos de Teclado Windows 10 Con Una Sola Tecla! | De la A a la Z",
+     "chaine": "Carlos Sandoval (SandoAcademy)",
+     "vues": "456 k vistas",
+     "date": "hace 6 años",
+     "duree": "6:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l-VCAjCJXHH84lnzbZOXEdySEU9JFe3SNlqr3MWiuMSE4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "OPANOWAĆ",
+     [
+      {
+       "t": "SKRÓTY KLAWISZOWE",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IEwbI7z8Ytc",
+     "titre": "skróty klawiszowe, które MUSISZ znać",
+     "chaine": "Matura z Lewusem",
+     "vues": "16 tys. wyświetleń",
+     "date": "2 lata temu",
+     "duree": "8:38",
+     "avatar": "https://yt3.ggpht.com/0Lwte2m8l9WoS7YIKFEHNcNhzTe0KFc6Q_sk_ilGf60pSEWqSrpmiIMgIHL7qfrbuNxGc8zT=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 godzina nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "OVLÁDAŤ",
+     [
+      {
+       "t": "SKRATKY",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ClVYcWPnzX4",
+     "titre": "TOP 5 Tajné klávesové skratky",
+     "chaine": "ZEK",
+     "vues": "148 tis. zhliadnutí",
+     "date": "pred 7 rokmi",
+     "duree": "3:44",
+     "avatar": "https://yt3.ggpht.com/E5pyh32lJUoQgZslwC5aL0aNZX_rYHTNZ0afB2bNgsJwH8glZ5BT76QGWo7VE4LauAqj43IFtQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "SAVLADATI",
+     [
+      {
+       "t": "KRATICE",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0LkA252joZE",
+     "titre": "Kratice na tipkovnici za koje bi voljeli da ste ih znali ranije!",
+     "chaine": "ITsanity",
+     "vues": "1 tis. pregleda",
+     "date": "prije 7 godina",
+     "duree": "5:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mcRCprsSvD4O-IK2yQSOjY_iy30zhFfbxWgNaXGrEktg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "BEMÄSTRA",
+     [
+      {
+       "t": "KORTKOMMANDON",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "m1amAmDGmnM",
+     "titre": "Tre användbara kortkommandon, som all borde veta!",
+     "chaine": "TeknikTips",
+     "vues": "128 visningar",
+     "date": "för 5 år sedan",
+     "duree": "2:05",
+     "avatar": "https://yt3.ggpht.com/Fp8gSOIL83QhWZqmEvcfnT2yTmd1S8E1xU53583M4ehLOMGbCUM052HrSbig9ptxzNEE5gUykV0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 timme att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "APGŪT",
+     [
+      {
+       "t": "ĪSINĀJUMTAUSTIŅUS",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zSGy027x8VA",
+     "titre": "Taustiņu kombinācijas (īsinājumtaustiņi)",
+     "chaine": "Excellent Latvia",
+     "vues": "116 skatījumu",
+     "date": "pirms 3 gadiem",
+     "duree": "4:16",
+     "avatar": "https://yt3.ggpht.com/DNFNXARhG4-zlX9DF8mTtLln1GGNLtAV02DFnF-jNxc2OzF0CrveDVq597kQaYguEg-9OjYnVF0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 stunda, lai iemācītos"
+    ]
    }
   },
   {
@@ -714,6 +1043,167 @@
     "sous": [
      "5 min za učenje"
     ]
+   },
+   "es": {
+    "titre": [
+     "DOBLAR UNA CAMISETA",
+     [
+      {
+       "t": "EN 2 SEGUNDOS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aXjOxk2TWhE",
+     "titre": "Técnica Ninja para Doblar Camisetas en 2 segundos",
+     "chaine": "Detersolín",
+     "vues": "731 K visualizaciones",
+     "date": "hace 10 años",
+     "duree": "1:31",
+     "avatar": "https://yt3.ggpht.com/dn-sPN5OrsrNL6RupOjg3qnojpgH-gQjFLblC3esHQ68vUN5vyBOd800SWthXfNUm1DAPzoDig=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "DOBLAR UNA PLAYERA",
+     [
+      {
+       "t": "EN SEGUNDOS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "osTdYr71h-8",
+     "titre": "Como doblar CAMISETA método bolsillo",
+     "chaine": "Yoteayudo",
+     "vues": "998 k vistas",
+     "date": "hace 3 años",
+     "duree": "1:04",
+     "avatar": "https://yt3.ggpht.com/OQB6zS99yrPZf6AxPt5Is_5wkWf2Pe8HtAoLegE6qNkHk1BCys2PZgTEiMW6IllouH6MFACplA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "ZŁOŻYĆ KOSZULKĘ",
+     [
+      {
+       "t": "W 3 SEKUNDY",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YtQs-P_FxcU",
+     "titre": "Jak złożyć T-SHIRT w 3 sekundy? ⭐️SUPER sposób na szybkie składanie koszulki ‼️Będziecie w SZOKU 🔥🔥🔥",
+     "chaine": "Jak TO zrobić?",
+     "vues": "141 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "0:41",
+     "avatar": "https://yt3.ggpht.com/n66eI_dmFXMXFwymrDi6CNVQloKi__uoddOxGwlsa0et4o5TV-egr523lU5zBIDXfPvs2NMUqg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "POSKLADAŤ TRIČKO",
+     [
+      {
+       "t": "ZA 2 SEKUNDY",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "usmLaDh9O0I",
+     "titre": "Skladanie trička japonským štýlom :)",
+     "chaine": "DebnarAdam",
+     "vues": "158 tis. zhliadnutí",
+     "date": "pred 15 rokmi",
+     "duree": "1:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nxpC5-KGCi_ZRYEQr7q4pCG_kWPFct5QtgNoKrQ6E-6A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "SLOŽITI MAJICU",
+     [
+      {
+       "t": "ZA 2 SEKUNDE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XA-SZ1eUBn8",
+     "titre": "Kako složiti majicu za 2 sekunde",
+     "chaine": "eKako info",
+     "vues": "175 tis. pregleda",
+     "date": "prije 10 godina",
+     "duree": "0:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mON8ChgGnDit-7wbKS3uKk63qtEhgbozgXp-Ycb-0PsQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "VIKA EN T-SHIRT",
+     [
+      {
+       "t": "PÅ 5 SEKUNDER",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zByln6uEzXg",
+     "titre": "Fru Fiffig viker en T shirt på 5 sekunder",
+     "chaine": "Hemmets Veckotidning",
+     "vues": "36 tn visningar",
+     "date": "för 11 år sedan",
+     "duree": "0:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nxf4S-mqPielnOvApxoGdvL1_mnrnYZLnD7OCRvWI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "SALOCĪT T-KREKLU",
+     [
+      {
+       "t": "2 SEKUNDĒS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PC0ZfvBkJz8",
+     "titre": "Kā salocīt t-kreklu? / Dari gudri #3",
+     "chaine": "darigudri",
+     "vues": "19 tūkst. skatījumu",
+     "date": "pirms 15 gadiem",
+     "duree": "0:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nOd0r4ius_DD1BZLPe3WB8qTrqnDJ7ql2RSrsJOhk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min, lai iemācītos"
+    ]
    }
   },
   {
@@ -927,6 +1417,153 @@
     },
     "sous": [
      "5 min dnevno"
+    ]
+   },
+   "es": {
+    "titre": [
+     "5 MINUTOS",
+     [
+      {
+       "t": "BIEN INVERTIDOS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "cursos cortos escritos",
+      "por profesores de verdad."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "5 MINUTOS",
+     [
+      {
+       "t": "BIEN INVERTIDOS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "clases cortas escritas",
+      "por profesores de verdad."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "5 MINUT",
+     [
+      {
+       "t": "DOBRZE ZAINWESTOWANYCH",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krótkie lekcje od",
+      "prawdziwych nauczycieli."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "5 MINÚT",
+     [
+      {
+       "t": "DOBRE INVESTOVANÝCH",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátke lekcie od",
+      "skutočných učiteľov."
+     ]
+    },
+    "sous": [
+     "5 min denne"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "5 MINUTA",
+     [
+      {
+       "t": "DOBRO ULOŽENIH",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "5 MINUTER",
+     [
+      {
+       "t": "VÄL INVESTERADE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "korta lektioner skrivna",
+      "av riktiga lärare."
+     ]
+    },
+    "sous": [
+     "5 min om dagen"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "5 MINŪTES,",
+     [
+      {
+       "t": "LABI IEGULDĪTAS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "īsas nodarbības, ko raksta",
+      "īsti skolotāji."
+     ]
+    },
+    "sous": [
+     "5 min dienā"
     ]
    }
   },
@@ -1161,6 +1798,167 @@
     "sous": [
      "30 min za učenje"
     ]
+   },
+   "es": {
+    "titre": [
+     "HACER LA MALETA",
+     [
+      {
+       "t": "EN 10 MIN",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lNtJFv3345U",
+     "titre": "Cómo hacer la maleta perfecta | Trucos clave para aprovechar el espacio",
+     "chaine": "El Mueble",
+     "vues": "4,7 M de visualizaciones",
+     "date": "hace 9 años",
+     "duree": "3:26",
+     "avatar": "https://yt3.ggpht.com/tRMsEyhETCjtWTsgffKsS89XNFLICqXe6kWhgnAwFsKMrM0MGbKx46KU1UWGNBikZ8qtnFf6pQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER LA MALETA",
+     [
+      {
+       "t": "EN 10 MIN",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sViT_Cp4ly4",
+     "titre": "CÓMO EMPACAR TU MALETA DE VIAJE FÁCILMENTE | EL MEJOR MÉTODO PARA HACERLO",
+     "chaine": "Monosuru Monosuru",
+     "vues": "3.5 M de vistas",
+     "date": "hace 8 años",
+     "duree": "4:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_khloWMTOD4floQxFAF9xW2yY4wMFtOil89bnUiXYlAGA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "SPAKOWAĆ WALIZKĘ",
+     [
+      {
+       "t": "W 10 MINUT",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "12eBQHG7doY",
+     "titre": "JAK SPAKOWAĆ WALIZKĘ KROK PO KROKU [PORADNIK]",
+     "chaine": "naTemat",
+     "vues": "195 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "2:04",
+     "avatar": "https://yt3.ggpht.com/SyAhCao5qkwHRmC4XggwPv0JVczB5FCw4vWU76Gpz3HtqwKLeObixqDDsFgE307z9OcDfG8-7g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ZBALIŤ KUFOR",
+     [
+      {
+       "t": "ZA 10 MINÚT",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_4Ina5uqzwQ",
+     "titre": "AKO SA ZBALIŤ DO LIETADLA? | batožina lietadlo letisko",
+     "chaine": "Ondrey Walker",
+     "vues": "30 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "19:06",
+     "avatar": "https://yt3.ggpht.com/sUFsu3TL2ZPgh0vx_Dd8zGQFQ0V9iDjgpbT4nMiGYVJjP2kvRV6GxdKjk73qKMQj32YiKKdW=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "SPAKIRATI KOFER",
+     [
+      {
+       "t": "ZA 10 MIN",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mJnnpCaEIIw",
+     "titre": "Kako složiti stvari za putovanje?",
+     "chaine": "Random Clips",
+     "vues": "4,4 tis. pregleda",
+     "date": "prije 11 godina",
+     "duree": "1:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l8-IugIRq7oLNEIbJgpUJxT8eYprEmrLvtg2aytNBSLHY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "PACKA VÄSKAN",
+     [
+      {
+       "t": "PÅ 10 MIN",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6AvoIvlFtnA",
+     "titre": "Knepen som gör att du får plats med mer i resväskan",
+     "chaine": "Clas Ohlson Sverige",
+     "vues": "139 tn visningar",
+     "date": "för 14 år sedan",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/rFa3uRYTdh4jvhoDTkz5x7YVDkXQoIx8_bkWM1P30NaQLBZEwbuWIBPpq9bcpSLQXHvmvzKNtnE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "SAKRAVĀT SOMU",
+     [
+      {
+       "t": "10 MINŪTĒS",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "umawuFzol5s",
+     "titre": "Dari gudri - kā salocīt žaketi ceļojuma somā",
+     "chaine": "NordeaLatvija",
+     "vues": "598 skatījumi",
+     "date": "pirms 14 gadiem",
+     "duree": "1:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kqxXOaemkrWrpsqldHCjrZOst34HnoC21ZYZCM47C2tw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min, lai iemācītos"
+    ]
    }
   },
   {
@@ -1394,6 +2192,167 @@
     "sous": [
      "20 min za učenje"
     ]
+   },
+   "es": {
+    "titre": [
+     "ORDENAR TU CUARTO",
+     [
+      {
+       "t": "EN 15 MIN",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "R_whWNj8qcI",
+     "titre": "CÓMO LIMPIO Y ORDENO MI CUARTO CUANDO NO TENGO MOTIVACIÓN *organiza conmigo* + tips de organización!",
+     "chaine": "Cristina Asai",
+     "vues": "381 K visualizaciones",
+     "date": "hace 4 años",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/aXv5O9Bf59YRpENYfLjHyWuf5--EUapFOOGForkcVE3oYzd7SopL2NLSVYF1d8qd7GQtdoNk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "ORDENAR TU CUARTO",
+     [
+      {
+       "t": "EN 15 MIN",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Yoxvd7VxGWc",
+     "titre": "guía definitiva para ordenar tu cuarto",
+     "chaine": "Atherion",
+     "vues": "508 k vistas",
+     "date": "hace 3 años",
+     "duree": "5:26",
+     "avatar": "https://yt3.ggpht.com/0frG6enfXYNjSs-WQI-YVIDWbUUJsofi7SySCzk_fk4_4SCvDfchkm5wAwKvW8DQrVWiGO9M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "POSPRZĄTAĆ POKÓJ",
+     [
+      {
+       "t": "W 15 MINUT",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kr--dPPYHcs",
+     "titre": "5 patentów na utrzymanie porządku w domu - moje sprawdzone rady | Ula Pedantula #424",
+     "chaine": "Ula Pedantula",
+     "vues": "547 tys. wyświetleń",
+     "date": "3 lata temu",
+     "duree": "11:17",
+     "avatar": "https://yt3.ggpht.com/ttih9JnLAn59lcaSTi1vtA6zINT_wX1vPU3VcXJh6tdvCmjwq1qxdh0tpB9X9HP7ARWZD_-LcQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "UPRATAŤ IZBU",
+     [
+      {
+       "t": "ZA 15 MINÚT",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "neKGw_uOYG4",
+     "titre": "5 Tipov na rýchle upratovanie | Minimalizmus v domácnosti",
+     "chaine": "Dominika Donchinka",
+     "vues": "6 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "6:47",
+     "avatar": "https://yt3.ggpht.com/Zbb49afifSta2gzdB3U-w5gE_KlzBOYUM339latvIoU6T-VXp9HG8VyICOEpQ-bM4PJQZSMTkw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "POSPREMITI SOBU",
+     [
+      {
+       "t": "ZA 15 MIN",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VLj2uzihfzc",
+     "titre": "Zašto trebaš prvo raščistiti svoju spavaću sobu (i kako početi)",
+     "chaine": "malo minimalizma",
+     "vues": "13 tis. pregleda",
+     "date": "prije 9 mjeseci",
+     "duree": "12:35",
+     "avatar": "https://yt3.ggpht.com/qfD9UUYup1gAR0qX-Kf_-3MyVbBkcWHAgc4slAg6FIVZ55HjA0v4GZLlF8j1JqHvjRUipwE89g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "STÄDA RUMMET",
+     [
+      {
+       "t": "PÅ 15 MIN",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ooOsHnJhMKc",
+     "titre": "städa rummet med mig + organisationstips // Clean your room with me + tips with organization",
+     "chaine": "Filippa Brunnberg",
+     "vues": "10 tn visningar",
+     "date": "för 11 år sedan",
+     "duree": "6:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kC_N2wpmEKmST4pnvwv1Ecv1A-l1bI91_exCMeSefci4M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "SAKOPT ISTABU",
+     [
+      {
+       "t": "15 MINŪTĒS",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0SufexrZ9oc",
+     "titre": "Mājas uzkopšanas rutīna!",
+     "chaine": "DrogasLatvija",
+     "vues": "5,2 tūkst. skatījumu",
+     "date": "pirms 8 gadiem",
+     "duree": "10:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nCPEtsEApp8i05Ytapkp07EU9CZAso24e9CmZRwvE1vg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min, lai iemācītos"
+    ]
    }
   },
   {
@@ -1626,6 +2585,167 @@
     },
     "sous": [
      "1 nedelja za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "LEVANTARTE",
+     [
+      {
+       "t": "A LA PRIMERA",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZgcZXQmjkrY",
+     "titre": "Cómo Despertarte Temprano más Fácilmente sin Ponerte 6 Alarmas",
+     "chaine": "Iosu Gamboa",
+     "vues": "397 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "8:05",
+     "avatar": "https://yt3.ggpht.com/nJp6lEmpWtorNm6GqUVDjVbKY_EFq_wPgfBaNC6Ea068eNHmweA2JsrJjPC52NPV5loC-MrI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 semana para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "LEVANTARTE",
+     [
+      {
+       "t": "A LA PRIMERA",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Q5Ou6k56Xhs",
+     "titre": "Como Despertar TEMPRANO Sin Sentirte Cansado (Solución Inmediata)",
+     "chaine": "Basado en Ciencia",
+     "vues": "2.3 M de vistas",
+     "date": "hace 11 meses",
+     "duree": "6:57",
+     "avatar": "https://yt3.ggpht.com/0BGoEJAs5TM1TZP5_z9ukjs1V6IvKPgwCTQcax-tiY6ubTCZo0uXlWZ_CXE22M19P-DEypgc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 semana para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "WSTAWAĆ",
+     [
+      {
+       "t": "BEZ DRZEMKI",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WPI7UfgOQEI",
+     "titre": "Nigdy więcej DRZEMKI! Zobacz dlaczego nie możesz rano się obudzić!",
+     "chaine": "Bartek Szemraj",
+     "vues": "9,3 tys. wyświetleń",
+     "date": "1 rok temu",
+     "duree": "9:37",
+     "avatar": "https://yt3.ggpht.com/St6Cn-tR-H3mIN9zMIZPrN6brVwFrwl_fk-BX3aaLUkp4Bwi3LK6dM7Lq2FgtIroo-KGZQ-FNA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 tydzień nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "VSTAŤ",
+     [
+      {
+       "t": "NA PRVÝ BUDÍK",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZLI-72WxD64",
+     "titre": "Ako vstávať skoro ráno - 7 dôvodov prečo vstávať o 4ej ráno",
+     "chaine": "Growth",
+     "vues": "36 tis. zhliadnutí",
+     "date": "pred 9 rokmi",
+     "duree": "3:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtbW3GwN17iM7J5UZLsX7mKMof-7zoGk9D0T5055xlSHI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 týždeň na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "USTATI",
+     [
+      {
+       "t": "IZ PRVOG PUTA",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fK04nRTqA20",
+     "titre": "Kako pravilno započeti dan: Moja jutranja rutina",
+     "chaine": "Smiljan Mori",
+     "vues": "40 tis. pregleda",
+     "date": "prije 7 godina",
+     "duree": "11:41",
+     "avatar": "https://yt3.ggpht.com/mLp4BvOxfWhAOe5A3ruP-wXVRqbmPXvkiqDiB7u8ZdJfkfHxII7v6CFCXXGxgKIfpkjdGEaK0A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 tjedan za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "VAKNA",
+     [
+      {
+       "t": "UTAN SNOOZE",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tmqVjgdo7Yw",
+     "titre": "Är det bättre att vakna tidigt?",
+     "chaine": "Fredrik Möller",
+     "vues": "816 visningar",
+     "date": "för 8 år sedan",
+     "duree": "7:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lxeO9onSDZWOPDT3pBqO-pIxnskhEz3iod9KsZHz_xGJE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 vecka att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "PIECELTIES",
+     [
+      {
+       "t": "AR PIRMO MODINĀTĀJU",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GcZXhKqm-PU",
+     "titre": "Edžus triki S01E15 | Kā pamosties no rīta?",
+     "chaine": "manslmt",
+     "vues": "4,4 tūkst. skatījumu",
+     "date": "pirms 6 gadiem",
+     "duree": "11:04",
+     "avatar": "https://yt3.ggpht.com/MZckYpeb--IgzJlj8p1bNKyfs8iKJTQG-rkZZss0Je9p2B5lUsTyT8bk2vhw6ZJmzuojGNlz5g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 nedēļa, lai iemācītos"
     ]
    }
   }

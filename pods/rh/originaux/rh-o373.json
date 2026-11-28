@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o373",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "243cd195-5691-444b-997b-afd4d55bafe7",
+ "titre": "ex-rh : la note que je mettais à vos réponses (et pourquoi) #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 28/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 4. Déclinaison G2 de la ligne #3 (parent 243cd195), 2e : même promesse, autres mots, réponses différentes de rh-o251 et rh-o363. Inspirations reprises de rh-o251. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "75f759d2",
+   "texte_overlay": "ex-rh :\nla note que je mettais\nà vos réponses (et pourquoi)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7e7fe28a",
+   "texte_overlay": "« je m'adapte à tout »\n3/10\nà quoi, par exemple ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b39d7e3d",
+   "texte_overlay": "« j'ai repris un dossier en retard et je l'ai rendu à temps »\n8/10\nune situation, une action, un résultat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "65198142",
+   "texte_overlay": "« je veux apprendre »\n5/10\nquoi, et comment ? mes 3 réponses préférées : une formation, un mentor, 5 minutes par jour",
+   "texte_sophia": "« je veux apprendre »\n5/10\nquoi, et comment ? mes 3 réponses préférées : une formation, un mentor, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "36afaee2",
+   "texte_overlay": "« je n'ai jamais fait d'erreur grave »\n2/10\non ne te croit pas",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "68f477ce",
+   "texte_overlay": "« je vous ai écrit après avoir vu votre projet X »\n9/10\nprécis et sincère",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3857af03",
+   "texte_overlay": "note ta réponse à « vos qualités ? »\nen commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  }
+ ]
+}

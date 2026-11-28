@@ -1,0 +1,432 @@
+{
+ "id": "sm-031",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "on & on",
+  "url": "https://www.tiktok.com/music/on-on-7122836057481021441"
+ },
+ "notes": "Full test du 28/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, papier vert, stickers, bulle), dans le ton de sa légende « smart girls don't gatekeep » (268 k) : « 4 apps that make me feel put together ». Sophia en 3e carte (cta A), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Notion (notes, tâches, projets), Structured (agenda visuel), Calm (respiration, méditations, histoires pour dormir). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 20 et du 21/11). Musique : la sienne de ce post.",
+ "titre": {
+  "en": "4 apps that make me feel put together",
+  "fr": "4 applis qui me font me sentir organisée",
+  "es": "4 apps que me hacen sentir organizada",
+  "es-419": "4 apps que me hacen sentir organizada",
+  "it": "4 app che mi fanno sentire organizzata",
+  "tr": "kendimi derli toplu hissettiren 4 uygulama",
+  "pt-BR": "4 apps que me fazem sentir organizada",
+  "de": "4 apps, mit denen ich mich organisiert fühle",
+  "sl": "4 aplikacije, s katerimi se počutim urejena",
+  "hu": "4 app, amitől összeszedettnek érzem magam"
+ },
+ "legendes": {
+  "en": "the put-together girl starter pack 🎀🗂️ #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "le starter pack de la fille organisée 🎀🗂️ #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "el starter pack de la chica organizada 🎀🗂️ #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "el starter pack de la chica organizada 🎀🗂️ #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "lo starter pack della ragazza organizzata 🎀🗂️ #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "derli toplu kız başlangıç paketi 🎀🗂️ #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "o starter pack da menina organizada 🎀🗂️ #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "das starterpaket fürs organisiert sein 🎀🗂️ #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "začetni paket urejene punce 🎀🗂️ #studytok #učenje #študij #faks #academicweapon",
+  "hu": "az összeszedett lány alapcsomagja 🎀🗂️ #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/washi.png",
+     "x": 40,
+     "y": 150,
+     "l": 220,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 820,
+     "y": 140,
+     "l": 200,
+     "rotation": 8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 740,
+     "l": 210,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "4 apps that\nmake me feel\nput together",
+    "sous": "even on\nmessy weeks"
+   },
+   "fr": {
+    "titre": "4 applis qui\nme rendent\norganisée",
+    "sous": "même les\nsemaines chaos"
+   },
+   "es": {
+    "titre": "4 apps que me\nhacen sentir\norganizada",
+    "sous": "incluso en\nsemanas caóticas"
+   },
+   "es-419": {
+    "titre": "4 apps que me\nhacen sentir\norganizada",
+    "sous": "incluso en\nsemanas caóticas"
+   },
+   "it": {
+    "titre": "4 app che mi\nfanno sentire\norganizzata",
+    "sous": "anche nelle\nsettimane caos"
+   },
+   "tr": {
+    "titre": "beni derli\ntoplu yapan\n4 uygulama",
+    "sous": "kaotik\nhaftalarda bile"
+   },
+   "pt-BR": {
+    "titre": "4 apps que\nme deixam\norganizada",
+    "sous": "até nas\nsemanas caóticas"
+   },
+   "de": {
+    "titre": "4 apps, mit\ndenen ich alles\nim griff habe",
+    "sous": "auch in\nchaoswochen"
+   },
+   "sl": {
+    "titre": "4 aplikacije\nza občutek\nurejenosti",
+    "sous": "tudi v\nkaotičnih tednih"
+   },
+   "hu": {
+    "titre": "4 app, amitől\nösszeszedett\nvagyok",
+    "sous": "még a kaotikus\nheteken is"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/notion/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "one page per class with notes, deadlines and readings. when everything has a home, my head feels tidy too."
+   },
+   "fr": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "une page par cours avec notes, dates limites et lectures. quand tout a sa place, ma tête est rangée aussi."
+   },
+   "es": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "una página por asignatura con apuntes, entregas y lecturas. cuando todo tiene su sitio, mi cabeza también."
+   },
+   "es-419": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "una página por materia con apuntes, entregas y lecturas. cuando todo tiene su lugar, mi cabeza también."
+   },
+   "it": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "una pagina per ogni corso con appunti, scadenze e letture. quando tutto ha il suo posto, anche la testa è in ordine."
+   },
+   "tr": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "her ders için notlar, teslim tarihleri ve okumalarla bir sayfa. her şeyin yeri olunca kafam da toparlanıyor."
+   },
+   "pt-BR": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "uma página por matéria com anotações, prazos e leituras. quando tudo tem seu lugar, minha cabeça também tem."
+   },
+   "de": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "eine seite pro fach mit notizen, deadlines und lektüre. wenn alles seinen platz hat, ist auch mein kopf aufgeräumt."
+   },
+   "sl": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "stran za vsak predmet z zapiski, roki in branjem. ko ima vse svoje mesto, je urejena tudi glava."
+   },
+   "hu": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "minden tárgynak egy oldal jegyzetekkel, határidőkkel és olvasnivalóval. ha mindennek megvan a helye, a fejem is rendben van."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/structured/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/pince.png",
+     "x": 70,
+     "y": 730,
+     "l": 220,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 830,
+     "y": 750,
+     "l": 180,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "my whole day on one visual timeline, with breaks included. i always know what's next without stressing."
+   },
+   "fr": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "toute ma journée sur une frise visuelle, pauses comprises. je sais toujours la suite sans stresser."
+   },
+   "es": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "todo mi día en una línea de tiempo visual, con descansos incluidos. siempre sé qué sigue sin agobiarme."
+   },
+   "es-419": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "todo mi día en una línea de tiempo visual, con descansos incluidos. siempre sé qué sigue sin estresarme."
+   },
+   "it": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "tutta la giornata su una linea del tempo visiva, pause comprese. so sempre cosa viene dopo senza stress."
+   },
+   "tr": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "tüm günüm molalar dahil tek bir görsel zaman çizelgesinde. sırada ne var, stres yapmadan hep biliyorum."
+   },
+   "pt-BR": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "meu dia inteiro numa linha do tempo visual, com pausas. eu sempre sei o que vem depois sem surtar."
+   },
+   "de": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "mein ganzer tag auf einer visuellen zeitleiste, pausen inklusive. ich weiß immer, was als nächstes kommt."
+   },
+   "sl": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "cel dan na eni vizualni časovnici, z odmori vred. vedno vem, kaj sledi, brez stresa."
+   },
+   "hu": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "az egész napom egy vizuális idővonalon, szünetekkel együtt. mindig tudom, mi jön, stressz nélkül."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bureau.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/fiches.png",
+     "x": 800,
+     "y": 110,
+     "l": 230,
+     "rotation": 14
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks!",
+    "bulle": "my little daily ritual!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment !",
+    "bulle": "mon petit rituel du jour !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y luego un quiz para que se te quede de verdad!",
+    "bulle": "¡mi pequeño ritual diario!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y después un quiz para que de verdad se te quede!",
+    "bulle": "¡mi pequeño ritual diario!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero!",
+    "bulle": "il mio piccolo rito quotidiano!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test!",
+    "bulle": "küçük günlük ritüelim!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "uma aula de 10 minutos por dia de história, filosofia ou ciências, e depois um quiz pra fixar de verdade!",
+    "bulle": "meu ritualzinho diário!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "jeden tag 10 minuten geschichte, philosophie oder wissenschaft, dann ein quiz, damit es wirklich hängen bleibt!",
+    "bulle": "mein kleines tägliches ritual!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan 10-minutna lekcija iz zgodovine, filozofije ali znanosti, nato pa kviz, da ti res ostane v glavi!",
+    "bulle": "moj mali dnevni ritual!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "napi 10 perc történelem, filozófia vagy tudomány, utána egy kvíz, hogy tényleg megmaradjon!",
+    "bulle": "a kis napi rituálém!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/calm/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 70,
+     "y": 740,
+     "l": 200,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 220,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "two minutes of breathing before bed. ending the day calm is the most put-together thing i do."
+   },
+   "fr": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "deux minutes de respiration avant de dormir. finir la journée au calme, c'est mon moment le plus organisé."
+   },
+   "es": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "dos minutos de respiración antes de dormir. terminar el día en calma es lo más organizado que hago."
+   },
+   "es-419": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "dos minutos de respiración antes de dormir. terminar el día en calma es lo más organizado que hago."
+   },
+   "it": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "due minuti di respirazione prima di dormire. chiudere la giornata con calma è la cosa più organizzata che faccio."
+   },
+   "tr": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "yatmadan önce iki dakika nefes. günü sakin bitirmek yaptığım en düzenli şey."
+   },
+   "pt-BR": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "dois minutos de respiração antes de dormir. terminar o dia calma é a coisa mais organizada que eu faço."
+   },
+   "de": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "zwei minuten atmen vorm schlafen. den tag ruhig zu beenden ist das organisierteste, was ich tue."
+   },
+   "sl": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "dve minuti dihanja pred spanjem. mirno končati dan je najbolj urejena stvar, ki jo naredim."
+   },
+   "hu": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "két perc légzés lefekvés előtt. nyugodtan zárni a napot a legösszeszedettebb dolog, amit csinálok."
+   }
+  }
+ ]
+}

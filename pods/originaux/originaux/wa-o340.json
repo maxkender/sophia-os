@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o340",
+ "type_bleo": "full_test",
+ "titre": "how to become a more patient person #patience #calm #mindset #selfimprovement #habits",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "9d63e1c9-e7d4-481e-b65f-e6045adbfa5a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9d63e1c9). full test BLEO : accroche jamais faite (format « how to become a more X person »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "77da7f7e-0b9f-4e44-9c28-c589cc0359fb",
+   "texte_overlay": "how to become a more\npatient person",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f56075d6-4254-45e5-ba76-b450c4855571",
+   "texte_overlay": "breathe before you answer\n\nwhen someone frustrates you, take one slow breath before replying. that single pause gives your calmer side the chance to speak first, and it changes the whole conversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bf594915-22d7-4126-bd55-b37e63444f2e",
+   "texte_overlay": "expect small delays\n\nleave ten minutes early and plan for queues, traffic and slow replies. patience is much easier when your day already has a little space built in for things going wrong.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1f81d566-afb8-400d-8df5-950e87eb64ea",
+   "texte_overlay": "practise slow rewards\n\npatience grows when you train your brain to enjoy slow, steady progress instead of instant hits. a few calm minutes of real learning each day is a surprisingly good teacher.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/4.jpg",
+   "texte_sophia": "practise slow rewards\n\nscrolling made me impatient with everything. now i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, and slow, real learning made me so much calmer."
+  },
+  {
+   "position": 5,
+   "media_id": "57446fe4-c479-429d-82c3-cb0e4ecf7b76",
+   "texte_overlay": "ask what they're dealing with\n\nwhen someone is slow or short with you, remember they might be having a terrible day. a little curiosity about their side turns irritation into understanding.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "189acfce-596b-49d0-aa39-358edf253ced",
+   "texte_overlay": "grow something\n\nplant a seed, learn an instrument or build something slowly. projects that take weeks to show results are one of the best ways to train real, lasting patience.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/6.jpg"
+  }
+ ]
+}

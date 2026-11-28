@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o375",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0224d4f7-16ca-4cb5-9da6-797742479b30",
+ "titre": "le premier appel d'une rh dure 15 minutes. voilà ce qu'elle note #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "take a moment to breathe.",
+ "musique_url": "https://www.tiktok.com/music/take-a-moment-to-breathe-7200846574183221250",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 28/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G2 de la ligne #7 (parent 0224d4f7), 2e : même promesse, autres mots, points différents de rh-o210 et rh-o318. Inspirations reprises de rh-o210. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "64566fa7",
+   "texte_overlay": "le premier appel d'une rh\ndure 15 minutes.\nvoilà ce qu'elle note",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "13c083ac",
+   "texte_overlay": "si tu as compris le poste\nen 2 phrases",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a93ac413",
+   "texte_overlay": "ta fourchette de salaire\nsi tu la dis calmement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "dab1107b",
+   "texte_overlay": "ta date de disponibilité",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ae6ae089",
+   "texte_overlay": "si tu poses une question sur l'équipe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f8174f78",
+   "texte_overlay": "si tu as une étincelle\nun sujet qui te passionne. moi, je notais toujours celles qui apprenaient un truc chaque jour",
+   "texte_sophia": "si tu as une étincelle\nun sujet qui te passionne. utilise l'appli Sophia 5 minutes par jour, t'en auras toujours un",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a7610f4e",
+   "texte_overlay": "si tu confirmes par écrit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f8112da2",
+   "texte_overlay": "envoie ça à quelqu'un qui attend un appel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

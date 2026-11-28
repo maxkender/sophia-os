@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o402",
+ "type_bleo": "full_test",
+ "titre": "How to survive the holidays with your family #men #family #holidays #respect #patience",
+ "musique_titre": "realization",
+ "musique_url": "https://www.tiktok.com/music/realization-7489031318131918849",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Full test du jour (7 sur 7, jauge : 7 sur 26). Accroche jamais faite chez nous : aucun « holiday » dans donnees/label.json. reference_url : post source de am-o099, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "07bb6d5d",
+   "texte_overlay": "How to survive the holidays\nwith your family",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "67e10a3e",
+   "texte_overlay": "1. Offer to cook one dish",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "164b4ecd",
+   "texte_overlay": "2. No politics at the table",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7deb13d1",
+   "texte_overlay": "3. Take a walk after dinner",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e3a3bdee",
+   "texte_overlay": "4. Ask the elders for stories\n\nThen learn more about their time.",
+   "texte_sophia": "4. Ask the elders for stories\n\nThen learn about their era\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "05aedcd6",
+   "texte_overlay": "5. Play with the kids",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3f0dca0b",
+   "texte_overlay": "6. Thank the host the next day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/7.jpg"
+  }
+ ]
+}

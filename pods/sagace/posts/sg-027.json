@@ -16,7 +16,14 @@
   "ro": "10 abilități inutile, dar care te fac de 10x mai cool",
   "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool",
   "hu": "10 haszontalan készség, amitől 10x menőbb leszel",
-  "sr": "10 veština koje su beskorisne, ali te čine 10x kulijim"
+  "sr": "10 veština koje su beskorisne, ali te čine 10x kulijim",
+  "es": "10 habilidades inútiles pero que te hacen 10x más cool",
+  "es-419": "10 habilidades inútiles pero que te hacen 10x más cool",
+  "pl": "10 bezużytecznych umiejętności, dzięki którym będziesz 10x bardziej cool",
+  "sk": "10 zbytočných zručností, vďaka ktorým budeš 10x viac cool",
+  "hr": "10 beskorisnih vještina zbog kojih si 10x kul",
+  "sv": "10 värdelösa färdigheter som gör dig 10x coolare",
+  "lv": "10 nevajadzīgas prasmes, kas padara tevi 10x foršāku"
  },
  "legendes": {
   "fr": "10 compétences inutiles mais qui te rendent 10x plus cool #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -28,7 +35,14 @@
   "ro": "10 abilități inutile, dar care te fac de 10x mai cool #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool #učímesenatiktoku #osobnírozvoj #dovednosti",
   "hu": "10 haszontalan készség, amitől 10x menőbb leszel #tanuljtiktokon #önfejlesztés #készségek",
-  "sr": "10 veština koje su beskorisne, ali te čine 10x kulijim #učinatiktoku #samorazvoj #veštine"
+  "sr": "10 veština koje su beskorisne, ali te čine 10x kulijim #učinatiktoku #samorazvoj #veštine",
+  "es": "10 habilidades inútiles pero que te hacen 10x más cool #aprendeentiktok #desarrollopersonal #habilidades",
+  "es-419": "10 habilidades inútiles pero que te hacen 10x más cool #aprendeentiktok #desarrollopersonal #habilidades",
+  "pl": "10 bezużytecznych umiejętności, dzięki którym będziesz 10x bardziej cool #uczsięnatiktoku #rozwójosobisty #umiejętności",
+  "sk": "10 zbytočných zručností, vďaka ktorým budeš 10x viac cool #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "hr": "10 beskorisnih vještina zbog kojih si 10x kul #učinatiktoku #osobnirazvoj #vještine",
+  "sv": "10 värdelösa färdigheter som gör dig 10x coolare #lärdigpåtiktok #självutveckling #färdigheter",
+  "lv": "10 nevajadzīgas prasmes, kas padara tevi 10x foršāku #mācītiestiktokā #pašattīstība #prasmes"
  },
  "musique": {
   "titre": "original sound - Jacob . P",
@@ -36,7 +50,7 @@
  },
  "type_bleo": "declinaison",
  "parent_contenu_id": "e0e2724c-f37c-49e9-b4d7-cd5d2a2deba7",
- "notes": "Déclinaison G1 de sg-005 (21/11) : titre, légende, musique et couverture de sg-005 mot pour mot. 5 autres tours « inutiles mais cool » (ballon sur le doigt, pièce qui disparaît, avion en papier, moonwalk, tour avec un élastique), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta A : « ÉPATER / TES POTES »). Deck sr ajouté le 26/11 (rattrapage) : titre et couverture de sg-005. Le moonwalk devient « zviždati prstima » (siffler avec les doigts, Magazinba, chaîne bosnienne), faute de tuto serbe du moonwalk ; avion en papier : NAJLA (chaîne de la région).",
+ "notes": "Déclinaison G1 de sg-005 (21/11) : titre, légende, musique et couverture de sg-005 mot pour mot. 5 autres tours « inutiles mais cool » (ballon sur le doigt, pièce qui disparaît, avion en papier, moonwalk, tour avec un élastique), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta A : « ÉPATER / TES POTES »). Deck sr ajouté le 26/11 (rattrapage) : titre et couverture de sg-005. Le moonwalk devient « zviždati prstima » (siffler avec les doigts, Magazinba, chaîne bosnienne), faute de tuto serbe du moonwalk ; avion en papier : NAJLA (chaîne de la région). Decks es, es-419, pl, sk, hr, sv, lv ajoutés le 27/11 (langues ouvertes par le chef des podz). Faute de tuto natif : hr ballon → Rubikova kocka (Karlito Miskito), moonwalk → zviždati prstima (Magazinba, chaîne bosnienne, comme sr), avion : NAJLA ; sv ballon → Rubiks kub (Cuboss), moonwalk → jonglera (Circus Le Fou) ; lv ballon → Rubika kubs (FunFace LV), avion → kāršu triks (Iluzionists Edžus), moonwalk → žonglēt (Rīgas cirka skola) ; pl et sk moonwalk → jongler (miniatures du moonwalk avec Michael Jackson) ; sk élastique : chaîne tchèque (rien de sérieux en slovaque) ; es et es-419 : même moonwalk (Baila Facilito), seul tuto sans visage d'invité.",
  "slides": [
   {
    "type": "couverture",
@@ -255,6 +269,160 @@
      },
      {
       "t": "10x KULIJIM",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 111
+     },
+     {
+      "t": "INÚTILES",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "PERO QUE TE HACEN",
+      "cap": 93
+     },
+     {
+      "t": "10x MÁS COOL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 111
+     },
+     {
+      "t": "INÚTILES",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "PERO QUE TE HACEN",
+      "cap": 93
+     },
+     {
+      "t": "10x MÁS COOL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "pl": {
+    "lignes": [
+     {
+      "t": "UMIEJĘTNOŚCI",
+      "cap": 111
+     },
+     {
+      "t": "BEZUŻYTECZNE",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "ALE DZIĘKI NIM JESTEŚ",
+      "cap": 93
+     },
+     {
+      "t": "10x BARDZIEJ COOL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "t": "ZRUČNOSTI",
+      "cap": 111
+     },
+     {
+      "t": "ZBYTOČNÉ",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "ALE VĎAKA NIM BUDEŠ",
+      "cap": 93
+     },
+     {
+      "t": "10x VIAC COOL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "VJEŠTINE",
+      "cap": 111
+     },
+     {
+      "t": "BESKORISNE",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "ALI ZBOG NJIH SI",
+      "cap": 93
+     },
+     {
+      "t": "10x KUL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "sv": {
+    "lignes": [
+     {
+      "t": "FÄRDIGHETER",
+      "cap": 111
+     },
+     {
+      "t": "VÄRDELÖSA",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "MEN DE GÖR DIG",
+      "cap": 93
+     },
+     {
+      "t": "10x COOLARE",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "t": "PRASMES",
+      "cap": 111
+     },
+     {
+      "t": "NEVAJADZĪGAS",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "BET TĀS PADARA TEVI",
+      "cap": 93
+     },
+     {
+      "t": "10x FORŠĀKU",
       "couleur": "brun",
       "cap": 146
      }
@@ -502,6 +670,171 @@
     "sous": [
      "30 min za učenje"
     ]
+   },
+   "es": {
+    "titre": [
+     "HACER GIRAR",
+     [
+      {
+       "t": "UN BALÓN",
+       "couleur": "#e07a2e"
+      }
+     ],
+     "EN EL DEDO"
+    ],
+    "video": {
+     "id": "-4HQLO6GpGI",
+     "titre": "Aprende Como Girar Un Balón - TUTORIAL - Fácil",
+     "chaine": "Freestyle 365",
+     "vues": "20 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "5:57",
+     "avatar": "https://yt3.ggpht.com/7-VvnP9gk3ikEQPMzSqI3hP6TkApZ0npp4ksaYO54tf9A8x5TezZtHCqN_rYRyqlCiR4PKzf_TU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER GIRAR",
+     [
+      {
+       "t": "UN BALÓN",
+       "couleur": "#e07a2e"
+      }
+     ],
+     "EN EL DEDO"
+    ],
+    "video": {
+     "id": "cPjQnjuzHhE",
+     "titre": "Como Girar el Balon en el dedo rapido, TUTORIAL Paso A Paso",
+     "chaine": "NivelJota",
+     "vues": "157 k vistas",
+     "date": "hace 6 años",
+     "duree": "9:03",
+     "avatar": "https://yt3.ggpht.com/tHFStZKNNf7HBlJtvEqea-HPJbukQAfzpw_nRvb-W8CC89H20qTZj1Os9fEgJK84gMJen7nz_4E=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "KRĘCIĆ",
+     [
+      {
+       "t": "PIŁKĄ",
+       "couleur": "#e07a2e"
+      }
+     ],
+     "NA PALCU"
+    ],
+    "video": {
+     "id": "DUGJRQQ_3rE",
+     "titre": "JAK KRĘCIĆ PIŁKĄ NA PALCU????",
+     "chaine": "Basket",
+     "vues": "93 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "7:28",
+     "avatar": "https://yt3.ggpht.com/Y-UQcGZKNKMuL27-VstuqcwhQnFYXxrWVJUlcyjKBnjmytJzxX0sEZSqxrTNcFSsVviYRSo5oQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "TOČIŤ",
+     [
+      {
+       "t": "LOPTOU",
+       "couleur": "#e07a2e"
+      }
+     ],
+     "NA PRSTE"
+    ],
+    "video": {
+     "id": "9oWHVTX5fAM",
+     "titre": "1 deň vs BASKETBALL - Naučím sa točiť basketbalku na PRSTE? *progress*",
+     "chaine": "Ascolla",
+     "vues": "51 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "11:39",
+     "avatar": "https://yt3.ggpht.com/BmTVt18nIlj5ahxmnIIh3WWr5HzCDKAH0H2kc7YtgjAxouM0YRgvCns5gpy_pkK7W5yB9rZsNQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "SLOŽITI",
+     [
+      {
+       "t": "RUBIKOVU KOCKU",
+       "couleur": "#e07a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kkfouOq1cv0",
+     "titre": "Brzo i lako naučite kako složiti Rubikovu kocku @Rubikova",
+     "chaine": "Karlito Miskito",
+     "vues": "861 tis. pregleda",
+     "date": "prije 5 godina",
+     "duree": "24:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lRk5EewEMPadxJSDx4Q3TFjN8f79bZ4hykmqNJy50=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "LÖSA EN",
+     [
+      {
+       "t": "RUBIKS KUB",
+       "couleur": "#e07a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WTbUjcWKKvs",
+     "titre": "Hur man löser Rubiks kub - Lättaste metoden (utan svåra algoritmer)",
+     "chaine": "Cuboss",
+     "vues": "907 tn visningar",
+     "date": "för 5 år sedan",
+     "duree": "26:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kLRaXJ2vtLAVNXM99YMzriS-UyrMkI_8b6okDvFilFa5M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 timmar att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "SALIKT",
+     [
+      {
+       "t": "RUBIKA KUBU",
+       "couleur": "#e07a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "y9aSNevnq3o",
+     "titre": "Kā salikt rubika kubu? Pamācība iesācējiem.",
+     "chaine": "FunFace LV",
+     "vues": "109 tūkst. skatījumu",
+     "date": "pirms 9 gadiem",
+     "duree": "17:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m4nS1PaqhmdHMmCiLTqQQtI5bdh3dCit78QZTNlDLkCQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 stundas, lai iemācītos"
+    ]
    }
   },
   {
@@ -736,6 +1069,167 @@
     "sous": [
      "1 sat za učenje"
     ]
+   },
+   "es": {
+    "titre": [
+     "HACER DESAPARECER",
+     [
+      {
+       "t": "UNA MONEDA",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1r3t3V4i75U",
+     "titre": "COMO HACER DESAPARECER UNA MONEDA / How to Vanish a Coin",
+     "chaine": "Magic House Spain",
+     "vues": "384 K visualizaciones",
+     "date": "hace 9 años",
+     "duree": "3:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l09mB0JnU-E0lToOtBG0xF0MmG6QJ-YcHj958X1ABX5hE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "DESAPARECER",
+     [
+      {
+       "t": "UNA MONEDA",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "O-tvtxoA21I",
+     "titre": "3 FORMAS DE DESAPARECER UNA MONEDA",
+     "chaine": "Sr. Mago",
+     "vues": "1.3 M de vistas",
+     "date": "hace 6 años",
+     "duree": "13:03",
+     "avatar": "https://yt3.ggpht.com/msQPZoczuqjOJXu6OwIVLBgwdytxFGhInkwF1HFhq0m-MR7XcaiaqZWp-Ugm_UomKyHNIzLGBA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "ZNIKAJĄCA",
+     [
+      {
+       "t": "MONETA",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "s51KXlHuE5M",
+     "titre": "Znikajaca moneta zobacz jak znikac monete sztuczka magiczna nauka",
+     "chaine": "Xiluzja",
+     "vues": "18 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "0:52",
+     "avatar": "https://yt3.ggpht.com/Rhe5TG_pQyCOPo_LiHgxyskFk-rDK5eVtEn2n5U0M1HIHc5NUHjim1IROWBsH7-gkrYcTRkwyQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 godzina nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "NECHAŤ ZMIZNÚŤ",
+     [
+      {
+       "t": "MINCU",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-mTKClMik98",
+     "titre": "Ako nechať zmiznúť mincu? | Kúzlo s mincou",
+     "chaine": "Magic Miracles",
+     "vues": "684 tis. zhliadnutí",
+     "date": "pred 9 rokmi",
+     "duree": "12:41",
+     "avatar": "https://yt3.ggpht.com/fn3cFPxHgtVu1j8ei8P_UdDxGs970uX3zCwoKeTq_8aEeMQyaer4V9bvD7ZYtfqoECUuQJrw1Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "TRIK",
+     [
+      {
+       "t": "S KOVANICOM",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZzxEV1HrHdE",
+     "titre": "Otkrivanje   trik s kovanicom iz uha",
+     "chaine": "Stefano the magician",
+     "vues": "661 pregled",
+     "date": "prije 5 godina",
+     "duree": "2:00",
+     "avatar": "https://yt3.ggpht.com/0Z5lFwMGiJmfEKvteb-GdIy3BNDds5Px8O7GSecXoFEAGyoIPXhK7-_UK0w4JuxcizMnlQZ2ow=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "TROLLA BORT",
+     [
+      {
+       "t": "ETT MYNT",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Gdj1J9LNg2w",
+     "titre": "LÄR DIG TROLLA BORT ETT MYNT (TUTORIAL)",
+     "chaine": "John Houdi",
+     "vues": "6,1 tn visningar",
+     "date": "för 1 år sedan",
+     "duree": "11:53",
+     "avatar": "https://yt3.ggpht.com/CLvuivDfVbPlFE5t1MTxwDQCm2UikvCzybgdf9AWQJXoQBO53M9Y6wjxNJalHTIBjdOqkMxoX8o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 timme att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "TRIKS",
+     [
+      {
+       "t": "AR MONĒTU",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CVkuU4B4oKU",
+     "titre": "™Ritvars Pujāts  (Burvju monēta)",
+     "chaine": "Ritvars Pujāts",
+     "vues": "352 skatījumi",
+     "date": "pirms 10 gadiem",
+     "duree": "0:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_krFP0buLPkWQd2D1Jg57J0XFz_6ei0FJS9RkZKnDU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 stunda, lai iemācītos"
+    ]
    }
   },
   {
@@ -949,6 +1443,153 @@
     },
     "sous": [
      "5 min dnevno"
+    ]
+   },
+   "es": {
+    "titre": [
+     "IMPRESIONAR",
+     [
+      {
+       "t": "A TUS AMIGOS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "cursos cortos escritos",
+      "por profesores de verdad."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "IMPRESIONAR",
+     [
+      {
+       "t": "A TUS AMIGOS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "clases cortas escritas",
+      "por profesores de verdad."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "ZAIMPONOWAĆ",
+     [
+      {
+       "t": "ZNAJOMYM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krótkie lekcje od",
+      "prawdziwych nauczycieli."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "OHROMIŤ",
+     [
+      {
+       "t": "KAMARÁTOV",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátke lekcie od",
+      "skutočných učiteľov."
+     ]
+    },
+    "sous": [
+     "5 min denne"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "ODUŠEVITI",
+     [
+      {
+       "t": "PRIJATELJE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "IMPONERA PÅ",
+     [
+      {
+       "t": "DINA VÄNNER",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "korta lektioner skrivna",
+      "av riktiga lärare."
+     ]
+    },
+    "sous": [
+     "5 min om dagen"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "PĀRSTEIGT",
+     [
+      {
+       "t": "DRAUGUS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "īsas nodarbības, ko raksta",
+      "īsti skolotāji."
+     ]
+    },
+    "sous": [
+     "5 min dienā"
     ]
    }
   },
@@ -1182,6 +1823,167 @@
     },
     "sous": [
      "15 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "UN AVIÓN DE PAPEL",
+     [
+      {
+       "t": "QUE VUELA LEJOS",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sgzTdtv1hD8",
+     "titre": "Como Hacer un Avión de Papel que VUELA MUCHO y LEJOS! Paper Airplane",
+     "chaine": "Mejores Aviones De Papel",
+     "vues": "11 M de visualizaciones",
+     "date": "hace 6 años",
+     "duree": "7:47",
+     "avatar": "https://yt3.ggpht.com/idiywMC6pfZxRTDvbdDcmXp3w8sZ5UrDnpYv2H-hH4IhIfPGLkMgzkk68HBby91E8X_twl1B_g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "UN AVIÓN DE PAPEL",
+     [
+      {
+       "t": "QUE VUELA LEJOS",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lZYRraIg3no",
+     "titre": "como hacer EL AVION DE PAPEL QUE MEJOR VUELA",
+     "chaine": "LA PAPELERA DE SHON",
+     "vues": "25 M de vistas",
+     "date": "hace 9 años",
+     "duree": "3:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nasjA1NiTmM4TPqnGVnW9OGIyLMoaWgWxkOxMN5mQfqg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "SAMOLOT Z PAPIERU",
+     [
+      {
+       "t": "KTÓRY DALEKO LECI",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SWeURLOz0Lc",
+     "titre": "SAMOLOT Z PAPIERU BARDZO DALEKO LATAJĄCY SAMOLOT Z PAPIERU -  DUŻY ZASIĘG BEST PAPER AIRPLANE",
+     "chaine": "Koler Creative",
+     "vues": "1,9 mln wyświetleń",
+     "date": "6 lat temu",
+     "duree": "3:58",
+     "avatar": "https://yt3.ggpht.com/WkmxumUj77r1htv8rqMssMk925wotMDDF1IopdWwHlz_rH8r03UiM4wsVeqzRc1h97oC8muULFs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "PAPIEROVÉ LIETADLO",
+     [
+      {
+       "t": "ČO LETÍ ĎALEKO",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9peJaMkQZGA",
+     "titre": "Ako poskladať jednoduché lietadlo z papiera – Origami dizajn (Kreatívne a originálne)",
+     "chaine": "Marwin TV",
+     "vues": "113 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "2:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lPDVvGaEonTO--2LxytSnKoV0LmDdlUM-fv3fAbOB_lQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "AVION OD PAPIRA",
+     [
+      {
+       "t": "KOJI LETI DALEKO",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zx_kjQM8-6M",
+     "titre": "KAKO NAPRAVITI AVION KOJI JE SVIJETSKI REKORDER U LETU | How to Make a Paper Airplane",
+     "chaine": "NAJLA",
+     "vues": "373 tis. pregleda",
+     "date": "prije 4 godine",
+     "duree": "4:20",
+     "avatar": "https://yt3.ggpht.com/Js9UfPG0dC6dg6db494YR66Dfmt7xtUthoEPzXFvQEjR812u_CgKcL7vS9kKRvrgDaJ-PIqsuys=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "ETT PAPPERSFLYGPLAN",
+     [
+      {
+       "t": "SOM FLYGER LÅNGT",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "d63me1sUwRE",
+     "titre": "Bästa pappersflygplanet? Så viker du en superglidare!",
+     "chaine": "Lightflight",
+     "vues": "110 tn visningar",
+     "date": "för 4 år sedan",
+     "duree": "1:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mDt5DcExCf9Bxh3iboCnWEsTktJhhOYSouicvGMpuGGQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "KĀRŠU TRIKS",
+     [
+      {
+       "t": "DRAUGU PRIEKAM",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TAj1bCMPX74",
+     "titre": "Iemācies Kāršu Triku 10 SEKUNDĒS",
+     "chaine": "Iluzionists Edžus",
+     "vues": "37 tūkst. skatījumu",
+     "date": "pirms 8 gadiem",
+     "duree": "3:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nJUO-PjA-p4vteo78YasHI4wIhDAlvv089sYGNgPYVzHg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min, lai iemācītos"
     ]
    }
   },
@@ -1417,6 +2219,167 @@
     "sous": [
      "Vežbanje nekoliko dana"
     ]
+   },
+   "es": {
+    "titre": [
+     "HACER EL",
+     [
+      {
+       "t": "MOONWALK",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "du1EH67R17Y",
+     "titre": "COMO HACER EL MOONWALK DE MICHAEL JACKSON DESDE CERO 🦶🚀",
+     "chaine": "Baila Facilito",
+     "vues": "2,3 M de visualizaciones",
+     "date": "hace 5 años",
+     "duree": "7:10",
+     "avatar": "https://yt3.ggpht.com/1vI3CQHm387wdluYo7uYPbGGHtZ1w4MV7WoW0v41TWV2F3d32TIzOBZlVH7u1eJPwVAPk0aX=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "práctica durante varios días"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER EL",
+     [
+      {
+       "t": "MOONWALK",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "du1EH67R17Y",
+     "titre": "COMO HACER EL MOONWALK DE MICHAEL JACKSON DESDE CERO 🦶🚀",
+     "chaine": "Baila Facilito",
+     "vues": "2.3 M de vistas",
+     "date": "hace 5 años",
+     "duree": "7:10",
+     "avatar": "https://yt3.ggpht.com/1vI3CQHm387wdluYo7uYPbGGHtZ1w4MV7WoW0v41TWV2F3d32TIzOBZlVH7u1eJPwVAPk0aX=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "práctica durante varios días"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "ŻONGLOWAĆ",
+     [
+      {
+       "t": "TRZEMA PIŁKAMI",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "K-v73CQQrHo",
+     "titre": "Jak nauczyć się żonglować piłeczkami ?",
+     "chaine": "Krzysztof Riewold",
+     "vues": "224 tys. wyświetleń",
+     "date": "8 lat temu",
+     "duree": "8:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ml65amkuCe1DdcZUkpW_QRD6vBgORGdXN6DrYVSfpl8Nc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trening przez kilka dni"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ŽONGLOVAŤ",
+     [
+      {
+       "t": "S TROMA LOPTIČKAMI",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HggTn1oFSVs",
+     "titre": "Ako žonglovať s 3 loptičkami - svk verzia",
+     "chaine": "Mižu Juggle.sk",
+     "vues": "33 tis. zhliadnutí",
+     "date": "pred 16 rokmi",
+     "duree": "4:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lKJt20AZPgZBkaMyeAC1WB701STwVHEPbyH2g-esQeZg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "tréning niekoľko dní"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "ZVIŽDATI",
+     [
+      {
+       "t": "PRSTIMA",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vMytDpJ-GTw",
+     "titre": "TUTORIJAL: Kako naučiti zviždati pomoću prstiju",
+     "chaine": "Magazinba",
+     "vues": "178 tis. pregleda",
+     "date": "prije 7 godina",
+     "duree": "2:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lvtyK3MWAylUnfNZYSxBdZpvlS09h9HUAQe5UkzKHFIQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "vježbanje nekoliko dana"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "LÄRA SIG",
+     [
+      {
+       "t": "JONGLERA",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "a77peh53hWw",
+     "titre": "Lär dig jonglera med Circus Le Fou.",
+     "chaine": "Circus Le Fou",
+     "vues": "1,4 tn visningar",
+     "date": "för 6 år sedan",
+     "duree": "4:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lskiqNH3WsCHQvZBZwzhb1IjU1yDMzHHKmGpIkbZ5s-Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "träning i flera dagar"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "IEMĀCĪTIES",
+     [
+      {
+       "t": "ŽONGLĒT",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "m6--4BFYjuA",
+     "titre": "1. Žonglēšanas ievadkurss. Ievads",
+     "chaine": "Rīgas cirka skola",
+     "vues": "2,4 tūkst. skatījumu",
+     "date": "pirms 6 gadiem",
+     "duree": "3:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mSQkC-Eu52rYOAXJFaujJ0l8PZE59I_18_WojWRyvoWA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treniņš vairākas dienas"
+    ]
    }
   },
   {
@@ -1649,6 +2612,167 @@
     },
     "sous": [
      "30 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "UN TRUCO DE MAGIA",
+     [
+      {
+       "t": "CON UNA GOMA ELÁSTICA",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Kk9liM-0X8w",
+     "titre": "TOP 3 TRUCOS VISUALES - Magia con gomas elásticas",
+     "chaine": "Julio Ribera",
+     "vues": "681 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "10:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nhY1UFNP3B_vEoVWDst0d_0FkubFGWMUn4sF18S395zM0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "UN TRUCO DE MAGIA",
+     [
+      {
+       "t": "CON UNA LIGA",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-piD4irJPP0",
+     "titre": "Ratti-tips: Como atravesar una liga entre manos - ChideeTv",
+     "chaine": "ChideeTv",
+     "vues": "2.5 M de vistas",
+     "date": "hace 12 años",
+     "duree": "3:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBO9JcfEb__V7ThjYt0VvdncVwW0WW0d9kJW1t8cPGeA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "SZTUCZKA MAGICZNA",
+     [
+      {
+       "t": "Z GUMKĄ",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CZHyhPNqoYM",
+     "titre": "Magiczna sztuczka z gumką recepturką i ołówkiem   z wyjaśnieniem   sztuczki  magiczne",
+     "chaine": "Karty to styl zycia",
+     "vues": "2,5 tys. wyświetleń",
+     "date": "2 lata temu",
+     "duree": "5:41",
+     "avatar": "https://yt3.ggpht.com/rKM3wH78dc8DbsxO2adt85hhSAvhv2YR4kR6TtGjtsc88RDHVoZazUY2Xi8cWYi6dhTIOZIs9Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "KÚZLO",
+     [
+      {
+       "t": "S GUMIČKOU",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jdQ9SGIUnek",
+     "titre": "GUMIČKA SKRZ PRST!",
+     "chaine": "Exit8472",
+     "vues": "206 tis. zhliadnutí",
+     "date": "pred 10 rokmi",
+     "duree": "4:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kEghG64tYjWfI7Hx0zD_In8vanBCx--wWhLq067wFfTrY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "MAĐIONIČARSKI TRIK",
+     [
+      {
+       "t": "S GUMICOM",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BdkuTdAkKNM",
+     "titre": "Luka Vidović - Škola Iluzionizma 2 Trik s gumicama",
+     "chaine": "Luka Vidovic Magician",
+     "vues": "2,6 tis. pregleda",
+     "date": "prije 4 godine",
+     "duree": "0:12",
+     "avatar": "https://yt3.ggpht.com/65O8xMbVq7tjFCSg87Dqnj2tXRwEu3dSYV4pPdc5RBghuddW1_HyBgvmsQQrfDchMiHe-BzI_A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "ETT TROLLERITRICK",
+     [
+      {
+       "t": "MED GUMMIBAND",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nh1ycRB97Wg",
+     "titre": "3 ENKLA TRICK MED GUMMIBAND - TROLLERISKOLA DEL 2",
+     "chaine": "Douglas Nordenbelt",
+     "vues": "21 tn visningar",
+     "date": "för 7 år sedan",
+     "duree": "10:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPPqDaGgNcgsSt1roPcZkAXbf0rb3M82Y9iYLQSJp6ZQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "TRIKI",
+     [
+      {
+       "t": "AR GUMIJU",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jOySYByXj9g",
+     "titre": "39.DIENA - 5 gumiju triki 2 minūtēs..",
+     "chaine": "Iluzionists Edžus",
+     "vues": "14 tūkst. skatījumu",
+     "date": "pirms 11 gadiem",
+     "duree": "2:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nJUO-PjA-p4vteo78YasHI4wIhDAlvv089sYGNgPYVzHg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min, lai iemācītos"
     ]
    }
   }

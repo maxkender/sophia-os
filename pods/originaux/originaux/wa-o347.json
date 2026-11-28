@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o347",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "35bf63cc-6e80-409e-b66d-f5f22489da5b",
+ "titre": "things emotionally intelligent people never say out loud #emotionalintelligence #psychology #communication #relationships #selfimprovement",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "ee1099e0-b008-42ad-93f9-70b66176ba1e"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, ee1099e0). déclinaison G1 de « things emotionally intelligent people never say out loud » (parent 35bf63cc). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "aa2b9998-3cff-42e2-bd09-3e78b170e11f",
+   "texte_overlay": "things emotionally intelligent\npeople never say out loud",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1b5246b4-62cb-4a82-8c0a-09add3c2b3a5",
+   "texte_overlay": "calm down\n\nthey never tell an upset person to calm down. they ask what happened and really listen, because feeling heard is what actually helps someone settle down again.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7a211c57-5e11-4336-8e63-80dff57a3a03",
+   "texte_overlay": "i told you so\n\nthey never rub it in when they turn out to be right. they help fix the problem instead, because kindness matters far more to them than winning a small argument.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "effd4ee8-8cfa-4caf-a573-ae216573f17d",
+   "texte_overlay": "that's boring\n\nthey never call someone's passion boring, because they stay curious about nearly everything. a little learning every day makes every person's passion feel interesting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/4.jpg",
+   "texte_sophia": "that's boring\n\ni learn something new every day for 5 minutes: a planet, a painting, a myth. i do it with the Sophia app, and now i always have a curious question for anyone's passion."
+  },
+  {
+   "position": 5,
+   "media_id": "a009de5d-8b41-48c2-bd1c-c11914fcb070",
+   "texte_overlay": "you always do this\n\nthey never use always or never in an argument. they talk about the one moment that hurt, which keeps things fair and so much easier to repair together.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1d2358c3-af86-45b9-b91c-76d4ca3097b5",
+   "texte_overlay": "it's not a big deal\n\nthey never decide for others what should hurt. they accept that people feel things differently and simply show they understand, even when they don't agree.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/6.jpg"
+  }
+ ]
+}

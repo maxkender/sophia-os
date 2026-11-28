@@ -118,6 +118,9 @@ Lance `npm install` une fois par session. `livrer`, `etat` et `boite` demandent 
 | `npm run etat` | Montre les comptes du label, la file, le rang, puis les vues et le r de chaque remake en ligne. |
 | `npm run boite` | La journée BLEO (`pods/ROUTINE.md` §5) : le rythme, les full tests du jour, puis les familles gagnantes à décliner, dans l'ordre, avec le parent (`sg-001`) et son `parent_contenu_id`. |
 
+**Un post neuf en 18 langues pèse environ 36 Mo** : la fonction `pods` répond HTTP 546. Livre-le en deux temps, dans la même livraison :
+`npm run livrer -- <id> --langues fr,en,de,it,pt-BR,tr,ro,cs,hu,el,sr`, puis `npm run livrer -- <id> --langues es,es-419,pl,sk,hr,sv,lv --complement` (l'OS ajoute ces decks à la livraison du jour). Un 546 ou un 520 isolé : relance après une minute.
+
 Regarde **toujours** la planche, puis **chaque slide en taille réelle** avec l'outil Read, avant de livrer. Pour la couverture, mets la tienne à côté de la sienne : mêmes lignes, mêmes tailles, même place.
 
 ## Écrire un remake (`posts/<id>.json`)

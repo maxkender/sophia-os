@@ -1,0 +1,744 @@
+{
+ "id": "mi-033",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7683191907333180702",
+  "vues": 142100,
+  "publie_le": "2026-09-08",
+  "accroche": "Habits / that increase / Intelligence"
+ },
+ "fond": "orange",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "original sound - glow 💯",
+  "url": "https://www.tiktok.com/music/original-sound-7605402756827941640"
+ },
+ "notes": "Full test (jauge du 28/11 : 2 full tests sur 3). Format de « Habits that increase Intelligence » de @bdnf.milly (142,1 k vues, 08/09), famille « Habits that increase … », fond orange. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta C. Faits vérifiés : les livres, même pour enfants, contiennent environ 50 % de mots rares de plus que la télévision aux heures de grande écoute ou la conversation de diplômés (Hayes et Ahrens, Journal of Child Language 1988) ; à chaque rencontre d'un mot inconnu en lisant, la probabilité d'en apprendre quelque chose de durable est d'environ 1 sur 10 (Nagy, Herman et Anderson, Reading Research Quarterly 1985) ; se tester sur des paires de mots swahili-anglais fait retenir environ 80 % une semaine plus tard, contre environ 36 % en relisant seulement (Karpicke et Roediger, Science 2008). 11 langues. Images : banque (irm-surlignee, neurones-reseau, tep), sans texte.",
+ "titre": {
+  "en": "Habits that increase your Vocabulary",
+  "fr": "Habitudes qui enrichissent ton Vocabulaire",
+  "es": "Hábitos que amplían tu Vocabulario",
+  "es-419": "Hábitos que amplían tu Vocabulario",
+  "it": "Abitudini che arricchiscono il tuo Vocabolario",
+  "tr": "Kelime hazneni genişleten Alışkanlıklar",
+  "pt-BR": "Hábitos que aumentam seu Vocabulário",
+  "sl": "Navade, ki bogatijo Besedišče",
+  "hr": "Navike koje obogaćuju Rječnik",
+  "de": "Gewohnheiten, die deinen Wortschatz erweitern",
+  "hu": "Szokások, amelyek bővítik a Szókincsedet"
+ },
+ "legendes": {
+  "en": "words come from reading #vocabulary #reading #learning #brain #language",
+  "fr": "les mots viennent de la lecture #vocabulaire #lecture #apprendre #cerveau #langue",
+  "es": "las palabras vienen de leer #vocabulario #lectura #aprender #cerebro #idiomas",
+  "es-419": "las palabras vienen de leer #vocabulario #lectura #aprender #cerebro #idiomas",
+  "it": "le parole vengono dalla lettura #vocabolario #lettura #imparare #cervello #lingua",
+  "tr": "kelimeler okumaktan gelir #kelimehazinesi #okuma #öğrenme #beyin #dil",
+  "pt-BR": "palavras vêm da leitura #vocabulario #leitura #aprender #cerebro #idiomas",
+  "sl": "besede pridejo z branjem #besedišče #branje #učenje #možgani #jezik",
+  "hr": "riječi dolaze iz čitanja #rječnik #čitanje #učenje #mozak #jezik",
+  "de": "wörter kommen vom lesen #wortschatz #lesen #lernen #gehirn #sprache",
+  "hu": "a szavak az olvasásból jönnek #szókincs #olvasás #tanulás #agy #nyelv"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-surlignee.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "Habits",
+      "taille": "grand"
+     },
+     {
+      "t": "that increase your",
+      "taille": "petit"
+     },
+     {
+      "t": "Vocabulary",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Habitudes",
+      "taille": "grand"
+     },
+     {
+      "t": "qui enrichissent ton",
+      "taille": "petit"
+     },
+     {
+      "t": "Vocabulaire",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que amplían tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Vocabulario",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que amplían tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Vocabulario",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Abitudini",
+      "taille": "grand"
+     },
+     {
+      "t": "che arricchiscono il tuo",
+      "taille": "petit"
+     },
+     {
+      "t": "Vocabolario",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Kelime hazneni",
+      "taille": "grand"
+     },
+     {
+      "t": "genişleten",
+      "taille": "petit"
+     },
+     {
+      "t": "Alışkanlıklar",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que aumentam seu",
+      "taille": "petit"
+     },
+     {
+      "t": "Vocabulário",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Navade,",
+      "taille": "grand"
+     },
+     {
+      "t": "ki bogatijo",
+      "taille": "petit"
+     },
+     {
+      "t": "Besedišče",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Navike",
+      "taille": "grand"
+     },
+     {
+      "t": "koje obogaćuju",
+      "taille": "petit"
+     },
+     {
+      "t": "Rječnik",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Gewohnheiten,",
+      "taille": "grand"
+     },
+     {
+      "t": "die deinen",
+      "taille": "petit"
+     },
+     {
+      "t": "Wortschatz",
+      "taille": "grand"
+     },
+     {
+      "t": "erweitern",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Szokások,",
+      "taille": "grand"
+     },
+     {
+      "t": "amelyek bővítik a",
+      "taille": "petit"
+     },
+     {
+      "t": "Szókincsedet",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Read More Than You Talk",
+    "blocs": [
+     {
+      "p": "Rare words live in books. Researchers who counted them found that even children's books contain about 50% more rare words than prime-time TV, or than the conversation of college graduates."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "After childhood, most of your new words come from reading. A few pages a day exposes you to words you would almost never hear out loud."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Lis plus que tu ne parles",
+    "blocs": [
+     {
+      "p": "Les mots rares vivent dans les livres. Des chercheurs qui les ont comptés ont montré que même les livres pour enfants contiennent environ 50 % de mots rares de plus que la télévision aux heures de grande écoute, ou que la conversation de diplômés du supérieur."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Après l'enfance, la plupart de tes nouveaux mots viennent de la lecture. Quelques pages par jour t'exposent à des mots que tu n'entendrais presque jamais à l'oral."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Lee más de lo que hablas",
+    "blocs": [
+     {
+      "p": "Las palabras poco comunes viven en los libros. Unos investigadores que las contaron vieron que incluso los libros infantiles tienen cerca de un 50 % más de palabras poco comunes que la televisión en horario de máxima audiencia o que la conversación de universitarios titulados."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Después de la infancia, la mayoría de tus palabras nuevas vienen de la lectura. Unas pocas páginas al día te exponen a palabras que casi nunca oirías en voz alta."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Lee más de lo que hablas",
+    "blocs": [
+     {
+      "p": "Las palabras poco comunes viven en los libros. Unos investigadores que las contaron encontraron que hasta los libros infantiles tienen cerca de un 50 % más de palabras poco comunes que la televisión en horario estelar o que la conversación de personas con título universitario."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Después de la infancia, la mayoría de tus palabras nuevas vienen de la lectura. Unas cuantas páginas al día te ponen frente a palabras que casi nunca escucharías en voz alta."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Leggi più di quanto parli",
+    "blocs": [
+     {
+      "p": "Le parole rare vivono nei libri. Alcuni ricercatori che le hanno contate hanno trovato che perfino i libri per bambini contengono circa il 50 % di parole rare in più della televisione in prima serata o della conversazione di laureati."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Dopo l'infanzia, la maggior parte delle parole nuove arriva dalla lettura. Poche pagine al giorno ti espongono a parole che quasi non sentiresti mai a voce."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Konuştuğundan çok oku",
+    "blocs": [
+     {
+      "p": "Nadir kelimeler kitaplarda yaşar. Onları sayan araştırmacılar, çocuk kitaplarının bile en çok izlenen saatlerdeki televizyondan ya da üniversite mezunlarının sohbetinden yaklaşık %50 daha fazla nadir kelime içerdiğini buldu."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Çocukluktan sonra yeni kelimelerinin çoğu okumaktan gelir. Günde birkaç sayfa, seni yüksek sesle neredeyse hiç duymayacağın kelimelerle karşılaştırır."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Leia mais do que fala",
+    "blocs": [
+     {
+      "p": "Palavras raras moram nos livros. Pesquisadores que as contaram viram que até livros infantis têm cerca de 50 % mais palavras raras do que a TV no horário nobre ou do que a conversa de pessoas com diploma universitário."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Depois da infância, a maioria das suas palavras novas vem da leitura. Poucas páginas por dia colocam você diante de palavras que quase nunca ouviria em voz alta."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Beri več, kot govoriš",
+    "blocs": [
+     {
+      "p": "Redke besede živijo v knjigah. Raziskovalci, ki so jih prešteli, so ugotovili, da imajo celo otroške knjige približno 50 % več redkih besed kot televizija v udarnem terminu ali pogovor diplomantov."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Po otroštvu večina novih besed pride iz branja. Nekaj strani na dan te sooči z besedami, ki jih na glas skoraj nikoli ne bi slišal."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Čitaj više nego što pričaš",
+    "blocs": [
+     {
+      "p": "Rijetke riječi žive u knjigama. Istraživači koji su ih prebrojili otkrili su da čak i dječje knjige imaju oko 50 % više rijetkih riječi od televizije u udarnom terminu ili razgovora visokoobrazovanih ljudi."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Nakon djetinjstva većina novih riječi dolazi iz čitanja. Nekoliko stranica dnevno izlaže te riječima koje naglas gotovo nikad ne bi čuo."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lies mehr, als du redest",
+    "blocs": [
+     {
+      "p": "Seltene Wörter leben in Büchern. Forschende, die sie gezählt haben, fanden, dass sogar Kinderbücher rund 50 % mehr seltene Wörter enthalten als das Abendprogramm im Fernsehen oder Gespräche unter Hochschulabsolventen."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Nach der Kindheit stammen die meisten neuen Wörter aus dem Lesen. Ein paar Seiten am Tag bringen dich mit Wörtern in Kontakt, die du laut fast nie hören würdest."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Olvass többet, mint amennyit beszélsz",
+    "blocs": [
+     {
+      "p": "A ritka szavak a könyvekben élnek. Kutatók, akik megszámolták őket, azt találták, hogy még a gyerekkönyvekben is nagyjából 50 %-kal több ritka szó van, mint a főműsoridős tévében vagy diplomások beszélgetéseiben."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Gyerekkor után az új szavaid többsége olvasásból jön. Napi néhány oldal olyan szavakkal hoz össze, amelyeket szóban szinte soha nem hallanál."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Meet Words In Context",
+    "blocs": [
+     {
+      "p": "You rarely learn a word from a single encounter: each time you meet an unknown word in a text, there is only about a 1 in 10 chance you will remember something lasting about it. The gains come from meeting many words, many times."
+     },
+     {
+      "p": "That is why steady daily reading works so well. Make it an evening session, like a training rep: one short lesson on a new subject, full of words in context."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Rencontre les mots en contexte",
+    "blocs": [
+     {
+      "p": "On apprend rarement un mot en une seule rencontre : chaque fois que tu croises un mot inconnu dans un texte, il n'y a qu'environ une chance sur dix que tu en retiennes quelque chose de durable. Le gain vient de rencontrer beaucoup de mots, beaucoup de fois."
+     },
+     {
+      "p": "C'est pour ça qu'une lecture régulière marche si bien. Fais-en une séance du soir, comme une répétition à l'entraînement : une courte leçon sur un sujet nouveau, pleine de mots en contexte."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "J'utilise Sophia pour ça : une courte leçon avant de dormir, chaque soir, comme une séance d'entraînement pour l'esprit."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Encuentra las palabras en contexto",
+    "blocs": [
+     {
+      "p": "Rara vez se aprende una palabra en un solo encuentro: cada vez que lees una palabra desconocida, solo hay alrededor de una posibilidad entre diez de que recuerdes algo duradero de ella. Lo que suma es encontrar muchas palabras, muchas veces."
+     },
+     {
+      "p": "Por eso leer a diario funciona tan bien. Conviértelo en una sesión nocturna, como una repetición de entrenamiento: una lección corta sobre un tema nuevo, llena de palabras en contexto."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Uso Sophia para esto: una lección corta antes de dormir, cada noche, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Encuentra las palabras en contexto",
+    "blocs": [
+     {
+      "p": "Casi nunca se aprende una palabra en un solo encuentro: cada vez que lees una palabra desconocida, solo hay alrededor de una posibilidad entre diez de que recuerdes algo duradero de ella. Lo que suma es encontrar muchas palabras, muchas veces."
+     },
+     {
+      "p": "Por eso leer todos los días funciona tan bien. Hazlo una sesión de cada noche, como una repetición de entrenamiento: una lección corta sobre un tema nuevo, llena de palabras en contexto."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Yo uso Sophia para esto: una lección corta antes de dormir, todas las noches, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Incontra le parole nel contesto",
+    "blocs": [
+     {
+      "p": "Raramente si impara una parola in un solo incontro: ogni volta che trovi una parola sconosciuta in un testo, c'è solo circa una possibilità su dieci di ricordarne qualcosa di duraturo. Il guadagno viene dall'incontrare molte parole, molte volte."
+     },
+     {
+      "p": "Per questo leggere ogni giorno funziona così bene. Rendilo una sessione serale, come una ripetizione in allenamento: una breve lezione su un argomento nuovo, piena di parole nel contesto."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Io uso Sophia per questo: una breve lezione prima di dormire, ogni sera, come un allenamento per la mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Kelimeleri bağlam içinde gör",
+    "blocs": [
+     {
+      "p": "Bir kelime nadiren tek karşılaşmada öğrenilir: bir metinde bilmediğin bir kelimeyle her karşılaştığında, onunla ilgili kalıcı bir şey hatırlama ihtimali yalnızca yaklaşık onda birdir. Kazanç, birçok kelimeyle birçok kez karşılaşmaktan gelir."
+     },
+     {
+      "p": "Bu yüzden düzenli okumak çok işe yarar. Bunu bir antrenman tekrarı gibi akşam seansına çevir: yeni bir konuda, bağlam içinde kelimelerle dolu kısa bir ders."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Bunun için Sophia kullanıyorum: her gece yatmadan önce kısa bir ders, zihin için bir antrenman gibi."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Encontre as palavras no contexto",
+    "blocs": [
+     {
+      "p": "Quase nunca se aprende uma palavra num único encontro: cada vez que você lê uma palavra desconhecida, há só cerca de uma chance em dez de guardar algo duradouro dela. O ganho vem de encontrar muitas palavras, muitas vezes."
+     },
+     {
+      "p": "Por isso ler todo dia funciona tão bem. Faça disso uma sessão da noite, como uma repetição de treino: uma lição curta sobre um assunto novo, cheia de palavras no contexto."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Eu uso a Sophia para isso: uma lição curta antes de dormir, toda noite, como um treino para a mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Spoznavaj besede v kontekstu",
+    "blocs": [
+     {
+      "p": "Besede se le redko naučimo ob enem samem srečanju: vsakič, ko v besedilu naletiš na neznano besedo, je le približno ena možnost od desetih, da si o njej zapomniš kaj trajnega. Napredek pride iz srečevanja veliko besed, velikokrat."
+     },
+     {
+      "p": "Zato redno branje tako dobro deluje. Naj bo to večerni trening, kot ponovitev pri vadbi: kratka lekcija o novi temi, polna besed v kontekstu."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to uporabljam Sophio: kratka lekcija pred spanjem, vsak večer, kot trening za um."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Upoznaj riječi u kontekstu",
+    "blocs": [
+     {
+      "p": "Riječ se rijetko nauči iz jednog susreta: svaki put kad u tekstu naiđeš na nepoznatu riječ, postoji samo otprilike jedna šansa od deset da zapamtiš nešto trajno. Napredak dolazi iz susreta s puno riječi, puno puta."
+     },
+     {
+      "p": "Zato redovito čitanje toliko dobro djeluje. Neka to bude večernji trening, kao ponavljanje u teretani: kratka lekcija o novoj temi, puna riječi u kontekstu."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to koristim Sophiju: kratka lekcija prije spavanja, svake večeri, kao trening za um."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lerne Wörter im Zusammenhang",
+    "blocs": [
+     {
+      "p": "Ein Wort lernt man selten bei der ersten Begegnung: Jedes Mal, wenn du in einem Text auf ein unbekanntes Wort triffst, liegt die Chance, dir etwas Dauerhaftes zu merken, nur bei etwa eins zu zehn. Der Zuwachs kommt davon, vielen Wörtern viele Male zu begegnen."
+     },
+     {
+      "p": "Darum wirkt tägliches Lesen so gut. Mach es zu einer Abendeinheit, wie eine Wiederholung im Training: eine kurze Lektion zu einem neuen Thema, voller Wörter im Zusammenhang."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ich nutze Sophia dafür: eine kurze Lektion vor dem Schlafen, jeden Abend, wie ein Training für den Kopf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Találkozz a szavakkal szövegkörnyezetben",
+    "blocs": [
+     {
+      "p": "Egy szót ritkán tanulunk meg egyetlen találkozásból: valahányszor ismeretlen szóval találkozol egy szövegben, csak nagyjából egy a tízhez az esélye, hogy valami tartósat megjegyzel belőle. A haladás abból jön, hogy sok szóval sokszor találkozol."
+     },
+     {
+      "p": "Ezért működik olyan jól a rendszeres olvasás. Legyen ebből esti edzés, mint egy ismétlés a gyakorlásban: egy rövid lecke egy új témáról, tele szavakkal szövegkörnyezetben."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Én erre a Sophiát használom: egy rövid lecke lefekvés előtt, minden este, mint egy edzés az elmének."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Test Yourself On New Words",
+    "blocs": [
+     {
+      "p": "Writing a word down is not enough; recalling it is what makes it stick. Students who tested themselves on foreign word pairs remembered about 80% a week later, against about 36% for students who simply read them again."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Keep a short list of new words. Cover the meanings, try to recall them, then check, and use one in a sentence that day."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Teste-toi sur les nouveaux mots",
+    "blocs": [
+     {
+      "p": "Noter un mot ne suffit pas ; c'est le rappeler qui le fixe. Des étudiants qui se testaient sur des paires de mots étrangers en retenaient environ 80 % une semaine plus tard, contre environ 36 % pour ceux qui se contentaient de les relire."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Garde une courte liste de mots nouveaux. Cache les définitions, essaie de t'en souvenir, vérifie, et place un mot dans une phrase le jour même."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Ponte a prueba con palabras nuevas",
+    "blocs": [
+     {
+      "p": "Apuntar una palabra no basta; recordarla es lo que la fija. Los estudiantes que se ponían a prueba con pares de palabras extranjeras recordaban cerca del 80 % una semana después, frente a cerca del 36 % de quienes solo las releían."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Ten una lista corta de palabras nuevas. Tapa los significados, intenta recordarlos, comprueba y usa una en una frase ese mismo día."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Ponte a prueba con palabras nuevas",
+    "blocs": [
+     {
+      "p": "Anotar una palabra no basta; recordarla es lo que la fija. Los estudiantes que se ponían a prueba con pares de palabras extranjeras recordaban cerca del 80 % una semana después, contra cerca del 36 % de quienes solo las volvían a leer."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Ten una lista corta de palabras nuevas. Tapa los significados, intenta recordarlos, revisa y usa una en una oración ese mismo día."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Mettiti alla prova sulle parole nuove",
+    "blocs": [
+     {
+      "p": "Scrivere una parola non basta; è richiamarla che la fissa. Gli studenti che si interrogavano su coppie di parole straniere ne ricordavano circa l'80 % una settimana dopo, contro circa il 36 % di chi si limitava a rileggerle."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Tieni una breve lista di parole nuove. Copri i significati, prova a ricordarli, controlla e usa una parola in una frase quel giorno stesso."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Yeni kelimelerle kendini test et",
+    "blocs": [
+     {
+      "p": "Bir kelimeyi yazmak yetmez; onu hatırlamaya çalışmak kalıcı yapar. Yabancı kelime çiftleriyle kendini test eden öğrenciler bir hafta sonra yaklaşık %80'ini hatırladı; sadece yeniden okuyanlarda bu oran yaklaşık %36'ydı."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Yeni kelimelerden kısa bir liste tut. Anlamları kapat, hatırlamaya çalış, kontrol et ve aynı gün birini bir cümlede kullan."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Teste-se nas palavras novas",
+    "blocs": [
+     {
+      "p": "Anotar uma palavra não basta; lembrar dela é o que fixa. Estudantes que se testavam com pares de palavras estrangeiras lembravam cerca de 80 % uma semana depois, contra cerca de 36 % dos que só as reliam."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Mantenha uma lista curta de palavras novas. Cubra os significados, tente lembrar, confira e use uma numa frase no mesmo dia."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Preizkusi se na novih besedah",
+    "blocs": [
+     {
+      "p": "Zapisati besedo ni dovolj; priklic je tisto, kar jo utrdi. Študenti, ki so se preizkušali na parih tujih besed, so si jih teden pozneje zapomnili okoli 80 %, tisti, ki so jih le ponovno prebrali, pa okoli 36 %."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Imej kratek seznam novih besed. Pokrij pomene, poskusi se jih spomniti, preveri in še isti dan uporabi eno v stavku."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Testiraj se na novim riječima",
+    "blocs": [
+     {
+      "p": "Zapisati riječ nije dovoljno; prisjećanje je ono što je učvrsti. Studenti koji su se testirali na parovima stranih riječi zapamtili su ih oko 80 % tjedan dana kasnije, a oni koji su ih samo ponovno čitali oko 36 %."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Vodi kratak popis novih riječi. Pokrij značenja, pokušaj ih se sjetiti, provjeri i isti dan upotrijebi jednu u rečenici."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Frag dich neue Wörter ab",
+    "blocs": [
+     {
+      "p": "Ein Wort aufzuschreiben reicht nicht; erst das Abrufen festigt es. Studierende, die sich selbst zu fremdsprachigen Wortpaaren abfragten, wussten eine Woche später etwa 80 %, gegenüber etwa 36 % bei denen, die sie nur erneut lasen."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Führ eine kurze Liste neuer Wörter. Deck die Bedeutungen ab, versuch sie abzurufen, prüf nach und bau noch am selben Tag eins in einen Satz ein."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Kérdezd ki magad az új szavakból",
+    "blocs": [
+     {
+      "p": "Leírni egy szót nem elég; a felidézés rögzíti. Azok a diákok, akik idegen szópárokból kikérdezték magukat, egy héttel később nagyjából 80 %-ukra emlékeztek, míg akik csak újraolvasták őket, nagyjából 36 %-ukra."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Vezess egy rövid listát az új szavakról. Takard le a jelentéseket, próbáld felidézni, ellenőrizd, és még aznap használj egyet egy mondatban."
+     }
+    ]
+   }
+  }
+ ]
+}

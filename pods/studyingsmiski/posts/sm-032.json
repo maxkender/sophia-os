@@ -1,0 +1,432 @@
+{
+ "id": "sm-032",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "the way things go",
+  "url": "https://www.tiktok.com/music/the-way-things-go-7247627511276980225"
+ },
+ "notes": "Full test du 28/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, son ciel, stickers, bulle) : « apps that got me through my hardest semester ». Sophia en 3e carte (cta B), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Todoist (tâches et calendrier), Finch (soin de soi), Sleep Cycle (réveil intelligent). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 21 et du 22/11). Musique : la sienne de sa version verte de « 4 apps » (340 k).",
+ "titre": {
+  "en": "apps that got me through my hardest semester",
+  "fr": "les applis qui m'ont sauvée pendant mon semestre le plus dur",
+  "es": "apps que me salvaron en mi cuatrimestre más duro",
+  "es-419": "apps que me salvaron en mi semestre más difícil",
+  "it": "app che mi hanno salvata nel semestre più difficile",
+  "tr": "en zor dönemimde beni ayakta tutan uygulamalar",
+  "pt-BR": "apps que me salvaram no meu semestre mais difícil",
+  "de": "apps, die mich durch mein härtestes semester gebracht haben",
+  "sl": "aplikacije, ki so me rešile v najtežjem semestru",
+  "hu": "appok, amik átsegítettek a legnehezebb félévemen"
+ },
+ "legendes": {
+  "en": "18 credits, 2 jobs and these 4 apps 🌧️📚 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "30 crédits, 2 jobs et ces 4 applis 🌧️📚 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "30 créditos, 2 trabajos y estas 4 apps 🌧️📚 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "materias, 2 trabajos y estas 4 apps 🌧️📚 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "30 crediti, 2 lavori e queste 4 app 🌧️📚 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "dolu bir dönem, 2 iş ve bu 4 uygulama 🌧️📚 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "matérias, 2 empregos e esses 4 apps 🌧️📚 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "volles semester, 2 jobs und diese 4 apps 🌧️📚 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "poln semester, 2 službi in te 4 aplikacije 🌧️📚 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "telezsúfolt félév, 2 munka és ez a 4 app 🌧️📚 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/fiches.png",
+     "x": 40,
+     "y": 150,
+     "l": 230,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 830,
+     "y": 150,
+     "l": 180,
+     "rotation": 8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 40,
+     "y": 740,
+     "l": 240,
+     "rotation": -5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps for my\nhardest\nsemester",
+    "sous": "18 credits\nlater..."
+   },
+   "fr": {
+    "titre": "les applis de\nmon semestre\nle plus dur",
+    "sous": "30 crédits\nplus tard..."
+   },
+   "es": {
+    "titre": "apps de mi\ncuatrimestre\nmás duro",
+    "sous": "30 créditos\ndespués..."
+   },
+   "es-419": {
+    "titre": "apps de mi\nsemestre más\ndifícil",
+    "sous": "muchas materias\ndespués..."
+   },
+   "it": {
+    "titre": "app del mio\nsemestre più\ndifficile",
+    "sous": "30 crediti\ndopo..."
+   },
+   "tr": {
+    "titre": "en zor\ndönemimin\nuygulamaları",
+    "sous": "dolu bir\ndönemin ardından..."
+   },
+   "pt-BR": {
+    "titre": "apps do meu\nsemestre mais\ndifícil",
+    "sous": "muitas matérias\ndepois..."
+   },
+   "de": {
+    "titre": "apps für mein\nhärtestes\nsemester",
+    "sous": "ein volles\nsemester später..."
+   },
+   "sl": {
+    "titre": "aplikacije\nza najtežji\nsemester",
+    "sous": "poln semester\npozneje..."
+   },
+   "hu": {
+    "titre": "appok a\nlegnehezebb\nfélévemhez",
+    "sous": "egy zsúfolt\nfélév után..."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/todoist/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/crayon.png",
+     "x": 60,
+     "y": 770,
+     "l": 290,
+     "rotation": -20
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "every assignment split into small tasks with dates. when everything felt like too much, i just did the next tiny thing."
+   },
+   "fr": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "chaque devoir découpé en petites tâches datées. quand tout semblait trop, je faisais juste la petite chose suivante."
+   },
+   "es": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "cada trabajo dividido en tareas pequeñas con fecha. cuando todo era demasiado, solo hacía la siguiente cosita."
+   },
+   "es-419": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "cada trabajo dividido en pendientes pequeños con fecha. cuando todo era demasiado, solo hacía la siguiente cosita."
+   },
+   "it": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "ogni consegna divisa in piccoli compiti con una data. quando tutto era troppo, facevo solo la prossima piccola cosa."
+   },
+   "tr": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "her ödev tarihli küçük görevlere bölündü. her şey fazla geldiğinde sadece sıradaki küçük işi yaptım."
+   },
+   "pt-BR": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "cada trabalho dividido em tarefinhas com data. quando tudo parecia demais, eu só fazia a próxima coisinha."
+   },
+   "de": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "jede abgabe in kleine aufgaben mit datum zerlegt. wenn alles zu viel war, hab ich einfach die nächste kleine sache gemacht."
+   },
+   "sl": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "vsaka naloga razdeljena na majhna opravila z datumi. ko je bilo vsega preveč, sem naredila le naslednjo malenkost."
+   },
+   "hu": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "minden beadandó kis, dátumozott feladatokra bontva. amikor minden túl sok volt, csak a következő apróságot csináltam meg."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/finch/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 730,
+     "l": 200,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "a little pet that grows when you take care of yourself. it reminded me to drink water and rest on the worst weeks."
+   },
+   "fr": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "un petit compagnon qui grandit quand tu prends soin de toi. il me rappelait de boire et de me reposer les pires semaines."
+   },
+   "es": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "una mascota que crece cuando te cuidas. me recordaba beber agua y descansar en las peores semanas."
+   },
+   "es-419": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "una mascota que crece cuando te cuidas. me recordaba tomar agua y descansar en las peores semanas."
+   },
+   "it": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "un animaletto che cresce quando ti prendi cura di te. nelle settimane peggiori mi ricordava di bere e riposare."
+   },
+   "tr": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "kendine baktıkça büyüyen küçük bir dost. en kötü haftalarda su içmemi ve dinlenmemi hatırlattı."
+   },
+   "pt-BR": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "um bichinho que cresce quando você se cuida. nas piores semanas ele me lembrava de beber água e descansar."
+   },
+   "de": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "ein kleines haustier, das wächst, wenn du auf dich achtest. in den schlimmsten wochen erinnerte es mich an wasser und pausen."
+   },
+   "sl": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "ljubljenček, ki raste, ko skrbiš zase. v najhujših tednih me je opominjal, naj pijem vodo in počivam."
+   },
+   "hu": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "kis kedvenc, ami nő, ha vigyázol magadra. a legrosszabb heteken emlékeztetett, hogy igyak vizet és pihenjek."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/cafe.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 850,
+     "y": 100,
+     "l": 170,
+     "rotation": 14
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "short lessons written by actual professors, so you learn something new every day in 10 minutes!",
+    "bulle": "my 10 minutes of calm every day!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes !",
+    "bulle": "mes 10 minutes de calme par jour !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡mis 10 minutos de calma al día!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡mis 10 minutos de calma al día!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti!",
+    "bulle": "i miei 10 minuti di calma ogni giorno!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için!",
+    "bulle": "her gün 10 dakikalık huzurum!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aulas curtas escritas por professores de verdade, pra aprender algo novo todo dia em 10 minutos!",
+    "bulle": "meus 10 minutos de calma todo dia!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kurze lektionen von echten profs, damit du jeden tag in 10 minuten etwas neues lernst!",
+    "bulle": "meine 10 minuten ruhe am tag!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kratke lekcije, ki jih pišejo pravi profesorji, da se vsak dan v 10 minutah naučiš nekaj novega!",
+    "bulle": "mojih 10 minut miru na dan!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "rövid leckék, amiket igazi tanárok írnak, hogy minden nap 10 perc alatt tanulj valami újat!",
+    "bulle": "a napi 10 perc nyugalmam!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/sleep-cycle/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 40,
+     "y": 730,
+     "l": 300,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 220,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "a smart alarm that wakes you in your lightest sleep phase. sleep was the first thing i protected that semester."
+   },
+   "fr": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "un réveil intelligent qui te réveille dans ton sommeil le plus léger. ce semestre-là, j'ai protégé mon sommeil avant tout."
+   },
+   "es": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "un despertador inteligente que te despierta en tu sueño más ligero. ese cuatrimestre lo primero que protegí fue mi sueño."
+   },
+   "es-419": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "una alarma inteligente que te despierta en tu sueño más ligero. ese semestre lo primero que cuidé fue mi sueño."
+   },
+   "it": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "una sveglia intelligente che ti sveglia nel sonno più leggero. quel semestre la prima cosa che ho protetto è stato il sonno."
+   },
+   "tr": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "seni en hafif uykunda uyandıran akıllı alarm. o dönem ilk koruduğum şey uykumdu."
+   },
+   "pt-BR": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "um despertador inteligente que te acorda no sono mais leve. naquele semestre, a primeira coisa que protegi foi meu sono."
+   },
+   "de": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "ein smarter wecker, der dich in der leichtesten schlafphase weckt. in dem semester habe ich zuerst meinen schlaf geschützt."
+   },
+   "sl": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "pametna budilka, ki te zbudi v najlažjem spanju. tisti semester sem najprej zaščitila spanje."
+   },
+   "hu": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "okos ébresztő, ami a legkönnyebb alvásodban ébreszt. abban a félévben az alvásomat védtem először."
+   }
+  }
+ ]
+}

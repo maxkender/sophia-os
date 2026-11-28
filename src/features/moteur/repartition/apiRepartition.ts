@@ -83,6 +83,9 @@ function nombreOuNull(v: number | string | null | undefined): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
+/** Taille d'une page de `simulation_repartition` (le max-rows par défaut de l'API). */
+const PAGE_SIMULATION = 1000;
+
 /**
  * Les marchés d'une application, triés du plus peuplé au moins peuplé.
  *
@@ -93,13 +96,26 @@ function nombreOuNull(v: number | string | null | undefined): number | null {
 export async function lireMarchesRepartition(
   applicationId: string,
 ): Promise<MarcheRepartition[]> {
-  const { data, error } = await supabase.rpc("simulation_repartition", {
-    p_application: applicationId,
-  });
-  if (error) throw error;
+  // La base rend au plus 1 000 lignes par appel (max-rows de l'API) : avec
+  // 50 marchés × 27 labels pour Sophia, la fin de l'alphabet (fr, hu, it, pl,
+  // pt-BR, ro, sr, sv, tr…) disparaissait de la page (27/11). On lit donc par
+  // pages, dans un ordre stable (langue, pays, label) pour ne rien sauter.
+  const lignes: LigneSimulation[] = [];
+  for (let debut = 0; ; debut += PAGE_SIMULATION) {
+    const { data, error } = await supabase
+      .rpc("simulation_repartition", { p_application: applicationId })
+      .order("langue")
+      .order("pays", { nullsFirst: true })
+      .order("label_id")
+      .range(debut, debut + PAGE_SIMULATION - 1);
+    if (error) throw error;
+    const page = (data ?? []) as LigneSimulation[];
+    lignes.push(...page);
+    if (page.length < PAGE_SIMULATION) break;
+  }
 
   const parMarche = new Map<string, MarcheRepartition>();
-  for (const l of (data ?? []) as LigneSimulation[]) {
+  for (const l of lignes) {
     const pays = l.pays ?? null;
     const k = `${l.langue}|${pays ?? ""}`;
     let m = parMarche.get(k);

@@ -1,0 +1,430 @@
+{
+ "id": "at-029",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7708030248713080096",
+  "vues": 141100,
+  "publie_le": "2026-11-14",
+  "accroche": "quoi manger / *avant* de courir"
+ },
+ "titre": {
+  "en": "running fuel do and don’ts",
+  "fr": "manger pour courir : les do & don’ts",
+  "de": "essen & laufen: die do & don’ts",
+  "it": "mangiare e correre: i do & don’ts",
+  "es-419": "comer y correr: los do & don’ts",
+  "hu": "evés és futás: a do & don’ts",
+  "ro": "mâncat și alergat: do & don’ts",
+  "tr": "yemek ve koşu: do & don’ts",
+  "el": "φαγητό & τρέξιμο: τα do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #runningfuel #runningtips #girlswhorun #prerun",
+  "fr": "#courseapied #nutrition #running #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
+ },
+ "musique": {
+  "titre": "Housewife",
+  "url": "https://www.tiktok.com/music/housewife-7697010651306838068"
+ },
+ "notes": "Preuve : « quoi manger / avant de courir » de @hannah.run5 (141 k vues, 14/11), leur grille, mise au format do & don'ts de leur tube (objets). Conseils simples, rien de régime ni de poids. Aucun objet neuf ; couverture : coureuse-longue. Logo d'Atala au milieu des « Do » de la slide 3 (le matin) : l'allure, jamais la nutrition (Atala n'en fait pas, cf. placement_atala). Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec le mot pour « appli », jamais « AI »). Aucune page d'appli. Livré dans les 9 langues du label.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-longue.png",
+   "en": {
+    "titre": "running fuel\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "manger pour courir :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "essen & laufen:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "mangiare e correre:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "comer y correr:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "evés és futás:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "mâncat și alergat:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "yemek ve koşu:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "φαγητό & τρέξιμο:\nτα do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/pates.png",
+    "images/objets/verre-eau.png",
+    "images/objets/masque.png"
+   ],
+   "dont": [
+    "images/objets/vin.png",
+    "images/objets/cafes.png"
+   ],
+   "en": {
+    "titre": "the night before",
+    "do": [
+     "a pasta dinner",
+     "water\nall evening",
+     "in bed early"
+    ],
+    "dont": [
+     "a glass\nof wine",
+     "a late coffee"
+    ]
+   },
+   "fr": {
+    "titre": "la veille",
+    "do": [
+     "des pâtes\nle soir",
+     "de l’eau\nle soir",
+     "au lit tôt"
+    ],
+    "dont": [
+     "un verre\nde vin",
+     "café du soir"
+    ]
+   },
+   "de": {
+    "titre": "am vorabend",
+    "do": [
+     "pasta\nzum abendessen",
+     "wasser\nam abend",
+     "früh ins bett"
+    ],
+    "dont": [
+     "ein glas wein",
+     "später kaffee"
+    ]
+   },
+   "it": {
+    "titre": "la sera prima",
+    "do": [
+     "pasta a cena",
+     "acqua\ntutta la sera",
+     "a letto presto"
+    ],
+    "dont": [
+     "un bicchiere\ndi vino",
+     "caffè la sera"
+    ]
+   },
+   "es-419": {
+    "titre": "la noche antes",
+    "do": [
+     "pasta\nen la cena",
+     "agua\ntoda la noche",
+     "temprano\na la cama"
+    ],
+    "dont": [
+     "una copa\nde vino",
+     "café de noche"
+    ]
+   },
+   "hu": {
+    "titre": "előző este",
+    "do": [
+     "tészta este",
+     "víz\negész este",
+     "korán ágyba"
+    ],
+    "dont": [
+     "egy pohár bor",
+     "esti kávé"
+    ]
+   },
+   "ro": {
+    "titre": "seara dinainte",
+    "do": [
+     "paste\nla cină",
+     "apă\ntoată seara",
+     "somn devreme"
+    ],
+    "dont": [
+     "un pahar\nde vin",
+     "cafea seara"
+    ]
+   },
+   "tr": {
+    "titre": "önceki akşam",
+    "do": [
+     "akşam makarna",
+     "akşam\nboyunca su",
+     "erken uyku"
+    ],
+    "dont": [
+     "şarap içmek",
+     "gece kahvesi"
+    ]
+   },
+   "el": {
+    "titre": "το βράδυ πριν",
+    "do": [
+     "μακαρόνια\nγια βραδινό",
+     "νερό\nόλο το βράδυ",
+     "νωρίς ύπνος"
+    ],
+    "dont": [
+     "ποτήρι κρασί",
+     "βραδινός καφές"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/banane.png",
+    "atala",
+    "images/objets/gourde.png"
+   ],
+   "dont": [
+    "images/objets/pates.png",
+    "images/objets/gel.png"
+   ],
+   "en": {
+    "titre": "the morning",
+    "do": [
+     "a banana,\n1h before",
+     "pacing from an\napp like atala",
+     "small sips"
+    ],
+    "dont": [
+     "a heavy meal",
+     "a gel you’ve\nnever tried"
+    ]
+   },
+   "fr": {
+    "titre": "le matin",
+    "do": [
+     "une banane,\n1h avant",
+     "appli coach\ncomme atala",
+     "boire\npar gorgées"
+    ],
+    "dont": [
+     "un repas lourd",
+     "un gel\njamais testé"
+    ]
+   },
+   "de": {
+    "titre": "am morgen",
+    "do": [
+     "banane,\n1 std. vorher",
+     "coach-app\nwie atala",
+     "schluckweise"
+    ],
+    "dont": [
+     "schweres essen",
+     "ein neues gel"
+    ]
+   },
+   "it": {
+    "titre": "la mattina",
+    "do": [
+     "banana,\n1 ora prima",
+     "app coach\ncome atala",
+     "acqua\na sorsi"
+    ],
+    "dont": [
+     "pasto pesante",
+     "un gel\nmai provato"
+    ]
+   },
+   "es-419": {
+    "titre": "en la mañana",
+    "do": [
+     "plátano,\n1 h antes",
+     "app con coach\ncomo atala",
+     "agua\na sorbos"
+    ],
+    "dont": [
+     "comida pesada",
+     "un gel\nnunca probado"
+    ]
+   },
+   "hu": {
+    "titre": "reggel",
+    "do": [
+     "banán\n1 órával előbb",
+     "edzős app,\nmint az atala",
+     "pár korty víz"
+    ],
+    "dont": [
+     "nehéz étel",
+     "új, ki nem\npróbált gél"
+    ]
+   },
+   "ro": {
+    "titre": "dimineața",
+    "do": [
+     "o banană,\n1 oră înainte",
+     "aplicație de\ncoach ca atala",
+     "apă\nîn înghițituri"
+    ],
+    "dont": [
+     "masă grea",
+     "un gel\nnou, netestat"
+    ]
+   },
+   "tr": {
+    "titre": "sabah",
+    "do": [
+     "muz,\n1 saat önce",
+     "atala gibi\nkoç uygulaması",
+     "yudum yudum su"
+    ],
+    "dont": [
+     "ağır yemek",
+     "denenmemiş jel"
+    ]
+   },
+   "el": {
+    "titre": "το πρωί",
+    "do": [
+     "μπανάνα,\n1 ώρα πριν",
+     "εφαρμογή coach\nσαν το atala",
+     "νερό\nσε γουλιές"
+    ],
+    "dont": [
+     "βαρύ φαγητό",
+     "άγνωστο τζελ"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/pates.png",
+    "images/objets/verre-eau.png",
+    "images/objets/the.png"
+   ],
+   "dont": [
+    "images/objets/cafes.png",
+    "images/objets/chrono.png"
+   ],
+   "en": {
+    "titre": "after",
+    "do": [
+     "a real meal",
+     "a big glass\nof water",
+     "a hot tea"
+    ],
+    "dont": [
+     "just\na coffee",
+     "hard session\non empty"
+    ]
+   },
+   "fr": {
+    "titre": "après",
+    "do": [
+     "un vrai repas",
+     "un grand\nverre d’eau",
+     "un thé chaud"
+    ],
+    "dont": [
+     "juste\nun café",
+     "séance dure\nà jeun"
+    ]
+   },
+   "de": {
+    "titre": "danach",
+    "do": [
+     "richtig essen",
+     "ein großes\nglas wasser",
+     "heißer tee"
+    ],
+    "dont": [
+     "nur kaffee",
+     "harte einheit\nohne essen"
+    ]
+   },
+   "it": {
+    "titre": "dopo",
+    "do": [
+     "un vero pasto",
+     "tanta acqua",
+     "un tè caldo"
+    ],
+    "dont": [
+     "solo un caffè",
+     "seduta dura\na digiuno"
+    ]
+   },
+   "es-419": {
+    "titre": "después",
+    "do": [
+     "comer bien",
+     "un vaso\ngrande de agua",
+     "un té caliente"
+    ],
+    "dont": [
+     "solo un café",
+     "sesión dura\nen ayunas"
+    ]
+   },
+   "hu": {
+    "titre": "utána",
+    "do": [
+     "rendes étel",
+     "egy nagy\npohár víz",
+     "forró tea"
+    ],
+    "dont": [
+     "csak egy kávé",
+     "éhgyomorra\nkemény edzés"
+    ]
+   },
+   "ro": {
+    "titre": "după",
+    "do": [
+     "masă bună",
+     "un pahar\nmare cu apă",
+     "ceai fierbinte"
+    ],
+    "dont": [
+     "doar o cafea",
+     "efort mare\npe nemâncate"
+    ]
+   },
+   "tr": {
+    "titre": "sonra",
+    "do": [
+     "gerçek yemek",
+     "büyük bir\nbardak su",
+     "sıcak çay"
+    ],
+    "dont": [
+     "sadece kahve",
+     "aç karnına\nağır seans"
+    ]
+   },
+   "el": {
+    "titre": "μετά",
+    "do": [
+     "σωστό φαγητό",
+     "ένα μεγάλο\nποτήρι νερό",
+     "ζεστό τσάι"
+    ],
+    "dont": [
+     "μόνο καφές",
+     "σκληρά\nχωρίς φαγητό"
+    ]
+   }
+  }
+ ]
+}

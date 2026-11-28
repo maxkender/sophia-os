@@ -1,0 +1,278 @@
+{
+ "post_id": "var-concentration-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 niche traits of highly",
+      "successful people"
+     ],
+     "texte": "nišiniai įpročiai, kurie žudo tavo dėmesį"
+    },
+    "T2": {
+     "en": [
+      "(science-backed)"
+     ],
+     "alignement": "droite",
+     "texte": "(apie tai niekas nekalba)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_009e8c17.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they make decisions fast"
+     ],
+     "texte": "mokytis [[iš lovos]]"
+    },
+    "T2": {
+     "en": [
+      "successful people don’t procrastinate. they don’t",
+      "ask for permission, but instead act and ask for",
+      "forgiveness"
+     ],
+     "texte": "kompiuteris ant kelių, antklodė, pagalvė už nugaros. jauku, bet tavo smegenims [[lova = poilsis]]"
+    },
+    "T3": {
+     "en": [
+      "they don’t spend 3",
+      "weeks thinking",
+      "about a reversible",
+      "choice"
+     ],
+     "texte": "tad vos tik įsitaisai, [[dėmesys ištirpsta]]"
+    },
+    "T4": {
+     "en": [
+      "if the downside is small, they decide, act, and",
+      "adjust. speed matters most when decisions can",
+      "be changed later"
+     ],
+     "texte": "ir tai veikia abiem kryptimis: kuo daugiau ten dirbi, [[tuo prasčiau miegi]]. lova skirta miegui"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_04cfe1cc.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they get comfortable looking",
+      "stupid"
+     ],
+     "texte": "valandų valandas mokytis [[prie uždaryto lango]]"
+    },
+    "T2": {
+     "en": [
+      "they ask basic questions, try things before they feel",
+      "ready, and admit when they don’t know"
+     ],
+     "texte": "durys ir langas uždaryti, oras sunkėja, o galva tarsi vatoje, ir net nežinai kodėl"
+    },
+    "T3": {
+     "en": [
+      "protecting your",
+      "ego feels safe,",
+      "but it slows",
+      "learning down",
+      "massively"
+     ],
+     "texte": "harvardo tyrimas parodė: tvankus oras = [[lėtesnės smegenys]]"
+    },
+    "T4": {
+     "en": [
+      "growth feels uncomfortable, but",
+      "nothing changes if nothing changes"
+     ],
+     "texte": "atidaryk langą [[10 min kas valandą]], ir galva prasivalys"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_6e8628e4.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they read classic books written",
+      "by the greats"
+     ],
+     "texte": "užpildyti [[kiekvieną laukimą]] telefonu"
+    },
+    "T2a": {
+     "en": [
+      "they know endless tiktok scrolling rots their",
+      "attention"
+     ],
+     "texte": "eilė, autobusas, mikrobangė, liftas: ir telefonas jau rankoje"
+    },
+    "T2b": {
+     "en": [
+      "instead, they read ideas that",
+      "survived decades or",
+      "centuries"
+     ],
+     "texte": "tavo smegenys [[niekada neturi tuščios minutės]] atsikvėpti"
+    },
+    "T3": {
+     "en": [
+      "from people who thought",
+      "deeply about psychology,",
+      "power, business, and human",
+      "nature"
+     ],
+     "texte": "tad vos darbas sulėtėja, jos [[ieško kažko kito]] iš įpročio, kiekvieną kartą"
+    },
+    "T4": {
+     "en": [
+      "if you’re stuck on tiktok, you",
+      "can try readup which blocks",
+      "your apps until you read"
+     ],
+     "texte": "anksčiau skrolinau visą dieną, dabar per 5 min išmokstu ką nors naujo [[programėlėje Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "scissions": {
+    "T2": 2
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they tolerate long periods with",
+      "no reward"
+     ],
+     "texte": "[[labai saldūs pusryčiai]] prieš paskaitas"
+    },
+    "T2": {
+     "en": [
+      "they can keep working when",
+      "nobody is watching, nothing",
+      "is going viral, and the results",
+      "still look unimpressive"
+     ],
+     "texte": "dribsniai, bandelės, saldi kava. valandą tau gera, tada cukrus kraujyje krenta, o [[kartu ir dėmesys]]"
+    },
+    "T3": {
+     "en": [
+      "most people need constant",
+      "proof that something is",
+      "working"
+     ],
+     "texte": "nuovargis 10 val. nėra tingumas, [[tai cukraus kritimas]]"
+    },
+    "T4": {
+     "en": [
+      "successful people can stay",
+      "consistent long enough for the",
+      "payoff to arrive."
+     ],
+     "texte": "pridėk baltymų: kiaušinių, jogurto, avižų. [[ištversi iki pietų]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_07cf7fda.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they obsess over leverage"
+     ],
+     "texte": "konspektai [[5 spalvomis]]"
+    },
+    "T2": {
+     "en": [
+      "they constantly look for",
+      "ways to make one hour of",
+      "work create more than",
+      "one hour of value"
+     ],
+     "texte": "penki žymekliai, tobuli pavadinimai, perrašytas puslapis, nes vienas žodis buvo negražus"
+    },
+    "T3": {
+     "en": [
+      "software, systems,",
+      "content, capital,",
+      "automation, teams"
+     ],
+     "texte": "rankos užimtos, o [[smegenys atsijungia]]"
+    },
+    "T4": {
+     "en": [
+      "they’re not just trying to",
+      "work harder, they’re trying"
+     ],
+     "texte": "rašyk netvarkingai, tada [[pasitikrink save]] be užrašų"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_008c05fe.jpg",
+      "boite": [
+       0,
+       880,
+       1504,
+       1904
+      ]
+     }
+    }
+   }
+  }
+ }
+}

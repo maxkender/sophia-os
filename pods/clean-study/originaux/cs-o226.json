@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o226",
+  "type_bleo": "full_test",
+  "titre": "how i stopped comparing my grades with my friends' #studytok #studymotivation #school",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 28/11 : 5 full tests sur 13, plus 1 car la boîte n'a que 7 lignes utilisables). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Rivalité avec soi-même, jamais le mépris des autres. Gestes vrais : comparer à sa note d'avant, un carnet de progrès, demander des méthodes plutôt que des notes, se réjouir pour les autres, une curiosité à soi (slide Sophia, 5), ne pas annoncer sa note. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "f364dffa",
+      "texte_overlay": "how i stopped comparing my grades\nwith my friends'",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "f0153e23",
+      "texte_overlay": "i compare with my last grade.\nnot with theirs.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "dc521857",
+      "texte_overlay": "a small progress notebook.\nevery grade, every subject, over the year.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "a289feac",
+      "texte_overlay": "i ask friends about their method.\nnot their grade.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "91371927",
+      "texte_overlay": "i found something that's only mine.\n5 minutes a day learning things no test will ask.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "i found something that's only mine.\n5 minutes a day on a micro-learning app\nlike the Sophia app. things no test will ask."
+    },
+    {
+      "position": 6,
+      "media_id": "bb58aab6",
+      "texte_overlay": "when a friend does great, i'm happy for her.\nit costs me nothing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "98cbd523",
+      "texte_overlay": "and i don't announce my grade.\nit's my business.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

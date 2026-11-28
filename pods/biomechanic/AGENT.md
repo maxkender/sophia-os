@@ -36,6 +36,7 @@ Le prompt de placement d'Atala a changé le 20/11 (table `prompts`, clé `placem
 	- **italien** : « Tierlist del Mattino » / « Salute *Ottimale* » / « (Basata sulla scienza) » ; Atala : « un'app con coach per la corsa come Atala » (forme directe « l'app Atala ») ;
 	- **hongrois** : « Reggeli Tierlist » / « *Optimális* Egészség » / « (Tudományosan megalapozva) » ; Atala : « egy futóedző app, mint az Atala » (forme directe « az Atala app ») ;
 	- **serbe** en **latin**, ekavien (« vreme », « pre ») : « Jutarnja Tierlista » / « *Optimalno* Zdravlje » / « (Naučno zasnovano) » ; Atala : « aplikacija sa trenerom za trčanje kao što je Atala » (le mot « aplikacija » se décline, jamais « Atala ») ;
+	- **roumain, allemand, turc** (palier 1, ouvertes par l'OS le 28/11, préparées ce jour : `LANGUES` = en, hu, sr, it, ro, de, tr) : Atala « o aplicație de alergare cu antrenor precum Atala » (ro), « eine Lauf-App mit Coach wie Atala » (de), « Atala gibi koçlu bir koşu uygulaması » (tr) ; couverture « Sănătate *Optimă* » / « *Optimal* Gesund » / « *Optimal* Sağlık » ;
 	- « S TIER » reste tel quel dans toutes les langues ; la jauge est traduite au rendu (CORTISOLO / KORTIZOL, BASSO-MEDIO-ALTO, ALACSONY-KÖZEPES-MAGAS, NIZAK-SREDNJI-VISOK) ; une ligne de couverture plus large que 1000 px est refusée par `npm run rendu` : raccourcis ;
 	- rattrapage d'un post déjà validé : `npm run livrer -- <id> --langues hu,sr,it --complement`.
 - Son ton : des affirmations tranchées, un vocabulaire « biologique » (cortisol, circadian rhythm, aerobic base), du pire au meilleur.

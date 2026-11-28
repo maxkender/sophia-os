@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o541",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "67831a63-71c4-463b-a147-9030744a7cbd",
+ "titre": "niche things that make you instantly more attractive #attractive #confidence #glowup #smartgirl #niche",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "67831a63-71c4-463b-a147-9030744a7cbd"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 30 de la boîte (parent 67831a63, langue source en) : accroche du parent mot pour mot. Idées du parent (ne pas avoir honte de tout, apprendre des choses rares, avoir des choses intéressantes à dire, documenter sa vie) et neuves. Sophia comme chez le parent (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7cdf7cca",
+   "texte_overlay": "niche things that make you\ninstantly more attractive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "298bb19f",
+   "texte_overlay": "not being embarrassed\nby everything",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8d228cbe",
+   "texte_overlay": "learning uncommon facts\njust for fun",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "eecb936c",
+   "texte_overlay": "having interesting things to say\n\ni learn one every morning.",
+   "texte_sophia": "having interesting things to say\n\ni learn one a day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "42a63988",
+   "texte_overlay": "documenting your life\n\na journal, film photos, a scrapbook.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3517ed16",
+   "texte_overlay": "a laugh you don't hide",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "83b0b521",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/4.jpg"
+  }
+ ]
+}

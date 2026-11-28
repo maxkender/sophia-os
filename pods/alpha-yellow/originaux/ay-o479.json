@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o479",
+ "type_bleo": "full_test",
+ "titre": "How to visit a museum and actually enjoy it #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to visit a museum and actually enjoy it » (retenue), « Museums are boring until you do this » (écartée : négatif), « Museum tips for men » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "560643b0-06a7-467b-9e90-7e071d41c675",
+   "texte_overlay": "How to visit a museum\nand actually enjoy it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652781448931314977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Don't try to see everything. Pick one or two rooms. Two hours of attention beats five hours of tired walking.",
+   "media_id": "5be1ba41-339a-41a8-95fd-cf7b9d632e92"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Spend five minutes in front of one piece. Look at the details, the colours, the faces. You'll see things most visitors miss.",
+   "media_id": "5bee163f-2349-4c38-8e4d-d7a9ccbcf5f0"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Read the story behind a work. Who made it, why, and what was happening at the time. The story makes the art come alive.",
+   "media_id": "6096f6c1-1538-4b70-b9a6-759d1d4989fd"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Go at quiet times. Early mornings or weekday evenings. Fewer crowds make the experience calmer and more personal.",
+   "media_id": "60b527de-276f-4cd5-ac4b-837a629666de"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Learn a little before you go. I do five minutes a day of history, art or science, and I recognise artists and periods in every museum now.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I recognise artists and periods in every museum now.",
+   "media_id": "6a9a20bd-cb5f-4e65-a86e-fd485133aba2"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Go with a friend and talk about what you see. Sharing opinions about a painting makes the visit fun and memorable.",
+   "media_id": "627859a7-71a2-460f-a8ca-3f71d04f098c"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Finish at the café. Sit, talk, look back on what you liked. A good visit ends with a moment to remember it. Plan the next one.",
+   "media_id": "644b5c9a-ec19-4891-81cf-5e8bbd1c13fd"
+  }
+ ]
+}

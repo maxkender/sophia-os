@@ -59,7 +59,8 @@ if (post.slides.length < 4 || post.slides.length > 8) throw new Error(`${id} : 4
 const images = post.slides.flatMap(photosSlide);
 for (const [i, s] of post.slides.entries()) {
   if (s.type === "couverture") {
-    if (!s.image.startsWith("images/photos/") && !s.image.startsWith("images/banque/")) throw new Error(`${id} : la photo de couverture vient de images/photos/ (Seedream) ou images/banque/`);
+    // Depuis le 27/11 (Adrien) : jamais d'image IA ; une vraie photo de musée de la banque de l'OS (npm run photos).
+    if (!s.image.startsWith("images/banque/")) throw new Error(`${id} : la photo de couverture vient de la banque de l'OS (images/banque/, npm run photos), jamais d'une image IA`);
     if (s.image.startsWith("images/banque/") && !post.banque?.[s.image]) throw new Error(`${id} : photo de la banque sans id (\`banque\` du post) : ${s.image}`);
   } else {
     if (!s.image.startsWith("images/oeuvres/")) throw new Error(`${id} slide ${i + 1} : un tableau vient de images/oeuvres/ (npm run oeuvre), jamais généré`);

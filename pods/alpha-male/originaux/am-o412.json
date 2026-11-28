@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o412",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "756c3847-e726-4f7b-a64f-c0c5e299917f",
+ "titre": "Facts That Can Save Your Life #safety #facts #men #survival #knowledge",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7433882494992599813",
+ "inspirations": [
+  "756c3847-e726-4f7b-a64f-c0c5e299917f"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Déclinaison G1 de la ligne 59 de la boîte (parent 756c3847, @millyjhino, langue source en ; lignes 14 à 58 passées (garde-fous, coquilles ou voisines)). Accroche du parent mot pour mot. Format du parent : « N. If… » puis la conduite à tenir. Faits de sécurité reconnus (rien de médical), aucun du parent. Items neufs, aucun du parent. reference_url du parent (1 à 7) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "172896bb",
+   "texte_overlay": "Facts That Can Save\nYour Life:",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644662730389081351/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0e719fbb",
+   "texte_overlay": "1. If a current pulls you out\nto sea...\n\nswim parallel to the shore.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644662730389081351/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0f3da238",
+   "texte_overlay": "2. If your car hydroplanes...\n\nease off the gas. Don't brake hard.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644662730389081351/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "946aa716",
+   "texte_overlay": "3. If you hear thunder...\n\nyou're close enough to be hit.\nGo inside.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644662730389081351/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3d05773d",
+   "texte_overlay": "4. If there's smoke in a room...\n\nstay low. Clean air is near the floor.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644662730389081351/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a9f9712a",
+   "texte_overlay": "5. If you know a little about\neverything...\n\nyou panic less. Keep learning.",
+   "texte_sophia": "5. If you know a little about\neverything...\n\nyou panic less. Use a micro-learning\napp like the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644662730389081351/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4fa593cf",
+   "texte_overlay": "6. If you don't have a smoke\nor CO detector...\n\nbuy one today.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7644662730389081351/7.jpg"
+  }
+ ]
+}

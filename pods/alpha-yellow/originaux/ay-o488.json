@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o488",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "abbd74e7-45b4-4a39-8e37-3907c0af248c",
+ "titre": "How to make your memory Ridiculously good #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "abbd74e7-45b4-4a39-8e37-3907c0af248c"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 18 de la boîte (abbd74e7, @klevr.mind) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (rappel actif, répétition espacée, connexions, palais mental, enseigner, sommeil) Lignes sautées : 3 à 5 (quota de 3 déclinaisons déjà atteint au guichet), 8 (voisine de la ligne 6), 10 (voisine de la ligne 9), 11 à 14 (faute de frappe dans l'accroche)..",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ad4076ed-5d73-4d87-a042-ccb21d4973bf",
+   "texte_overlay": "How to make your memory\nRidiculously good",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Write it by hand. Notes taken with a pen are remembered better than typed ones, because your brain has to summarise.",
+   "media_id": "fa2824fe-d2d1-4392-8cee-29a263eb638c"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Use stories. Turn facts into a short story or a funny picture in your mind. Strange images are much easier to remember.",
+   "media_id": "fb35319a-40ea-4d66-9efe-38e89873d838"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Exercise regularly. Running, cycling, swimming. Moving your body helps your brain stay sharp and form new memories.",
+   "media_id": "fba18a2a-b216-4e29-a7a7-1a70e81409cc"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Learn in short sessions. Twenty focused minutes, then a break. Your brain remembers the start and end of each session best.",
+   "media_id": "fc415cf2-aac5-49c8-9eee-1d7d5b40d5aa"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Feed your memory daily. I do five minutes a day of history, art or science, and small daily lessons stick better than long sessions.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Small daily lessons stick better than long sessions.",
+   "media_id": "a02b58c3-0f18-4224-9b46-59af95331eda"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Reduce multitasking. Doing one thing at a time helps your brain store it properly. Focus on one task.",
+   "media_id": "fc7de629-eeac-4692-9cf1-abf34c483237"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Test yourself before bed. A quick review in the evening helps your brain keep it while you sleep. Two minutes is enough.",
+   "media_id": "fd8ab82c-4f2b-4eb6-aee9-b3a9158fcf21"
+  }
+ ]
+}

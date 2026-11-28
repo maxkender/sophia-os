@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o371",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1b9efcc9-1a0f-4c6d-842c-f75a9993168b",
+ "titre": "la promotion que j'ai refusée m'a appris plus que celles que j'ai eues #travail #promotion #carriere #emploi #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 28/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G2 de la ligne #1 (parent 1b9efcc9), 3e et dernière : même promesse, autres mots, autre histoire (inventée, aucune vraie entreprise). Inspirations reprises de rh-o309. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c9747b19",
+   "texte_overlay": "la promotion que j'ai refusée\nm'a appris plus\nque celles que j'ai eues",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8a2564a2",
+   "texte_overlay": "j'ai compris ce que je voulais vraiment\nfaire, pas diriger",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "407973bc",
+   "texte_overlay": "j'ai appris à dire non à ma boss\nsans fermer de porte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1ec53714",
+   "texte_overlay": "j'ai appris à négocier autre chose\nun titre d'experte, une prime",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5763a81d",
+   "texte_overlay": "j'ai appris que personne ne m'en voulait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c6cdb904",
+   "texte_overlay": "et j'ai appris pour moi\nun peu chaque jour, sur mon métier",
+   "texte_sophia": "et j'ai appris pour moi\nun peu chaque jour, sur mon métier. utilise l'appli Sophia 5 minutes, ça construit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ebde80b1",
+   "texte_overlay": "tu dis oui à tout, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  }
+ ]
+}

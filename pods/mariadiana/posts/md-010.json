@@ -69,11 +69,11 @@
       "url": "https://www.metmuseum.org/art/collection/search/437159"
     }
   },
-  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Artemisia Gentileschi, Esther devant Assuérus (années 1620) ; admise à l'Accademia delle Arti del Disegno de Florence en 1616, première femme. Villers, Marie Joséphine Charlotte du Val d'Ognes (1801) : legs Isaac D. Fletcher 1917, attribué à David ; doute de Charles Sterling (1951) ; attribution à Marie-Denise Villers par Margaret Oppenheimer (1996) ; la vitre fêlée en haut à gauche. Vallayer-Coster : reçue à l'Académie royale en 1770 (née en 1744), protégée de Marie-Antoinette ; tableau daté 1780. Morisot : sept des huit expositions impressionnistes (absente en 1879) ; acte de décès « sans profession » (1895). Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou, une tache de lumière).",
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Artemisia Gentileschi, Esther devant Assuérus (années 1620) ; admise à l'Accademia delle Arti del Disegno de Florence en 1616, première femme. Villers, Marie Joséphine Charlotte du Val d'Ognes (1801) : legs Isaac D. Fletcher 1917, attribué à David ; doute de Charles Sterling (1951) ; attribution à Marie-Denise Villers par Margaret Oppenheimer (1996) ; la vitre fêlée en haut à gauche. Vallayer-Coster : reçue à l'Académie royale en 1770 (née en 1744), protégée de Marie-Antoinette ; tableau daté 1780. Morisot : sept des huit expositions impressionnistes (absente en 1879) ; acte de décès « sans profession » (1895). Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA (refaite le 27/11).",
   "slides": [
     {
       "type": "couverture",
-      "image": "images/photos/musee-portraits.jpg",
+      "image": "images/banque/b-salle-photos.jpg",
       "en": {
         "titre": "Paintings By Women History Tried To Forget"
       },
@@ -321,5 +321,8 @@
         "artiste": "Berthe Morisot"
       }
     }
-  ]
+  ],
+  "banque": {
+    "images/banque/b-salle-photos.jpg": "5c31a209-0de6-4e33-aa1e-0bb3c64f5c3d"
+  }
 }

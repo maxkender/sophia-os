@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o343",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a2321e1b-5a9c-4786-bd65-35445dfddcf3",
+ "titre": "habits of people who never seem stressed #stress #calm #habits #mentalhealth #selfimprovement",
+ "musique_titre": "worry (ultra slowed)",
+ "musique_url": "https://www.tiktok.com/music/worry-ultra-slowed-7654785567999739913",
+ "inspirations": [
+  "9474b26f-d26f-4af5-9adf-75db7767f3b3"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9474b26f). déclinaison G1 de « habits of people who never seem stressed » (parent a2321e1b). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "60c55b92-7fa0-4155-9fcf-9777e3902f82",
+   "texte_overlay": "habits of people who\nnever seem stressed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0da4b14e-9fea-45f8-bbce-6a3e11773dd9",
+   "texte_overlay": "they leave early\n\nthey leave ten minutes before they need to. when you're never rushing, a huge amount of small daily stress simply disappears before it can ever reach you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cec88109-4e44-4a33-a197-fb05b76c101f",
+   "texte_overlay": "they learn for fun\n\nthey spend a few minutes a day on something that has nothing to do with work, and it keeps them calm. curiosity gives an anxious mind somewhere gentle to go when work gets loud.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/3.jpg",
+   "texte_sophia": "they learn for fun\n\ni spend 5 minutes a day on something that isn't work: a myth, space or a painting. i do it with the Sophia app, and it gives my mind a calm break from every worry."
+  },
+  {
+   "position": 4,
+   "media_id": "57f90b86-c5ed-4175-91a6-57cd133a6c24",
+   "texte_overlay": "they say no politely\n\nthey turn down what they don't have time for, kindly and without long excuses. a free calendar is one of the quietest secrets of people who always seem calm.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1379aa04-0701-4e18-9be5-06f7a0bef3ae",
+   "texte_overlay": "they write everything down\n\nthey put their tasks and worries on paper instead of carrying them in their heads. when your brain doesn't need to remember everything, it finally relaxes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4eb2f741-1eeb-4d48-bb56-d44175f165a3",
+   "texte_overlay": "they move every day\n\nthey walk, stretch or exercise a little every single day. moving your body burns off stress hormones and leaves you noticeably calmer for hours afterwards.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/6.jpg"
+  }
+ ]
+}

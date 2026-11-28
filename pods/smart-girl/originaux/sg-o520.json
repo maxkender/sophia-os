@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o520",
+ "type_bleo": "full_test",
+ "titre": "the most famous friendships in history #friendship #history #literature #smartgirl #didyouknow",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 9/10 (la jauge en demande 10 sur 33) : accroche jamais faite chez nous (« famous friendships » absent des accroches du label et de nos originaux). Accroches écrites : « the most famous friendships in history » (retenue : tendre + culture), « friendships that changed the world » (écartée : promesse trop grande), « famous best friends » (écartée : people). Faits vérifiés : Tolkien et C.S. Lewis (les Inklings d'Oxford), Mark Twain et Helen Keller (il convainc un ami de financer ses études), Marie Curie et Albert Einstein (randonnée dans les Alpes en 1913), la reine Victoria et Abdul Karim (il lui apprend l'ourdou), Gertrude Stein et Picasso (son portrait de 1906), Darwin et Joseph Hooker (botaniste). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "19dbf056",
+   "texte_overlay": "the most famous friendships\nin history",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1846016a",
+   "texte_overlay": "tolkien & c.s. lewis\n\nthey read their drafts to each\nother in oxford.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6d8007d1",
+   "texte_overlay": "mark twain & helen keller\n\nhe helped find the money\nfor her studies.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "25aeaeea",
+   "texte_overlay": "marie curie & albert einstein\n\na hiking holiday in the alps, 1913.",
+   "texte_sophia": "marie curie & albert einstein hiked the alps\nin 1913. i read it on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "767fab8d",
+   "texte_overlay": "queen victoria & abdul karim\n\nhe taught her urdu.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "31e965fa",
+   "texte_overlay": "gertrude stein & picasso\n\nhe painted her portrait in 1906.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "045230d3",
+   "texte_overlay": "darwin & hooker\n\na lifetime of letters.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "50356c61",
+   "texte_overlay": "tag your best friend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

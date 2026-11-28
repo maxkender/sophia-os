@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o224",
+  "type_bleo": "full_test",
+  "titre": "how i keep my notebooks neat without spending hours on them #studytok #studytips #notes",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 28/11 : 5 full tests sur 13, plus 1 car la boîte n'a que 7 lignes utilisables). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Gestes vrais : deux couleurs pas plus, la date et le titre, une marge pour les questions, pas de recopie au propre, une page « à retenir » par chapitre, une pause sans cahier (slide Sophia, 6). Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "3aa83c84",
+      "texte_overlay": "how i keep my notebooks neat\nwithout spending hours on them",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5a2f45ea",
+      "texte_overlay": "two colours. that's it.\none for titles, one for what matters.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "a524f19b",
+      "texte_overlay": "date and title on every page.\nfinding things later takes seconds.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "97b366f2",
+      "texte_overlay": "a wide margin for my questions.\nnot for doodles.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "466fb08d",
+      "texte_overlay": "i never rewrite my notes \"clean\".\ni write them properly the first time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0a2f8e82",
+      "texte_overlay": "and when i'm done, i close the notebook.\n5 minutes on something new, just for me.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "and when i'm done, i close the notebook.\n5 minutes on something new, just for me,\non a micro-learning app like the Sophia app."
+    },
+    {
+      "position": 7,
+      "media_id": "c46d592b",
+      "texte_overlay": "last page of each chapter: \"to remember\".\n5 lines, no more.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

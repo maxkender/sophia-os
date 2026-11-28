@@ -1,0 +1,63 @@
+{
+  "source_id": "sg-o528",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "6366089a-2705-4bba-b982-dd595c2f588e",
+  "titre": "6 habits that make you elegant and put together #elegance #puttogether #thatgirl #smartgirl #classy",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+  "inspirations": [
+    "6366089a-2705-4bba-b982-dd595c2f588e"
+  ],
+  "notes": "cta B. Déclinaison G1 de la ligne 11 de la boîte (parent 6366089a, langue source en) : accroche du parent mot pour mot. Habitudes du parent (baume à lèvres, racines soignées, ongles courts et propres, posture avant d'entrer, conversation profonde, peau hydratée). Sophia en 5 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "5e6aa7d6",
+      "texte_overlay": "6 habits that make you elegant\nand put together",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611471355418103041/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0377aec0",
+      "texte_overlay": "1. always carry lip balm",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611471355418103041/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9b0cd89d",
+      "texte_overlay": "2. no messy roots\n\nor make them look intentional.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611471355418103041/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "382b21ad",
+      "texte_overlay": "3. short, clean nails",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611471355418103041/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d3d5bf0d",
+      "texte_overlay": "4. check your posture before\nyou walk in",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611471355418103041/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "09fef3aa",
+      "texte_overlay": "5. give your conversation depth",
+      "texte_sophia": "5. give your conversation depth\n\na general knowledge app like Sophia\nhelps.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611471355418103041/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "f9b4e392",
+      "texte_overlay": "6. skin that looks hydrated",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611471355418103041/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "9cad1867",
+      "texte_overlay": "save this",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611471355418103041/7.jpg"
+    }
+  ]
+}

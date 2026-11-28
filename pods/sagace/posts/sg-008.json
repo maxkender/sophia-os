@@ -12,7 +12,10 @@
   "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí",
   "sr": "Veštine 10/10 koje te škola neće naučiti",
   "hu": "10/10-es készségek, amikre az iskola nem tanít meg",
-  "el": "Δεξιότητες 10/10 που δεν σου μαθαίνει το σχολείο"
+  "el": "Δεξιότητες 10/10 που δεν σου μαθαίνει το σχολείο",
+  "es-419": "Habilidades 10/10 que la escuela no te enseña",
+  "sk": "Zručnosti 10/10, ktoré ťa škola nikdy nenaučí",
+  "lv": "10/10 prasmes, ko skola tev nemāca"
  },
  "legendes": {
   "fr": "Compétences 10/10 que l'école ne t'apprend pas #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -25,13 +28,16 @@
   "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí #učímesenatiktoku #osobnírozvoj #dovednosti",
   "sr": "Veštine 10/10 koje te škola neće naučiti #učinatiktoku #samorazvoj #veštine",
   "hu": "10/10-es készségek, amikre az iskola nem tanít meg #tanuljtiktokon #önfejlesztés #készségek",
-  "el": "Δεξιότητες 10/10 που δεν σου μαθαίνει το σχολείο #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες"
+  "el": "Δεξιότητες 10/10 που δεν σου μαθαίνει το σχολείο #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "es-419": "Habilidades 10/10 que la escuela no te enseña #aprendeentiktok #desarrollopersonal #habilidades",
+  "sk": "Zručnosti 10/10, ktoré ťa škola nikdy nenaučí #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "lv": "10/10 prasmes, ko skola tev nemāca #mācītiestiktokā #pašattīstība #prasmes"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
   "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
  },
- "notes": "Full test du 16/11 (accroche neuve au format de @sagace.fr, sans post source) : « Compétences 10/10 que l'école ne t'apprend pas », couverture sur son décor (4 lignes noir/brun, 3 en turc). 5 compétences de vie universelles (changer une roue, réussir un entretien, gérer son stress, lire deux fois plus vite, apprendre à coder), vraies vidéos natives dans les 8 langues. Sophia en étape 4 sur 7 (cta B : « COMBLER / SES LACUNES »).",
+ "notes": "Full test du 16/11 (accroche neuve au format de @sagace.fr, sans post source) : « Compétences 10/10 que l'école ne t'apprend pas », couverture sur son décor (4 lignes noir/brun, 3 en turc). 5 compétences de vie universelles (changer une roue, réussir un entretien, gérer son stress, lire deux fois plus vite, apprendre à coder), vraies vidéos natives dans les 8 langues. Sophia en étape 4 sur 7 (cta B : « COMBLER / SES LACUNES »). Rattrapage es-419, sk, lv du 28/11 : vidéos natives, cta B.",
  "slides": [
   {
    "type": "couverture",
@@ -267,6 +273,72 @@
      },
      {
       "t": "ΜΑΘΑΙΝΕΙ",
+      "cap": 230,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 111
+     },
+     {
+      "t": "QUE LA ESCUELA",
+      "cap": 140,
+      "couleur": "brun"
+     },
+     {
+      "t": "NO TE",
+      "cap": 150
+     },
+     {
+      "t": "ENSEÑA",
+      "cap": 230,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "t": "ZRUČNOSTI,",
+      "cap": 111
+     },
+     {
+      "t": "KTORÉ ŤA ŠKOLA",
+      "cap": 130,
+      "couleur": "brun"
+     },
+     {
+      "t": "NIKDY",
+      "cap": 150
+     },
+     {
+      "t": "NENAUČÍ",
+      "cap": 220,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "t": "PRASMES,",
+      "cap": 111
+     },
+     {
+      "t": "KO SKOLA",
+      "cap": 170,
+      "couleur": "brun"
+     },
+     {
+      "t": "TEV",
+      "cap": 150
+     },
+     {
+      "t": "NEMĀCA",
       "cap": 230,
       "couleur": "brun"
      }
@@ -527,6 +599,75 @@
      "duree": "4:25",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_mrUGS2ncDcd9bAhmdBWjE1zUT6Y4GTPxSLWjK7Zj-VCQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es-419": {
+    "titre": [
+     "CAMBIAR",
+     [
+      {
+       "t": "UNA LLANTA",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gvZJelDAFrQ",
+     "titre": "COMO CAMBIAR UNA LLANTA DE CARRO🚘/FACIL DE HACER✅",
+     "chaine": "Primera Marcha",
+     "vues": "775 k vistas",
+     "date": "hace 6 años",
+     "duree": "7:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kdyhvXoboe7qhOwDxiobGl63QgOU21Wax5Y-ICzilaLA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "VYMENIŤ",
+     [
+      {
+       "t": "KOLESO",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KBb-CxfYwVQ",
+     "titre": "NÁVOD - AKO VYMENIŤ KOLESO?",
+     "chaine": "AUTORIDE",
+     "vues": "65 tis. zhliadnutí",
+     "date": "pred 9 rokmi",
+     "duree": "2:46",
+     "avatar": "https://yt3.ggpht.com/zNpCrgvXtBYYU8nYyxA6DHoY7VSLzCKRF63Z6a_DUk20OJkAlJRxkDigpTYXdCbwjPw2B7sr3uY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "NOMAINĪT",
+     [
+      {
+       "t": "RIEPAS",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eGaXir_g_ac",
+     "titre": "Riepu nomaiņa, vai var kaut ko sačakarēt? Padomi no iAuto.lv",
+     "chaine": "Jauni Auto",
+     "vues": "12 tūkst. skatījumu",
+     "date": "pirms 10 gadiem",
+     "duree": "5:19",
+     "avatar": "https://yt3.ggpht.com/uNoOVi0lHIzjHLPA5mJiQrpoFoG64qdlaEVJqw3GbPSeBqU8tturj9T_EBAJ8jFEB713mPWjZQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min mācību"
+    ]
    }
   },
   {
@@ -783,6 +924,75 @@
      "duree": "7:45",
      "avatar": "https://yt3.ggpht.com/QRRYkzkrslaOasOSeBh_VadSPI-5uwk6RmVIUMEhrbdQPyrlBWCuEQA-KLe_RjY0mZZCwhHDpQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es-419": {
+    "titre": [
+     "PASAR UNA",
+     [
+      {
+       "t": "ENTREVISTA",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "enx_eZKckXM",
+     "titre": "Cómo hacer una entrevista ESPECTACULAR y que destaques de tu competencia",
+     "chaine": "Virna Vitteri - Coach de Carrera",
+     "vues": "1.6 M de vistas",
+     "date": "hace 3 años",
+     "duree": "6:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nIyIxfbcV7eZtPZN1qieRkf0ro1XVDyO9EZrToyDziyw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ZVLÁDNUŤ",
+     [
+      {
+       "t": "POHOVOR",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_VFdiLleUKg",
+     "titre": "Ako sa pripraviť na pohovor",
+     "chaine": "Profesia.sk",
+     "vues": "12 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "5:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kTWa7PkH8f4Xje2lnF_TtNDzoDxIwRpy1TfEKePHTdJsI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "IZTURĒT",
+     [
+      {
+       "t": "DARBA INTERVIJU",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ma_fftADPRI",
+     "titre": "5 LIETAS KO NEDARĪT DARBA INTERVIJĀ| EHR X ELT",
+     "chaine": "EHR",
+     "vues": "9,5 tūkst. skatījumu",
+     "date": "pirms 4 gadiem",
+     "duree": "8:50",
+     "avatar": "https://yt3.ggpht.com/__qk_U-AdUdAD-M-hev62eu34_vR2RxubvmtFPZRudvpxfDUtY4eRoPwWf6o5BHkPUhHip08mA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 stundas mācību"
+    ]
    }
   },
   {
@@ -1018,6 +1228,69 @@
       "κάθε μέρα."
      ]
     }
+   },
+   "es-419": {
+    "titre": [
+     "LLENAR",
+     [
+      {
+       "t": "TUS VACÍOS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo",
+      "todos los días."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "DOPLNIŤ SI",
+     [
+      {
+       "t": "MEDZERY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč sa každý deň",
+      "niečo nové."
+     ]
+    },
+    "sous": [
+     "5 min denne"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "AIZPILDĪT",
+     [
+      {
+       "t": "ZINĀŠANU ROBUS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "uzzini ko jaunu",
+      "katru dienu."
+     ]
+    },
+    "sous": [
+     "5 min dienā"
+    ]
    }
   },
   {
@@ -1274,6 +1547,75 @@
      "duree": "12:52",
      "avatar": "https://yt3.ggpht.com/rkttEp8D4t2dpQQ8g7V-cUvWKCZpecKEyBeEawkJAWvPyCOjRG2ynSfltGfDPqcWUgUy_c5jyw=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es-419": {
+    "titre": [
+     [
+      {
+       "t": "MANEJAR",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "EL ESTRÉS"
+    ],
+    "video": {
+     "id": "3rM4W-xXT6Q",
+     "titre": "Cómo manejar el estrés - 5 claves",
+     "chaine": "Psicologia Manzano",
+     "vues": "483 k vistas",
+     "date": "hace 6 años",
+     "duree": "14:30",
+     "avatar": "https://yt3.ggpht.com/0RSIUxRSO7Sz7v0jIJpll394wKjdQo0CEVioxeyH1YJsvFbXZ60-w5zuPv3A1HnYZE5jjni8NQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Práctica de varios días"
+    ]
+   },
+   "sk": {
+    "titre": [
+     [
+      {
+       "t": "ZVLÁDAŤ",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "STRES"
+    ],
+    "video": {
+     "id": "jsHGJlKtPOE",
+     "titre": "Ako sa zbaviť stresu?",
+     "chaine": "Zmudri G",
+     "vues": "4,2 tis. zhliadnutí",
+     "date": "pred 3 rokmi",
+     "duree": "3:00",
+     "avatar": "https://yt3.ggpht.com/p_CIV9QJWk3BYDivKbVfPd49CclbB9Z30XmJDq_PLh-1VI3Y9Y2J4Htld_2oE2Y1yB5cjMjlNFQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "tréning niekoľko dní"
+    ]
+   },
+   "lv": {
+    "titre": [
+     [
+      {
+       "t": "PĀRVALDĪT",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "STRESU"
+    ],
+    "video": {
+     "id": "OJlvo-bdF7c",
+     "titre": "Kā tikt galā ar ikdienas stresu? Praktiski jogas pasniedzējas padomi",
+     "chaine": "BENU Aptieka",
+     "vues": "647 skatījumi",
+     "date": "pirms 6 gadiem",
+     "duree": "13:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mAXDAc8X0hTVEWNIMyPRyoemwG865Ircf5yE--4k-kcw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "vairāku dienu prakse"
+    ]
    }
   },
   {
@@ -1530,6 +1872,75 @@
      "duree": "18:33",
      "avatar": "https://yt3.ggpht.com/x_iGTTbl0_hxu7pVawP11se6kg_uYnP2zsUKXAZMX13bGF4vkIRzDLzqFpTogwag63971U5l=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es-419": {
+    "titre": [
+     "LEER",
+     [
+      {
+       "t": "EL DOBLE DE RÁPIDO",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GU_lSE_dlK4",
+     "titre": "📚 3 EJERCICIOS para LEER más RÁPIDO y Comprender Mejor | Técnicas de Estudio #6",
+     "chaine": "Pablo Lomeli",
+     "vues": "1.3 M de vistas",
+     "date": "hace 7 años",
+     "duree": "16:25",
+     "avatar": "https://yt3.ggpht.com/TNrzGZw9eayfdIOn3hNMPKS2hmpPTF69bQewxOgaxylAbPt9GNZ1FtutSCiQQhI_7WUli7Hbrg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 10 horas para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ČÍTAŤ",
+     [
+      {
+       "t": "DVAKRÁT RÝCHLEJŠIE",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "piB-PshUGWA",
+     "titre": "Ako čítať RÝCHLEJŠIE",
+     "chaine": "Dejepis Inak",
+     "vues": "70 tis. zhliadnutí",
+     "date": "pred 7 rokmi",
+     "duree": "10:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mBhPYPYBuXMMfPWSRC6JZOBAV6bf_dcjVoY-LR2lUzLFw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 10 hodín na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "LASĪT",
+     [
+      {
+       "t": "DIVREIZ ĀTRĀK",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1ov1wM5ULx8",
+     "titre": "Ātrlasīšana Rīgā - 1. daļa. Irina Lando. Speed Reading.",
+     "chaine": "Ирина Ландо (Irina Lando)",
+     "vues": "553 skatījumi",
+     "date": "pirms 12 gadiem",
+     "duree": "3:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nwbhzBZtix67H_jt22E0Q7KBh4XnBVdcE5LW2oXFfSZg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 10 stundas mācību"
+    ]
    }
   },
   {
@@ -1786,6 +2197,75 @@
      "duree": "3:37:20",
      "avatar": "https://yt3.ggpht.com/Ppryh4nJsiYSHAx-9Q6elmkTZEH48jZ9g2CJxlPJ3jEwrjVw3bpUgBEQ3F_Ic67QtRVTfNFejg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDER A",
+     [
+      {
+       "t": "PROGRAMAR",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VxrIZGQfxmE",
+     "titre": "Aprende a programar ahora! - curso de introducción a la programación desde CERO",
+     "chaine": "HolaMundo",
+     "vues": "2.5 M de vistas",
+     "date": "hace 4 años",
+     "duree": "26:40",
+     "avatar": "https://yt3.ggpht.com/mNbmN9qWmMpQ-XN37IejdhwF5rn2-WD6fjRY8ZKcYUFer6F5Y-2vQTCDs3HpCHmOBtpeeWgu6g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 100 horas para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "NAUČIŤ SA",
+     [
+      {
+       "t": "PROGRAMOVAŤ",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "q4mn8HYNURQ",
+     "titre": "Kde sa naučiť programovať | rady pre samoukov",
+     "chaine": "Informatika s Mišom",
+     "vues": "8,7 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "17:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lixyBioJEsikHNHJrUw1tQvo-ajc92l5k9ncSa_RwDCA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 100 hodín na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "IEMĀCĪTIES",
+     [
+      {
+       "t": "PROGRAMMĒT",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mD2pEUf65qA",
+     "titre": "C# Programmēšanas kurss iesācējiem | Apmācības kurss, kas palīdzēs uzsākt programmētāja karjeru",
+     "chaine": "e-kursi",
+     "vues": "1 tūkst. skatījumu",
+     "date": "pirms 5 gadiem",
+     "duree": "5:27",
+     "avatar": "https://yt3.ggpht.com/FyL-VakbgN-lAiPu9mU_nA_4HiUl8LkzohHBRUd-LY4VUTHUSRyxhJaRwCGrTdGffQN4xmjm2g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 100 stundas mācību"
+    ]
    }
   }
  ]

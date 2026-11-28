@@ -18,7 +18,10 @@
   "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll",
   "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování",
   "sr": "10 veština 10/10 koje možeš da naučiš umesto skrolovanja",
-  "hu": "10/10 készségek, amiket görgetés helyett megtanulhatsz"
+  "hu": "10/10 készségek, amiket görgetés helyett megtanulhatsz",
+  "es-419": "10 habilidades 10/10 que puedes aprender en lugar de hacer scroll",
+  "sk": "10 zručností 10/10, ktoré sa môžeš naučiť namiesto scrollovania",
+  "lv": "10 prasmes 10/10, ko vari apgūt ritināšanas vietā"
  },
  "legendes": {
   "fr": "10 compétences 10/10 que tu peux apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -30,7 +33,10 @@
   "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
   "sr": "10 veština 10/10 koje možeš da naučiš umesto skrolovanja #učinatiktoku #samorazvoj #veštine",
-  "hu": "10/10 készségek, amiket görgetés helyett megtanulhatsz #tanuljtiktokon #önfejlesztés #készségek"
+  "hu": "10/10 készségek, amiket görgetés helyett megtanulhatsz #tanuljtiktokon #önfejlesztés #készségek",
+  "es-419": "10 habilidades 10/10 que puedes aprender en lugar de hacer scroll #aprendeentiktok #desarrollopersonal #habilidades",
+  "sk": "10 zručností 10/10, ktoré sa môžeš naučiť namiesto scrollovania #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "lv": "10 prasmes 10/10, ko vari apgūt ritināšanas vietā #mācītiestiktokā #pašattīstība #prasmes"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
@@ -257,6 +263,72 @@
       "t": "HELYETT",
       "couleur": "#f7b955",
       "cap": 152
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 110
+     },
+     {
+      "t": "PARA APRENDER",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "EN LUGAR DE",
+      "cap": 118
+     },
+     {
+      "t": "HACER SCROLL",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "t": "ZRUČNOSTI",
+      "cap": 110
+     },
+     {
+      "t": "NA NAUČENIE",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "NAMIESTO",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLOVANIA",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "t": "PRASMES",
+      "cap": 110
+     },
+     {
+      "t": "KO APGŪT",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "RITINĀŠANAS",
+      "cap": 118
+     },
+     {
+      "t": "VIETĀ",
+      "cap": 152,
+      "couleur": "#f7b955"
      }
     ]
    }
@@ -492,6 +564,75 @@
     "sous": [
      "10 perc a tanuláshoz"
     ]
+   },
+   "es-419": {
+    "titre": [
+     "ENVOLVER",
+     [
+      {
+       "t": "UN REGALO",
+       "couleur": "#c8302f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "psMMAZOoa7s",
+     "titre": "Como envolver un regalo [basico]",
+     "chaine": "Craftingeek*",
+     "vues": "4.2 M de vistas",
+     "date": "hace 14 años",
+     "duree": "3:48",
+     "avatar": "https://yt3.ggpht.com/1lUejsOV8vOXX6Y6wp1j75jKezVfSI2qfyLSSJPZzXz5q996DIS1M4MgJ7dIwQzHOsrYU8X1nQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ZABALIŤ",
+     [
+      {
+       "t": "DARČEK",
+       "couleur": "#c8302f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qcCP_zYEWnc",
+     "titre": "Pozrite sa, ako jednoducho a krásne zabaliť darčeky",
+     "chaine": "SME",
+     "vues": "43 tis. zhliadnutí",
+     "date": "pred 7 rokmi",
+     "duree": "6:58",
+     "avatar": "https://yt3.ggpht.com/ps1ial-uUChjL2_lekj2sWxSs1Q1JoUqAHUYJeHc_PZZhqgp1aiyyO-HPlHLzCBnSo1mpvxMJw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "IESAIŅOT",
+     [
+      {
+       "t": "DĀVANU",
+       "couleur": "#c8302f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "R75YdD71zmM",
+     "titre": "Kā pareizi iesaiņot dāvanu kasti?",
+     "chaine": "Jauns․TV",
+     "vues": "1 tūkst. skatījumu",
+     "date": "pirms 2 gadiem",
+     "duree": "3:05",
+     "avatar": "https://yt3.ggpht.com/xJEUuoGzO9b7VPS9apRxe9TpJAT1iwGMd7QxuVn60ZrrasjsBafKOHBKOCNMtjdjAwgth1ECqQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min mācību"
+    ]
    }
   },
   {
@@ -725,6 +866,75 @@
     "sous": [
      "több napos gyakorlás"
     ]
+   },
+   "es-419": {
+    "titre": [
+     "CANTAR",
+     [
+      {
+       "t": "AFINADO",
+       "couleur": "#8a4fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QAlwo2BgKaU",
+     "titre": "🔥Como CANTAR afinado, COMO afinar la voz Ejercicios 🎵Clases de canto desde CERO, Natalia Bliss",
+     "chaine": "Natalia Bliss",
+     "vues": "996 k vistas",
+     "date": "hace 5 años",
+     "duree": "11:53",
+     "avatar": "https://yt3.ggpht.com/jhk8CLZtkp-OhYoxE8UeeNfdMXjcSzb1pYbX-oHNR91G83QrB1qgD7-Gq5CPwEy_X3YO7t5QGg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Práctica de varios días"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "SPIEVAŤ",
+     [
+      {
+       "t": "ČISTO",
+       "couleur": "#8a4fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5Uq40vDKj0w",
+     "titre": "Lekcie spevu, alebo ako sa naučit spievat.",
+     "chaine": "vyuka spevu",
+     "vues": "114 tis. zhliadnutí",
+     "date": "pred 13 rokmi",
+     "duree": "3:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kvzPYFYUdixIfgkhovAQhe7O9k8CJUzecuKPCE53D6JXc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Tréning na niekoľko dní"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "DZIEDĀT",
+     [
+      {
+       "t": "TĪRI",
+       "couleur": "#8a4fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rj18bNo971Q",
+     "titre": "Kā noturēt balss toni?",
+     "chaine": "Līvas Bondares Dziedāšanas klase",
+     "vues": "3,3 tūkst. skatījumu",
+     "date": "pirms 3 gadiem",
+     "duree": "5:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mZU2nA5aEVwPP4q0jG9FfQlaIoxCMKE4ywz3O6cRBOhA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Vairāku dienu prakse"
+    ]
    }
   },
   {
@@ -938,6 +1148,69 @@
     },
     "sous": [
      "napi 5 perc"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "CONOCER",
+     [
+      {
+       "t": "LA HISTORIA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de hacer scroll."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "POZNAŤ",
+     [
+      {
+       "t": "HISTÓRIU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "toto otváram",
+      "namiesto scrollovania."
+     ]
+    },
+    "sous": [
+     "5 min denne"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "ZINĀT",
+     [
+      {
+       "t": "VĒSTURI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "to es atveru",
+      "ritināšanas vietā."
+     ]
+    },
+    "sous": [
+     "5 min dienā"
     ]
    }
   },
@@ -1172,6 +1445,75 @@
     "sous": [
      "15 perc a tanuláshoz"
     ]
+   },
+   "es-419": {
+    "titre": [
+     "LUSTRAR",
+     [
+      {
+       "t": "TUS ZAPATOS",
+       "couleur": "#7a4a2a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wiXaf3PvWcg",
+     "titre": "Como bolear tus zapatos en 5 mins.",
+     "chaine": "Mi Yorch Style",
+     "vues": "367 k vistas",
+     "date": "hace 7 años",
+     "duree": "6:46",
+     "avatar": "https://yt3.ggpht.com/0IqoKipHH8CZZSAvhixAXdyMS6_uZ6G6dLOA4RukIYdqrNesI5daRqaWjzvKQPG0c24eowL9jw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "VYČISTIŤ",
+     [
+      {
+       "t": "TOPÁNKY",
+       "couleur": "#7a4a2a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "m8tdN7j9scQ",
+     "titre": "Návod ako vyčistiť vaše topánky z brúsenej kože",
+     "chaine": "Be Lenka",
+     "vues": "7,6 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "0:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mjWVDbgCDG17VskHnFNpDrJ4J7XNsXTJaMPGeIvj6T4eE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "KOPT",
+     [
+      {
+       "t": "APAVUS",
+       "couleur": "#7a4a2a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cY5Gc9rIlwY",
+     "titre": "Ilgs apavu mūžs + kad jāiet pie kurpnieka",
+     "chaine": "PARĀDI MODI",
+     "vues": "2,6 tūkst. skatījumu",
+     "date": "pirms 11 gadiem",
+     "duree": "3:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_myiSJ87z2bMLbrrfTnlp3dopVY_c6ssEO-InmnKpXyWQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min mācību"
+    ]
    }
   },
   {
@@ -1405,6 +1747,75 @@
     "sous": [
      "1 óra a tanuláshoz"
     ]
+   },
+   "es-419": {
+    "titre": [
+     "MODALES",
+     [
+      {
+       "t": "EN LA MESA",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "01FnpNi9cao",
+     "titre": "ERRORES EN LA MESA: Modales y Etiqueta | Desiree Lowry",
+     "chaine": "Desiree Lowry",
+     "vues": "6.7 M de vistas",
+     "date": "hace 5 años",
+     "duree": "16:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kWJd1e3CnWDyAUkZsxFAnXc6aNRbYkEtAnYBuXsJqTMWU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ETIKETA",
+     [
+      {
+       "t": "PRI STOLE",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FsJ4HTiX0ds",
+     "titre": "Spoločenská etiketa - Stolovanie v reštaurácií",
+     "chaine": "Ing. JUDr. Tomáš Leveš, MBE",
+     "vues": "11 tis. zhliadnutí",
+     "date": "pred 7 rokmi",
+     "duree": "2:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ltXmn49HNLYiWzWIQ2OlE_t5aTp-iXPLVxquvDuwE6yy0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "GALDA",
+     [
+      {
+       "t": "KULTŪRA",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Mfpp5DuCsEY",
+     "titre": "Galda kultūra",
+     "chaine": "Pax Nax",
+     "vues": "1,6 tūkst. skatījumu",
+     "date": "pirms 11 gadiem",
+     "duree": "2:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mfSUyKdCYYICFwV6y56Km_zj6Z0jGdCAx5hgQljuPvtn4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 stunda mācību"
+    ]
    }
   },
   {
@@ -1637,6 +2048,75 @@
     },
     "sous": [
      "30 perc a tanuláshoz"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "COCINAR",
+     [
+      {
+       "t": "PASTA PERFECTA",
+       "couleur": "#e3a52b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KHFcw34PJv4",
+     "titre": "¿Cómo cocer pasta? #CursoDeCocina",
+     "chaine": "El Cocinero en Casa",
+     "vues": "165 k vistas",
+     "date": "hace 6 años",
+     "duree": "4:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nMb_m5rVXTcp1Lr5ZxGJVkh0DXip-gZVR9NLQQ3Ykvwg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "UVARIŤ",
+     [
+      {
+       "t": "CESTOVINY",
+       "couleur": "#e3a52b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Z50CbNwIQcw",
+     "titre": "Ako uvariť špagety",
+     "chaine": "Ako Uvariť",
+     "vues": "57 tis. zhliadnutí",
+     "date": "pred 10 rokmi",
+     "duree": "9:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k72oSg2Iwxxu3BjzaWL3cBQE7tlOxqLoGmc7JSc641sg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "VĀRĪT",
+     [
+      {
+       "t": "MAKARONUS",
+       "couleur": "#e3a52b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jYFAFnUXplw",
+     "titre": "Kā pareizi izvārīt spageti makaronus",
+     "chaine": "cocoblognet",
+     "vues": "1,8 tūkst. skatījumu",
+     "date": "pirms 16 gadiem",
+     "duree": "1:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mVOMyDqvhsiDbyfr8ja3lEq_BnoVQcnPihwh2eGbg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min mācību"
     ]
    }
   }

@@ -1,0 +1,431 @@
+{
+ "id": "at-030",
+ "style": "objets",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+  "vues": 278500,
+  "publie_le": "2026-10-31",
+  "accroche": "courir l’hiver : / les do & don’ts"
+ },
+ "titre": {
+  "en": "sleep & running do and don’ts",
+  "fr": "sommeil et running : les do & don’ts",
+  "de": "schlaf & laufen: die do & don’ts",
+  "it": "sonno e corsa: i do & don’ts",
+  "es-419": "sueño y running: los do & don’ts",
+  "hu": "alvás és futás: a do & don’ts",
+  "ro": "somn și alergare: do & don’ts",
+  "tr": "uyku ve koşu: do & don’ts",
+  "el": "ύπνος & τρέξιμο: τα do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #sleep #runningtips #girlswhorun #recovery",
+  "fr": "#courseapied #sommeil #running #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
+ },
+ "musique": {
+  "titre": "La Mentira",
+  "url": "https://www.tiktok.com/music/la-mentira-6705056394258679809"
+ },
+ "notes": "Full test (accroche jamais faite chez nous), au format de leur tube (@hannah.run5, 279 k), style `objets`. Aucun objet neuf ; couverture : coureuse-hiver. Logo d'Atala au milieu des « Do » de la slide 4 (après une nuit courte : le coach dit quand ralentir). Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec le mot pour « appli », jamais « AI »). Aucune page d'appli. Livré dans les 9 langues du label.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-hiver.png",
+   "en": {
+    "titre": "sleep & running\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "sommeil et running :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "schlaf & laufen:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "sonno e corsa:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "sueño y running:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "alvás és futás:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "somn și alergare:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "uyku ve koşu:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "ύπνος & τρέξιμο:\nτα do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/pates.png",
+    "images/objets/the.png",
+    "images/objets/tenue.png"
+   ],
+   "dont": [
+    "images/objets/telephone.png",
+    "images/objets/cafes.png"
+   ],
+   "en": {
+    "titre": "the evening",
+    "do": [
+     "an early meal",
+     "a herbal tea",
+     "kit laid out"
+    ],
+    "dont": [
+     "scrolling\ntill midnight",
+     "a late coffee"
+    ]
+   },
+   "fr": {
+    "titre": "le soir",
+    "do": [
+     "dîner tôt",
+     "une tisane",
+     "ta tenue prête"
+    ],
+    "dont": [
+     "scroller\njusqu’à minuit",
+     "café du soir"
+    ]
+   },
+   "de": {
+    "titre": "am abend",
+    "do": [
+     "früh essen",
+     "kräutertee",
+     "sachen bereit"
+    ],
+    "dont": [
+     "handy\nbis spät",
+     "später kaffee"
+    ]
+   },
+   "it": {
+    "titre": "la sera",
+    "do": [
+     "cena presto",
+     "una tisana",
+     "kit pronto"
+    ],
+    "dont": [
+     "scrollare\nfino a tardi",
+     "caffè la sera"
+    ]
+   },
+   "es-419": {
+    "titre": "en la noche",
+    "do": [
+     "cenar temprano",
+     "una infusión",
+     "ropa lista"
+    ],
+    "dont": [
+     "scrollear\nhasta tarde",
+     "café de noche"
+    ]
+   },
+   "hu": {
+    "titre": "este",
+    "do": [
+     "korai vacsora",
+     "gyógytea",
+     "kész szerelés"
+    ],
+    "dont": [
+     "görgetés\nkéső éjjelig",
+     "esti kávé"
+    ]
+   },
+   "ro": {
+    "titre": "seara",
+    "do": [
+     "cină devreme",
+     "un ceai\nde plante",
+     "hainele gata"
+    ],
+    "dont": [
+     "scroll\npână noaptea",
+     "cafea seara"
+    ]
+   },
+   "tr": {
+    "titre": "akşam",
+    "do": [
+     "erken yemek",
+     "bitki çayı",
+     "hazır kıyafet"
+    ],
+    "dont": [
+     "gece yarısına\nkadar scroll",
+     "gece kahvesi"
+    ]
+   },
+   "el": {
+    "titre": "το βράδυ",
+    "do": [
+     "νωρίς φαγητό",
+     "ένα τσάι\nτου βουνού",
+     "έτοιμα ρούχα"
+    ],
+    "dont": [
+     "scroll\nμέχρι αργά",
+     "βραδινός καφές"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/masque.png",
+    "images/objets/reveil.png",
+    "images/objets/gourde.png"
+   ],
+   "dont": [
+    "images/objets/vin.png",
+    "images/objets/halteres.png"
+   ],
+   "en": {
+    "titre": "the night",
+    "do": [
+     "an eye mask",
+     "same time\nevery night",
+     "water by\nthe bed"
+    ],
+    "dont": [
+     "wine to\nfall asleep",
+     "a hard workout\nat 10pm"
+    ]
+   },
+   "fr": {
+    "titre": "la nuit",
+    "do": [
+     "un masque\nde nuit",
+     "même heure\nchaque soir",
+     "de l’eau\nprès du lit"
+    ],
+    "dont": [
+     "le vin\npour dormir",
+     "séance dure\nà 22 h"
+    ]
+   },
+   "de": {
+    "titre": "die nacht",
+    "do": [
+     "schlafmaske",
+     "jede nacht\ngleiche zeit",
+     "wasser\nam bett"
+    ],
+    "dont": [
+     "wein\nzum schlafen",
+     "harte einheit\num 22 uhr"
+    ]
+   },
+   "it": {
+    "titre": "la notte",
+    "do": [
+     "una mascherina",
+     "stessa ora\nogni sera",
+     "acqua\nsul comodino"
+    ],
+    "dont": [
+     "vino\nper dormire",
+     "seduta dura\nalle 22"
+    ]
+   },
+   "es-419": {
+    "titre": "al dormir",
+    "do": [
+     "antifaz",
+     "misma hora\ncada noche",
+     "agua\nen el buró"
+    ],
+    "dont": [
+     "vino\npara dormir",
+     "entreno duro\na las 10 pm"
+    ]
+   },
+   "hu": {
+    "titre": "éjjel",
+    "do": [
+     "alvómaszk",
+     "ugyanabban\naz időben",
+     "víz\naz ágy mellett"
+    ],
+    "dont": [
+     "esti bor",
+     "22-kor\nkemény edzés"
+    ]
+   },
+   "ro": {
+    "titre": "noaptea",
+    "do": [
+     "mască de somn",
+     "aceeași oră\nde culcare",
+     "apă\nlângă pat"
+    ],
+    "dont": [
+     "vin\nca să adormi",
+     "antrenament\nla ora 22"
+    ]
+   },
+   "tr": {
+    "titre": "gece",
+    "do": [
+     "uyku maskesi",
+     "her gece\naynı saat",
+     "yatağın\nyanında su"
+    ],
+    "dont": [
+     "şarapla uyumak",
+     "gece 10’da\nsert seans"
+    ]
+   },
+   "el": {
+    "titre": "τη νύχτα",
+    "do": [
+     "μάσκα ύπνου",
+     "ίδια ώρα\nκάθε βράδυ",
+     "νερό\nστο κομοδίνο"
+    ],
+    "dont": [
+     "κρασί\nγια ύπνο",
+     "ένταση\nστις 10 μ.μ."
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/montre.png",
+    "atala",
+    "images/objets/the.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/cafes.png"
+   ],
+   "en": {
+    "titre": "a short night",
+    "do": [
+     "an easy run",
+     "a coach app\nlike atala",
+     "a hot tea"
+    ],
+    "dont": [
+     "chasing a pr",
+     "four coffees"
+    ]
+   },
+   "fr": {
+    "titre": "nuit courte",
+    "do": [
+     "footing lent",
+     "appli coach\ncomme atala",
+     "un thé chaud"
+    ],
+    "dont": [
+     "viser\nun record",
+     "quatre cafés"
+    ]
+   },
+   "de": {
+    "titre": "kurze nacht",
+    "do": [
+     "lockerer lauf",
+     "coach-app\nwie atala",
+     "heißer tee"
+    ],
+    "dont": [
+     "bestzeit jagen",
+     "vier kaffee"
+    ]
+   },
+   "it": {
+    "titre": "notte corta",
+    "do": [
+     "corsa lenta",
+     "app coach\ncome atala",
+     "un tè caldo"
+    ],
+    "dont": [
+     "inseguire\nil record",
+     "quattro caffè"
+    ]
+   },
+   "es-419": {
+    "titre": "noche corta",
+    "do": [
+     "trote suave",
+     "app con coach\ncomo atala",
+     "un té caliente"
+    ],
+    "dont": [
+     "buscar\nun récord",
+     "cuatro cafés"
+    ]
+   },
+   "hu": {
+    "titre": "rövid éjszaka",
+    "do": [
+     "laza futás",
+     "edzős app,\nmint az atala",
+     "forró tea"
+    ],
+    "dont": [
+     "csúcsra hajtás",
+     "négy kávé"
+    ]
+   },
+   "ro": {
+    "titre": "noapte scurtă",
+    "do": [
+     "jogging ușor",
+     "aplicație de\ncoach ca atala",
+     "ceai fierbinte"
+    ],
+    "dont": [
+     "vânătoare\nde record",
+     "patru cafele"
+    ]
+   },
+   "tr": {
+    "titre": "kısa gece",
+    "do": [
+     "rahat koşu",
+     "atala gibi\nkoç uygulaması",
+     "sıcak çay"
+    ],
+    "dont": [
+     "rekor peşinde",
+     "dört kahve"
+    ]
+   },
+   "el": {
+    "titre": "λίγος ύπνος",
+    "do": [
+     "χαλαρό τρέξιμο",
+     "εφαρμογή coach\nσαν το atala",
+     "ζεστό τσάι"
+    ],
+    "dont": [
+     "κυνηγάς ρεκόρ",
+     "4 καφέδες"
+    ]
+   }
+  }
+ ]
+}

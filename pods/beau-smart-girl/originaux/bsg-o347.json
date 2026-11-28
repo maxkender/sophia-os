@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o347",
+  "type_bleo": "full_test",
+  "titre": "les plus belles bibliothèques du monde à voir une fois #bibliotheque #voyage #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Lieux connus, descriptions générales, sans date. Routine du 28/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 et 16 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12 à 15 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1b83f5dd",
+      "texte_overlay": "les plus belles bibliothèques du monde\nà voir une fois",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "05b95b4d",
+      "texte_overlay": "1. la long room, dublin\n\nla grande salle du trinity college,\ndes livres jusqu'au plafond.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "e7020874",
+      "texte_overlay": "2. la bibliothèque de l'abbaye d'admont\n\nen autriche.\nblanc et or, presque irréelle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ebae13ba",
+      "texte_overlay": "3. la bibliothèque de strahov\n\nà prague.\nfresques au plafond et globes anciens.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c0338ea9",
+      "texte_overlay": "4. la salle ovale, richelieu\n\nà paris.\nune verrière immense, des tables vertes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1a917351",
+      "texte_overlay": "5. et celle qu'on se construit\n\navant, je pensais que la culture se trouvait loin.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'emporte une bibliothèque partout.",
+      "texte_sophia": "5. et celle qu'on se construit\n\navant, je pensais que la culture se trouvait loin.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'emporte une bibliothèque partout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "04a1a396",
+      "texte_overlay": "tu irais dans laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

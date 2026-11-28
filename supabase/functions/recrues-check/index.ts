@@ -2,7 +2,7 @@ import { dansFenetre, type Delais, instantLocal, lireMode, lundiParis, partiesLo
 import type { MalgreStop } from "../_shared/stop.ts";
 import { automationEnPause, noterBloquee, PAUSE } from "../_shared/pause.ts";
 import { passageDu } from "../_shared/frequences.ts";
-import { lireParLots } from "../_shared/lots.ts";
+import { decouperEnLots, LOT_IDS, lireParLots } from "../_shared/lots.ts";
 import {
   libelleCanaux,
   envoiEtape,
@@ -493,7 +493,10 @@ async function apercu(supabase: Supabase, maintenant: Date, o: { demain?: boolea
     if (t.exemples.length < 10) t.exemples.push(ex);
   };
   const ids = [...new Set(recrues.map((x) => x.poster_id))];
-  const { data: noms } = await supabase.from("profiles").select("id, prenom, nom, manager_id").in("id", ids);
+  const noms = await lireParLots<{ id: string; prenom: string | null; nom: string | null; manager_id: string | null }>(
+    ids, "recrues-check : noms des recrues",
+    (lot) => supabase.from("profiles").select("id, prenom, nom, manager_id").in("id", lot),
+  );
   const nomDe = new Map((noms ?? []).map((n) => [n.id as string, [n.prenom, n.nom].filter(Boolean).join(" ") || null]));
   const hmIds = [...new Set((noms ?? []).map((n) => n.manager_id as string | null).filter((x): x is string => Boolean(x)))];
   const { data: hms } = hmIds.length ? await supabase.from("profiles").select("id, prenom, nom").in("id", hmIds) : { data: [] };
@@ -722,11 +725,11 @@ async function verifier(supabase: Supabase, maintenant: Date): Promise<Bilan & {
   bilan.perimetre = await lirePerimetreRelances(supabase, recrues);
 
   // Les relances de l'ancien système (accès, warm-up) ne s'affichent plus.
-  if (recrues.length > 0) {
-    await supabase.from("relances_prevues").delete().in("type", ["acces", "warmup"]).in(
-      "poster_id",
-      recrues.map((x) => x.poster_id),
-    );
+  // 28/11 : par lots de LOT_IDS : avec ~500 recrues, un seul in() dépassait la borne de 400 valeurs
+  // et tout le passage s'arrêtait là (depuis le 26/11 au soir).
+  for (const lot of decouperEnLots(recrues.map((x) => x.poster_id), LOT_IDS)) {
+    const { error: errAncien } = await supabase.from("relances_prevues").delete().in("type", ["acces", "warmup"]).in("poster_id", lot);
+    if (errAncien) bilan.erreurs.push(`relances anciennes : ${errAncien.message}`);
   }
 
   // Prompt 21 : le cron passe toutes les 15 min ; « Step checks » dit si les relances

@@ -13,7 +13,7 @@
  */
 import { scrapePost, scrapeStats, type ScrapedPost } from "./apify.ts";
 import { requalifierClassementComptes } from "./classement_comptes.ts";
-import { lireTout } from "./lots.ts";
+import { lireParLots, lireTout } from "./lots.ts";
 import { enregistrerProfil } from "./profil_compte.ts";
 import {
   chargerScoring,
@@ -332,12 +332,12 @@ async function releverStatsFenetre(
     return out;
   }
 
-  const { data: comptes, error } = await supabase
-    .from("comptes")
-    .select("id, handle_tiktok")
-    .in("id", compteIds)
-    .not("handle_tiktok", "is", null);
-  if (error) throw error;
+  // Par lots : plus de 400 comptes publiés dépassent la borne du filtre in() (URL PostgREST).
+  const comptes = await lireParLots<{ id: string; handle_tiktok: string | null }>(
+    compteIds,
+    "Comptes des passages publiés",
+    (lot) => supabase.from("comptes").select("id, handle_tiktok").in("id", lot).not("handle_tiktok", "is", null),
+  );
 
   for (const c of comptes ?? []) {
     handles.set(c.id as string, (c.handle_tiktok as string) ?? null);
@@ -690,11 +690,8 @@ export async function snapshotVuesGlobales(
     }
   }
 
-  const { data: comptes, error } = await supabase
-    .from("comptes")
-    .select("id")
-    .eq("is_active", true);
-  if (error) throw error;
+  // Paginée : plus de 1000 comptes actifs depuis le 27/11 (plafond PostgREST).
+  const comptes = await lireIdsComptesActifs(supabase);
 
   let vuesTotales = 0;
   let nb = 0;
@@ -759,11 +756,8 @@ export async function backfillSnapshotVuesJour(
 ): Promise<{ jour: string; vues_totales: number; vues_delta: number | null; nb_comptes: number }> {
   const borne = parisDebutJourSuivantIso(jour);
 
-  const { data: comptes, error } = await supabase
-    .from("comptes")
-    .select("id")
-    .eq("is_active", true);
-  if (error) throw error;
+  // Paginée : plus de 1000 comptes actifs depuis le 27/11 (plafond PostgREST).
+  const comptes = await lireIdsComptesActifs(supabase);
 
   let vuesTotales = 0;
   let nb = 0;
@@ -1094,6 +1088,19 @@ export function eloDrainEstVerrouille(run: EloDernierRun | null): boolean {
   return Number.isFinite(age) && age >= 0 && age < DRAIN_BUSY_LOCK_MS;
 }
 
+/** Les `id` des comptes actifs, paginés (le plafond PostgREST de 1000 lignes est dépassé). */
+async function lireIdsComptesActifs(supabase: Supabase): Promise<Array<{ id: string }>> {
+  return await lireTout<{ id: string }>(
+    "Comptes actifs (ids)",
+    (curseur, taille) => {
+      let q = supabase.from("comptes").select("id").eq("is_active", true);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (c) => c.id },
+  );
+}
+
 /** true si busy coincé (timeout Edge sans clear) → on peut reprendre. */
 export function eloDrainBusyStale(run: EloDernierRun | null): boolean {
   if (!run?.busy || !run.at) return false;
@@ -1105,14 +1112,26 @@ export function eloDrainBusyStale(run: EloDernierRun | null): boolean {
 export async function listerComptesRattrapageElo(
   supabase: Supabase,
 ): Promise<Array<{ id: string; handle_tiktok: string }>> {
-  const { data, error } = await supabase
-    .from("comptes")
-    .select("id, handle_tiktok, warmup_started_at, warmup_ends_at")
-    .eq("is_active", true)
-    .not("handle_tiktok", "is", null)
-    .order("id", { ascending: true });
-  if (error) throw error;
-  return (data ?? [])
+  // Paginée sur `id` (même ordre qu'avant) : plus de 1000 comptes actifs depuis le 27/11.
+  const data = await lireTout<{
+    id: string;
+    handle_tiktok: string | null;
+    warmup_started_at: string | null;
+    warmup_ends_at: string | null;
+  }>(
+    "Comptes actifs du rattrapage ELO",
+    (curseur, taille) => {
+      let q = supabase
+        .from("comptes")
+        .select("id, handle_tiktok, warmup_started_at, warmup_ends_at")
+        .eq("is_active", true)
+        .not("handle_tiktok", "is", null);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (c) => c.id },
+  );
+  return data
     .filter((c) =>
       compteEnProcessus({
         warmup_started_at: c.warmup_started_at as string | null,

@@ -1,0 +1,677 @@
+{
+ "id": "da-009",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696990065343532309",
+  "vues": 1100000,
+  "publie_le": "2026-10-15",
+  "accroche": "Iceberg of ADHD hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of ADHD hobbies (music edition)",
+  "es-419": "Iceberg de hobbies TDAH (edición música)",
+  "tr": "DEHB hobileri buzdağı (müzik özel)",
+  "hu": "ADHD-s hobbik jéghegye (zenei kiadás)",
+  "ro": "Icebergul hobby-urilor ADHD (ediția muzică)",
+  "cs": "Ledovec ADHD koníčků (hudební edice)",
+  "sr": "Santa leda ADHD hobija (muzičko izdanje)",
+  "el": "Το παγόβουνο των χόμπι ΔΕΠΥ (μουσική έκδοση)"
+ },
+ "legendes": {
+  "en": "#lockedin #adhdtiktok #hobbies #selfimprovement #iceberg",
+  "es-419": "#tdah #hobbies #iceberg #superacionpersonal #lockedin",
+  "tr": "#dehb #hobiler #buzdağı #kişiselgelişim #lockedin",
+  "hu": "#adhd #hobbik #jéghegy #önfejlesztés #lockedin",
+  "ro": "#adhd #hobby #iceberg #dezvoltarepersonala #lockedin",
+  "cs": "#adhd #konicky #ledovec #seberozvoj #lockedin",
+  "sr": "#adhd #hobi #santaleda #samorazvoj #lockedin",
+  "el": "#δεπυ #χόμπι #παγόβουνο #αυτοβελτίωση #lockedin"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7603872322981874462"
+ },
+ "oeuvres": {
+  "images/objets/guitare.png": {
+   "musee": "The Met",
+   "id": "506864",
+   "titre": "L-4 Archtop Guitar (serial no.",
+   "artiste": "Gibson Mandolin-Guitar Manufacturing Co., Ltd.",
+   "date": "ca. 1918",
+   "url": "https://www.metmuseum.org/art/collection/search/506864"
+  },
+  "images/objets/piano-carre.png": {
+   "musee": "The Met",
+   "id": "501783",
+   "titre": "Square Piano",
+   "artiste": "Anton Vatter",
+   "date": "ca. 1800",
+   "url": "https://www.metmuseum.org/art/collection/search/501783"
+  },
+  "images/objets/accordeon.png": {
+   "musee": "The Met",
+   "id": "503731",
+   "titre": "Accordion",
+   "artiste": "",
+   "date": "ca. 1890",
+   "url": "https://www.metmuseum.org/art/collection/search/503731"
+  },
+  "images/objets/harmonica.png": {
+   "musee": "The Met",
+   "id": "501241",
+   "titre": "Harmonica",
+   "artiste": "Ch. Weiss",
+   "date": "ca. 1895",
+   "url": "https://www.metmuseum.org/art/collection/search/501241"
+  },
+  "images/objets/mandoline.png": {
+   "musee": "The Met",
+   "id": "506858",
+   "titre": "A-4 Mandolin (serial no. 39051)",
+   "artiste": "Gibson Mandolin-Guitar Manufacturing Co., Ltd.",
+   "date": "1917",
+   "url": "https://www.metmuseum.org/art/collection/search/506858"
+  },
+  "images/objets/clarinette.png": {
+   "musee": "The Met",
+   "id": "505208",
+   "titre": "Clarinet",
+   "artiste": "Valentine Metzler",
+   "date": "ca. 1830",
+   "url": "https://www.metmuseum.org/art/collection/search/505208"
+  },
+  "images/objets/violoncelle.png": {
+   "musee": "The Met",
+   "id": "627897",
+   "titre": "\"Royal George\" Cello",
+   "artiste": "William Forster",
+   "date": "1782",
+   "url": "https://www.metmuseum.org/art/collection/search/627897"
+  },
+  "images/objets/cornemuse.png": {
+   "musee": "The Met",
+   "id": "503854",
+   "titre": "Binioù kozh (bagpipe)",
+   "artiste": "",
+   "date": "19th century",
+   "url": "https://www.metmuseum.org/art/collection/search/503854"
+  },
+  "images/objets/harpe-pedale.png": {
+   "musee": "The Met",
+   "id": "503991",
+   "titre": "Pedal Harp",
+   "artiste": "Lyon & Healy",
+   "date": "1891–95",
+   "url": "https://www.metmuseum.org/art/collection/search/503991"
+  },
+  "images/objets/violon.png": {
+   "musee": "The Met",
+   "id": "503057",
+   "titre": "Violin",
+   "artiste": "Nicolò Amati (Cremona 1596–1684 Cremona)",
+   "date": "1669",
+   "url": "https://www.metmuseum.org/art/collection/search/503057"
+  },
+  "images/objets/luth.png": {
+   "musee": "The Met",
+   "id": "505741",
+   "titre": "Lute",
+   "artiste": "Pietro Railich",
+   "date": "1669",
+   "url": "https://www.metmuseum.org/art/collection/search/505741"
+  }
+ },
+ "notes": "Full test : « Iceberg of ADHD hobbies (music edition) » (note « *music edition ») : des instruments, du plus courant au plus pointu. Artura au 3e étage : « museum facts (artura) », cta C. Sans IA : objets du Met détourés. En 8 langues.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "ADHD hobbies",
+    "note": "*music edition"
+   },
+   "es-419": {
+    "haut": "Iceberg de",
+    "bas": "hobbies TDAH",
+    "note": "*edición música"
+   },
+   "tr": {
+    "haut": "Buzdağı:",
+    "bas": "DEHB hobileri",
+    "note": "*müzik özel"
+   },
+   "hu": {
+    "haut": "Jéghegy:",
+    "bas": "ADHD-s hobbik",
+    "note": "*zenei kiadás"
+   },
+   "ro": {
+    "haut": "Icebergul",
+    "bas": "hobby-urilor ADHD",
+    "note": "*ediția muzică"
+   },
+   "cs": {
+    "haut": "Ledovec",
+    "bas": "ADHD koníčků",
+    "note": "*hudební edice"
+   },
+   "sr": {
+    "haut": "Santa leda",
+    "bas": "ADHD hobija",
+    "note": "*muzičko izdanje"
+   },
+   "el": {
+    "haut": "Παγόβουνο:",
+    "bas": "χόμπι ΔΕΠΥ",
+    "note": "*μουσική έκδοση"
+   }
+  },
+  {
+   "type": "iceberg",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "guitar",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "accordion",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "harmonica",
+       "image": "images/objets/harmonica.png"
+      }
+     ],
+     [
+      {
+       "t": "mandolin",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "clarinet",
+       "image": "images/objets/clarinette.png"
+      },
+      {
+       "t": "cello",
+       "image": "images/objets/violoncelle.png"
+      },
+      {
+       "t": "bagpipes",
+       "image": "images/objets/cornemuse.png"
+      }
+     ],
+     [
+      {
+       "t": "museum facts (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "harp",
+       "image": "images/objets/harpe-pedale.png"
+      }
+     ],
+     [
+      {
+       "t": "baroque violin",
+       "image": "images/objets/violon.png"
+      }
+     ],
+     [
+      {
+       "t": "lute",
+       "image": "images/objets/luth.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "es-419": {
+    "etages": [
+     [
+      {
+       "t": "guitarra",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "acordeón",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "armónica",
+       "image": "images/objets/harmonica.png"
+      }
+     ],
+     [
+      {
+       "t": "mandolina",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "clarinete",
+       "image": "images/objets/clarinette.png"
+      },
+      {
+       "t": "violonchelo",
+       "image": "images/objets/violoncelle.png"
+      },
+      {
+       "t": "gaita",
+       "image": "images/objets/cornemuse.png"
+      }
+     ],
+     [
+      {
+       "t": "datos de museo (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "arpa",
+       "image": "images/objets/harpe-pedale.png"
+      }
+     ],
+     [
+      {
+       "t": "violín barroco",
+       "image": "images/objets/violon.png"
+      }
+     ],
+     [
+      {
+       "t": "laúd",
+       "image": "images/objets/luth.png"
+      }
+     ]
+    ],
+    "question": "¿en desacuerdo?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "gitar",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "piyano",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "akordeon",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "mızıka",
+       "image": "images/objets/harmonica.png"
+      }
+     ],
+     [
+      {
+       "t": "mandolin",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "klarnet",
+       "image": "images/objets/clarinette.png"
+      },
+      {
+       "t": "çello",
+       "image": "images/objets/violoncelle.png"
+      },
+      {
+       "t": "gayda",
+       "image": "images/objets/cornemuse.png"
+      }
+     ],
+     [
+      {
+       "t": "müze bilgileri (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "arp",
+       "image": "images/objets/harpe-pedale.png"
+      }
+     ],
+     [
+      {
+       "t": "barok keman",
+       "image": "images/objets/violon.png"
+      }
+     ],
+     [
+      {
+       "t": "lavta",
+       "image": "images/objets/luth.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "hu": {
+    "etages": [
+     [
+      {
+       "t": "gitár",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "zongora",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "akkordeon",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "fújós harmonika",
+       "image": "images/objets/harmonica.png"
+      }
+     ],
+     [
+      {
+       "t": "mandolin",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "klarinét",
+       "image": "images/objets/clarinette.png"
+      },
+      {
+       "t": "cselló",
+       "image": "images/objets/violoncelle.png"
+      },
+      {
+       "t": "duda",
+       "image": "images/objets/cornemuse.png"
+      }
+     ],
+     [
+      {
+       "t": "múzeumi tények (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "hárfa",
+       "image": "images/objets/harpe-pedale.png"
+      }
+     ],
+     [
+      {
+       "t": "barokk hegedű",
+       "image": "images/objets/violon.png"
+      }
+     ],
+     [
+      {
+       "t": "lant",
+       "image": "images/objets/luth.png"
+      }
+     ]
+    ],
+    "question": "nem értesz egyet?"
+   },
+   "ro": {
+    "etages": [
+     [
+      {
+       "t": "chitară",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "pian",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "acordeon",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "muzicuță",
+       "image": "images/objets/harmonica.png"
+      }
+     ],
+     [
+      {
+       "t": "mandolină",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "clarinet",
+       "image": "images/objets/clarinette.png"
+      },
+      {
+       "t": "violoncel",
+       "image": "images/objets/violoncelle.png"
+      },
+      {
+       "t": "cimpoi",
+       "image": "images/objets/cornemuse.png"
+      }
+     ],
+     [
+      {
+       "t": "fapte de muzeu (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "harpă",
+       "image": "images/objets/harpe-pedale.png"
+      }
+     ],
+     [
+      {
+       "t": "vioară barocă",
+       "image": "images/objets/violon.png"
+      }
+     ],
+     [
+      {
+       "t": "lăută",
+       "image": "images/objets/luth.png"
+      }
+     ]
+    ],
+    "question": "nu ești de acord?"
+   },
+   "cs": {
+    "etages": [
+     [
+      {
+       "t": "kytara",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "klavír",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "akordeon",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "foukací harmonika",
+       "image": "images/objets/harmonica.png"
+      }
+     ],
+     [
+      {
+       "t": "mandolína",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "klarinet",
+       "image": "images/objets/clarinette.png"
+      },
+      {
+       "t": "violoncello",
+       "image": "images/objets/violoncelle.png"
+      },
+      {
+       "t": "dudy",
+       "image": "images/objets/cornemuse.png"
+      }
+     ],
+     [
+      {
+       "t": "muzejní fakta (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "harfa",
+       "image": "images/objets/harpe-pedale.png"
+      }
+     ],
+     [
+      {
+       "t": "barokní housle",
+       "image": "images/objets/violon.png"
+      }
+     ],
+     [
+      {
+       "t": "loutna",
+       "image": "images/objets/luth.png"
+      }
+     ]
+    ],
+    "question": "nesouhlasíš?"
+   },
+   "sr": {
+    "etages": [
+     [
+      {
+       "t": "gitara",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "klavir",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "harmonika",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "usna harmonika",
+       "image": "images/objets/harmonica.png"
+      }
+     ],
+     [
+      {
+       "t": "mandolina",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "klarinet",
+       "image": "images/objets/clarinette.png"
+      },
+      {
+       "t": "violončelo",
+       "image": "images/objets/violoncelle.png"
+      },
+      {
+       "t": "gajde",
+       "image": "images/objets/cornemuse.png"
+      }
+     ],
+     [
+      {
+       "t": "muzeji (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "harfa",
+       "image": "images/objets/harpe-pedale.png"
+      }
+     ],
+     [
+      {
+       "t": "barokna violina",
+       "image": "images/objets/violon.png"
+      }
+     ],
+     [
+      {
+       "t": "lauta",
+       "image": "images/objets/luth.png"
+      }
+     ]
+    ],
+    "question": "ne slažeš se?"
+   },
+   "el": {
+    "etages": [
+     [
+      {
+       "t": "κιθάρα",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "πιάνο",
+       "image": "images/objets/piano-carre.png"
+      },
+      {
+       "t": "ακορντεόν",
+       "image": "images/objets/accordeon.png"
+      },
+      {
+       "t": "φυσαρμόνικα",
+       "image": "images/objets/harmonica.png"
+      }
+     ],
+     [
+      {
+       "t": "μαντολίνο",
+       "image": "images/objets/mandoline.png"
+      },
+      {
+       "t": "κλαρίνο",
+       "image": "images/objets/clarinette.png"
+      },
+      {
+       "t": "τσέλο",
+       "image": "images/objets/violoncelle.png"
+      },
+      {
+       "t": "γκάιντα",
+       "image": "images/objets/cornemuse.png"
+      }
+     ],
+     [
+      {
+       "t": "μουσεία (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "άρπα",
+       "image": "images/objets/harpe-pedale.png"
+      }
+     ],
+     [
+      {
+       "t": "μπαρόκ βιολί",
+       "image": "images/objets/violon.png"
+      }
+     ],
+     [
+      {
+       "t": "λαούτο",
+       "image": "images/objets/luth.png"
+      }
+     ]
+    ],
+    "question": "διαφωνείς;"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

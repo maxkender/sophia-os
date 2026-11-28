@@ -1,0 +1,278 @@
+{
+ "post_id": "var-concentration-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 niche traits of highly",
+      "successful people"
+     ],
+     "texte": "οι μικρές συνήθειες που σκοτώνουν τη συγκέντρωσή σου"
+    },
+    "T2": {
+     "en": [
+      "(science-backed)"
+     ],
+     "alignement": "droite",
+     "texte": "(κανείς δεν το λέει)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_03374b2e.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they make decisions fast"
+     ],
+     "texte": "διάβασμα [[από το κρεβάτι]]"
+    },
+    "T2": {
+     "en": [
+      "successful people don’t procrastinate. they don’t",
+      "ask for permission, but instead act and ask for",
+      "forgiveness"
+     ],
+     "texte": "λάπτοπ στα γόνατα, πάπλωμα από πάνω, μαξιλάρι στην πλάτη. βολικό, αλλά για τον εγκέφαλό σου [[κρεβάτι = ξεκούραση]]"
+    },
+    "T3": {
+     "en": [
+      "they don’t spend 3",
+      "weeks thinking",
+      "about a reversible",
+      "choice"
+     ],
+     "texte": "οπότε μόλις βολευτείς, [[η συγκέντρωση λιώνει]]"
+    },
+    "T4": {
+     "en": [
+      "if the downside is small, they decide, act, and",
+      "adjust. speed matters most when decisions can",
+      "be changed later"
+     ],
+     "texte": "και ισχύει και ανάποδα: αν δουλεύεις πολύ εκεί, [[κοιμάσαι χειρότερα]]. το κρεβάτι είναι για ύπνο"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_04cfe1cc.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they get comfortable looking",
+      "stupid"
+     ],
+     "texte": "διάβασμα για ώρες [[με κλειστό παράθυρο]]"
+    },
+    "T2": {
+     "en": [
+      "they ask basic questions, try things before they feel",
+      "ready, and admit when they don’t know"
+     ],
+     "texte": "πόρτα και παράθυρο κλειστά, ο αέρας βαραίνει και το κεφάλι σου θολώνει χωρίς να ξέρεις γιατί"
+    },
+    "T3": {
+     "en": [
+      "protecting your",
+      "ego feels safe,",
+      "but it slows",
+      "learning down",
+      "massively"
+     ],
+     "texte": "μια έρευνα του χάρβαρντ το έδειξε: κλεισούρα = [[πιο αργός εγκέφαλος]]"
+    },
+    "T4": {
+     "en": [
+      "growth feels uncomfortable, but",
+      "nothing changes if nothing changes"
+     ],
+     "texte": "άνοιξε το παράθυρο [[10 λεπτά κάθε ώρα]] και το μυαλό σου καθαρίζει"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_6e8628e4.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they read classic books written",
+      "by the greats"
+     ],
+     "texte": "να γεμίζεις [[κάθε μικρή αναμονή]] με το κινητό"
+    },
+    "T2a": {
+     "en": [
+      "they know endless tiktok scrolling rots their",
+      "attention"
+     ],
+     "texte": "ουρά, λεωφορείο, μικροκύματα, ασανσέρ: και να, το κινητό έξω"
+    },
+    "T2b": {
+     "en": [
+      "instead, they read ideas that",
+      "survived decades or",
+      "centuries"
+     ],
+     "texte": "ο εγκέφαλός σου [[δεν έχει ούτε ένα κενό λεπτό]] να ανασάνει"
+    },
+    "T3": {
+     "en": [
+      "from people who thought",
+      "deeply about psychology,",
+      "power, business, and human",
+      "nature"
+     ],
+     "texte": "οπότε μόλις η δουλειά κόψει ρυθμό, [[ψάχνει κάτι άλλο]] από συνήθεια, κάθε φορά"
+    },
+    "T4": {
+     "en": [
+      "if you’re stuck on tiktok, you",
+      "can try readup which blocks",
+      "your apps until you read"
+     ],
+     "texte": "παλιά σκρόλαρα όλη μέρα, τώρα μαθαίνω κάτι νέο σε 5 λεπτά [[στην εφαρμογή Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "scissions": {
+    "T2": 2
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they tolerate long periods with",
+      "no reward"
+     ],
+     "texte": "ένα [[πολύ γλυκό πρωινό]] πριν το μάθημα"
+    },
+    "T2": {
+     "en": [
+      "they can keep working when",
+      "nobody is watching, nothing",
+      "is going viral, and the results",
+      "still look unimpressive"
+     ],
+     "texte": "δημητριακά, κρουασάν, καφές με ζάχαρη. μια ώρα πετάς, μετά πέφτει το σάκχαρο και [[μαζί η συγκέντρωσή σου]]"
+    },
+    "T3": {
+     "en": [
+      "most people need constant",
+      "proof that something is",
+      "working"
+     ],
+     "texte": "η νύστα στις 10 δεν είναι τεμπελιά, [[είναι το σάκχαρο]]"
+    },
+    "T4": {
+     "en": [
+      "successful people can stay",
+      "consistent long enough for the",
+      "payoff to arrive."
+     ],
+     "texte": "βάλε πρωτεΐνη: αυγά, γιαούρτι, βρώμη. [[αντέχεις ως το μεσημεριανό]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_07cf7fda.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they obsess over leverage"
+     ],
+     "texte": "σημειώσεις [[σε 5 χρώματα]]"
+    },
+    "T2": {
+     "en": [
+      "they constantly look for",
+      "ways to make one hour of",
+      "work create more than",
+      "one hour of value"
+     ],
+     "texte": "πέντε μαρκαδόροι, τέλειοι τίτλοι, μια σελίδα ξαναγραμμένη επειδή μια λέξη βγήκε άσχημη"
+    },
+    "T3": {
+     "en": [
+      "software, systems,",
+      "content, capital,",
+      "automation, teams"
+     ],
+     "texte": "τα χέρια σου δουλεύουν ενώ [[ο εγκέφαλος αποσυνδέεται]]"
+    },
+    "T4": {
+     "en": [
+      "they’re not just trying to",
+      "work harder, they’re trying"
+     ],
+     "texte": "γράψε άσχημα και μετά [[εξέτασε τον εαυτό σου]] χωρίς σημειώσεις"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_008c05fe.jpg",
+      "boite": [
+       0,
+       880,
+       1504,
+       1904
+      ]
+     }
+    }
+   }
+  }
+ }
+}

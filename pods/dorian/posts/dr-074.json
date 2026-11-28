@@ -1,0 +1,149 @@
+{
+ "id": "dr-074",
+ "format": "liste",
+ "titre": {
+  "en": "5 inventions genuinely discovered by accident",
+  "tr": "tamamen kazara bulunan 5 icat",
+  "sv": "5 uppfinningar som faktiskt upptäcktes av en slump"
+ },
+ "legendes": {
+  "en": "#history #science #inventions #smarttok",
+  "tr": "#tarih #bilim #icatlar #bilgi",
+  "sv": "#historia #vetenskap #uppfinningar #kunskap"
+ },
+ "musique": {
+  "titre": "original sound - LanguFilms",
+  "url": "https://www.tiktok.com/music/original-sound-7291278974100622112"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes à cerveau en IRM. Faits : Fleming, septembre 1928 ; Röntgen, 8/11/1895, radiographie de la main de sa femme le 22/12/1895 ; de Mestral 1941, brevet 1955 ; Percy Spencer 1945, brevet déposé en 1945 ; Fahlberg et la saccharine, 1879. Images Seedream et objet de la banque. En, tr, sv ; une couverture par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 inventions genuinely discovered by accident",
+    "image": "images/cerveau-42.jpg",
+    "legende": "(all true)"
+   },
+   "tr": {
+    "titre": "tamamen kazara bulunan 5 icat",
+    "image": "images/cerveau-44.jpg",
+    "legende": "(hepsi gerçek)"
+   },
+   "sv": {
+    "titre": "5 uppfinningar som faktiskt upptäcktes av en slump",
+    "image": "images/cerveau-03.jpg",
+    "legende": "(allt är sant)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Penicillin",
+    "texte": "in 1928 alexander fleming came back from holiday to find that mould had killed the bacteria in one of his dishes. that mould became penicillin",
+    "image": "images/boite-petri.jpg"
+   },
+   "tr": {
+    "titre": "Penisilin",
+    "texte": "1928'de alexander fleming tatilden döndüğünde kaplarından birinde küfün bakterileri öldürdüğünü gördü. o küf penisilin oldu",
+    "image": "images/boite-petri.jpg"
+   },
+   "sv": {
+    "titre": "Penicillin",
+    "texte": "1928 kom alexander fleming hem från semestern och såg att mögel hade dödat bakterierna i en av hans skålar. det möglet blev penicillin",
+    "image": "images/boite-petri.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "X-rays",
+    "texte": "in 1895 wilhelm röntgen noticed a screen glowing across his lab while testing a cathode tube. weeks later he x-rayed his wife's hand",
+    "image": "images/radiographie.jpg"
+   },
+   "tr": {
+    "titre": "Röntgen ışınları",
+    "texte": "1895'te wilhelm röntgen bir katot tüpünü denerken laboratuvarın öbür ucundaki bir ekranın parladığını fark etti. haftalar sonra karısının elinin röntgenini çekti",
+    "image": "images/radiographie.jpg"
+   },
+   "sv": {
+    "titre": "Röntgenstrålar",
+    "texte": "1895 märkte wilhelm röntgen att en skärm lyste på andra sidan labbet medan han testade ett katodrör. veckor senare röntgade han sin frus hand",
+    "image": "images/radiographie.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "10 minutes a day, a lesson written by an actual professor, then a quiz. the history of science is full of stories like these",
+    "telephone": "cours"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "günde 10 dakika, gerçek bir profesörün yazdığı bir ders, sonra bir quiz. bilim tarihi böyle hikâyelerle dolu",
+    "telephone": "cours"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "10 minuter om dagen, en lektion skriven av en riktig professor, sen ett quiz. vetenskapshistorien är full av sånt här",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Velcro",
+    "texte": "in 1941 george de mestral came back from a walk with burrs stuck to his dog. under a microscope he saw tiny hooks. velcro was patented in 1955",
+    "image": "images/bardane.jpg"
+   },
+   "tr": {
+    "titre": "Cırt cırt",
+    "texte": "1941'de george de mestral bir yürüyüşten köpeğine yapışmış pıtraklarla döndü. mikroskopta minik kancalar gördü. cırt cırt 1955'te patentlendi",
+    "image": "images/bardane.jpg"
+   },
+   "sv": {
+    "titre": "Kardborreband",
+    "texte": "1941 kom george de mestral hem från en promenad med kardborrar fast i hundens päls. i mikroskop såg han små hullingar. kardborrebandet patenterades 1955",
+    "image": "images/bardane.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The microwave oven",
+    "texte": "in 1945 percy spencer was working on radar equipment and noticed a chocolate bar melting in his pocket. a patent was filed that same year",
+    "image": "images/chocolat-fondu.jpg"
+   },
+   "tr": {
+    "titre": "Mikrodalga fırın",
+    "texte": "1945'te percy spencer radar ekipmanı üzerinde çalışırken cebindeki çikolatanın eridiğini fark etti. aynı yıl patent başvurusu yapıldı",
+    "image": "images/chocolat-fondu.jpg"
+   },
+   "sv": {
+    "titre": "Mikrovågsugnen",
+    "texte": "1945 jobbade percy spencer med radarutrustning och märkte att en chokladkaka smälte i hans ficka. samma år lämnades en patentansökan in",
+    "image": "images/chocolat-fondu.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Saccharin",
+    "texte": "in 1879 constantin fahlberg forgot to wash his hands after a day in the lab, and noticed his bread tasted sweet",
+    "image": "images/objets/pain.png"
+   },
+   "tr": {
+    "titre": "Sakarin",
+    "texte": "1879'da constantin fahlberg laboratuvarda geçen bir günün ardından ellerini yıkamayı unuttu ve ekmeğinin tatlı olduğunu fark etti",
+    "image": "images/objets/pain.png"
+   },
+   "sv": {
+    "titre": "Sackarin",
+    "texte": "1879 glömde constantin fahlberg att tvätta händerna efter en dag i labbet och märkte att brödet smakade sött",
+    "image": "images/objets/pain.png"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

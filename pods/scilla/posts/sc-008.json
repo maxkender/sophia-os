@@ -1,0 +1,248 @@
+{
+ "id": "sc-008",
+ "titre": {
+  "en": "What a portrait tells you based on where the eyes are looking",
+  "de": "Was dir ein Porträt verrät, je nachdem, wohin die Augen schauen",
+  "fr": "Ce qu'un portrait te dit selon où regardent les yeux",
+  "it": "Cosa ti dice un ritratto in base a dove guardano gli occhi",
+  "es": "Lo que te dice un retrato según adónde miran los ojos",
+  "pt-BR": "O que um retrato te diz conforme para onde os olhos estão olhando",
+  "nl": "Wat een portret je vertelt, afhankelijk van waar de ogen naartoe kijken",
+  "pl": "Co mówi ci portret w zależności od tego, dokąd patrzą oczy"
+ },
+ "legendes": {
+  "en": "now go look at an old portrait again 👀\n#art #portrait #arthistory #paintings #slowliving",
+  "de": "schau dir jetzt nochmal ein altes Porträt an 👀\n#kunst #porträt #kunstgeschichte #gemälde #slowliving",
+  "fr": "maintenant, va revoir un vieux portrait 👀\n#art #portrait #histoiredelart #peinture #slowliving",
+  "it": "ora torna a guardare un vecchio ritratto 👀\n#arte #ritratto #storiadellarte #pittura #slowliving",
+  "es": "ahora vuelve a mirar un retrato antiguo 👀\n#arte #retrato #historiadelarte #pintura #slowliving",
+  "pt-BR": "agora vai olhar de novo um retrato antigo 👀\n#arte #retrato #historiadaarte #pintura #slowliving",
+  "nl": "ga nu nog eens naar een oud portret kijken 👀\n#kunst #portret #kunstgeschiedenis #schilderijen #slowliving",
+  "pl": "a teraz spójrz jeszcze raz na stary portret 👀\n#sztuka #portret #historiasztuki #malarstwo #slowliving"
+ },
+ "musique": {
+  "titre": "original sound (ibreathemusicallday)",
+  "url": "https://www.tiktok.com/music/original-sound-7332556917664975659"
+ },
+ "oeuvres": {
+  "images/oeuvres/rembrandt-eventail.jpg": {
+   "musee": "The Met",
+   "id": "437391",
+   "titre": "Portrait of a Young Woman with a Fan",
+   "artiste": "Rembrandt (Rembrandt van Rijn)",
+   "date": "1633",
+   "url": "https://www.metmuseum.org/art/collection/search/437391"
+  },
+  "images/oeuvres/renoir-servante.jpg": {
+   "musee": "The Met",
+   "id": "437437",
+   "titre": "Young Woman (La Servante)",
+   "artiste": "Auguste Renoir",
+   "date": "ca. 1875",
+   "url": "https://www.metmuseum.org/art/collection/search/437437"
+  },
+  "images/oeuvres/gainsborough-sparrow.jpg": {
+   "musee": "The Met",
+   "id": "436439",
+   "titre": "Portrait of a Young Woman, Called Miss Sparrow",
+   "artiste": "Thomas Gainsborough",
+   "date": "1770s",
+   "url": "https://www.metmuseum.org/art/collection/search/436439"
+  },
+  "images/oeuvres/degas-ibis.jpg": {
+   "musee": "The Met",
+   "id": "438156",
+   "titre": "Young Woman with Ibis",
+   "artiste": "Edgar Degas",
+   "date": "1857–58; reworked 1860–62",
+   "url": "https://www.metmuseum.org/art/collection/search/438156"
+  },
+  "images/oeuvres/holbein-jeune-femme.jpg": {
+   "musee": "The Met",
+   "id": "436667",
+   "titre": "Portrait of a Young Woman",
+   "artiste": "Hans Holbein the Younger",
+   "date": "ca. 1540–45",
+   "url": "https://www.metmuseum.org/art/collection/search/436667"
+  }
+ },
+ "notes": "Full test (accroche jamais faite chez nous), famille « What … based on … » au format de @scilla2047 : des portraits lus d'après la direction du regard. Couverture : Rembrandt, Portrait of a Young Woman with a Fan (1633, Met 437391), cadrée sur le visage. Faits (ce qu'on voit sur les toiles) : Young Woman (La Servante) (Renoir, ca. 1875, Met 437437) : la main sur la hanche, elle regarde le spectateur ; Portrait of a Young Woman, Called Miss Sparrow (Gainsborough, années 1770, Met 436439) : le regard de côté ; Young Woman with Ibis (Degas, 1857–58, retravaillé 1860–62, Met 438156) : deux ibis rouges, le regard perdu ; Portrait of a Young Woman (Holbein le Jeune, ca. 1540–45, Met 436667) : le regard de biais (bord du cadre rogné). Slide Artura (4) : Degas avec le logo ; cta B. Les points « If they … » suivent ses titres « If authority makes you very angry ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/oeuvres/rembrandt-eventail.jpg",
+   "cadrage": {
+    "y": 0.12
+   },
+   "en": {
+    "titre": "What a portrait tells you based on {where the eyes are looking}"
+   },
+   "de": {
+    "titre": "Was dir ein Porträt verrät, je nachdem, {wohin die Augen schauen}"
+   },
+   "fr": {
+    "titre": "Ce qu'un portrait te dit selon {où regardent les yeux}"
+   },
+   "it": {
+    "titre": "Cosa ti dice un ritratto in base a {dove guardano gli occhi}"
+   },
+   "es": {
+    "titre": "Lo que te dice un retrato según {adónde miran los ojos}"
+   },
+   "pt-BR": {
+    "titre": "O que um retrato te diz conforme {para onde os olhos estão olhando}"
+   },
+   "nl": {
+    "titre": "Wat een portret je vertelt, afhankelijk van {waar de ogen naartoe kijken}"
+   },
+   "pl": {
+    "titre": "Co mówi ci portret w zależności od tego, {dokąd patrzą oczy}"
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/renoir-servante.jpg",
+   "en": {
+    "titre": "If they look straight at you",
+    "texte": "They want something from you. A young woman, a hand on her hip, her eyes on yours. Renoir makes you feel like you just walked in."
+   },
+   "de": {
+    "titre": "Wenn sie dich direkt ansehen",
+    "texte": "Sie wollen etwas von dir. Eine junge Frau, die Hand in der Hüfte, ihr Blick auf deinem. Renoir lässt dich fühlen, als wärst du gerade hereingekommen."
+   },
+   "fr": {
+    "titre": "S'ils te regardent droit dans les yeux",
+    "texte": "Ils attendent quelque chose de toi. Une jeune femme, la main sur la hanche, les yeux dans les tiens. Renoir te donne l'impression d'entrer dans la pièce."
+   },
+   "it": {
+    "titre": "Se ti guardano dritto negli occhi",
+    "texte": "Vogliono qualcosa da te. Una giovane donna, una mano sul fianco, gli occhi nei tuoi. Renoir ti fa sentire come se fossi appena entrato."
+   },
+   "es": {
+    "titre": "Si te miran directamente",
+    "texte": "Quieren algo de ti. Una joven, una mano en la cadera, los ojos en los tuyos. Renoir te hace sentir que acabas de entrar."
+   },
+   "pt-BR": {
+    "titre": "Se olham direto para você",
+    "texte": "Querem algo de você. Uma jovem, a mão na cintura, os olhos nos seus. Renoir faz você sentir que acabou de entrar."
+   },
+   "nl": {
+    "titre": "Als ze je recht aankijken",
+    "texte": "Ze willen iets van je. Een jonge vrouw, een hand op haar heup, haar ogen in de jouwe. Renoir laat je voelen alsof je net binnenkomt."
+   },
+   "pl": {
+    "titre": "Jeśli patrzą ci prosto w oczy",
+    "texte": "Czegoś od ciebie chcą. Młoda kobieta, ręka na biodrze, jej oczy w twoich. Renoir sprawia, że stajesz się częścią tej chwili."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/gainsborough-sparrow.jpg",
+   "en": {
+    "titre": "If they look away",
+    "texte": "They're somewhere else. Gainsborough's sitter looks off to the side, and you start wondering what she's thinking about."
+   },
+   "de": {
+    "titre": "Wenn sie wegschauen",
+    "texte": "Sie sind woanders. Gainsboroughs Modell blickt zur Seite, und du fängst an zu überlegen, woran sie denkt."
+   },
+   "fr": {
+    "titre": "S'ils regardent ailleurs",
+    "texte": "Ils sont ailleurs. Le modèle de Gainsborough regarde sur le côté, et tu te mets à te demander à quoi elle pense."
+   },
+   "it": {
+    "titre": "Se guardano altrove",
+    "texte": "Sono altrove. La donna ritratta da Gainsborough guarda di lato, e inizi a chiederti a cosa stia pensando."
+   },
+   "es": {
+    "titre": "Si miran hacia otro lado",
+    "texte": "Están en otra parte. La modelo de Gainsborough mira hacia un lado, y empiezas a preguntarte en qué piensa."
+   },
+   "pt-BR": {
+    "titre": "Se olham para outro lado",
+    "texte": "Estão em outro lugar. A modelo de Gainsborough olha para o lado, e você começa a se perguntar no que ela está pensando."
+   },
+   "nl": {
+    "titre": "Als ze wegkijken",
+    "texte": "Ze zijn ergens anders. Het model van Gainsborough kijkt opzij, en je begint je af te vragen waar ze aan denkt."
+   },
+   "pl": {
+    "titre": "Jeśli patrzą w bok",
+    "texte": "Są gdzie indziej. Modelka Gainsborougha patrzy w bok, a ty zaczynasz się zastanawiać, o czym myśli."
+   }
+  },
+  {
+   "type": "artura",
+   "image": "images/oeuvres/degas-ibis.jpg",
+   "en": {
+    "titre": "If they look at nothing at all",
+    "texte": "They're lost in thought. Degas painted a young woman between two red birds, and she doesn't see either of them. Artura gives me one painting a day and the story behind it. Ten quiet minutes."
+   },
+   "de": {
+    "titre": "Wenn sie auf gar nichts schauen",
+    "texte": "Sie sind in Gedanken versunken. Degas malte eine junge Frau zwischen zwei roten Vögeln, und sie sieht keinen von beiden. Artura gibt mir jeden Tag ein Gemälde und die Geschichte dahinter. Zehn ruhige Minuten."
+   },
+   "fr": {
+    "titre": "S'ils ne regardent rien du tout",
+    "texte": "Ils sont perdus dans leurs pensées. Degas a peint une jeune femme entre deux oiseaux rouges, et elle ne voit ni l'un ni l'autre. Artura me donne un tableau par jour et l'histoire qui va avec. Dix minutes de calme."
+   },
+   "it": {
+    "titre": "Se non guardano niente",
+    "texte": "Sono persi nei pensieri. Degas ha dipinto una giovane donna tra due uccelli rossi, e lei non ne vede nessuno. Artura mi dà un quadro al giorno e la storia che c'è dietro. Dieci minuti di quiete."
+   },
+   "es": {
+    "titre": "Si no miran nada",
+    "texte": "Están perdidos en sus pensamientos. Degas pintó a una joven entre dos pájaros rojos, y no ve a ninguno. Artura me da un cuadro al día y la historia que hay detrás. Diez minutos de calma."
+   },
+   "pt-BR": {
+    "titre": "Se não olham para nada",
+    "texte": "Estão perdidos em pensamentos. Degas pintou uma jovem entre dois pássaros vermelhos, e ela não vê nenhum dos dois. O Artura me dá uma pintura por dia e a história por trás dela. Dez minutos de calma."
+   },
+   "nl": {
+    "titre": "Als ze nergens naar kijken",
+    "texte": "Ze zijn in gedachten verzonken. Degas schilderde een jonge vrouw tussen twee rode vogels, en ze ziet geen van beide. Artura geeft me elke dag één schilderij en het verhaal erachter. Tien rustige minuten."
+   },
+   "pl": {
+    "titre": "Jeśli nie patrzą na nic",
+    "texte": "Są zatopieni w myślach. Degas namalował młodą kobietę między dwoma czerwonymi ptakami, a ona nie widzi żadnego z nich. Artura daje mi codziennie jeden obraz i historię, która za nim stoi. Dziesięć spokojnych minut."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/holbein-jeune-femme.jpg",
+   "en": {
+    "titre": "If they look just past you",
+    "texte": "They're keeping something to themselves. Holbein painted every pearl and every fold, but her eyes slide just past yours."
+   },
+   "de": {
+    "titre": "Wenn sie knapp an dir vorbeischauen",
+    "texte": "Sie behalten etwas für sich. Holbein malte jede Perle und jede Falte, aber ihr Blick gleitet knapp an deinem vorbei."
+   },
+   "fr": {
+    "titre": "S'ils regardent juste à côté de toi",
+    "texte": "Ils gardent quelque chose pour eux. Holbein a peint chaque perle et chaque pli, mais ses yeux glissent juste à côté des tiens."
+   },
+   "it": {
+    "titre": "Se guardano appena oltre te",
+    "texte": "Tengono qualcosa per sé. Holbein ha dipinto ogni perla e ogni piega, ma i suoi occhi scivolano appena oltre i tuoi."
+   },
+   "es": {
+    "titre": "Si miran justo a tu lado",
+    "texte": "Se guardan algo. Holbein pintó cada perla y cada pliegue, pero sus ojos se deslizan justo al lado de los tuyos."
+   },
+   "pt-BR": {
+    "titre": "Se olham logo ao seu lado",
+    "texte": "Guardam algo para si. Holbein pintou cada pérola e cada dobra, mas os olhos dela escorregam logo ao lado dos seus."
+   },
+   "nl": {
+    "titre": "Als ze net langs je heen kijken",
+    "texte": "Ze houden iets voor zichzelf. Holbein schilderde elke parel en elke plooi, maar haar ogen glijden net langs de jouwe."
+   },
+   "pl": {
+    "titre": "Jeśli patrzą tuż obok ciebie",
+    "texte": "Coś zachowują dla siebie. Holbein namalował każdą perłę i każdą fałdę, ale jej wzrok przesuwa się tuż obok twojego."
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

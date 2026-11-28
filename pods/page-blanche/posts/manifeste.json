@@ -8054,6 +8054,33 @@
    "notes": "declinaison G2 de var-retrouver-1, cta A",
    "type_bleo": "declinaison",
    "parent_contenu_id": "8291ee69-5b06-4021-bb60-7201aef95b64"
+  },
+  {
+   "post_id": "var-memoire-2",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#memoire #cerveau #etudes",
+   "musique": {
+    "titre": "som original - strange",
+    "auteur": "strange",
+    "original": true,
+    "id": "7650637490231708437",
+    "url_tiktok": "https://www.tiktok.com/music/x-7650637490231708437"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7694340359056313632_1",
+    "2": "7692093201968090401_2",
+    "3": "7689509565536177441_4",
+    "4": "7694340359056313632_6",
+    "5": "7694340359056313632_5",
+    "6": "7689509565536177441_6"
+   },
+   "notes": "declinaison G2 de var-memoire-1, cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "36c7d8b4-9fc0-4825-bcbb-650e12f47ca4"
   }
  ]
 }

@@ -50,7 +50,7 @@
       "what if it doesn't go to plan?"
      ],
      "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
-     "texte": "a friend of a friend's party?\nfries at 11pm?\nthe class nobody signed up for?"
+     "texte": "a friend of a friend's party?\nfries at 11pm?\na class nobody takes?"
     },
     "T3": {
      "en": [
@@ -201,9 +201,9 @@
      "remplacer": {
       "source": "sources/os_9340ebca.jpg",
       "boite": [
+       1150,
        0,
-       0,
-       2368,
+       1218,
        1760
       ]
      }

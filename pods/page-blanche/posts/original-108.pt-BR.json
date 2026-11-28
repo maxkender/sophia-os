@@ -201,9 +201,9 @@
      "remplacer": {
       "source": "sources/os_9340ebca.jpg",
       "boite": [
+       1150,
        0,
-       0,
-       2368,
+       1218,
        1760
       ]
      }
@@ -251,7 +251,7 @@
       "for 20 minutes"
      ],
      "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
-     "texte": "agora, quando tô no celular de qualquer jeito, faço [[uma aula de 5 min no app Sophia]]"
+     "texte": "agora, quando tô no celular mesmo, faço [[uma aula de 5 min no app Sophia]]"
     }
    },
    "images": {

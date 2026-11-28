@@ -30,12 +30,12 @@
    "images": {
     "I1": {
      "remplacer": {
-      "source": "sources/os_4e4616e3.jpg",
+      "source": "sources/os_b4be17f5.jpg",
       "boite": [
        0,
-       850,
-       1664,
-       1260
+       0,
+       2320,
+       1760
       ]
      }
     }
@@ -283,7 +283,7 @@
       "algorithm every time"
      ],
      "fr": "tu dis que tu [[veux lire plus]], mais [[l'algo]] te happe à chaque fois",
-     "texte": "5 min pour apprendre quelque chose, puis tu verrouilles. [[pas de fil sans fin]]"
+     "texte": "5 min pour apprendre un truc, puis tu verrouilles. [[pas de fil sans fin]]"
     },
     "T5": {
      "en": [

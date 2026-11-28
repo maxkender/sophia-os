@@ -50,7 +50,7 @@
       "what if it doesn't go to plan?"
      ],
      "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
-     "texte": "¿la fiesta del amigo de un amigo?\n¿un paseo a las 11 de la noche?\n¿la clase a la que nadie se apuntó?"
+     "texte": "¿la fiesta del amigo de un amigo?\n¿un paseo a las 11 de la noche?\n¿la clase que nadie quiere?"
     },
     "T3": {
      "en": [
@@ -201,9 +201,9 @@
      "remplacer": {
       "source": "sources/os_9340ebca.jpg",
       "boite": [
+       1150,
        0,
-       0,
-       2368,
+       1218,
        1760
       ]
      }
@@ -304,7 +304,7 @@
       "resting!!"
      ],
      "fr": "[[scroller, c'est PAS se reposer !!]]",
-     "texte": "[[etiqueta a quien siempre tiene una historia]]"
+     "texte": "[[etiqueta a quien tiene mil historias]]"
     }
    },
    "images": {

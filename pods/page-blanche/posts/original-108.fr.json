@@ -60,7 +60,7 @@
       "could've lived"
      ],
      "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
-     "texte": "leurs meilleures histoires commencent souvent par un plan [[qu'ils ont failli refuser]]"
+     "texte": "leurs meilleures histoires partent d'un plan [[qu'ils ont failli refuser]]"
     },
     "T4": {
      "en": [
@@ -127,7 +127,7 @@
       "its own ideas"
      ],
      "fr": "garde des moments de vrai silence dans ta journée, ton cerveau pourra enfin réfléchir et [[avoir ses idées à lui]]",
-     "texte": "une question sur « avant » et t'as un premier amour, une guerre, une ville qui existe plus"
+     "texte": "une question sur leur jeunesse et t'as un premier amour, une guerre, une ville qui existe plus"
     },
     "T6": {
      "en": [
@@ -169,7 +169,7 @@
       "genuinely interests you"
      ],
      "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
-     "texte": "une phrase entendue dans le bus, une enseigne chelou, ce qu'a dit le chauffeur de taxi"
+     "texte": "une phrase dans le bus, une enseigne chelou, ce qu'a dit le taxi"
     },
     "T3": {
      "en": [
@@ -193,7 +193,7 @@
       "also, it is just fun to be knowledgable!!"
      ],
      "fr": "et puis, [[la culture, c'est trop cool !!]]",
-     "texte": "du coup ils disent jamais [[« fallait être là »]]"
+     "texte": "du coup ils disent jamais [[« fallait être là »]]"
     }
    },
    "images": {
@@ -201,9 +201,9 @@
      "remplacer": {
       "source": "sources/os_9340ebca.jpg",
       "boite": [
+       1150,
        0,
-       0,
-       2368,
+       1218,
        1760
       ]
      }
@@ -296,7 +296,7 @@
       "“resting” in bed"
      ],
      "fr": "marcher, prendre le soleil, juste changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
-     "texte": "avec un plan t'as la soirée que t'attendais. sans plan t'as celle que tu raconteras encore dans dix ans"
+     "texte": "avec un plan t'as la soirée prévue. sans plan t'as celle que tu raconteras encore dans dix ans"
     },
     "T5": {
      "en": [

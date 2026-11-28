@@ -201,9 +201,9 @@
      "remplacer": {
       "source": "sources/os_9340ebca.jpg",
       "boite": [
+       1150,
        0,
-       0,
-       2368,
+       1218,
        1760
       ]
      }
@@ -296,7 +296,7 @@
       "“resting” in bed"
      ],
      "fr": "marcher, prendre le soleil, juste changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
-     "texte": "con un piano hai la serata che ti aspettavi. senza, hai quella che racconterai ancora tra dieci anni"
+     "texte": "con un piano hai la serata prevista. senza, hai quella che racconterai ancora tra dieci anni"
     },
     "T5": {
      "en": [
@@ -304,7 +304,7 @@
       "resting!!"
      ],
      "fr": "[[scroller, c'est PAS se reposer !!]]",
-     "texte": "[[tagga chi ha sempre una storia da raccontare]]"
+     "texte": "[[tagga chi ha sempre una storia]]"
     }
    },
    "images": {

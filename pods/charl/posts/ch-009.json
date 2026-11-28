@@ -1,0 +1,479 @@
+{
+  "id": "ch-009",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@charl.focus/photo/7710972158259858720",
+    "vues": 115900,
+    "publie_le": "2026-11-22",
+    "accroche": "cómo dejar de ser INSEGURO (según la neurociencia)"
+  },
+  "titre": {
+    "es": "cómo dejar de compararte (según la neurociencia)",
+    "fr": "comment arrêter de te comparer (selon les neurosciences)",
+    "it": "come smettere di confrontarti (secondo le neuroscienze)",
+    "pt-BR": "como parar de se comparar (segundo a neurociência)",
+    "de": "so hörst du auf, dich zu vergleichen (laut neurowissenschaft)",
+    "ro": "cum să nu te mai compari (după neuroștiință)",
+    "hu": "hogyan ne hasonlítgasd magad másokhoz (tényleg)",
+    "es-419": "cómo dejar de compararte (según la neurociencia)"
+  },
+  "legendes": {
+    "es": "#comparacion #autoestima #redessociales #mentalidad #detox",
+    "fr": "#comparaison #confiance #reseauxsociaux #mental #detox",
+    "it": "#confronto #autostima #social #mentalita #detox",
+    "pt-BR": "#comparacao #autoestima #redessociais #mentalidade #detox",
+    "de": "#vergleich #selbstwert #socialmedia #mindset #detox",
+    "ro": "#comparatie #increderedesine #retelesociale #mentalitate #detox",
+    "hu": "#osszehasonlitas #onbizalom #kozossegimedia #gondolkodas #detox",
+    "es-419": "#comparacion #autoestima #redessociales #mentalidad #detox"
+  },
+  "musique": {
+    "titre": "son original - yvesnord",
+    "url": "https://www.tiktok.com/music/son-original-7632342268447443734"
+  },
+  "notes": "Full test (jauge du 28/11 : 2 full tests sur 4, boîte vide) : accroche jamais faite chez nous, sa famille (« cómo dejar de ser INSEGURO (según la neurociencia) », 115,9 k ; « cómo arreglar tu DOPAMINA », 403,9 k au 27/11). Faits vérifiés : Festinger (1954, Human Relations) : théorie de la comparaison sociale ; Verduyn et al. (2015, Journal of Experimental Psychology: General, université du Michigan) : l'usage passif de Facebook prédit une baisse du bien-être, par l'envie (suivi sur plusieurs jours) ; Vogel, Rose, Roberts et Eckles (2014, Psychology of Popular Media Culture) : des profils « meilleurs » que le sien font baisser l'estime de soi. Rien de médical. Slide Sophia (4) : LOGO, cta C. Images : toutes de @charl.focus (npm run compte, Adrien 27/11 : ses images autorisées) ; la slide Sophia sans personne reconnaissable (une main et un livre). 6 slides, 8 langues traduites à la main.",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/photos/c-7706621727106682144-1-couv0.jpg"
+        },
+        {
+          "image": "images/photos/c-7709177328357641494-1-couv5.jpg"
+        },
+        {
+          "image": "images/photos/c-7711426956939627798-1-couv0.jpg"
+        },
+        {
+          "image": "images/photos/c-7710972158259858720-1-couv4.jpg"
+        },
+        {
+          "image": "images/photos/c-7708847243444423969-1-couv1.jpg"
+        },
+        {
+          "image": "images/photos/c-7709177328357641494-2-p1.jpg"
+        }
+      ],
+      "es": {
+        "haut": "cómo dejar de",
+        "mot": "COMPARARTE",
+        "note": "(según la neurociencia)"
+      },
+      "fr": {
+        "haut": "comment arrêter de",
+        "mot": "TE COMPARER",
+        "note": "(selon les neurosciences)"
+      },
+      "it": {
+        "haut": "come smettere di",
+        "mot": "CONFRONTARTI",
+        "note": "(secondo le neuroscienze)"
+      },
+      "pt-BR": {
+        "haut": "como parar de se",
+        "mot": "COMPARAR",
+        "note": "(segundo a neurociência)"
+      },
+      "de": {
+        "haut": "so hörst du auf, dich zu",
+        "mot": "VERGLEICHEN",
+        "note": "(laut neurowissenschaft)"
+      },
+      "ro": {
+        "haut": "cum să nu te mai",
+        "mot": "COMPARI",
+        "note": "(după neuroștiință)"
+      },
+      "hu": {
+        "haut": "hogyan ne hasonlítgasd",
+        "mot": "MAGAD",
+        "note": "másokhoz (tényleg)"
+      },
+      "es-419": {
+        "haut": "cómo dejar de",
+        "mot": "COMPARARTE",
+        "note": "(según la neurociencia)"
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/photos/c-7710354288307883297-1-couv1.jpg"
+        },
+        {
+          "image": "images/photos/c-7710354288307883297-1-couv2.jpg"
+        }
+      ],
+      "es": {
+        "titre": "no es envidia.",
+        "paragraphes": [
+          "abres instagram y en diez segundos ya te sientes **por detrás de todos**: más guapos, más ricos, más avanzados.",
+          "en 1954, el psicólogo **leon festinger** explicó que nos medimos **comparándonos con los demás**. es automático: tu cerebro lo hace sin pedirte permiso.",
+          "el problema es con quién te comparas: **con lo mejor de miles de vidas**."
+        ]
+      },
+      "fr": {
+        "titre": "ce n'est pas de l'envie.",
+        "paragraphes": [
+          "tu ouvres instagram et en dix secondes tu te sens **derrière tout le monde**: plus beaux, plus riches, plus avancés.",
+          "en 1954, le psychologue **leon festinger** a expliqué qu'on se mesure **en se comparant aux autres**. c'est automatique: ton cerveau le fait sans te demander.",
+          "le problème, c'est avec qui tu te compares: **avec le meilleur de milliers de vies**."
+        ]
+      },
+      "it": {
+        "titre": "non è invidia.",
+        "paragraphes": [
+          "apri instagram e in dieci secondi ti senti già **indietro rispetto a tutti**: più belli, più ricchi, più avanti.",
+          "nel 1954 lo psicologo **leon festinger** spiegò che ci misuriamo **confrontandoci con gli altri**. è automatico: il cervello lo fa senza chiederti il permesso.",
+          "il problema è con chi ti confronti: **con il meglio di migliaia di vite**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "não é inveja.",
+        "paragraphes": [
+          "você abre o instagram e em dez segundos já se sente **atrás de todo mundo**: mais bonitos, mais ricos, mais avançados.",
+          "em 1954, o psicólogo **leon festinger** explicou que a gente se mede **se comparando com os outros**. é automático: o cérebro faz isso sem pedir licença.",
+          "o problema é com quem você se compara: **com o melhor de milhares de vidas**."
+        ]
+      },
+      "de": {
+        "titre": "es ist kein neid.",
+        "paragraphes": [
+          "du öffnest instagram und fühlst dich nach zehn sekunden **hinter allen anderen**: schöner, reicher, weiter.",
+          "1954 erklärte der psychologe **leon festinger**, dass wir uns messen, **indem wir uns mit anderen vergleichen**. das passiert automatisch, ohne zu fragen.",
+          "das problem ist, mit wem du dich vergleichst: **mit dem besten aus tausenden leben**."
+        ]
+      },
+      "ro": {
+        "titre": "nu e invidie.",
+        "paragraphes": [
+          "deschizi instagram și în zece secunde te simți deja **în urma tuturor**: mai frumoși, mai bogați, mai avansați.",
+          "în 1954, psihologul **leon festinger** a explicat că ne măsurăm **comparându-ne cu ceilalți**. e automat: creierul o face fără să te întrebe.",
+          "problema e cu cine te compari: **cu ce e mai bun din mii de vieți**."
+        ]
+      },
+      "hu": {
+        "titre": "ez nem irigység.",
+        "paragraphes": [
+          "megnyitod az instagramot, és tíz másodperc múlva már úgy érzed, **mindenki előtted jár**: szebbek, gazdagabbak, előrébb tartanak.",
+          "1954-ben **leon festinger** pszichológus elmagyarázta, hogy úgy mérjük magunkat, hogy **másokhoz hasonlítjuk**. ez automatikus: az agyad engedély nélkül csinálja.",
+          "a gond az, kihez hasonlítod magad: **ezernyi élet legjobb pillanataihoz**."
+        ]
+      },
+      "es-419": {
+        "titre": "no es envidia.",
+        "paragraphes": [
+          "abres instagram y en diez segundos ya te sientes **por detrás de todos**: más guapos, más ricos, más avanzados.",
+          "en 1954, el psicólogo **leon festinger** explicó que nos medimos **comparándonos con los demás**. es automático: tu cerebro lo hace sin pedirte permiso.",
+          "el problema es con quién te comparas: **con lo mejor de miles de vidas**."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/photos/c-7710972158259858720-1-couv2.jpg"
+        },
+        {
+          "image": "images/photos/c-7711690523773291798-1-couv1.jpg"
+        }
+      ],
+      "es": {
+        "titre": "mirar sin hablar",
+        "paragraphes": [
+          "en la universidad de michigan siguieron a unos estudiantes varios días: cuanto más **miraban facebook sin interactuar**, peor se sentían.",
+          "solo pasar fotos **alimenta la envidia**. hablar con la gente, no.",
+          "si entras, **escribe a alguien**. no te quedes mirando."
+        ]
+      },
+      "fr": {
+        "titre": "regarder sans parler",
+        "paragraphes": [
+          "à l'université du michigan, on a suivi des étudiants pendant plusieurs jours: plus ils **regardaient facebook sans interagir**, plus ils allaient mal.",
+          "faire défiler les photos **nourrit l'envie**. parler aux gens, non.",
+          "si tu y vas, **écris à quelqu'un**. ne reste pas à regarder."
+        ]
+      },
+      "it": {
+        "titre": "guardare senza parlare",
+        "paragraphes": [
+          "all'università del michigan hanno seguito alcuni studenti per diversi giorni: più **guardavano facebook senza interagire**, peggio stavano.",
+          "scorrere le foto **alimenta l'invidia**. parlare con le persone, no.",
+          "se entri, **scrivi a qualcuno**. non restare a guardare."
+        ]
+      },
+      "pt-BR": {
+        "titre": "olhar sem falar",
+        "paragraphes": [
+          "na universidade de michigan acompanharam alunos por vários dias: quanto mais **olhavam o facebook sem interagir**, pior se sentiam.",
+          "só passar fotos **alimenta a inveja**. conversar com as pessoas, não.",
+          "se entrar, **manda mensagem pra alguém**. não fica só olhando."
+        ]
+      },
+      "de": {
+        "titre": "schauen ohne reden",
+        "paragraphes": [
+          "an der university of michigan begleitete man studierende mehrere tage: je mehr sie **facebook nur anschauten**, desto schlechter ging es ihnen.",
+          "nur bilder durchscrollen **nährt den neid**. mit menschen reden nicht.",
+          "wenn du reingehst, **schreib jemandem**. bleib nicht nur am schauen."
+        ]
+      },
+      "ro": {
+        "titre": "te uiți fără să vorbești",
+        "paragraphes": [
+          "la universitatea din michigan au urmărit niște studenți câteva zile: cu cât **se uitau mai mult pe facebook fără să interacționeze**, cu atât se simțeau mai rău.",
+          "să derulezi poze **hrănește invidia**. să vorbești cu oamenii, nu.",
+          "dacă intri, **scrie-i cuiva**. nu sta doar să te uiți."
+        ]
+      },
+      "hu": {
+        "titre": "nézni, beszéd nélkül",
+        "paragraphes": [
+          "a michigani egyetemen néhány napig követtek diákokat: minél többet **nézték a facebookot interakció nélkül**, annál rosszabbul érezték magukat.",
+          "a képek pörgetése **táplálja az irigységet**. ha beszélsz emberekkel, az nem.",
+          "ha bemész, **írj valakinek**. ne csak nézelődj."
+        ]
+      },
+      "es-419": {
+        "titre": "mirar sin hablar",
+        "paragraphes": [
+          "en la universidad de michigan siguieron a unos estudiantes varios días: cuanto más **miraban facebook sin interactuar**, peor se sentían.",
+          "solo pasar fotos **alimenta la envidia**. hablar con la gente, no.",
+          "si entras, **escribe a alguien**. no te quedes mirando."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "photos": [
+        {
+          "image": "images/photos/c-7709177328357641494-7-p0.jpg"
+        }
+      ],
+      "es": {
+        "titre": "compárate con ayer",
+        "paragraphes": [
+          "la única comparación que te ayuda es **con quien eras ayer**.",
+          "en el metro hago **una lección de 10 minutos en Sophia**, con un quiz al final: historia, filosofía, ciencia o economía.",
+          "cada día sé **un poco más que ayer**. eso no te lo da ningún feed."
+        ]
+      },
+      "fr": {
+        "titre": "compare-toi à hier",
+        "paragraphes": [
+          "la seule comparaison qui t'aide, c'est **avec qui tu étais hier**.",
+          "dans le métro, je fais **une leçon de 10 minutes sur Sophia**, avec un quiz à la fin: histoire, philosophie, sciences ou économie.",
+          "chaque jour j'en sais **un peu plus qu'hier**. aucun feed ne te donne ça."
+        ]
+      },
+      "it": {
+        "titre": "confrontati con ieri",
+        "paragraphes": [
+          "l'unico confronto che ti aiuta è **con chi eri ieri**.",
+          "in metro faccio **una lezione di 10 minuti su Sophia**, con un quiz alla fine: storia, filosofia, scienza o economia.",
+          "ogni giorno so **un po' più di ieri**. nessun feed te lo dà."
+        ]
+      },
+      "pt-BR": {
+        "titre": "se compara com ontem",
+        "paragraphes": [
+          "a única comparação que ajuda é **com quem você era ontem**.",
+          "no metrô eu faço **uma lição de 10 minutos no Sophia**, com um quiz no final: história, filosofia, ciência ou economia.",
+          "todo dia eu sei **um pouco mais que ontem**. nenhum feed te dá isso."
+        ]
+      },
+      "de": {
+        "titre": "vergleich dich mit gestern",
+        "paragraphes": [
+          "der einzige vergleich, der dir hilft, ist der **mit dir von gestern**.",
+          "in der u-bahn mache ich **eine 10-minuten-lektion in Sophia**, mit einem quiz am ende: geschichte, philosophie, wissenschaft oder wirtschaft.",
+          "jeden tag weiß ich **ein bisschen mehr als gestern**. das gibt dir kein feed."
+        ]
+      },
+      "ro": {
+        "titre": "compară-te cu ieri",
+        "paragraphes": [
+          "singura comparație care te ajută e **cu cel care erai ieri**.",
+          "la metrou fac **o lecție de 10 minute în Sophia**, cu un quiz la final: istorie, filozofie, știință sau economie.",
+          "în fiecare zi știu **puțin mai mult decât ieri**. niciun feed nu-ți dă asta."
+        ]
+      },
+      "hu": {
+        "titre": "a tegnapi önmagad",
+        "paragraphes": [
+          "az egyetlen összehasonlítás, ami segít: **azzal, aki tegnap voltál**.",
+          "a metrón **egy 10 perces leckét csinálok a Sophia appban**, a végén egy kvízzel: történelem, filozófia, tudomány vagy közgazdaságtan.",
+          "minden nap **egy kicsit többet tudok, mint tegnap**. ezt egy feed sem adja meg."
+        ]
+      },
+      "es-419": {
+        "titre": "compárate con ayer",
+        "paragraphes": [
+          "la única comparación que te ayuda es **con quien eras ayer**.",
+          "en el metro hago **una lección de 10 minutos en Sophia**, con un quiz al final: historia, filosofía, ciencia o economía.",
+          "cada día sé **un poco más que ayer**. eso no te lo da ningún feed."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/photos/c-7710656896583142678-6-p0.jpg"
+        },
+        {
+          "image": "images/photos/c-7707992236042079510-2-p0.jpg"
+        }
+      ],
+      "es": {
+        "titre": "elige qué ves.",
+        "paragraphes": [
+          "en un estudio de 2014, la gente que miraba perfiles **más «perfectos» que el suyo** salía con **peor autoestima**.",
+          "lo que ves cada día **cambia cómo te ves**.",
+          "deja de seguir las cuentas que **te hacen sentir menos**. sigue las que te enseñan algo."
+        ]
+      },
+      "fr": {
+        "titre": "choisis ce que tu vois.",
+        "paragraphes": [
+          "dans une étude de 2014, les gens qui regardaient des profils **plus «parfaits» que le leur** en sortaient avec **moins d'estime de soi**.",
+          "ce que tu vois chaque jour **change comment tu te vois**.",
+          "arrête de suivre les comptes qui **te font te sentir moins**. suis ceux qui t'apprennent quelque chose."
+        ]
+      },
+      "it": {
+        "titre": "scegli cosa guardi.",
+        "paragraphes": [
+          "in uno studio del 2014, chi guardava profili **più «perfetti» del proprio** ne usciva con **meno autostima**.",
+          "quello che vedi ogni giorno **cambia come ti vedi**.",
+          "smetti di seguire gli account che **ti fanno sentire meno**. segui quelli che ti insegnano qualcosa."
+        ]
+      },
+      "pt-BR": {
+        "titre": "escolhe o que vê.",
+        "paragraphes": [
+          "num estudo de 2014, quem via perfis **mais «perfeitos» que o seu** saía com **a autoestima mais baixa**.",
+          "o que você vê todo dia **muda como você se vê**.",
+          "para de seguir as contas que **te fazem sentir menos**. segue as que te ensinam algo."
+        ]
+      },
+      "de": {
+        "titre": "wähl, was du siehst.",
+        "paragraphes": [
+          "in einer studie von 2014 hatten menschen, die **«perfektere» profile als ihr eigenes** sahen, danach **ein schlechteres selbstwertgefühl**.",
+          "was du jeden tag siehst, **verändert, wie du dich siehst**.",
+          "entfolge den accounts, bei denen **du dich klein fühlst**. folge denen, die dir etwas beibringen."
+        ]
+      },
+      "ro": {
+        "titre": "alege ce vezi.",
+        "paragraphes": [
+          "într-un studiu din 2014, cei care se uitau la profiluri **mai «perfecte» decât al lor** rămâneau cu **o stimă de sine mai scăzută**.",
+          "ce vezi în fiecare zi **schimbă cum te vezi**.",
+          "nu mai urmări conturile care **te fac să te simți mai puțin**. urmărește-le pe cele care te învață ceva."
+        ]
+      },
+      "hu": {
+        "titre": "mit nézel?",
+        "paragraphes": [
+          "egy 2014-es kutatásban azok, akik **a sajátjuknál «tökéletesebb» profilokat** néztek, utána **rosszabb önértékeléssel** jöttek ki.",
+          "amit minden nap látsz, **megváltoztatja, hogyan látod magad**.",
+          "ne kövesd azokat a fiókokat, amelyektől **kevesebbnek érzed magad**. kövesd azokat, amelyek tanítanak valamit."
+        ]
+      },
+      "es-419": {
+        "titre": "elige qué ves.",
+        "paragraphes": [
+          "en un estudio de 2014, la gente que miraba perfiles **más «perfectos» que el suyo** salía con **peor autoestima**.",
+          "lo que ves cada día **cambia cómo te ves**.",
+          "deja de seguir las cuentas que **te hacen sentir menos**. sigue las que te enseñan algo."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "photos": [
+        {
+          "image": "images/photos/c-7708847243444423969-7-p0.jpg"
+        }
+      ],
+      "es": {
+        "titre": "no vas tarde.",
+        "paragraphes": [
+          "solo estás viendo **el escaparate de los demás**.",
+          "mira tu propio camino: **dónde estabas hace un año**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo para la próxima vez que **te compares**."
+        ]
+      },
+      "fr": {
+        "titre": "tu n'es pas en retard.",
+        "paragraphes": [
+          "tu regardes juste **la vitrine des autres**.",
+          "regarde ton propre chemin: **où tu étais il y a un an**.",
+          "laquelle tu vas tester en premier? commente le numéro.",
+          "enregistre-le pour la prochaine fois que **tu te compares**."
+        ]
+      },
+      "it": {
+        "titre": "non sei in ritardo.",
+        "paragraphes": [
+          "stai solo guardando **la vetrina degli altri**.",
+          "guarda la tua strada: **dov'eri un anno fa**.",
+          "quale provi per primo? scrivi il numero nei commenti.",
+          "salvalo per la prossima volta che **ti confronti**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "você não está atrasado.",
+        "paragraphes": [
+          "só está vendo **a vitrine dos outros**.",
+          "olha o seu caminho: **onde você estava há um ano**.",
+          "qual você vai testar primeiro? comenta o número.",
+          "salva pra próxima vez que **você se comparar**."
+        ]
+      },
+      "de": {
+        "titre": "du bist nicht zu spät.",
+        "paragraphes": [
+          "du siehst nur **das schaufenster der anderen**.",
+          "schau auf deinen eigenen weg: **wo du vor einem jahr warst**.",
+          "welchen probierst du zuerst? kommentier die nummer.",
+          "speicher es für das nächste mal, wenn **du dich vergleichst**."
+        ]
+      },
+      "ro": {
+        "titre": "nu ești în urmă.",
+        "paragraphes": [
+          "te uiți doar la **vitrina celorlalți**.",
+          "uită-te la drumul tău: **unde erai acum un an**.",
+          "pe care îl încerci primul? scrie numărul în comentarii.",
+          "salvează-l pentru data viitoare când **te compari**."
+        ]
+      },
+      "hu": {
+        "titre": "nem késtél el.",
+        "paragraphes": [
+          "csak **mások kirakatát** nézed.",
+          "nézd a saját utadat: **hol tartottál egy éve**.",
+          "melyiket próbálod ki először? írd meg kommentben a számot.",
+          "mentsd el, és vedd elő, ha **újra másokhoz méred magad**."
+        ]
+      },
+      "es-419": {
+        "titre": "no vas tarde.",
+        "paragraphes": [
+          "solo estás viendo **el escaparate de los demás**.",
+          "mira tu propio camino: **dónde estabas hace un año**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo para la próxima vez que **te compares**."
+        ]
+      }
+    }
+  ]
+}

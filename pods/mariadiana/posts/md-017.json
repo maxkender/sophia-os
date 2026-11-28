@@ -1,0 +1,103 @@
+{
+  "id": "md-017",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Feel Like Golden Hour"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #vangogh #claudelorrain #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/cuyp-bergers.jpg": {
+      "musee": "The Met",
+      "id": "436062",
+      "titre": "Piping Shepherds",
+      "artiste": "Aelbert Cuyp",
+      "date": "ca. 1643–44",
+      "url": "https://www.metmuseum.org/art/collection/search/436062"
+    },
+    "images/oeuvres/lorrain-crescenza.jpg": {
+      "musee": "The Met",
+      "id": "435909",
+      "titre": "View of La Crescenza",
+      "artiste": "Claude Lorrain (Claude Gellée)",
+      "date": "1648–50",
+      "url": "https://www.metmuseum.org/art/collection/search/435909"
+    },
+    "images/oeuvres/vangogh-oliviers.jpg": {
+      "musee": "The Met",
+      "id": "437998",
+      "titre": "Olive Trees",
+      "artiste": "Vincent van Gogh",
+      "date": "1889",
+      "url": "https://www.metmuseum.org/art/collection/search/437998"
+    },
+    "images/oeuvres/sisley-sahurs.jpg": {
+      "musee": "The Met",
+      "id": "437683",
+      "titre": "Sahurs Meadows in Morning Sun",
+      "artiste": "Alfred Sisley",
+      "date": "1894",
+      "url": "https://www.metmuseum.org/art/collection/search/437683"
+    }
+  },
+  "banque": {
+    "images/banque/c-banc-femme.jpg": "f6ebac3f-5f83-4e96-a1b3-4cbbc10498c7"
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Cuyp, Bergers jouant de la flûte (vers 1643-44) : lumière italianisante empruntée aux peintres hollandais d'Italie (Jan Both), Cuyp n'est jamais allé en Italie ; Dordrecht. Claude Lorrain, Vue de La Crescenza (1648-50) : villa près de Rome, une des rares vues topographiques de Claude (notice du Met). Van Gogh, Oliviers (1889) : une quinzaine de toiles d'oliveraies à Saint-Rémy en 1889 ; ombres bleues visibles sous les arbres. Sisley, Prairies de Sahurs au soleil du matin (1894) : sujet britannique, deux demandes de naturalisation (1888, 1899), mort en 1899. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/banque/c-banc-femme.jpg",
+      "en": {
+        "titre": "Paintings That Feel Like Golden Hour"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/cuyp-bergers.jpg",
+      "en": {
+        "titre": "Piping Shepherds",
+        "texte": "bathes two Dutch shepherds in a warm, golden light that looks like Italy. Aelbert Cuyp never went to Italy: he borrowed that light from painters who had, and poured it over the fields around Dordrecht.",
+        "artiste": "Aelbert Cuyp"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/lorrain-crescenza.jpg",
+      "en": {
+        "titre": "View of La Crescenza",
+        "texte": "is a villa in the countryside outside Rome, painted around 1650. Claude spent his days drawing in the open air there, and this is one of the very few real places he painted exactly as he saw them.",
+        "artiste": "Claude Lorrain"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/vangogh-oliviers.jpg",
+      "en": {
+        "titre": "Olive Trees",
+        "texte": "is one of about fifteen olive groves Van Gogh painted in 1889, near the asylum at Saint-Rémy. The trunks twist like flames. I only noticed that the shadows under the trees are painted blue because of Artura, which zooms into the details you'd miss.",
+        "artiste": "Vincent van Gogh"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/sisley-sahurs.jpg",
+      "en": {
+        "titre": "Sahurs Meadows in Morning Sun",
+        "texte": "was painted in Normandy in 1894 by Alfred Sisley, an Englishman who spent his whole life painting France. He applied for French citizenship twice and died in 1899 without getting it.",
+        "artiste": "Alfred Sisley"
+      }
+    }
+  ]
+}

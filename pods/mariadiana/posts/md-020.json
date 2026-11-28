@@ -1,0 +1,103 @@
+{
+  "id": "md-020",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings With Eyes That Follow You"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #rembrandt #durer #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/antonello-jeune-homme.jpg": {
+      "musee": "The Met",
+      "id": "435581",
+      "titre": "Portrait of a Young Man",
+      "artiste": "Antonello da Messina (Antonello di Giovanni d'Antonio)",
+      "date": "ca. 1470",
+      "url": "https://www.metmuseum.org/art/collection/search/435581"
+    },
+    "images/oeuvres/rembrandt-doomer.jpg": {
+      "musee": "The Met",
+      "id": "437392",
+      "titre": "Herman Doomer (ca. 1595–1650)",
+      "artiste": "Rembrandt (Rembrandt van Rijn)",
+      "date": "1640",
+      "url": "https://www.metmuseum.org/art/collection/search/437392"
+    },
+    "images/oeuvres/durer-salvator.jpg": {
+      "musee": "The Met",
+      "id": "436243",
+      "titre": "Salvator Mundi",
+      "artiste": "Albrecht Dürer",
+      "date": "ca. 1505",
+      "url": "https://www.metmuseum.org/art/collection/search/436243"
+    },
+    "images/oeuvres/velazquez-philippe.jpg": {
+      "musee": "The Met",
+      "id": "437873",
+      "titre": "Philip IV (1605–1665), King of Spain",
+      "artiste": "Velázquez (Diego Rodríguez de Silva y Velázquez)",
+      "date": "probably 1624",
+      "url": "https://www.metmuseum.org/art/collection/search/437873"
+    }
+  },
+  "banque": {
+    "images/banque/c-homme-mer.jpg": "05661402-06a7-42c9-9a2a-75b414b6c5e9"
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Antonello da Messina, Portrait d'un jeune homme (vers 1470) : technique flamande de l'huile, regard vers le spectateur. Rembrandt, Herman Doomer (1640) : ébéniste, fabricant de cadres ; son fils Lambert Doomer élève de Rembrandt. Dürer, Salvator Mundi (vers 1505) : inachevé, laissé au départ pour Venise en 1505 ; dessin sous-jacent visible (notice du Met). Velázquez, Philippe IV (vers 1624) : peintre de la cour en 1623 ; le roi réserve son portrait à Velázquez. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/banque/c-homme-mer.jpg",
+      "en": {
+        "titre": "Paintings With Eyes That Follow You"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/antonello-jeune-homme.jpg",
+      "en": {
+        "titre": "Portrait of a Young Man",
+        "texte": "looks straight at you, with the hint of a smile, as if he is about to speak. Antonello da Messina painted him around 1470, one of the first Italian painters to master the Flemish technique of oil paint.",
+        "artiste": "Antonello da Messina"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/rembrandt-doomer.jpg",
+      "en": {
+        "titre": "Herman Doomer",
+        "texte": "was a maker of ebony frames in Amsterdam, painted by Rembrandt in 1640. His son Lambert became Rembrandt's pupil. Look at the light caught in his eyes: he is still watching.",
+        "artiste": "Rembrandt"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/durer-salvator.jpg",
+      "en": {
+        "titre": "Salvator Mundi",
+        "texte": "was left unfinished when Dürer set out for Venice in 1505. The face is done, but the robe is still a drawing. I only noticed the underdrawing showing through the folds of his robe because of Artura, which zooms into the details you'd miss.",
+        "artiste": "Albrecht Dürer"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/velazquez-philippe.jpg",
+      "en": {
+        "titre": "Philip IV",
+        "texte": "is the young king who made Velázquez his court painter in 1623. For decades, almost no one else was allowed to paint him. He stares down at us, pale and silent, in black.",
+        "artiste": "Diego Velázquez"
+      }
+    }
+  ]
+}

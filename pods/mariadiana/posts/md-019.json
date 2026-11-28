@@ -1,0 +1,103 @@
+{
+  "id": "md-019",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings By Artists Who Died Too Young"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #raphael #seurat #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/bazille-aigues-mortes.jpg": {
+      "musee": "The Met",
+      "id": "435626",
+      "titre": "Porte de la Reine at Aigues-Mortes",
+      "artiste": "Jean-Frédéric Bazille",
+      "date": "1867",
+      "url": "https://www.metmuseum.org/art/collection/search/435626"
+    },
+    "images/oeuvres/gericault-dedreux.jpg": {
+      "musee": "The Met",
+      "id": "436454",
+      "titre": "Alfred Dedreux (1810–1860) as a Child",
+      "artiste": "Théodore Géricault",
+      "date": "ca. 1819–20",
+      "url": "https://www.metmuseum.org/art/collection/search/436454"
+    },
+    "images/oeuvres/raphael-giuliano.jpg": {
+      "musee": "The Met",
+      "id": "437373",
+      "titre": "Giuliano de' Medici (1479–1516), Duke of Nemours",
+      "artiste": "Raphael",
+      "date": "",
+      "url": "https://www.metmuseum.org/art/collection/search/437373"
+    },
+    "images/oeuvres/seurat-pontaubert.jpg": {
+      "musee": "The Met",
+      "id": "437655",
+      "titre": "The Forest at Pontaubert",
+      "artiste": "Georges Seurat",
+      "date": "1881",
+      "url": "https://www.metmuseum.org/art/collection/search/437655"
+    }
+  },
+  "banque": {
+    "images/banque/c-pompei2.jpg": "081464e0-826e-4ea9-b9e4-dd0a2e366d6d"
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Bazille, Porte de la Reine à Aigues-Mortes (1867) : Bazille partage et finance l'atelier avec Monet et Renoir ; tué à Beaune-la-Rolande le 28 novembre 1870, à 28 ans. Géricault, Alfred Dedreux enfant (vers 1819-20) : Alfred de Dreux devient peintre de chevaux ; Géricault mort le 26 janvier 1824 à 32 ans, après des chutes de cheval. Raphaël, Giuliano de' Médicis (vers 1515) : frère de Léon X, mort en 1516 ; le château Saint-Ange à l'arrière-plan (notice du Met) ; Raphaël mort le 6 avril 1520, jour de ses 37 ans. Seurat, La Forêt à Pontaubert (1881) : avant le pointillisme ; mort le 29 mars 1891 à 31 ans. Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/banque/c-pompei2.jpg",
+      "en": {
+        "titre": "Paintings By Artists Who Died Too Young"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/bazille-aigues-mortes.jpg",
+      "en": {
+        "titre": "Porte de la Reine at Aigues-Mortes",
+        "texte": "was painted in 1867 by Frédéric Bazille, who helped pay for the studio Monet and Renoir worked in. In 1870 he joined the army, and he was killed in battle at 28.",
+        "artiste": "Frédéric Bazille"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/gericault-dedreux.jpg",
+      "en": {
+        "titre": "Alfred Dedreux as a Child",
+        "texte": "was painted by Géricault, who loved horses more than anything. The little boy grew up to be a famous painter of horses. Géricault died in 1824, at 32, after a series of riding accidents.",
+        "artiste": "Théodore Géricault"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/raphael-giuliano.jpg",
+      "en": {
+        "titre": "Giuliano de' Medici",
+        "texte": "shows the brother of Pope Leo X, the duke who died in 1516. Raphael himself died four years later, on his 37th birthday. I learned to see how the doorway behind him opens onto Rome's Castel Sant'Angelo on Artura, one artwork a day with its story.",
+        "artiste": "Raphael"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/seurat-pontaubert.jpg",
+      "en": {
+        "titre": "The Forest at Pontaubert",
+        "texte": "is one of Seurat's earliest paintings, from 1881, before he invented his famous dots. Ten years later he was dead, at 31, after a sudden illness.",
+        "artiste": "Georges Seurat"
+      }
+    }
+  ]
+}

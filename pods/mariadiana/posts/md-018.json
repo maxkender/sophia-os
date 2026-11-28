@@ -1,0 +1,103 @@
+{
+  "id": "md-018",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Feel Like Being Alone"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #degas #vangogh #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/degas-femme-fleurs.jpg": {
+      "musee": "The Met",
+      "id": "436121",
+      "titre": "A Woman Seated beside a Vase of Flowers (Madame Paul Valpinçon?)",
+      "artiste": "Edgar Degas",
+      "date": "1865",
+      "url": "https://www.metmuseum.org/art/collection/search/436121"
+    },
+    "images/oeuvres/vangogh-souliers.jpg": {
+      "musee": "The Met",
+      "id": "436533",
+      "titre": "Shoes",
+      "artiste": "Vincent van Gogh",
+      "date": "1888",
+      "url": "https://www.metmuseum.org/art/collection/search/436533"
+    },
+    "images/oeuvres/sisley-moret-hiver.jpg": {
+      "musee": "The Met",
+      "id": "437686",
+      "titre": "Rue Eugène Moussoir at Moret: Winter",
+      "artiste": "Alfred Sisley",
+      "date": "1891",
+      "url": "https://www.metmuseum.org/art/collection/search/437686"
+    },
+    "images/oeuvres/leighton-lachrymae.jpg": {
+      "musee": "The Met",
+      "id": "436869",
+      "titre": "Lachrymae",
+      "artiste": "Frederic, Lord Leighton",
+      "date": "1894–95",
+      "url": "https://www.metmuseum.org/art/collection/search/436869"
+    }
+  },
+  "banque": {
+    "images/banque/c-capuche.jpg": "4c70adc8-a86f-42ca-8f9b-260d3bab783d"
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Degas, Femme assise à côté d'un vase de fleurs (signé 1865) : peut-être Madame Paul Valpinçon (notice du Met). Van Gogh, Souliers (1888) : peint à Arles, sol carrelé ; plusieurs toiles de chaussures (Paris 1886-87, Arles 1888). Sisley, Rue Eugène Moussoir à Moret, l'hiver (1891) : Moret-sur-Loing, où Sisley vit ses dernières années. Leighton, Lachrymae (1894-95) : « larmes » en latin ; nommé baron le 24 janvier 1896, mort le 25 janvier 1896. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/banque/c-capuche.jpg",
+      "en": {
+        "titre": "Paintings That Feel Like Being Alone"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/degas-femme-fleurs.jpg",
+      "en": {
+        "titre": "A Woman Seated beside a Vase of Flowers",
+        "texte": "pushes its sitter to the very edge, while a huge bouquet takes the center. She looks away from everything, lost in thought. Degas signed it in 1865, and it may show Madame Valpinçon, the wife of a close friend.",
+        "artiste": "Edgar Degas"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/vangogh-souliers.jpg",
+      "en": {
+        "titre": "Shoes",
+        "texte": "was painted in Arles in 1888: just a pair of worn boots on a tiled floor. Van Gogh painted shoes again and again, as if they could tell the story of the people who walked in them.",
+        "artiste": "Vincent van Gogh"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/sisley-moret-hiver.jpg",
+      "en": {
+        "titre": "Rue Eugène Moussoir at Moret: Winter",
+        "texte": "is an almost empty street in the small town where Sisley lived his last years. He painted it under snow in 1891, with only a few tiny figures walking away.",
+        "artiste": "Alfred Sisley"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/leighton-lachrymae.jpg",
+      "en": {
+        "titre": "Lachrymae",
+        "texte": "means tears. A woman in black leans against a column beside a tomb, holding a wreath. Leighton painted it in his last years; he died in 1896, the day after he was made a lord. Artura gives me one painting a day and the story behind it; this one stayed with me.",
+        "artiste": "Frederic Leighton"
+      }
+    }
+  ]
+}

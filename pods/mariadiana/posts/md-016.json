@@ -1,0 +1,103 @@
+{
+  "id": "md-016",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Feel Like The Sea"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #courbet #renoir #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/courbet-mer-calme.jpg": {
+      "musee": "The Met",
+      "id": "436005",
+      "titre": "The Calm Sea",
+      "artiste": "Gustave Courbet",
+      "date": "1869",
+      "url": "https://www.metmuseum.org/art/collection/search/436005"
+    },
+    "images/oeuvres/boudin-trouville.jpg": {
+      "musee": "The Met",
+      "id": "435749",
+      "titre": "On the Beach at Trouville",
+      "artiste": "Eugène Boudin",
+      "date": "1863",
+      "url": "https://www.metmuseum.org/art/collection/search/435749"
+    },
+    "images/oeuvres/vlieger-mer-calme.jpg": {
+      "musee": "The Met",
+      "id": "437914",
+      "titre": "Calm Sea",
+      "artiste": "Simon de Vlieger",
+      "date": "after 1640",
+      "url": "https://www.metmuseum.org/art/collection/search/437914"
+    },
+    "images/oeuvres/renoir-wargemont.jpg": {
+      "musee": "The Met",
+      "id": "437426",
+      "titre": "View of the Seacoast near Wargemont in Normandy",
+      "artiste": "Auguste Renoir",
+      "date": "1880",
+      "url": "https://www.metmuseum.org/art/collection/search/437426"
+    }
+  },
+  "banque": {
+    "images/banque/c-nympheas.jpg": "f79e681b-e659-45ae-8c53-b3f847eff466"
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Courbet, La Mer calme (1869) : Étretat, été 1869, série de marines. Boudin, Sur la plage à Trouville (1863) : estivants élégants ; Boudin initie le jeune Monet à la peinture en plein air au Havre (vers 1856-58). Simon de Vlieger, Mer calme (après 1640) : Willem van de Velde le Jeune passe pour son élève. Renoir, Vue de la côte près de Wargemont (1880) : séjour chez Paul Bérard à Wargemont, près de Dieppe. Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/banque/c-nympheas.jpg",
+      "en": {
+        "titre": "Paintings That Feel Like The Sea"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/courbet-mer-calme.jpg",
+      "en": {
+        "titre": "The Calm Sea",
+        "texte": "was painted at Étretat in the summer of 1869, when Courbet spent weeks painting the Channel again and again. Almost nothing happens: a strip of sand, two boats, and a sky that takes up nearly the whole canvas.",
+        "artiste": "Gustave Courbet"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/boudin-trouville.jpg",
+      "en": {
+        "titre": "On the Beach at Trouville",
+        "texte": "shows the fashionable crowd of 1863 at the seaside, in their best clothes, under a huge sky. Boudin painted outdoors, on the spot, and he taught a teenage Claude Monet to do the same.",
+        "artiste": "Eugène Boudin"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/vlieger-mer-calme.jpg",
+      "en": {
+        "titre": "Calm Sea",
+        "texte": "was painted by Simon de Vlieger, the Dutch master of quiet water, who probably trained Willem van de Velde the Younger. I learned to see how every sail is doubled in the still water on Artura, one artwork a day with its story.",
+        "artiste": "Simon de Vlieger"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/renoir-wargemont.jpg",
+      "en": {
+        "titre": "Seacoast near Wargemont",
+        "texte": "was painted in 1880 while Renoir was staying near Dieppe with Paul Bérard, a banker who became his friend and patron. The cliffs, the grass and the sea melt into one shimmer of color.",
+        "artiste": "Auguste Renoir"
+      }
+    }
+  ]
+}

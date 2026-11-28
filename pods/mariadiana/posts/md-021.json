@@ -1,0 +1,103 @@
+{
+  "id": "md-021",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Feel Like A Sunday Afternoon"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #renoir #seurat #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/pater-bezons.jpg": {
+      "musee": "The Met",
+      "id": "437257",
+      "titre": "The Fair at Bezons",
+      "artiste": "Jean-Baptiste Joseph Pater",
+      "date": "ca. 1733",
+      "url": "https://www.metmuseum.org/art/collection/search/437257"
+    },
+    "images/oeuvres/steen-terrasse.jpg": {
+      "musee": "The Met",
+      "id": "437749",
+      "titre": "Merry Company on a Terrace",
+      "artiste": "Jan Steen",
+      "date": "ca. 1670",
+      "url": "https://www.metmuseum.org/art/collection/search/437749"
+    },
+    "images/oeuvres/renoir-charpentier.jpg": {
+      "musee": "The Met",
+      "id": "438815",
+      "titre": "Madame Georges Charpentier (Marguerite-Louise Lemonnier, 1848–1904) and Her Children, Georgette-Berthe (1872–1945) and Paul-Emile-Charles (1875–1895)",
+      "artiste": "Auguste Renoir",
+      "date": "1878",
+      "url": "https://www.metmuseum.org/art/collection/search/438815"
+    },
+    "images/oeuvres/seurat-grande-jatte.jpg": {
+      "musee": "The Met",
+      "id": "437658",
+      "titre": "Study for \"A Sunday on La Grande Jatte\"",
+      "artiste": "Georges Seurat",
+      "date": "1884",
+      "url": "https://www.metmuseum.org/art/collection/search/437658"
+    }
+  },
+  "banque": {
+    "images/banque/c-salle-tableaux.jpg": "07a113ad-e48e-4907-9d4b-9453be476f40"
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Pater, La Foire de Bezons (vers 1733) : seul élève de Watteau ; Bezons sur la Seine. Jan Steen, Joyeuse compagnie sur une terrasse (vers 1670) : Steen se peint souvent dans ses scènes ; expression néerlandaise « een huishouden van Jan Steen ». Renoir, Madame Charpentier et ses enfants (1878) : succès au Salon de 1879 ; Georges Charpentier éditeur de Zola ; le fils Paul en robe comme sa sœur Georgette. Seurat, Étude pour Un dimanche à la Grande Jatte (1884) : une soixantaine d'études et dessins sur l'île. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/banque/c-salle-tableaux.jpg",
+      "en": {
+        "titre": "Paintings That Feel Like A Sunday Afternoon"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/pater-bezons.jpg",
+      "en": {
+        "titre": "The Fair at Bezons",
+        "texte": "is a village fair on the Seine near Paris, full of dancers, lovers and music. Jean-Baptiste Pater was the only pupil Watteau ever took, and he painted it around 1733.",
+        "artiste": "Jean-Baptiste Pater"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/steen-terrasse.jpg",
+      "en": {
+        "titre": "Merry Company on a Terrace",
+        "texte": "is pure chaos: wine, music, a dog, a laughing woman. Jan Steen often put himself in his own scenes, and the Dutch still call a messy home a Jan Steen household.",
+        "artiste": "Jan Steen"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/renoir-charpentier.jpg",
+      "en": {
+        "titre": "Madame Charpentier and Her Children",
+        "texte": "made Renoir famous at the 1879 Salon. Her husband was the publisher of Zola, and their little boy wears a dress like his sister, as was the custom. Artura gives me one painting a day and the story behind it; this one stayed with me.",
+        "artiste": "Auguste Renoir"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/seurat-grande-jatte.jpg",
+      "en": {
+        "titre": "Study for A Sunday on La Grande Jatte",
+        "texte": "is one of the dozens of studies Seurat made on the island in the Seine before painting his masterpiece. In 1884 he went there day after day, watching Parisians rest in the shade.",
+        "artiste": "Georges Seurat"
+      }
+    }
+  ]
+}

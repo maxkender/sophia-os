@@ -8,10 +8,28 @@
   },
   "type_bleo": "full_test",
   "titre": {
-    "en": "Paintings That Feel Like Being Alone"
+    "en": "Paintings That Feel Like Being Alone",
+    "el": "Πίνακες που μοιάζουν με μοναξιά",
+    "es-419": "Pinturas que se sienten como la soledad",
+    "it": "Quadri che sanno di solitudine",
+    "fr": "Les tableaux qui ressemblent à la solitude",
+    "hu": "Festmények, amelyek olyanok, mint a magány",
+    "sr": "Slike koje liče na samoću",
+    "hr": "Slike koje nalikuju samoći",
+    "lv": "Gleznas, kas atgādina vientulību",
+    "ro": "Tablouri care seamănă cu singurătatea"
   },
   "legendes": {
-    "en": "#arthistory #painting #degas #vangogh #museum"
+    "en": "#arthistory #painting #degas #vangogh #museum",
+    "el": "#ιστορίατηςτέχνης #ζωγραφική #degas #vangogh #μουσείο",
+    "es-419": "#historiadelarte #pintura #degas #vangogh #museo",
+    "it": "#storiadellarte #pittura #degas #vangogh #museo",
+    "fr": "#histoiredelart #peinture #degas #vangogh #musée",
+    "hu": "#művészettörténet #festészet #degas #vangogh #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #degas #vangogh #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #degas #vangogh #muzej",
+    "lv": "#mākslasvēsture #glezniecība #degas #vangogh #muzejs",
+    "ro": "#istoriaartei #pictura #degas #vangogh #muzeu"
   },
   "musique": {
     "titre": "la petite fille de la mer",
@@ -61,6 +79,33 @@
       "image": "images/banque/c-capuche.jpg",
       "en": {
         "titre": "Paintings That Feel Like Being Alone"
+      },
+      "el": {
+        "titre": "Πίνακες που μοιάζουν με μοναξιά"
+      },
+      "es-419": {
+        "titre": "Pinturas que se sienten como la soledad"
+      },
+      "it": {
+        "titre": "Quadri che sanno di solitudine"
+      },
+      "fr": {
+        "titre": "Les tableaux qui ressemblent à la solitude"
+      },
+      "hu": {
+        "titre": "Festmények, amelyek olyanok, mint a magány"
+      },
+      "sr": {
+        "titre": "Slike koje liče na samoću"
+      },
+      "hr": {
+        "titre": "Slike koje nalikuju samoći"
+      },
+      "lv": {
+        "titre": "Gleznas, kas atgādina vientulību"
+      },
+      "ro": {
+        "titre": "Tablouri care seamănă cu singurătatea"
       }
     },
     {
@@ -69,6 +114,51 @@
       "en": {
         "titre": "A Woman Seated beside a Vase of Flowers",
         "texte": "pushes its sitter to the very edge, while a huge bouquet takes the center. She looks away from everything, lost in thought. Degas signed it in 1865, and it may show Madame Valpinçon, the wife of a close friend.",
+        "artiste": "Edgar Degas"
+      },
+      "el": {
+        "titre": "Γυναίκα καθισμένη δίπλα σε ανθοδοχείο",
+        "texte": "σπρώχνει το μοντέλο ως την άκρη, ενώ μια τεράστια ανθοδέσμη πιάνει το κέντρο. Εκείνη κοιτάζει αλλού, χαμένη στις σκέψεις της. Ο Ντεγκά τον υπέγραψε το 1865 και ίσως δείχνει τη Μαντάμ Βαλπενσόν, σύζυγο ενός στενού φίλου.",
+        "artiste": "Έντγκαρ Ντεγκά"
+      },
+      "es-419": {
+        "titre": "Mujer sentada junto a un jarrón de flores",
+        "texte": "empuja a la retratada hasta el borde, mientras un enorme ramo ocupa el centro. Ella aparta la mirada de todo, perdida en sus pensamientos. Degas lo firmó en 1865 y quizá muestre a Madame Valpinçon, esposa de un amigo cercano.",
+        "artiste": "Edgar Degas"
+      },
+      "it": {
+        "titre": "Donna seduta accanto a un vaso di fiori",
+        "texte": "spinge la modella fino al bordo, mentre un enorme mazzo di fiori occupa il centro. Lei distoglie lo sguardo da tutto, persa nei suoi pensieri. Degas lo firmò nel 1865, e forse ritrae Madame Valpinçon, moglie di un caro amico.",
+        "artiste": "Edgar Degas"
+      },
+      "fr": {
+        "titre": "Femme assise à côté d'un vase de fleurs",
+        "texte": "pousse son modèle tout au bord, tandis qu'un énorme bouquet occupe le centre. Elle détourne le regard de tout, perdue dans ses pensées. Degas l'a signé en 1865 ; il représente peut-être Madame Valpinçon, l'épouse d'un ami proche.",
+        "artiste": "Edgar Degas"
+      },
+      "hu": {
+        "titre": "Ülő nő virágváza mellett",
+        "texte": "a modellt egészen a kép szélére tolja, a közepét pedig egy hatalmas csokor foglalja el. A nő mindenről elfordítja a tekintetét, gondolataiba merülve. Degas 1865-ben szignálta; talán Madame Valpinçont, egy közeli barátja feleségét ábrázolja.",
+        "artiste": "Edgar Degas"
+      },
+      "sr": {
+        "titre": "Žena koja sedi pored vaze s cvećem",
+        "texte": "gura ženu do same ivice slike, dok ogroman buket zauzima sredinu. Ona ne gleda ni u šta, izgubljena u mislima. Dega je sliku potpisao 1865, a možda prikazuje madam Valpenson, suprugu bliskog prijatelja.",
+        "artiste": "Edgar Dega"
+      },
+      "hr": {
+        "titre": "Žena koja sjedi pokraj vaze s cvijećem",
+        "texte": "gura ženu do samog ruba slike, dok golemi buket zauzima sredinu. Ona ne gleda ni u što, izgubljena u mislima. Degas je sliku potpisao 1865., a možda prikazuje Madame Valpinçon, suprugu bliskog prijatelja.",
+        "artiste": "Edgar Degas"
+      },
+      "lv": {
+        "titre": "Sieviete blakus ziedu vāzei",
+        "texte": "pabīda sievieti līdz pašai malai, kamēr centru aizņem milzīgs pušķis. Viņa skatās prom no visa, iegrimusi domās. Degā to parakstīja 1865. gadā; iespējams, tā ir madame Valpensona, tuva drauga sieva.",
+        "artiste": "Edgars Degā"
+      },
+      "ro": {
+        "titre": "Femeie așezată lângă o vază cu flori",
+        "texte": "își împinge modelul până la margine, în timp ce un buchet uriaș ocupă centrul. Femeia privește în altă parte, pierdută în gânduri. Degas l-a semnat în 1865 și s-ar putea să o înfățișeze pe Madame Valpinçon, soția unui prieten apropiat.",
         "artiste": "Edgar Degas"
       }
     },
@@ -79,6 +169,51 @@
         "titre": "Shoes",
         "texte": "was painted in Arles in 1888: just a pair of worn boots on a tiled floor. Van Gogh painted shoes again and again, as if they could tell the story of the people who walked in them.",
         "artiste": "Vincent van Gogh"
+      },
+      "el": {
+        "titre": "Παπούτσια",
+        "texte": "ζωγραφίστηκαν στην Αρλ το 1888: μόνο ένα ζευγάρι φθαρμένα μποτάκια σε πλακόστρωτο πάτωμα. Ο Βαν Γκογκ ζωγράφιζε παπούτσια ξανά και ξανά, σαν να μπορούσαν να πουν την ιστορία όσων περπάτησαν μ' αυτά.",
+        "artiste": "Βίνσεντ βαν Γκογκ"
+      },
+      "es-419": {
+        "titre": "Zapatos",
+        "texte": "fueron pintados en Arlés en 1888: solo un par de botas gastadas sobre un piso de baldosas. Van Gogh pintó zapatos una y otra vez, como si pudieran contar la historia de quienes caminaron con ellos.",
+        "artiste": "Vincent van Gogh"
+      },
+      "it": {
+        "titre": "Scarpe",
+        "texte": "furono dipinte ad Arles nel 1888: solo un paio di stivaletti consumati su un pavimento di piastrelle. Van Gogh dipinse scarpe più e più volte, come se potessero raccontare la storia di chi ci aveva camminato.",
+        "artiste": "Vincent van Gogh"
+      },
+      "fr": {
+        "titre": "Souliers",
+        "texte": "ont été peints à Arles en 1888 : juste une paire de chaussures usées sur un sol carrelé. Van Gogh a peint des souliers encore et encore, comme s'ils pouvaient raconter l'histoire de ceux qui y avaient marché.",
+        "artiste": "Vincent van Gogh"
+      },
+      "hu": {
+        "titre": "Cipők",
+        "texte": "Arles-ban készültek 1888-ban: csak egy pár kopott bakancs egy csempézett padlón. Van Gogh újra meg újra cipőket festett, mintha el tudnák mesélni azok történetét, akik viselték őket.",
+        "artiste": "Vincent van Gogh"
+      },
+      "sr": {
+        "titre": "Cipele",
+        "texte": "naslikane su u Arlu 1888: samo par izlizanih cipela na podu od pločica. Van Gog je slikao cipele iznova i iznova, kao da mogu da ispričaju priču ljudi koji su u njima hodali.",
+        "artiste": "Vinsent van Gog"
+      },
+      "hr": {
+        "titre": "Cipele",
+        "texte": "naslikane su u Arlesu 1888.: samo par izlizanih cipela na podu od pločica. Van Gogh je slikao cipele iznova i iznova, kao da mogu ispričati priču ljudi koji su u njima hodali.",
+        "artiste": "Vincent van Gogh"
+      },
+      "lv": {
+        "titre": "Kurpes",
+        "texte": "gleznotas Arlā 1888. gadā: tikai nonēsātu zābaku pāris uz flīžu grīdas. Van Gogs gleznoja apavus atkal un atkal, it kā tie varētu izstāstīt to cilvēku stāstu, kas tajos staigājuši.",
+        "artiste": "Vinsents van Gogs"
+      },
+      "ro": {
+        "titre": "Pantofi",
+        "texte": "au fost pictați la Arles în 1888: doar o pereche de ghete tocite pe o podea cu dale. Van Gogh a pictat pantofi iar și iar, ca și cum ar putea spune povestea celor care au umblat în ei.",
+        "artiste": "Vincent van Gogh"
       }
     },
     {
@@ -88,6 +223,51 @@
         "titre": "Rue Eugène Moussoir at Moret: Winter",
         "texte": "is an almost empty street in the small town where Sisley lived his last years. He painted it under snow in 1891, with only a few tiny figures walking away.",
         "artiste": "Alfred Sisley"
+      },
+      "el": {
+        "titre": "Οδός Εζέν Μουσουάρ στο Μορέ: Χειμώνας",
+        "texte": "είναι ένας σχεδόν άδειος δρόμος στη μικρή πόλη όπου ο Σισλέ πέρασε τα τελευταία του χρόνια. Τον ζωγράφισε χιονισμένο το 1891, με λίγες μόνο μικροσκοπικές φιγούρες που απομακρύνονται.",
+        "artiste": "Άλφρεντ Σισλέ"
+      },
+      "es-419": {
+        "titre": "Calle Eugène Moussoir en Moret: invierno",
+        "texte": "es una calle casi vacía del pueblito donde Sisley vivió sus últimos años. La pintó bajo la nieve en 1891, con apenas unas figuras diminutas que se alejan.",
+        "artiste": "Alfred Sisley"
+      },
+      "it": {
+        "titre": "Rue Eugène Moussoir a Moret: inverno",
+        "texte": "è una strada quasi deserta della cittadina dove Sisley visse i suoi ultimi anni. La dipinse sotto la neve nel 1891, con solo poche figurine che si allontanano.",
+        "artiste": "Alfred Sisley"
+      },
+      "fr": {
+        "titre": "Rue Eugène-Moussoir à Moret, l'hiver",
+        "texte": "est une rue presque vide de la petite ville où Sisley a vécu ses dernières années. Il l'a peinte sous la neige en 1891, avec seulement quelques minuscules silhouettes qui s'éloignent.",
+        "artiste": "Alfred Sisley"
+      },
+      "hu": {
+        "titre": "Rue Eugène Moussoir, Moret: tél",
+        "texte": "egy szinte üres utca abban a kisvárosban, ahol Sisley utolsó éveit élte. 1891-ben festette meg hó alatt, csak néhány apró, távolodó alakkal.",
+        "artiste": "Alfred Sisley"
+      },
+      "sr": {
+        "titre": "Ulica Ežen Musoar u Moreu: zima",
+        "texte": "je gotovo prazna ulica u gradiću u kom je Sisli proveo poslednje godine. Naslikao ju je pod snegom 1891, sa tek nekoliko sićušnih prilika koje odlaze.",
+        "artiste": "Alfred Sisli"
+      },
+      "hr": {
+        "titre": "Ulica Eugène Moussoir u Moretu: zima",
+        "texte": "gotovo je prazna ulica u gradiću u kojem je Sisley proveo posljednje godine. Naslikao ju je pod snijegom 1891., sa samo nekoliko sićušnih likova koji odlaze.",
+        "artiste": "Alfred Sisley"
+      },
+      "lv": {
+        "titre": "Ežena Musuāra iela Morē: ziema",
+        "texte": "ir gandrīz tukša iela mazpilsētā, kur Sislijs pavadīja pēdējos dzīves gadus. Viņš to uzgleznoja sniegā 1891. gadā, tikai ar dažiem sīkiem, prom ejošiem stāviem.",
+        "artiste": "Alfrēds Sislijs"
+      },
+      "ro": {
+        "titre": "Strada Eugène Moussoir la Moret: iarnă",
+        "texte": "este o stradă aproape goală din orășelul unde Sisley și-a trăit ultimii ani. A pictat-o sub zăpadă în 1891, cu doar câteva siluete minuscule care se îndepărtează.",
+        "artiste": "Alfred Sisley"
       }
     },
     {
@@ -96,6 +276,51 @@
       "en": {
         "titre": "Lachrymae",
         "texte": "means tears. A woman in black leans against a column beside a tomb, holding a wreath. Leighton painted it in his last years; he died in 1896, the day after he was made a lord. Artura gives me one painting a day and the story behind it; this one stayed with me.",
+        "artiste": "Frederic Leighton"
+      },
+      "el": {
+        "titre": "Lachrymae",
+        "texte": "σημαίνει «δάκρυα». Μια γυναίκα στα μαύρα ακουμπά σε μια κολόνα δίπλα σε έναν τάφο, κρατώντας ένα στεφάνι. Ο Λέιτον τον ζωγράφισε στα τελευταία του χρόνια· πέθανε το 1896, την επομένη αφού έγινε λόρδος. Η Artura μού δίνει έναν πίνακα τη μέρα και την ιστορία του· αυτός έμεινε μέσα μου.",
+        "artiste": "Φρέντερικ Λέιτον"
+      },
+      "es-419": {
+        "titre": "Lachrymae",
+        "texte": "significa «lágrimas». Una mujer de negro se apoya en una columna junto a una tumba, con una corona en la mano. Leighton la pintó en sus últimos años; murió en 1896, al día siguiente de ser nombrado lord. Artura me da una pintura al día y la historia que hay detrás; esta se quedó conmigo.",
+        "artiste": "Frederic Leighton"
+      },
+      "it": {
+        "titre": "Lachrymae",
+        "texte": "significa «lacrime». Una donna in nero si appoggia a una colonna accanto a una tomba, con una corona in mano. Leighton lo dipinse negli ultimi anni; morì nel 1896, il giorno dopo essere stato nominato lord. Artura mi regala un quadro al giorno e la storia che c'è dietro; questo mi è rimasto dentro.",
+        "artiste": "Frederic Leighton"
+      },
+      "fr": {
+        "titre": "Lachrymae",
+        "texte": "veut dire « larmes ». Une femme en noir s'appuie contre une colonne près d'un tombeau, une couronne à la main. Leighton l'a peint dans ses dernières années ; il est mort en 1896, le lendemain du jour où il a été fait lord. Artura me donne un tableau par jour et l'histoire qui va avec ; celui-ci m'est resté.",
+        "artiste": "Frederic Leighton"
+      },
+      "hu": {
+        "titre": "Lachrymae",
+        "texte": "azt jelenti: könnyek. Egy fekete ruhás nő egy oszlopnak dől egy sír mellett, kezében koszorúval. Leighton utolsó éveiben festette; 1896-ban halt meg, egy nappal azután, hogy lorddá tették. Az Artura app minden nap ad egy festményt és a mögötte rejlő történetet; ez bennem maradt.",
+        "artiste": "Frederic Leighton"
+      },
+      "sr": {
+        "titre": "Lachrymae",
+        "texte": "znači „suze”. Žena u crnom naslanja se na stub pored groba, sa vencem u ruci. Lejton ju je naslikao u poslednjim godinama; umro je 1896, dan nakon što je postao lord. Aplikacija Artura mi svakog dana daje jednu sliku i priču iza nje; ova mi je ostala u srcu.",
+        "artiste": "Frederik Lejton"
+      },
+      "hr": {
+        "titre": "Lachrymae",
+        "texte": "znači „suze”. Žena u crnom naslanja se na stup pokraj groba, s vijencem u ruci. Leighton ju je naslikao u posljednjim godinama; umro je 1896., dan nakon što je postao lord. Aplikacija Artura svaki mi dan daje jednu sliku i priču iza nje; ova mi je ostala u srcu.",
+        "artiste": "Frederic Leighton"
+      },
+      "lv": {
+        "titre": "Lachrymae",
+        "texte": "nozīmē „asaras”. Sieviete melnā atbalstās pret kolonnu pie kapa, rokās turot vainagu. Leitons to gleznoja savos pēdējos gados; viņš nomira 1896. gadā, nākamajā dienā pēc tam, kad kļuva par lordu. Lietotne Artura man katru dienu dod vienu gleznu un tās stāstu; šī palika manī.",
+        "artiste": "Frederiks Leitons"
+      },
+      "ro": {
+        "titre": "Lachrymae",
+        "texte": "înseamnă „lacrimi”. O femeie în negru se sprijină de o coloană lângă un mormânt, ținând o coroană. Leighton l-a pictat în ultimii ani; a murit în 1896, a doua zi după ce a fost făcut lord. Aplicația Artura îmi oferă un tablou pe zi și povestea din spatele lui; acesta mi-a rămas în suflet.",
         "artiste": "Frederic Leighton"
       }
     }

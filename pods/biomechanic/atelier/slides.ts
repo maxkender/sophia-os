@@ -259,6 +259,9 @@ const JAUGE: Record<string, { bas: string; moyen: string; haut: string; titre: s
   it: { bas: "BASSO", moyen: "MEDIO", haut: "ALTO", titre: "CORTISOLO" },
   hu: { bas: "ALACSONY", moyen: "KÖZEPES", haut: "MAGAS", titre: "KORTIZOL" },
   sr: { bas: "NIZAK", moyen: "SREDNJI", haut: "VISOK", titre: "KORTIZOL" },
+  ro: { bas: "SCĂZUT", moyen: "MEDIU", haut: "RIDICAT", titre: "CORTIZOL" },
+  de: { bas: "NIEDRIG", moyen: "MITTEL", haut: "HOCH", titre: "CORTISOL" },
+  tr: { bas: "DÜŞÜK", moyen: "ORTA", haut: "YÜKSEK", titre: "KORTİZOL" },
 };
 
 function jauge(ctx: Ctx, langue: string) {

@@ -2,10 +2,24 @@
   "id": "rt-016",
   "type_bleo": "full_test",
   "titre": {
-    "en": "people from history u should actually know about"
+    "en": "people from history u should actually know about",
+    "fr": "les gens de l'histoire que tu dois vraiment connaître",
+    "sv": "personer i historien du borde känna till på riktigt",
+    "it": "persone della storia che dovresti proprio conoscere",
+    "ro": "oameni din istorie pe care chiar trebuie să-i știi",
+    "de": "menschen aus der geschichte, die du echt kennen solltest",
+    "tr": "tarihte adını bilmen gereken insanlar",
+    "hu": "emberek a múltból, akikről tényleg kéne tudnod"
   },
   "legendes": {
-    "en": "history class taught us the same ten names. there are so many more people worth knowing.\n\nscientists, artists, explorers, writers and builders whose stories are honestly better than most movies.\n\npick one and read their story tonight.\n\nsave this for ur next history rabbit hole.\n\n#history #learning #curiosity #studytok #selfimprovement"
+    "en": "history class taught us the same ten names. there are so many more people worth knowing.\n\nscientists, artists, explorers, writers and builders whose stories are honestly better than most movies.\n\npick one and read their story tonight.\n\nsave this for ur next history rabbit hole.\n\n#history #learning #curiosity #studytok #selfimprovement",
+    "fr": "en cours d'histoire on nous a appris les dix mêmes noms. il y a tellement d'autres gens qui valent le coup.\n\ndes scientifiques, des artistes, des explorateurs, des écrivains et des bâtisseurs dont l'histoire est honnêtement mieux que la plupart des films.\n\nchoisis-en un et lis son histoire ce soir.\n\nenregistre ça pour ton prochain rabbit hole d'histoire.\n\n#histoire #culturegenerale #apprendresurtiktok #studytok #learning",
+    "sv": "historielektionerna lärde oss samma tio namn. det finns så många fler människor som är värda att känna till.\n\nforskare, konstnärer, upptäcktsresande, författare och byggare vars historier ärligt talat är bättre än de flesta filmer.\n\nvälj en och läs om hen i kväll.\n\nspara det här till ditt nästa historiska kaninhål.\n\n#historia #learning #studytok #allmänbildning #fördig",
+    "it": "a scuola ci hanno insegnato sempre gli stessi dieci nomi. ci sono tantissime altre persone che vale la pena conoscere.\n\nscienziati, artisti, esploratori, scrittori e costruttori con storie onestamente più belle della maggior parte dei film.\n\nscegline uno e leggi la sua storia stasera.\n\nsalvalo per il tuo prossimo rabbit hole di storia.\n\n#history #learning #curiosity #studytok #selfimprovement #storia #imparaconte #perte",
+    "ro": "la ora de istorie am învățat aceleași zece nume. există mult mai mulți oameni care merită știuți.\n\noameni de știință, artiști, exploratori, scriitori și constructori ale căror povești sunt sincer mai bune decât majoritatea filmelor.\n\nalege unul și citește-i povestea diseară.\n\nsalvează asta pt următorul tău rabbit hole istoric.\n\n#studytok #learning #istorie #curiozitati #romania",
+    "de": "im geschichtsunterricht hören wir immer dieselben zehn namen. dabei gibt es so viel mehr menschen, die es wert sind, sie zu kennen.\n\nwissenschaftlerinnen, künstler, entdecker, schriftstellerinnen und erfinder, deren geschichten ehrlich gesagt besser sind als die meisten filme.\n\nsuch dir eine person aus und lies heute abend ihre geschichte.\n\nspeicher dir das für dein nächstes geschichts-rabbit-hole.\n\n#studytok #learning #geschichte #allgemeinwissen #wissen",
+    "tr": "tarih dersi bize hep aynı on ismi öğretti. tanımaya değer çok daha fazla insan var.\n\nbilim insanları, sanatçılar, kâşifler, yazarlar ve hikâyeleri açıkçası çoğu filmden daha iyi olan mucitler.\n\nbirini seç ve bu gece hikâyesini oku.\n\nbir sonraki tarih tavşan deliğin için kaydet.\n\n#studytok #learning #tarih #keşfet #merak",
+    "hu": "a töriórán mindig ugyanazt a tíz nevet tanultuk. pedig sokkal több embert érdemes ismerni.\n\ntudósok, művészek, felfedezők, írók és építők, akiknek a története őszintén jobb a legtöbb filmnél.\n\nválassz egyet, és olvasd el a történetét ma este.\n\nmentsd el a következő történelmi nyúlüreghez.\n\n#történelem #tanulás #magyartiktok #studytok #learning"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -36,6 +50,27 @@
       ],
       "en": {
         "titre": "people from history\nu should actually\nknow about"
+      },
+      "fr": {
+        "titre": "les gens de l'histoire\nque tu dois vraiment\nconnaître"
+      },
+      "sv": {
+        "titre": "personer i historien\ndu borde känna till\npå riktigt"
+      },
+      "it": {
+        "titre": "persone della storia\nche dovresti proprio\nconoscere"
+      },
+      "ro": {
+        "titre": "oameni din istorie\npe care chiar trebuie\nsă-i știi"
+      },
+      "de": {
+        "titre": "menschen aus der\ngeschichte, die du\necht kennen solltest"
+      },
+      "tr": {
+        "titre": "tarihte adını bilmen\ngereken insanlar"
+      },
+      "hu": {
+        "titre": "emberek a múltból,\nakikről tényleg kéne\ntudnod"
       }
     },
     {
@@ -56,6 +91,125 @@
           "Al-Khwarizmi",
           "Lise Meitner"
         ]
+      },
+      "fr": {
+        "titre": "Scientifiques",
+        "sujets": [
+          "Ada Lovelace",
+          "Marie Curie",
+          "Rosalind Franklin",
+          "Nikola Tesla",
+          "Ibn al-Haytham",
+          "Emmy Noether",
+          "Srinivasa Ramanujan",
+          "Katherine Johnson",
+          "Alexander von Humboldt",
+          "Barbara McClintock",
+          "Al-Khwârizmî",
+          "Lise Meitner"
+        ]
+      },
+      "sv": {
+        "titre": "Forskare",
+        "sujets": [
+          "Ada Lovelace",
+          "Marie Curie",
+          "Rosalind Franklin",
+          "Nikola Tesla",
+          "Ibn al-Haytham",
+          "Emmy Noether",
+          "Srinivasa Ramanujan",
+          "Katherine Johnson",
+          "Alexander von Humboldt",
+          "Barbara McClintock",
+          "al-Khwarizmi",
+          "Lise Meitner"
+        ]
+      },
+      "it": {
+        "titre": "Scienziati",
+        "sujets": [
+          "Ada Lovelace",
+          "Marie Curie",
+          "Rosalind Franklin",
+          "Nikola Tesla",
+          "Alhazen",
+          "Emmy Noether",
+          "Srinivasa Ramanujan",
+          "Katherine Johnson",
+          "Alexander von Humboldt",
+          "Barbara McClintock",
+          "Al-Khwarizmi",
+          "Lise Meitner"
+        ]
+      },
+      "ro": {
+        "titre": "Oameni de știință",
+        "sujets": [
+          "Ada Lovelace",
+          "Marie Curie",
+          "Rosalind Franklin",
+          "Nikola Tesla",
+          "Ibn al-Haytham",
+          "Emmy Noether",
+          "Srinivasa Ramanujan",
+          "Katherine Johnson",
+          "Alexander von Humboldt",
+          "Barbara McClintock",
+          "Al-Horezmi",
+          "Lise Meitner"
+        ]
+      },
+      "de": {
+        "titre": "Wissenschaftler",
+        "sujets": [
+          "Ada Lovelace",
+          "Marie Curie",
+          "Rosalind Franklin",
+          "Nikola Tesla",
+          "Ibn al-Haitham",
+          "Emmy Noether",
+          "Srinivasa Ramanujan",
+          "Katherine Johnson",
+          "Alexander von Humboldt",
+          "Barbara McClintock",
+          "Al-Chwarizmi",
+          "Lise Meitner"
+        ]
+      },
+      "tr": {
+        "titre": "Bilim insanları",
+        "sujets": [
+          "Ada Lovelace",
+          "Marie Curie",
+          "Rosalind Franklin",
+          "Nikola Tesla",
+          "İbn-i Heysem",
+          "Emmy Noether",
+          "Srinivasa Ramanujan",
+          "Katherine Johnson",
+          "Alexander von Humboldt",
+          "Barbara McClintock",
+          "Harezmi",
+          "Lise Meitner"
+        ]
+      },
+      "hu": {
+        "titre": "Tudósok",
+        "sujets": [
+          "Ada Lovelace",
+          "Marie Curie",
+          "Rosalind Franklin",
+          "Nikola Tesla",
+          "Ibn al-Hajszam",
+          "Emmy Noether",
+          "Srínivásza Rámánudzsan",
+          "Katherine Johnson",
+          "Alexander von Humboldt",
+          "Barbara McClintock",
+          "Al-Hvárizmi",
+          "Lise Meitner"
+        ]
       }
     },
     {
@@ -73,6 +227,125 @@
           "Sofonisba Anguissola",
           "Gustav Klimt",
           "Utagawa Hiroshige",
+          "Berthe Morisot",
+          "Tamara de Lempicka"
+        ]
+      },
+      "fr": {
+        "titre": "Artistes",
+        "sujets": [
+          "Hokusai",
+          "Frida Kahlo",
+          "Hilma af Klint",
+          "Rembrandt",
+          "Johannes Vermeer",
+          "Georgia O'Keeffe",
+          "Henri Matisse",
+          "Sofonisba Anguissola",
+          "Gustav Klimt",
+          "Hiroshige",
+          "Berthe Morisot",
+          "Tamara de Lempicka"
+        ]
+      },
+      "sv": {
+        "titre": "Konstnärer",
+        "sujets": [
+          "Hokusai",
+          "Frida Kahlo",
+          "Hilma af Klint",
+          "Rembrandt",
+          "Jan Vermeer",
+          "Georgia O'Keeffe",
+          "Henri Matisse",
+          "Sofonisba Anguissola",
+          "Gustav Klimt",
+          "Utagawa Hiroshige",
+          "Berthe Morisot",
+          "Tamara de Lempicka"
+        ]
+      },
+      "it": {
+        "titre": "Artisti",
+        "sujets": [
+          "Hokusai",
+          "Frida Kahlo",
+          "Hilma af Klint",
+          "Rembrandt",
+          "Jan Vermeer",
+          "Georgia O'Keeffe",
+          "Henri Matisse",
+          "Sofonisba Anguissola",
+          "Gustav Klimt",
+          "Utagawa Hiroshige",
+          "Berthe Morisot",
+          "Tamara de Lempicka"
+        ]
+      },
+      "ro": {
+        "titre": "Artiști",
+        "sujets": [
+          "Hokusai",
+          "Frida Kahlo",
+          "Hilma af Klint",
+          "Rembrandt",
+          "Johannes Vermeer",
+          "Georgia O'Keeffe",
+          "Henri Matisse",
+          "Sofonisba Anguissola",
+          "Gustav Klimt",
+          "Utagawa Hiroshige",
+          "Berthe Morisot",
+          "Tamara de Lempicka"
+        ]
+      },
+      "de": {
+        "titre": "Künstler",
+        "sujets": [
+          "Hokusai",
+          "Frida Kahlo",
+          "Hilma af Klint",
+          "Rembrandt",
+          "Jan Vermeer",
+          "Georgia O'Keeffe",
+          "Henri Matisse",
+          "Sofonisba Anguissola",
+          "Gustav Klimt",
+          "Utagawa Hiroshige",
+          "Berthe Morisot",
+          "Tamara de Lempicka"
+        ]
+      },
+      "tr": {
+        "titre": "Sanatçılar",
+        "sujets": [
+          "Hokusai",
+          "Frida Kahlo",
+          "Hilma af Klint",
+          "Rembrandt",
+          "Johannes Vermeer",
+          "Georgia O'Keeffe",
+          "Henri Matisse",
+          "Sofonisba Anguissola",
+          "Gustav Klimt",
+          "Utagawa Hiroşige",
+          "Berthe Morisot",
+          "Tamara de Lempicka"
+        ]
+      },
+      "hu": {
+        "titre": "Művészek",
+        "sujets": [
+          "Hokuszai",
+          "Frida Kahlo",
+          "Hilma af Klint",
+          "Rembrandt",
+          "Johannes Vermeer",
+          "Georgia O'Keeffe",
+          "Henri Matisse",
+          "Sofonisba Anguissola",
+          "Gustav Klimt",
+          "Utagava Hirosige",
           "Berthe Morisot",
           "Tamara de Lempicka"
         ]
@@ -96,6 +369,125 @@
           "Sacagawea",
           "Jacques Cousteau"
         ]
+      },
+      "fr": {
+        "titre": "Explorateurs et voyageurs",
+        "sujets": [
+          "Ibn Battûta",
+          "Zheng He",
+          "Marco Polo",
+          "Xuanzang",
+          "Leif Erikson",
+          "Isabella Bird",
+          "Nellie Bly",
+          "Ernest Shackleton",
+          "Roald Amundsen",
+          "Matthew Henson",
+          "Sacagawea",
+          "Jacques-Yves Cousteau"
+        ]
+      },
+      "sv": {
+        "titre": "Upptäcktsresande",
+        "sujets": [
+          "Ibn Battuta",
+          "Zheng He",
+          "Marco Polo",
+          "Xuanzang",
+          "Leif Eriksson",
+          "Isabella Bird",
+          "Nellie Bly",
+          "Ernest Shackleton",
+          "Roald Amundsen",
+          "Matthew Henson",
+          "Sacagawea",
+          "Jacques-Yves Cousteau"
+        ]
+      },
+      "it": {
+        "titre": "Esploratori e viaggiatori",
+        "sujets": [
+          "Ibn Battuta",
+          "Zheng He",
+          "Marco Polo",
+          "Xuanzang",
+          "Leif Erikson",
+          "Isabella Bird",
+          "Nellie Bly",
+          "Ernest Shackleton",
+          "Roald Amundsen",
+          "Matthew Henson",
+          "Sacagawea",
+          "Jacques Cousteau"
+        ]
+      },
+      "ro": {
+        "titre": "Exploratori și călători",
+        "sujets": [
+          "Ibn Battuta",
+          "Zheng He",
+          "Marco Polo",
+          "Xuanzang",
+          "Leif Eriksson",
+          "Isabella Bird",
+          "Nellie Bly",
+          "Ernest Shackleton",
+          "Roald Amundsen",
+          "Matthew Henson",
+          "Sacagawea",
+          "Jacques Cousteau"
+        ]
+      },
+      "de": {
+        "titre": "Entdecker & Reisende",
+        "sujets": [
+          "Ibn Battuta",
+          "Zheng He",
+          "Marco Polo",
+          "Xuanzang",
+          "Leif Eriksson",
+          "Isabella Bird",
+          "Nellie Bly",
+          "Ernest Shackleton",
+          "Roald Amundsen",
+          "Matthew Henson",
+          "Sacagawea",
+          "Jacques-Yves Cousteau"
+        ]
+      },
+      "tr": {
+        "titre": "Kâşifler ve gezginler",
+        "sujets": [
+          "İbn Battuta",
+          "Zheng He",
+          "Marco Polo",
+          "Xuanzang",
+          "Leif Erikson",
+          "Isabella Bird",
+          "Nellie Bly",
+          "Ernest Shackleton",
+          "Roald Amundsen",
+          "Matthew Henson",
+          "Sacagawea",
+          "Jacques Cousteau"
+        ]
+      },
+      "hu": {
+        "titre": "Felfedezők és utazók",
+        "sujets": [
+          "Ibn Battúta",
+          "Cseng Ho",
+          "Marco Polo",
+          "Hszüan-cang",
+          "Leif Eriksson",
+          "Isabella Bird",
+          "Nellie Bly",
+          "Ernest Shackleton",
+          "Roald Amundsen",
+          "Matthew Henson",
+          "Sacagawea",
+          "Jacques-Yves Cousteau"
+        ]
       }
     },
     {
@@ -105,6 +497,55 @@
         "paragraphes": [
           "i don't research all of this from scratch. every night i do one short lesson on Sophia: history, philosophy, science, geopolitics, literature, economics.",
           "they're written by actual professors, with a little quiz after. a lot of these names, i first heard about there."
+        ]
+      },
+      "fr": {
+        "titre": "une leçon par soir",
+        "paragraphes": [
+          "je fais pas toutes ces recherches de zéro. chaque soir je fais une courte leçon sur Sophia: histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "elles sont écrites par de vrais profs, avec un petit quiz après. beaucoup de ces noms, c'est là que je les ai entendus pour la première fois."
+        ]
+      },
+      "sv": {
+        "titre": "en lektion varje kväll",
+        "paragraphes": [
+          "jag researchar inte allt det här från noll. varje kväll gör jag en kort lektion på Sophia: historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
+          "de är skrivna av riktiga professorer, med ett litet quiz efteråt. många av de här namnen hörde jag först där."
+        ]
+      },
+      "it": {
+        "titre": "una lezione ogni sera",
+        "paragraphes": [
+          "non faccio ricerche su tutto partendo da zero. ogni sera faccio una lezione breve su Sophia: storia, filosofia, scienze, geopolitica, letteratura, economia.",
+          "sono scritte da veri professori, con un piccolo quiz alla fine. molti di questi nomi li ho sentiti lì per la prima volta."
+        ]
+      },
+      "ro": {
+        "titre": "o lecție pe seară",
+        "paragraphes": [
+          "nu caut toate astea de la zero. în fiecare seară fac o lecție scurtă pe Sophia: istorie, filozofie, științe, geopolitică, literatură, economie.",
+          "sunt scrise de profesori adevărați, cu un mic quiz la final. pe mulți dintre oamenii ăștia i-am auzit prima dată acolo."
+        ]
+      },
+      "de": {
+        "titre": "eine lektion pro abend",
+        "paragraphes": [
+          "ich recherchiere das alles nicht von null auf. jeden abend mache ich eine kurze lektion bei Sophia: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "sie sind von echten professoren geschrieben, mit einem kleinen quiz danach. von vielen dieser namen hab ich dort zum ersten mal gehört."
+        ]
+      },
+      "tr": {
+        "titre": "her gece bir ders",
+        "paragraphes": [
+          "bunların hepsini sıfırdan araştırmıyorum. her gece Sophia'da kısa bir ders yapıyorum: tarih, felsefe, bilim, jeopolitik, edebiyat, ekonomi.",
+          "dersleri gerçek profesörler yazıyor, sonunda da küçük bir quiz var. bu isimlerin çoğunu ilk kez orada duydum."
+        ]
+      },
+      "hu": {
+        "titre": "esténként egy lecke",
+        "paragraphes": [
+          "nem mindennek a nulláról nézek utána. minden este csinálok egy rövid leckét a Sophia appban: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "igazi professzorok írják, és utána van egy kis kvíz. ezeknek a neveknek a nagy részét ott hallottam először."
         ]
       }
     },
@@ -121,6 +562,125 @@
           "Leo Tolstoy",
           "Fyodor Dostoevsky",
           "Rabindranath Tagore",
+          "Virginia Woolf",
+          "Franz Kafka",
+          "Jorge Luis Borges",
+          "Chinua Achebe"
+        ]
+      },
+      "fr": {
+        "titre": "Écrivains",
+        "sujets": [
+          "Murasaki Shikibu",
+          "Sappho",
+          "Christine de Pizan",
+          "Mary Shelley",
+          "Jane Austen",
+          "Léon Tolstoï",
+          "Fiodor Dostoïevski",
+          "Rabindranath Tagore",
+          "Virginia Woolf",
+          "Franz Kafka",
+          "Jorge Luis Borges",
+          "Chinua Achebe"
+        ]
+      },
+      "sv": {
+        "titre": "Författare",
+        "sujets": [
+          "Murasaki Shikibu",
+          "Sapfo",
+          "Christine de Pizan",
+          "Mary Shelley",
+          "Jane Austen",
+          "Lev Tolstoj",
+          "Fjodor Dostojevskij",
+          "Rabindranath Tagore",
+          "Virginia Woolf",
+          "Franz Kafka",
+          "Jorge Luis Borges",
+          "Chinua Achebe"
+        ]
+      },
+      "it": {
+        "titre": "Scrittori",
+        "sujets": [
+          "Murasaki Shikibu",
+          "Saffo",
+          "Cristina da Pizzano",
+          "Mary Shelley",
+          "Jane Austen",
+          "Lev Tolstoj",
+          "Fëdor Dostoevskij",
+          "Rabindranath Tagore",
+          "Virginia Woolf",
+          "Franz Kafka",
+          "Jorge Luis Borges",
+          "Chinua Achebe"
+        ]
+      },
+      "ro": {
+        "titre": "Scriitori",
+        "sujets": [
+          "Murasaki Shikibu",
+          "Safo",
+          "Christine de Pizan",
+          "Mary Shelley",
+          "Jane Austen",
+          "Lev Tolstoi",
+          "Feodor Dostoievski",
+          "Rabindranath Tagore",
+          "Virginia Woolf",
+          "Franz Kafka",
+          "Jorge Luis Borges",
+          "Chinua Achebe"
+        ]
+      },
+      "de": {
+        "titre": "Schriftsteller",
+        "sujets": [
+          "Murasaki Shikibu",
+          "Sappho",
+          "Christine de Pizan",
+          "Mary Shelley",
+          "Jane Austen",
+          "Leo Tolstoi",
+          "Fjodor Dostojewski",
+          "Rabindranath Tagore",
+          "Virginia Woolf",
+          "Franz Kafka",
+          "Jorge Luis Borges",
+          "Chinua Achebe"
+        ]
+      },
+      "tr": {
+        "titre": "Yazarlar",
+        "sujets": [
+          "Murasaki Şikibu",
+          "Sappho",
+          "Christine de Pizan",
+          "Mary Shelley",
+          "Jane Austen",
+          "Lev Tolstoy",
+          "Fyodor Dostoyevski",
+          "Rabindranath Tagore",
+          "Virginia Woolf",
+          "Franz Kafka",
+          "Jorge Luis Borges",
+          "Chinua Achebe"
+        ]
+      },
+      "hu": {
+        "titre": "Írók",
+        "sujets": [
+          "Muraszaki Sikibu",
+          "Szapphó",
+          "Christine de Pizan",
+          "Mary Shelley",
+          "Jane Austen",
+          "Lev Tolsztoj",
+          "Fjodor Dosztojevszkij",
+          "Rabindranáth Tagore",
           "Virginia Woolf",
           "Franz Kafka",
           "Jorge Luis Borges",
@@ -145,6 +705,118 @@
           "Buckminster Fuller",
           "Tim Berners-Lee"
         ]
+      },
+      "fr": {
+        "titre": "Inventeurs et bâtisseurs",
+        "sujets": [
+          "Imhotep",
+          "Archimède",
+          "Léonard de Vinci",
+          "Hildegarde de Bingen",
+          "Avicenne",
+          "Gutenberg",
+          "Benjamin Franklin",
+          "Isambard Kingdom Brunel",
+          "Grace Hopper",
+          "Buckminster Fuller",
+          "Tim Berners-Lee"
+        ]
+      },
+      "sv": {
+        "titre": "Uppfinnare och byggare",
+        "sujets": [
+          "Imhotep",
+          "Arkimedes",
+          "Leonardo da Vinci",
+          "Hildegard av Bingen",
+          "Avicenna",
+          "Johannes Gutenberg",
+          "Benjamin Franklin",
+          "Isambard Kingdom Brunel",
+          "Grace Hopper",
+          "Buckminster Fuller",
+          "Tim Berners-Lee"
+        ]
+      },
+      "it": {
+        "titre": "Inventori e costruttori",
+        "sujets": [
+          "Imhotep",
+          "Archimede",
+          "Leonardo da Vinci",
+          "Ildegarda di Bingen",
+          "Avicenna",
+          "Johannes Gutenberg",
+          "Benjamin Franklin",
+          "Isambard Kingdom Brunel",
+          "Grace Hopper",
+          "Buckminster Fuller",
+          "Tim Berners-Lee"
+        ]
+      },
+      "ro": {
+        "titre": "Inventatori și constructori",
+        "sujets": [
+          "Imhotep",
+          "Arhimede",
+          "Leonardo da Vinci",
+          "Hildegard von Bingen",
+          "Avicenna",
+          "Johannes Gutenberg",
+          "Benjamin Franklin",
+          "Isambard Kingdom Brunel",
+          "Grace Hopper",
+          "Buckminster Fuller",
+          "Tim Berners-Lee"
+        ]
+      },
+      "de": {
+        "titre": "Erfinder & Baumeister",
+        "sujets": [
+          "Imhotep",
+          "Archimedes",
+          "Leonardo da Vinci",
+          "Hildegard von Bingen",
+          "Avicenna",
+          "Johannes Gutenberg",
+          "Benjamin Franklin",
+          "Isambard Kingdom Brunel",
+          "Grace Hopper",
+          "Buckminster Fuller",
+          "Tim Berners-Lee"
+        ]
+      },
+      "tr": {
+        "titre": "Mucitler ve inşacılar",
+        "sujets": [
+          "İmhotep",
+          "Arşimet",
+          "Leonardo da Vinci",
+          "Bingenli Hildegard",
+          "İbn-i Sina",
+          "Johannes Gutenberg",
+          "Benjamin Franklin",
+          "Isambard Kingdom Brunel",
+          "Grace Hopper",
+          "Buckminster Fuller",
+          "Tim Berners-Lee"
+        ]
+      },
+      "hu": {
+        "titre": "Feltalálók és építők",
+        "sujets": [
+          "Imhotep",
+          "Arkhimédész",
+          "Leonardo da Vinci",
+          "Bingeni Szent Hildegárd",
+          "Avicenna",
+          "Johannes Gutenberg",
+          "Benjamin Franklin",
+          "Isambard Kingdom Brunel",
+          "Grace Hopper",
+          "Buckminster Fuller",
+          "Tim Berners-Lee"
+        ]
       }
     },
     {
@@ -152,6 +824,34 @@
       "en": {
         "texte": "save this and pick one person a week. read their story, then tell someone about them.",
         "gras": "OR.. forget they ever existed."
+      },
+      "fr": {
+        "texte": "enregistre ça et choisis une personne par semaine. lis son histoire, puis parle d'elle à quelqu'un.",
+        "gras": "OU.. oublie qu'elle a existé."
+      },
+      "sv": {
+        "texte": "spara det här och välj en person i veckan. läs om hen och berätta sen om hen för någon.",
+        "gras": "ELLER.. glöm att de någonsin fanns."
+      },
+      "it": {
+        "texte": "salvalo e scegli una persona a settimana. leggi la sua storia, poi raccontala a qualcuno.",
+        "gras": "O.. dimentica che siano mai esistiti."
+      },
+      "ro": {
+        "texte": "salvează asta și alege câte un om pe săptămână. citește-i povestea, apoi povestește-i cuiva despre el.",
+        "gras": "SAU.. uită că au existat vreodată."
+      },
+      "de": {
+        "texte": "speicher dir das und nimm dir jede woche eine person vor. lies ihre geschichte und erzähl danach jemandem von ihr.",
+        "gras": "ODER.. vergiss, dass es sie je gab."
+      },
+      "tr": {
+        "texte": "bunu kaydet ve haftada bir kişi seç. hikâyesini oku, sonra birine ondan bahset.",
+        "gras": "YA DA.. hiç var olmamışlar gibi unut gitsin."
+      },
+      "hu": {
+        "texte": "mentsd el, és válassz hetente egy embert. olvasd el a történetét, aztán mesélj róla valakinek.",
+        "gras": "VAGY.. felejtsd el, hogy valaha is léteztek."
       }
     }
   ]

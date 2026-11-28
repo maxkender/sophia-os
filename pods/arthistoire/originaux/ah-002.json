@@ -1,0 +1,61 @@
+{
+  "source_id": "ah-002",
+  "type_bleo": "full_test",
+  "titre": "Il croit qu'on lui lit l'avenir. En réalité, on est en train de le voler, sous nos yeux. 🪙 #art #histoire #peinture #georgesdelatour",
+  "musique_titre": "Van Gogh",
+  "musique_url": "https://www.tiktok.com/music/van-gogh-6925913364229163009",
+  "inspirations": [
+    "1caf3295-4d52-449c-9d0f-174e5c75a123"
+  ],
+  "notes": "Full test, format « un tableau, une histoire » (modèle : 1caf3295, 1,9 M). Tableau : The Fortune-Teller, Georges de La Tour, probablement années 1630, The Met 60.30, objet 436838, domaine public (Open Access). Faits (Wikipédia en « The Fortune Teller (La Tour) », qui cite Pariset, Metropolitan Museum of Art Bulletin, mars 1961) : un jeune homme se fait dire la bonne aventure par la vieille femme à droite, qui prend la pièce de sa main ; la femme de gauche lui vole sa bourse ; la jeune fille pâle coupe la médaille de sa chaîne ; acheté par le Met en 1960 ; la sortie de France fait polémique dans la presse (André Malraux, ministre, doit s'en expliquer devant l'Assemblée nationale). Date « vers 1630 » : Wikipédia (« circa 1630 ») ; le Met dit « probably 1630s ». Écarté : l'histoire du prisonnier de guerre qui l'aurait reconnu (« is said to », non sûr). Accroches écartées : « REGARDEZ BIEN SES MAINS », « TOUT LE MONDE LE VOLE ».",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4bdfd453",
+      "texte_overlay": "IL SE FAIT DÉPOUILLER\nSOUS NOS YEUX\nET IL NE VOIT RIEN",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3c569ca3",
+      "texte_overlay": "Une vieille femme\nlui prédit l'avenir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "cdd7dd9b",
+      "texte_overlay": "Il lui tend une pièce.\nElle la prend dans sa main.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0f50b6e3",
+      "texte_overlay": "Pendant ce temps,\nregardez les autres.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ddaae1f2",
+      "texte_overlay": "À gauche, une main\nglisse vers sa bourse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "4f45686f",
+      "texte_overlay": "Une autre coupe la médaille\npendue à sa chaîne.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "bbb81060",
+      "texte_overlay": "En 1960, le tableau part pour New York.\nEn France, c'est le scandale.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "c9b4190b",
+      "texte_overlay": "La Diseuse de bonne aventure\nGeorges de La Tour\nvers 1630",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/12.jpg"
+    }
+  ]
+}

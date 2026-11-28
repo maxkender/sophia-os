@@ -1,0 +1,61 @@
+{
+  "source_id": "ah-003",
+  "type_bleo": "full_test",
+  "titre": "Condamné à mort, il passe ses dernières minutes à enseigner. Ses amis, eux, s'effondrent. ⚱️ #art #histoire #peinture #jacqueslouisdavid",
+  "musique_titre": "Solitude ( Felsmann + Tiley Reinterpretation) - Slowed Down",
+  "musique_url": "https://www.tiktok.com/music/solitude-felsmann-tiley-reinterpretation-7050179691797433094",
+  "inspirations": [
+    "1caf3295-4d52-449c-9d0f-174e5c75a123"
+  ],
+  "notes": "Full test, format « un tableau, une histoire » (modèle : 1caf3295). Tableau : The Death of Socrates, Jacques-Louis David, 1787, The Met 31.45, objet 436105, domaine public. Faits (Wikipédia en « The Death of Socrates », d'après le Phédon de Platon) : condamné pour avoir corrompu la jeunesse d'Athènes et introduit des dieux étrangers, à mort par la ciguë ; il fait face calmement ; une main tendue vers la coupe, l'autre levée : il enseigne encore ; le jeune homme qui tend la coupe détourne le visage ; ses amis en détresse ; le vieil homme au pied du lit est Platon, qui n'était pas présent (lettre du père Adry à David) et aurait été jeune à la mort de Socrate. Le Phédon porte sur l'immortalité de l'âme. Accroches écartées : « IL VA MOURIR ET IL CONTINUE DE PARLER », « LE DERNIER COURS DE SOCRATE ».",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "794c31c1",
+      "texte_overlay": "IL VA BOIRE LE POISON\nDANS QUELQUES SECONDES\nET POURTANT ...",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "70b3815d",
+      "texte_overlay": "Athènes l'a condamné à mort\npour avoir « corrompu la jeunesse ».",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "4990f893",
+      "texte_overlay": "On lui tend la coupe de ciguë.\nSa main ne tremble pas.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "a0e2e4a4",
+      "texte_overlay": "Celui qui la lui tend\nne peut même pas le regarder.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c129f616",
+      "texte_overlay": "Ses amis s'effondrent.\nLui continue d'enseigner.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "e4245571",
+      "texte_overlay": "Au pied du lit,\nce vieil homme, c'est Platon.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "72f5bcf9",
+      "texte_overlay": "Mais Platon n'était pas là ce jour-là.\nEt il était encore jeune.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "63cd4e3e",
+      "texte_overlay": "La Mort de Socrate\nJacques-Louis David\n1787",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/12.jpg"
+    }
+  ]
+}

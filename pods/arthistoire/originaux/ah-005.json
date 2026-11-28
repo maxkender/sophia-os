@@ -1,0 +1,61 @@
+{
+  "source_id": "ah-005",
+  "type_bleo": "full_test",
+  "titre": "Le jardin de ses parents, à Domrémy. C'est là que tout commence pour Jeanne d'Arc. Bastien-Lepage a peint ce qu'elle seule voyait. 🕯️ #art #histoire #peinture #jeannedarc",
+  "musique_titre": "la petite fille de la mera",
+  "musique_url": "https://www.tiktok.com/music/la-petite-fille-de-la-mera-7179941862060051206",
+  "inspirations": [
+    "1caf3295-4d52-449c-9d0f-174e5c75a123"
+  ],
+  "notes": "Full test, format « un tableau, une histoire » (modèle : 1caf3295). Tableau : Joan of Arc, Jules Bastien-Lepage, 1879, The Met 89.21.1, objet 435621, domaine public. Faits : (Wikipédia en « Joan of Arc (painting) ») le moment où sainte Catherine, sainte Marguerite et l'archange Michel apparaissent à Jeanne dans le jardin de ses parents à Domrémy et la pressent de combattre les Anglais ; (Wikipédia en « Joan of Arc ») née dans une famille paysanne de Domrémy ; elle a témoigné avoir eu treize ans (vers 1425) à la première apparition (« dira-t-elle ») ; brûlée sur le bûcher le 30 mai 1431, à environ dix-neuf ans. Accroches écartées : « ELLE N'A QUE 13 ANS ET POURTANT ... » (trop proche du 1,9 M de @glacis1), « PERSONNE NE LES VOIT SAUF ELLE ».",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "a356f4f2",
+      "texte_overlay": "ELLE N'EST QU'UNE PAYSANNE\nET POURTANT ...",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d4b73098",
+      "texte_overlay": "Domrémy.\nLe jardin de ses parents.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "4b512e0c",
+      "texte_overlay": "Sa main se tend dans le vide.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2ff5ae5f",
+      "texte_overlay": "Derrière elle, à peine visible :\nsaint Michel en armure.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ee507c52",
+      "texte_overlay": "Et deux saintes,\nCatherine et Marguerite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "251ac966",
+      "texte_overlay": "Ils lui demandent\nd'aller combattre les Anglais.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "06fbdb2d",
+      "texte_overlay": "Elle dira avoir eu 13 ans\nla première fois.\nÀ 19 ans, on la brûle vive.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "ad37dce8",
+      "texte_overlay": "Jeanne d'Arc\nJules Bastien-Lepage\n1879",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/12.jpg"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "source_id": "ah-004",
+  "type_bleo": "full_test",
+  "titre": "Velázquez a peint l'homme qu'il possédait. Ce portrait est devenu l'un des tableaux les plus célèbres du monde. 🎨 #art #histoire #peinture #velazquez",
+  "musique_titre": "Aquarelle",
+  "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+  "inspirations": [
+    "1caf3295-4d52-449c-9d0f-174e5c75a123"
+  ],
+  "notes": "Full test, format « un tableau, une histoire » (modèle : 1caf3295). Tableau : Juan de Pareja, Velázquez, 1650, The Met 1971.86, objet 437869, domaine public. Faits (Wikipédia en « Portrait of Juan de Pareja ») : peint à Rome en 1650 ; Pareja, esclave de Velázquez et assistant de son atelier ; exposé au Panthéon le 19 mars 1650 ; d'après la biographie de Palomino, les peintres disaient que les autres tableaux étaient de l'art, celui-ci seul « la vérité » (citation rapportée, attribuée « les peintres disent ») ; affranchi par Velázquez en 1654 (« quatre ans plus tard ») ; devenu peintre lui-même ; vendu chez Christie's le 27 novembre 1970, premier tableau vendu plus d'un million de livres, record du prix d'un tableau aux enchères. Accroches écartées : « CE TABLEAU A BATTU TOUS LES RECORDS », « IL N'ÉTAIT QU'UN ASSISTANT ».",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "cfd94c23",
+      "texte_overlay": "IL ÉTAIT ESCLAVE\nET POURTANT ...",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "24d02ae5",
+      "texte_overlay": "Rome, 1650.\nVelázquez peint son assistant.\nUn homme qu'il possède.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2aacb1ce",
+      "texte_overlay": "Le portrait est exposé au Panthéon,\nau milieu d'autres tableaux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "1d52e0dd",
+      "texte_overlay": "Les peintres disent :\nles autres sont de l'art,\ncelui-ci est « la vérité ».",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "003a1396",
+      "texte_overlay": "Quatre ans plus tard,\nVelázquez lui rend sa liberté.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "7eb6d169",
+      "texte_overlay": "Pareja devient peintre à son tour.\nEn 1970, son portrait bat le record\ndu monde aux enchères.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "384d9cfe",
+      "texte_overlay": "Juan de Pareja\nDiego Velázquez\n1650",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611667019158539552/12.jpg"
+    }
+  ]
+}

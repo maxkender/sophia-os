@@ -19,9 +19,11 @@ const r = await appelPod<{ images: { id: string; url: string }[] }>({ action: "i
 if (!r.ok) throw new Error(r.error);
 const url = new Map(r.images.map((i) => [i.id.slice(0, 8), i]));
 
-async function empreinte(mediaId: string): Promise<bigint> {
+// Une image livrée depuis 14 jours n'est plus renvoyée par `images` (0671) : sa couverture n'est pas
+// comparée (null), le titre de slide 1 l'est toujours.
+async function empreinte(mediaId: string): Promise<bigint | null> {
   const img = url.get(mediaId.slice(0, 8));
-  if (!img) throw new Error(`image ${mediaId} absente de la banque`);
+  if (!img) return null;
   const c = createCanvas(9, 8);
   const ctx = c.getContext("2d");
   ctx.drawImage(await loadImage(await image(img.id, img.url)), 0, 0, 9, 8);
@@ -40,7 +42,7 @@ const titre = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 const originaux = readdirSync("originaux")
   .filter((f) => f.endsWith(".json"))
   .map((f) => JSON.parse(readFileSync(`originaux/${f}`, "utf8")) as Original);
-const couv = new Map<string, bigint>();
+const couv = new Map<string, bigint | null>();
 for (const o of originaux) couv.set(o.source_id, await empreinte(o.slides[0].media_id));
 
 let doublons = 0;
@@ -61,7 +63,8 @@ for (const id of cibles) {
       console.log(`${id} : même titre de slide 1 que ${autre.source_id}`);
       doublons++;
     }
-    const d = distance(couv.get(id)!, couv.get(autre.source_id)!);
+    const a = couv.get(id), b = couv.get(autre.source_id);
+    const d = a != null && b != null ? distance(a, b) : Infinity;
     if (d <= 10) {
       console.log(`${id} : même couverture que ${autre.source_id} (${o.slides[0].media_id} ≈ ${autre.slides[0].media_id}, distance ${d})`);
       doublons++;

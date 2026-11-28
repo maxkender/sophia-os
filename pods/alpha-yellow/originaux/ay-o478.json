@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o478",
+ "type_bleo": "full_test",
+ "titre": "What to do the night before a big day #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « What to do the night before a big day » (retenue), « How to prepare for an important day » (écartée : plat), « Night-before routine » (écartée : jargon).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "50129ba8-cfde-4b48-8fc8-28878869f91f",
+   "texte_overlay": "What to do the night\nbefore a big day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Prepare everything you need. Clothes, documents, bag, keys. Laying it out the night before removes stress from the morning.",
+   "media_id": "553eb078-74bc-4958-918a-69856fb09a8c"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Plan your route and timing. Check the address and leave extra time. Arriving early calms your nerves for whatever comes next.",
+   "media_id": "561f229b-9ed8-4a32-9180-669bd5b1b6e9"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Eat a normal dinner. Nothing too heavy or new. Your body should feel comfortable, not surprised. Keep it short and simple.",
+   "media_id": "56e2e661-190e-4817-9c9f-9e6ca05a2917"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Do a short review, not a full cram. Look over your key points once, then stop. Rest helps you remember better than panic.",
+   "media_id": "57f345c2-e2bb-40ad-a54f-d33406385775"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Calm your mind with something different. I do five minutes a day of history, art or science, and it takes my head off tomorrow for a moment.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It takes my head off tomorrow for a moment.",
+   "media_id": "5a171e9b-1cba-4dfd-ac88-119f121f475a"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Go to bed at your normal time. Going to bed too early often means lying awake. Keep your rhythm. Trust your routine.",
+   "media_id": "59c6d406-9fea-49b4-ba34-ca764b61334d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Remind yourself why you're ready. Write down three things you've done to prepare. Confidence comes from preparation, not luck.",
+   "media_id": "59d3dff7-4bd7-42fd-b7cc-5c1ce98ba37f"
+  }
+ ]
+}

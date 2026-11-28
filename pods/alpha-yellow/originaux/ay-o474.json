@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o474",
+ "type_bleo": "full_test",
+ "titre": "How to build a home gym on a small budget #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to build a home gym on a small budget » (retenue), « You don't need a gym membership » (écartée : négatif), « Home workout setup for men » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "07dd3e45-4d16-4002-b5a7-ac86412bc4fd",
+   "texte_overlay": "How to build a home gym\non a small budget",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Start with a pull-up bar. It fits in a doorway and trains your back, arms and grip. One of the best tools for its price.",
+   "media_id": "12df9aba-ddaa-49b5-b565-68a830c97a91"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Get a pair of adjustable dumbbells. They replace a full rack and let you train every muscle group in a small space.",
+   "media_id": "13e5b598-5c1e-4b86-bb71-e9d4085bb378"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Add resistance bands. Cheap, light and perfect for warm-ups, mobility work and extra resistance on push-ups.",
+   "media_id": "14a5317e-677a-4662-95c0-28197a99cef0"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Buy a good mat. Floor work, stretching and core training are easier and kinder to your back on a proper surface.",
+   "media_id": "15a85d8d-42e7-498d-8134-44f229af15f5"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Train your mind at home too, right after your workout.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Train your mind at home too, right after your workout.",
+   "media_id": "0ca3b0a3-808d-46c6-b8b1-0c56da56b1f4"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Look for second-hand equipment. People sell almost new weights all the time. You can build a full setup for very little.",
+   "media_id": "15b8bdf6-df16-4792-8087-6ab5071ab6f7"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Keep it visible. A home gym hidden in a cupboard gets forgotten. A small corner you see every day gets used.",
+   "media_id": "1601df24-7132-46c0-a510-f3d5a31c000e"
+  }
+ ]
+}

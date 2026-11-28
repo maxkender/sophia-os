@@ -1,0 +1,677 @@
+{
+ "id": "da-008",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698126851037875477",
+  "vues": 2100000,
+  "publie_le": "2026-10-18",
+  "accroche": "Iceberg of Autistic hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of Autistic hobbies for winter",
+  "es-419": "Iceberg de hobbies autistas para el invierno",
+  "tr": "Otistik hobiler buzdağı (kış için)",
+  "hu": "Autista hobbik jéghegye (télre)",
+  "ro": "Icebergul hobby-urilor autiste pentru iarnă",
+  "cs": "Ledovec autistických koníčků na zimu",
+  "sr": "Santa leda autističnih hobija za zimu",
+  "el": "Το παγόβουνο των αυτιστικών χόμπι για τον χειμώνα"
+ },
+ "legendes": {
+  "en": "#autismtok #iceberg #hobbies #lockedin #selfimprovement",
+  "es-419": "#autismo #hobbies #iceberg #superacionpersonal #lockedin",
+  "tr": "#otizm #hobiler #buzdağı #kişiselgelişim #lockedin",
+  "hu": "#autizmus #hobbik #jéghegy #önfejlesztés #lockedin",
+  "ro": "#autism #hobby #iceberg #dezvoltarepersonala #lockedin",
+  "cs": "#autismus #konicky #ledovec #seberozvoj #lockedin",
+  "sr": "#autizam #hobi #santaleda #samorazvoj #lockedin",
+  "el": "#αυτισμός #χόμπι #παγόβουνο #αυτοβελτίωση #lockedin"
+ },
+ "musique": {
+  "titre": "оригинальный звук",
+  "url": "https://www.tiktok.com/music/original-sound-7695439871377722133"
+ },
+ "oeuvres": {
+  "images/objets/barometre.png": {
+   "musee": "The Met",
+   "id": "205575",
+   "titre": "Barometer",
+   "artiste": "John Whitehurst",
+   "date": "1760",
+   "url": "https://www.metmuseum.org/art/collection/search/205575"
+  },
+  "images/objets/horloge-table.png": {
+   "musee": "The Met",
+   "id": "194107",
+   "titre": "Table clock",
+   "artiste": "Bartholomew Newsam",
+   "date": "1580–85",
+   "url": "https://www.metmuseum.org/art/collection/search/194107"
+  },
+  "images/objets/chat-egyptien.png": {
+   "musee": "The Met",
+   "id": "552880",
+   "titre": "Statuette of a cat",
+   "artiste": "",
+   "date": "664–332 BCE",
+   "url": "https://www.metmuseum.org/art/collection/search/552880"
+  },
+  "images/objets/flacon-parfum.png": {
+   "musee": "The Met",
+   "id": "204953",
+   "titre": "Perfume bottle",
+   "artiste": "Jasper Fysher",
+   "date": "foot 1577/78, body ca. 1585",
+   "url": "https://www.metmuseum.org/art/collection/search/204953"
+  },
+  "images/objets/casque-armet.png": {
+   "musee": "The Met",
+   "id": "22901",
+   "titre": "Armet",
+   "artiste": "",
+   "date": "ca. 1500–1510",
+   "url": "https://www.metmuseum.org/art/collection/search/22901"
+  },
+  "images/objets/bateau-terre.png": {
+   "musee": "The Met",
+   "id": "241307",
+   "titre": "Terracotta model of a ship",
+   "artiste": "",
+   "date": "ca. 600–480 BCE",
+   "url": "https://www.metmuseum.org/art/collection/search/241307"
+  },
+  "images/objets/bouclier.png": {
+   "musee": "The Met",
+   "id": "25415",
+   "titre": "Shield",
+   "artiste": "",
+   "date": "ca. 1560",
+   "url": "https://www.metmuseum.org/art/collection/search/25415"
+  },
+  "images/objets/cruche.png": {
+   "musee": "The Met",
+   "id": "244837",
+   "titre": "Jug",
+   "artiste": "",
+   "date": "ca. 550–500 BCE",
+   "url": "https://www.metmuseum.org/art/collection/search/244837"
+  },
+  "images/objets/tabatiere.png": {
+   "musee": "The Met",
+   "id": "41546",
+   "titre": "Snuff Bottle",
+   "artiste": "",
+   "date": "",
+   "url": "https://www.metmuseum.org/art/collection/search/41546"
+  },
+  "images/objets/cage-oiseau.png": {
+   "musee": "The Met",
+   "id": "41997",
+   "titre": "Bird cage with hook",
+   "artiste": "",
+   "date": "",
+   "url": "https://www.metmuseum.org/art/collection/search/41997"
+  },
+  "images/objets/masque-armure.png": {
+   "musee": "The Met",
+   "id": "22739",
+   "titre": "Mask",
+   "artiste": "Myōchin Muneakira",
+   "date": "dated 1745",
+   "url": "https://www.metmuseum.org/art/collection/search/22739"
+  }
+ },
+ "notes": "Full test : « Iceberg of Autistic hobbies for winter » (note « *for winter »). Artura au 3e étage : « one artura painting a day », cta B. Sans IA : objets du Met détourés. En 8 langues.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "Autistic hobbies",
+    "note": "*for winter"
+   },
+   "es-419": {
+    "haut": "Iceberg de",
+    "bas": "hobbies autistas",
+    "note": "*para el invierno"
+   },
+   "tr": {
+    "haut": "Buzdağı:",
+    "bas": "Otistik hobiler",
+    "note": "*kış için"
+   },
+   "hu": {
+    "haut": "Jéghegy:",
+    "bas": "Autista hobbik",
+    "note": "*télre"
+   },
+   "ro": {
+    "haut": "Icebergul",
+    "bas": "hobby-urilor autiste",
+    "note": "*pentru iarnă"
+   },
+   "cs": {
+    "haut": "Ledovec",
+    "bas": "autistických koníčků",
+    "note": "*na zimu"
+   },
+   "sr": {
+    "haut": "Santa leda",
+    "bas": "autističnih hobija",
+    "note": "*za zimu"
+   },
+   "el": {
+    "haut": "Παγόβουνο:",
+    "bas": "αυτιστικά χόμπι",
+    "note": "*για τον χειμώνα"
+   }
+  },
+  {
+   "type": "iceberg",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "weather records",
+       "image": "images/objets/barometre.png"
+      },
+      {
+       "t": "clock repair",
+       "image": "images/objets/horloge-table.png"
+      },
+      {
+       "t": "cat facts",
+       "image": "images/objets/chat-egyptien.png"
+      },
+      {
+       "t": "perfume history",
+       "image": "images/objets/flacon-parfum.png"
+      }
+     ],
+     [
+      {
+       "t": "armor history",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "ship models",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "heraldry",
+       "image": "images/objets/bouclier.png"
+      },
+      {
+       "t": "greek pottery",
+       "image": "images/objets/cruche.png"
+      }
+     ],
+     [
+      {
+       "t": "one artura painting a day",
+       "image": "artura"
+      },
+      {
+       "t": "chinese snuff bottles",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "canary songs",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "japanese armor",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "es-419": {
+    "etages": [
+     [
+      {
+       "t": "registro del clima",
+       "image": "images/objets/barometre.png"
+      },
+      {
+       "t": "reparar relojes",
+       "image": "images/objets/horloge-table.png"
+      },
+      {
+       "t": "datos de gatos",
+       "image": "images/objets/chat-egyptien.png"
+      },
+      {
+       "t": "historia del perfume",
+       "image": "images/objets/flacon-parfum.png"
+      }
+     ],
+     [
+      {
+       "t": "historia de armaduras",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "barcos a escala",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "heráldica",
+       "image": "images/objets/bouclier.png"
+      },
+      {
+       "t": "cerámica griega",
+       "image": "images/objets/cruche.png"
+      }
+     ],
+     [
+      {
+       "t": "un cuadro de artura al día",
+       "image": "artura"
+      },
+      {
+       "t": "frascos de rapé chinos",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "canto de canarios",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "armaduras japonesas",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "¿en desacuerdo?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "hava kayıtları",
+       "image": "images/objets/barometre.png"
+      },
+      {
+       "t": "saat tamiri",
+       "image": "images/objets/horloge-table.png"
+      },
+      {
+       "t": "kedi bilgileri",
+       "image": "images/objets/chat-egyptien.png"
+      },
+      {
+       "t": "parfüm tarihi",
+       "image": "images/objets/flacon-parfum.png"
+      }
+     ],
+     [
+      {
+       "t": "zırh tarihi",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "gemi maketleri",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "armacılık",
+       "image": "images/objets/bouclier.png"
+      },
+      {
+       "t": "yunan çömlekleri",
+       "image": "images/objets/cruche.png"
+      }
+     ],
+     [
+      {
+       "t": "günlük tablo (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "çin enfiye şişeleri",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "kanarya ötüşü",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "japon zırhları",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "hu": {
+    "etages": [
+     [
+      {
+       "t": "időjárás figyelése",
+       "image": "images/objets/barometre.png"
+      },
+      {
+       "t": "óra-javítás",
+       "image": "images/objets/horloge-table.png"
+      },
+      {
+       "t": "macskás tények",
+       "image": "images/objets/chat-egyptien.png"
+      },
+      {
+       "t": "parfümök története",
+       "image": "images/objets/flacon-parfum.png"
+      }
+     ],
+     [
+      {
+       "t": "régi páncélok",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "hajómakettek",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "heraldika",
+       "image": "images/objets/bouclier.png"
+      },
+      {
+       "t": "görög kerámia",
+       "image": "images/objets/cruche.png"
+      }
+     ],
+     [
+      {
+       "t": "napi festmény (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "kínai tubákosüvegek",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "kanárik dala",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "japán páncélok",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "nem értesz egyet?"
+   },
+   "ro": {
+    "etages": [
+     [
+      {
+       "t": "jurnal meteo",
+       "image": "images/objets/barometre.png"
+      },
+      {
+       "t": "reparat ceasuri",
+       "image": "images/objets/horloge-table.png"
+      },
+      {
+       "t": "fapte despre pisici",
+       "image": "images/objets/chat-egyptien.png"
+      },
+      {
+       "t": "istoria parfumului",
+       "image": "images/objets/flacon-parfum.png"
+      }
+     ],
+     [
+      {
+       "t": "istoria armurilor",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "machete de nave",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "heraldică",
+       "image": "images/objets/bouclier.png"
+      },
+      {
+       "t": "ceramică greacă",
+       "image": "images/objets/cruche.png"
+      }
+     ],
+     [
+      {
+       "t": "un tablou pe zi pe artura",
+       "image": "artura"
+      },
+      {
+       "t": "sticle chinezești",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "cântec de canar",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "armuri japoneze",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "nu ești de acord?"
+   },
+   "cs": {
+    "etages": [
+     [
+      {
+       "t": "záznamy počasí",
+       "image": "images/objets/barometre.png"
+      },
+      {
+       "t": "oprava hodin",
+       "image": "images/objets/horloge-table.png"
+      },
+      {
+       "t": "kočičí fakta",
+       "image": "images/objets/chat-egyptien.png"
+      },
+      {
+       "t": "dějiny parfémů",
+       "image": "images/objets/flacon-parfum.png"
+      }
+     ],
+     [
+      {
+       "t": "dějiny zbrojí",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "modely lodí",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "heraldika",
+       "image": "images/objets/bouclier.png"
+      },
+      {
+       "t": "řecká keramika",
+       "image": "images/objets/cruche.png"
+      }
+     ],
+     [
+      {
+       "t": "jeden obraz denně (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "čínské tabatěrky",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "zpěv kanárů",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "japonské zbroje",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "nesouhlasíš?"
+   },
+   "sr": {
+    "etages": [
+     [
+      {
+       "t": "praćenje vremena",
+       "image": "images/objets/barometre.png"
+      },
+      {
+       "t": "popravka satova",
+       "image": "images/objets/horloge-table.png"
+      },
+      {
+       "t": "činjenice o mačkama",
+       "image": "images/objets/chat-egyptien.png"
+      },
+      {
+       "t": "istorija parfema",
+       "image": "images/objets/flacon-parfum.png"
+      }
+     ],
+     [
+      {
+       "t": "istorija oklopa",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "makete brodova",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "heraldika",
+       "image": "images/objets/bouclier.png"
+      },
+      {
+       "t": "grčka keramika",
+       "image": "images/objets/cruche.png"
+      }
+     ],
+     [
+      {
+       "t": "slika dnevno (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "kineske burmutice",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "pesma kanarinca",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "japanski oklopi",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "ne slažeš se?"
+   },
+   "el": {
+    "etages": [
+     [
+      {
+       "t": "καταγραφή καιρού",
+       "image": "images/objets/barometre.png"
+      },
+      {
+       "t": "επισκευή ρολογιών",
+       "image": "images/objets/horloge-table.png"
+      },
+      {
+       "t": "γάτες",
+       "image": "images/objets/chat-egyptien.png"
+      },
+      {
+       "t": "ιστορία αρωμάτων",
+       "image": "images/objets/flacon-parfum.png"
+      }
+     ],
+     [
+      {
+       "t": "ιστορία πανοπλιών",
+       "image": "images/objets/casque-armet.png"
+      },
+      {
+       "t": "μακέτες πλοίων",
+       "image": "images/objets/bateau-terre.png"
+      },
+      {
+       "t": "εραλδική",
+       "image": "images/objets/bouclier.png"
+      },
+      {
+       "t": "αρχαία κεραμική",
+       "image": "images/objets/cruche.png"
+      }
+     ],
+     [
+      {
+       "t": "πίνακας τη μέρα (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "κινέζικες ταμπακιέρες",
+       "image": "images/objets/tabatiere.png"
+      }
+     ],
+     [
+      {
+       "t": "τραγούδι καναρινιών",
+       "image": "images/objets/cage-oiseau.png"
+      }
+     ],
+     [
+      {
+       "t": "ιαπωνικές πανοπλίες",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "διαφωνείς;"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

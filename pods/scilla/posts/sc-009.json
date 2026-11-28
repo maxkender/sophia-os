@@ -1,0 +1,292 @@
+{
+ "id": "sc-009",
+ "titre": {
+  "en": "How the way you walk through a museum reveals how you look at everything",
+  "de": "Wie du durch ein Museum gehst, verrät, wie du alles ansiehst",
+  "fr": "Ta façon de visiter un musée révèle ta façon de regarder tout le reste",
+  "it": "Come giri per un museo rivela come guardi tutto il resto",
+  "es": "Cómo recorres un museo revela cómo miras todo lo demás",
+  "pt-BR": "O jeito que você anda num museu revela como você olha para tudo",
+  "nl": "Hoe je door een museum loopt, verraadt hoe je naar alles kijkt",
+  "pl": "To, jak chodzisz po muzeum, zdradza, jak patrzysz na wszystko"
+ },
+ "legendes": {
+  "en": "which one are you at a museum?\n#art #museum #arthistory #paintings #slowliving",
+  "de": "welcher Typ bist du im Museum?\n#kunst #museum #kunstgeschichte #gemälde #slowliving",
+  "fr": "tu es lequel au musée ?\n#art #musée #histoiredelart #peinture #slowliving",
+  "it": "tu chi sei al museo?\n#arte #museo #storiadellarte #pittura #slowliving",
+  "es": "¿cuál eres tú en un museo?\n#arte #museo #historiadelarte #pintura #slowliving",
+  "pt-BR": "qual é você no museu?\n#arte #museu #historiadaarte #pintura #slowliving",
+  "nl": "welke ben jij in een museum?\n#kunst #museum #kunstgeschiedenis #schilderijen #slowliving",
+  "pl": "kim jesteś w muzeum?\n#sztuka #muzeum #historiasztuki #malarstwo #slowliving"
+ },
+ "musique": {
+  "titre": "Doo Wop",
+  "url": "https://www.tiktok.com/music/Doo-Wop-5000000001211054791"
+ },
+ "oeuvres": {
+  "images/oeuvres/renoir-versailles.jpg": {
+   "musee": "The Met",
+   "id": "459113",
+   "titre": "Versailles",
+   "artiste": "Auguste Renoir",
+   "date": "1900–1905",
+   "url": "https://www.metmuseum.org/art/collection/search/459113"
+  },
+  "images/oeuvres/fragonard-lettre.jpg": {
+   "musee": "The Met",
+   "id": "436322",
+   "titre": "The Love Letter",
+   "artiste": "Jean Honoré Fragonard",
+   "date": "early 1770s",
+   "url": "https://www.metmuseum.org/art/collection/search/436322"
+  },
+  "images/oeuvres/bastien-lepage-jeanne.jpg": {
+   "musee": "The Met",
+   "id": "435621",
+   "titre": "Joan of Arc",
+   "artiste": "Jules Bastien-Lepage",
+   "date": "1879",
+   "url": "https://www.metmuseum.org/art/collection/search/435621"
+  },
+  "images/oeuvres/flegel-nature-morte.jpg": {
+   "musee": "The Met",
+   "id": "436305",
+   "titre": "Still Life",
+   "artiste": "Georg Flegel",
+   "date": "probably ca. 1625–30",
+   "url": "https://www.metmuseum.org/art/collection/search/436305"
+  },
+  "images/oeuvres/renoir-bord-de-mer.jpg": {
+   "musee": "The Met",
+   "id": "437430",
+   "titre": "By the Seashore",
+   "artiste": "Auguste Renoir",
+   "date": "1883",
+   "url": "https://www.metmuseum.org/art/collection/search/437430"
+  },
+  "images/oeuvres/courbet-jo.jpg": {
+   "musee": "The Met",
+   "id": "436001",
+   "titre": "Jo, La Belle Irlandaise",
+   "artiste": "Gustave Courbet",
+   "date": "1865–66",
+   "url": "https://www.metmuseum.org/art/collection/search/436001"
+  }
+ },
+ "notes": "Full test (accroche jamais faite chez nous), famille « How your … reveal … » au format de @scilla2047 : la façon de visiter un musée. Couverture : Renoir, Versailles (1900–1905, Met 459113). Faits : The Love Letter (Fragonard, début des années 1770, Met 436322) : une femme, une lettre, un petit chien ; Joan of Arc (Bastien-Lepage, 1879, Met 435621) : saint Michel, sainte Marguerite et sainte Catherine apparaissent derrière elle, à demi transparents (notice du Met ; bord du cadre rogné) ; Still Life (Flegel, ca. 1625–30, Met 436305) : un petit oiseau picore sur la table ; By the Seashore (Renoir, 1883, Met 437430) : la mer brossée vite, le visage plus fini ; Jo, La Belle Irlandaise (Courbet, 1865–66, Met 436001) : elle se regarde dans un miroir. Slide Artura (4) : Flegel avec le logo ; cta C.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/oeuvres/renoir-versailles.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "titre": "How the way you walk through a museum reveals {how you look at everything}"
+   },
+   "de": {
+    "titre": "Wie du durch ein Museum gehst, verrät, {wie du alles ansiehst}"
+   },
+   "fr": {
+    "titre": "Ta façon de visiter un musée révèle {ta façon de regarder tout le reste}"
+   },
+   "it": {
+    "titre": "Come giri per un museo rivela {come guardi tutto il resto}"
+   },
+   "es": {
+    "titre": "Cómo recorres un museo revela {cómo miras todo lo demás}"
+   },
+   "pt-BR": {
+    "titre": "O jeito que você anda num museu revela {como você olha para tudo}"
+   },
+   "nl": {
+    "titre": "Hoe je door een museum loopt, verraadt {hoe je naar alles kijkt}"
+   },
+   "pl": {
+    "titre": "To, jak chodzisz po muzeum, zdradza, {jak patrzysz na wszystko}"
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/fragonard-lettre.jpg",
+   "en": {
+    "titre": "If you read every label first",
+    "texte": "You trust words more than your eyes. Try looking first: a woman, a letter, a little dog, a smile she isn't explaining."
+   },
+   "de": {
+    "titre": "Wenn du zuerst jedes Schild liest",
+    "texte": "Du vertraust Worten mehr als deinen Augen. Schau zuerst hin: eine Frau, ein Brief, ein kleiner Hund, ein Lächeln, das sie nicht erklärt."
+   },
+   "fr": {
+    "titre": "Si tu lis chaque cartel d'abord",
+    "texte": "Tu fais plus confiance aux mots qu'à tes yeux. Essaie de regarder d'abord : une femme, une lettre, un petit chien, un sourire qu'elle n'explique pas."
+   },
+   "it": {
+    "titre": "Se leggi prima ogni didascalia",
+    "texte": "Ti fidi più delle parole che dei tuoi occhi. Prova a guardare prima: una donna, una lettera, un cagnolino, un sorriso che non spiega."
+   },
+   "es": {
+    "titre": "Si lees primero cada cartela",
+    "texte": "Confías más en las palabras que en tus ojos. Prueba a mirar primero: una mujer, una carta, un perrito, una sonrisa que no explica."
+   },
+   "pt-BR": {
+    "titre": "Se você lê cada legenda primeiro",
+    "texte": "Você confia mais nas palavras do que nos seus olhos. Tente olhar primeiro: uma mulher, uma carta, um cachorrinho, um sorriso que ela não explica."
+   },
+   "nl": {
+    "titre": "Als je eerst elk bordje leest",
+    "texte": "Je vertrouwt woorden meer dan je ogen. Kijk eerst: een vrouw, een brief, een hondje, een glimlach die ze niet uitlegt."
+   },
+   "pl": {
+    "titre": "Jeśli najpierw czytasz każdy opis",
+    "texte": "Ufasz słowom bardziej niż oczom. Spróbuj najpierw popatrzeć: kobieta, list, mały pies, uśmiech, którego nie tłumaczy."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/bastien-lepage-jeanne.jpg",
+   "en": {
+    "titre": "If you rush to the famous one",
+    "texte": "You miss what's half hidden. In Bastien-Lepage's Joan of Arc, three saints float behind her, almost see-through."
+   },
+   "de": {
+    "titre": "Wenn du zum berühmten Bild eilst",
+    "texte": "Dir entgeht, was halb versteckt ist. In Bastien-Lepages Jeanne d'Arc schweben drei Heilige hinter ihr, fast durchsichtig."
+   },
+   "fr": {
+    "titre": "Si tu fonces vers le plus célèbre",
+    "texte": "Tu rates ce qui est à moitié caché. Dans la Jeanne d'Arc de Bastien-Lepage, trois saints flottent derrière elle, presque transparents."
+   },
+   "it": {
+    "titre": "Se corri verso il più famoso",
+    "texte": "Ti perdi ciò che è nascosto a metà. Nella Giovanna d'Arco di Bastien-Lepage, tre santi fluttuano dietro di lei, quasi trasparenti."
+   },
+   "es": {
+    "titre": "Si corres hacia el más famoso",
+    "texte": "Te pierdes lo que está medio escondido. En la Juana de Arco de Bastien-Lepage, tres santos flotan detrás de ella, casi transparentes."
+   },
+   "pt-BR": {
+    "titre": "Se você corre para o mais famoso",
+    "texte": "Você perde o que está meio escondido. Na Joana d'Arc de Bastien-Lepage, três santos flutuam atrás dela, quase transparentes."
+   },
+   "nl": {
+    "titre": "Als je naar het beroemdste werk rent",
+    "texte": "Je mist wat half verborgen is. In de Jeanne d'Arc van Bastien-Lepage zweven drie heiligen achter haar, bijna doorzichtig."
+   },
+   "pl": {
+    "titre": "Jeśli biegniesz do najsłynniejszego",
+    "texte": "Przegapiasz to, co na wpół ukryte. Na obrazie Joanna d'Arc Bastien-Lepage'a za jej plecami unoszą się trzej święci, prawie przezroczyści."
+   }
+  },
+  {
+   "type": "artura",
+   "image": "images/oeuvres/flegel-nature-morte.jpg",
+   "en": {
+    "titre": "If you stop at the small ones",
+    "texte": "You find what others walk past, like the little bird stealing a bite on Flegel's table. I learned to look again one painting at a time, on Artura."
+   },
+   "de": {
+    "titre": "Wenn du bei den kleinen stehen bleibst",
+    "texte": "Du findest, woran andere vorbeigehen, wie den kleinen Vogel, der auf Flegels Tisch einen Bissen stiehlt. Ich habe auf Artura wieder sehen gelernt, ein Gemälde nach dem anderen."
+   },
+   "fr": {
+    "titre": "Si tu t'arrêtes devant les petits",
+    "texte": "Tu trouves ce que les autres ne voient pas, comme le petit oiseau qui chipe une bouchée sur la table de Flegel. J'ai réappris à regarder un tableau à la fois, sur Artura."
+   },
+   "it": {
+    "titre": "Se ti fermi davanti ai piccoli",
+    "texte": "Trovi quello che gli altri non vedono, come l'uccellino che ruba un boccone sul tavolo di Flegel. Ho imparato di nuovo a guardare un quadro alla volta, su Artura."
+   },
+   "es": {
+    "titre": "Si te detienes en los pequeños",
+    "texte": "Encuentras lo que otros pasan de largo, como el pajarito que roba un bocado en la mesa de Flegel. Aprendí a mirar otra vez un cuadro a la vez, en Artura."
+   },
+   "pt-BR": {
+    "titre": "Se você para nos pequenos",
+    "texte": "Você encontra o que os outros não veem, como o passarinho roubando uma mordida na mesa de Flegel. Reaprendi a olhar uma pintura de cada vez, no Artura."
+   },
+   "nl": {
+    "titre": "Als je bij de kleine blijft staan",
+    "texte": "Je vindt wat anderen voorbijlopen, zoals het vogeltje dat een hapje pikt op de tafel van Flegel. Ik heb opnieuw leren kijken, één schilderij tegelijk, op Artura."
+   },
+   "pl": {
+    "titre": "Jeśli zatrzymujesz się przy małych",
+    "texte": "Znajdujesz to, obok czego inni przechodzą, jak ptaszek podkradający kęs ze stołu Flegla. Na nowo uczę się patrzeć, obraz po obrazie, w aplikacji Artura."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/renoir-bord-de-mer.jpg",
+   "en": {
+    "titre": "If you sit on the bench",
+    "texte": "You let the painting come to you. A woman in a wicker chair, the sea behind her. Renoir's brush moves fast in the waves and slows down on her face."
+   },
+   "de": {
+    "titre": "Wenn du dich auf die Bank setzt",
+    "texte": "Du lässt das Bild zu dir kommen. Eine Frau im Korbstuhl, das Meer hinter ihr. Renoirs Pinsel ist schnell in den Wellen und wird langsam in ihrem Gesicht."
+   },
+   "fr": {
+    "titre": "Si tu t'assois sur le banc",
+    "texte": "Tu laisses le tableau venir à toi. Une femme dans un fauteuil en osier, la mer derrière elle. Le pinceau de Renoir va vite dans les vagues et ralentit sur son visage."
+   },
+   "it": {
+    "titre": "Se ti siedi sulla panchina",
+    "texte": "Lasci che il quadro venga da te. Una donna su una poltrona di vimini, il mare alle spalle. Il pennello di Renoir corre tra le onde e rallenta sul suo viso."
+   },
+   "es": {
+    "titre": "Si te sientas en el banco",
+    "texte": "Dejas que el cuadro venga a ti. Una mujer en un sillón de mimbre, el mar detrás. El pincel de Renoir corre en las olas y se calma en su cara."
+   },
+   "pt-BR": {
+    "titre": "Se você senta no banco",
+    "texte": "Você deixa a pintura vir até você. Uma mulher numa cadeira de vime, o mar atrás dela. O pincel de Renoir corre nas ondas e desacelera no rosto dela."
+   },
+   "nl": {
+    "titre": "Als je op het bankje gaat zitten",
+    "texte": "Je laat het schilderij naar je toe komen. Een vrouw in een rieten stoel, de zee achter haar. Renoirs penseel gaat snel in de golven en vertraagt op haar gezicht."
+   },
+   "pl": {
+    "titre": "Jeśli siadasz na ławce",
+    "texte": "Pozwalasz, żeby obraz sam do ciebie przyszedł. Kobieta w wiklinowym fotelu, za nią morze. Pędzel Renoira pędzi po falach i zwalnia na jej twarzy."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/courbet-jo.jpg",
+   "en": {
+    "titre": "If you take a photo instead of looking",
+    "texte": "You save it for later and never look. Jo looks into her mirror for as long as it takes. Courbet painted her hair curl by curl."
+   },
+   "de": {
+    "titre": "Wenn du fotografierst statt hinzusehen",
+    "texte": "Du hebst es für später auf und schaust nie hin. Jo blickt so lange in ihren Spiegel, wie es eben dauert. Courbet malte ihr Haar Locke für Locke."
+   },
+   "fr": {
+    "titre": "Si tu prends une photo au lieu de regarder",
+    "texte": "Tu le gardes pour plus tard et tu ne le regardes jamais. Jo se regarde dans son miroir aussi longtemps qu'il le faut. Courbet a peint ses cheveux boucle par boucle."
+   },
+   "it": {
+    "titre": "Se fai una foto invece di guardare",
+    "texte": "Lo tieni per dopo e non lo guardi mai. Jo si guarda allo specchio per tutto il tempo che serve. Courbet ha dipinto i suoi capelli ricciolo per ricciolo."
+   },
+   "es": {
+    "titre": "Si haces una foto en vez de mirar",
+    "texte": "Lo guardas para después y nunca lo miras. Jo se mira en su espejo el tiempo que haga falta. Courbet pintó su pelo rizo a rizo."
+   },
+   "pt-BR": {
+    "titre": "Se você tira foto em vez de olhar",
+    "texte": "Você guarda para depois e nunca olha. Jo se olha no espelho pelo tempo que for preciso. Courbet pintou o cabelo dela cacho por cacho."
+   },
+   "nl": {
+    "titre": "Als je een foto maakt in plaats van te kijken",
+    "texte": "Je bewaart het voor later en kijkt nooit. Jo kijkt in haar spiegel zo lang als nodig is. Courbet schilderde haar haar krul voor krul."
+   },
+   "pl": {
+    "titre": "Jeśli robisz zdjęcie zamiast patrzeć",
+    "texte": "Odkładasz to na później i nigdy nie patrzysz. Jo patrzy w lustro tak długo, jak trzeba. Courbet malował jej włosy lok po loku."
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

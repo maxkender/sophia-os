@@ -1,0 +1,253 @@
+{
+ "id": "sc-006",
+ "source": {
+  "url": "https://www.tiktok.com/@scilla2047/photo/7704788661669268749",
+  "vues": 409600,
+  "publie_le": "2026-11-05",
+  "accroche": "(le gabarit « … based on your coping mechanism », légende « ofc not one shoe fits all », comme son tube du 31/10)"
+ },
+ "titre": {
+  "en": "What to look at based on what your mind is doing",
+  "de": "Was du dir ansehen solltest, je nachdem, was dein Kopf gerade macht",
+  "fr": "Quoi regarder selon ce que fait ta tête",
+  "it": "Cosa guardare in base a cosa sta facendo la tua testa",
+  "es": "Qué mirar según lo que está haciendo tu mente",
+  "pt-BR": "O que olhar de acordo com o que sua cabeça está fazendo",
+  "nl": "Waar je naar kunt kijken, afhankelijk van wat je hoofd aan het doen is",
+  "pl": "Na co patrzeć w zależności od tego, co robi twoja głowa"
+ },
+ "legendes": {
+  "en": "which one is your mind today?\n#art #paintings #arthistory #slowliving #overthinking",
+  "de": "was macht dein Kopf heute?\n#kunst #gemälde #kunstgeschichte #slowliving #gedanken",
+  "fr": "ta tête, aujourd'hui, c'est lequel ?\n#art #peinture #histoiredelart #slowliving #pensées",
+  "it": "la tua testa oggi qual è?\n#arte #pittura #storiadellarte #slowliving #pensieri",
+  "es": "¿cuál es tu mente hoy?\n#arte #pintura #historiadelarte #slowliving #pensamientos",
+  "pt-BR": "qual é a sua cabeça hoje?\n#arte #pintura #historiadaarte #slowliving #pensamentos",
+  "nl": "welke is jouw hoofd vandaag?\n#kunst #schilderijen #kunstgeschiedenis #slowliving #gedachten",
+  "pl": "która to dziś twoja głowa?\n#sztuka #malarstwo #historiasztuki #slowliving #myśli"
+ },
+ "musique": {
+  "titre": "Much Better Off",
+  "url": "https://www.tiktok.com/music/Much-Better-Off-6928562675043534849"
+ },
+ "oeuvres": {
+  "images/oeuvres/vlieger-mer-calme.jpg": {
+   "musee": "The Met",
+   "id": "437914",
+   "titre": "Calm Sea",
+   "artiste": "Simon de Vlieger",
+   "date": "after 1640",
+   "url": "https://www.metmuseum.org/art/collection/search/437914"
+  },
+  "images/oeuvres/courbet-mer.jpg": {
+   "musee": "The Met",
+   "id": "436021",
+   "titre": "The Sea",
+   "artiste": "Gustave Courbet",
+   "date": "1865 or later",
+   "url": "https://www.metmuseum.org/art/collection/search/436021"
+  },
+  "images/oeuvres/courbet-ruisseau.jpg": {
+   "musee": "The Met",
+   "id": "436009",
+   "titre": "A Brook in a Clearing (possibly \"Brook, Valley of Fontcouverte; Study\")",
+   "artiste": "Gustave Courbet",
+   "date": "probably 1862",
+   "url": "https://www.metmuseum.org/art/collection/search/436009"
+  },
+  "images/oeuvres/dehooch-jeune-couple.jpg": {
+   "musee": "The Met",
+   "id": "436675",
+   "titre": "Interior with a Young Couple",
+   "artiste": "Pieter de Hooch",
+   "date": "probably ca. 1662–65",
+   "url": "https://www.metmuseum.org/art/collection/search/436675"
+  },
+  "images/oeuvres/corot-lettre.jpg": {
+   "musee": "The Met",
+   "id": "435976",
+   "titre": "The Letter",
+   "artiste": "Camille Corot",
+   "date": "ca. 1865",
+   "url": "https://www.metmuseum.org/art/collection/search/435976"
+  }
+ },
+ "notes": "Preuve : son post du 5/11 (410 k vues, 14 k enregistrements), même gabarit et même légende que « What you must heal from based on your coping mechanism » (1,4 M) : famille « What … based on … », des titres courts d'un mot comme ses « Overthinking ». Angle Artura : quoi regarder, jamais une promesse d'apaiser ni de soigner. Couverture : de Vlieger, Calm Sea (Met 437914). Faits : The Sea (Courbet, 1865 ou plus tard, Met 436021) : vagues sombres et une ligne d'horizon ; A Brook in a Clearing (Courbet, 1862, Met 436009) ; Interior with a Young Couple (de Hooch, ca. 1662–65, Met 436675) : des pièces en enfilade vues par les portes ; The Letter (Corot, ca. 1865, Met 435976) : une femme seule qui lit une lettre. Slide Artura (4) : de Hooch avec le logo ; cta C. Le dernier point garde l'ordre de ses posts (Artura ni première ni dernière).",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/oeuvres/vlieger-mer-calme.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "titre": "What to look at based on {what your mind is doing}"
+   },
+   "de": {
+    "titre": "Was du dir ansehen solltest, je nachdem, {was dein Kopf gerade macht}"
+   },
+   "fr": {
+    "titre": "Quoi regarder selon {ce que fait ta tête}"
+   },
+   "it": {
+    "titre": "Cosa guardare in base a {cosa sta facendo la tua testa}"
+   },
+   "es": {
+    "titre": "Qué mirar según {lo que está haciendo tu mente}"
+   },
+   "pt-BR": {
+    "titre": "O que olhar de acordo com {o que sua cabeça está fazendo}"
+   },
+   "nl": {
+    "titre": "Waar je naar kunt kijken, afhankelijk van {wat je hoofd aan het doen is}"
+   },
+   "pl": {
+    "titre": "Na co patrzeć w zależności od tego, {co robi twoja głowa}"
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/courbet-mer.jpg",
+   "en": {
+    "titre": "Overthinking",
+    "texte": "Look at a horizon: one line where the sea meets the sky, nothing to solve. Courbet's waves are loud, but your eye keeps coming back to that line."
+   },
+   "de": {
+    "titre": "Zu viel nachdenken",
+    "texte": "Schau auf einen Horizont: eine Linie, wo das Meer den Himmel trifft, nichts zu lösen. Courbets Wellen sind laut, aber dein Blick kehrt immer zu dieser Linie zurück."
+   },
+   "fr": {
+    "titre": "Trop réfléchir",
+    "texte": "Regarde un horizon : une ligne où la mer touche le ciel, rien à résoudre. Les vagues de Courbet font du bruit, mais ton œil revient toujours à cette ligne."
+   },
+   "it": {
+    "titre": "Pensare troppo",
+    "texte": "Guarda un orizzonte: una linea dove il mare incontra il cielo, niente da risolvere. Le onde di Courbet fanno rumore, ma l'occhio torna sempre su quella linea."
+   },
+   "es": {
+    "titre": "Pensar demasiado",
+    "texte": "Mira un horizonte: una línea donde el mar toca el cielo, nada que resolver. Las olas de Courbet hacen ruido, pero tu mirada siempre vuelve a esa línea."
+   },
+   "pt-BR": {
+    "titre": "Pensar demais",
+    "texte": "Olhe para um horizonte: uma linha onde o mar encontra o céu, nada para resolver. As ondas de Courbet são barulhentas, mas seu olho sempre volta para essa linha."
+   },
+   "nl": {
+    "titre": "Piekeren",
+    "texte": "Kijk naar een horizon: één lijn waar de zee de lucht raakt, niets op te lossen. Courbets golven zijn luid, maar je oog keert steeds terug naar die lijn."
+   },
+   "pl": {
+    "titre": "Za dużo myślisz",
+    "texte": "Spójrz na horyzont: jedna linia, gdzie morze styka się z niebem, nic do rozwiązania. Fale Courbeta są głośne, ale wzrok wciąż wraca do tej linii."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/courbet-ruisseau.jpg",
+   "en": {
+    "titre": "Restless",
+    "texte": "Look at moving water. A stream under the trees goes somewhere without hurrying. Follow it with your eyes until the painting ends."
+   },
+   "de": {
+    "titre": "Unruhig",
+    "texte": "Schau auf fließendes Wasser. Ein Bach unter Bäumen fließt irgendwohin, ohne sich zu beeilen. Folge ihm mit den Augen, bis das Bild endet."
+   },
+   "fr": {
+    "titre": "Agité",
+    "texte": "Regarde de l'eau qui coule. Un ruisseau sous les arbres va quelque part sans se presser. Suis-le des yeux jusqu'au bord du tableau."
+   },
+   "it": {
+    "titre": "Irrequieto",
+    "texte": "Guarda l'acqua che scorre. Un ruscello sotto gli alberi va da qualche parte senza fretta. Seguilo con gli occhi fino alla fine del quadro."
+   },
+   "es": {
+    "titre": "Inquieto",
+    "texte": "Mira el agua que corre. Un arroyo bajo los árboles va a algún sitio sin prisa. Síguelo con los ojos hasta que termine el cuadro."
+   },
+   "pt-BR": {
+    "titre": "Inquieto",
+    "texte": "Olhe para a água correndo. Um riacho sob as árvores vai para algum lugar sem pressa. Siga com os olhos até a pintura acabar."
+   },
+   "nl": {
+    "titre": "Onrustig",
+    "texte": "Kijk naar stromend water. Een beek onder de bomen gaat ergens heen zonder haast. Volg hem met je ogen tot het schilderij ophoudt."
+   },
+   "pl": {
+    "titre": "Niespokój",
+    "texte": "Spójrz na płynącą wodę. Strumień pod drzewami płynie dokądś bez pośpiechu. Prowadź go wzrokiem aż do krawędzi obrazu."
+   }
+  },
+  {
+   "type": "artura",
+   "image": "images/oeuvres/dehooch-jeune-couple.jpg",
+   "en": {
+    "titre": "Bored",
+    "texte": "Look at a busy room. De Hooch hides a room behind a room behind a room. I learned to look again one painting at a time, on Artura."
+   },
+   "de": {
+    "titre": "Gelangweilt",
+    "texte": "Schau auf einen vollen Raum. De Hooch versteckt ein Zimmer hinter einem Zimmer hinter einem Zimmer. Ich habe auf Artura wieder sehen gelernt, ein Gemälde nach dem anderen."
+   },
+   "fr": {
+    "titre": "Ennui",
+    "texte": "Regarde une pièce pleine de choses. De Hooch cache une pièce derrière une pièce derrière une pièce. J'ai réappris à regarder un tableau à la fois, sur Artura."
+   },
+   "it": {
+    "titre": "Annoiato",
+    "texte": "Guarda una stanza piena di cose. De Hooch nasconde una stanza dietro una stanza dietro una stanza. Ho imparato di nuovo a guardare un quadro alla volta, su Artura."
+   },
+   "es": {
+    "titre": "Aburrido",
+    "texte": "Mira una habitación llena de cosas. De Hooch esconde una habitación detrás de otra, y detrás de otra. Aprendí a mirar otra vez un cuadro a la vez, en Artura."
+   },
+   "pt-BR": {
+    "titre": "Entediado",
+    "texte": "Olhe para um cômodo cheio de coisas. De Hooch esconde um cômodo atrás de um cômodo atrás de outro. Reaprendi a olhar uma pintura de cada vez, no Artura."
+   },
+   "nl": {
+    "titre": "Verveeld",
+    "texte": "Kijk naar een volle kamer. De Hooch verstopt een kamer achter een kamer achter een kamer. Ik heb opnieuw leren kijken, één schilderij tegelijk, op Artura."
+   },
+   "pl": {
+    "titre": "Nuda",
+    "texte": "Spójrz na pokój pełen rzeczy. De Hooch chowa pokój za pokojem, a za nim kolejny. Na nowo uczę się patrzeć, obraz po obrazie, w aplikacji Artura."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/corot-lettre.jpg",
+   "en": {
+    "titre": "Distracted",
+    "texte": "Look at one person doing one thing. A woman reads a letter and the whole painting waits with her. Corot gives you nothing else to look at."
+   },
+   "de": {
+    "titre": "Abgelenkt",
+    "texte": "Schau auf einen Menschen, der eine Sache tut. Eine Frau liest einen Brief, und das ganze Bild wartet mit ihr. Corot gibt dir nichts anderes zum Ansehen."
+   },
+   "fr": {
+    "titre": "Distrait",
+    "texte": "Regarde une personne qui fait une seule chose. Une femme lit une lettre et tout le tableau attend avec elle. Corot ne te donne rien d'autre à regarder."
+   },
+   "it": {
+    "titre": "Distratto",
+    "texte": "Guarda una persona che fa una cosa sola. Una donna legge una lettera e tutto il quadro aspetta con lei. Corot non ti dà nient'altro da guardare."
+   },
+   "es": {
+    "titre": "Distraído",
+    "texte": "Mira a una persona haciendo una sola cosa. Una mujer lee una carta y todo el cuadro espera con ella. Corot no te da nada más que mirar."
+   },
+   "pt-BR": {
+    "titre": "Distraído",
+    "texte": "Olhe para uma pessoa fazendo uma coisa só. Uma mulher lê uma carta e a pintura inteira espera com ela. Corot não te dá mais nada para olhar."
+   },
+   "nl": {
+    "titre": "Afgeleid",
+    "texte": "Kijk naar één persoon die één ding doet. Een vrouw leest een brief en het hele schilderij wacht met haar mee. Corot geeft je niets anders om naar te kijken."
+   },
+   "pl": {
+    "titre": "Rozproszenie",
+    "texte": "Spójrz na jedną osobę, która robi jedną rzecz. Kobieta czyta list, a cały obraz czeka razem z nią. Corot nie daje ci nic innego do oglądania."
+   }
+  }
+ ]
+}

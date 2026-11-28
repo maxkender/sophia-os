@@ -1,0 +1,684 @@
+{
+ "id": "mc-005",
+ "source": {
+  "url": "https://www.tiktok.com/@msclzz/photo/7701103253655768342",
+  "vues": 88800,
+  "publie_le": "2026-10-26",
+  "accroche": "How To Make Anyone Get Attached To You"
+ },
+ "titre": {
+  "en": "How To Make Anyone Get Attached To You",
+  "de": "So hängen Menschen an dir",
+  "it": "Come far sì che le persone si affezionino a te",
+  "fr": "Comment faire pour que les gens s'attachent à toi",
+  "pt-BR": "Como fazer qualquer pessoa se apegar a você",
+  "es-419": "Cómo hacer que cualquiera se apegue a ti",
+  "pl": "Jak sprawić, żeby ktoś się do ciebie przywiązał",
+  "cs": "Jak zařídit, aby si k tobě kdokoli vytvořil pouto"
+ },
+ "legendes": {
+  "en": "Nobody gets attached to a compliment.\n\n#psychology #socialskills #friendship #relationships #connection",
+  "de": "Niemand hängt an einem Kompliment.\n\n#psychologie #socialskills #freundschaft #beziehungen #menschenkenntnis",
+  "it": "Nessuno si affeziona a un complimento.\n\n#psicologia #socialskills #amicizia #relazioni #comportamentoumano",
+  "fr": "Personne ne s'attache à un compliment.\n\n#psychologie #amitie #relations #confianceensoi #comportementhumain",
+  "pt-BR": "Ninguém se apega a um elogio.\n\n#psicologia #habilidadessociais #amizade #relacionamentos #comportamentohumano",
+  "es-419": "Nadie se apega a un cumplido.\n\n#psicologia #habilidadessociales #amistad #relaciones #comportamientohumano",
+  "pl": "Nikt nie przywiązuje się do komplementu.\n\n#psychologia #umiejetnoscispoleczne #przyjazn #relacje #rozwojosobisty",
+  "cs": "Nikdo si nevytvoří pouto ke komplimentu.\n\n#psychologie #socialniinteligence #pratelstvi #vztahy #osobnirozvoj"
+ },
+ "musique": {
+  "titre": "original sound - Georgie",
+  "url": "https://www.tiktok.com/music/original-sound-7369679404253137696"
+ },
+ "compte": {
+  "images/compte/serpent.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7701103253655768342",
+   "slide": 5
+  },
+  "images/compte/deux-visages.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 3
+  },
+  "images/compte/mannequins.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7701103253655768342",
+   "slide": 3
+  },
+  "images/compte/yeux-dessin.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7701103253655768342",
+   "slide": 4
+  },
+  "images/compte/tete-gribouillis.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7701103253655768342",
+   "slide": 6
+  },
+  "images/compte/ange-statue.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7701103253655768342",
+   "slide": 7
+  }
+ },
+ "notes": "Remake de son post « How To Make Anyone Get Attached To You » (89 k vues, 4,7 % d'enregistrements, 26/10 ; original sound de Georgie) : donner un rôle à ses amis (« you're on aux »), son texte (apostrophes, « tho » gardé), ses étapes dans son ordre. Ses images sans célébrité : le serpent (5, sous une ligne de texte recoupée) en couverture (la sienne pose un couple de cinéma), les mannequins (3), les yeux dessinés (4), la tête en fils (6), l'ange (7) ; sa slide 2 est en 1080 × 1920 : on prend à la place les deux visages de son post du 5/10 (déjà découpés pour mc-001). Slide Sophia (5) à la place de son étape « WHY THEY CAN'T DROP IT » (« I keep showing up for this person... I must care about them », trop calculée) : « TAKE A ROLE YOURSELF », être l'ami qui arrive avec une histoire ; cta B. Sa phrase « Here's why their brain can't let it go... » (qui annonçait l'étape retirée) est retirée, et « way more dangerous... » devient « way simpler... ». Sa slide 8 (vente de son ebook) est retirée. « a free employee » devient « an unpaid employee » (« free » est refusé comme formule de pub).",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "How To Make Anyone {Get Attached To You}"
+   },
+   "image": "images/compte/serpent.jpg",
+   "de": {
+    "titre": "So {hängen Menschen an dir}"
+   },
+   "it": {
+    "titre": "Come far sì che le persone {si affezionino a te}"
+   },
+   "fr": {
+    "titre": "Comment faire pour que les gens {s'attachent à toi}"
+   },
+   "pt-BR": {
+    "titre": "Como fazer qualquer pessoa {se apegar a você}"
+   },
+   "es-419": {
+    "titre": "Cómo hacer que cualquiera {se apegue a ti}"
+   },
+   "pl": {
+    "titre": "Jak sprawić, żeby ktoś {się do ciebie przywiązał}"
+   },
+   "cs": {
+    "titre": "Jak zařídit, aby si k tobě {kdokoli vytvořil pouto}"
+   }
+  },
+  {
+   "type": "avertissement",
+   "en": {
+    "surtitre": "DISCLAIMER",
+    "titre": "READ THIS BEFORE YOU USE IT",
+    "avant": [
+     "Someone you met a few weeks ago starts texting you FIRST... saving stuff “for you”... acting like you two go way back.",
+     "You never complimented them once.",
+     "They'll just feel like they're [supposed] to be around you... and they won't know where that came from.",
+     "[It's one sentence. It sounds like nothing... that's exactly why nobody sees it coming.]"
+    ]
+   },
+   "image": "images/compte/deux-visages.jpg",
+   "de": {
+    "surtitre": "ACHTUNG",
+    "titre": "LIES DAS, BEVOR DU ES ANWENDEST",
+    "avant": [
+     "Jemand, den du vor ein paar Wochen kennengelernt hast, schreibt dir plötzlich ZUERST... hebt Sachen „für dich“ auf... tut, als würdet ihr euch ewig kennen.",
+     "Du hast ihm nie ein Kompliment gemacht.",
+     "Er hat einfach das Gefühl, dass er in deine Nähe [gehört...] und weiß nicht, woher das kommt.",
+     "[Es ist ein Satz. Er klingt nach nichts... genau deshalb sieht es niemand kommen.]"
+    ]
+   },
+   "it": {
+    "surtitre": "ATTENZIONE",
+    "titre": "LEGGI PRIMA DI USARLO",
+    "avant": [
+     "Qualcuno che hai conosciuto qualche settimana fa inizia a scriverti PER PRIMO... a salvare cose “per te”... a comportarsi come se vi conosceste da sempre.",
+     "Non gli hai mai fatto un complimento.",
+     "Sentirà solo che [deve] starti vicino... e non saprà da dove viene.",
+     "[È una frase. Sembra niente... ed è proprio per questo che nessuno se ne accorge.]"
+    ]
+   },
+   "fr": {
+    "surtitre": "ATTENTION",
+    "titre": "LIS ÇA AVANT DE L'UTILISER",
+    "avant": [
+     "Quelqu'un que tu as rencontré il y a quelques semaines commence à t'écrire EN PREMIER... à garder des trucs « pour toi »... à faire comme si vous vous connaissiez depuis toujours.",
+     "Tu ne lui as jamais fait un seul compliment.",
+     "Il sentira juste qu'il est [censé] être près de toi... sans savoir d'où ça vient.",
+     "[C'est une phrase. Ça a l'air de rien... c'est justement pour ça que personne ne le voit venir.]"
+    ]
+   },
+   "pt-BR": {
+    "surtitre": "AVISO",
+    "titre": "LEIA ISSO ANTES DE USAR",
+    "avant": [
+     "Alguém que você conheceu há poucas semanas começa a te mandar mensagem PRIMEIRO... guardando coisas “pra você”... agindo como se vocês se conhecessem há anos.",
+     "Você nunca fez um elogio.",
+     "A pessoa só vai sentir que [deveria] estar perto de você... e não vai saber de onde veio isso.",
+     "[É uma frase. Parece nada... e é exatamente por isso que ninguém percebe.]"
+    ]
+   },
+   "es-419": {
+    "surtitre": "AVISO",
+    "titre": "LEE ESTO ANTES DE USARLO",
+    "avant": [
+     "Alguien que conociste hace unas semanas empieza a escribirte PRIMERO... guarda cosas “para ti”... actúa como si se conocieran de toda la vida.",
+     "Nunca le hiciste un cumplido.",
+     "Solo va a sentir que [tiene] que estar cerca de ti... y no va a saber de dónde salió eso.",
+     "[Es una frase. Suena a nada... justo por eso nadie lo ve venir.]"
+    ]
+   },
+   "pl": {
+    "surtitre": "UWAGA",
+    "titre": "PRZECZYTAJ, ZANIM TO WYKORZYSTASZ",
+    "avant": [
+     "Ktoś, kogo poznałeś parę tygodni temu, zaczyna pisać PIERWSZY... odkłada rzeczy „dla ciebie”... zachowuje się, jakbyście znali się od zawsze.",
+     "Nigdy nie powiedziałeś mu komplementu.",
+     "Po prostu poczuje, że [powinien] być blisko ciebie... i nie będzie wiedział, skąd to się wzięło.",
+     "[To jedno zdanie. Brzmi jak nic... i właśnie dlatego nikt tego nie zauważa.]"
+    ]
+   },
+   "cs": {
+    "surtitre": "UPOZORNĚNÍ",
+    "titre": "PŘEČTI SI TO, NEŽ TO POUŽIJEŠ",
+    "avant": [
+     "Někdo, koho jsi poznal před pár týdny, ti začne psát PRVNÍ... schovává věci „pro tebe“... chová se, jako byste se znali odjakživa.",
+     "Nikdy jsi mu nesložil kompliment.",
+     "Prostě bude mít pocit, že [patří] k tobě... a nebude vědět, odkud se to vzalo.",
+     "[Je to jedna věta. Zní jako nic... a přesně proto to nikdo nevidí přicházet.]"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "COMPLIMENTS DON'T {KEEP ANYONE}",
+    "avant": [
+     "You try to get close by hyping them.",
+     "{“you're so funny.” “you're literally the best.”}",
+     "Feels nice for five seconds... then it's GONE.",
+     "A compliment is about how you see them. It doesn't give them a single reason to stay."
+    ],
+    "apres": [
+     "{A compliment is a gift, and gifts get forgotten.}",
+     "What actually keeps people is way {simpler...}"
+    ]
+   },
+   "image": "images/compte/mannequins.jpg",
+   "hauteur": 515,
+   "de": {
+    "titre": "KOMPLIMENTE {HALTEN NIEMANDEN}",
+    "avant": [
+     "Du versuchst, jemandem näherzukommen, indem du ihn feierst.",
+     "{„du bist so lustig.“ „du bist echt der Beste.“}",
+     "Fühlt sich fünf Sekunden gut an... dann ist es WEG.",
+     "Ein Kompliment sagt, wie du ihn siehst. Es gibt ihm keinen einzigen Grund zu bleiben."
+    ],
+    "apres": [
+     "{Ein Kompliment ist ein Geschenk, und Geschenke werden vergessen.}",
+     "Was Menschen wirklich hält, ist viel {einfacher...}"
+    ]
+   },
+   "it": {
+    "titre": "I COMPLIMENTI {NON TENGONO NESSUNO}",
+    "avant": [
+     "Provi ad avvicinarti esaltandolo.",
+     "{“sei troppo divertente.” “sei letteralmente il migliore.”}",
+     "Fa piacere per cinque secondi... poi SPARISCE.",
+     "Un complimento parla di come lo vedi tu. Non gli dà un solo motivo per restare."
+    ],
+    "apres": [
+     "{Un complimento è un regalo, e i regali si dimenticano.}",
+     "Quello che tiene davvero le persone è molto più {semplice...}"
+    ]
+   },
+   "fr": {
+    "titre": "LES COMPLIMENTS {NE RETIENNENT PERSONNE}",
+    "avant": [
+     "Tu essaies de te rapprocher en le valorisant.",
+     "{« t'es trop drôle. » « t'es littéralement le meilleur. »}",
+     "Ça fait plaisir cinq secondes... puis c'est PARTI.",
+     "Un compliment parle de la façon dont toi tu le vois. Ça ne lui donne aucune raison de rester."
+    ],
+    "apres": [
+     "{Un compliment, c'est un cadeau, et les cadeaux s'oublient.}",
+     "Ce qui retient vraiment les gens est bien plus {simple...}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "ELOGIOS {NÃO SEGURAM NINGUÉM}",
+    "avant": [
+     "Você tenta se aproximar enchendo a pessoa de elogio.",
+     "{“você é muito engraçado.” “você é literalmente o melhor.”}",
+     "É bom por cinco segundos... depois SOME.",
+     "Um elogio é sobre como você vê a pessoa. Não dá nenhum motivo pra ela ficar."
+    ],
+    "apres": [
+     "{Um elogio é um presente, e presentes são esquecidos.}",
+     "O que realmente segura as pessoas é bem mais {simples...}"
+    ]
+   },
+   "es-419": {
+    "titre": "LOS CUMPLIDOS {NO RETIENEN A NADIE}",
+    "avant": [
+     "Intentas acercarte echándole flores.",
+     "{“eres bien chistoso.” “eres literalmente el mejor.”}",
+     "Se siente bien cinco segundos... y luego SE VA.",
+     "Un cumplido habla de cómo lo ves tú. No le da ni una razón para quedarse."
+    ],
+    "apres": [
+     "{Un cumplido es un regalo, y los regalos se olvidan.}",
+     "Lo que de verdad retiene a la gente es mucho más {simple...}"
+    ]
+   },
+   "pl": {
+    "titre": "KOMPLEMENTY {NIKOGO NIE ZATRZYMUJĄ}",
+    "avant": [
+     "Próbujesz się zbliżyć, chwaląc go.",
+     "{„jesteś taki zabawny.” „jesteś dosłownie najlepszy.”}",
+     "Miło przez pięć sekund... potem ZNIKA.",
+     "Komplement mówi o tym, jak ty go widzisz. Nie daje mu żadnego powodu, żeby został."
+    ],
+    "apres": [
+     "{Komplement to prezent, a prezenty się zapomina.}",
+     "To, co naprawdę zatrzymuje ludzi, jest dużo {prostsze...}"
+    ]
+   },
+   "cs": {
+    "titre": "KOMPLIMENTY {NIKOHO NEUDRŽÍ}",
+    "avant": [
+     "Snažíš se sblížit tím, že ho vychvaluješ.",
+     "{„jsi fakt vtipnej.“ „jsi doslova nejlepší.“}",
+     "Pět vteřin je to fajn... pak je to PRYČ.",
+     "Kompliment je o tom, jak ho vidíš ty. Nedá mu jediný důvod zůstat."
+    ],
+    "apres": [
+     "{Kompliment je dárek a dárky se zapomínají.}",
+     "To, co lidi opravdu drží, je mnohem {jednodušší...}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "GIVE THEM A {ROLE}",
+    "avant": [
+     "Don't tell them what they ARE. Tell them what they are TO YOU.",
+     "{“ok you're on aux. forever. nobody else touches it.”}",
+     "{“you're officially my food spot person, I'm not eating anywhere without asking you.”}",
+     "Watch what happens. Next week they send you a song nobody asked for. They're doing their {JOB.}"
+    ],
+    "apres": [
+     "{A compliment tells them who they are.}",
+     "{A role tells them where they BELONG... with you.}"
+    ]
+   },
+   "image": "images/compte/yeux-dessin.jpg",
+   "de": {
+    "titre": "GIB IHNEN EINE {ROLLE}",
+    "avant": [
+     "Sag ihnen nicht, was sie SIND. Sag ihnen, was sie FÜR DICH sind.",
+     "{„ok, du machst ab jetzt die Musik. für immer. sonst keiner.“}",
+     "{„du bist offiziell mein Essens-Mensch, ich geh nirgendwo essen, ohne dich zu fragen.“}",
+     "Pass auf, was passiert. Nächste Woche schickt er dir einen Song, um den keiner gebeten hat. Er macht seinen {JOB.}"
+    ],
+    "apres": [
+     "{Ein Kompliment sagt ihnen, wer sie sind.}",
+     "{Eine Rolle sagt ihnen, wo sie HINGEHÖREN... zu dir.}"
+    ]
+   },
+   "it": {
+    "titre": "DAGLI UN {RUOLO}",
+    "avant": [
+     "Non dirgli cosa SONO. Digli cosa sono PER TE.",
+     "{“ok, la musica la scegli tu. per sempre. nessun altro la tocca.”}",
+     "{“sei ufficialmente il mio esperto di ristoranti, non mangio da nessuna parte senza chiederti.”}",
+     "Guarda cosa succede. La settimana dopo ti manda una canzone che nessuno ha chiesto. Sta facendo il suo {LAVORO.}"
+    ],
+    "apres": [
+     "{Un complimento gli dice chi è.}",
+     "{Un ruolo gli dice dove APPARTIENE... con te.}"
+    ]
+   },
+   "fr": {
+    "titre": "DONNE-LEUR UN {RÔLE}",
+    "avant": [
+     "Ne leur dis pas ce qu'ils SONT. Dis-leur ce qu'ils sont POUR TOI.",
+     "{« ok, c'est toi qui gères la musique. pour toujours. personne d'autre n'y touche. »}",
+     "{« t'es officiellement mon expert resto, je ne mange nulle part sans te demander. »}",
+     "Regarde ce qui se passe. La semaine d'après, il t'envoie un son que personne n'a demandé. Il fait son {JOB.}"
+    ],
+    "apres": [
+     "{Un compliment lui dit qui il est.}",
+     "{Un rôle lui dit où il a sa PLACE... avec toi.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "DÊ UM {PAPEL} PRA ELA",
+    "avant": [
+     "Não diga o que ela É. Diga o que ela é PRA VOCÊ.",
+     "{“ok, a música é com você. pra sempre. ninguém mais mexe.”}",
+     "{“você é oficialmente minha pessoa dos restaurantes, não como em lugar nenhum sem te perguntar.”}",
+     "Repara o que acontece. Na semana seguinte ela te manda uma música que ninguém pediu. Ela está fazendo o {TRABALHO} dela."
+    ],
+    "apres": [
+     "{Um elogio diz quem ela é.}",
+     "{Um papel diz onde ela PERTENCE... com você.}"
+    ]
+   },
+   "es-419": {
+    "titre": "DALE UN {ROL}",
+    "avant": [
+     "No le digas lo que ES. Dile lo que es PARA TI.",
+     "{“ok, tú pones la música. para siempre. nadie más la toca.”}",
+     "{“eres oficialmente mi persona de restaurantes, no como en ningún lado sin preguntarte.”}",
+     "Mira lo que pasa. La semana siguiente te manda una canción que nadie pidió. Está haciendo su {TRABAJO.}"
+    ],
+    "apres": [
+     "{Un cumplido le dice quién es.}",
+     "{Un rol le dice dónde PERTENECE... contigo.}"
+    ]
+   },
+   "pl": {
+    "titre": "DAJ IM {ROLĘ}",
+    "avant": [
+     "Nie mów im, kim SĄ. Powiedz, kim są DLA CIEBIE.",
+     "{„ok, ty puszczasz muzykę. na zawsze. nikt inny jej nie rusza.”}",
+     "{„jesteś oficjalnie moim ekspertem od jedzenia, nigdzie nie jem bez pytania cię.”}",
+     "Zobacz, co się stanie. W następnym tygodniu wysyła ci piosenkę, o którą nikt nie prosił. Robi swoją {ROBOTĘ.}"
+    ],
+    "apres": [
+     "{Komplement mówi im, kim są.}",
+     "{Rola mówi im, gdzie PASUJĄ... przy tobie.}"
+    ]
+   },
+   "cs": {
+    "titre": "DEJ JIM {ROLI}",
+    "avant": [
+     "Neříkej jim, co JSOU. Řekni jim, čím jsou PRO TEBE.",
+     "{„ok, hudbu pouštíš ty. navždy. nikdo jinej na ni nesahá.“}",
+     "{„jsi oficiálně můj člověk na jídlo, nikam nejdu jíst, aniž bych se tě zeptal.“}",
+     "Sleduj, co se stane. Příští týden ti pošle písničku, o kterou nikdo nežádal. Dělá svou {PRÁCI.}"
+    ],
+    "apres": [
+     "{Kompliment jim říká, kdo jsou.}",
+     "{Role jim říká, kam PATŘÍ... k tobě.}"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "en": {
+    "titre": "{TAKE A ROLE} YOURSELF",
+    "avant": [
+     "Roles work both ways.",
+     "Be the friend who always shows up with a strange fact or a story nobody's heard."
+    ],
+    "apres": [
+     "Ten minutes on {Sophia} every morning, and I never run out of things to talk about.",
+     "{Now you're their “did you know” person.}"
+    ]
+   },
+   "de": {
+    "titre": "{NIMM SELBST} EINE ROLLE",
+    "avant": [
+     "Rollen funktionieren in beide Richtungen.",
+     "Sei der Freund, der immer mit einem seltsamen Fakt oder einer Geschichte kommt, die noch keiner kennt."
+    ],
+    "apres": [
+     "Zehn Minuten auf {Sophia} jeden Morgen, und mir gehen nie die Gesprächsthemen aus.",
+     "{Jetzt bist du sein „wusstest du schon“-Mensch.}"
+    ]
+   },
+   "it": {
+    "titre": "{PRENDI ANCHE TU} UN RUOLO",
+    "avant": [
+     "I ruoli funzionano in entrambi i sensi.",
+     "Sii l'amico che arriva sempre con un fatto strano o una storia che nessuno ha mai sentito."
+    ],
+    "apres": [
+     "Dieci minuti su {Sophia} ogni mattina, e non resto mai senza cose di cui parlare.",
+     "{Ora sei la sua persona del “lo sapevi che”.}"
+    ]
+   },
+   "fr": {
+    "titre": "{PRENDS TOI AUSSI} UN RÔLE",
+    "avant": [
+     "Les rôles marchent dans les deux sens.",
+     "Sois l'ami qui arrive toujours avec un fait étrange ou une histoire que personne n'a jamais entendue."
+    ],
+    "apres": [
+     "Dix minutes sur {Sophia} chaque matin, et je ne suis jamais à court de sujets.",
+     "{Maintenant, t'es sa personne « tu savais que ».}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "{TENHA UM PAPEL} TAMBÉM",
+    "avant": [
+     "Papéis funcionam nos dois sentidos.",
+     "Seja o amigo que sempre chega com um fato estranho ou uma história que ninguém ouviu."
+    ],
+    "apres": [
+     "Dez minutos no {Sophia} toda manhã, e nunca me faltam assuntos.",
+     "{Agora você é a pessoa do “sabia que”.}"
+    ]
+   },
+   "es-419": {
+    "titre": "{TEN TÚ TAMBIÉN} UN ROL",
+    "avant": [
+     "Los roles funcionan en los dos sentidos.",
+     "Sé el amigo que siempre llega con un dato raro o una historia que nadie ha escuchado."
+    ],
+    "apres": [
+     "Diez minutos en {Sophia} cada mañana, y nunca me quedo sin temas de conversación.",
+     "{Ahora eres su persona del “¿sabías que...?”}"
+    ]
+   },
+   "pl": {
+    "titre": "{WEŹ SOBIE} TEŻ ROLĘ",
+    "avant": [
+     "Role działają w obie strony.",
+     "Bądź znajomym, który zawsze przychodzi z dziwnym faktem albo historią, której nikt nie słyszał."
+    ],
+    "apres": [
+     "Dziesięć minut w {Sophia} każdego ranka i nigdy nie brakuje mi tematów do rozmowy.",
+     "{Teraz jesteś jego osobą od „wiedziałeś, że”.}"
+    ]
+   },
+   "cs": {
+    "titre": "{VEZMI SI} ROLI I TY",
+    "avant": [
+     "Role fungují oběma směry.",
+     "Buď ten kamarád, který vždycky přijde se zvláštním faktem nebo příběhem, který nikdo neslyšel."
+    ],
+    "apres": [
+     "Deset minut na {Sophia} každé ráno a nikdy mi nedojdou témata k hovoru.",
+     "{Teď jsi jeho člověk na „věděl jsi, že“.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "MAKE IT {THEIR THING,} NEVER A FAVOR",
+    "avant": [
+     "“you're my IT guy, fix my laptop” isn't a role. That's an unpaid employee... and they'll feel it.",
+     "The role has to be something they're PROUD of. Their taste, their humor, their opinion.",
+     "When they deliver, react like it matters.",
+     "{“nah this song is actually crazy... see, this is why it's your job.”}"
+    ],
+    "apres": [
+     "{The right role is a compliment they get to keep proving.}"
+    ]
+   },
+   "image": "images/compte/tete-gribouillis.jpg",
+   "hauteur": 520,
+   "de": {
+    "titre": "MACH ES {ZU SEINEM DING,} NIE ZUM GEFALLEN",
+    "avant": [
+     "„du bist mein IT-Typ, mach meinen Laptop“ ist keine Rolle. Das ist ein Gratis-Angestellter... und er spürt das.",
+     "Die Rolle muss etwas sein, worauf er STOLZ ist. Sein Geschmack, sein Humor, seine Meinung.",
+     "Wenn er liefert, reagier, als würde es zählen.",
+     "{„nee, der Song ist echt krass... siehst du, deshalb ist das dein Job.“}"
+    ],
+    "apres": [
+     "{Die richtige Rolle ist ein Kompliment, das er immer wieder beweisen darf.}"
+    ]
+   },
+   "it": {
+    "titre": "FALLO {DIVENTARE SUO,} MAI UN FAVORE",
+    "avant": [
+     "“sei il mio tecnico, sistemami il portatile” non è un ruolo. È un dipendente gratis... e se ne accorge.",
+     "Il ruolo deve essere qualcosa di cui va FIERO. Il suo gusto, il suo umorismo, la sua opinione.",
+     "Quando ti dà qualcosa, reagisci come se contasse.",
+     "{“no vabbè questa canzone è pazzesca... vedi, è per questo che è il tuo lavoro.”}"
+    ],
+    "apres": [
+     "{Il ruolo giusto è un complimento che può continuare a dimostrare.}"
+    ]
+   },
+   "fr": {
+    "titre": "FAIS-EN {SON TRUC,} JAMAIS UN SERVICE",
+    "avant": [
+     "« t'es mon informaticien, répare mon ordi », ce n'est pas un rôle. C'est un employé gratuit... et il le sent.",
+     "Le rôle doit être un truc dont il est FIER. Ses goûts, son humour, son avis.",
+     "Quand il assure, réagis comme si ça comptait.",
+     "{« non mais ce son est trop fort... tu vois, c'est pour ça que c'est ton job. »}"
+    ],
+    "apres": [
+     "{Le bon rôle, c'est un compliment qu'il peut continuer à prouver.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "FAÇA SER {A PRAIA DELA,} NUNCA UM FAVOR",
+    "avant": [
+     "“você é meu técnico, arruma meu notebook” não é um papel. É um funcionário de graça... e a pessoa sente.",
+     "O papel tem que ser algo de que ela se ORGULHA. O gosto dela, o humor, a opinião.",
+     "Quando ela entregar, reaja como se importasse.",
+     "{“não, essa música é muito boa... viu, é por isso que isso é trabalho seu.”}"
+    ],
+    "apres": [
+     "{O papel certo é um elogio que ela continua provando.}"
+    ]
+   },
+   "es-419": {
+    "titre": "QUE SEA {LO SUYO,} NUNCA UN FAVOR",
+    "avant": [
+     "“eres mi técnico, arréglame la laptop” no es un rol. Es un empleado gratis... y lo va a sentir.",
+     "El rol tiene que ser algo de lo que esté ORGULLOSO. Su gusto, su humor, su opinión.",
+     "Cuando cumpla, reacciona como si importara.",
+     "{“no, esta canción está buenísima... ¿ves? por eso es tu trabajo.”}"
+    ],
+    "apres": [
+     "{El rol correcto es un cumplido que puede seguir demostrando.}"
+    ]
+   },
+   "pl": {
+    "titre": "NIECH TO BĘDZIE {JEGO RZECZ,} NIGDY PRZYSŁUGA",
+    "avant": [
+     "„jesteś moim informatykiem, napraw mi laptopa” to nie rola. To darmowy pracownik... i on to poczuje.",
+     "Rola musi być czymś, z czego jest DUMNY. Jego gust, jego humor, jego zdanie.",
+     "Kiedy się sprawdzi, reaguj, jakby to miało znaczenie.",
+     "{„nie no, ta piosenka jest mega... widzisz, dlatego to twoja robota.”}"
+    ],
+    "apres": [
+     "{Dobra rola to komplement, który może ciągle udowadniać.}"
+    ]
+   },
+   "cs": {
+    "titre": "AŤ JE TO {JEHO VĚC,} NIKDY LASKAVOST",
+    "avant": [
+     "„jsi můj ajťák, oprav mi notebook“ není role. To je zaměstnanec zadarmo... a on to pozná.",
+     "Role musí být něco, na co je PYŠNÝ. Jeho vkus, jeho humor, jeho názor.",
+     "Když něco dodá, reaguj, jako by na tom záleželo.",
+     "{„ne, tahle písnička je fakt šílená... vidíš, proto je to tvoje práce.“}"
+    ],
+    "apres": [
+     "{Správná role je kompliment, který může pořád dokazovat.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "{SAVE THIS} FOR LATER",
+    "avant": [
+     "Pick the thing they're good at and make it their job in your life.",
+     "{“you're on aux now. nobody else touches it.”}",
+     "Make it something they're proud of, never a chore. When they deliver, hype it."
+    ],
+    "apres": [
+     "{The people you never drop are the ones you've got a ROLE with.}",
+     "Got someone you want to keep around? Give them a job only {they} can do."
+    ]
+   },
+   "image": "images/compte/ange-statue.jpg",
+   "hauteur": 620,
+   "de": {
+    "titre": "{SPEICHER DAS} FÜR SPÄTER",
+    "avant": [
+     "Nimm das, worin er gut ist, und mach es zu seinem Job in deinem Leben.",
+     "{„du machst jetzt die Musik. sonst keiner.“}",
+     "Mach es zu etwas, worauf er stolz ist, nie zur Pflicht. Wenn er liefert, feier es."
+    ],
+    "apres": [
+     "{Die Menschen, die du nie verlierst, sind die, mit denen du eine ROLLE hast.}",
+     "Du willst jemanden in deinem Leben behalten? Gib ihm einen Job, den nur {er} machen kann."
+    ]
+   },
+   "it": {
+    "titre": "{SALVALO} PER DOPO",
+    "avant": [
+     "Prendi la cosa in cui è bravo e falla diventare il suo lavoro nella tua vita.",
+     "{“la musica ora la scegli tu. nessun altro la tocca.”}",
+     "Fallo diventare qualcosa di cui va fiero, mai un peso. Quando ti dà qualcosa, esaltalo."
+    ],
+    "apres": [
+     "{Le persone che non lasci mai sono quelle con cui hai un RUOLO.}",
+     "Hai qualcuno che vuoi tenere vicino? Dagli un lavoro che può fare solo {lui.}"
+    ]
+   },
+   "fr": {
+    "titre": "{GARDE ÇA} POUR PLUS TARD",
+    "avant": [
+     "Prends le truc où il est bon et fais-en son job dans ta vie.",
+     "{« c'est toi qui gères la musique maintenant. personne d'autre. »}",
+     "Fais-en quelque chose dont il est fier, jamais une corvée. Quand il assure, valorise-le."
+    ],
+    "apres": [
+     "{Les gens que tu ne perds jamais, ce sont ceux avec qui tu as un RÔLE.}",
+     "Quelqu'un que tu veux garder près de toi ? Donne-lui un job que {lui} seul peut faire."
+    ]
+   },
+   "pt-BR": {
+    "titre": "{SALVA ISSO} PRA DEPOIS",
+    "avant": [
+     "Pegue aquilo em que a pessoa é boa e transforme no trabalho dela na sua vida.",
+     "{“a música agora é com você. ninguém mais mexe.”}",
+     "Que seja algo de que ela se orgulha, nunca uma obrigação. Quando ela entregar, valorize."
+    ],
+    "apres": [
+     "{As pessoas que você nunca perde são aquelas com quem você tem um PAPEL.}",
+     "Tem alguém que você quer manter por perto? Dê a ela um trabalho que só {ela} pode fazer."
+    ]
+   },
+   "es-419": {
+    "titre": "{GUARDA ESTO} PARA DESPUÉS",
+    "avant": [
+     "Toma lo que se le da bien y conviértelo en su trabajo en tu vida.",
+     "{“tú pones la música ahora. nadie más la toca.”}",
+     "Que sea algo de lo que esté orgulloso, nunca una obligación. Cuando cumpla, celébralo."
+    ],
+    "apres": [
+     "{La gente que nunca pierdes es con la que tienes un ROL.}",
+     "¿Tienes a alguien que quieres cerca? Dale un trabajo que solo {él} pueda hacer."
+    ]
+   },
+   "pl": {
+    "titre": "{ZAPISZ TO} NA PÓŹNIEJ",
+    "avant": [
+     "Weź to, w czym jest dobry, i zrób z tego jego robotę w twoim życiu.",
+     "{„ty teraz puszczasz muzykę. nikt inny.”}",
+     "Niech to będzie coś, z czego jest dumny, nigdy obowiązek. Kiedy się sprawdzi, doceń to."
+    ],
+    "apres": [
+     "{Ludzie, których nigdy nie tracisz, to ci, z którymi masz ROLĘ.}",
+     "Masz kogoś, kogo chcesz zatrzymać przy sobie? Daj mu robotę, którą tylko {on} może zrobić."
+    ]
+   },
+   "cs": {
+    "titre": "{ULOŽ SI TO} NA POTOM",
+    "avant": [
+     "Vezmi to, v čem je dobrý, a udělej z toho jeho práci ve svém životě.",
+     "{„hudbu teď pouštíš ty. nikdo jinej.“}",
+     "Ať je to něco, na co je pyšný, nikdy povinnost. Když něco dodá, oceň to."
+    ],
+    "apres": [
+     "{Lidé, které nikdy neztratíš, jsou ti, se kterými máš ROLI.}",
+     "Máš někoho, koho si chceš udržet? Dej mu práci, kterou umí jen {on.}"
+    ]
+   }
+  }
+ ]
+}

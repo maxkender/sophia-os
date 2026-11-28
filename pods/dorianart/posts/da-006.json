@@ -1,0 +1,677 @@
+{
+ "id": "da-006",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698126851037875477",
+  "vues": 2100000,
+  "publie_le": "2026-10-18",
+  "accroche": "Iceberg of Autistic hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of Autistic hobbies that make you smarter",
+  "es-419": "Iceberg de hobbies autistas que te hacen más listo",
+  "tr": "Otistik hobiler buzdağı (seni daha zeki yapan)",
+  "hu": "Autista hobbik jéghegye (amiktől okosabb leszel)",
+  "ro": "Icebergul hobby-urilor autiste care te fac mai deștept",
+  "cs": "Ledovec autistických koníčků, které tě udělají chytřejším",
+  "sr": "Santa leda autističnih hobija koji te čine pametnijim",
+  "el": "Το παγόβουνο των αυτιστικών χόμπι που σε κάνουν πιο έξυπνο"
+ },
+ "legendes": {
+  "en": "#autismtok #iceberg #hobbies #lockedin #selfimprovement",
+  "es-419": "#autismo #hobbies #iceberg #superacionpersonal #lockedin",
+  "tr": "#otizm #hobiler #buzdağı #kişiselgelişim #lockedin",
+  "hu": "#autizmus #hobbik #jéghegy #önfejlesztés #lockedin",
+  "ro": "#autism #hobby #iceberg #dezvoltarepersonala #lockedin",
+  "cs": "#autismus #konicky #ledovec #seberozvoj #lockedin",
+  "sr": "#autizam #hobi #santaleda #samorazvoj #lockedin",
+  "el": "#αυτισμός #χόμπι #παγόβουνο #αυτοβελτίωση #lockedin"
+ },
+ "musique": {
+  "titre": "оригинальный звук",
+  "url": "https://www.tiktok.com/music/original-sound-7695439871377722133"
+ },
+ "oeuvres": {
+  "images/objets/dame-echecs.png": {
+   "musee": "The Met",
+   "id": "201581",
+   "titre": "Chessman (Queen)",
+   "artiste": "Elkington & Co.",
+   "date": "ca. 1870",
+   "url": "https://www.metmuseum.org/art/collection/search/201581"
+  },
+  "images/objets/lunettes.png": {
+   "musee": "The Met",
+   "id": "102478",
+   "titre": "Spectacles",
+   "artiste": "",
+   "date": "19th century",
+   "url": "https://www.metmuseum.org/art/collection/search/102478"
+  },
+  "images/objets/carte-brodee.png": {
+   "musee": "The Met",
+   "id": "226539",
+   "titre": "Embroidered map sampler",
+   "artiste": "",
+   "date": "1835",
+   "url": "https://www.metmuseum.org/art/collection/search/226539"
+  },
+  "images/objets/pierre-lettre.png": {
+   "musee": "The Met",
+   "id": "61762",
+   "titre": "Scholar's rock",
+   "artiste": "",
+   "date": "18th–19th century",
+   "url": "https://www.metmuseum.org/art/collection/search/61762"
+  },
+  "images/objets/microscope.png": {
+   "musee": "The Met",
+   "id": "207549",
+   "titre": "Microscope",
+   "artiste": "Claude-Siméon Passemant",
+   "date": "ca. 1750",
+   "url": "https://www.metmuseum.org/art/collection/search/207549"
+  },
+  "images/objets/astrolabe.png": {
+   "musee": "The Met",
+   "id": "923639",
+   "titre": "Astrolabe",
+   "artiste": "Regiomontanus",
+   "date": "1462",
+   "url": "https://www.metmuseum.org/art/collection/search/923639"
+  },
+  "images/objets/epee.png": {
+   "musee": "The Met",
+   "id": "27458",
+   "titre": "Sword",
+   "artiste": "",
+   "date": "ca. 1450",
+   "url": "https://www.metmuseum.org/art/collection/search/27458"
+  },
+  "images/objets/piece-monnaie.png": {
+   "musee": "The Met",
+   "id": "444866",
+   "titre": "Coin",
+   "artiste": "",
+   "date": "dated 1028 AH/1619 CE",
+   "url": "https://www.metmuseum.org/art/collection/search/444866"
+  },
+  "images/objets/marc-aurele.png": {
+   "musee": "The Met",
+   "id": "195735",
+   "titre": "Marcus Aurelius",
+   "artiste": "",
+   "date": "late 16th century",
+   "url": "https://www.metmuseum.org/art/collection/search/195735"
+  },
+  "images/objets/faucon.png": {
+   "musee": "The Met",
+   "id": "570747",
+   "titre": "Falcon",
+   "artiste": "",
+   "date": "664–30 BCE",
+   "url": "https://www.metmuseum.org/art/collection/search/570747"
+  },
+  "images/objets/horloge-astronomique.png": {
+   "musee": "The Met",
+   "id": "209211",
+   "titre": "Astronomical table clock",
+   "artiste": "Jeremias Metzger",
+   "date": "1568",
+   "url": "https://www.metmuseum.org/art/collection/search/209211"
+  }
+ },
+ "notes": "Full test : « Iceberg of Autistic hobbies that make you smarter » (note « *that make you smarter »). Artura au 3e étage : « museum facts (artura) », cta C. Sans IA : objets du Met détourés. En 8 langues.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "Autistic hobbies",
+    "note": "*that make you smarter"
+   },
+   "es-419": {
+    "haut": "Iceberg de",
+    "bas": "hobbies autistas",
+    "note": "*que te hacen más listo"
+   },
+   "tr": {
+    "haut": "Buzdağı:",
+    "bas": "Otistik hobiler",
+    "note": "*seni daha zeki yapan"
+   },
+   "hu": {
+    "haut": "Jéghegy:",
+    "bas": "Autista hobbik",
+    "note": "*amiktől okosabb leszel"
+   },
+   "ro": {
+    "haut": "Icebergul",
+    "bas": "hobby-urilor autiste",
+    "note": "*care te fac mai deștept"
+   },
+   "cs": {
+    "haut": "Ledovec",
+    "bas": "autistických koníčků",
+    "note": "*které tě udělají chytřejším"
+   },
+   "sr": {
+    "haut": "Santa leda",
+    "bas": "autističnih hobija",
+    "note": "*koji te čine pametnijim"
+   },
+   "el": {
+    "haut": "Παγόβουνο:",
+    "bas": "αυτιστικά χόμπι",
+    "note": "*που σε κάνουν πιο έξυπνο"
+   }
+  },
+  {
+   "type": "iceberg",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "chess",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "reading classics",
+       "image": "images/objets/lunettes.png"
+      },
+      {
+       "t": "geography",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "mineralogy",
+       "image": "images/objets/pierre-lettre.png"
+      }
+     ],
+     [
+      {
+       "t": "biology",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "astronomy",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "military history",
+       "image": "images/objets/epee.png"
+      },
+      {
+       "t": "numismatics",
+       "image": "images/objets/piece-monnaie.png"
+      }
+     ],
+     [
+      {
+       "t": "museum facts (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "philosophy",
+       "image": "images/objets/marc-aurele.png"
+      }
+     ],
+     [
+      {
+       "t": "egyptology",
+       "image": "images/objets/faucon.png"
+      }
+     ],
+     [
+      {
+       "t": "horology",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "es-419": {
+    "etages": [
+     [
+      {
+       "t": "ajedrez",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "leer clásicos",
+       "image": "images/objets/lunettes.png"
+      },
+      {
+       "t": "geografía",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "mineralogía",
+       "image": "images/objets/pierre-lettre.png"
+      }
+     ],
+     [
+      {
+       "t": "biología",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "astronomía",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "historia militar",
+       "image": "images/objets/epee.png"
+      },
+      {
+       "t": "numismática",
+       "image": "images/objets/piece-monnaie.png"
+      }
+     ],
+     [
+      {
+       "t": "datos de museo (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "filosofía",
+       "image": "images/objets/marc-aurele.png"
+      }
+     ],
+     [
+      {
+       "t": "egiptología",
+       "image": "images/objets/faucon.png"
+      }
+     ],
+     [
+      {
+       "t": "relojería",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "¿en desacuerdo?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "satranç",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "klasik okumak",
+       "image": "images/objets/lunettes.png"
+      },
+      {
+       "t": "coğrafya",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "mineraloji",
+       "image": "images/objets/pierre-lettre.png"
+      }
+     ],
+     [
+      {
+       "t": "biyoloji",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "astronomi",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "askeri tarih",
+       "image": "images/objets/epee.png"
+      },
+      {
+       "t": "nümismatik",
+       "image": "images/objets/piece-monnaie.png"
+      }
+     ],
+     [
+      {
+       "t": "müze bilgileri (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "felsefe",
+       "image": "images/objets/marc-aurele.png"
+      }
+     ],
+     [
+      {
+       "t": "mısırbilim",
+       "image": "images/objets/faucon.png"
+      }
+     ],
+     [
+      {
+       "t": "saat bilimi",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "hu": {
+    "etages": [
+     [
+      {
+       "t": "sakk",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "klasszikusok",
+       "image": "images/objets/lunettes.png"
+      },
+      {
+       "t": "földrajz",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "ásványtan",
+       "image": "images/objets/pierre-lettre.png"
+      }
+     ],
+     [
+      {
+       "t": "biológia",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "csillagászat",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "hadtörténet",
+       "image": "images/objets/epee.png"
+      },
+      {
+       "t": "numizmatika",
+       "image": "images/objets/piece-monnaie.png"
+      }
+     ],
+     [
+      {
+       "t": "múzeumi tények (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "filozófia",
+       "image": "images/objets/marc-aurele.png"
+      }
+     ],
+     [
+      {
+       "t": "egyiptológia",
+       "image": "images/objets/faucon.png"
+      }
+     ],
+     [
+      {
+       "t": "órásság",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "nem értesz egyet?"
+   },
+   "ro": {
+    "etages": [
+     [
+      {
+       "t": "șah",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "citit clasici",
+       "image": "images/objets/lunettes.png"
+      },
+      {
+       "t": "geografie",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "mineralogie",
+       "image": "images/objets/pierre-lettre.png"
+      }
+     ],
+     [
+      {
+       "t": "biologie",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "astronomie",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "istorie militară",
+       "image": "images/objets/epee.png"
+      },
+      {
+       "t": "numismatică",
+       "image": "images/objets/piece-monnaie.png"
+      }
+     ],
+     [
+      {
+       "t": "fapte de muzeu (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "filozofie",
+       "image": "images/objets/marc-aurele.png"
+      }
+     ],
+     [
+      {
+       "t": "egiptologie",
+       "image": "images/objets/faucon.png"
+      }
+     ],
+     [
+      {
+       "t": "orologerie",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "nu ești de acord?"
+   },
+   "cs": {
+    "etages": [
+     [
+      {
+       "t": "šachy",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "čtení klasiky",
+       "image": "images/objets/lunettes.png"
+      },
+      {
+       "t": "zeměpis",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "mineralogie",
+       "image": "images/objets/pierre-lettre.png"
+      }
+     ],
+     [
+      {
+       "t": "biologie",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "astronomie",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "vojenská historie",
+       "image": "images/objets/epee.png"
+      },
+      {
+       "t": "numismatika",
+       "image": "images/objets/piece-monnaie.png"
+      }
+     ],
+     [
+      {
+       "t": "muzejní fakta (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "filozofie",
+       "image": "images/objets/marc-aurele.png"
+      }
+     ],
+     [
+      {
+       "t": "egyptologie",
+       "image": "images/objets/faucon.png"
+      }
+     ],
+     [
+      {
+       "t": "hodinářství",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "nesouhlasíš?"
+   },
+   "sr": {
+    "etages": [
+     [
+      {
+       "t": "šah",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "čitanje klasika",
+       "image": "images/objets/lunettes.png"
+      },
+      {
+       "t": "geografija",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "mineralogija",
+       "image": "images/objets/pierre-lettre.png"
+      }
+     ],
+     [
+      {
+       "t": "biologija",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "astronomija",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "vojna istorija",
+       "image": "images/objets/epee.png"
+      },
+      {
+       "t": "numizmatika",
+       "image": "images/objets/piece-monnaie.png"
+      }
+     ],
+     [
+      {
+       "t": "muzeji (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "filozofija",
+       "image": "images/objets/marc-aurele.png"
+      }
+     ],
+     [
+      {
+       "t": "egiptologija",
+       "image": "images/objets/faucon.png"
+      }
+     ],
+     [
+      {
+       "t": "časovničarstvo",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "ne slažeš se?"
+   },
+   "el": {
+    "etages": [
+     [
+      {
+       "t": "σκάκι",
+       "image": "images/objets/dame-echecs.png"
+      },
+      {
+       "t": "κλασικά βιβλία",
+       "image": "images/objets/lunettes.png"
+      },
+      {
+       "t": "γεωγραφία",
+       "image": "images/objets/carte-brodee.png"
+      },
+      {
+       "t": "ορυκτολογία",
+       "image": "images/objets/pierre-lettre.png"
+      }
+     ],
+     [
+      {
+       "t": "βιολογία",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "αστρονομία",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "στρατιωτική ιστορία",
+       "image": "images/objets/epee.png"
+      },
+      {
+       "t": "νομισματική",
+       "image": "images/objets/piece-monnaie.png"
+      }
+     ],
+     [
+      {
+       "t": "μουσεία (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "φιλοσοφία",
+       "image": "images/objets/marc-aurele.png"
+      }
+     ],
+     [
+      {
+       "t": "αρχαία αίγυπτος",
+       "image": "images/objets/faucon.png"
+      }
+     ],
+     [
+      {
+       "t": "ωρολογοποιία",
+       "image": "images/objets/horloge-astronomique.png"
+      }
+     ]
+    ],
+    "question": "διαφωνείς;"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

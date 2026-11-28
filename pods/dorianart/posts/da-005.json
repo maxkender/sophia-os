@@ -1,0 +1,677 @@
+{
+ "id": "da-005",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696990065343532309",
+  "vues": 1100000,
+  "publie_le": "2026-10-15",
+  "accroche": "Iceberg of ADHD hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of ADHD hobbies for winter",
+  "es-419": "Iceberg de hobbies TDAH para el invierno",
+  "tr": "DEHB hobileri buzdağı (kış için)",
+  "hu": "ADHD-s hobbik jéghegye (télre)",
+  "ro": "Icebergul hobby-urilor ADHD pentru iarnă",
+  "cs": "Ledovec ADHD koníčků na zimu",
+  "sr": "Santa leda ADHD hobija za zimu",
+  "el": "Το παγόβουνο των χόμπι ΔΕΠΥ για τον χειμώνα"
+ },
+ "legendes": {
+  "en": "#lockedin #adhdtiktok #hobbies #selfimprovement #iceberg",
+  "es-419": "#tdah #hobbies #iceberg #superacionpersonal #lockedin",
+  "tr": "#dehb #hobiler #buzdağı #kişiselgelişim #lockedin",
+  "hu": "#adhd #hobbik #jéghegy #önfejlesztés #lockedin",
+  "ro": "#adhd #hobby #iceberg #dezvoltarepersonala #lockedin",
+  "cs": "#adhd #konicky #ledovec #seberozvoj #lockedin",
+  "sr": "#adhd #hobi #santaleda #samorazvoj #lockedin",
+  "el": "#δεπυ #χόμπι #παγόβουνο #αυτοβελτίωση #lockedin"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7603872322981874462"
+ },
+ "oeuvres": {
+  "images/objets/tasse.png": {
+   "musee": "The Met",
+   "id": "211487",
+   "titre": "Teacup and saucer",
+   "artiste": "Barr, Flight and Barr",
+   "date": "ca. 1807–10",
+   "url": "https://www.metmuseum.org/art/collection/search/211487"
+  },
+  "images/objets/carte-a-jouer.png": {
+   "musee": "The Met",
+   "id": "475534",
+   "titre": "5 of Horns, from The Cloisters Playing Cards",
+   "artiste": "",
+   "date": "ca. 1475–80",
+   "url": "https://www.metmuseum.org/art/collection/search/475534"
+  },
+  "images/objets/cerf-volant.png": {
+   "musee": "The Met",
+   "id": "54541",
+   "titre": "Kite Flying",
+   "artiste": "Suzuki Harunobu",
+   "date": "ca. 1766",
+   "url": "https://www.metmuseum.org/art/collection/search/54541"
+  },
+  "images/objets/abecedaire.png": {
+   "musee": "The Met",
+   "id": "14085",
+   "titre": "Sampler",
+   "artiste": "Ruth Rogers",
+   "date": "1739",
+   "url": "https://www.metmuseum.org/art/collection/search/14085"
+  },
+  "images/objets/astrolabe.png": {
+   "musee": "The Met",
+   "id": "923639",
+   "titre": "Astrolabe",
+   "artiste": "Regiomontanus",
+   "date": "1462",
+   "url": "https://www.metmuseum.org/art/collection/search/923639"
+  },
+  "images/objets/chambre-noire.png": {
+   "musee": "The Met",
+   "id": "631211",
+   "titre": "[Camera Obscura]",
+   "artiste": "Unknown",
+   "date": "19th century",
+   "url": "https://www.metmuseum.org/art/collection/search/631211"
+  },
+  "images/objets/insectes.png": {
+   "musee": "The Met",
+   "id": "385463",
+   "titre": "Studies of a Blue Beetle and Insects",
+   "artiste": "Pieter Holsteyn II",
+   "date": "ca. 1650–60",
+   "url": "https://www.metmuseum.org/art/collection/search/385463"
+  },
+  "images/objets/eventail.png": {
+   "musee": "The Met",
+   "id": "209504",
+   "titre": "Folding fan",
+   "artiste": "",
+   "date": "ca. 1774–93",
+   "url": "https://www.metmuseum.org/art/collection/search/209504"
+  },
+  "images/objets/manuscrit.png": {
+   "musee": "The Met",
+   "id": "469041",
+   "titre": "Manuscript Leaf",
+   "artiste": "",
+   "date": "14th century",
+   "url": "https://www.metmuseum.org/art/collection/search/469041"
+  },
+  "images/objets/kimono.png": {
+   "musee": "The Met",
+   "id": "125953",
+   "titre": "Kimono",
+   "artiste": "",
+   "date": "19th century",
+   "url": "https://www.metmuseum.org/art/collection/search/125953"
+  },
+  "images/objets/tablette-cuneiforme.png": {
+   "musee": "The Met",
+   "id": "321878",
+   "titre": "Cuneiform tablet: student exercise tablet",
+   "artiste": "",
+   "date": "ca. 20th–16th century BCE",
+   "url": "https://www.metmuseum.org/art/collection/search/321878"
+  }
+ },
+ "notes": "Full test : « Iceberg of ADHD hobbies for winter » (sa couverture, note « *for winter »), loisirs d'intérieur pour l'hiver. Artura au 3e étage : « one artura painting a day », cta B. Sans IA : objets du Met détourés. En 8 langues.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "ADHD hobbies",
+    "note": "*for winter"
+   },
+   "es-419": {
+    "haut": "Iceberg de",
+    "bas": "hobbies TDAH",
+    "note": "*para el invierno"
+   },
+   "tr": {
+    "haut": "Buzdağı:",
+    "bas": "DEHB hobileri",
+    "note": "*kış için"
+   },
+   "hu": {
+    "haut": "Jéghegy:",
+    "bas": "ADHD-s hobbik",
+    "note": "*télre"
+   },
+   "ro": {
+    "haut": "Icebergul",
+    "bas": "hobby-urilor ADHD",
+    "note": "*pentru iarnă"
+   },
+   "cs": {
+    "haut": "Ledovec",
+    "bas": "ADHD koníčků",
+    "note": "*na zimu"
+   },
+   "sr": {
+    "haut": "Santa leda",
+    "bas": "ADHD hobija",
+    "note": "*za zimu"
+   },
+   "el": {
+    "haut": "Παγόβουνο:",
+    "bas": "χόμπι ΔΕΠΥ",
+    "note": "*για τον χειμώνα"
+   }
+  },
+  {
+   "type": "iceberg",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "tea tasting",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "card games",
+       "image": "images/objets/carte-a-jouer.png"
+      },
+      {
+       "t": "woodblock prints",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "cross-stitch",
+       "image": "images/objets/abecedaire.png"
+      }
+     ],
+     [
+      {
+       "t": "stargazing",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "film photography",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "nature journaling",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "fan painting",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "one artura painting a day",
+       "image": "artura"
+      },
+      {
+       "t": "calligraphy",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "kimono history",
+       "image": "images/objets/kimono.png"
+      }
+     ],
+     [
+      {
+       "t": "ancient scripts",
+       "image": "images/objets/tablette-cuneiforme.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "es-419": {
+    "etages": [
+     [
+      {
+       "t": "catas de té",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "juegos de cartas",
+       "image": "images/objets/carte-a-jouer.png"
+      },
+      {
+       "t": "grabados japoneses",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "punto de cruz",
+       "image": "images/objets/abecedaire.png"
+      }
+     ],
+     [
+      {
+       "t": "mirar estrellas",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "fotografía analógica",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "diario de naturaleza",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "pintar abanicos",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "un cuadro de artura al día",
+       "image": "artura"
+      },
+      {
+       "t": "caligrafía",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "historia del kimono",
+       "image": "images/objets/kimono.png"
+      }
+     ],
+     [
+      {
+       "t": "escrituras antiguas",
+       "image": "images/objets/tablette-cuneiforme.png"
+      }
+     ]
+    ],
+    "question": "¿en desacuerdo?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "çay tadımı",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "kart oyunları",
+       "image": "images/objets/carte-a-jouer.png"
+      },
+      {
+       "t": "ahşap baskı",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "kanaviçe",
+       "image": "images/objets/abecedaire.png"
+      }
+     ],
+     [
+      {
+       "t": "yıldız gözlemi",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "analog fotoğraf",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "doğa günlüğü",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "yelpaze boyama",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "günlük tablo (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "hat sanatı",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "kimono tarihi",
+       "image": "images/objets/kimono.png"
+      }
+     ],
+     [
+      {
+       "t": "antik yazılar",
+       "image": "images/objets/tablette-cuneiforme.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "hu": {
+    "etages": [
+     [
+      {
+       "t": "teakóstolás",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "kártyajátékok",
+       "image": "images/objets/carte-a-jouer.png"
+      },
+      {
+       "t": "fametszetek",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "keresztöltés",
+       "image": "images/objets/abecedaire.png"
+      }
+     ],
+     [
+      {
+       "t": "csillagnézés",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "filmes fotózás",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "rovarrajzok",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "legyezőfestés",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "napi festmény (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "kalligráfia",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "a kimonó története",
+       "image": "images/objets/kimono.png"
+      }
+     ],
+     [
+      {
+       "t": "ősi írások",
+       "image": "images/objets/tablette-cuneiforme.png"
+      }
+     ]
+    ],
+    "question": "nem értesz egyet?"
+   },
+   "ro": {
+    "etages": [
+     [
+      {
+       "t": "degustat ceai",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "jocuri de cărți",
+       "image": "images/objets/carte-a-jouer.png"
+      },
+      {
+       "t": "gravuri în lemn",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "goblen",
+       "image": "images/objets/abecedaire.png"
+      }
+     ],
+     [
+      {
+       "t": "privit stelele",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "fotografie pe film",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "jurnal de natură",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "pictat evantaie",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "un tablou pe zi pe artura",
+       "image": "artura"
+      },
+      {
+       "t": "caligrafie",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "istoria kimonoului",
+       "image": "images/objets/kimono.png"
+      }
+     ],
+     [
+      {
+       "t": "scrieri antice",
+       "image": "images/objets/tablette-cuneiforme.png"
+      }
+     ]
+    ],
+    "question": "nu ești de acord?"
+   },
+   "cs": {
+    "etages": [
+     [
+      {
+       "t": "ochutnávání čaje",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "karetní hry",
+       "image": "images/objets/carte-a-jouer.png"
+      },
+      {
+       "t": "dřevoryty",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "křížkový steh",
+       "image": "images/objets/abecedaire.png"
+      }
+     ],
+     [
+      {
+       "t": "pozorování hvězd",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "analogová fotka",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "deník přírody",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "malování vějířů",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "jeden obraz denně (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "kaligrafie",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "dějiny kimona",
+       "image": "images/objets/kimono.png"
+      }
+     ],
+     [
+      {
+       "t": "starověká písma",
+       "image": "images/objets/tablette-cuneiforme.png"
+      }
+     ]
+    ],
+    "question": "nesouhlasíš?"
+   },
+   "sr": {
+    "etages": [
+     [
+      {
+       "t": "degustacija čaja",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "kartaške igre",
+       "image": "images/objets/carte-a-jouer.png"
+      },
+      {
+       "t": "drvorezi",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "goblen",
+       "image": "images/objets/abecedaire.png"
+      }
+     ],
+     [
+      {
+       "t": "gledanje zvezda",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "analogna fotografija",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "dnevnik prirode",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "oslikavanje lepeza",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "slika dnevno (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "kaligrafija",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "istorija kimona",
+       "image": "images/objets/kimono.png"
+      }
+     ],
+     [
+      {
+       "t": "drevna pisma",
+       "image": "images/objets/tablette-cuneiforme.png"
+      }
+     ]
+    ],
+    "question": "ne slažeš se?"
+   },
+   "el": {
+    "etages": [
+     [
+      {
+       "t": "γευσιγνωσία τσαγιού",
+       "image": "images/objets/tasse.png"
+      },
+      {
+       "t": "παιχνίδια με κάρτες",
+       "image": "images/objets/carte-a-jouer.png"
+      },
+      {
+       "t": "ξυλογραφίες",
+       "image": "images/objets/cerf-volant.png"
+      },
+      {
+       "t": "κέντημα",
+       "image": "images/objets/abecedaire.png"
+      }
+     ],
+     [
+      {
+       "t": "παρατήρηση άστρων",
+       "image": "images/objets/astrolabe.png"
+      },
+      {
+       "t": "αναλογική φωτογραφία",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "ημερολόγιο φύσης",
+       "image": "images/objets/insectes.png"
+      },
+      {
+       "t": "ζωγραφική βεντάλιας",
+       "image": "images/objets/eventail.png"
+      }
+     ],
+     [
+      {
+       "t": "πίνακας τη μέρα (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "καλλιγραφία",
+       "image": "images/objets/manuscrit.png"
+      }
+     ],
+     [
+      {
+       "t": "ιστορία του κιμονό",
+       "image": "images/objets/kimono.png"
+      }
+     ],
+     [
+      {
+       "t": "αρχαίες γραφές",
+       "image": "images/objets/tablette-cuneiforme.png"
+      }
+     ]
+    ],
+    "question": "διαφωνείς;"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

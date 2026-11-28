@@ -1,0 +1,292 @@
+{
+ "id": "sc-007",
+ "titre": {
+  "en": "5 paintings that will make you see your own room differently",
+  "de": "5 Gemälde, nach denen du dein eigenes Zimmer anders siehst",
+  "fr": "5 tableaux qui vont te faire voir ta chambre autrement",
+  "it": "5 quadri che ti faranno vedere la tua stanza con altri occhi",
+  "es": "5 cuadros que te harán ver tu propio cuarto de otra forma",
+  "pt-BR": "5 pinturas que vão te fazer ver o seu quarto de outro jeito",
+  "nl": "5 schilderijen waardoor je je eigen kamer anders gaat zien",
+  "pl": "5 obrazów, po których inaczej zobaczysz swój pokój"
+ },
+ "legendes": {
+  "en": "you'll never look at your room the same way\n#art #paintings #interiors #arthistory #slowliving",
+  "de": "du wirst dein Zimmer nie wieder gleich sehen\n#kunst #gemälde #interieur #kunstgeschichte #slowliving",
+  "fr": "tu ne verras plus jamais ta chambre pareil\n#art #peinture #interieur #histoiredelart #slowliving",
+  "it": "non guarderai più la tua stanza allo stesso modo\n#arte #pittura #interni #storiadellarte #slowliving",
+  "es": "ya no verás tu cuarto igual\n#arte #pintura #interiores #historiadelarte #slowliving",
+  "pt-BR": "você nunca mais vai ver seu quarto do mesmo jeito\n#arte #pintura #interiores #historiadaarte #slowliving",
+  "nl": "je kijkt nooit meer hetzelfde naar je kamer\n#kunst #schilderijen #interieur #kunstgeschiedenis #slowliving",
+  "pl": "już nigdy nie spojrzysz na swój pokój tak samo\n#sztuka #malarstwo #wnętrza #historiasztuki #slowliving"
+ },
+ "musique": {
+  "titre": "Deep in a Wave",
+  "url": "https://www.tiktok.com/music/Deep-in-a-Wave-7080777625089690414"
+ },
+ "oeuvres": {
+  "images/oeuvres/brekelenkam-conversation.jpg": {
+   "musee": "The Met",
+   "id": "435772",
+   "titre": "Sentimental Conversation",
+   "artiste": "Quirijn van Brekelenkam",
+   "date": "early 1660s",
+   "url": "https://www.metmuseum.org/art/collection/search/435772"
+  },
+  "images/oeuvres/vermeer-servante-endormie.jpg": {
+   "musee": "The Met",
+   "id": "437878",
+   "titre": "A Maid Asleep",
+   "artiste": "Johannes Vermeer",
+   "date": "ca. 1656–57",
+   "url": "https://www.metmuseum.org/art/collection/search/437878"
+  },
+  "images/oeuvres/dehooch-visite.jpg": {
+   "musee": "The Met",
+   "id": "436678",
+   "titre": "The Visit",
+   "artiste": "Pieter de Hooch",
+   "date": "ca. 1657",
+   "url": "https://www.metmuseum.org/art/collection/search/436678"
+  },
+  "images/oeuvres/ochtervelt-lettre.jpg": {
+   "musee": "The Met",
+   "id": "437227",
+   "titre": "The Love Letter",
+   "artiste": "Jacob Ochtervelt",
+   "date": "early 1670s",
+   "url": "https://www.metmuseum.org/art/collection/search/437227"
+  },
+  "images/oeuvres/sorgh-cuisine.jpg": {
+   "musee": "The Met",
+   "id": "437703",
+   "titre": "A Kitchen",
+   "artiste": "Hendrick Sorgh",
+   "date": "ca. 1643",
+   "url": "https://www.metmuseum.org/art/collection/search/437703"
+  },
+  "images/oeuvres/fragonard-interieur-romain.jpg": {
+   "musee": "The Met",
+   "id": "436321",
+   "titre": "Roman Interior",
+   "artiste": "Jean Honoré Fragonard",
+   "date": "ca. 1760",
+   "url": "https://www.metmuseum.org/art/collection/search/436321"
+  }
+ },
+ "notes": "Full test (accroche jamais faite chez nous) au format de @scilla2047 et dans sa famille « 5 … that will … » : regarder sa propre chambre autrement, des intérieurs. Couverture : van Brekelenkam, Sentimental Conversation (Met 435772). Faits : A Maid Asleep (Vermeer, ca. 1656–57, Met 437878) : la radiographie montre un homme dans l'embrasure, effacé par Vermeer (notice du Met) ; The Visit (de Hooch, ca. 1657, Met 436678), fenêtres à gauche ; The Love Letter (Ochtervelt, début des années 1670, Met 437227) : un petit chien au premier plan ; A Kitchen (Sorgh, ca. 1643, Met 437703) ; Roman Interior (Fragonard, ca. 1760, Met 436321) : une pièce éclairée par un feu. Slide Artura (4) : Ochtervelt avec le logo ; cta A.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/oeuvres/brekelenkam-conversation.jpg",
+   "cadrage": {
+    "y": 0.35
+   },
+   "en": {
+    "titre": "5 paintings that will make you see {your own room} differently"
+   },
+   "de": {
+    "titre": "5 Gemälde, nach denen du {dein eigenes Zimmer} anders siehst"
+   },
+   "fr": {
+    "titre": "5 tableaux qui vont te faire voir {ta chambre} autrement"
+   },
+   "it": {
+    "titre": "5 quadri che ti faranno vedere {la tua stanza} con altri occhi"
+   },
+   "es": {
+    "titre": "5 cuadros que te harán ver {tu propio cuarto} de otra forma"
+   },
+   "pt-BR": {
+    "titre": "5 pinturas que vão te fazer ver {o seu quarto} de outro jeito"
+   },
+   "nl": {
+    "titre": "5 schilderijen waardoor je {je eigen kamer} anders gaat zien"
+   },
+   "pl": {
+    "titre": "5 obrazów, po których inaczej zobaczysz {swój pokój}"
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/vermeer-servante-endormie.jpg",
+   "en": {
+    "titre": "A Maid Asleep",
+    "texte": "A door left open onto another room. X-rays show Vermeer first painted a man in that doorway, then painted him out. Now the empty doorway is the story."
+   },
+   "de": {
+    "titre": "Schlafende Magd",
+    "texte": "Eine offene Tür zu einem anderen Raum. Röntgenbilder zeigen, dass Vermeer zuerst einen Mann in diese Tür malte und ihn dann übermalte. Jetzt ist die leere Tür die Geschichte."
+   },
+   "fr": {
+    "titre": "La Servante endormie",
+    "texte": "Une porte ouverte sur une autre pièce. Les radiographies montrent que Vermeer avait d'abord peint un homme dans l'embrasure, puis l'a effacé. Maintenant, c'est la porte vide qui raconte."
+   },
+   "it": {
+    "titre": "La serva addormentata",
+    "texte": "Una porta aperta su un'altra stanza. Le radiografie mostrano che Vermeer aveva dipinto un uomo sulla soglia, poi l'ha cancellato. Ora è la porta vuota a raccontare."
+   },
+   "es": {
+    "titre": "La criada dormida",
+    "texte": "Una puerta abierta a otra habitación. Las radiografías muestran que Vermeer pintó primero a un hombre en ese umbral y luego lo borró. Ahora la historia es la puerta vacía."
+   },
+   "pt-BR": {
+    "titre": "A criada adormecida",
+    "texte": "Uma porta aberta para outro cômodo. Raios X mostram que Vermeer pintou primeiro um homem nessa porta e depois o apagou. Agora a porta vazia é a história."
+   },
+   "nl": {
+    "titre": "Slapende dienstmeid",
+    "texte": "Een deur die openstaat naar een andere kamer. Röntgenfoto's tonen dat Vermeer eerst een man in die deuropening schilderde en hem toen wegschilderde. Nu is de lege deur het verhaal."
+   },
+   "pl": {
+    "titre": "Śpiąca służąca",
+    "texte": "Drzwi otwarte do innego pokoju. Zdjęcia rentgenowskie pokazują, że Vermeer najpierw namalował w nich mężczyznę, a potem go zamalował. Teraz to puste drzwi opowiadają historię."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/dehooch-visite.jpg",
+   "en": {
+    "titre": "The Visit",
+    "texte": "Three people, a table, light from the windows on the left. De Hooch made an ordinary room feel like it has its own weather."
+   },
+   "de": {
+    "titre": "Der Besuch",
+    "texte": "Drei Menschen, ein Tisch, Licht aus den Fenstern links. De Hooch ließ einen gewöhnlichen Raum wirken, als hätte er sein eigenes Wetter."
+   },
+   "fr": {
+    "titre": "La Visite",
+    "texte": "Trois personnes, une table, la lumière des fenêtres à gauche. De Hooch donne à une pièce ordinaire l'air d'avoir sa propre météo."
+   },
+   "it": {
+    "titre": "La visita",
+    "texte": "Tre persone, un tavolo, la luce delle finestre a sinistra. De Hooch fa sembrare una stanza normale come se avesse il suo clima."
+   },
+   "es": {
+    "titre": "La visita",
+    "texte": "Tres personas, una mesa, la luz de las ventanas a la izquierda. De Hooch hace que una habitación normal parezca tener su propio clima."
+   },
+   "pt-BR": {
+    "titre": "A visita",
+    "texte": "Três pessoas, uma mesa, a luz das janelas à esquerda. De Hooch faz um cômodo comum parecer ter o próprio clima."
+   },
+   "nl": {
+    "titre": "Het bezoek",
+    "texte": "Drie mensen, een tafel, licht uit de ramen links. De Hooch laat een gewone kamer voelen alsof ze haar eigen weer heeft."
+   },
+   "pl": {
+    "titre": "Wizyta",
+    "texte": "Trzy osoby, stół, światło z okien po lewej. De Hooch sprawia, że zwykły pokój wygląda, jakby miał własną pogodę."
+   }
+  },
+  {
+   "type": "artura",
+   "image": "images/oeuvres/ochtervelt-lettre.jpg",
+   "en": {
+    "titre": "The Love Letter",
+    "texte": "The letter is the story, but look at the little dog at her feet. I look at one painting a day on Artura, and now I catch details everywhere."
+   },
+   "de": {
+    "titre": "Der Liebesbrief",
+    "texte": "Der Brief ist die Geschichte, aber schau auf den kleinen Hund zu ihren Füßen. Ich schaue mir auf Artura jeden Tag ein Gemälde an, und jetzt sehe ich überall Details."
+   },
+   "fr": {
+    "titre": "La Lettre d'amour",
+    "texte": "La lettre est l'histoire, mais regarde le petit chien à ses pieds. Je regarde un tableau par jour sur Artura, et maintenant je vois des détails partout."
+   },
+   "it": {
+    "titre": "La lettera d'amore",
+    "texte": "La lettera è la storia, ma guarda il cagnolino ai suoi piedi. Guardo un quadro al giorno su Artura, e ora colgo dettagli ovunque."
+   },
+   "es": {
+    "titre": "La carta de amor",
+    "texte": "La carta es la historia, pero mira el perrito a sus pies. Miro un cuadro al día en Artura, y ahora veo detalles en todas partes."
+   },
+   "pt-BR": {
+    "titre": "A carta de amor",
+    "texte": "A carta é a história, mas olhe o cachorrinho aos pés dela. Vejo uma pintura por dia no Artura, e agora percebo detalhes em todo lugar."
+   },
+   "nl": {
+    "titre": "De liefdesbrief",
+    "texte": "De brief is het verhaal, maar kijk naar het hondje aan haar voeten. Ik kijk elke dag naar één schilderij op Artura, en nu zie ik overal details."
+   },
+   "pl": {
+    "titre": "List miłosny",
+    "texte": "List to cała historia, ale spójrz na pieska u jej stóp. Codziennie oglądam jeden obraz w aplikacji Artura, a teraz wszędzie dostrzegam szczegóły."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/sorgh-cuisine.jpg",
+   "en": {
+    "titre": "A Kitchen",
+    "texte": "Copper pots, vegetables, two women at work. Sorgh painted a kitchen with the care other painters gave to palaces."
+   },
+   "de": {
+    "titre": "Eine Küche",
+    "texte": "Kupfertöpfe, Gemüse, zwei Frauen bei der Arbeit. Sorgh malte eine Küche mit der Sorgfalt, die andere Maler Palästen schenkten."
+   },
+   "fr": {
+    "titre": "Une cuisine",
+    "texte": "Des casseroles en cuivre, des légumes, deux femmes au travail. Sorgh a peint une cuisine avec le soin que d'autres réservaient aux palais."
+   },
+   "it": {
+    "titre": "Una cucina",
+    "texte": "Pentole di rame, verdure, due donne al lavoro. Sorgh ha dipinto una cucina con la cura che altri pittori riservavano ai palazzi."
+   },
+   "es": {
+    "titre": "Una cocina",
+    "texte": "Ollas de cobre, verduras, dos mujeres trabajando. Sorgh pintó una cocina con el cuidado que otros pintores daban a los palacios."
+   },
+   "pt-BR": {
+    "titre": "Uma cozinha",
+    "texte": "Panelas de cobre, legumes, duas mulheres trabalhando. Sorgh pintou uma cozinha com o cuidado que outros pintores davam aos palácios."
+   },
+   "nl": {
+    "titre": "Een keuken",
+    "texte": "Koperen pannen, groenten, twee vrouwen aan het werk. Sorgh schilderde een keuken met de zorg die andere schilders aan paleizen gaven."
+   },
+   "pl": {
+    "titre": "Kuchnia",
+    "texte": "Miedziane garnki, warzywa, dwie kobiety przy pracy. Sorgh namalował kuchnię z troską, jaką inni malarze okazywali pałacom."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/fragonard-interieur-romain.jpg",
+   "en": {
+    "titre": "Roman Interior",
+    "texte": "One fire lights up a whole crowded room. Look at your own room tonight: one lamp changes everything."
+   },
+   "de": {
+    "titre": "Römisches Interieur",
+    "texte": "Ein einziges Feuer erhellt einen ganzen vollen Raum. Schau heute Abend dein Zimmer an: Eine Lampe verändert alles."
+   },
+   "fr": {
+    "titre": "Intérieur romain",
+    "texte": "Un seul feu éclaire toute une pièce pleine de monde. Regarde ta chambre ce soir : une seule lampe change tout."
+   },
+   "it": {
+    "titre": "Interno romano",
+    "texte": "Un solo fuoco illumina un'intera stanza affollata. Guarda la tua stanza stasera: una sola lampada cambia tutto."
+   },
+   "es": {
+    "titre": "Interior romano",
+    "texte": "Un solo fuego ilumina toda una habitación llena de gente. Mira tu cuarto esta noche: una sola lámpara lo cambia todo."
+   },
+   "pt-BR": {
+    "titre": "Interior romano",
+    "texte": "Um único fogo ilumina um cômodo inteiro cheio de gente. Olhe o seu quarto hoje à noite: uma luminária muda tudo."
+   },
+   "nl": {
+    "titre": "Romeins interieur",
+    "texte": "Eén vuur verlicht een hele volle kamer. Kijk vanavond naar je eigen kamer: één lamp verandert alles."
+   },
+   "pl": {
+    "titre": "Rzymskie wnętrze",
+    "texte": "Jeden ogień oświetla cały zatłoczony pokój. Spójrz dziś wieczorem na swój pokój: jedna lampa zmienia wszystko."
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

@@ -98,7 +98,8 @@
     1,
     2,
     5
-   ]
+   ],
+   "a_noter": "Pas de place pour l'étape Sophia sans casser son enchaînement (4 étapes liées) : pas refait pour l'instant."
   },
   {
    "rang": 5,
@@ -160,12 +161,13 @@
     "auteur": "Georgie"
    },
    "slides_reprenables": [
-    2,
     3,
     4,
+    5,
     6,
     7
-   ]
+   ],
+   "refait": "mc-005"
   },
   {
    "rang": 8,
@@ -263,7 +265,13 @@
     "id": "7577199615087364886",
     "titre": "son original",
     "auteur": "TYRAN."
-   }
+   },
+   "slides_reprenables": [
+    1,
+    3,
+    8
+   ],
+   "refait": "mc-006"
   },
   {
    "rang": 13,

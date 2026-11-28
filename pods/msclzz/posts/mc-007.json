@@ -1,0 +1,629 @@
+{
+ "id": "mc-007",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "How To Never Run Out Of Things To Say",
+  "de": "So gehen dir nie die Gesprächsthemen aus",
+  "it": "Come non restare mai senza argomenti",
+  "fr": "Comment ne jamais être à court de sujets",
+  "pt-BR": "Como nunca ficar sem assunto",
+  "es-419": "Cómo nunca quedarte sin temas de conversación",
+  "pl": "Jak sprawić, żeby nigdy nie zabrakło ci tematów",
+  "cs": "Jak ti nikdy nedojdou témata k hovoru"
+ },
+ "legendes": {
+  "en": "The next topic is almost always in their last sentence.\n\n#psychology #socialskills #conversation #communication #confidence",
+  "de": "Das nächste Thema steckt fast immer in ihrem letzten Satz.\n\n#psychologie #socialskills #kommunikation #selbstbewusstsein #menschenkenntnis",
+  "it": "Il prossimo argomento è quasi sempre nella loro ultima frase.\n\n#psicologia #socialskills #comunicazione #autostima #comportamentoumano",
+  "fr": "Le prochain sujet est presque toujours dans leur dernière phrase.\n\n#psychologie #confianceensoi #communication #charisme #comportementhumain",
+  "pt-BR": "O próximo assunto quase sempre está na última frase da pessoa.\n\n#psicologia #habilidadessociais #comunicacao #autoconfianca #comportamentohumano",
+  "es-419": "El siguiente tema casi siempre está en su última frase.\n\n#psicologia #habilidadessociales #comunicacion #confianza #comportamientohumano",
+  "pl": "Następny temat prawie zawsze jest w ich ostatnim zdaniu.\n\n#psychologia #umiejetnoscispoleczne #komunikacja #pewnoscsiebie #rozwojosobisty",
+  "cs": "Další téma je skoro vždycky v jejich poslední větě.\n\n#psychologie #socialniinteligence #komunikace #sebevedomi #osobnirozvoj"
+ },
+ "musique": {
+  "titre": "Zerkalo - Soft Blade",
+  "url": "https://www.tiktok.com/music/Zerkalo-6800733726369122306"
+ },
+ "compte": {
+  "images/compte/cerveau-couleurs.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+   "slide": 7
+  },
+  "images/compte/masques.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 5
+  },
+  "images/compte/visage-fragmente.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+   "slide": 2
+  },
+  "images/compte/etoile-vitruve.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+   "slide": 3
+  },
+  "images/compte/colombes.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7701734159739325718",
+   "slide": 2
+  },
+  "images/compte/chouette.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7702878583785639190",
+   "slide": 3
+  }
+ },
+ "notes": "Full test (accroche neuve, jamais faite chez nous) à son format exact : ne jamais être à court de sujets (tirer un fil de la dernière phrase, laisser respirer le silence). Texte à nous, dans sa voix ; ses images reprises (cerveau, masques, visage fragmenté, étoile, colombes, chouette), toutes déjà découpées. Slide Sophia (5) : « KEEP A STORY IN YOUR POCKET » ; cta A. Musique : Zerkalo (Soft Blade), celle de son post à 172 k.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "How To {Never Run Out} Of Things To Say"
+   },
+   "image": "images/compte/cerveau-couleurs.jpg",
+   "de": {
+    "titre": "So gehen dir {nie die Gesprächsthemen aus}"
+   },
+   "it": {
+    "titre": "Come non restare {mai senza argomenti}"
+   },
+   "fr": {
+    "titre": "Comment ne jamais être {à court de sujets}"
+   },
+   "pt-BR": {
+    "titre": "Como {nunca ficar sem assunto}"
+   },
+   "es-419": {
+    "titre": "Cómo nunca {quedarte sin temas de conversación}"
+   },
+   "pl": {
+    "titre": "Jak sprawić, żeby {nigdy nie zabrakło ci tematów}"
+   },
+   "cs": {
+    "titre": "Jak ti {nikdy nedojdou témata} k hovoru"
+   }
+  },
+  {
+   "type": "avertissement",
+   "en": {
+    "surtitre": "DISCLAIMER",
+    "titre": "READ THIS BEFORE YOUR NEXT CONVERSATION",
+    "avant": [
+     "Silence is not the problem.",
+     "The problem is the panic that starts when you think you have nothing left.",
+     "[Once you see how this works, you stop fearing the pause.]"
+    ]
+   },
+   "image": "images/compte/masques.jpg",
+   "de": {
+    "surtitre": "ACHTUNG",
+    "titre": "LIES DAS VOR DEINEM NÄCHSTEN GESPRÄCH",
+    "avant": [
+     "Stille ist nicht das Problem.",
+     "Das Problem ist die Panik, wenn du glaubst, dir fällt nichts mehr ein.",
+     "[Wenn du verstehst, wie das funktioniert, hast du keine Angst mehr vor der Pause.]"
+    ]
+   },
+   "it": {
+    "surtitre": "ATTENZIONE",
+    "titre": "LEGGI PRIMA DELLA TUA PROSSIMA CONVERSAZIONE",
+    "avant": [
+     "Il silenzio non è il problema.",
+     "Il problema è il panico che parte quando pensi di non avere più niente da dire.",
+     "[Quando capisci come funziona, smetti di avere paura della pausa.]"
+    ]
+   },
+   "fr": {
+    "surtitre": "ATTENTION",
+    "titre": "LIS ÇA AVANT TA PROCHAINE CONVERSATION",
+    "avant": [
+     "Le silence n'est pas le problème.",
+     "Le problème, c'est la panique qui arrive quand tu crois ne plus rien avoir à dire.",
+     "[Une fois que tu as compris comment ça marche, tu n'as plus peur des blancs.]"
+    ]
+   },
+   "pt-BR": {
+    "surtitre": "AVISO",
+    "titre": "LEIA ISSO ANTES DA SUA PRÓXIMA CONVERSA",
+    "avant": [
+     "O silêncio não é o problema.",
+     "O problema é o pânico que bate quando você acha que não tem mais nada pra dizer.",
+     "[Quando você entende como isso funciona, para de ter medo da pausa.]"
+    ]
+   },
+   "es-419": {
+    "surtitre": "AVISO",
+    "titre": "LEE ESTO ANTES DE TU PRÓXIMA PLÁTICA",
+    "avant": [
+     "El silencio no es el problema.",
+     "El problema es el pánico que llega cuando crees que ya no tienes nada que decir.",
+     "[Cuando entiendes cómo funciona, dejas de tenerle miedo a la pausa.]"
+    ]
+   },
+   "pl": {
+    "surtitre": "UWAGA",
+    "titre": "PRZECZYTAJ PRZED KOLEJNĄ ROZMOWĄ",
+    "avant": [
+     "Cisza nie jest problemem.",
+     "Problemem jest panika, kiedy myślisz, że nie masz już nic do powiedzenia.",
+     "[Kiedy zrozumiesz, jak to działa, przestaniesz bać się pauzy.]"
+    ]
+   },
+   "cs": {
+    "surtitre": "UPOZORNĚNÍ",
+    "titre": "PŘEČTI SI TO PŘED DALŠÍM ROZHOVOREM",
+    "avant": [
+     "Ticho není problém.",
+     "Problém je panika, která přijde, když si myslíš, že už nemáš co říct.",
+     "[Jakmile pochopíš, jak to funguje, přestaneš se pauzy bát.]"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "WHY YOU {FREEZE}",
+    "avant": [
+     "You freeze because you are searching your own head for something impressive.",
+     "Nothing feels good enough, so nothing comes out.",
+     "Meanwhile they just handed you three things to ask about."
+    ],
+    "apres": [
+     "{The next topic is almost always in their last sentence.}",
+     "You just have to stop hunting and start listening."
+    ]
+   },
+   "image": "images/compte/visage-fragmente.jpg",
+   "hauteur": 600,
+   "de": {
+    "titre": "WARUM DU {ERSTARRST}",
+    "avant": [
+     "Du erstarrst, weil du in deinem Kopf nach etwas Beeindruckendem suchst.",
+     "Nichts wirkt gut genug, also kommt nichts raus.",
+     "Dabei hat dir dein Gegenüber gerade drei Dinge zum Nachfragen gegeben."
+    ],
+    "apres": [
+     "{Das nächste Thema steckt fast immer in ihrem letzten Satz.}",
+     "Du musst nur aufhören zu suchen und anfangen zuzuhören."
+    ]
+   },
+   "it": {
+    "titre": "PERCHÉ TI {BLOCCHI}",
+    "avant": [
+     "Ti blocchi perché cerchi nella tua testa qualcosa di impressionante.",
+     "Niente ti sembra abbastanza, quindi non esce niente.",
+     "Intanto l'altra persona ti ha appena dato tre cose su cui fare domande."
+    ],
+    "apres": [
+     "{Il prossimo argomento è quasi sempre nella sua ultima frase.}",
+     "Devi solo smettere di cercare e iniziare ad ascoltare."
+    ]
+   },
+   "fr": {
+    "titre": "POURQUOI TU {BLOQUES}",
+    "avant": [
+     "Tu bloques parce que tu cherches dans ta tête un truc impressionnant.",
+     "Rien ne te paraît assez bien, alors rien ne sort.",
+     "Pendant ce temps, l'autre vient de te donner trois choses sur lesquelles rebondir."
+    ],
+    "apres": [
+     "{Le prochain sujet est presque toujours dans sa dernière phrase.}",
+     "Il faut juste arrêter de chercher et commencer à écouter."
+    ]
+   },
+   "pt-BR": {
+    "titre": "POR QUE VOCÊ {TRAVA}",
+    "avant": [
+     "Você trava porque está procurando na sua cabeça algo impressionante.",
+     "Nada parece bom o bastante, então nada sai.",
+     "Enquanto isso, a pessoa acabou de te dar três coisas pra perguntar."
+    ],
+    "apres": [
+     "{O próximo assunto quase sempre está na última frase dela.}",
+     "Você só precisa parar de caçar e começar a ouvir."
+    ]
+   },
+   "es-419": {
+    "titre": "POR QUÉ TE {BLOQUEAS}",
+    "avant": [
+     "Te bloqueas porque estás buscando en tu cabeza algo impresionante.",
+     "Nada te parece suficiente, así que no sale nada.",
+     "Mientras tanto, la otra persona acaba de darte tres cosas para preguntar."
+    ],
+    "apres": [
+     "{El siguiente tema casi siempre está en su última frase.}",
+     "Solo tienes que dejar de buscar y empezar a escuchar."
+    ]
+   },
+   "pl": {
+    "titre": "DLACZEGO {SIĘ ZACINASZ}",
+    "avant": [
+     "Zacinasz się, bo szukasz w głowie czegoś imponującego.",
+     "Nic nie wydaje się wystarczająco dobre, więc nic nie wychodzi.",
+     "A w tym czasie druga osoba właśnie dała ci trzy rzeczy, o które możesz zapytać."
+    ],
+    "apres": [
+     "{Następny temat prawie zawsze jest w jej ostatnim zdaniu.}",
+     "Musisz tylko przestać szukać i zacząć słuchać."
+    ]
+   },
+   "cs": {
+    "titre": "PROČ {ZAMRZNEŠ}",
+    "avant": [
+     "Zamrzneš, protože v hlavě hledáš něco působivého.",
+     "Nic ti nepřijde dost dobré, takže nevyjde nic.",
+     "Mezitím ti ten druhý právě dal tři věci, na které se můžeš zeptat."
+    ],
+    "apres": [
+     "{Další téma je skoro vždycky v jeho poslední větě.}",
+     "Stačí přestat hledat a začít poslouchat."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "PULL ON {ONE THREAD}",
+    "avant": [
+     "They say “work has been crazy.” Most people say “same” and the convo dies.",
+     "Pick one word and pull. “Crazy how?”",
+     "Every answer has a detail they almost skipped. That is your next question."
+    ],
+    "apres": [
+     "{You don't need new topics. You need to go one layer deeper.}"
+    ]
+   },
+   "image": "images/compte/etoile-vitruve.jpg",
+   "de": {
+    "titre": "ZIEH AN {EINEM FADEN}",
+    "avant": [
+     "Jemand sagt: „Die Arbeit ist gerade krass.“ Die meisten sagen „bei mir auch“ und das Gespräch stirbt.",
+     "Nimm ein Wort und zieh daran. „Krass wie?“",
+     "Jede Antwort hat ein Detail, das fast untergegangen wäre. Das ist deine nächste Frage."
+    ],
+    "apres": [
+     "{Du brauchst keine neuen Themen. Du musst nur eine Ebene tiefer gehen.}"
+    ]
+   },
+   "it": {
+    "titre": "TIRA {UN FILO}",
+    "avant": [
+     "Ti dicono “il lavoro è un delirio.” Quasi tutti rispondono “anche per me” e la conversazione muore.",
+     "Prendi una parola e tirala. “Delirio in che senso?”",
+     "Ogni risposta ha un dettaglio che stavano per saltare. Quella è la tua prossima domanda."
+    ],
+    "apres": [
+     "{Non ti servono argomenti nuovi. Devi solo scendere di un livello.}"
+    ]
+   },
+   "fr": {
+    "titre": "TIRE SUR {UN FIL}",
+    "avant": [
+     "Il dit : « le boulot, c'est la folie en ce moment. » La plupart répondent « pareil » et la conversation meurt.",
+     "Prends un mot et tire dessus. « La folie comment ? »",
+     "Chaque réponse a un détail qu'il allait zapper. C'est ta prochaine question."
+    ],
+    "apres": [
+     "{Pas besoin de nouveaux sujets. Il faut juste creuser d'un cran.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "PUXE {UM FIO}",
+    "avant": [
+     "Ela diz: “o trabalho tá uma loucura.” A maioria responde “o meu também” e a conversa morre.",
+     "Pegue uma palavra e puxe. “Loucura como?”",
+     "Toda resposta tem um detalhe que ela quase pulou. Essa é sua próxima pergunta."
+    ],
+    "apres": [
+     "{Você não precisa de assuntos novos. Precisa ir uma camada mais fundo.}"
+    ]
+   },
+   "es-419": {
+    "titre": "JALA {UN HILO}",
+    "avant": [
+     "Te dicen: “el trabajo está de locos.” Casi todos responden “igual” y la plática se muere.",
+     "Toma una palabra y jálala. “¿De locos cómo?”",
+     "Cada respuesta tiene un detalle que casi se saltan. Esa es tu siguiente pregunta."
+    ],
+    "apres": [
+     "{No necesitas temas nuevos. Necesitas bajar una capa más.}"
+    ]
+   },
+   "pl": {
+    "titre": "POCIĄGNIJ {ZA JEDNĄ NITKĘ}",
+    "avant": [
+     "Ktoś mówi: „w pracy jest teraz szaleństwo.” Większość odpowiada „u mnie też” i rozmowa umiera.",
+     "Weź jedno słowo i pociągnij. „Szaleństwo, czyli?”",
+     "Każda odpowiedź ma szczegół, który ktoś prawie pominął. To twoje następne pytanie."
+    ],
+    "apres": [
+     "{Nie potrzebujesz nowych tematów. Musisz zejść jedną warstwę głębiej.}"
+    ]
+   },
+   "cs": {
+    "titre": "ZATÁHNI ZA {JEDNU NIT}",
+    "avant": [
+     "Někdo řekne: „V práci je to teď šílený.“ Většina odpoví „u mě taky“ a rozhovor umře.",
+     "Vezmi jedno slovo a zatáhni. „Šílený jak?“",
+     "Každá odpověď má detail, který skoro přeskočil. To je tvoje další otázka."
+    ],
+    "apres": [
+     "{Nepotřebuješ nová témata. Potřebuješ jít o vrstvu hlouběji.}"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "en": {
+    "titre": "{KEEP A STORY} IN YOUR POCKET",
+    "avant": [
+     "Some pauses need you to bring something.",
+     "A strange fact. A tiny story. Something you found out this week and still think about."
+    ],
+    "apres": [
+     "I learn one short lesson a day on {Sophia,} so I always have one ready.",
+     "{One good “did you know” restarts any conversation.}"
+    ]
+   },
+   "de": {
+    "titre": "{HAB IMMER} EINE GESCHICHTE DABEI",
+    "avant": [
+     "Manche Pausen brauchen, dass du etwas mitbringst.",
+     "Ein seltsamer Fakt. Eine kleine Geschichte. Etwas, das du diese Woche erfahren hast und das dir nicht aus dem Kopf geht."
+    ],
+    "apres": [
+     "Ich lerne jeden Tag eine kurze Lektion auf {Sophia,} also habe ich immer eine parat.",
+     "{Ein gutes „wusstest du schon“ startet jedes Gespräch neu.}"
+    ]
+   },
+   "it": {
+    "titre": "{TIENI SEMPRE} UNA STORIA IN TASCA",
+    "avant": [
+     "Certe pause hanno bisogno che sia tu a portare qualcosa.",
+     "Un fatto strano. Una piccola storia. Qualcosa che hai scoperto questa settimana e a cui pensi ancora."
+    ],
+    "apres": [
+     "Imparo una breve lezione al giorno su {Sophia,} così ne ho sempre una pronta.",
+     "{Un buon “lo sapevi che” fa ripartire qualsiasi conversazione.}"
+    ]
+   },
+   "fr": {
+    "titre": "{GARDE UNE HISTOIRE} EN POCHE",
+    "avant": [
+     "Certains blancs ont besoin que tu apportes quelque chose.",
+     "Un fait étrange. Une petite histoire. Un truc appris cette semaine qui te trotte encore dans la tête."
+    ],
+    "apres": [
+     "J'apprends une courte leçon par jour sur {Sophia,} comme ça j'en ai toujours une sous la main.",
+     "{Un bon « tu savais que » relance n'importe quelle conversation.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "{TENHA UMA HISTÓRIA} NO BOLSO",
+    "avant": [
+     "Algumas pausas pedem que você traga algo.",
+     "Um fato estranho. Uma historinha. Algo que você descobriu essa semana e ainda não saiu da cabeça."
+    ],
+    "apres": [
+     "Eu aprendo uma lição curta por dia no {Sophia,} então sempre tenho uma pronta.",
+     "{Um bom “sabia que” reinicia qualquer conversa.}"
+    ]
+   },
+   "es-419": {
+    "titre": "{TEN UNA HISTORIA} EN EL BOLSILLO",
+    "avant": [
+     "Algunas pausas necesitan que tú traigas algo.",
+     "Un dato raro. Una historia corta. Algo que descubriste esta semana y no te sacas de la cabeza."
+    ],
+    "apres": [
+     "Aprendo una lección corta al día en {Sophia,} así que siempre tengo una lista.",
+     "{Un buen “¿sabías que...?” revive cualquier plática.}"
+    ]
+   },
+   "pl": {
+    "titre": "{MIEJ HISTORIĘ} W ZANADRZU",
+    "avant": [
+     "Niektóre pauzy wymagają, żebyś coś wniósł.",
+     "Dziwny fakt. Krótka historia. Coś, czego dowiedziałeś się w tym tygodniu i ciągle o tym myślisz."
+    ],
+    "apres": [
+     "Codziennie przerabiam jedną krótką lekcję w {Sophia,} więc zawsze mam coś w zanadrzu.",
+     "{Jedno dobre „wiedziałeś, że” ożywia każdą rozmowę.}"
+    ]
+   },
+   "cs": {
+    "titre": "{MĚJ PŘÍBĚH} V ZÁLOZE",
+    "avant": [
+     "Některé pauzy potřebují, abys něco přinesl.",
+     "Zvláštní fakt. Krátký příběh. Něco, co ses tento týden dozvěděl a pořád na to myslíš."
+    ],
+    "apres": [
+     "Každý den si projdu jednu krátkou lekci na {Sophia,} takže vždycky nějakou mám po ruce.",
+     "{Jedno dobré „věděl jsi, že“ nastartuje jakýkoli rozhovor.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "LET {THE PAUSE} BREATHE",
+    "avant": [
+     "A two second silence feels like forever to you.",
+     "To them it feels like a normal breath.",
+     "Smile, take a sip, look around. Rushing to fill it is what makes it awkward."
+    ],
+    "apres": [
+     "{Quiet confidence beats filling every silence.}"
+    ]
+   },
+   "image": "images/compte/colombes.jpg",
+   "de": {
+    "titre": "LASS {DIE PAUSE} ATMEN",
+    "avant": [
+     "Zwei Sekunden Stille fühlen sich für dich wie eine Ewigkeit an.",
+     "Für dein Gegenüber ist es ein normaler Atemzug.",
+     "Lächle, nimm einen Schluck, schau dich um. Erst das hektische Füllen macht es unangenehm."
+    ],
+    "apres": [
+     "{Ruhige Stille wirkt selbstbewusst.}"
+    ]
+   },
+   "it": {
+    "titre": "LASCIA RESPIRARE {LA PAUSA}",
+    "avant": [
+     "Due secondi di silenzio a te sembrano un'eternità.",
+     "Per l'altra persona sono un respiro normale.",
+     "Sorridi, bevi un sorso, guardati intorno. È la fretta di riempirla che la rende imbarazzante."
+    ],
+    "apres": [
+     "{Un silenzio calmo sembra sicurezza.}"
+    ]
+   },
+   "fr": {
+    "titre": "LAISSE {LE BLANC} RESPIRER",
+    "avant": [
+     "Deux secondes de silence, pour toi, c'est une éternité.",
+     "Pour l'autre, c'est une respiration normale.",
+     "Souris, bois une gorgée, regarde autour. C'est l'urgence de le remplir qui le rend gênant."
+    ],
+    "apres": [
+     "{Un silence calme, ça se lit comme de l'assurance.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "DEIXE {A PAUSA} RESPIRAR",
+    "avant": [
+     "Dois segundos de silêncio parecem uma eternidade pra você.",
+     "Pra outra pessoa, é uma respiração normal.",
+     "Sorria, tome um gole, olhe em volta. É a pressa de preencher que deixa tudo estranho."
+    ],
+    "apres": [
+     "{Silêncio tranquilo passa confiança.}"
+    ]
+   },
+   "es-419": {
+    "titre": "DEJA QUE {LA PAUSA} RESPIRE",
+    "avant": [
+     "Dos segundos de silencio te parecen una eternidad.",
+     "Para la otra persona es una respiración normal.",
+     "Sonríe, toma un trago, mira alrededor. Lo que la vuelve incómoda es la prisa por llenarla."
+    ],
+    "apres": [
+     "{Un silencio tranquilo se lee como seguridad.}"
+    ]
+   },
+   "pl": {
+    "titre": "POZWÓL {PAUZIE} ODDYCHAĆ",
+    "avant": [
+     "Dwie sekundy ciszy wydają ci się wiecznością.",
+     "Dla drugiej osoby to zwykły oddech.",
+     "Uśmiechnij się, weź łyk, rozejrzyj się. To pośpiech, żeby ją wypełnić, robi niezręczność."
+    ],
+    "apres": [
+     "{Spokojna cisza wygląda na pewność siebie.}"
+    ]
+   },
+   "cs": {
+    "titre": "NECH {PAUZU} DÝCHAT",
+    "avant": [
+     "Dvě vteřiny ticha ti připadají jako věčnost.",
+     "Pro toho druhého je to normální nádech.",
+     "Usměj se, napij se, rozhlédni se. Trapné to dělá až ten spěch ho zaplnit."
+    ],
+    "apres": [
+     "{Klidné ticho působí sebevědomě.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "SAVE THIS {FOR LATER}",
+    "avant": [
+     "Listen for the word they almost skipped.",
+     "Pull one thread before you change the topic.",
+     "Keep one story ready for the quiet moments."
+    ],
+    "apres": [
+     "{People who never run out of things to say are not talking more. They are listening better.}"
+    ]
+   },
+   "image": "images/compte/chouette.jpg",
+   "de": {
+    "titre": "SPEICHER DAS {FÜR SPÄTER}",
+    "avant": [
+     "Achte auf das Wort, das fast untergegangen wäre.",
+     "Zieh an einem Faden, bevor du das Thema wechselst.",
+     "Hab eine Geschichte für die stillen Momente parat."
+    ],
+    "apres": [
+     "{Wem nie der Gesprächsstoff ausgeht, der redet nicht mehr. Er hört besser zu.}"
+    ]
+   },
+   "it": {
+    "titre": "SALVALO {PER DOPO}",
+    "avant": [
+     "Ascolta la parola che stavano per saltare.",
+     "Tira un filo prima di cambiare argomento.",
+     "Tieni una storia pronta per i momenti di silenzio."
+    ],
+    "apres": [
+     "{Chi non resta mai senza argomenti non parla di più. Ascolta meglio.}"
+    ]
+   },
+   "fr": {
+    "titre": "GARDE ÇA {POUR PLUS TARD}",
+    "avant": [
+     "Écoute le mot qu'il allait zapper.",
+     "Tire sur un fil avant de changer de sujet.",
+     "Garde une histoire pour les moments calmes."
+    ],
+    "apres": [
+     "{Ceux qui ne sont jamais à court de sujets ne parlent pas plus. Ils écoutent mieux.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "SALVA ISSO {PRA DEPOIS}",
+    "avant": [
+     "Ouça a palavra que a pessoa quase pulou.",
+     "Puxe um fio antes de mudar de assunto.",
+     "Tenha uma história pronta pros momentos de silêncio."
+    ],
+    "apres": [
+     "{Quem nunca fica sem assunto não fala mais. Escuta melhor.}"
+    ]
+   },
+   "es-419": {
+    "titre": "GUARDA ESTO {PARA DESPUÉS}",
+    "avant": [
+     "Escucha la palabra que casi se saltan.",
+     "Jala un hilo antes de cambiar de tema.",
+     "Ten una historia lista para los momentos de silencio."
+    ],
+    "apres": [
+     "{Quien nunca se queda sin temas no habla más. Escucha mejor.}"
+    ]
+   },
+   "pl": {
+    "titre": "ZAPISZ TO {NA PÓŹNIEJ}",
+    "avant": [
+     "Słuchaj słowa, które ktoś prawie pominął.",
+     "Pociągnij za jedną nitkę, zanim zmienisz temat.",
+     "Miej jedną historię na ciche momenty."
+    ],
+    "apres": [
+     "{Ludzie, którym nigdy nie brakuje tematów, nie mówią więcej. Lepiej słuchają.}"
+    ]
+   },
+   "cs": {
+    "titre": "ULOŽ SI TO {NA POTOM}",
+    "avant": [
+     "Poslouchej slovo, které skoro přeskočil.",
+     "Zatáhni za jednu nit, než změníš téma.",
+     "Měj jeden příběh připravený na tiché chvíle."
+    ],
+    "apres": [
+     "{Lidé, kterým nikdy nedojdou témata, nemluví víc. Líp poslouchají.}"
+    ]
+   }
+  }
+ ]
+}

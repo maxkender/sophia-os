@@ -1,0 +1,780 @@
+{
+ "id": "mi-034",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7684514161577053471",
+  "vues": 310800,
+  "publie_le": "2026-09-24",
+  "accroche": "How to / Study / for 10+ / Hours"
+ },
+ "fond": "bleu",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "825 hp",
+  "url": "https://www.tiktok.com/music/825-hp-6891746453606123521"
+ },
+ "notes": "Full test (jauge du 28/11 : 2 full tests sur 3). Famille « How to [verbe] … » de @bdnf.milly, format de « How to Study for 10+ Hours » (310,8 k vues), fond bleu. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta A. Rien de médical ni de produit. Faits vérifiés : des étudiants de Harvard aux horaires de sommeil irréguliers avaient de moins bonnes notes, à durée de sommeil comparable (Phillips et al., Scientific Reports 2017) ; apprendre du vocabulaire le soir, peu avant de dormir, le fait mieux retenir que l'apprendre le matin avant une journée éveillé (Gais, Lucas et Born, Learning & Memory 2006) ; une légère déshydratation (environ 1,4 % du poids) a fait baisser l'humeur et la concentration et rendu les tâches plus difficiles chez de jeunes femmes (Armstrong et al., Journal of Nutrition 2012) ; l'inertie du sommeil, la lenteur au réveil, dure le plus souvent 15 à 30 minutes (Tassi et Muzet, Sleep Medicine Reviews 2000). 11 langues. Images : banque (cerveau-brume, hippocampe, dti), sans texte.",
+ "titre": {
+  "en": "How to Wake Up with a Sharp Mind",
+  "fr": "Comment te réveiller l'esprit vif",
+  "es": "Cómo despertar con la mente despejada",
+  "es-419": "Cómo despertar con la mente despejada",
+  "it": "Come svegliarti con la mente lucida",
+  "tr": "Berrak bir zihinle nasıl uyanırsın",
+  "pt-BR": "Como acordar com a mente afiada",
+  "sl": "Kako se zbuditi z bistrim umom",
+  "hr": "Kako se probuditi bistre glave",
+  "de": "Wie du mit klarem Kopf aufwachst",
+  "hu": "Hogyan ébredj friss fejjel"
+ },
+ "legendes": {
+  "en": "your morning starts the night before #sleep #brain #morningroutine #studytips #focus",
+  "fr": "ton matin commence la veille #sommeil #cerveau #routinedumatin #méthodedetravail #concentration",
+  "es": "tu mañana empieza la noche anterior #sueño #cerebro #rutinademañana #técnicasdeestudio #concentración",
+  "es-419": "tu mañana empieza la noche anterior #sueño #cerebro #rutinadelamañana #tipsdeestudio #concentración",
+  "it": "la tua mattina inizia la sera prima #sonno #cervello #routinemattutina #metododistudio #concentrazione",
+  "tr": "sabahın bir önceki gece başlar #uyku #beyin #sabahrutini #dersçalışma #odaklanma",
+  "pt-BR": "sua manhã começa na noite anterior #sono #cerebro #rotinadamanha #dicasdeestudo #foco",
+  "sl": "tvoje jutro se začne prejšnji večer #spanje #možgani #jutranjarutina #učenje #zbranost",
+  "hr": "tvoje jutro počinje večer prije #spavanje #mozak #jutarnjarutina #učenje #koncentracija",
+  "de": "dein morgen beginnt am abend davor #schlaf #gehirn #morgenroutine #lerntipps #fokus",
+  "hu": "a reggeled előző este kezdődik #alvás #agy #reggelirutin #tanulás #fókusz"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/cerveau-brume.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to",
+      "taille": "petit"
+     },
+     {
+      "t": "Wake Up",
+      "taille": "grand"
+     },
+     {
+      "t": "with a",
+      "taille": "petit"
+     },
+     {
+      "t": "Sharp Mind",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment te",
+      "taille": "petit"
+     },
+     {
+      "t": "Réveiller",
+      "taille": "grand"
+     },
+     {
+      "t": "l'esprit",
+      "taille": "petit"
+     },
+     {
+      "t": "Vif",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Despertar",
+      "taille": "grand"
+     },
+     {
+      "t": "con la mente",
+      "taille": "petit"
+     },
+     {
+      "t": "Despejada",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Despertar",
+      "taille": "grand"
+     },
+     {
+      "t": "con la mente",
+      "taille": "petit"
+     },
+     {
+      "t": "Despejada",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come",
+      "taille": "petit"
+     },
+     {
+      "t": "Svegliarti",
+      "taille": "grand"
+     },
+     {
+      "t": "con la mente",
+      "taille": "petit"
+     },
+     {
+      "t": "Lucida",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Berrak bir",
+      "taille": "petit"
+     },
+     {
+      "t": "Zihinle",
+      "taille": "grand"
+     },
+     {
+      "t": "nasıl",
+      "taille": "petit"
+     },
+     {
+      "t": "Uyanırsın",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como",
+      "taille": "petit"
+     },
+     {
+      "t": "Acordar",
+      "taille": "grand"
+     },
+     {
+      "t": "com a mente",
+      "taille": "petit"
+     },
+     {
+      "t": "Afiada",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako se",
+      "taille": "petit"
+     },
+     {
+      "t": "Zbuditi",
+      "taille": "grand"
+     },
+     {
+      "t": "z bistrim",
+      "taille": "petit"
+     },
+     {
+      "t": "Umom",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako se",
+      "taille": "petit"
+     },
+     {
+      "t": "Probuditi",
+      "taille": "grand"
+     },
+     {
+      "t": "bistre",
+      "taille": "petit"
+     },
+     {
+      "t": "Glave",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du mit",
+      "taille": "petit"
+     },
+     {
+      "t": "Klarem Kopf",
+      "taille": "grand"
+     },
+     {
+      "t": "Aufwachst",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan",
+      "taille": "petit"
+     },
+     {
+      "t": "Ébredj",
+      "taille": "grand"
+     },
+     {
+      "t": "friss",
+      "taille": "petit"
+     },
+     {
+      "t": "Fejjel",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Keep The Same Wake-Up Time",
+    "blocs": [
+     {
+      "p": "Regular beats long. In a month-long study of Harvard students, those with irregular sleep schedules had lower grades than those who slept at regular times, even when both groups slept about the same number of hours."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Pick one wake-up time and keep it, weekends included. Your body clock learns it, and mornings stop feeling like jet lag."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Garde la même heure de réveil",
+    "blocs": [
+     {
+      "p": "La régularité compte plus que la durée. Dans une étude d'un mois sur des étudiants de Harvard, ceux aux horaires de sommeil irréguliers avaient de moins bonnes notes que ceux qui dormaient à heures fixes, même avec à peu près le même nombre d'heures de sommeil."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Choisis une heure de réveil et tiens-la, week-end compris. Ton horloge interne l'apprend, et les matins cessent de ressembler à un décalage horaire."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Levántate siempre a la misma hora",
+    "blocs": [
+     {
+      "p": "La regularidad gana a la duración. En un estudio de un mes con estudiantes de Harvard, quienes tenían horarios de sueño irregulares sacaban peores notas que quienes dormían a horas fijas, aunque ambos grupos durmieran más o menos las mismas horas."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Elige una hora para levantarte y mantenla, también el fin de semana. Tu reloj interno se la aprende y las mañanas dejan de parecer un jet lag."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Despiértate siempre a la misma hora",
+    "blocs": [
+     {
+      "p": "La constancia le gana a la duración. En un estudio de un mes con estudiantes de Harvard, quienes tenían horarios de sueño irregulares sacaban peores calificaciones que quienes dormían a horas fijas, aunque los dos grupos durmieran más o menos las mismas horas."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Elige una hora para despertarte y mantenla, también el fin de semana. Tu reloj interno se la aprende y las mañanas dejan de sentirse como jet lag."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Svegliati sempre alla stessa ora",
+    "blocs": [
+     {
+      "p": "La regolarità conta più della durata. In uno studio di un mese su studenti di Harvard, chi aveva orari di sonno irregolari prendeva voti più bassi di chi dormiva a orari fissi, anche quando i due gruppi dormivano più o meno le stesse ore."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Scegli un orario di sveglia e mantienilo, anche nel weekend. Il tuo orologio interno lo impara, e le mattine smettono di sembrare un jet lag."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Hep aynı saatte uyan",
+    "blocs": [
+     {
+      "p": "Düzen, süreden daha önemli. Harvard öğrencileriyle yapılan bir aylık bir çalışmada, uyku saatleri düzensiz olanlar düzenli saatlerde uyuyanlardan daha düşük not aldı; iki grup da aşağı yukarı aynı sürede uyusa bile."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Bir uyanma saati seç ve hafta sonu dahil ona uy. Biyolojik saatin bunu öğrenir ve sabahlar jet lag gibi hissettirmeyi bırakır."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Acorde sempre no mesmo horário",
+    "blocs": [
+     {
+      "p": "Regularidade vale mais que duração. Num estudo de um mês com alunos de Harvard, quem tinha horários de sono irregulares tirava notas menores do que quem dormia em horários fixos, mesmo com os dois grupos dormindo mais ou menos as mesmas horas."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Escolha um horário para acordar e mantenha, inclusive no fim de semana. Seu relógio biológico aprende, e as manhãs deixam de parecer jet lag."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Vstajaj vedno ob isti uri",
+    "blocs": [
+     {
+      "p": "Rednost šteje več kot dolžina. V enomesečni raziskavi s študenti Harvarda so imeli tisti z nerednim spanjem slabše ocene od tistih, ki so spali ob stalnih urah, čeprav sta obe skupini spali približno enako dolgo."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Izberi uro vstajanja in se je drži, tudi ob koncih tedna. Tvoja notranja ura se jo nauči in jutra niso več kot časovni zamik."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Budi se uvijek u isto vrijeme",
+    "blocs": [
+     {
+      "p": "Redovitost je važnija od trajanja. U jednomjesečnom istraživanju sa studentima Harvarda oni s neredovitim spavanjem imali su lošije ocjene od onih koji su spavali u stalno vrijeme, iako su obje skupine spavale otprilike jednako dugo."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Odaberi vrijeme buđenja i drži ga se, i vikendom. Tvoj unutarnji sat to nauči i jutra se prestanu osjećati kao jet lag."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Steh immer zur gleichen Zeit auf",
+    "blocs": [
+     {
+      "p": "Regelmäßigkeit schlägt Dauer. In einer einmonatigen Studie mit Harvard-Studierenden hatten jene mit unregelmäßigen Schlafzeiten schlechtere Noten als jene mit festen Zeiten, obwohl beide Gruppen ungefähr gleich lange schliefen."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Wähl eine Aufstehzeit und halte sie, auch am Wochenende. Deine innere Uhr lernt sie, und Morgen fühlen sich nicht mehr wie Jetlag an."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Mindig ugyanakkor kelj",
+    "blocs": [
+     {
+      "p": "A rendszeresség többet ér a hosszúságnál. Egy egyhónapos vizsgálatban azoknak a harvardi diákoknak, akik rendszertelenül aludtak, rosszabbak voltak a jegyeik, mint akik fix időben, pedig a két csoport nagyjából ugyanannyit aludt."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Válassz egy ébredési időt, és tartsd, hétvégén is. A belső órád megtanulja, és a reggelek nem lesznek többé olyanok, mint egy jetlag."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Learn Something Before Bed",
+    "blocs": [
+     {
+      "p": "Sleep is when the brain files away what you learned during the day. In one experiment, people who learned new vocabulary in the evening, shortly before sleeping, remembered it better than people who learned it in the morning and then stayed awake."
+     },
+     {
+      "p": "So the last thing you feed your brain matters. End each day like a training session: one short lesson, then lights out."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Apprends quelque chose avant de dormir",
+    "blocs": [
+     {
+      "p": "C'est pendant le sommeil que le cerveau range ce que tu as appris dans la journée. Dans une expérience, des personnes qui apprenaient du vocabulaire le soir, peu avant de dormir, le retenaient mieux que celles qui l'apprenaient le matin puis restaient éveillées."
+     },
+     {
+      "p": "Ce que tu donnes à ton cerveau en dernier compte donc. Termine chaque journée comme une séance d'entraînement : une courte leçon, puis extinction des feux."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "J'utilise Sophia pour ça : une courte leçon avant de dormir, chaque soir, comme une séance d'entraînement pour l'esprit."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Aprende algo antes de dormir",
+    "blocs": [
+     {
+      "p": "Durante el sueño el cerebro archiva lo que aprendiste en el día. En un experimento, quienes aprendían vocabulario por la noche, poco antes de dormir, lo recordaban mejor que quienes lo aprendían por la mañana y luego seguían despiertos."
+     },
+     {
+      "p": "Así que lo último que le das a tu cerebro importa. Termina cada día como una sesión de entrenamiento: una lección corta y luego, a apagar la luz."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Uso Sophia para esto: una lección corta antes de dormir, cada noche, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Aprende algo antes de dormir",
+    "blocs": [
+     {
+      "p": "Mientras duermes, el cerebro guarda lo que aprendiste en el día. En un experimento, quienes aprendían vocabulario en la noche, poco antes de dormir, lo recordaban mejor que quienes lo aprendían en la mañana y luego seguían despiertos."
+     },
+     {
+      "p": "Así que lo último que le das a tu cerebro importa. Cierra cada día como una sesión de entrenamiento: una lección corta y luego, a apagar la luz."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Yo uso Sophia para esto: una lección corta antes de dormir, todas las noches, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Impara qualcosa prima di dormire",
+    "blocs": [
+     {
+      "p": "È durante il sonno che il cervello archivia ciò che hai imparato di giorno. In un esperimento, chi imparava vocaboli la sera, poco prima di dormire, li ricordava meglio di chi li imparava al mattino e poi restava sveglio."
+     },
+     {
+      "p": "Quindi l'ultima cosa che dai al cervello conta. Chiudi ogni giornata come un allenamento: una breve lezione, poi luci spente."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Io uso Sophia per questo: una breve lezione prima di dormire, ogni sera, come un allenamento per la mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Yatmadan önce bir şey öğren",
+    "blocs": [
+     {
+      "p": "Beyin, gün içinde öğrendiklerini uykuda yerine yerleştirir. Bir deneyde akşam, uyumadan kısa süre önce kelime öğrenenler, sabah öğrenip ardından uyanık kalanlardan daha iyi hatırladı."
+     },
+     {
+      "p": "Yani beynine verdiğin son şey önemli. Her günü bir antrenman gibi bitir: kısa bir ders, sonra ışıklar kapalı."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Bunun için Sophia kullanıyorum: her gece yatmadan önce kısa bir ders, zihin için bir antrenman gibi."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Aprenda algo antes de dormir",
+    "blocs": [
+     {
+      "p": "É no sono que o cérebro arquiva o que você aprendeu no dia. Num experimento, quem aprendia vocabulário à noite, pouco antes de dormir, lembrava melhor do que quem aprendia de manhã e depois ficava acordado."
+     },
+     {
+      "p": "Então a última coisa que você dá ao seu cérebro importa. Termine cada dia como um treino: uma lição curta e depois, luz apagada."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Eu uso a Sophia para isso: uma lição curta antes de dormir, toda noite, como um treino para a mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Pred spanjem se nauči nekaj",
+    "blocs": [
+     {
+      "p": "Med spanjem možgani pospravijo, kar si se naučil čez dan. V enem poskusu so si ljudje, ki so se besed učili zvečer, malo pred spanjem, te bolje zapomnili kot tisti, ki so se jih učili zjutraj in nato ostali budni."
+     },
+     {
+      "p": "Zato je pomembno, kaj možganom daš zadnje. Vsak dan končaj kot trening: kratka lekcija, nato luči ugasnjene."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to uporabljam Sophio: kratka lekcija pred spanjem, vsak večer, kot trening za um."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Nauči nešto prije spavanja",
+    "blocs": [
+     {
+      "p": "Mozak tijekom sna sprema ono što si naučio tijekom dana. U jednom pokusu ljudi koji su riječi učili navečer, malo prije spavanja, bolje su ih zapamtili od onih koji su ih učili ujutro pa ostali budni."
+     },
+     {
+      "p": "Zato je važno što mozgu daješ zadnje. Završi svaki dan kao trening: kratka lekcija, pa svjetla ugašena."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to koristim Sophiju: kratka lekcija prije spavanja, svake večeri, kao trening za um."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lern etwas vor dem Schlafen",
+    "blocs": [
+     {
+      "p": "Im Schlaf legt das Gehirn ab, was du tagsüber gelernt hast. In einem Experiment behielten Menschen, die abends kurz vor dem Schlafen Vokabeln lernten, diese besser als jene, die sie morgens lernten und dann wach blieben."
+     },
+     {
+      "p": "Was du deinem Gehirn zuletzt gibst, zählt also. Beende jeden Tag wie eine Trainingseinheit: eine kurze Lektion, dann Licht aus."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ich nutze Sophia dafür: eine kurze Lektion vor dem Schlafen, jeden Abend, wie ein Training für den Kopf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tanulj valamit lefekvés előtt",
+    "blocs": [
+     {
+      "p": "Alvás közben rendezi el az agy, amit napközben tanultál. Egy kísérletben azok, akik este, nem sokkal lefekvés előtt tanultak szavakat, jobban emlékeztek rájuk, mint akik reggel tanulták őket, és utána ébren maradtak."
+     },
+     {
+      "p": "Számít tehát, mit adsz utoljára az agyadnak. Zárd minden napod úgy, mint egy edzést: egy rövid lecke, aztán lámpaoltás."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Én erre a Sophiát használom: egy rövid lecke lefekvés előtt, minden este, mint egy edzés az elmének."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Drink Water, Then Wait",
+    "blocs": [
+     {
+      "p": "Even mild dehydration affects the mind. When young women lost about 1.4% of their body weight in water, their mood and concentration dropped and tasks felt harder. Start the day with a glass of water."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Then give yourself time. The grogginess after waking, called sleep inertia, usually fades within 15 to 30 minutes, so save your hardest thinking for after that."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Bois de l'eau, puis patiente",
+    "blocs": [
+     {
+      "p": "Même une légère déshydratation touche l'esprit. Quand de jeunes femmes perdaient environ 1,4 % de leur poids en eau, leur humeur et leur concentration baissaient et les tâches leur semblaient plus difficiles. Commence la journée par un verre d'eau."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Puis laisse-toi du temps. La lenteur au réveil, appelée inertie du sommeil, se dissipe le plus souvent en 15 à 30 minutes : garde tes réflexions les plus difficiles pour après."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Bebe agua y date tiempo",
+    "blocs": [
+     {
+      "p": "Incluso una deshidratación leve afecta a la mente. Cuando unas jóvenes perdieron cerca del 1,4 % de su peso en agua, su ánimo y su concentración bajaron y las tareas les parecieron más difíciles. Empieza el día con un vaso de agua."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Luego date tiempo. El aturdimiento al despertar, llamado inercia del sueño, suele desaparecer en 15 a 30 minutos, así que deja lo más difícil para después."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Toma agua y date tiempo",
+    "blocs": [
+     {
+      "p": "Hasta una deshidratación leve afecta la mente. Cuando unas jóvenes perdieron cerca del 1,4 % de su peso en agua, su ánimo y su concentración bajaron y las tareas se les hicieron más difíciles. Empieza el día con un vaso de agua."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Luego date tiempo. El aturdimiento al despertar, llamado inercia del sueño, casi siempre se va en 15 a 30 minutos, así que deja lo más difícil para después."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Bevi acqua, poi aspetta",
+    "blocs": [
+     {
+      "p": "Anche una lieve disidratazione pesa sulla mente. Quando giovani donne perdevano circa l'1,4 % del peso in acqua, umore e concentrazione calavano e i compiti sembravano più difficili. Inizia la giornata con un bicchiere d'acqua."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Poi concediti tempo. L'intontimento al risveglio, chiamato inerzia del sonno, di solito passa in 15-30 minuti: tieni i ragionamenti più difficili per dopo."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Su iç, sonra biraz bekle",
+    "blocs": [
+     {
+      "p": "Hafif bir susuzluk bile zihni etkiler. Genç kadınlar vücut ağırlıklarının yaklaşık %1,4'ü kadar su kaybettiğinde ruh halleri ve odakları düştü, görevler daha zor geldi. Güne bir bardak suyla başla."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Sonra kendine zaman tanı. Uyandıktan sonraki sersemlik, yani uyku ataleti, genellikle 15 ila 30 dakika içinde geçer; en zor düşünme işlerini sonraya bırak."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Beba água e espere um pouco",
+    "blocs": [
+     {
+      "p": "Até uma desidratação leve afeta a mente. Quando jovens mulheres perderam cerca de 1,4 % do peso em água, o humor e a concentração caíram e as tarefas pareceram mais difíceis. Comece o dia com um copo de água."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Depois, dê um tempo a si mesmo. A lerdeza ao acordar, chamada inércia do sono, costuma passar em 15 a 30 minutos, então deixe o raciocínio mais difícil para depois."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Popij vodo, nato počakaj",
+    "blocs": [
+     {
+      "p": "Že blaga dehidracija vpliva na um. Ko so mlade ženske izgubile približno 1,4 % telesne teže v vodi, sta jim upadla razpoloženje in zbranost, naloge pa so se jim zdele težje. Dan začni s kozarcem vode."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Nato si daj čas. Omotičnost po prebujanju, imenovana spalna inercija, običajno mine v 15 do 30 minutah, zato najtežje razmišljanje prihrani za pozneje."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Popij vodu, pa pričekaj",
+    "blocs": [
+     {
+      "p": "Čak i blaga dehidracija utječe na um. Kad su mlade žene izgubile oko 1,4 % tjelesne težine u vodi, raspoloženje i koncentracija su im pali, a zadaci su im se činili težima. Započni dan čašom vode."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Zatim si daj vremena. Omamljenost nakon buđenja, zvana inercija sna, obično prođe za 15 do 30 minuta, pa najteže razmišljanje ostavi za poslije."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Trink Wasser, dann warte kurz",
+    "blocs": [
+     {
+      "p": "Schon leichter Flüssigkeitsmangel wirkt sich auf den Kopf aus. Als junge Frauen etwa 1,4 % ihres Körpergewichts an Wasser verloren, sanken Stimmung und Konzentration, und Aufgaben fühlten sich schwerer an. Starte den Tag mit einem Glas Wasser."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Dann gib dir Zeit. Die Benommenheit nach dem Aufwachen, Schlafträgheit genannt, vergeht meist in 15 bis 30 Minuten: Heb dir das schwierigste Denken für danach auf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Igyál vizet, aztán várj",
+    "blocs": [
+     {
+      "p": "Már az enyhe kiszáradás is hat az elmére. Amikor fiatal nők testsúlyuk nagyjából 1,4 %-ának megfelelő vizet veszítettek, romlott a hangulatuk és a figyelmük, a feladatokat pedig nehezebbnek érezték. Kezdd a napot egy pohár vízzel."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Aztán adj magadnak időt. Az ébredés utáni kábaság, az alvási tehetetlenség, többnyire 15–30 perc alatt elmúlik, ezért a legnehezebb gondolkodást hagyd utánra."
+     }
+    ]
+   }
+  }
+ ]
+}

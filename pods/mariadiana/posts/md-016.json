@@ -8,10 +8,28 @@
   },
   "type_bleo": "full_test",
   "titre": {
-    "en": "Paintings That Feel Like The Sea"
+    "en": "Paintings That Feel Like The Sea",
+    "el": "Πίνακες που μοιάζουν με θάλασσα",
+    "es-419": "Pinturas que se sienten como el mar",
+    "it": "Quadri che sembrano il mare",
+    "fr": "Des tableaux qui ressemblent à la mer",
+    "hu": "Festmények, amelyek olyanok, mint a tenger",
+    "sr": "Slike koje deluju kao more",
+    "hr": "Slike koje djeluju kao more",
+    "lv": "Gleznas, kas atgādina jūru",
+    "ro": "Tablouri care seamănă cu marea"
   },
   "legendes": {
-    "en": "#arthistory #painting #courbet #renoir #museum"
+    "en": "#arthistory #painting #courbet #renoir #museum",
+    "el": "#ιστορίατέχνης #ζωγραφική #courbet #renoir #μουσείο",
+    "es-419": "#historiadelarte #pintura #courbet #renoir #museo",
+    "it": "#storiadellarte #pittura #courbet #renoir #museo",
+    "fr": "#histoiredelart #peinture #courbet #renoir #musée",
+    "hu": "#művészettörténet #festészet #courbet #renoir #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #courbet #renoir #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #courbet #renoir #muzej",
+    "lv": "#mākslasvēsture #glezniecība #courbet #renoir #muzejs",
+    "ro": "#istoriaartei #pictura #courbet #renoir #muzeu"
   },
   "musique": {
     "titre": "la petite fille de la mer",
@@ -61,6 +79,33 @@
       "image": "images/banque/c-nympheas.jpg",
       "en": {
         "titre": "Paintings That Feel Like The Sea"
+      },
+      "el": {
+        "titre": "Πίνακες που μοιάζουν με θάλασσα"
+      },
+      "es-419": {
+        "titre": "Pinturas que se sienten como el mar"
+      },
+      "it": {
+        "titre": "Quadri che sembrano il mare"
+      },
+      "fr": {
+        "titre": "Des tableaux qui ressemblent à la mer"
+      },
+      "hu": {
+        "titre": "Festmények, amelyek olyanok, mint a tenger"
+      },
+      "sr": {
+        "titre": "Slike koje deluju kao more"
+      },
+      "hr": {
+        "titre": "Slike koje djeluju kao more"
+      },
+      "lv": {
+        "titre": "Gleznas, kas atgādina jūru"
+      },
+      "ro": {
+        "titre": "Tablouri care seamănă cu marea"
       }
     },
     {
@@ -69,6 +114,51 @@
       "en": {
         "titre": "The Calm Sea",
         "texte": "was painted at Étretat in the summer of 1869, when Courbet spent weeks painting the Channel again and again. Almost nothing happens: a strip of sand, two boats, and a sky that takes up nearly the whole canvas.",
+        "artiste": "Gustave Courbet"
+      },
+      "el": {
+        "titre": "Ήρεμη θάλασσα",
+        "texte": "ζωγραφίστηκε στο Ετρετά το καλοκαίρι του 1869, όταν ο Κουρμπέ πέρασε εβδομάδες ζωγραφίζοντας ξανά και ξανά τη Μάγχη. Σχεδόν τίποτα δεν συμβαίνει: μια λωρίδα άμμου, δύο βάρκες κι ένας ουρανός που πιάνει σχεδόν όλο τον καμβά.",
+        "artiste": "Γκυστάβ Κουρμπέ"
+      },
+      "es-419": {
+        "titre": "El mar en calma",
+        "texte": "fue pintado en Étretat en el verano de 1869, cuando Courbet pasó semanas pintando el canal de la Mancha una y otra vez. Casi no pasa nada: una franja de arena, dos barcas y un cielo que ocupa casi todo el lienzo.",
+        "artiste": "Gustave Courbet"
+      },
+      "it": {
+        "titre": "Il mare calmo",
+        "texte": "fu dipinto a Étretat nell'estate del 1869, quando Courbet passò settimane a dipingere la Manica ancora e ancora. Non succede quasi nulla: una striscia di sabbia, due barche e un cielo che occupa quasi tutta la tela.",
+        "artiste": "Gustave Courbet"
+      },
+      "fr": {
+        "titre": "La Mer calme",
+        "texte": "a été peinte à Étretat à l'été 1869, quand Courbet passait des semaines à peindre la Manche encore et encore. Il ne se passe presque rien : une bande de sable, deux barques et un ciel qui prend presque toute la toile.",
+        "artiste": "Gustave Courbet"
+      },
+      "hu": {
+        "titre": "A nyugodt tenger",
+        "texte": "1869 nyarán készült Étretat-ban, amikor Courbet heteken át újra és újra a La Manche csatornát festette. Szinte semmi sem történik: egy sáv homok, két csónak és egy ég, amely szinte az egész vásznat betölti.",
+        "artiste": "Gustave Courbet"
+      },
+      "sr": {
+        "titre": "Mirno more",
+        "texte": "naslikano je u Etreti u leto 1869, kada je Kurbe nedeljama iznova slikao Lamanš. Gotovo se ništa ne dešava: traka peska, dva čamca i nebo koje zauzima skoro celo platno.",
+        "artiste": "Gistav Kurbe"
+      },
+      "hr": {
+        "titre": "Mirno more",
+        "texte": "naslikano je u Étretatu u ljeto 1869., kada je Courbet tjednima iznova slikao La Manche. Gotovo se ništa ne događa: traka pijeska, dva čamca i nebo koje zauzima gotovo cijelo platno.",
+        "artiste": "Gustave Courbet"
+      },
+      "lv": {
+        "titre": "Mierīgā jūra",
+        "texte": "gleznota Etretā 1869. gada vasarā, kad Kurbē nedēļām ilgi atkal un atkal gleznoja Lamanšu. Gandrīz nekas nenotiek: smilšu josla, divas laivas un debesis, kas aizņem gandrīz visu audeklu.",
+        "artiste": "Gistavs Kurbē"
+      },
+      "ro": {
+        "titre": "Marea liniștită",
+        "texte": "a fost pictată la Étretat în vara lui 1869, când Courbet a petrecut săptămâni pictând iar și iar Canalul Mânecii. Aproape nimic nu se întâmplă: o fâșie de nisip, două bărci și un cer care ocupă aproape toată pânza.",
         "artiste": "Gustave Courbet"
       }
     },
@@ -79,6 +169,51 @@
         "titre": "On the Beach at Trouville",
         "texte": "shows the fashionable crowd of 1863 at the seaside, in their best clothes, under a huge sky. Boudin painted outdoors, on the spot, and he taught a teenage Claude Monet to do the same.",
         "artiste": "Eugène Boudin"
+      },
+      "el": {
+        "titre": "Στην παραλία της Τρουβίλ",
+        "texte": "δείχνει τον κομψό κόσμο του 1863 στη θάλασσα, με τα καλά του ρούχα, κάτω από έναν τεράστιο ουρανό. Ο Μπουντέν ζωγράφιζε στο ύπαιθρο, επί τόπου, και δίδαξε τον έφηβο Κλοντ Μονέ να κάνει το ίδιο.",
+        "artiste": "Ευζέν Μπουντέν"
+      },
+      "es-419": {
+        "titre": "En la playa de Trouville",
+        "texte": "muestra a la gente elegante de 1863 en la costa, con su mejor ropa, bajo un cielo inmenso. Boudin pintaba al aire libre, en el lugar, y le enseñó a un Claude Monet adolescente a hacer lo mismo.",
+        "artiste": "Eugène Boudin"
+      },
+      "it": {
+        "titre": "Sulla spiaggia di Trouville",
+        "texte": "mostra la folla elegante del 1863 al mare, nei suoi abiti migliori, sotto un cielo immenso. Boudin dipingeva all'aperto, sul posto, e insegnò a un Claude Monet adolescente a fare lo stesso.",
+        "artiste": "Eugène Boudin"
+      },
+      "fr": {
+        "titre": "Sur la plage à Trouville",
+        "texte": "montre le beau monde de 1863 au bord de la mer, endimanché, sous un ciel immense. Boudin peignait dehors, sur le motif, et il a appris à un Claude Monet adolescent à faire de même.",
+        "artiste": "Eugène Boudin"
+      },
+      "hu": {
+        "titre": "A trouville-i strandon",
+        "texte": "1863 elegáns közönségét mutatja a tengerparton, ünneplőben, egy hatalmas ég alatt. Boudin a szabadban, a helyszínen festett, és erre tanította meg a kamasz Claude Monet-t is.",
+        "artiste": "Eugène Boudin"
+      },
+      "sr": {
+        "titre": "Na plaži u Truvilu",
+        "texte": "prikazuje otmenu publiku iz 1863. na moru, u najboljoj odeći, pod ogromnim nebom. Buden je slikao napolju, na licu mesta, i to je naučio i mladog Kloda Monea.",
+        "artiste": "Ežen Buden"
+      },
+      "hr": {
+        "titre": "Na plaži u Trouvilleu",
+        "texte": "prikazuje otmjeni svijet iz 1863. na moru, u najboljoj odjeći, pod golemim nebom. Boudin je slikao vani, na licu mjesta, i to je naučio i mladog Claudea Moneta.",
+        "artiste": "Eugène Boudin"
+      },
+      "lv": {
+        "titre": "Trūvilas pludmalē",
+        "texte": "rāda 1863. gada eleganto publiku pie jūras, labākajās drēbēs, zem milzīgām debesīm. Budēns gleznoja ārā, uz vietas, un to pašu iemācīja pusaudzim Klodam Monē.",
+        "artiste": "Eižens Budēns"
+      },
+      "ro": {
+        "titre": "Pe plaja de la Trouville",
+        "texte": "arată lumea elegantă din 1863 la mare, în haine de sărbătoare, sub un cer imens. Boudin picta afară, la fața locului, și l-a învățat pe adolescentul Claude Monet să facă la fel.",
+        "artiste": "Eugène Boudin"
       }
     },
     {
@@ -88,6 +223,51 @@
         "titre": "Calm Sea",
         "texte": "was painted by Simon de Vlieger, the Dutch master of quiet water, who probably trained Willem van de Velde the Younger. I learned to see how every sail is doubled in the still water on Artura, one artwork a day with its story.",
         "artiste": "Simon de Vlieger"
+      },
+      "el": {
+        "titre": "Ήρεμη θάλασσα",
+        "texte": "ζωγραφίστηκε από τον Σιμόν ντε Βλίγκερ, τον Ολλανδό δάσκαλο των ήσυχων νερών, που μάλλον εκπαίδευσε τον Βίλεμ βαν ντε Βέλντε τον Νεότερο. Έμαθα να βλέπω πώς κάθε πανί διπλασιάζεται στο ακίνητο νερό στην Artura, ένα έργο τη μέρα με την ιστορία του.",
+        "artiste": "Σιμόν ντε Βλίγκερ"
+      },
+      "es-419": {
+        "titre": "Mar en calma",
+        "texte": "fue pintado por Simon de Vlieger, el maestro holandés del agua quieta, que probablemente formó a Willem van de Velde el Joven. Aprendí a ver cómo cada vela se duplica en el agua quieta en Artura, una obra al día con su historia.",
+        "artiste": "Simon de Vlieger"
+      },
+      "it": {
+        "titre": "Mare calmo",
+        "texte": "fu dipinto da Simon de Vlieger, il maestro olandese delle acque quiete, che probabilmente formò Willem van de Velde il Giovane. Ho imparato a vedere come ogni vela si raddoppia nell'acqua ferma su Artura, un'opera al giorno con la sua storia.",
+        "artiste": "Simon de Vlieger"
+      },
+      "fr": {
+        "titre": "Mer calme",
+        "texte": "a été peinte par Simon de Vlieger, le maître hollandais des eaux tranquilles, qui a sans doute formé Willem van de Velde le Jeune. J'ai appris à voir comment chaque voile se dédouble dans l'eau immobile sur Artura, une œuvre par jour avec son histoire.",
+        "artiste": "Simon de Vlieger"
+      },
+      "hu": {
+        "titre": "Nyugodt tenger",
+        "texte": "Simon de Vlieger műve, a csendes vizek holland mesteréé, aki valószínűleg ifjabb Willem van de Veldét is tanította. Az Artura appban tanultam meg látni, hogyan kettőződik meg minden vitorla az álló vízben, napi egy műalkotás a történetével.",
+        "artiste": "Simon de Vlieger"
+      },
+      "sr": {
+        "titre": "Mirno more",
+        "texte": "naslikao je Simon de Fliger, holandski majstor mirnih voda, koji je verovatno podučavao Vilema van de Veldea Mlađeg. Naučila sam da vidim kako se svako jedro udvostručuje u mirnoj vodi u aplikaciji Artura, jedno delo dnevno sa svojom pričom.",
+        "artiste": "Simon de Fliger"
+      },
+      "hr": {
+        "titre": "Mirno more",
+        "texte": "naslikao je Simon de Vlieger, nizozemski majstor mirnih voda, koji je vjerojatno podučavao Willema van de Veldea Mlađeg. Naučila sam vidjeti kako se svako jedro udvostručuje u mirnoj vodi u aplikaciji Artura, jedno djelo dnevno s njegovom pričom.",
+        "artiste": "Simon de Vlieger"
+      },
+      "lv": {
+        "titre": "Mierīga jūra",
+        "texte": "gleznojis Simons de Fligers, holandiešu kluso ūdeņu meistars, kurš, visticamāk, apmācīja Vilemu van de Veldi jaunāko. Lietotnē Artura iemācījos redzēt, kā katra bura divkāršojas nekustīgajā ūdenī, viens darbs dienā ar savu stāstu.",
+        "artiste": "Simons de Fligers"
+      },
+      "ro": {
+        "titre": "Mare liniștită",
+        "texte": "a fost pictată de Simon de Vlieger, maestrul olandez al apelor liniștite, care probabil l-a format pe Willem van de Velde cel Tânăr. Am învățat să văd cum fiecare velă se dublează în apa nemișcată în aplicația Artura, o operă pe zi cu povestea ei.",
+        "artiste": "Simon de Vlieger"
       }
     },
     {
@@ -96,6 +276,51 @@
       "en": {
         "titre": "Seacoast near Wargemont",
         "texte": "was painted in 1880 while Renoir was staying near Dieppe with Paul Bérard, a banker who became his friend and patron. The cliffs, the grass and the sea melt into one shimmer of color.",
+        "artiste": "Auguste Renoir"
+      },
+      "el": {
+        "titre": "Ακτή κοντά στο Βαρζμόν",
+        "texte": "ζωγραφίστηκε το 1880, όταν ο Ρενουάρ έμενε κοντά στη Ντιέπ με τον Πολ Μπεράρ, έναν τραπεζίτη που έγινε φίλος και προστάτης του. Οι βράχοι, το χορτάρι και η θάλασσα λιώνουν σε μια ενιαία λάμψη χρώματος.",
+        "artiste": "Ωγκύστ Ρενουάρ"
+      },
+      "es-419": {
+        "titre": "Costa cerca de Wargemont",
+        "texte": "fue pintado en 1880, cuando Renoir se alojaba cerca de Dieppe con Paul Bérard, un banquero que se volvió su amigo y mecenas. Los acantilados, la hierba y el mar se funden en un solo destello de color.",
+        "artiste": "Auguste Renoir"
+      },
+      "it": {
+        "titre": "Costa vicino a Wargemont",
+        "texte": "fu dipinto nel 1880, mentre Renoir era ospite vicino a Dieppe di Paul Bérard, un banchiere che divenne suo amico e mecenate. Le scogliere, l'erba e il mare si fondono in un unico scintillio di colore.",
+        "artiste": "Auguste Renoir"
+      },
+      "fr": {
+        "titre": "Côte près de Wargemont",
+        "texte": "a été peinte en 1880, quand Renoir séjournait près de Dieppe chez Paul Bérard, un banquier devenu son ami et son mécène. Les falaises, l'herbe et la mer se fondent en un seul scintillement de couleur.",
+        "artiste": "Auguste Renoir"
+      },
+      "hu": {
+        "titre": "Tengerpart Wargemont közelében",
+        "texte": "1880-ban készült, amikor Renoir Dieppe mellett vendégeskedett Paul Bérard bankárnál, aki barátja és mecénása lett. A sziklák, a fű és a tenger egyetlen színes csillogássá olvad.",
+        "artiste": "Auguste Renoir"
+      },
+      "sr": {
+        "titre": "Obala kod Varžmona",
+        "texte": "naslikana je 1880, dok je Renoar boravio kod Dijepa kod Pola Berara, bankara koji mu je postao prijatelj i mecena. Litice, trava i more stapaju se u jedno svetlucanje boje.",
+        "artiste": "Ogist Renoar"
+      },
+      "hr": {
+        "titre": "Obala kod Wargemonta",
+        "texte": "naslikana je 1880., dok je Renoir boravio kraj Dieppea kod Paula Bérarda, bankara koji mu je postao prijatelj i mecena. Litice, trava i more stapaju se u jedno svjetlucanje boje.",
+        "artiste": "Auguste Renoir"
+      },
+      "lv": {
+        "titre": "Piekraste pie Varžmonas",
+        "texte": "gleznota 1880. gadā, kad Renuārs viesojās pie Djepas pie Pola Berāra, baņķiera, kurš kļuva par viņa draugu un mecenātu. Klintis, zāle un jūra saplūst vienā krāsu mirdzumā.",
+        "artiste": "Ogists Renuārs"
+      },
+      "ro": {
+        "titre": "Coasta lângă Wargemont",
+        "texte": "a fost pictată în 1880, când Renoir stătea lângă Dieppe la Paul Bérard, un bancher devenit prietenul și protectorul lui. Falezele, iarba și marea se topesc într-o singură sclipire de culoare.",
         "artiste": "Auguste Renoir"
       }
     }

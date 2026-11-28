@@ -1,0 +1,495 @@
+{
+  "id": "hl-019",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7686199268775939350",
+    "vues": 1400000,
+    "publie_le": "2026-09-16",
+    "accroche": "HOW TO GIVE A GIRL BUTTERFLIES."
+  },
+  "musique": {
+    "titre": "Les (Instrumental Slowed)",
+    "url": "https://www.tiktok.com/music/Les-Instrumental-Slowed-7601037808778708993"
+  },
+  "notes": "Preuve de format : « HOW TO GIVE A GIRL BUTTERFLIES. » (1,4 M), famille « HOW TO … », conseils titrés. Accroche neuve « HOW TO BE MORE ATTRACTIVE WITHOUT CHANGING YOUR LOOKS. ». Carte Artura (5) : « Know something she doesn't. », Millet, Haystacks: Autumn (The Met 437097), LOGO d'Artura ; cta C. Fait vérifié : l'automne d'une série des quatre saisons commandée par Frédéric Hartmann (fiche du Met). Full test (accroche jamais faite chez nous), routine du 28/11. En en, el, es-419, it, hu, sr (latin), pt-BR, es.",
+  "oeuvres": {
+    "images/oeuvres/millet-meules.jpg": {
+      "musee": "The Met",
+      "id": "437097",
+      "titre": "Haystacks: Autumn",
+      "artiste": "Jean-François Millet",
+      "date": "ca. 1874",
+      "url": "https://www.metmuseum.org/art/collection/search/437097"
+    }
+  },
+  "titre": {
+    "en": "How to be more attractive without changing your looks.",
+    "el": "Πώς να γίνεις πιο ελκυστικός χωρίς να αλλάξεις εμφάνιση.",
+    "es-419": "Cómo ser más atractivo sin cambiar tu físico.",
+    "it": "Come essere più attraente senza cambiare aspetto.",
+    "hu": "Hogyan légy vonzóbb a külsőd megváltoztatása nélkül.",
+    "sr": "Kako da budeš privlačniji bez promene izgleda.",
+    "pt-BR": "Como ser mais atraente sem mudar a aparência.",
+    "es": "Cómo ser más atractivo sin cambiar tu físico."
+  },
+  "legendes": {
+    "en": "#selfimprovement #tipsformen #attraction ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "sr": "#savetizamuškarce #veze #zavođenje ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "en": {
+        "titre": "HOW TO BE MORE\nATTRACTIVE\nWITHOUT CHANGING\nYOUR LOOKS."
+      },
+      "el": {
+        "titre": "ΠΩΣ ΝΑ ΓΙΝΕΙΣ\nΠΙΟ ΕΛΚΥΣΤΙΚΟΣ\nΧΩΡΙΣ ΝΑ ΑΛΛΑΞΕΙΣ\nΕΜΦΑΝΙΣΗ."
+      },
+      "es-419": {
+        "titre": "CÓMO SER\nMÁS ATRACTIVO\nSIN CAMBIAR\nTU FÍSICO."
+      },
+      "it": {
+        "titre": "COME ESSERE\nPIÙ ATTRAENTE\nSENZA CAMBIARE\nASPETTO."
+      },
+      "hu": {
+        "titre": "HOGYAN LÉGY\nVONZÓBB A KÜLSŐD\nMEGVÁLTOZTATÁSA\nNÉLKÜL."
+      },
+      "sr": {
+        "titre": "KAKO DA BUDEŠ\nPRIVLAČNIJI\nBEZ PROMENE\nIZGLEDA."
+      },
+      "pt-BR": {
+        "titre": "COMO SER\nMAIS ATRAENTE\nSEM MUDAR\nA APARÊNCIA."
+      },
+      "es": {
+        "titre": "CÓMO SER\nMÁS ATRACTIVO\nSIN CAMBIAR\nTU FÍSICO."
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Fix your posture.",
+        "paragraphes": [
+          "Shoulders back, chin up, slow steps.",
+          "You look calmer\nbefore you say a word."
+        ]
+      },
+      "el": {
+        "titre": "Διόρθωσε τη στάση σου.",
+        "paragraphes": [
+          "Ώμοι πίσω, πηγούνι ψηλά, αργά βήματα.",
+          "Φαίνεσαι πιο ήρεμος πριν πεις λέξη."
+        ]
+      },
+      "es-419": {
+        "titre": "Corrige tu postura.",
+        "paragraphes": [
+          "Hombros atrás, barbilla arriba, pasos lentos.",
+          "Te ves más tranquilo antes de decir una palabra."
+        ]
+      },
+      "it": {
+        "titre": "Sistema la postura.",
+        "paragraphes": [
+          "Spalle indietro, mento su, passi lenti.",
+          "Sembri più calmo prima ancora di parlare."
+        ]
+      },
+      "hu": {
+        "titre": "Javíts a tartásodon.",
+        "paragraphes": [
+          "Vállak hátra, áll fel, lassú léptek.",
+          "Nyugodtabbnak tűnsz, mielőtt egy szót is szólnál."
+        ]
+      },
+      "sr": {
+        "titre": "Popravi držanje.",
+        "paragraphes": [
+          "Ramena nazad, brada gore, spori koraci.",
+          "Deluješ smirenije pre nego što išta kažeš."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Corrija a postura.",
+        "paragraphes": [
+          "Ombros para trás, queixo erguido, passos lentos.",
+          "Você parece mais calmo antes de dizer qualquer coisa."
+        ]
+      },
+      "es": {
+        "titre": "Corrige tu postura.",
+        "paragraphes": [
+          "Hombros atrás, barbilla arriba, pasos lentos.",
+          "Pareces más tranquilo antes de decir una palabra."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Have something you love.",
+        "paragraphes": [
+          "A sport, a craft, an instrument.",
+          "Passion is attractive.\nBoredom is not."
+        ]
+      },
+      "el": {
+        "titre": "Να έχεις κάτι που αγαπάς.",
+        "paragraphes": [
+          "Ένα άθλημα, μια τέχνη, ένα όργανο.",
+          "Το πάθος είναι ελκυστικό. Η βαρεμάρα όχι."
+        ]
+      },
+      "es-419": {
+        "titre": "Ten algo que ames.",
+        "paragraphes": [
+          "Un deporte, un oficio, un instrumento.",
+          "La pasión atrae. El aburrimiento, no."
+        ]
+      },
+      "it": {
+        "titre": "Abbi qualcosa che ami.",
+        "paragraphes": [
+          "Uno sport, un mestiere, uno strumento.",
+          "La passione attrae. La noia no."
+        ]
+      },
+      "hu": {
+        "titre": "Legyen valami, amit szeretsz.",
+        "paragraphes": [
+          "Egy sport, egy mesterség, egy hangszer.",
+          "A szenvedély vonzó. Az unalom nem."
+        ]
+      },
+      "sr": {
+        "titre": "Imaj nešto što voliš.",
+        "paragraphes": [
+          "Sport, zanat, instrument.",
+          "Strast privlači. Dosada ne."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Tenha algo que você ama.",
+        "paragraphes": [
+          "Um esporte, um ofício, um instrumento.",
+          "Paixão atrai. Tédio, não."
+        ]
+      },
+      "es": {
+        "titre": "Ten algo que ames.",
+        "paragraphes": [
+          "Un deporte, un oficio, un instrumento.",
+          "La pasión atrae. El aburrimiento, no."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Smell good, dress clean.",
+        "paragraphes": [
+          "Not expensive.\nClean, fitted, simple.",
+          "Effort is visible."
+        ]
+      },
+      "el": {
+        "titre": "Μύριζε ωραία, ντύσου προσεγμένα.",
+        "paragraphes": [
+          "Όχι ακριβά. Καθαρά, στα μέτρα σου, απλά.",
+          "Η προσπάθεια φαίνεται."
+        ]
+      },
+      "es-419": {
+        "titre": "Huele bien, viste limpio.",
+        "paragraphes": [
+          "No caro. Limpio, a tu medida, simple.",
+          "El esfuerzo se nota."
+        ]
+      },
+      "it": {
+        "titre": "Profuma, vesti pulito.",
+        "paragraphes": [
+          "Non costoso. Pulito, della tua taglia, semplice.",
+          "L'impegno si vede."
+        ]
+      },
+      "hu": {
+        "titre": "Legyen jó illatod, tiszta ruhád.",
+        "paragraphes": [
+          "Nem drága. Tiszta, jól szabott, egyszerű.",
+          "Az igyekezet látszik."
+        ]
+      },
+      "sr": {
+        "titre": "Lepo miriši, oblači se uredno.",
+        "paragraphes": [
+          "Ne skupo. Čisto, po meri, jednostavno.",
+          "Trud se vidi."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Cheire bem, vista-se bem.",
+        "paragraphes": [
+          "Não precisa ser caro. Limpo, no seu tamanho, simples.",
+          "Esforço aparece."
+        ]
+      },
+      "es": {
+        "titre": "Huele bien, viste limpio.",
+        "paragraphes": [
+          "No caro. Limpio, a tu medida, simple.",
+          "El esfuerzo se nota."
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/millet-meules.jpg",
+      "en": {
+        "titre": "Know something she doesn't.",
+        "avant": [
+          "Millet painted these haystacks\nfor his four seasons.\nThis one is autumn.",
+          "Little facts like that\nmake you interesting."
+        ],
+        "apres": [
+          "I didn't know anything about art.\nArtura fixed that, one painting a day."
+        ]
+      },
+      "el": {
+        "titre": "Μάθε κάτι που δεν ξέρει.",
+        "avant": [
+          "Ο Μιλέ ζωγράφισε αυτές τις θημωνιές για μια σειρά με τις τέσσερις εποχές. Αυτή είναι το φθινόπωρο.",
+          "Τέτοιες μικρές λεπτομέρειες σε κάνουν ενδιαφέροντα."
+        ],
+        "apres": [
+          "Δεν ήξερα τίποτα για την τέχνη. Το Artura το έφτιαξε αυτό, έναν πίνακα τη μέρα."
+        ]
+      },
+      "es-419": {
+        "titre": "Sabe algo que ella no sepa.",
+        "avant": [
+          "Millet pintó estos almiares para una serie de las cuatro estaciones. Este es el otoño.",
+          "Esos pequeños datos te vuelven interesante."
+        ],
+        "apres": [
+          "No sabía nada de arte. Artura lo arregló, un cuadro al día."
+        ]
+      },
+      "it": {
+        "titre": "Sappi qualcosa che lei non sa.",
+        "avant": [
+          "Millet dipinse questi covoni per una serie sulle quattro stagioni. Questo è l'autunno.",
+          "Questi piccoli dettagli ti rendono interessante."
+        ],
+        "apres": [
+          "Non sapevo niente di arte. Artura ha sistemato tutto, un quadro al giorno."
+        ]
+      },
+      "hu": {
+        "titre": "Tudj valamit, amit ő nem.",
+        "avant": [
+          "Millet a négy évszakról szóló sorozatához festette ezeket a szénakazlakat. Ez az ősz.",
+          "Az ilyen apróságoktól leszel érdekes."
+        ],
+        "apres": [
+          "Semmit sem tudtam a művészetről. Az Artura ezt megoldotta, napi egy festménnyel."
+        ]
+      },
+      "sr": {
+        "titre": "Znaj nešto što ona ne zna.",
+        "avant": [
+          "Mile je naslikao ove plastove sena za seriju o četiri godišnja doba. Ovo je jesen.",
+          "Takve sitnice te čine zanimljivim."
+        ],
+        "apres": [
+          "Nisam znao ništa o umetnosti. Artura je to rešila, jedna slika dnevno."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Saiba algo que ela não sabe.",
+        "avant": [
+          "Millet pintou estes montes de feno para uma série das quatro estações. Este é o outono.",
+          "Pequenos fatos assim te deixam interessante."
+        ],
+        "apres": [
+          "Eu não sabia nada de arte. O Artura resolveu isso, um quadro por dia."
+        ]
+      },
+      "es": {
+        "titre": "Sabe algo que ella no sepa.",
+        "avant": [
+          "Millet pintó estos almiares para una serie de las cuatro estaciones. Este es el otoño.",
+          "Esos pequeños datos te vuelven interesante."
+        ],
+        "apres": [
+          "No sabía nada de arte. Artura lo arregló, un cuadro al día."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Smile with your eyes.",
+        "paragraphes": [
+          "A real smile reaches the eyes.",
+          "People feel it before they see it."
+        ]
+      },
+      "el": {
+        "titre": "Χαμογέλα με τα μάτια.",
+        "paragraphes": [
+          "Το αληθινό χαμόγελο φτάνει ως τα μάτια.",
+          "Οι άλλοι το νιώθουν πριν το δουν."
+        ]
+      },
+      "es-419": {
+        "titre": "Sonríe con los ojos.",
+        "paragraphes": [
+          "Una sonrisa real llega a los ojos.",
+          "La gente la siente antes de verla."
+        ]
+      },
+      "it": {
+        "titre": "Sorridi con gli occhi.",
+        "paragraphes": [
+          "Un sorriso vero arriva agli occhi.",
+          "Le persone lo sentono prima di vederlo."
+        ]
+      },
+      "hu": {
+        "titre": "Mosolyogj a szemeddel.",
+        "paragraphes": [
+          "Az igazi mosoly a szemig ér.",
+          "Az emberek előbb érzik, mint látják."
+        ]
+      },
+      "sr": {
+        "titre": "Smeši se očima.",
+        "paragraphes": [
+          "Pravi osmeh stiže do očiju.",
+          "Ljudi ga osete pre nego što ga vide."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Sorria com os olhos.",
+        "paragraphes": [
+          "Um sorriso de verdade chega aos olhos.",
+          "As pessoas sentem antes de ver."
+        ]
+      },
+      "es": {
+        "titre": "Sonríe con los ojos.",
+        "paragraphes": [
+          "Una sonrisa real llega a los ojos.",
+          "La gente la siente antes de verla."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "Attractive isn't a face.\nIt's how you carry yourself.",
+          "**A boy hopes to be noticed.**\n**A man is worth noticing.**"
+        ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Η ελκυστικότητα δεν είναι πρόσωπο. Είναι το πώς στέκεσαι.",
+          "**Το αγόρι ελπίζει να το προσέξουν.**\n**Ο άντρας αξίζει προσοχή.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Ser atractivo no es una cara. Es cómo te comportas.",
+          "**Un niño espera que lo noten.**\n**Un hombre merece ser notado.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "L'attrazione non è un viso. È come ti porti.",
+          "**Un ragazzino spera di essere notato.**\n**Un uomo merita di esserlo.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "A vonzerő nem egy arc. Hanem ahogy viseled magad.",
+          "**A kisfiú reméli, hogy észreveszik.**\n**A férfit érdemes észrevenni.**"
+        ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Privlačnost nije lice. To je kako se nosiš.",
+          "**Dečak se nada da će ga primetiti.**\n**Muškarac zaslužuje pažnju.**"
+        ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Atração não é um rosto. É como você se porta.",
+          "**O garoto torce para ser notado.**\n**O homem merece ser notado.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Ser atractivo no es una cara. Es cómo te comportas.",
+          "**Un niño espera que lo noten.**\n**Un hombre merece ser notado.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      }
+    }
+  ]
+}

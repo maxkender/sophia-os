@@ -1,0 +1,503 @@
+{
+  "id": "hl-018",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7692830169836309782",
+    "vues": 2100000,
+    "publie_le": "2026-10-04",
+    "accroche": "DESTROY HER EGO WITH THESE WORDS."
+  },
+  "musique": {
+    "titre": "M83 Solitude",
+    "url": "https://www.tiktok.com/music/M83-Solitude-7116098620134394625"
+  },
+  "notes": "Preuve de format : « DESTROY HER EGO WITH THESE WORDS. » (2,1 M), gabarit « She says: / You say: », retourné en bienveillance. Accroche neuve « WHAT TO SAY WHEN SHE DOUBTS HERSELF. ». Carte Artura (4) : « Give her a story of courage. », Rosa Bonheur, The Horse Fair (The Met 435702), LOGO d'Artura ; cta B. Fait vérifié : Bonheur s'habillait en homme pour dessiner au marché aux chevaux de Paris, et le tableau lui apporta une renommée internationale (fiche du Met). Full test (accroche jamais faite chez nous), routine du 28/11. En en, el, es-419, it, hu, sr (latin), pt-BR, es.",
+  "oeuvres": {
+    "images/oeuvres/bonheur-chevaux.jpg": {
+      "musee": "The Met",
+      "id": "435702",
+      "titre": "The Horse Fair",
+      "artiste": "Rosa Bonheur",
+      "date": "1852–55",
+      "url": "https://www.metmuseum.org/art/collection/search/435702"
+    }
+  },
+  "titre": {
+    "en": "What to say when she doubts herself.",
+    "el": "Τι να πεις όταν αμφιβάλλει για τον εαυτό της.",
+    "es-419": "Qué decir cuando duda de sí misma.",
+    "it": "Cosa dire quando dubita di sé.",
+    "hu": "Mit mondj, ha kételkedik önmagában.",
+    "sr": "Šta da kažeš kad sumnja u sebe.",
+    "pt-BR": "O que dizer quando ela duvida de si.",
+    "es": "Qué decir cuando duda de sí misma."
+  },
+  "legendes": {
+    "en": "#relationshipadvice #adviceformen #tipsformen ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "sr": "#savetizamuškarce #veze #zavođenje ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "en": {
+        "titre": "WHAT TO SAY\nWHEN SHE\nDOUBTS HERSELF."
+      },
+      "el": {
+        "titre": "ΤΙ ΝΑ ΠΕΙΣ\nΟΤΑΝ ΑΜΦΙΒΑΛΛΕΙ\nΓΙΑ ΤΟΝ\nΕΑΥΤΟ ΤΗΣ."
+      },
+      "es-419": {
+        "titre": "QUÉ DECIR\nCUANDO DUDA\nDE SÍ MISMA."
+      },
+      "it": {
+        "titre": "COSA DIRE\nQUANDO DUBITA\nDI SÉ."
+      },
+      "hu": {
+        "titre": "MIT MONDJ,\nHA KÉTELKEDIK\nÖNMAGÁBAN."
+      },
+      "sr": {
+        "titre": "ŠTA DA KAŽEŠ\nKAD SUMNJA\nU SEBE."
+      },
+      "pt-BR": {
+        "titre": "O QUE DIZER\nQUANDO ELA\nDUVIDA DE SI."
+      },
+      "es": {
+        "titre": "QUÉ DECIR\nCUANDO DUDA\nDE SÍ MISMA."
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Before something big.",
+        "paragraphes": [
+          "**She says:**\n“I'm going to fail this interview.”",
+          "**You say:**\n“You've prepared more than anyone.\nGo show them.”"
+        ]
+      },
+      "el": {
+        "titre": "Πριν από κάτι σημαντικό.",
+        "paragraphes": [
+          "**Εκείνη λέει:**\n«Θα τα κάνω θάλασσα στη συνέντευξη.»",
+          "**Εσύ λες:**\n«Έχεις προετοιμαστεί όσο κανείς. Πήγαινε να τους δείξεις.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Antes de algo importante.",
+        "paragraphes": [
+          "**Ella dice:**\n“Me va a ir fatal en la entrevista.”",
+          "**Tú dices:**\n“Te preparaste más que nadie. Ve y demuéstralo.”"
+        ]
+      },
+      "it": {
+        "titre": "Prima di una cosa importante.",
+        "paragraphes": [
+          "**Lei dice:**\n“Il colloquio andrà malissimo.”",
+          "**Tu dici:**\n“Ti sei preparata più di chiunque. Vai e faglielo vedere.”"
+        ]
+      },
+      "hu": {
+        "titre": "Valami fontos előtt.",
+        "paragraphes": [
+          "**Ő mondja:**\n„El fogom rontani az interjút.”",
+          "**Te mondod:**\n„Mindenkinél jobban felkészültél. Mutasd meg nekik.”"
+        ]
+      },
+      "sr": {
+        "titre": "Pred nešto važno.",
+        "paragraphes": [
+          "**Ona kaže:**\n„Pašću na ovom razgovoru.”",
+          "**Ti kažeš:**\n„Spremila si se više od svih. Idi i pokaži im.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Antes de algo importante.",
+        "paragraphes": [
+          "**Ela diz:**\n“Vou mal nessa entrevista.”",
+          "**Você diz:**\n“Você se preparou mais que todo mundo. Vai lá e mostra.”"
+        ]
+      },
+      "es": {
+        "titre": "Antes de algo importante.",
+        "paragraphes": [
+          "**Ella dice:**\n“Me va a ir fatal en la entrevista.”",
+          "**Tú dices:**\n“Te has preparado más que nadie. Ve y demuéstralo.”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "About her looks.",
+        "paragraphes": [
+          "**She says:**\n“I look terrible today.”",
+          "**You say:**\n“I like being with you\nexactly like this.”"
+        ]
+      },
+      "el": {
+        "titre": "Για την εμφάνισή της.",
+        "paragraphes": [
+          "**Εκείνη λέει:**\n«Είμαι χάλια σήμερα.»",
+          "**Εσύ λες:**\n«Μου αρέσει να είμαι μαζί σου ακριβώς έτσι.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Sobre su aspecto.",
+        "paragraphes": [
+          "**Ella dice:**\n“Hoy me veo horrible.”",
+          "**Tú dices:**\n“Me encanta estar contigo así, tal cual.”"
+        ]
+      },
+      "it": {
+        "titre": "Sul suo aspetto.",
+        "paragraphes": [
+          "**Lei dice:**\n“Oggi sono un disastro.”",
+          "**Tu dici:**\n“Mi piace stare con te esattamente così.”"
+        ]
+      },
+      "hu": {
+        "titre": "A külsejéről.",
+        "paragraphes": [
+          "**Ő mondja:**\n„Borzalmasan nézek ki ma.”",
+          "**Te mondod:**\n„Szeretek veled lenni, pont így.”"
+        ]
+      },
+      "sr": {
+        "titre": "O njenom izgledu.",
+        "paragraphes": [
+          "**Ona kaže:**\n„Danas izgledam užasno.”",
+          "**Ti kažeš:**\n„Volim da sam s tobom, baš ovako.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Sobre a aparência.",
+        "paragraphes": [
+          "**Ela diz:**\n“Hoje eu tô horrível.”",
+          "**Você diz:**\n“Adoro ficar com você assim, do jeito que você tá.”"
+        ]
+      },
+      "es": {
+        "titre": "Sobre su aspecto.",
+        "paragraphes": [
+          "**Ella dice:**\n“Hoy estoy horrible.”",
+          "**Tú dices:**\n“Me encanta estar contigo así, tal cual.”"
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/bonheur-chevaux.jpg",
+      "en": {
+        "titre": "Give her a story of courage.",
+        "avant": [
+          "**She says:** “Maybe I'm not good enough.”",
+          "**You say:** “Rosa Bonheur dressed as a man to sketch this horse fair. It made her famous.”"
+        ],
+        "apres": [
+          "Artura gives me one artwork a day\nand the story behind it.",
+          "Ten minutes, and you're the most\ninteresting man in the room."
+        ]
+      },
+      "el": {
+        "titre": "Πες της μια ιστορία θάρρους.",
+        "avant": [
+          "**Εκείνη λέει:** «Ίσως δεν είμαι αρκετά καλή.»",
+          "**Εσύ λες:** «Η Ροζά Μπονέρ ντυνόταν άντρας για να σχεδιάσει αυτό το παζάρι αλόγων. Την έκανε διάσημη.»"
+        ],
+        "apres": [
+          "Το Artura μου δίνει ένα έργο τη μέρα και την ιστορία του.",
+          "Δέκα λεπτά, και είσαι ο πιο ενδιαφέρων άντρας στο δωμάτιο."
+        ]
+      },
+      "es-419": {
+        "titre": "Cuéntale una historia de valor.",
+        "avant": [
+          "**Ella dice:** “Quizá no soy suficiente.”",
+          "**Tú dices:** “Rosa Bonheur se vestía de hombre para dibujar esta feria de caballos. La hizo famosa.”"
+        ],
+        "apres": [
+          "Artura me da una obra al día y su historia.",
+          "Diez minutos, y eres el hombre más interesante del lugar."
+        ]
+      },
+      "it": {
+        "titre": "Raccontale una storia di coraggio.",
+        "avant": [
+          "**Lei dice:** “Forse non sono abbastanza brava.”",
+          "**Tu dici:** “Rosa Bonheur si vestiva da uomo per disegnare questa fiera dei cavalli. La rese famosa.”"
+        ],
+        "apres": [
+          "Artura mi dà un'opera al giorno e la sua storia.",
+          "Dieci minuti, e sei l'uomo più interessante della stanza."
+        ]
+      },
+      "hu": {
+        "titre": "Mesélj neki a bátorságról.",
+        "avant": [
+          "**Ő mondja:** „Talán nem vagyok elég jó.”",
+          "**Te mondod:** „Rosa Bonheur férfinak öltözött, hogy lerajzolhassa ezt a lóvásárt. Ez a kép tette híressé.”"
+        ],
+        "apres": [
+          "Az Artura naponta ad egy műalkotást és a történetét.",
+          "Tíz perc, és te vagy a legérdekesebb férfi a teremben."
+        ]
+      },
+      "sr": {
+        "titre": "Ispričaj joj priču o hrabrosti.",
+        "avant": [
+          "**Ona kaže:** „Možda nisam dovoljno dobra.”",
+          "**Ti kažeš:** „Roza Boner se oblačila kao muškarac da bi crtala ovaj sajam konja. Ta slika ju je proslavila.”"
+        ],
+        "apres": [
+          "Artura mi daje jedno delo dnevno i njegovu priču.",
+          "Deset minuta, i ti si najzanimljiviji muškarac u sobi."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Conte uma história de coragem.",
+        "avant": [
+          "**Ela diz:** “Talvez eu não seja boa o bastante.”",
+          "**Você diz:** “Rosa Bonheur se vestia de homem para desenhar esta feira de cavalos. O quadro a deixou famosa.”"
+        ],
+        "apres": [
+          "O Artura me dá uma obra por dia e a história dela.",
+          "Dez minutos, e você é o homem mais interessante da sala."
+        ]
+      },
+      "es": {
+        "titre": "Cuéntale una historia de valor.",
+        "avant": [
+          "**Ella dice:** “Quizá no soy suficiente.”",
+          "**Tú dices:** “Rosa Bonheur se vestía de hombre para dibujar esta feria de caballos. La hizo famosa.”"
+        ],
+        "apres": [
+          "Artura me da una obra al día y su historia.",
+          "Diez minutos, y eres el hombre más interesante del lugar."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "When she compares herself.",
+        "paragraphes": [
+          "**She says:**\n“Everyone is ahead of me.”",
+          "**You say:**\n“You're not late.\nYou're on your own road.”"
+        ]
+      },
+      "el": {
+        "titre": "Όταν συγκρίνεται με άλλους.",
+        "paragraphes": [
+          "**Εκείνη λέει:**\n«Όλοι είναι πιο μπροστά από μένα.»",
+          "**Εσύ λες:**\n«Δεν έχεις αργήσει. Είσαι στον δικό σου δρόμο.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Cuando se compara.",
+        "paragraphes": [
+          "**Ella dice:**\n“Todos van más adelantados que yo.”",
+          "**Tú dices:**\n“No vas tarde. Vas por tu propio camino.”"
+        ]
+      },
+      "it": {
+        "titre": "Quando si paragona agli altri.",
+        "paragraphes": [
+          "**Lei dice:**\n“Sono tutti più avanti di me.”",
+          "**Tu dici:**\n“Non sei in ritardo. Sei sulla tua strada.”"
+        ]
+      },
+      "hu": {
+        "titre": "Ha másokhoz méri magát.",
+        "paragraphes": [
+          "**Ő mondja:**\n„Mindenki előrébb tart nálam.”",
+          "**Te mondod:**\n„Nem késtél le semmiről. A saját utadat járod.”"
+        ]
+      },
+      "sr": {
+        "titre": "Kad se poredi sa drugima.",
+        "paragraphes": [
+          "**Ona kaže:**\n„Svi su ispred mene.”",
+          "**Ti kažeš:**\n„Nisi zakasnila. Ideš svojim putem.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Quando ela se compara.",
+        "paragraphes": [
+          "**Ela diz:**\n“Todo mundo está na minha frente.”",
+          "**Você diz:**\n“Você não está atrasada. Está no seu caminho.”"
+        ]
+      },
+      "es": {
+        "titre": "Cuando se compara.",
+        "paragraphes": [
+          "**Ella dice:**\n“Todos van más adelantados que yo.”",
+          "**Tú dices:**\n“No vas tarde. Vas por tu propio camino.”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "When she just needs to vent.",
+        "paragraphes": [
+          "**She says:**\n“Ugh, today was awful.”",
+          "**You say:**\n“Do you want advice,\nor do you want me to listen?”"
+        ]
+      },
+      "el": {
+        "titre": "Όταν απλώς θέλει να ξεσπάσει.",
+        "paragraphes": [
+          "**Εκείνη λέει:**\n«Ουφ, σήμερα ήταν απαίσια.»",
+          "**Εσύ λες:**\n«Θες συμβουλή ή θες να σε ακούσω;»"
+        ]
+      },
+      "es-419": {
+        "titre": "Cuando solo necesita desahogarse.",
+        "paragraphes": [
+          "**Ella dice:**\n“Uf, hoy fue horrible.”",
+          "**Tú dices:**\n“¿Quieres un consejo o quieres que te escuche?”"
+        ]
+      },
+      "it": {
+        "titre": "Quando ha solo bisogno di sfogarsi.",
+        "paragraphes": [
+          "**Lei dice:**\n“Uff, oggi è stato orribile.”",
+          "**Tu dici:**\n“Vuoi un consiglio o vuoi che ti ascolti?”"
+        ]
+      },
+      "hu": {
+        "titre": "Ha csak ki akarja adni magából.",
+        "paragraphes": [
+          "**Ő mondja:**\n„Jaj, borzalmas napom volt.”",
+          "**Te mondod:**\n„Tanácsot szeretnél, vagy hogy meghallgassalak?”"
+        ]
+      },
+      "sr": {
+        "titre": "Kad samo treba da se izduva.",
+        "paragraphes": [
+          "**Ona kaže:**\n„Uf, danas je bilo užasno.”",
+          "**Ti kažeš:**\n„Hoćeš savet ili da te samo saslušam?”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Quando ela só quer desabafar.",
+        "paragraphes": [
+          "**Ela diz:**\n“Aff, hoje foi horrível.”",
+          "**Você diz:**\n“Quer um conselho ou quer que eu só escute?”"
+        ]
+      },
+      "es": {
+        "titre": "Cuando solo necesita desahogarse.",
+        "paragraphes": [
+          "**Ella dice:**\n“Uf, hoy ha sido horrible.”",
+          "**Tú dices:**\n“¿Quieres un consejo o quieres que te escuche?”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "She doesn't need you to fix her.\nShe needs you to believe in her.",
+          "**A boy gives answers.**\n**A man gives faith.**"
+        ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Δεν χρειάζεται να τη διορθώσεις. Χρειάζεται να πιστεύεις σε εκείνη.",
+          "**Το αγόρι δίνει απαντήσεις.**\n**Ο άντρας δίνει πίστη.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "No necesita que la arregles. Necesita que creas en ella.",
+          "**Un niño da respuestas.**\n**Un hombre da confianza.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "Non ha bisogno che tu la aggiusti. Ha bisogno che tu creda in lei.",
+          "**Un ragazzino dà risposte.**\n**Un uomo dà fiducia.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "Nem kell megjavítanod. Az kell, hogy higgy benne.",
+          "**A kisfiú válaszokat ad.**\n**A férfi hitet ad.**"
+        ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Ne treba da je popravljaš. Treba da veruješ u nju.",
+          "**Dečak daje odgovore.**\n**Muškarac daje veru.**"
+        ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Ela não precisa que você a conserte. Precisa que você acredite nela.",
+          "**O garoto dá respostas.**\n**O homem dá confiança.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "No necesita que la arregles. Necesita que creas en ella.",
+          "**Un niño da respuestas.**\n**Un hombre da confianza.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      }
+    }
+  ]
+}

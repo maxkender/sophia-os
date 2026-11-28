@@ -1,0 +1,488 @@
+{
+  "id": "hl-017",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7687701353061387522",
+    "vues": 3800000,
+    "publie_le": "2026-09-20",
+    "accroche": "HOW TO TEXT LIKE A MAN NOT A BOY."
+  },
+  "musique": {
+    "titre": "M83 Solitude",
+    "url": "https://www.tiktok.com/music/M83-Solitude-7116098620134394625"
+  },
+  "notes": "Preuve de format : « HOW TO TEXT LIKE A MAN NOT A BOY. » (3,8 M), gabarit « Instead of: / Say: ». Accroche neuve « HOW TO APOLOGIZE LIKE A MAN. ». Carte Artura (4) : « Listen first. », Bastien-Lepage, Joan of Arc (The Met 435621), LOGO d'Artura ; cta A. Fait vérifié : les voix (les saints) qu'entend Jeanne sont peintes en figures translucides derrière elle (fiche du Met). Full test (accroche jamais faite chez nous), routine du 28/11. En en, el, es-419, it, hu, sr (latin), pt-BR, es.",
+  "oeuvres": {
+    "images/oeuvres/bastien-jeanne.jpg": {
+      "musee": "The Met",
+      "id": "435621",
+      "titre": "Joan of Arc",
+      "artiste": "Jules Bastien-Lepage",
+      "date": "1879",
+      "url": "https://www.metmuseum.org/art/collection/search/435621"
+    }
+  },
+  "titre": {
+    "en": "How to apologize like a man.",
+    "el": "Πώς να ζητάς συγγνώμη σαν άντρας.",
+    "es-419": "Cómo pedir perdón como un hombre.",
+    "it": "Come chiedere scusa da uomo.",
+    "hu": "Hogyan kérj bocsánatot férfi módjára.",
+    "sr": "Kako da se izviniš kao muškarac.",
+    "pt-BR": "Como pedir desculpas como homem.",
+    "es": "Cómo pedir perdón como un hombre."
+  },
+  "legendes": {
+    "en": "#relationshipadvice #apology #tipsformen ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "sr": "#savetizamuškarce #veze #zavođenje ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "en": {
+        "titre": "HOW TO\nAPOLOGIZE\nLIKE A MAN."
+      },
+      "el": {
+        "titre": "ΠΩΣ ΝΑ ΖΗΤΑΣ\nΣΥΓΓΝΩΜΗ\nΣΑΝ ΑΝΤΡΑΣ."
+      },
+      "es-419": {
+        "titre": "CÓMO PEDIR\nPERDÓN COMO\nUN HOMBRE."
+      },
+      "it": {
+        "titre": "COME CHIEDERE\nSCUSA\nDA UOMO."
+      },
+      "hu": {
+        "titre": "HOGYAN KÉRJ\nBOCSÁNATOT\nFÉRFI MÓDJÁRA."
+      },
+      "sr": {
+        "titre": "KAKO DA SE\nIZVINIŠ KAO\nMUŠKARAC."
+      },
+      "pt-BR": {
+        "titre": "COMO PEDIR\nDESCULPAS\nCOMO HOMEM."
+      },
+      "es": {
+        "titre": "CÓMO PEDIR\nPERDÓN COMO\nUN HOMBRE."
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Name what you did.",
+        "paragraphes": [
+          "**Instead of:**\n“Sorry if you were upset.”",
+          "**Say:**\n“I was late and didn't call.\nThat was wrong.”"
+        ]
+      },
+      "el": {
+        "titre": "Πες τι έκανες.",
+        "paragraphes": [
+          "**Αντί για:**\n«Συγγνώμη αν στενοχωρήθηκες.»",
+          "**Πες:**\n«Άργησα και δεν πήρα τηλέφωνο. Ήταν λάθος.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Nombra lo que hiciste.",
+        "paragraphes": [
+          "**En vez de:**\n“Perdón si te molestaste.”",
+          "**Dile:**\n“Llegué tarde y no te avisé. Estuvo mal.”"
+        ]
+      },
+      "it": {
+        "titre": "Di' cosa hai fatto.",
+        "paragraphes": [
+          "**Invece di:**\n“Scusa se ci sei rimasta male.”",
+          "**Scrivi:**\n“Sono arrivato tardi e non ho chiamato. Ho sbagliato.”"
+        ]
+      },
+      "hu": {
+        "titre": "Mondd ki, mit csináltál.",
+        "paragraphes": [
+          "**Ne ezt:**\n„Bocs, ha megbántódtál.”",
+          "**Hanem ezt:**\n„Késtem, és nem szóltam. Ez hiba volt.”"
+        ]
+      },
+      "sr": {
+        "titre": "Reci šta si uradio.",
+        "paragraphes": [
+          "**Umesto:**\n„Izvini ako si se naljutila.”",
+          "**Napiši:**\n„Zakasnio sam i nisam javio. To nije bilo u redu.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Diga o que você fez.",
+        "paragraphes": [
+          "**Em vez de:**\n“Desculpa se você ficou chateada.”",
+          "**Mande:**\n“Me atrasei e não avisei. Foi errado.”"
+        ]
+      },
+      "es": {
+        "titre": "Nombra lo que hiciste.",
+        "paragraphes": [
+          "**En vez de:**\n“Perdón si te molestaste.”",
+          "**Dile:**\n“Llegué tarde y no te avisé. Hice mal.”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "No “but”.",
+        "paragraphes": [
+          "**Instead of:**\n“I'm sorry, but you also…”",
+          "**Say:**\n“I'm sorry. Full stop.”"
+        ]
+      },
+      "el": {
+        "titre": "Χωρίς «αλλά».",
+        "paragraphes": [
+          "**Αντί για:**\n«Συγγνώμη, αλλά κι εσύ…»",
+          "**Πες:**\n«Συγγνώμη. Τελεία.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Sin “pero”.",
+        "paragraphes": [
+          "**En vez de:**\n“Perdón, pero tú también…”",
+          "**Dile:**\n“Perdón. Punto.”"
+        ]
+      },
+      "it": {
+        "titre": "Niente “ma”.",
+        "paragraphes": [
+          "**Invece di:**\n“Scusa, ma anche tu…”",
+          "**Scrivi:**\n“Scusa. Punto.”"
+        ]
+      },
+      "hu": {
+        "titre": "Nincs „de”.",
+        "paragraphes": [
+          "**Ne ezt:**\n„Bocs, de te is…”",
+          "**Hanem ezt:**\n„Sajnálom. Pont.”"
+        ]
+      },
+      "sr": {
+        "titre": "Bez „ali”.",
+        "paragraphes": [
+          "**Umesto:**\n„Izvini, ali i ti si…”",
+          "**Napiši:**\n„Izvini. Tačka.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Sem “mas”.",
+        "paragraphes": [
+          "**Em vez de:**\n“Desculpa, mas você também…”",
+          "**Mande:**\n“Desculpa. Ponto.”"
+        ]
+      },
+      "es": {
+        "titre": "Sin “pero”.",
+        "paragraphes": [
+          "**En vez de:**\n“Perdón, pero tú también…”",
+          "**Dile:**\n“Perdón. Punto.”"
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/bastien-jeanne.jpg",
+      "en": {
+        "titre": "Listen first.",
+        "avant": [
+          "Bastien-Lepage painted the voices\nJoan of Arc heard as ghosts.",
+          "She listens. So should you."
+        ],
+        "apres": [
+          "I learn one painting a day on Artura,\nso I always have a story ready."
+        ]
+      },
+      "el": {
+        "titre": "Πρώτα άκου.",
+        "avant": [
+          "Ο Μπαστιέν-Λεπάζ ζωγράφισε τις φωνές που άκουγε η Ιωάννα της Λωρραίνης σαν φαντάσματα πίσω της. Εκείνη ακούει. Το ίδιο κι εσύ."
+        ],
+        "apres": [
+          "Μαθαίνω έναν πίνακα τη μέρα στο Artura, οπότε έχω πάντα μια ιστορία έτοιμη."
+        ]
+      },
+      "es-419": {
+        "titre": "Primero escucha.",
+        "avant": [
+          "Bastien-Lepage pintó las voces que oía Juana de Arco como fantasmas detrás de ella. Ella escucha. Tú también."
+        ],
+        "apres": [
+          "Aprendo un cuadro al día en Artura, así que siempre tengo una historia lista."
+        ]
+      },
+      "it": {
+        "titre": "Prima ascolta.",
+        "avant": [
+          "Bastien-Lepage dipinse le voci che sentiva Giovanna d'Arco come fantasmi dietro di lei. Lei ascolta. Anche tu."
+        ],
+        "apres": [
+          "Imparo un quadro al giorno su Artura, così ho sempre una storia pronta."
+        ]
+      },
+      "hu": {
+        "titre": "Először hallgasd meg.",
+        "avant": [
+          "Bastien-Lepage szellemekként festette Jeanne d'Arc mögé a hangokat, amelyeket hallott. Ő figyel. Te is figyelj."
+        ],
+        "apres": [
+          "Naponta egy festményt tanulok az Artura appban, így mindig van egy kész történetem."
+        ]
+      },
+      "sr": {
+        "titre": "Prvo saslušaj.",
+        "avant": [
+          "Bastijen-Lepaž je naslikao glasove koje je Jovanka Orleanka čula kao duhove iza nje. Ona sluša. Slušaj i ti."
+        ],
+        "apres": [
+          "Učim jednu sliku dnevno u aplikaciji Artura, pa uvek imam spremnu priču."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Primeiro, escute.",
+        "avant": [
+          "Bastien-Lepage pintou as vozes que Joana d'Arc ouvia como fantasmas atrás dela. Ela escuta. Você também."
+        ],
+        "apres": [
+          "Aprendo um quadro por dia no Artura, então sempre tenho uma história pronta."
+        ]
+      },
+      "es": {
+        "titre": "Primero escucha.",
+        "avant": [
+          "Bastien-Lepage pintó las voces que oía Juana de Arco como fantasmas detrás de ella. Ella escucha. Tú también."
+        ],
+        "apres": [
+          "Aprendo un cuadro al día en Artura, así que siempre tengo una historia lista."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Make it concrete.",
+        "paragraphes": [
+          "**Instead of:**\n“It won't happen again.”",
+          "**Say:**\n“Next time I'm running late,\nI'll text you before, not after.”"
+        ]
+      },
+      "el": {
+        "titre": "Κάν' το συγκεκριμένο.",
+        "paragraphes": [
+          "**Αντί για:**\n«Δεν θα ξανασυμβεί.»",
+          "**Πες:**\n«Την επόμενη φορά που θα αργήσω, θα σου γράψω πριν, όχι μετά.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Hazlo concreto.",
+        "paragraphes": [
+          "**En vez de:**\n“No va a volver a pasar.”",
+          "**Dile:**\n“La próxima vez que vaya tarde, te escribo antes, no después.”"
+        ]
+      },
+      "it": {
+        "titre": "Rendilo concreto.",
+        "paragraphes": [
+          "**Invece di:**\n“Non succederà più.”",
+          "**Scrivi:**\n“La prossima volta che faccio tardi, ti scrivo prima, non dopo.”"
+        ]
+      },
+      "hu": {
+        "titre": "Legyen konkrét.",
+        "paragraphes": [
+          "**Ne ezt:**\n„Nem fordul elő többet.”",
+          "**Hanem ezt:**\n„Ha legközelebb késem, előtte írok, nem utána.”"
+        ]
+      },
+      "sr": {
+        "titre": "Budi konkretan.",
+        "paragraphes": [
+          "**Umesto:**\n„Neće se ponoviti.”",
+          "**Napiši:**\n„Sledeći put kad kasnim, javiću ti pre, a ne posle.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Seja concreto.",
+        "paragraphes": [
+          "**Em vez de:**\n“Não vai acontecer de novo.”",
+          "**Mande:**\n“Da próxima vez que eu atrasar, te aviso antes, não depois.”"
+        ]
+      },
+      "es": {
+        "titre": "Hazlo concreto.",
+        "paragraphes": [
+          "**En vez de:**\n“No va a volver a pasar.”",
+          "**Dile:**\n“La próxima vez que vaya tarde, te escribo antes, no después.”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Then give her time.",
+        "paragraphes": [
+          "**Instead of:**\n“Are we good now?” every hour.",
+          "**Say:**\nNothing. Let her come back to you."
+        ]
+      },
+      "el": {
+        "titre": "Μετά δώσ' της χρόνο.",
+        "paragraphes": [
+          "**Αντί για:**\n«Είμαστε εντάξει τώρα;» κάθε ώρα.",
+          "**Πες:**\nΤίποτα. Άφησέ τη να έρθει εκείνη."
+        ]
+      },
+      "es-419": {
+        "titre": "Luego dale tiempo.",
+        "paragraphes": [
+          "**En vez de:**\n“¿Ya estamos bien?” cada hora.",
+          "**Dile:**\nNada. Deja que ella vuelva a ti."
+        ]
+      },
+      "it": {
+        "titre": "Poi dalle tempo.",
+        "paragraphes": [
+          "**Invece di:**\n“Adesso siamo a posto?” ogni ora.",
+          "**Scrivi:**\nNiente. Lascia che torni lei da te."
+        ]
+      },
+      "hu": {
+        "titre": "Aztán adj neki időt.",
+        "paragraphes": [
+          "**Ne ezt:**\n„Most már rendben vagyunk?” óránként.",
+          "**Hanem ezt:**\nSemmit. Hagyd, hogy ő jöjjön vissza."
+        ]
+      },
+      "sr": {
+        "titre": "Onda joj daj vremena.",
+        "paragraphes": [
+          "**Umesto:**\n„Jesmo li sad dobro?” na svakih sat vremena.",
+          "**Napiši:**\nNišta. Pusti da ona dođe kod tebe."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Depois, dê tempo a ela.",
+        "paragraphes": [
+          "**Em vez de:**\n“Tá tudo bem agora?” toda hora.",
+          "**Mande:**\nNada. Deixe ela voltar até você."
+        ]
+      },
+      "es": {
+        "titre": "Luego dale tiempo.",
+        "paragraphes": [
+          "**En vez de:**\n“¿Ya estamos bien?” cada hora.",
+          "**Dile:**\nNada. Deja que ella vuelva a ti."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "A real apology changes behavior,\nnot just the mood.",
+          "**A boy apologizes to end it.**\n**A man apologizes to fix it.**"
+        ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Μια αληθινή συγγνώμη αλλάζει συμπεριφορά, όχι μόνο διάθεση.",
+          "**Το αγόρι θέλει να τελειώσει.**\n**Ο άντρας θέλει να το διορθώσει.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Una disculpa real cambia la conducta, no solo el ánimo.",
+          "**Un niño se disculpa para terminar.**\n**Un hombre, para arreglarlo.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "Delle vere scuse cambiano i comportamenti, non solo l'umore.",
+          "**Un ragazzino si scusa per chiudere.**\n**Un uomo, per rimediare.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "Az igazi bocsánatkérés a viselkedést változtatja meg, nem csak a hangulatot.",
+          "**A kisfiú lezárni akarja.**\n**A férfi helyrehozni.**"
+        ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Pravo izvinjenje menja ponašanje, ne samo raspoloženje.",
+          "**Dečak se izvinjava da završi.**\n**Muškarac, da popravi.**"
+        ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Um pedido de desculpas de verdade muda atitudes, não só o clima.",
+          "**O garoto pede desculpas pra encerrar.**\n**O homem, pra consertar.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Una disculpa real cambia la conducta, no solo el ánimo.",
+          "**Un niño se disculpa para terminar.**\n**Un hombre, para arreglarlo.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      }
+    }
+  ]
+}

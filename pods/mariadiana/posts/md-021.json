@@ -1,0 +1,328 @@
+{
+  "id": "md-021",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Feel Like A Sunday Afternoon",
+    "fr": "Des tableaux comme un dimanche après-midi",
+    "es-419": "Pinturas como una tarde de domingo",
+    "it": "Quadri che sanno di domenica pomeriggio",
+    "el": "Πίνακες σαν κυριακάτικο απόγευμα",
+    "hu": "Festmények, mint egy vasárnap délután",
+    "sr": "Slike kao nedeljno popodne",
+    "hr": "Slike kao nedjeljno poslijepodne",
+    "lv": "Gleznas kā svētdienas pēcpusdiena",
+    "ro": "Tablouri ca o duminică după-amiază"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #renoir #seurat #museum",
+    "fr": "#histoiredelart #peinture #renoir #seurat #musée",
+    "es-419": "#historiadelarte #pintura #renoir #seurat #museo",
+    "it": "#storiadellarte #pittura #renoir #seurat #museo",
+    "el": "#ιστορίατηςτέχνης #ζωγραφική #renoir #seurat #μουσείο",
+    "hu": "#művészettörténet #festészet #renoir #seurat #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #renoar #sera #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #renoir #seurat #muzej",
+    "lv": "#mākslasvēsture #glezniecība #renuārs #sera #muzejs",
+    "ro": "#istoriaartei #pictura #renoir #seurat #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/pater-bezons.jpg": {
+      "musee": "The Met",
+      "id": "437257",
+      "titre": "The Fair at Bezons",
+      "artiste": "Jean-Baptiste Joseph Pater",
+      "date": "ca. 1733",
+      "url": "https://www.metmuseum.org/art/collection/search/437257"
+    },
+    "images/oeuvres/steen-terrasse.jpg": {
+      "musee": "The Met",
+      "id": "437749",
+      "titre": "Merry Company on a Terrace",
+      "artiste": "Jan Steen",
+      "date": "ca. 1670",
+      "url": "https://www.metmuseum.org/art/collection/search/437749"
+    },
+    "images/oeuvres/renoir-charpentier.jpg": {
+      "musee": "The Met",
+      "id": "438815",
+      "titre": "Madame Georges Charpentier (Marguerite-Louise Lemonnier, 1848–1904) and Her Children, Georgette-Berthe (1872–1945) and Paul-Emile-Charles (1875–1895)",
+      "artiste": "Auguste Renoir",
+      "date": "1878",
+      "url": "https://www.metmuseum.org/art/collection/search/438815"
+    },
+    "images/oeuvres/seurat-grande-jatte.jpg": {
+      "musee": "The Met",
+      "id": "437658",
+      "titre": "Study for \"A Sunday on La Grande Jatte\"",
+      "artiste": "Georges Seurat",
+      "date": "1884",
+      "url": "https://www.metmuseum.org/art/collection/search/437658"
+    }
+  },
+  "banque": {
+    "images/banque/c-salle-tableaux.jpg": "07a113ad-e48e-4907-9d4b-9453be476f40"
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Pater, La Foire de Bezons (vers 1733) : seul élève de Watteau ; Bezons sur la Seine. Jan Steen, Joyeuse compagnie sur une terrasse (vers 1670) : Steen se peint souvent dans ses scènes ; expression néerlandaise « een huishouden van Jan Steen ». Renoir, Madame Charpentier et ses enfants (1878) : succès au Salon de 1879 ; Georges Charpentier éditeur de Zola ; le fils Paul en robe comme sa sœur Georgette. Seurat, Étude pour Un dimanche à la Grande Jatte (1884) : une soixantaine d'études et dessins sur l'île. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/banque/c-salle-tableaux.jpg",
+      "en": {
+        "titre": "Paintings That Feel Like A Sunday Afternoon"
+      },
+      "fr": {
+        "titre": "Des tableaux comme un dimanche après-midi"
+      },
+      "es-419": {
+        "titre": "Pinturas como una tarde de domingo"
+      },
+      "it": {
+        "titre": "Quadri che sanno di domenica pomeriggio"
+      },
+      "el": {
+        "titre": "Πίνακες σαν κυριακάτικο απόγευμα"
+      },
+      "hu": {
+        "titre": "Festmények, mint egy vasárnap délután"
+      },
+      "sr": {
+        "titre": "Slike kao nedeljno popodne"
+      },
+      "hr": {
+        "titre": "Slike kao nedjeljno poslijepodne"
+      },
+      "lv": {
+        "titre": "Gleznas kā svētdienas pēcpusdiena"
+      },
+      "ro": {
+        "titre": "Tablouri ca o duminică după-amiază"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/pater-bezons.jpg",
+      "en": {
+        "titre": "The Fair at Bezons",
+        "texte": "is a village fair on the Seine near Paris, full of dancers, lovers and music. Jean-Baptiste Pater was the only pupil Watteau ever took, and he painted it around 1733.",
+        "artiste": "Jean-Baptiste Pater"
+      },
+      "fr": {
+        "titre": "La Foire de Bezons",
+        "texte": "est une fête de village au bord de la Seine, près de Paris, pleine de danseurs, d'amoureux et de musique. Jean-Baptiste Pater fut le seul élève que Watteau ait jamais pris ; il l'a peinte vers 1733.",
+        "artiste": "Jean-Baptiste Pater"
+      },
+      "es-419": {
+        "titre": "La feria de Bezons",
+        "texte": "es una fiesta de pueblo a orillas del Sena, cerca de París, llena de bailarines, enamorados y música. Jean-Baptiste Pater fue el único alumno que tuvo Watteau, y la pintó hacia 1733.",
+        "artiste": "Jean-Baptiste Pater"
+      },
+      "it": {
+        "titre": "La fiera di Bezons",
+        "texte": "è una festa di paese sulla Senna vicino a Parigi, piena di ballerini, innamorati e musica. Jean-Baptiste Pater fu l'unico allievo che Watteau abbia mai avuto, e la dipinse intorno al 1733.",
+        "artiste": "Jean-Baptiste Pater"
+      },
+      "el": {
+        "titre": "Το πανηγύρι στο Μπεζόν",
+        "texte": "είναι μια γιορτή χωριού στον Σηκουάνα, κοντά στο Παρίσι, γεμάτη χορευτές, ερωτευμένους και μουσική. Ο Ζαν-Μπατίστ Πατέρ ήταν ο μόνος μαθητής που πήρε ποτέ ο Βατό, και τη ζωγράφισε γύρω στο 1733.",
+        "artiste": "Ζαν-Μπατίστ Πατέρ"
+      },
+      "hu": {
+        "titre": "A bezonsi vásár",
+        "texte": "falusi mulatság a Szajna partján, Párizs mellett, tele táncosokkal, szerelmesekkel és zenével. Jean-Baptiste Pater volt Watteau egyetlen tanítványa; 1733 körül festette.",
+        "artiste": "Jean-Baptiste Pater"
+      },
+      "sr": {
+        "titre": "Vašar u Bezonu",
+        "texte": "je seoska svetkovina na Seni kod Pariza, puna plesača, zaljubljenih i muzike. Žan-Batist Pater bio je jedini učenik koga je Vato ikada imao, a naslikao ju je oko 1733.",
+        "artiste": "Žan-Batist Pater"
+      },
+      "hr": {
+        "titre": "Sajam u Bezonsu",
+        "texte": "je seoska svetkovina na Seini kraj Pariza, puna plesača, zaljubljenih i glazbe. Jean-Baptiste Pater bio je jedini učenik kojeg je Watteau ikad imao, a naslikao ju je oko 1733.",
+        "artiste": "Jean-Baptiste Pater"
+      },
+      "lv": {
+        "titre": "Gadatirgus Bezonā",
+        "texte": "ir ciema svētki pie Sēnas netālu no Parīzes, pilni dejotāju, mīlētāju un mūzikas. Žans Batists Pāters bija vienīgais Vato skolnieks, un viņš to gleznoja ap 1733. gadu.",
+        "artiste": "Žans Batists Pāters"
+      },
+      "ro": {
+        "titre": "Bâlciul de la Bezons",
+        "texte": "este o sărbătoare de sat pe malul Senei, lângă Paris, plină de dansatori, îndrăgostiți și muzică. Jean-Baptiste Pater a fost singurul elev pe care l-a avut vreodată Watteau, și a pictat-o în jurul anului 1733.",
+        "artiste": "Jean-Baptiste Pater"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/steen-terrasse.jpg",
+      "en": {
+        "titre": "Merry Company on a Terrace",
+        "texte": "is pure chaos: wine, music, a dog, a laughing woman. Jan Steen often put himself in his own scenes, and the Dutch still call a messy home a Jan Steen household.",
+        "artiste": "Jan Steen"
+      },
+      "fr": {
+        "titre": "Joyeuse compagnie sur une terrasse",
+        "texte": "est le chaos pur : du vin, de la musique, un chien, une femme qui rit. Jan Steen se glissait souvent dans ses propres scènes, et les Néerlandais appellent encore une maison en désordre « un ménage de Jan Steen ».",
+        "artiste": "Jan Steen"
+      },
+      "es-419": {
+        "titre": "Alegre compañía en una terraza",
+        "texte": "es puro caos: vino, música, un perro, una mujer que ríe. Jan Steen solía meterse en sus propias escenas, y en los Países Bajos todavía llaman a una casa desordenada «un hogar de Jan Steen».",
+        "artiste": "Jan Steen"
+      },
+      "it": {
+        "titre": "Allegra compagnia su una terrazza",
+        "texte": "è il caos puro: vino, musica, un cane, una donna che ride. Jan Steen si dipingeva spesso nelle sue scene, e gli olandesi chiamano ancora una casa in disordine «una casa alla Jan Steen».",
+        "artiste": "Jan Steen"
+      },
+      "el": {
+        "titre": "Εύθυμη συντροφιά σε μια βεράντα",
+        "texte": "είναι σκέτο χάος: κρασί, μουσική, ένας σκύλος, μια γυναίκα που γελάει. Ο Γιαν Στεν έβαζε συχνά τον εαυτό του στις σκηνές του, και οι Ολλανδοί λένε ακόμα ένα ακατάστατο σπίτι «νοικοκυριό του Γιαν Στεν».",
+        "artiste": "Γιαν Στεν"
+      },
+      "hu": {
+        "titre": "Vidám társaság egy teraszon",
+        "texte": "maga a káosz: bor, zene, egy kutya, egy nevető nő. Jan Steen gyakran megfestette magát a saját jeleneteiben, és a hollandok ma is „Jan Steen-háztartásnak” hívják a rendetlen otthont.",
+        "artiste": "Jan Steen"
+      },
+      "sr": {
+        "titre": "Veselo društvo na terasi",
+        "texte": "je čist haos: vino, muzika, pas, žena koja se smeje. Jan Sten se često slikao u sopstvenim scenama, a Holanđani i danas neuređenu kuću zovu „domaćinstvo Jana Stena”.",
+        "artiste": "Jan Sten"
+      },
+      "hr": {
+        "titre": "Veselo društvo na terasi",
+        "texte": "je čisti kaos: vino, glazba, pas, žena koja se smije. Jan Steen često je slikao sebe u vlastitim prizorima, a Nizozemci i danas neuređenu kuću zovu „kućanstvo Jana Steena”.",
+        "artiste": "Jan Steen"
+      },
+      "lv": {
+        "titre": "Jautra kompānija uz terases",
+        "texte": "ir tīrs haoss: vīns, mūzika, suns, smejoša sieviete. Jans Stēns bieži iegleznoja sevi savās ainās, un nīderlandieši joprojām nekārtīgu māju sauc par „Jana Stēna saimniecību”.",
+        "artiste": "Jans Stēns"
+      },
+      "ro": {
+        "titre": "Companie veselă pe o terasă",
+        "texte": "este haos curat: vin, muzică, un câine, o femeie care râde. Jan Steen se picta adesea în propriile scene, iar olandezii încă numesc o casă dezordonată „o gospodărie à la Jan Steen”.",
+        "artiste": "Jan Steen"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/renoir-charpentier.jpg",
+      "en": {
+        "titre": "Madame Charpentier and Her Children",
+        "texte": "made Renoir famous at the 1879 Salon. Her husband was the publisher of Zola, and their little boy wears a dress like his sister, as was the custom. Artura gives me one painting a day and the story behind it; this one stayed with me.",
+        "artiste": "Auguste Renoir"
+      },
+      "fr": {
+        "titre": "Madame Charpentier et ses enfants",
+        "texte": "a rendu Renoir célèbre au Salon de 1879. Son mari était l'éditeur de Zola, et leur petit garçon porte une robe comme sa sœur, selon l'usage. Artura m'offre un tableau par jour et l'histoire qui va avec ; celui-ci m'est resté.",
+        "artiste": "Auguste Renoir"
+      },
+      "es-419": {
+        "titre": "Madame Charpentier y sus hijos",
+        "texte": "hizo famoso a Renoir en el Salón de 1879. Su esposo era el editor de Zola, y el niño lleva vestido como su hermana, como era costumbre. Artura me da una pintura al día y la historia detrás de ella; esta se quedó conmigo.",
+        "artiste": "Auguste Renoir"
+      },
+      "it": {
+        "titre": "Madame Charpentier e i suoi figli",
+        "texte": "rese famoso Renoir al Salon del 1879. Il marito era l'editore di Zola, e il loro bambino porta un vestito come la sorella, come si usava allora. Artura mi regala un quadro al giorno e la storia che c'è dietro; questo mi è rimasto dentro.",
+        "artiste": "Auguste Renoir"
+      },
+      "el": {
+        "titre": "Η κυρία Σαρπαντιέ και τα παιδιά της",
+        "texte": "έκανε τον Ρενουάρ διάσημο στο Σαλόν του 1879. Ο σύζυγός της ήταν ο εκδότης του Ζολά, και το αγοράκι τους φοράει φόρεμα σαν την αδερφή του, όπως συνηθιζόταν. Η Artura μού δίνει έναν πίνακα τη μέρα και την ιστορία του· αυτός μου έμεινε.",
+        "artiste": "Ογκίστ Ρενουάρ"
+      },
+      "hu": {
+        "titre": "Madame Charpentier és gyermekei",
+        "texte": "az 1879-es Szalonon tette híressé Renoirt. A férje Zola kiadója volt, kisfiuk pedig a kor szokása szerint ruhát visel, mint a nővére. Az Artura app minden nap ad egy festményt és a mögötte álló történetet; ez megmaradt bennem.",
+        "artiste": "Auguste Renoir"
+      },
+      "sr": {
+        "titre": "Gospođa Šarpantje sa decom",
+        "texte": "proslavila je Renoara na Salonu 1879. Njen muž bio je Zolin izdavač, a njihov dečačić nosi haljinu kao sestra, kako je tada bio običaj. Aplikacija Artura mi daje jednu sliku dnevno i priču iza nje; ova mi je ostala u srcu.",
+        "artiste": "Ogist Renoar"
+      },
+      "hr": {
+        "titre": "Gospođa Charpentier s djecom",
+        "texte": "proslavila je Renoira na Salonu 1879. Njezin muž bio je Zolin izdavač, a njihov dječačić nosi haljinu kao i sestra, kako je tada bio običaj. Aplikacija Artura daje mi jednu sliku dnevno i priču iza nje; ova mi je ostala u srcu.",
+        "artiste": "Auguste Renoir"
+      },
+      "lv": {
+        "titre": "Madame Šarpantjē ar bērniem",
+        "texte": "padarīja Renuāru slavenu 1879. gada Salonā. Viņas vīrs bija Zolas izdevējs, un viņu dēliņš valkā kleitu kā māsa, kā tolaik bija ierasts. Lietotne Artura man katru dienu dod vienu gleznu un stāstu aiz tās; šī palika ar mani.",
+        "artiste": "Ogists Renuārs"
+      },
+      "ro": {
+        "titre": "Doamna Charpentier și copiii ei",
+        "texte": "l-a făcut celebru pe Renoir la Salonul din 1879. Soțul ei era editorul lui Zola, iar băiețelul lor poartă rochiță ca sora lui, cum era obiceiul. Aplicația Artura îmi dă un tablou pe zi și povestea din spatele lui; acesta mi-a rămas în minte.",
+        "artiste": "Auguste Renoir"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/seurat-grande-jatte.jpg",
+      "en": {
+        "titre": "Study for A Sunday on La Grande Jatte",
+        "texte": "is one of the dozens of studies Seurat made on the island in the Seine before painting his masterpiece. In 1884 he went there day after day, watching Parisians rest in the shade.",
+        "artiste": "Georges Seurat"
+      },
+      "fr": {
+        "titre": "Étude pour Un dimanche à la Grande Jatte",
+        "texte": "est l'une des dizaines d'études que Seurat a faites sur l'île de la Seine avant de peindre son chef-d'œuvre. En 1884, il y retournait jour après jour pour observer les Parisiens au repos à l'ombre.",
+        "artiste": "Georges Seurat"
+      },
+      "es-419": {
+        "titre": "Estudio para Un domingo en la Grande Jatte",
+        "texte": "es uno de las decenas de estudios que Seurat hizo en la isla del Sena antes de pintar su obra maestra. En 1884 iba allí día tras día a mirar a los parisinos descansar a la sombra.",
+        "artiste": "Georges Seurat"
+      },
+      "it": {
+        "titre": "Studio per Una domenica alla Grande Jatte",
+        "texte": "è uno dei tanti studi che Seurat fece sull'isola della Senna prima di dipingere il suo capolavoro. Nel 1884 ci tornava giorno dopo giorno per osservare i parigini riposare all'ombra.",
+        "artiste": "Georges Seurat"
+      },
+      "el": {
+        "titre": "Σπουδή για την Κυριακή στη Γκραντ Ζατ",
+        "texte": "είναι μία από τις δεκάδες σπουδές που έκανε ο Σερά στο νησί του Σηκουάνα πριν ζωγραφίσει το αριστούργημά του. Το 1884 πήγαινε εκεί μέρα με τη μέρα, κοιτάζοντας τους Παριζιάνους να ξεκουράζονται στη σκιά.",
+        "artiste": "Ζορζ Σερά"
+      },
+      "hu": {
+        "titre": "Tanulmány a Grande Jatte-hoz",
+        "texte": "egy a sok tucat tanulmány közül, amelyet Seurat a Szajna-szigeten készített remekműve előtt. 1884-ben nap mint nap kijárt oda, hogy a párizsiakat figyelje az árnyékban.",
+        "artiste": "Georges Seurat"
+      },
+      "sr": {
+        "titre": "Studija za Nedelju na Grand Žatu",
+        "texte": "je jedna od desetina studija koje je Sera napravio na ostrvu na Seni pre nego što je naslikao svoje remek-delo. Godine 1884. išao je tamo dan za danom i posmatrao Parižane kako se odmaraju u hladu.",
+        "artiste": "Žorž Sera"
+      },
+      "hr": {
+        "titre": "Studija za Nedjelju na Grande Jatteu",
+        "texte": "jedna je od desetaka studija koje je Seurat napravio na otoku na Seini prije nego što je naslikao svoje remek-djelo. Godine 1884. odlazio je ondje dan za danom i promatrao Parižane kako se odmaraju u hladu.",
+        "artiste": "Georges Seurat"
+      },
+      "lv": {
+        "titre": "Studija gleznai Svētdiena Grandžatas salā",
+        "texte": "ir viena no desmitiem studiju, ko Sera uzgleznoja Sēnas salā pirms sava šedevra. 1884. gadā viņš tur gāja dienu no dienas, vērojot parīziešus atpūšamies ēnā.",
+        "artiste": "Žoržs Sera"
+      },
+      "ro": {
+        "titre": "Studiu pentru O duminică pe insula Grande Jatte",
+        "texte": "este unul dintre zecile de studii pe care Seurat le-a făcut pe insula de pe Sena înainte de capodopera lui. În 1884 mergea acolo zi de zi, privind parizienii odihnindu-se la umbră.",
+        "artiste": "Georges Seurat"
+      }
+    }
+  ]
+}

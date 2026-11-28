@@ -1,0 +1,328 @@
+{
+  "id": "md-020",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings With Eyes That Follow You",
+    "fr": "Des tableaux dont les yeux vous suivent",
+    "es-419": "Pinturas cuyos ojos te siguen",
+    "it": "Quadri con occhi che ti seguono",
+    "el": "Πίνακες με μάτια που σε ακολουθούν",
+    "hu": "Festmények, amelyek szeme követ",
+    "sr": "Slike čije te oči prate",
+    "hr": "Slike čije te oči prate",
+    "lv": "Gleznas, kuru acis tev seko",
+    "ro": "Tablouri ai căror ochi te urmăresc"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #rembrandt #durer #museum",
+    "fr": "#histoiredelart #peinture #rembrandt #durer #musée",
+    "es-419": "#historiadelarte #pintura #rembrandt #durero #museo",
+    "it": "#storiadellarte #pittura #rembrandt #durer #museo",
+    "el": "#ιστορίατηςτέχνης #ζωγραφική #rembrandt #durer #μουσείο",
+    "hu": "#művészettörténet #festészet #rembrandt #dürer #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #rembrant #direr #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #rembrandt #durer #muzej",
+    "lv": "#mākslasvēsture #glezniecība #rembrants #dīrers #muzejs",
+    "ro": "#istoriaartei #pictura #rembrandt #durer #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/antonello-jeune-homme.jpg": {
+      "musee": "The Met",
+      "id": "435581",
+      "titre": "Portrait of a Young Man",
+      "artiste": "Antonello da Messina (Antonello di Giovanni d'Antonio)",
+      "date": "ca. 1470",
+      "url": "https://www.metmuseum.org/art/collection/search/435581"
+    },
+    "images/oeuvres/rembrandt-doomer.jpg": {
+      "musee": "The Met",
+      "id": "437392",
+      "titre": "Herman Doomer (ca. 1595–1650)",
+      "artiste": "Rembrandt (Rembrandt van Rijn)",
+      "date": "1640",
+      "url": "https://www.metmuseum.org/art/collection/search/437392"
+    },
+    "images/oeuvres/durer-salvator.jpg": {
+      "musee": "The Met",
+      "id": "436243",
+      "titre": "Salvator Mundi",
+      "artiste": "Albrecht Dürer",
+      "date": "ca. 1505",
+      "url": "https://www.metmuseum.org/art/collection/search/436243"
+    },
+    "images/oeuvres/velazquez-philippe.jpg": {
+      "musee": "The Met",
+      "id": "437873",
+      "titre": "Philip IV (1605–1665), King of Spain",
+      "artiste": "Velázquez (Diego Rodríguez de Silva y Velázquez)",
+      "date": "probably 1624",
+      "url": "https://www.metmuseum.org/art/collection/search/437873"
+    }
+  },
+  "banque": {
+    "images/banque/c-homme-mer.jpg": "05661402-06a7-42c9-9a2a-75b414b6c5e9"
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Antonello da Messina, Portrait d'un jeune homme (vers 1470) : technique flamande de l'huile, regard vers le spectateur. Rembrandt, Herman Doomer (1640) : ébéniste, fabricant de cadres ; son fils Lambert Doomer élève de Rembrandt. Dürer, Salvator Mundi (vers 1505) : inachevé, laissé au départ pour Venise en 1505 ; dessin sous-jacent visible (notice du Met). Velázquez, Philippe IV (vers 1624) : peintre de la cour en 1623 ; le roi réserve son portrait à Velázquez. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/banque/c-homme-mer.jpg",
+      "en": {
+        "titre": "Paintings With Eyes That Follow You"
+      },
+      "fr": {
+        "titre": "Des tableaux dont les yeux vous suivent"
+      },
+      "es-419": {
+        "titre": "Pinturas cuyos ojos te siguen"
+      },
+      "it": {
+        "titre": "Quadri con occhi che ti seguono"
+      },
+      "el": {
+        "titre": "Πίνακες με μάτια που σε ακολουθούν"
+      },
+      "hu": {
+        "titre": "Festmények, amelyek szeme követ"
+      },
+      "sr": {
+        "titre": "Slike čije te oči prate"
+      },
+      "hr": {
+        "titre": "Slike čije te oči prate"
+      },
+      "lv": {
+        "titre": "Gleznas, kuru acis tev seko"
+      },
+      "ro": {
+        "titre": "Tablouri ai căror ochi te urmăresc"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/antonello-jeune-homme.jpg",
+      "en": {
+        "titre": "Portrait of a Young Man",
+        "texte": "looks straight at you, with the hint of a smile, as if he is about to speak. Antonello da Messina painted him around 1470, one of the first Italian painters to master the Flemish technique of oil paint.",
+        "artiste": "Antonello da Messina"
+      },
+      "fr": {
+        "titre": "Portrait d'un jeune homme",
+        "texte": "vous regarde droit dans les yeux, l'ombre d'un sourire aux lèvres, comme s'il allait parler. Antonello de Messine l'a peint vers 1470 ; il fut l'un des premiers peintres italiens à maîtriser la technique flamande de la peinture à l'huile.",
+        "artiste": "Antonello de Messine"
+      },
+      "es-419": {
+        "titre": "Retrato de un joven",
+        "texte": "te mira directo a los ojos, con un asomo de sonrisa, como si estuviera a punto de hablar. Antonello da Messina lo pintó hacia 1470; fue uno de los primeros pintores italianos en dominar la técnica flamenca del óleo.",
+        "artiste": "Antonello da Messina"
+      },
+      "it": {
+        "titre": "Ritratto di giovane uomo",
+        "texte": "ti guarda dritto negli occhi, con l'accenno di un sorriso, come se stesse per parlare. Antonello da Messina lo dipinse intorno al 1470, tra i primi pittori italiani a padroneggiare la tecnica fiamminga della pittura a olio.",
+        "artiste": "Antonello da Messina"
+      },
+      "el": {
+        "titre": "Πορτρέτο νεαρού άνδρα",
+        "texte": "σε κοιτάζει κατάματα, με μια υποψία χαμόγελου, σαν να ετοιμάζεται να μιλήσει. Ο Αντονέλο ντα Μεσίνα τον ζωγράφισε γύρω στο 1470, από τους πρώτους Ιταλούς που κατέκτησαν τη φλαμανδική τεχνική της ελαιογραφίας.",
+        "artiste": "Αντονέλο ντα Μεσίνα"
+      },
+      "hu": {
+        "titre": "Ifjú portréja",
+        "texte": "egyenesen a szemedbe néz, halvány mosollyal, mintha mindjárt megszólalna. Antonello da Messina 1470 körül festette; ő volt az egyik első itáliai festő, aki elsajátította a flamand olajfestés technikáját.",
+        "artiste": "Antonello da Messina"
+      },
+      "sr": {
+        "titre": "Portret mladića",
+        "texte": "gleda te pravo u oči, sa nagoveštajem osmeha, kao da će progovoriti. Antonelo da Mesina ga je naslikao oko 1470, kao jedan od prvih italijanskih slikara koji su savladali flamansku tehniku uljanog slikarstva.",
+        "artiste": "Antonelo da Mesina"
+      },
+      "hr": {
+        "titre": "Portret mladića",
+        "texte": "gleda te ravno u oči, s naznakom osmijeha, kao da će progovoriti. Antonello da Messina naslikao ga je oko 1470., kao jedan od prvih talijanskih slikara koji su svladali flamansku tehniku uljenog slikarstva.",
+        "artiste": "Antonello da Messina"
+      },
+      "lv": {
+        "titre": "Jauna vīrieša portrets",
+        "texte": "skatās tev tieši acīs ar vieglu smaidu, it kā tūlīt sāktu runāt. Antonello da Mesīna to gleznoja ap 1470. gadu, viens no pirmajiem itāļu gleznotājiem, kas apguva flāmu eļļas glezniecības tehniku.",
+        "artiste": "Antonello da Mesīna"
+      },
+      "ro": {
+        "titre": "Portretul unui tânăr",
+        "texte": "te privește drept în ochi, cu umbra unui zâmbet, ca și cum ar fi gata să vorbească. Antonello da Messina l-a pictat în jurul anului 1470, unul dintre primii pictori italieni care au stăpânit tehnica flamandă a picturii în ulei.",
+        "artiste": "Antonello da Messina"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/rembrandt-doomer.jpg",
+      "en": {
+        "titre": "Herman Doomer",
+        "texte": "was a maker of ebony frames in Amsterdam, painted by Rembrandt in 1640. His son Lambert became Rembrandt's pupil. Look at the light caught in his eyes: he is still watching.",
+        "artiste": "Rembrandt"
+      },
+      "fr": {
+        "titre": "Herman Doomer",
+        "texte": "fabriquait des cadres en ébène à Amsterdam ; Rembrandt l'a peint en 1640. Son fils Lambert devint l'élève de Rembrandt. Regardez la lumière dans ses yeux : il vous observe encore.",
+        "artiste": "Rembrandt"
+      },
+      "es-419": {
+        "titre": "Herman Doomer",
+        "texte": "era un fabricante de marcos de ébano en Ámsterdam, retratado por Rembrandt en 1640. Su hijo Lambert fue alumno de Rembrandt. Mira la luz atrapada en sus ojos: todavía te está mirando.",
+        "artiste": "Rembrandt"
+      },
+      "it": {
+        "titre": "Herman Doomer",
+        "texte": "era un fabbricante di cornici d'ebano ad Amsterdam, ritratto da Rembrandt nel 1640. Suo figlio Lambert divenne allievo di Rembrandt. Guarda la luce nei suoi occhi: ti sta ancora osservando.",
+        "artiste": "Rembrandt"
+      },
+      "el": {
+        "titre": "Χέρμαν Ντόμερ",
+        "texte": "ήταν κατασκευαστής κορνιζών από έβενο στο Άμστερνταμ, που ζωγράφισε ο Ρέμπραντ το 1640. Ο γιος του, ο Λάμπερτ, έγινε μαθητής του Ρέμπραντ. Δες το φως στα μάτια του: ακόμα σε παρακολουθεί.",
+        "artiste": "Ρέμπραντ"
+      },
+      "hu": {
+        "titre": "Herman Doomer",
+        "texte": "ébenfa képkereteket készített Amszterdamban; Rembrandt 1640-ben festette meg. Fia, Lambert, Rembrandt tanítványa lett. Nézd a fényt a szemében: még mindig figyel.",
+        "artiste": "Rembrandt"
+      },
+      "sr": {
+        "titre": "Herman Domer",
+        "texte": "je pravio ramove od ebanovine u Amsterdamu, a Rembrant ga je naslikao 1640. Njegov sin Lambert postao je Rembrantov učenik. Pogledaj svetlost u njegovim očima: i dalje te posmatra.",
+        "artiste": "Rembrant"
+      },
+      "hr": {
+        "titre": "Herman Doomer",
+        "texte": "izrađivao je okvire od ebanovine u Amsterdamu, a Rembrandt ga je naslikao 1640. Njegov sin Lambert postao je Rembrandtov učenik. Pogledaj svjetlo u njegovim očima: još te promatra.",
+        "artiste": "Rembrandt"
+      },
+      "lv": {
+        "titre": "Hermans Domers",
+        "texte": "Amsterdamā gatavoja ebenkoka rāmjus, un Rembrants viņu uzgleznoja 1640. gadā. Viņa dēls Lamberts kļuva par Rembranta skolnieku. Paskaties uz gaismu viņa acīs: viņš joprojām tevi vēro.",
+        "artiste": "Rembrants"
+      },
+      "ro": {
+        "titre": "Herman Doomer",
+        "texte": "făcea rame din abanos la Amsterdam, iar Rembrandt l-a pictat în 1640. Fiul lui, Lambert, a devenit elevul lui Rembrandt. Privește lumina din ochii lui: încă te urmărește.",
+        "artiste": "Rembrandt"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/durer-salvator.jpg",
+      "en": {
+        "titre": "Salvator Mundi",
+        "texte": "was left unfinished when Dürer set out for Venice in 1505. The face is done, but the robe is still a drawing. I only noticed the underdrawing showing through the folds of his robe because of Artura, which zooms into the details you'd miss.",
+        "artiste": "Albrecht Dürer"
+      },
+      "fr": {
+        "titre": "Salvator Mundi",
+        "texte": "est resté inachevé quand Dürer est parti pour Venise en 1505. Le visage est terminé, mais la robe n'est encore qu'un dessin. Je n'ai remarqué le dessin sous-jacent dans les plis de sa robe que grâce à Artura, qui zoome sur les détails qu'on raterait.",
+        "artiste": "Albrecht Dürer"
+      },
+      "es-419": {
+        "titre": "Salvator Mundi",
+        "texte": "quedó inconcluso cuando Durero partió hacia Venecia en 1505. El rostro está terminado, pero el manto sigue siendo un dibujo. Solo noté el dibujo que se asoma entre los pliegues del manto gracias a Artura, que hace zoom en los detalles que se te escaparían.",
+        "artiste": "Alberto Durero"
+      },
+      "it": {
+        "titre": "Salvator Mundi",
+        "texte": "rimase incompiuto quando Dürer partì per Venezia nel 1505. Il volto è finito, ma la veste è ancora un disegno. Ho notato il disegno preparatorio tra le pieghe della veste solo grazie ad Artura, che zooma sui dettagli che ti sfuggirebbero.",
+        "artiste": "Albrecht Dürer"
+      },
+      "el": {
+        "titre": "Salvator Mundi",
+        "texte": "έμεινε ημιτελής όταν ο Ντύρερ έφυγε για τη Βενετία το 1505. Το πρόσωπο είναι τελειωμένο, αλλά ο χιτώνας είναι ακόμα σχέδιο. Πρόσεξα το προσχέδιο μέσα στις πτυχές του χιτώνα μόνο χάρη στην Artura, που κάνει ζουμ στις λεπτομέρειες που θα σου ξέφευγαν.",
+        "artiste": "Άλμπρεχτ Ντύρερ"
+      },
+      "hu": {
+        "titre": "Salvator Mundi",
+        "texte": "befejezetlen maradt, amikor Dürer 1505-ben Velencébe indult. Az arc kész, de a köntös még csak rajz. Az aláfestő rajzot a köntös redőiben csak az Artura app miatt vettem észre, amely ráközelít azokra a részletekre, amiket elszalasztanál.",
+        "artiste": "Albrecht Dürer"
+      },
+      "sr": {
+        "titre": "Salvator Mundi",
+        "texte": "ostao je nedovršen kada je Direr 1505. otišao u Veneciju. Lice je gotovo, ali odora je još samo crtež. Pripremni crtež u naborima odore primetila sam tek zahvaljujući aplikaciji Artura, koja zumira detalje koje bi propustio.",
+        "artiste": "Albreht Direr"
+      },
+      "hr": {
+        "titre": "Salvator Mundi",
+        "texte": "ostao je nedovršen kad je Dürer 1505. otišao u Veneciju. Lice je gotovo, ali halja je još samo crtež. Pripremni crtež u naborima halje primijetila sam tek zahvaljujući aplikaciji Artura, koja zumira detalje koje bi propustio.",
+        "artiste": "Albrecht Dürer"
+      },
+      "lv": {
+        "titre": "Salvator Mundi",
+        "texte": "palika nepabeigts, kad Dīrers 1505. gadā devās uz Venēciju. Seja ir pabeigta, bet tērps vēl ir tikai zīmējums. Zīmējumu tērpa krokās pamanīju tikai pateicoties lietotnei Artura, kas pietuvina detaļas, kuras tu palaistu garām.",
+        "artiste": "Albrehts Dīrers"
+      },
+      "ro": {
+        "titre": "Salvator Mundi",
+        "texte": "a rămas neterminat când Dürer a plecat la Veneția, în 1505. Chipul e gata, dar veșmântul e încă doar un desen. Am observat desenul pregătitor din faldurile veșmântului doar datorită aplicației Artura, care face zoom pe detaliile pe care le-ai rata.",
+        "artiste": "Albrecht Dürer"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/velazquez-philippe.jpg",
+      "en": {
+        "titre": "Philip IV",
+        "texte": "is the young king who made Velázquez his court painter in 1623. For decades, almost no one else was allowed to paint him. He stares down at us, pale and silent, in black.",
+        "artiste": "Diego Velázquez"
+      },
+      "fr": {
+        "titre": "Philippe IV",
+        "texte": "est le jeune roi qui fit de Velázquez son peintre de cour en 1623. Pendant des décennies, presque personne d'autre n'eut le droit de le peindre. Il nous fixe, pâle et silencieux, tout en noir.",
+        "artiste": "Diego Velázquez"
+      },
+      "es-419": {
+        "titre": "Felipe IV",
+        "texte": "es el joven rey que nombró a Velázquez pintor de la corte en 1623. Durante décadas, casi nadie más pudo retratarlo. Nos mira desde arriba, pálido y en silencio, vestido de negro.",
+        "artiste": "Diego Velázquez"
+      },
+      "it": {
+        "titre": "Filippo IV",
+        "texte": "è il giovane re che nel 1623 fece di Velázquez il suo pittore di corte. Per decenni quasi nessun altro poté ritrarlo. Ci fissa dall'alto, pallido e muto, vestito di nero.",
+        "artiste": "Diego Velázquez"
+      },
+      "el": {
+        "titre": "Φίλιππος Δ΄",
+        "texte": "είναι ο νεαρός βασιλιάς που έκανε τον Βελάθκεθ αυλικό ζωγράφο του το 1623. Για δεκαετίες, σχεδόν κανείς άλλος δεν είχε δικαίωμα να τον ζωγραφίσει. Μας κοιτάζει από ψηλά, χλωμός και σιωπηλός, στα μαύρα.",
+        "artiste": "Ντιέγκο Βελάθκεθ"
+      },
+      "hu": {
+        "titre": "IV. Fülöp",
+        "texte": "az a fiatal király, aki 1623-ban udvari festőjévé tette Velázquezt. Évtizedekig szinte senki más nem festhette meg. Sápadtan, némán, feketében néz le ránk.",
+        "artiste": "Diego Velázquez"
+      },
+      "sr": {
+        "titre": "Filip IV",
+        "texte": "je mladi kralj koji je 1623. postavio Velaskeza za dvorskog slikara. Decenijama skoro niko drugi nije smeo da ga slika. Gleda nas odozgo, bled i nem, u crnom.",
+        "artiste": "Dijego Velaskez"
+      },
+      "hr": {
+        "titre": "Filip IV.",
+        "texte": "je mladi kralj koji je 1623. postavio Velázqueza za dvorskog slikara. Desetljećima ga gotovo nitko drugi nije smio slikati. Gleda nas odozgo, blijed i nijem, u crnom.",
+        "artiste": "Diego Velázquez"
+      },
+      "lv": {
+        "titre": "Filips IV",
+        "texte": "ir jaunais karalis, kurš 1623. gadā iecēla Velaskesu par galma gleznotāju. Gadu desmitiem gandrīz nevienam citam nebija ļauts viņu gleznot. Viņš raugās uz mums no augšas, bāls un kluss, melnā tērpā.",
+        "artiste": "Djego Velaskess"
+      },
+      "ro": {
+        "titre": "Filip al IV-lea",
+        "texte": "este tânărul rege care l-a făcut pe Velázquez pictorul curții în 1623. Timp de decenii, aproape nimeni altcineva nu a avut voie să-l picteze. Ne privește de sus, palid și tăcut, în negru.",
+        "artiste": "Diego Velázquez"
+      }
+    }
+  ]
+}

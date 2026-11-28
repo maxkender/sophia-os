@@ -1,0 +1,86 @@
+{
+  "id": "md-022",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Make Me Want To Travel"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #canaletto #venice #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/canaletto-san-marco.jpg": {
+      "musee": "The Met",
+      "id": "435839",
+      "titre": "Piazza San Marco",
+      "artiste": "Canaletto (Giovanni Antonio Canal)",
+      "date": "late 1720s",
+      "url": "https://www.metmuseum.org/art/collection/search/435839"
+    },
+    "images/oeuvres/guardi-bacino.jpg": {
+      "musee": "The Met",
+      "id": "436596",
+      "titre": "Venice from the Bacino di San Marco",
+      "artiste": "Francesco Guardi",
+      "date": "ca. 1765–75",
+      "url": "https://www.metmuseum.org/art/collection/search/436596"
+    },
+    "images/oeuvres/degas-saint-valery.jpg": {
+      "musee": "The Met",
+      "id": "459098",
+      "titre": "View of Saint-Valéry-sur-Somme",
+      "artiste": "Edgar Degas",
+      "date": "1896–98",
+      "url": "https://www.metmuseum.org/art/collection/search/459098"
+    }
+  },
+  "banque": {
+    "images/banque/c-femme-robe.jpg": "23ac580f-0fe3-4472-88fe-a3a6c1c98ebd"
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Canaletto, Piazza San Marco (fin des années 1720) : vues vendues aux voyageurs du Grand Tour (anglais surtout). Guardi, Venise vue du bassin de Saint-Marc (vers 1765-75) : jugé de son vivant inférieur à Canaletto ; touche rapide. Degas, Vue de Saint-Valéry-sur-Somme (1896-98) : un de ses derniers paysages, vue déclinante. Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA. EN ATTENTE (28/11) : couverture à remplacer, le titre ne se lit pas sur la photo actuelle ; ne pas livrer en l'état.",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/banque/c-femme-robe.jpg",
+      "en": {
+        "titre": "Paintings That Make Me Want To Travel"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/canaletto-san-marco.jpg",
+      "en": {
+        "titre": "Piazza San Marco",
+        "texte": "is Venice in the late 1720s, sunlit and almost too perfect. Canaletto painted it for rich young travelers on their Grand Tour, who wanted to bring Venice home with them.",
+        "artiste": "Canaletto"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/guardi-bacino.jpg",
+      "en": {
+        "titre": "Venice from the Bacino di San Marco",
+        "texte": "is the same city seen by Francesco Guardi: looser, mistier, alive. In his lifetime he was considered a lesser Canaletto. I learned to see how his gondoliers are made of a few quick flicks of paint on Artura, one artwork a day with its story.",
+        "artiste": "Francesco Guardi"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/degas-saint-valery.jpg",
+      "en": {
+        "titre": "View of Saint-Valéry-sur-Somme",
+        "texte": "is one of the last paintings Degas made, in the late 1890s, when his eyesight was failing. The little town by the sea dissolves into patches of color.",
+        "artiste": "Edgar Degas"
+      }
+    }
+  ]
+}

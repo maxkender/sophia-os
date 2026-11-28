@@ -1,0 +1,328 @@
+{
+  "id": "md-019",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings By Artists Who Died Too Young",
+    "el": "Πίνακες καλλιτεχνών που πέθαναν πολύ νέοι",
+    "es-419": "Pinturas de artistas que murieron jóvenes",
+    "it": "Quadri di artisti morti troppo giovani",
+    "fr": "Les tableaux d'artistes morts trop jeunes",
+    "hu": "Túl fiatalon elhunyt festők képei",
+    "sr": "Slike umetnika koji su umrli premladi",
+    "hr": "Slike umjetnika koji su umrli premladi",
+    "lv": "Gleznas, kuru autori nomira jauni",
+    "ro": "Tablouri de artiști morți prea tineri"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #raphael #seurat #museum",
+    "el": "#ιστορίατηςτέχνης #ζωγραφική #raphael #seurat #μουσείο",
+    "es-419": "#historiadelarte #pintura #raphael #seurat #museo",
+    "it": "#storiadellarte #pittura #raphael #seurat #museo",
+    "fr": "#histoiredelart #peinture #raphael #seurat #musée",
+    "hu": "#művészettörténet #festészet #raphael #seurat #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #raphael #seurat #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #raphael #seurat #muzej",
+    "lv": "#mākslasvēsture #glezniecība #raphael #seurat #muzejs",
+    "ro": "#istoriaartei #pictura #raphael #seurat #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/bazille-aigues-mortes.jpg": {
+      "musee": "The Met",
+      "id": "435626",
+      "titre": "Porte de la Reine at Aigues-Mortes",
+      "artiste": "Jean-Frédéric Bazille",
+      "date": "1867",
+      "url": "https://www.metmuseum.org/art/collection/search/435626"
+    },
+    "images/oeuvres/gericault-dedreux.jpg": {
+      "musee": "The Met",
+      "id": "436454",
+      "titre": "Alfred Dedreux (1810–1860) as a Child",
+      "artiste": "Théodore Géricault",
+      "date": "ca. 1819–20",
+      "url": "https://www.metmuseum.org/art/collection/search/436454"
+    },
+    "images/oeuvres/raphael-giuliano.jpg": {
+      "musee": "The Met",
+      "id": "437373",
+      "titre": "Giuliano de' Medici (1479–1516), Duke of Nemours",
+      "artiste": "Raphael",
+      "date": "",
+      "url": "https://www.metmuseum.org/art/collection/search/437373"
+    },
+    "images/oeuvres/seurat-pontaubert.jpg": {
+      "musee": "The Met",
+      "id": "437655",
+      "titre": "The Forest at Pontaubert",
+      "artiste": "Georges Seurat",
+      "date": "1881",
+      "url": "https://www.metmuseum.org/art/collection/search/437655"
+    }
+  },
+  "banque": {
+    "images/banque/c-pompei2.jpg": "081464e0-826e-4ea9-b9e4-dd0a2e366d6d"
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Bazille, Porte de la Reine à Aigues-Mortes (1867) : Bazille partage et finance l'atelier avec Monet et Renoir ; tué à Beaune-la-Rolande le 28 novembre 1870, à 28 ans. Géricault, Alfred Dedreux enfant (vers 1819-20) : Alfred de Dreux devient peintre de chevaux ; Géricault mort le 26 janvier 1824 à 32 ans, après des chutes de cheval. Raphaël, Giuliano de' Médicis (vers 1515) : frère de Léon X, mort en 1516 ; le château Saint-Ange à l'arrière-plan (notice du Met) ; Raphaël mort le 6 avril 1520, jour de ses 37 ans. Seurat, La Forêt à Pontaubert (1881) : avant le pointillisme ; mort le 29 mars 1891 à 31 ans. Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/banque/c-pompei2.jpg",
+      "en": {
+        "titre": "Paintings By Artists Who Died Too Young"
+      },
+      "el": {
+        "titre": "Πίνακες καλλιτεχνών που πέθαναν πολύ νέοι"
+      },
+      "es-419": {
+        "titre": "Pinturas de artistas que murieron jóvenes"
+      },
+      "it": {
+        "titre": "Quadri di artisti morti troppo giovani"
+      },
+      "fr": {
+        "titre": "Les tableaux d'artistes morts trop jeunes"
+      },
+      "hu": {
+        "titre": "Túl fiatalon elhunyt festők képei"
+      },
+      "sr": {
+        "titre": "Slike umetnika koji su umrli premladi"
+      },
+      "hr": {
+        "titre": "Slike umjetnika koji su umrli premladi"
+      },
+      "lv": {
+        "titre": "Gleznas, kuru autori nomira jauni"
+      },
+      "ro": {
+        "titre": "Tablouri de artiști morți prea tineri"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/bazille-aigues-mortes.jpg",
+      "en": {
+        "titre": "Porte de la Reine at Aigues-Mortes",
+        "texte": "was painted in 1867 by Frédéric Bazille, who helped pay for the studio Monet and Renoir worked in. In 1870 he joined the army, and he was killed in battle at 28.",
+        "artiste": "Frédéric Bazille"
+      },
+      "el": {
+        "titre": "Η Πύλη της Βασίλισσας στο Αιγκ-Μορτ",
+        "texte": "ζωγραφίστηκε το 1867 από τον Φρεντερίκ Μπαζίλ, που βοηθούσε να πληρώνεται το εργαστήριο όπου δούλευαν ο Μονέ και ο Ρενουάρ. Το 1870 κατατάχθηκε στον στρατό και σκοτώθηκε στη μάχη, στα 28 του.",
+        "artiste": "Φρεντερίκ Μπαζίλ"
+      },
+      "es-419": {
+        "titre": "La Porte de la Reine en Aigues-Mortes",
+        "texte": "fue pintada en 1867 por Frédéric Bazille, quien ayudaba a pagar el estudio donde trabajaban Monet y Renoir. En 1870 se unió al ejército y murió en combate a los 28 años.",
+        "artiste": "Frédéric Bazille"
+      },
+      "it": {
+        "titre": "La Porte de la Reine ad Aigues-Mortes",
+        "texte": "fu dipinta nel 1867 da Frédéric Bazille, che aiutava a pagare lo studio dove lavoravano Monet e Renoir. Nel 1870 si arruolò e fu ucciso in battaglia a 28 anni.",
+        "artiste": "Frédéric Bazille"
+      },
+      "fr": {
+        "titre": "La Porte de la Reine à Aigues-Mortes",
+        "texte": "a été peinte en 1867 par Frédéric Bazille, qui aidait à payer l'atelier où travaillaient Monet et Renoir. En 1870, il s'est engagé dans l'armée et il a été tué au combat, à 28 ans.",
+        "artiste": "Frédéric Bazille"
+      },
+      "hu": {
+        "titre": "A Porte de la Reine Aigues-Mortes-ban",
+        "texte": "Frédéric Bazille festette 1867-ben; ő segített fizetni a műtermet, ahol Monet és Renoir dolgozott. 1870-ben bevonult a hadseregbe, és 28 évesen elesett a csatában.",
+        "artiste": "Frédéric Bazille"
+      },
+      "sr": {
+        "titre": "Kraljičina kapija u Eg-Mortu",
+        "texte": "naslikao je 1867. Frederik Bazij, koji je pomagao da se plaća atelje u kom su radili Mone i Renoar. Godine 1870. otišao je u vojsku i poginuo u bici sa 28 godina.",
+        "artiste": "Frederik Bazij"
+      },
+      "hr": {
+        "titre": "Kraljičina vrata u Aigues-Mortesu",
+        "texte": "naslikao je 1867. Frédéric Bazille, koji je pomagao plaćati atelijer u kojem su radili Monet i Renoir. Godine 1870. otišao je u vojsku i poginuo u bitci s 28 godina.",
+        "artiste": "Frédéric Bazille"
+      },
+      "lv": {
+        "titre": "Karalienes vārti Egmortā",
+        "texte": "1867. gadā uzgleznoja Frederiks Bazijs, kurš palīdzēja maksāt par darbnīcu, kurā strādāja Monē un Renuārs. 1870. gadā viņš iestājās armijā un krita kaujā 28 gadu vecumā.",
+        "artiste": "Frederiks Bazijs"
+      },
+      "ro": {
+        "titre": "Poarta Reginei la Aigues-Mortes",
+        "texte": "a fost pictată în 1867 de Frédéric Bazille, care ajuta la plata atelierului în care lucrau Monet și Renoir. În 1870 s-a înrolat în armată și a fost ucis în luptă, la 28 de ani.",
+        "artiste": "Frédéric Bazille"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/gericault-dedreux.jpg",
+      "en": {
+        "titre": "Alfred Dedreux as a Child",
+        "texte": "was painted by Géricault, who loved horses more than anything. The little boy grew up to be a famous painter of horses. Géricault died in 1824, at 32, after a series of riding accidents.",
+        "artiste": "Théodore Géricault"
+      },
+      "el": {
+        "titre": "Ο Αλφρέ Ντεντρέ παιδί",
+        "texte": "ζωγραφίστηκε από τον Ζερικό, που αγαπούσε τα άλογα πάνω από όλα. Το αγοράκι μεγάλωσε και έγινε διάσημος ζωγράφος αλόγων. Ο Ζερικό πέθανε το 1824, στα 32 του, μετά από μια σειρά πτώσεων από άλογο.",
+        "artiste": "Τεοντόρ Ζερικό"
+      },
+      "es-419": {
+        "titre": "Alfred Dedreux de niño",
+        "texte": "fue pintado por Géricault, que amaba los caballos más que nada. El niño creció y se volvió un famoso pintor de caballos. Géricault murió en 1824, a los 32 años, tras una serie de caídas a caballo.",
+        "artiste": "Théodore Géricault"
+      },
+      "it": {
+        "titre": "Alfred Dedreux bambino",
+        "texte": "fu dipinto da Géricault, che amava i cavalli più di ogni cosa. Il bambino divenne un celebre pittore di cavalli. Géricault morì nel 1824, a 32 anni, dopo una serie di cadute da cavallo.",
+        "artiste": "Théodore Géricault"
+      },
+      "fr": {
+        "titre": "Alfred Dedreux enfant",
+        "texte": "a été peint par Géricault, qui aimait les chevaux plus que tout. Le petit garçon est devenu un célèbre peintre de chevaux. Géricault est mort en 1824, à 32 ans, après une série de chutes de cheval.",
+        "artiste": "Théodore Géricault"
+      },
+      "hu": {
+        "titre": "Alfred Dedreux gyermekként",
+        "texte": "Géricault festette, aki mindennél jobban szerette a lovakat. A kisfiúból híres lófestő lett. Géricault 1824-ben, 32 évesen halt meg, több lovasbaleset után.",
+        "artiste": "Théodore Géricault"
+      },
+      "sr": {
+        "titre": "Alfred Dedre kao dete",
+        "texte": "naslikao je Žeriko, koji je konje voleo više od svega. Dečak je odrastao i postao čuveni slikar konja. Žeriko je umro 1824, sa 32 godine, posle niza padova s konja.",
+        "artiste": "Teodor Žeriko"
+      },
+      "hr": {
+        "titre": "Alfred Dedreux kao dijete",
+        "texte": "naslikao je Géricault, koji je konje volio više od svega. Dječak je odrastao u slavnog slikara konja. Géricault je umro 1824., s 32 godine, nakon niza padova s konja.",
+        "artiste": "Théodore Géricault"
+      },
+      "lv": {
+        "titre": "Alfreds Dedrē bērnībā",
+        "texte": "uzgleznoja Žeriko, kurš zirgus mīlēja vairāk par visu. Puisēns izauga par slavenu zirgu gleznotāju. Žeriko nomira 1824. gadā, 32 gadu vecumā, pēc vairākiem kritieniem no zirga.",
+        "artiste": "Teodors Žeriko"
+      },
+      "ro": {
+        "titre": "Alfred Dedreux copil",
+        "texte": "a fost pictat de Géricault, care iubea caii mai presus de orice. Băiețelul a ajuns un pictor celebru de cai. Géricault a murit în 1824, la 32 de ani, după o serie de căderi de pe cal.",
+        "artiste": "Théodore Géricault"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/raphael-giuliano.jpg",
+      "en": {
+        "titre": "Giuliano de' Medici",
+        "texte": "shows the brother of Pope Leo X, the duke who died in 1516. Raphael himself died four years later, on his 37th birthday. I learned to see how the doorway behind him opens onto Rome's Castel Sant'Angelo on Artura, one artwork a day with its story.",
+        "artiste": "Raphael"
+      },
+      "el": {
+        "titre": "Τζουλιάνο ντε Μέντιτσι",
+        "texte": "δείχνει τον αδελφό του πάπα Λέοντα Ι΄, τον δούκα που πέθανε το 1516. Ο ίδιος ο Ραφαήλ πέθανε τέσσερα χρόνια αργότερα, ανήμερα των 37ων γενεθλίων του. Έμαθα να βλέπω ότι η πόρτα πίσω του ανοίγει στο Καστέλ Σαντ' Άντζελο της Ρώμης στην Artura, ένα έργο τη μέρα με την ιστορία του.",
+        "artiste": "Ραφαήλ"
+      },
+      "es-419": {
+        "titre": "Giuliano de Médici",
+        "texte": "muestra al hermano del papa León X, el duque que murió en 1516. El propio Rafael murió cuatro años después, el día que cumplía 37. Aprendí a ver que la puerta detrás de él da al Castillo Sant'Angelo de Roma en Artura, una obra al día con su historia.",
+        "artiste": "Rafael"
+      },
+      "it": {
+        "titre": "Giuliano de' Medici",
+        "texte": "ritrae il fratello di papa Leone X, il duca morto nel 1516. Raffaello stesso morì quattro anni dopo, il giorno del suo 37° compleanno. Ho imparato a vedere che la porta alle sue spalle si apre su Castel Sant'Angelo a Roma su Artura, un'opera al giorno con la sua storia.",
+        "artiste": "Raffaello"
+      },
+      "fr": {
+        "titre": "Julien de Médicis",
+        "texte": "montre le frère du pape Léon X, le duc mort en 1516. Raphaël lui-même est mort quatre ans plus tard, le jour de ses 37 ans. J'ai appris à voir que la porte derrière lui s'ouvre sur le château Saint-Ange de Rome sur Artura, une œuvre par jour avec son histoire.",
+        "artiste": "Raphaël"
+      },
+      "hu": {
+        "titre": "Giuliano de' Medici",
+        "texte": "X. Leó pápa öccsét, az 1516-ban elhunyt herceget ábrázolja. Maga Raffaello négy évvel később halt meg, a 37. születésnapján. Az Artura appban tanultam meg észrevenni, hogy a mögötte nyíló ajtó Róma Angyalvárára néz; minden nap egy műalkotás a történetével.",
+        "artiste": "Raffaello"
+      },
+      "sr": {
+        "titre": "Đulijano de Mediči",
+        "texte": "prikazuje brata pape Lava X, vojvodu koji je umro 1516. Sam Rafael umro je četiri godine kasnije, na svoj 37. rođendan. U aplikaciji Artura naučila sam da vidim da se vrata iza njega otvaraju ka rimskom Anđeoskom zamku; jedno delo dnevno, sa svojom pričom.",
+        "artiste": "Rafael"
+      },
+      "hr": {
+        "titre": "Giuliano de' Medici",
+        "texte": "prikazuje brata pape Lava X., vojvodu koji je umro 1516. Sam Rafael umro je četiri godine poslije, na svoj 37. rođendan. U aplikaciji Artura naučila sam vidjeti da se vrata iza njega otvaraju prema rimskom Anđeoskom gradu; jedno djelo dnevno, sa svojom pričom.",
+        "artiste": "Rafael"
+      },
+      "lv": {
+        "titre": "Džuljāno de Mediči",
+        "texte": "attēlo pāvesta Leona X brāli, hercogu, kurš nomira 1516. gadā. Pats Rafaēls nomira četrus gadus vēlāk, savā 37. dzimšanas dienā. Lietotnē Artura iemācījos redzēt, ka durvis aiz viņa paveras uz Romas Svētā Eņģeļa pili; viens mākslas darbs dienā ar savu stāstu.",
+        "artiste": "Rafaēls"
+      },
+      "ro": {
+        "titre": "Giuliano de' Medici",
+        "texte": "îl înfățișează pe fratele papei Leon al X-lea, ducele mort în 1516. Rafael însuși a murit patru ani mai târziu, în ziua în care împlinea 37 de ani. Am învățat să văd că ușa din spatele lui se deschide spre Castelul Sant'Angelo din Roma în aplicația Artura, o operă pe zi cu povestea ei.",
+        "artiste": "Rafael"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/seurat-pontaubert.jpg",
+      "en": {
+        "titre": "The Forest at Pontaubert",
+        "texte": "is one of Seurat's earliest paintings, from 1881, before he invented his famous dots. Ten years later he was dead, at 31, after a sudden illness.",
+        "artiste": "Georges Seurat"
+      },
+      "el": {
+        "titre": "Το δάσος στο Ποντομπέρ",
+        "texte": "είναι ένας από τους πρώτους πίνακες του Σερά, του 1881, πριν εφεύρει τις διάσημες κουκκίδες του. Δέκα χρόνια αργότερα ήταν νεκρός, στα 31 του, από μια ξαφνική ασθένεια.",
+        "artiste": "Ζορζ Σερά"
+      },
+      "es-419": {
+        "titre": "El bosque de Pontaubert",
+        "texte": "es una de las primeras pinturas de Seurat, de 1881, antes de que inventara sus famosos puntos. Diez años después había muerto, a los 31, por una enfermedad repentina.",
+        "artiste": "Georges Seurat"
+      },
+      "it": {
+        "titre": "La foresta a Pontaubert",
+        "texte": "è uno dei primissimi quadri di Seurat, del 1881, prima che inventasse i suoi famosi puntini. Dieci anni dopo era morto, a 31 anni, per una malattia improvvisa.",
+        "artiste": "Georges Seurat"
+      },
+      "fr": {
+        "titre": "La Forêt à Pontaubert",
+        "texte": "est l'un des tout premiers tableaux de Seurat, de 1881, avant qu'il n'invente ses fameux points. Dix ans plus tard, il était mort, à 31 ans, d'une maladie soudaine.",
+        "artiste": "Georges Seurat"
+      },
+      "hu": {
+        "titre": "Az erdő Pontaubert-nél",
+        "texte": "Seurat egyik legkorábbi festménye, 1881-ből, még mielőtt feltalálta volna híres pöttyeit. Tíz évvel később már halott volt, 31 évesen, egy hirtelen betegség miatt.",
+        "artiste": "Georges Seurat"
+      },
+      "sr": {
+        "titre": "Šuma kod Pontobera",
+        "texte": "jedna je od prvih Seraovih slika, iz 1881, pre nego što je izmislio svoje čuvene tačkice. Deset godina kasnije bio je mrtav, sa 31 godinom, posle iznenadne bolesti.",
+        "artiste": "Žorž Sera"
+      },
+      "hr": {
+        "titre": "Šuma kod Pontauberta",
+        "texte": "jedna je od najranijih Seuratovih slika, iz 1881., prije nego što je izmislio svoje slavne točkice. Deset godina poslije bio je mrtav, s 31 godinom, nakon iznenadne bolesti.",
+        "artiste": "Georges Seurat"
+      },
+      "lv": {
+        "titre": "Mežs pie Pontobēras",
+        "texte": "ir viena no Sērā agrīnākajām gleznām, no 1881. gada, pirms viņš izgudroja savus slavenos punktiņus. Desmit gadus vēlāk viņš bija miris, 31 gada vecumā, no pēkšņas slimības.",
+        "artiste": "Žoržs Sērā"
+      },
+      "ro": {
+        "titre": "Pădurea de la Pontaubert",
+        "texte": "este unul dintre primele tablouri ale lui Seurat, din 1881, înainte să-și inventeze faimoasele puncte. Zece ani mai târziu era mort, la 31 de ani, din cauza unei boli subite.",
+        "artiste": "Georges Seurat"
+      }
+    }
+  ]
+}

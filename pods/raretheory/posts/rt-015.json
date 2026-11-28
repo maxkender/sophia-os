@@ -1,0 +1,866 @@
+{
+  "id": "rt-015",
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "subjects that change how u see the world",
+    "fr": "sujets qui changent ta vision du monde",
+    "sv": "ämnen som ändrar hur du ser världen",
+    "it": "materie che ti fanno vedere il mondo in un altro modo",
+    "ro": "subiecte după care vezi lumea altfel",
+    "de": "fächer, die dein bild von der welt ändern",
+    "tr": "dünyaya bakış açını değiştirecek konular",
+    "hu": "tantárgyak, amiktől máshogy fest a világ"
+  },
+  "legendes": {
+    "en": "some subjects don't just teach u facts. they change the way u look at everything.\n\nhow systems work, how other cultures live, why people make the choices they make, how language shapes us, and how the planet keeps itself running.\n\nlearn one and u'll start noticing it everywhere.\n\nsave this for the next time ur bored.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok",
+    "fr": "certains sujets t'apprennent pas juste des faits. ils changent ta façon de tout regarder.\n\ncomment marchent les systèmes, comment vivent d'autres cultures, pourquoi les gens font les choix qu'ils font, comment le langage nous façonne, et comment la planète tourne toute seule.\n\napprends-en un et tu vas commencer à le voir partout.\n\nenregistre ça pour la prochaine fois que tu t'ennuies.\n\n#culturegenerale #apprendresurtiktok #curiosite #studytok #learning",
+    "sv": "vissa ämnen lär dig inte bara fakta. de ändrar hur du ser på allt.\n\nhur system funkar, hur andra kulturer lever, varför folk gör de val de gör, hur språk formar oss och hur planeten håller sig igång.\n\nlär dig ett så kommer du börja märka det överallt.\n\nspara det här till nästa gång du har tråkigt.\n\n#learning #studytok #plugga #allmänbildning #fördig",
+    "it": "certe materie non ti insegnano solo dei fatti. cambiano il modo in cui guardi tutto.\n\ncome funzionano i sistemi, come vivono le altre culture, perché le persone fanno le scelte che fanno, come la lingua ci plasma e come il pianeta continua a funzionare.\n\nimparane una e inizierai a notarla ovunque.\n\nsalvalo per la prossima volta che ti annoi.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok #imparaconte #cultura #perte",
+    "ro": "unele subiecte nu te învață doar fapte. îți schimbă felul în care te uiți la tot.\n\ncum funcționează sistemele, cum trăiesc alte culturi, de ce oamenii aleg ce aleg, cum ne modelează limba și cum se ține planeta în funcțiune.\n\ninvață unul și o să începi să-l observi peste tot.\n\nsalvează asta pt data viitoare când te plictisești.\n\n#studytok #learning #invatare #curiozitati #romania",
+    "de": "manche fächer bringen dir nicht nur fakten bei. sie verändern, wie du alles siehst.\n\nwie systeme funktionieren, wie andere kulturen leben, warum menschen die entscheidungen treffen, die sie treffen, wie sprache uns prägt und wie der planet sich selbst am laufen hält.\n\nlern eins davon und du bemerkst es plötzlich überall.\n\nspeicher dir das fürs nächste mal, wenn dir langweilig ist.\n\n#studytok #learning #lernen #allgemeinwissen #wissen",
+    "tr": "bazı konular sana sadece bilgi öğretmez. her şeye bakışını değiştirir.\n\nsistemler nasıl işler, başka kültürler nasıl yaşar, insanlar neden o seçimleri yapar, dil bizi nasıl şekillendirir ve gezegen kendini nasıl ayakta tutar.\n\nbirini öğren, her yerde fark etmeye başlarsın.\n\nbir dahaki sıkılışın için kaydet.\n\n#studytok #learning #keşfet #bilgi #merak",
+    "hu": "vannak tantárgyak, amik nem csak tényeket tanítanak. megváltoztatják, ahogy mindenre nézel.\n\nhogyan működnek a rendszerek, hogyan élnek más kultúrák, miért döntenek úgy az emberek, ahogy döntenek, hogyan formál minket a nyelv, és hogyan tartja működésben magát a bolygó.\n\ntanulj meg egyet, és mindenhol észre fogod venni.\n\nmentsd el legközelebbre, amikor unatkozol.\n\n#tanulás #önfejlesztés #magyartiktok #studytok #learning"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/atlas-ordi.jpg": "396dc9e5-beb1-433e-8467-a1e2642dfa6f",
+    "images/banque/tableau-riviere.jpg": "09180745-9f10-42a7-b420-fc6a7294aefc"
+  },
+  "notes": "Full test, sans post source : format et famille de @raretheory_ (« topic to research when u're bored », 652,5 k et 151,1 k), même gabarit, même musique. Accroche neuve. Notions réelles, vérifiées, rien de violent, médical ou politique brûlant. Slide Sophia (4, « 03 — my daily lesson ») : son LOGO, jamais une capture ; cta C. Photos : atlas ouvert sur un bureau (396dc9e5, cadré sur l'atlas, l'écran hors champ), tableau de paysage au soleil couchant (09180745, domaine public).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/atlas-ordi.jpg",
+          "cadrage": {
+            "x": 0.6,
+            "y": 0.8
+          }
+        },
+        {
+          "image": "images/banque/tableau-riviere.jpg",
+          "cadrage": {
+            "y": 0.5
+          }
+        }
+      ],
+      "en": {
+        "titre": "subjects that change\nhow u see the world",
+        "sous_titre": "one at a time"
+      },
+      "fr": {
+        "titre": "sujets qui changent\nta vision du monde",
+        "sous_titre": "un à la fois"
+      },
+      "sv": {
+        "titre": "ämnen som ändrar\nhur du ser världen",
+        "sous_titre": "ett i taget"
+      },
+      "it": {
+        "titre": "materie che ti fanno\nvedere il mondo",
+        "sous_titre": "in un altro modo, una alla volta"
+      },
+      "ro": {
+        "titre": "subiecte după care\nvezi lumea altfel",
+        "sous_titre": "câte unul pe rând"
+      },
+      "de": {
+        "titre": "fächer, die dein bild\nvon der welt ändern",
+        "sous_titre": "eins nach dem anderen"
+      },
+      "tr": {
+        "titre": "dünyaya bakış açını\ndeğiştirecek konular",
+        "sous_titre": "teker teker"
+      },
+      "hu": {
+        "titre": "tantárgyak, amiktől\nmáshogy fest a világ",
+        "sous_titre": "egyszerre csak egy"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Systems Thinking",
+        "sujets": [
+          "Feedback Loops",
+          "Emergence",
+          "The Butterfly Effect",
+          "Tipping Points",
+          "Second-Order Effects",
+          "Unintended Consequences",
+          "The Cobra Effect",
+          "Bottlenecks",
+          "Antifragility",
+          "Complex Adaptive Systems",
+          "Leverage Points"
+        ]
+      },
+      "fr": {
+        "titre": "Pensée systémique",
+        "sujets": [
+          "Boucles de rétroaction",
+          "Émergence",
+          "Effet papillon",
+          "Points de bascule",
+          "Effets de second ordre",
+          "Conséquences inattendues",
+          "Effet cobra",
+          "Goulots d'étranglement",
+          "Antifragilité",
+          "Systèmes adaptatifs complexes",
+          "Points de levier"
+        ]
+      },
+      "sv": {
+        "titre": "Systemtänkande",
+        "sujets": [
+          "Återkopplingsloopar",
+          "Emergens",
+          "Fjärilseffekten",
+          "Brytpunkter",
+          "Andra ordningens effekter",
+          "Oavsiktliga konsekvenser",
+          "Kobraeffekten",
+          "Flaskhalsar",
+          "Antifragilitet",
+          "Komplexa adaptiva system",
+          "Hävstångspunkter"
+        ]
+      },
+      "it": {
+        "titre": "Pensiero sistemico",
+        "sujets": [
+          "I cicli di retroazione",
+          "Le proprietà emergenti",
+          "L'effetto farfalla",
+          "I punti di non ritorno",
+          "Gli effetti di secondo ordine",
+          "Le conseguenze inattese",
+          "L'effetto cobra",
+          "I colli di bottiglia",
+          "L'antifragilità",
+          "I sistemi complessi adattivi",
+          "I punti di leva"
+        ]
+      },
+      "ro": {
+        "titre": "Gândirea sistemică",
+        "sujets": [
+          "Buclele de feedback",
+          "Emergența",
+          "Efectul fluturelui",
+          "Punctele critice",
+          "Efectele de ordinul doi",
+          "Consecințele neintenționate",
+          "Efectul cobra",
+          "Blocajele",
+          "Antifragilitatea",
+          "Sistemele adaptive complexe",
+          "Punctele de pârghie"
+        ]
+      },
+      "de": {
+        "titre": "Systemdenken",
+        "sujets": [
+          "Rückkopplungsschleifen",
+          "Emergenz",
+          "Der Schmetterlingseffekt",
+          "Kipppunkte",
+          "Folgen zweiter Ordnung",
+          "Unbeabsichtigte Folgen",
+          "Der Kobra-Effekt",
+          "Engpässe",
+          "Antifragilität",
+          "Komplexe adaptive Systeme",
+          "Hebelpunkte"
+        ]
+      },
+      "tr": {
+        "titre": "Sistem düşüncesi",
+        "sujets": [
+          "Geri besleme döngüleri",
+          "Beliriş",
+          "Kelebek etkisi",
+          "Devrilme noktaları",
+          "İkinci derece etkiler",
+          "İstenmeyen sonuçlar",
+          "Kobra etkisi",
+          "Darboğazlar",
+          "Antikırılganlık",
+          "Karmaşık uyumlu sistemler",
+          "Kaldıraç noktaları"
+        ]
+      },
+      "hu": {
+        "titre": "Rendszerszemlélet",
+        "sujets": [
+          "Visszacsatolási hurkok",
+          "Emergencia",
+          "A pillangóhatás",
+          "Fordulópontok",
+          "Másodlagos hatások",
+          "Nem szándékolt következmények",
+          "A kobrahatás",
+          "Szűk keresztmetszetek",
+          "Antifragilitás",
+          "Komplex adaptív rendszerek",
+          "Beavatkozási pontok"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Anthropology",
+        "sujets": [
+          "Cultural Relativism",
+          "Rites of Passage",
+          "Gift Economies",
+          "The Potlatch",
+          "Kinship Systems",
+          "Dunbar's Number",
+          "Oral Traditions",
+          "Taboos",
+          "Hunter-Gatherer Societies",
+          "The Agricultural Revolution",
+          "Material Culture",
+          "Ethnography"
+        ]
+      },
+      "fr": {
+        "titre": "Anthropologie",
+        "sujets": [
+          "Relativisme culturel",
+          "Rites de passage",
+          "Économie du don",
+          "Potlatch",
+          "Systèmes de parenté",
+          "Nombre de Dunbar",
+          "Traditions orales",
+          "Tabous",
+          "Chasseurs-cueilleurs",
+          "Révolution néolithique",
+          "Culture matérielle",
+          "Ethnographie"
+        ]
+      },
+      "sv": {
+        "titre": "Antropologi",
+        "sujets": [
+          "Kulturrelativism",
+          "Övergångsriter",
+          "Gåvoekonomi",
+          "Potlatch",
+          "Släktskapssystem",
+          "Dunbars tal",
+          "Muntlig tradition",
+          "Tabun",
+          "Jägar-samlarsamhällen",
+          "Jordbruksrevolutionen",
+          "Materiell kultur",
+          "Etnografi"
+        ]
+      },
+      "it": {
+        "titre": "Antropologia",
+        "sujets": [
+          "Il relativismo culturale",
+          "I riti di passaggio",
+          "L'economia del dono",
+          "Il potlatch",
+          "I sistemi di parentela",
+          "Il numero di Dunbar",
+          "La tradizione orale",
+          "I tabù",
+          "Le società di cacciatori-raccoglitori",
+          "La rivoluzione neolitica",
+          "La cultura materiale",
+          "L'etnografia"
+        ]
+      },
+      "ro": {
+        "titre": "Antropologie",
+        "sujets": [
+          "Relativismul cultural",
+          "Riturile de trecere",
+          "Economiile darului",
+          "Potlatch-ul",
+          "Sistemele de rudenie",
+          "Numărul lui Dunbar",
+          "Tradițiile orale",
+          "Tabuurile",
+          "Societățile de vânători-culegători",
+          "Revoluția agricolă",
+          "Cultura materială",
+          "Etnografia"
+        ]
+      },
+      "de": {
+        "titre": "Anthropologie",
+        "sujets": [
+          "Kultureller Relativismus",
+          "Übergangsriten",
+          "Schenkökonomie",
+          "Der Potlatch",
+          "Verwandtschaftssysteme",
+          "Die Dunbar-Zahl",
+          "Mündliche Überlieferung",
+          "Tabus",
+          "Jäger-und-Sammler-Gesellschaften",
+          "Die Neolithische Revolution",
+          "Materielle Kultur",
+          "Ethnografie"
+        ]
+      },
+      "tr": {
+        "titre": "Antropoloji",
+        "sujets": [
+          "Kültürel görecelik",
+          "Geçiş ritüelleri",
+          "Armağan ekonomisi",
+          "Potlaç",
+          "Akrabalık sistemleri",
+          "Dunbar sayısı",
+          "Sözlü gelenekler",
+          "Tabular",
+          "Avcı-toplayıcı toplumlar",
+          "Tarım Devrimi",
+          "Maddi kültür",
+          "Etnografi"
+        ]
+      },
+      "hu": {
+        "titre": "Antropológia",
+        "sujets": [
+          "Kulturális relativizmus",
+          "Átmeneti rítusok",
+          "Ajándékgazdaság",
+          "A potlatch",
+          "Rokonsági rendszerek",
+          "A Dunbar-szám",
+          "Szájhagyomány",
+          "Tabuk",
+          "Vadászó-gyűjtögető társadalmok",
+          "A mezőgazdasági forradalom",
+          "Tárgyi kultúra",
+          "Etnográfia"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "my daily lesson",
+        "paragraphes": [
+          "Sophia gives me one lesson a day, written by actual professors, with a little quiz after. history, philosophy, science, geopolitics, literature, economics.",
+          "10 minutes, and most days it gives me one new way of looking at something i see every day."
+        ]
+      },
+      "fr": {
+        "titre": "ma leçon du jour",
+        "paragraphes": [
+          "Sophia me donne une leçon par jour, écrite par de vrais profs, avec un petit quiz après. histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "10 minutes, et la plupart du temps, ça me donne une nouvelle façon de voir un truc que je vois tous les jours."
+        ]
+      },
+      "sv": {
+        "titre": "min dagliga lektion",
+        "paragraphes": [
+          "Sophia ger mig en lektion om dagen, skriven av riktiga professorer, med ett litet quiz efteråt. historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
+          "10 minuter, och de flesta dagar ger den mig ett nytt sätt att se på något jag ser varje dag."
+        ]
+      },
+      "it": {
+        "titre": "la mia lezione del giorno",
+        "paragraphes": [
+          "Sophia mi dà una lezione al giorno, scritta da veri professori, con un piccolo quiz alla fine. storia, filosofia, scienze, geopolitica, letteratura, economia.",
+          "10 minuti, e quasi ogni giorno mi regala un modo nuovo di guardare qualcosa che vedo tutti i giorni."
+        ]
+      },
+      "ro": {
+        "titre": "lecția mea zilnică",
+        "paragraphes": [
+          "Sophia îmi dă o lecție pe zi, scrisă de profesori adevărați, cu un mic quiz la final. istorie, filozofie, științe, geopolitică, literatură, economie.",
+          "10 minute, și în majoritatea zilelor îmi dă un fel nou de a mă uita la ceva ce văd zilnic."
+        ]
+      },
+      "de": {
+        "titre": "meine tägliche lektion",
+        "paragraphes": [
+          "Sophia gibt mir jeden tag eine lektion, geschrieben von echten professoren, mit einem kleinen quiz danach. geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "10 minuten, und meistens zeigt sie mir einen neuen blick auf etwas, das ich jeden tag sehe."
+        ]
+      },
+      "tr": {
+        "titre": "günlük dersim",
+        "paragraphes": [
+          "Sophia bana günde bir ders veriyor, gerçek profesörlerin yazdığı, sonunda da küçük bir quiz olan. tarih, felsefe, bilim, jeopolitik, edebiyat, ekonomi.",
+          "10 dakika sürüyor ve çoğu gün, her gün gördüğüm bir şeye yeni bir açıdan bakmamı sağlıyor."
+        ]
+      },
+      "hu": {
+        "titre": "a napi leckém",
+        "paragraphes": [
+          "a Sophia minden nap ad nekem egy leckét, amit igazi professzorok írnak, és utána van egy kis kvíz. történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "10 perc, és a legtöbb nap ad egy új szemszöget valamire, amit minden nap látok."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Economics of Everyday Life",
+        "sujets": [
+          "Incentives",
+          "Scarcity",
+          "Marginal Thinking",
+          "Externalities",
+          "Public Goods",
+          "Price Elasticity",
+          "The Free-Rider Problem",
+          "Moral Hazard",
+          "Signaling",
+          "Diminishing Returns",
+          "The Jevons Paradox",
+          "Planned Obsolescence"
+        ]
+      },
+      "fr": {
+        "titre": "L'économie du quotidien",
+        "sujets": [
+          "Incitations",
+          "Rareté",
+          "Raisonnement à la marge",
+          "Externalités",
+          "Biens publics",
+          "Élasticité-prix",
+          "Passager clandestin",
+          "Aléa moral",
+          "Théorie du signal",
+          "Rendements décroissants",
+          "Paradoxe de Jevons",
+          "Obsolescence programmée"
+        ]
+      },
+      "sv": {
+        "titre": "Vardagens ekonomi",
+        "sujets": [
+          "Incitament",
+          "Knapphet",
+          "Marginaltänkande",
+          "Externaliteter",
+          "Kollektiva nyttigheter",
+          "Priselasticitet",
+          "Fripassagerarproblemet",
+          "Moral hazard",
+          "Signalering",
+          "Avtagande avkastning",
+          "Jevons paradox",
+          "Planerat åldrande"
+        ]
+      },
+      "it": {
+        "titre": "L'economia di tutti i giorni",
+        "sujets": [
+          "Gli incentivi",
+          "La scarsità",
+          "Il ragionamento marginale",
+          "Le esternalità",
+          "I beni pubblici",
+          "L'elasticità della domanda",
+          "Il problema del free rider",
+          "L'azzardo morale",
+          "La teoria dei segnali",
+          "I rendimenti decrescenti",
+          "Il paradosso di Jevons",
+          "L'obsolescenza programmata"
+        ]
+      },
+      "ro": {
+        "titre": "Economia vieții de zi cu zi",
+        "sujets": [
+          "Stimulentele",
+          "Raritatea",
+          "Gândirea marginală",
+          "Externalitățile",
+          "Bunurile publice",
+          "Elasticitatea prețului",
+          "Problema pasagerului clandestin",
+          "Hazardul moral",
+          "Semnalizarea",
+          "Randamentele descrescătoare",
+          "Paradoxul lui Jevons",
+          "Învechirea planificată"
+        ]
+      },
+      "de": {
+        "titre": "Wirtschaft im Alltag",
+        "sujets": [
+          "Anreize",
+          "Knappheit",
+          "Denken in Grenzwerten",
+          "Externe Effekte",
+          "Öffentliche Güter",
+          "Preiselastizität",
+          "Das Trittbrettfahrerproblem",
+          "Moral Hazard",
+          "Signaling",
+          "Abnehmender Grenzertrag",
+          "Das Jevons-Paradoxon",
+          "Geplante Obsoleszenz"
+        ]
+      },
+      "tr": {
+        "titre": "Gündelik hayatın ekonomisi",
+        "sujets": [
+          "Teşvikler",
+          "Kıtlık",
+          "Marjinal düşünme",
+          "Dışsallıklar",
+          "Kamu malları",
+          "Fiyat esnekliği",
+          "Otlakçı sorunu",
+          "Ahlaki tehlike",
+          "Sinyal verme",
+          "Azalan verimler",
+          "Jevons paradoksu",
+          "Planlı eskitme"
+        ]
+      },
+      "hu": {
+        "titre": "A hétköznapok közgazdaságtana",
+        "sujets": [
+          "Ösztönzők",
+          "Szűkösség",
+          "Határelemzés",
+          "Externáliák",
+          "Közjavak",
+          "Árrugalmasság",
+          "A potyautas-probléma",
+          "Erkölcsi kockázat",
+          "Piaci jelzések",
+          "Csökkenő hozadék",
+          "A Jevons-paradoxon",
+          "Tervezett elavulás"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Linguistics",
+        "sujets": [
+          "Universal Grammar",
+          "Language Acquisition",
+          "Code-Switching",
+          "Creole Languages",
+          "Pidgins",
+          "Phonemes",
+          "Tonal Languages",
+          "Language Families",
+          "Calques",
+          "Sign Language Grammar",
+          "Dialect Continua",
+          "How Slang Evolves"
+        ]
+      },
+      "fr": {
+        "titre": "Linguistique",
+        "sujets": [
+          "Grammaire universelle",
+          "Acquisition du langage",
+          "Alternance codique",
+          "Langues créoles",
+          "Pidgins",
+          "Phonèmes",
+          "Langues à tons",
+          "Familles de langues",
+          "Calques",
+          "Grammaire des langues des signes",
+          "Continuums dialectaux",
+          "Comment l'argot évolue"
+        ]
+      },
+      "sv": {
+        "titre": "Lingvistik",
+        "sujets": [
+          "Universell grammatik",
+          "Språkinlärning",
+          "Kodväxling",
+          "Kreolspråk",
+          "Pidginspråk",
+          "Fonem",
+          "Tonspråk",
+          "Språkfamiljer",
+          "Översättningslån",
+          "Teckenspråkets grammatik",
+          "Dialektkontinuum",
+          "Hur slang utvecklas"
+        ]
+      },
+      "it": {
+        "titre": "Linguistica",
+        "sujets": [
+          "La grammatica universale",
+          "L'acquisizione del linguaggio",
+          "Il code-switching",
+          "Le lingue creole",
+          "I pidgin",
+          "I fonemi",
+          "Le lingue tonali",
+          "Le famiglie linguistiche",
+          "I calchi",
+          "La grammatica delle lingue dei segni",
+          "I continuum dialettali",
+          "Come cambia lo slang"
+        ]
+      },
+      "ro": {
+        "titre": "Lingvistică",
+        "sujets": [
+          "Gramatica universală",
+          "Achiziția limbajului",
+          "Alternanța codurilor",
+          "Limbile creole",
+          "Limbile pidgin",
+          "Fonemele",
+          "Limbile tonale",
+          "Familiile de limbi",
+          "Calcurile lingvistice",
+          "Gramatica limbajului semnelor",
+          "Continuumurile dialectale",
+          "Cum evoluează argoul"
+        ]
+      },
+      "de": {
+        "titre": "Linguistik",
+        "sujets": [
+          "Universalgrammatik",
+          "Spracherwerb",
+          "Code-Switching",
+          "Kreolsprachen",
+          "Pidginsprachen",
+          "Phoneme",
+          "Tonsprachen",
+          "Sprachfamilien",
+          "Lehnübersetzungen",
+          "Die Grammatik der Gebärdensprachen",
+          "Dialektkontinuen",
+          "Wie sich Slang entwickelt"
+        ]
+      },
+      "tr": {
+        "titre": "Dilbilim",
+        "sujets": [
+          "Evrensel dilbilgisi",
+          "Dil edinimi",
+          "Kod değiştirme",
+          "Kreol diller",
+          "Pidgin diller",
+          "Sesbirimler",
+          "Tonlu diller",
+          "Dil aileleri",
+          "Öykünme çeviri",
+          "İşaret dilinin dilbilgisi",
+          "Lehçe sürekliliği",
+          "Argo nasıl değişir"
+        ]
+      },
+      "hu": {
+        "titre": "Nyelvészet",
+        "sujets": [
+          "Univerzális grammatika",
+          "Nyelvelsajátítás",
+          "Kódváltás",
+          "Kreol nyelvek",
+          "Pidzsin nyelvek",
+          "Fonémák",
+          "Tonális nyelvek",
+          "Nyelvcsaládok",
+          "Tükörfordítások",
+          "A jelnyelvek nyelvtana",
+          "Nyelvjárási kontinuum",
+          "Hogyan változik a szleng"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "How the Planet Works",
+        "sujets": [
+          "The Water Cycle",
+          "The Carbon Cycle",
+          "Plate Tectonics",
+          "The Gulf Stream",
+          "Biomes",
+          "Keystone Species",
+          "Trophic Cascades",
+          "The Wolves of Yellowstone",
+          "Soil Formation",
+          "Pollination",
+          "Biodiversity Hotspots",
+          "Ice Ages"
+        ]
+      },
+      "fr": {
+        "titre": "Comment marche la planète",
+        "sujets": [
+          "Cycle de l'eau",
+          "Cycle du carbone",
+          "Tectonique des plaques",
+          "Gulf Stream",
+          "Biomes",
+          "Espèces clés de voûte",
+          "Cascades trophiques",
+          "Les loups de Yellowstone",
+          "Formation des sols",
+          "Pollinisation",
+          "Points chauds de biodiversité",
+          "Glaciations"
+        ]
+      },
+      "sv": {
+        "titre": "Hur planeten fungerar",
+        "sujets": [
+          "Vattnets kretslopp",
+          "Kolets kretslopp",
+          "Plattektonik",
+          "Golfströmmen",
+          "Biom",
+          "Nyckelarter",
+          "Trofiska kaskader",
+          "Vargarna i Yellowstone",
+          "Jordmånsbildning",
+          "Pollinering",
+          "Biologiska hotspots",
+          "Istider"
+        ]
+      },
+      "it": {
+        "titre": "Come funziona il pianeta",
+        "sujets": [
+          "Il ciclo dell'acqua",
+          "Il ciclo del carbonio",
+          "La tettonica a placche",
+          "La Corrente del Golfo",
+          "I biomi",
+          "Le specie chiave",
+          "Le cascate trofiche",
+          "I lupi di Yellowstone",
+          "La formazione del suolo",
+          "L'impollinazione",
+          "Gli hotspot di biodiversità",
+          "Le ere glaciali"
+        ]
+      },
+      "ro": {
+        "titre": "Cum funcționează planeta",
+        "sujets": [
+          "Ciclul apei",
+          "Ciclul carbonului",
+          "Tectonica plăcilor",
+          "Curentul Golfului",
+          "Biomurile",
+          "Speciile-cheie",
+          "Cascadele trofice",
+          "Lupii din Yellowstone",
+          "Formarea solului",
+          "Polenizarea",
+          "Zonele fierbinți de biodiversitate",
+          "Glaciațiunile"
+        ]
+      },
+      "de": {
+        "titre": "Wie der Planet funktioniert",
+        "sujets": [
+          "Der Wasserkreislauf",
+          "Der Kohlenstoffkreislauf",
+          "Plattentektonik",
+          "Der Golfstrom",
+          "Biome",
+          "Schlüsselarten",
+          "Trophische Kaskaden",
+          "Die Wölfe von Yellowstone",
+          "Bodenbildung",
+          "Bestäubung",
+          "Biodiversitäts-Hotspots",
+          "Eiszeiten"
+        ]
+      },
+      "tr": {
+        "titre": "Gezegen nasıl işler",
+        "sujets": [
+          "Su döngüsü",
+          "Karbon döngüsü",
+          "Levha tektoniği",
+          "Golf Akıntısı",
+          "Biyomlar",
+          "Kilit taşı türler",
+          "Trofik basamaklanma",
+          "Yellowstone'un kurtları",
+          "Toprak oluşumu",
+          "Tozlaşma",
+          "Biyoçeşitlilik sıcak noktaları",
+          "Buzul çağları"
+        ]
+      },
+      "hu": {
+        "titre": "Hogyan működik a bolygó",
+        "sujets": [
+          "A víz körforgása",
+          "A szén körforgása",
+          "Lemeztektonika",
+          "A Golf-áramlat",
+          "Biomok",
+          "Kulcsfajok",
+          "Trofikus kaszkád",
+          "A Yellowstone farkasai",
+          "Talajképződés",
+          "Beporzás",
+          "Biodiverzitási forrópontok",
+          "Jégkorszakok"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this and pick one subject this week. by the end of it, u'll see the world a little differently.",
+        "gras": "OR.. keep seeing it the same way."
+      },
+      "fr": {
+        "texte": "enregistre ça et choisis un sujet cette semaine. à la fin de la semaine, tu verras le monde un peu autrement.",
+        "gras": "OU.. continue de le voir pareil."
+      },
+      "sv": {
+        "texte": "spara det här och välj ett ämne den här veckan. när veckan är slut ser du världen lite annorlunda.",
+        "gras": "ELLER.. fortsätt se den på samma sätt."
+      },
+      "it": {
+        "texte": "salvalo e scegli una materia questa settimana. alla fine vedrai il mondo in un modo un po' diverso.",
+        "gras": "O.. continua a vederlo sempre uguale."
+      },
+      "ro": {
+        "texte": "salvează asta și alege un subiect săptămâna asta. până la final, o să vezi lumea puțin altfel.",
+        "gras": "SAU.. vezi-o în continuare la fel."
+      },
+      "de": {
+        "texte": "speicher dir das und such dir diese woche ein fach aus. am ende siehst du die welt ein bisschen anders.",
+        "gras": "ODER.. sieh sie weiter so wie immer."
+      },
+      "tr": {
+        "texte": "bunu kaydet ve bu hafta bir konu seç. hafta bitince dünyaya biraz farklı bakıyor olacaksın.",
+        "gras": "YA DA.. ona hep aynı şekilde bakmaya devam et."
+      },
+      "hu": {
+        "texte": "mentsd el, és válassz egy tantárgyat ezen a héten. a hét végére egy kicsit máshogy fogod látni a világot.",
+        "gras": "VAGY.. lásd tovább ugyanúgy."
+      }
+    }
+  ]
+}

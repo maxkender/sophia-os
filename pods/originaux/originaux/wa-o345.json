@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o345",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bfeae5c9-d336-4905-bfa3-636d04e2c47c",
+ "titre": "how to be the person everyone remembers #charisma #magnetic #socialskills #confidence #selfimprovement",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "f2859d4a-2767-473f-be8d-7dbbd477b759"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f2859d4a). déclinaison G2 de « how to become the most magnetic person in any room » (parent bfeae5c9). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bea4eafe-bcdd-4a09-a305-591138271d07",
+   "texte_overlay": "how to be the person\neveryone remembers",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ddf7e870-015b-4c3f-8d14-fff4fdd7ee4f",
+   "texte_overlay": "walk in in a good mood\n\nbefore you enter, take three slow breaths and decide to enjoy yourself. people feel your energy before you say a word, and a warm mood spreads through a room quickly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "29ee5d93-3980-4df2-8b4f-34a28ab9477d",
+   "texte_overlay": "make it about them\n\nask people what they're excited about and stay on that topic. people forget most of what you say, but they always remember how you made them feel while talking.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7dd62a7c-7aff-4073-b6bc-a84474537970",
+   "texte_overlay": "remember their name\n\nuse each person's name once in the conversation and once as you leave. it's a small thing almost nobody does, and it makes people feel truly seen and valued.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c665cd6b-3a27-4ba0-9ac8-53dbda8a3d14",
+   "texte_overlay": "always bring a story\n\nspend 5 minutes a day learning something fascinating, a lost city or a strange animal, and you'll always have a story. people remember whoever taught them something surprising.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/5.jpg",
+   "texte_sophia": "always bring a story\n\nlearn one fascinating thing a day, a lost city or a strange animal. the Sophia app turns it into one short lesson a day, and people always remember whoever told the best story."
+  },
+  {
+   "position": 6,
+   "media_id": "62a12f6b-9c1d-4b35-aefd-f8048bdbeb76",
+   "texte_overlay": "end on a warm note\n\nclose every conversation with something kind about what they told you. people remember the last moment most, so make it warm, genuine and entirely about them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/6.jpg"
+  }
+ ]
+}

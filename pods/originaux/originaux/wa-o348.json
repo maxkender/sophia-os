@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o348",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3ee9537e-44c1-4ae1-ace3-8789a1df68fe",
+ "titre": "what people notice about you in the first 7 seconds #firstimpressions #psychology #bodylanguage #confidence #socialskills",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "dc65211f-db60-4764-80a1-cc17d64c2c16"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, dc65211f). déclinaison G1 de « what people notice about you in the first 7 seconds » (parent 3ee9537e). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "47edd7a3-39e4-4903-9709-d0f5dc3b90f4",
+   "texte_overlay": "what people notice about\nyou in the first 7 seconds",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "76bb4269-61f7-456c-8f25-3cc9fba2d0d8",
+   "texte_overlay": "your posture\n\nbefore you say a word, people read how you stand. relaxed shoulders and a level chin tell everyone you're comfortable, and that calm confidence spreads quickly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "39899b1f-25db-4fab-8bb0-cea355e783d5",
+   "texte_overlay": "your eyes\n\npeople notice whether you meet their eyes or look away. a warm look held one second longer than usual feels like genuine interest and quietly builds trust.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7974d64f-a7de-447e-bd6f-b3ac4b537363",
+   "texte_overlay": "your pace\n\npeople pick up on whether you rush or move calmly. walking and talking a little slower than everyone else reads as quiet, steady confidence almost instantly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "bf0e283a-2ed5-4e01-a8dd-a0f955e0d09f",
+   "texte_overlay": "your curiosity\n\npeople notice real curiosity in seconds, and it grows when you feed your mind a little every day. a curious face looks open, warm and easy to talk to.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/5.jpg",
+   "texte_sophia": "your curiosity\n\npeople notice curiosity straight away. the Sophia app turns learning into one short lesson a day, a planet or a painting, and it shows in how i talk, listen and smile."
+  },
+  {
+   "position": 6,
+   "media_id": "b3fb8b84-c987-4b16-a885-a48512d9460b",
+   "texte_overlay": "your hands\n\npeople notice what your hands are doing. open, relaxed hands look honest and calm, while hidden or fidgeting hands make others feel a little more guarded.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/6.jpg"
+  }
+ ]
+}

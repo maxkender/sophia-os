@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o342",
+ "type_bleo": "full_test",
+ "titre": "small habits that make your home feel so calm #home #calm #cosy #slowliving #habits",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "3bd02f3a-f092-4cb5-b051-5035c3f9f16a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 3bd02f3a). full test BLEO : accroche jamais faite (format « small habits that make your X feel so calm »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "55885c64-6ab4-47c0-8486-5670d57e9baf",
+   "texte_overlay": "small habits that make\nyour home feel so calm",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "67b117b3-9621-4648-9929-990f59d379ee",
+   "texte_overlay": "clear one surface daily\n\nkeep one surface completely clear, like a kitchen counter or a bedside table. one calm spot to rest your eyes on makes a busy home feel peaceful straight away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "396a45e6-c630-4d8f-ba7b-f82ef0359d1a",
+   "texte_overlay": "soft light in the evening\n\nswitch off the big ceiling lights after dinner and use lamps and candles instead. warm, low light tells your body to slow down and makes any room feel cosy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "aa2a2df8-39ec-4791-81ab-904a8f6eaf9d",
+   "texte_overlay": "a place for everything\n\ngive every object a home and put things back when you're done. a home where things have their place quietly removes a hundred tiny stresses every single day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1e247a4c-c5c8-4284-b9b2-496669ba5ff9",
+   "texte_overlay": "a calm corner for learning\n\nmake a cosy corner with a chair and a lamp for a few quiet minutes of learning each day. a calm home needs one spot that is just for feeding your mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/5.jpg",
+   "texte_sophia": "a calm corner for learning\n\nmake a cosy corner for quiet learning. the Sophia app turns it into one short lesson a day, a myth or a painting, and those 5 minutes become the calmest part of my day."
+  },
+  {
+   "position": 6,
+   "media_id": "c6f8c96e-f253-488b-ab81-6dd049898632",
+   "texte_overlay": "fresh air every morning\n\nopen the windows for ten minutes every morning, whatever the weather. fresh air clears the room and your head, and it makes the whole home feel lighter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/6.jpg"
+  }
+ ]
+}

@@ -2,10 +2,28 @@
  "id": "tg-026",
  "type_bleo": "full_test",
  "titre": {
-  "en": "10/10 night hobbies that actually work if you have adhd"
+  "en": "10/10 night hobbies that actually work if you have adhd",
+  "bg": "10/10 вечерни хобита, които наистина работят при адхд",
+  "de": "10/10 abend-hobbys, die bei adhs wirklich funktionieren",
+  "el": "10/10 νυχτερινά χόμπι που δουλεύουν αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies nocturnos que sí funcionan si tienes tdah",
+  "fr": "10/10 loisirs du soir qui marchent quand on a un tdah",
+  "hu": "10/10 esti hobbi, ami tényleg működik, ha adhd-s vagy",
+  "it": "10/10 hobby serali che funzionano davvero se hai l'adhd",
+  "pt-BR": "10/10 hobbies noturnos que funcionam de verdade se você tem tdah",
+  "sr": "10/10 noćnih hobija koji stvarno pomažu ako imaš adhd"
  },
  "legendes": {
-  "en": "#adhd #hobbies #nightroutine #focus #brain"
+  "en": "#adhd #hobbies #nightroutine #focus #brain",
+  "bg": "#адхд #хобита #вечернарутина #фокус #мозък",
+  "de": "#adhs #hobbys #abendroutine #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #νυχτερινήρουτίνα #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #rutinadenoche #enfoque #cerebro",
+  "fr": "#tdah #loisirs #routinedusoir #concentration #cerveau",
+  "hu": "#adhd #hobbi #estirutin #fókusz #agy",
+  "it": "#adhd #hobby #routineserale #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #rotinanoturna #foco #cerebro",
+  "sr": "#adhd #hobi #večernjarutina #fokus #mozak"
  },
  "musique": {
   "titre": "original sound",
@@ -23,6 +41,42 @@
    "en": {
     "titre": "10/10 night hobbies that\nactually work if you have adhd",
     "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 вечерни хобита, които\nнаистина работят при адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 abend-hobbys, die bei\nadhs wirklich helfen",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 νυχτερινά χόμπι που\nδουλεύουν αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies nocturnos que\nsí funcionan si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs du soir qui\nmarchent avec un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 esti hobbi, ami tényleg\nműködik, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby serali che\nfunzionano se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies noturnos que\nfuncionam de verdade com tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 noćnih hobija koji\nstvarno pomažu ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
    }
   },
   {
@@ -38,6 +92,78 @@
      "your fingers have to focus on one shape at a time, and you hear right away when it's _right_"
     ],
     "chute": "one song, fifteen minutes a night"
+   },
+   "bg": {
+    "nom": "да учиш китара",
+    "accroche": "три акорда и _свириш песен_",
+    "colonne": [
+     "пръстите ти се фокусират върху една позиция наведнъж и веднага чуваш, когато е _вярно_"
+    ],
+    "chute": "една песен, петнайсет минути на вечер"
+   },
+   "de": {
+    "nom": "gitarre lernen",
+    "accroche": "drei akkorde und du _spielst einen song_",
+    "colonne": [
+     "deine finger konzentrieren sich auf eine form nach der anderen, und du hörst sofort, wenn es _stimmt_"
+    ],
+    "chute": "ein song, fünfzehn minuten pro abend"
+   },
+   "el": {
+    "nom": "μαθαίνω κιθάρα",
+    "accroche": "τρεις συγχορδίες και _παίζεις τραγούδι_",
+    "colonne": [
+     "τα δάχτυλα εστιάζουν σε ένα σχήμα τη φορά, και ακούς αμέσως όταν είναι _σωστό_"
+    ],
+    "chute": "ένα τραγούδι, δεκαπέντε λεπτά κάθε βράδυ"
+   },
+   "es-419": {
+    "nom": "aprender guitarra",
+    "accroche": "tres acordes y ya _tocas una canción_",
+    "colonne": [
+     "tus dedos se enfocan en una forma a la vez, y oyes al instante cuando está _bien_"
+    ],
+    "chute": "una canción, quince minutos cada noche"
+   },
+   "fr": {
+    "nom": "apprendre la guitare",
+    "accroche": "trois accords et tu _joues un morceau_",
+    "colonne": [
+     "tes doigts se concentrent sur une forme à la fois, et tu entends tout de suite quand c'est _juste_"
+    ],
+    "chute": "un morceau, quinze minutes chaque soir"
+   },
+   "hu": {
+    "nom": "gitártanulás",
+    "accroche": "három akkord, és _eljátszol egy dalt_",
+    "colonne": [
+     "az ujjaidnak egyszerre egy fogásra kell figyelniük, és azonnal hallod, ha _jó_"
+    ],
+    "chute": "egy dal, tizenöt perc esténként"
+   },
+   "it": {
+    "nom": "imparare la chitarra",
+    "accroche": "tre accordi e _suoni una canzone_",
+    "colonne": [
+     "le dita si concentrano su una forma alla volta, e senti subito quando è _giusto_"
+    ],
+    "chute": "una canzone, quindici minuti ogni sera"
+   },
+   "pt-BR": {
+    "nom": "aprender violão",
+    "accroche": "três acordes e você _toca uma música_",
+    "colonne": [
+     "seus dedos focam numa forma de cada vez, e você ouve na hora quando está _certo_"
+    ],
+    "chute": "uma música, quinze minutos por noite"
+   },
+   "sr": {
+    "nom": "učenje gitare",
+    "accroche": "tri akorda i _sviraš pesmu_",
+    "colonne": [
+     "prsti moraju da se fokusiraju na jedan hvat odjednom, a odmah čuješ kad je _dobro_"
+    ],
+    "chute": "jedna pesma, petnaest minuta uveče"
    }
   },
   {
@@ -54,6 +180,87 @@
      "_pro tip_: atala builds my runs around my goal and adjusts them every week"
     ],
     "chute": "pick a lit route and keep it easy"
+   },
+   "bg": {
+    "nom": "късно бягане",
+    "accroche": "градът е _тих_, а и _главата_ ти",
+    "colonne": [
+     "вечерното бягане изгаря енергията от деня, така че неспокойният мозък е по-спокоен преди сън",
+     "_съвет_: atala нагласява бяганията ми около целта ми и ги променя всяка седмица"
+    ],
+    "chute": "избери осветен маршрут и тичай леко"
+   },
+   "de": {
+    "nom": "ein später lauf",
+    "accroche": "die stadt ist _ruhig_ und dein _kopf_ auch",
+    "colonne": [
+     "ein abendlauf baut die energie des tages ab, also ist ein unruhiger kopf vor dem schlafen ruhiger",
+     "_pro tipp_: atala baut meine läufe um mein ziel herum und passt sie jede woche an"
+    ],
+    "chute": "nimm eine beleuchtete strecke und lauf locker"
+   },
+   "el": {
+    "nom": "ένα αργό τρέξιμο",
+    "accroche": "η πόλη _ησυχάζει_ και το _μυαλό_ σου επίσης",
+    "colonne": [
+     "ένα βραδινό τρέξιμο καίει την ενέργεια της μέρας, οπότε το μυαλό είναι πιο ήρεμο πριν τον ύπνο",
+     "_μικρό tip_: το atala χτίζει τα τρεξίματά μου γύρω από τον στόχο μου και τα προσαρμόζει κάθε εβδομάδα"
+    ],
+    "chute": "διάλεξε φωτισμένη διαδρομή και πήγαινε χαλαρά"
+   },
+   "es-419": {
+    "nom": "correr de noche",
+    "accroche": "la ciudad _se calma_ y tu _cabeza_ también",
+    "colonne": [
+     "correr en la noche quema la energía del día, así que tu cerebro llega más tranquilo a dormir",
+     "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
+    ],
+    "chute": "elige una ruta iluminada y ve suave"
+   },
+   "fr": {
+    "nom": "une course tardive",
+    "accroche": "la ville est _calme_ et ta _tête_ aussi",
+    "colonne": [
+     "courir le soir brûle l'énergie de la journée, donc ton cerveau arrive plus calme au coucher",
+     "_petite astuce_: atala construit mes sorties autour de mon objectif et les ajuste chaque semaine"
+    ],
+    "chute": "choisis un parcours éclairé et vas-y doucement"
+   },
+   "hu": {
+    "nom": "késői futás",
+    "accroche": "a város _csendes_, és a _fejed_ is",
+    "colonne": [
+     "egy esti futás levezeti a nap energiáját, így a pörgő agy lefekvésre megnyugszik",
+     "_pro tip_: az atala a célomhoz igazítja a futásaimat, és minden héten finomít rajtuk"
+    ],
+    "chute": "válassz kivilágított útvonalat, és fuss lazán"
+   },
+   "it": {
+    "nom": "una corsa tardi",
+    "accroche": "la città è _tranquilla_ e anche la tua _testa_",
+    "colonne": [
+     "una corsa serale brucia l'energia della giornata, così il cervello arriva più calmo a letto",
+     "_piccolo consiglio_: atala costruisce le mie corse intorno al mio obiettivo e le adatta ogni settimana"
+    ],
+    "chute": "scegli un percorso illuminato e vai piano"
+   },
+   "pt-BR": {
+    "nom": "uma corrida tarde",
+    "accroche": "a cidade fica _quieta_ e a sua _cabeça_ também",
+    "colonne": [
+     "uma corrida no fim do dia queima a energia acumulada, então um cérebro agitado fica mais calmo na hora de dormir",
+     "_dica_: o atala monta minhas corridas em torno do meu objetivo e ajusta toda semana"
+    ],
+    "chute": "escolha um caminho iluminado e vá com calma"
+   },
+   "sr": {
+    "nom": "kasno trčanje",
+    "accroche": "grad je _miran_, a i tvoja _glava_",
+    "colonne": [
+     "večernje trčanje izbaci energiju dana, pa je užurban mozak mirniji pred spavanje",
+     "_pro tip_: atala pravi moja trčanja prema mom cilju i prilagođava ih svake nedelje"
+    ],
+    "chute": "izaberi osvetljenu rutu i trči lagano"
    }
   },
   {
@@ -69,6 +276,78 @@
      "a slow walk after dark gives a racing mind a simple rhythm to follow"
     ],
     "chute": "twenty minutes, same loop every night"
+   },
+   "bg": {
+    "nom": "нощни разходки",
+    "accroche": "без екрани, _без шум_, _само ходене_",
+    "colonne": [
+     "бавната разходка след мрак дава на препускащия ум прост ритъм"
+    ],
+    "chute": "двайсет минути, същата обиколка всяка вечер"
+   },
+   "de": {
+    "nom": "abendspaziergänge",
+    "accroche": "kein bildschirm, _kein lärm_, _nur gehen_",
+    "colonne": [
+     "ein langsamer spaziergang im dunkeln gibt einem rasenden kopf einen einfachen rhythmus"
+    ],
+    "chute": "zwanzig minuten, jeden abend dieselbe runde"
+   },
+   "el": {
+    "nom": "νυχτερινές βόλτες",
+    "accroche": "χωρίς οθόνες, _χωρίς θόρυβο_, _μόνο περπάτημα_",
+    "colonne": [
+     "μια αργή βόλτα στο σκοτάδι δίνει σε ένα μυαλό που τρέχει έναν απλό ρυθμό"
+    ],
+    "chute": "είκοσι λεπτά, ίδια διαδρομή κάθε βράδυ"
+   },
+   "es-419": {
+    "nom": "caminatas nocturnas",
+    "accroche": "sin pantallas, _sin ruido_, _solo caminar_",
+    "colonne": [
+     "una caminata lenta de noche le da a una mente acelerada un ritmo simple"
+    ],
+    "chute": "veinte minutos, la misma vuelta cada noche"
+   },
+   "fr": {
+    "nom": "les balades de nuit",
+    "accroche": "pas d'écran, _pas de bruit_, _juste marcher_",
+    "colonne": [
+     "une marche lente dans le noir donne à une tête qui tourne un rythme simple à suivre"
+    ],
+    "chute": "vingt minutes, la même boucle chaque soir"
+   },
+   "hu": {
+    "nom": "esti séták",
+    "accroche": "nincs képernyő, _nincs zaj_, _csak séta_",
+    "colonne": [
+     "egy lassú séta sötétedés után egyszerű ritmust ad a pörgő elmének"
+    ],
+    "chute": "húsz perc, minden este ugyanaz a kör"
+   },
+   "it": {
+    "nom": "passeggiate notturne",
+    "accroche": "niente schermi, _niente rumore_, _solo camminare_",
+    "colonne": [
+     "una passeggiata lenta al buio dà a una mente che corre un ritmo semplice da seguire"
+    ],
+    "chute": "venti minuti, stesso giro ogni sera"
+   },
+   "pt-BR": {
+    "nom": "caminhadas à noite",
+    "accroche": "sem tela, _sem barulho_, _só andar_",
+    "colonne": [
+     "uma caminhada lenta depois que escurece dá a uma mente acelerada um ritmo simples para seguir"
+    ],
+    "chute": "vinte minutos, o mesmo trajeto toda noite"
+   },
+   "sr": {
+    "nom": "noćne šetnje",
+    "accroche": "bez ekrana, _bez buke_, _samo hodanje_",
+    "colonne": [
+     "spora šetnja po mraku daje užurbanom umu jednostavan ritam"
+    ],
+    "chute": "dvadeset minuta, isti krug svako veče"
    }
   },
   {
@@ -85,6 +364,87 @@
      "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
     ],
     "chute": "then put the phone in another room"
+   },
+   "bg": {
+    "nom": "една картина преди сън",
+    "accroche": "смени _фийда_ с _една картина_",
+    "colonne": [
+     "една картина и историята ѝ са спокойни, нови и кратки, по-добър край на деня от скролването",
+     "_съвет_: artura ми дава по една картина на ден и историята зад нея, за няколко минути"
+    ],
+    "chute": "после остави телефона в друга стая"
+   },
+   "de": {
+    "nom": "ein gemälde vor dem schlafen",
+    "accroche": "tausch _den feed_ gegen _ein bild_",
+    "colonne": [
+     "ein gemälde und seine geschichte sind ruhig, neu und kurz, ein besserer abschluss als scrollen",
+     "_pro tipp_: artura zeigt mir jeden tag ein gemälde und die geschichte dahinter, in ein paar minuten"
+    ],
+    "chute": "dann leg das handy in ein anderes zimmer"
+   },
+   "el": {
+    "nom": "ένας πίνακας πριν τον ύπνο",
+    "accroche": "άλλαξε _το feed_ με _μια εικόνα_",
+    "colonne": [
+     "ένας πίνακας με την ιστορία του είναι ήρεμος, νέος και σύντομος, καλύτερο κλείσιμο από ένα σκρολάρισμα",
+     "_μικρό tip_: το artura μου δίνει έναν πίνακα τη μέρα και την ιστορία του, σε λίγα λεπτά"
+    ],
+    "chute": "μετά άφησε το κινητό σε άλλο δωμάτιο"
+   },
+   "es-419": {
+    "nom": "una pintura antes de dormir",
+    "accroche": "cambia _el feed_ por _una imagen_",
+    "colonne": [
+     "una pintura con su historia es tranquila, nueva y corta, mejor cierre que scrollear",
+     "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
+    ],
+    "chute": "luego deja el celular en otro cuarto"
+   },
+   "fr": {
+    "nom": "un tableau avant de dormir",
+    "accroche": "remplace _le feed_ par _une image_",
+    "colonne": [
+     "un tableau et son histoire, c'est calme, nouveau et court, mieux qu'un scroll pour finir",
+     "_petite astuce_: artura me donne un tableau par jour et son histoire, en quelques minutes"
+    ],
+    "chute": "puis laisse le téléphone dans une autre pièce"
+   },
+   "hu": {
+    "nom": "egy festmény lefekvés előtt",
+    "accroche": "cseréld a _feedet_ _egy képre_",
+    "colonne": [
+     "egy festmény és a története nyugodt, új és rövid, jobb utolsó dolog, mint a görgetés",
+     "_pro tip_: az artura minden nap ad egy festményt és a mögötte lévő történetet, pár perc alatt"
+    ],
+    "chute": "utána a telefon menjen másik szobába"
+   },
+   "it": {
+    "nom": "un dipinto prima di dormire",
+    "accroche": "cambia _il feed_ con _un'immagine_",
+    "colonne": [
+     "un dipinto con la sua storia è calmo, nuovo e breve, meglio di uno scroll come ultima cosa",
+     "_piccolo consiglio_: artura mi dà un dipinto al giorno e la sua storia, in pochi minuti"
+    ],
+    "chute": "poi lascia il telefono in un'altra stanza"
+   },
+   "pt-BR": {
+    "nom": "uma pintura antes de dormir",
+    "accroche": "troque _o feed_ por _uma imagem_",
+    "colonne": [
+     "uma pintura e sua história é algo calmo, novo e curto, um fim de dia melhor que rolar a tela",
+     "_dica_: o artura me dá uma pintura por dia e a história por trás dela, em poucos minutos"
+    ],
+    "chute": "depois deixe o celular em outro cômodo"
+   },
+   "sr": {
+    "nom": "jedna slika pre spavanja",
+    "accroche": "zameni _fid_ za _jednu sliku_",
+    "colonne": [
+     "jedna slika i njena priča su mirne, nove i kratke, bolja poslednja stvar od skrolovanja",
+     "_pro tip_: artura mi daje jednu sliku dnevno i priču iza nje, za par minuta"
+    ],
+    "chute": "onda telefon u drugu sobu"
    }
   },
   {
@@ -100,6 +460,78 @@
      "writing gives a busy mind somewhere to put its ideas, and one scene a night is enough"
     ],
     "chute": "start with one paragraph, no rules"
+   },
+   "bg": {
+    "nom": "да пишеш разказ",
+    "accroche": "една _малка сцена_ на _вечер_",
+    "colonne": [
+     "писането дава на претоварения ум място за идеите му, а една сцена на вечер стига"
+    ],
+    "chute": "започни с един абзац, без правила"
+   },
+   "de": {
+    "nom": "eine kurzgeschichte schreiben",
+    "accroche": "eine _kleine szene_ pro _abend_",
+    "colonne": [
+     "schreiben gibt einem vollen kopf einen ort für seine ideen, und eine szene pro abend reicht"
+    ],
+    "chute": "fang mit einem absatz an, ohne regeln"
+   },
+   "el": {
+    "nom": "γράφω μια μικρή ιστορία",
+    "accroche": "μια _μικρή σκηνή_ κάθε _βράδυ_",
+    "colonne": [
+     "το γράψιμο δίνει στο πολυάσχολο μυαλό χώρο για τις ιδέες του, και μια σκηνή το βράδυ αρκεί"
+    ],
+    "chute": "ξεκίνα με μια παράγραφο, χωρίς κανόνες"
+   },
+   "es-419": {
+    "nom": "escribir un cuento",
+    "accroche": "una _escena corta_ cada _noche_",
+    "colonne": [
+     "escribir le da a una mente ocupada dónde poner sus ideas, y una escena por noche basta"
+    ],
+    "chute": "empieza con un párrafo, sin reglas"
+   },
+   "fr": {
+    "nom": "écrire une nouvelle",
+    "accroche": "une _petite scène_ par _soir_",
+    "colonne": [
+     "écrire donne à une tête pleine un endroit où poser ses idées, et une scène par soir suffit"
+    ],
+    "chute": "commence par un paragraphe, sans règles"
+   },
+   "hu": {
+    "nom": "novellaírás",
+    "accroche": "egy _kis jelenet_ _esténként_",
+    "colonne": [
+     "az írás helyet ad a pörgő elme ötleteinek, és esténként egy jelenet bőven elég"
+    ],
+    "chute": "kezdd egy bekezdéssel, szabályok nélkül"
+   },
+   "it": {
+    "nom": "scrivere un racconto",
+    "accroche": "una _piccola scena_ ogni _sera_",
+    "colonne": [
+     "scrivere dà a una mente piena un posto per le idee, e una scena a sera basta"
+    ],
+    "chute": "inizia con un paragrafo, senza regole"
+   },
+   "pt-BR": {
+    "nom": "escrever um conto",
+    "accroche": "uma _cena curta_ por _noite_",
+    "colonne": [
+     "escrever dá a uma mente agitada um lugar para pôr as ideias, e uma cena por noite basta"
+    ],
+    "chute": "comece com um parágrafo, sem regras"
+   },
+   "sr": {
+    "nom": "pisanje kratke priče",
+    "accroche": "jedna _mala scena_ _svake noći_",
+    "colonne": [
+     "pisanje daje užurbanom umu mesto za ideje, a jedna scena po noći je dovoljna"
+    ],
+    "chute": "počni jednim pasusom, bez pravila"
    }
   }
  ]

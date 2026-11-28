@@ -2,10 +2,28 @@
  "id": "tg-024",
  "type_bleo": "full_test",
  "titre": {
-  "en": "10/10 hobbies to do after work if you have adhd"
+  "en": "10/10 hobbies to do after work if you have adhd",
+  "bg": "10/10 хобита след работа, ако имаш адхд",
+  "de": "10/10 hobbys nach der arbeit, die bei adhs wirklich funktionieren",
+  "el": "10/10 χόμπι για μετά τη δουλειά αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies para después del trabajo si tienes tdah",
+  "fr": "10/10 loisirs après le boulot quand on a un tdah",
+  "hu": "10/10 hobbi munka utánra, ha adhd-s vagy",
+  "it": "10/10 hobby da fare dopo il lavoro se hai l'adhd",
+  "pt-BR": "10/10 hobbies para depois do trabalho se você tem tdah",
+  "sr": "10/10 hobija za posle posla ako imaš adhd"
  },
  "legendes": {
-  "en": "#adhd #hobbies #afterwork #focus #brain"
+  "en": "#adhd #hobbies #afterwork #focus #brain",
+  "bg": "#адхд #хобита #следработа #фокус #мозък",
+  "de": "#adhs #hobbys #feierabend #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #μετάτηδουλειά #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #despuesdeltrabajo #enfoque #cerebro",
+  "fr": "#tdah #loisirs #apreslebureau #concentration #cerveau",
+  "hu": "#adhd #hobbi #munkautan #fókusz #agy",
+  "it": "#adhd #hobby #dopolavoro #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #depoisdotrabalho #foco #cerebro",
+  "sr": "#adhd #hobi #poseposla #fokus #mozak"
  },
  "musique": {
   "titre": "original sound",
@@ -23,6 +41,42 @@
    "en": {
     "titre": "10/10 hobbies to do after\nwork if you have adhd",
     "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 хобита след работа,\nако имаш адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 feierabend-hobbys, die\nbei adhs wirklich helfen",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι για μετά τη\nδουλειά αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies para después\ndel trabajo si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs après le boulot\nquand on a un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 hobbi munka utánra,\nha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby da fare dopo\nil lavoro se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies para depois\ndo trabalho com tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 hobija za posle posla\nako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
    }
   },
   {
@@ -38,6 +92,78 @@
      "sanding, cutting and gluing pull your mind away from the screen you stared at all day"
     ],
     "chute": "look for an evening class at a local workshop"
+   },
+   "bg": {
+    "nom": "дърводелство",
+    "accroche": "правиш _нещо истинско_ с _ръцете_ си",
+    "colonne": [
+     "шлайфането, рязането и лепенето откъсват ума ти от екрана, в който си гледал цял ден"
+    ],
+    "chute": "потърси вечерен курс в работилница наблизо"
+   },
+   "de": {
+    "nom": "holzarbeit",
+    "accroche": "du _machst etwas echtes_ mit deinen _händen_",
+    "colonne": [
+     "schleifen, sägen und leimen holen deinen kopf weg vom bildschirm, auf den du den ganzen tag gestarrt hast"
+    ],
+    "chute": "such einen abendkurs in einer werkstatt"
+   },
+   "el": {
+    "nom": "ξυλουργική",
+    "accroche": "φτιάχνεις _κάτι αληθινό_ με τα _χέρια_ σου",
+    "colonne": [
+     "το τρίψιμο, το κόψιμο και το κόλλημα τραβάνε το μυαλό από την οθόνη που κοίταζες όλη μέρα"
+    ],
+    "chute": "ψάξε ένα βραδινό μάθημα σε κάποιο εργαστήριο"
+   },
+   "es-419": {
+    "nom": "carpintería",
+    "accroche": "haces _algo real_ con tus _manos_",
+    "colonne": [
+     "lijar, cortar y pegar alejan tu mente de la pantalla que miraste todo el día"
+    ],
+    "chute": "busca una clase nocturna en un taller cerca"
+   },
+   "fr": {
+    "nom": "la menuiserie",
+    "accroche": "tu fabriques _un vrai objet_ avec tes _mains_",
+    "colonne": [
+     "poncer, couper et coller éloignent ton esprit de l'écran que tu as fixé toute la journée"
+    ],
+    "chute": "cherche un cours du soir dans un atelier"
+   },
+   "hu": {
+    "nom": "famegmunkálás",
+    "accroche": "_valami valódit_ készítesz a _kezeddel_",
+    "colonne": [
+     "a csiszolás, vágás és ragasztás elhúzza a figyelmed a képernyőtől, amit egész nap néztél"
+    ],
+    "chute": "keress egy esti tanfolyamot egy helyi műhelyben"
+   },
+   "it": {
+    "nom": "falegnameria",
+    "accroche": "crei _qualcosa di vero_ con le _mani_",
+    "colonne": [
+     "carteggiare, tagliare e incollare tolgono la mente dallo schermo che hai fissato tutto il giorno"
+    ],
+    "chute": "cerca un corso serale in un laboratorio"
+   },
+   "pt-BR": {
+    "nom": "marcenaria",
+    "accroche": "você _faz algo real_ com as _mãos_",
+    "colonne": [
+     "lixar, cortar e colar tiram sua cabeça da tela que você encarou o dia todo"
+    ],
+    "chute": "procure uma aula noturna numa oficina perto"
+   },
+   "sr": {
+    "nom": "obrada drveta",
+    "accroche": "praviš _nešto stvarno_ svojim _rukama_",
+    "colonne": [
+     "brušenje, sečenje i lepljenje odvlače um od ekrana u koji si gledao ceo dan"
+    ],
+    "chute": "potraži večernji kurs u lokalnoj radionici"
    }
   },
   {
@@ -54,6 +180,87 @@
      "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
     ],
     "chute": "five minutes on the couch, phone away"
+   },
+   "bg": {
+    "nom": "една картина преди вечеря",
+    "accroche": "_тиха пауза_ между _работата_ и _дома_",
+    "colonne": [
+     "една картина и историята ѝ дават на уморения мозък нещо ново, което не е екран или имейл",
+     "_съвет_: artura ми дава по една картина на ден и историята зад нея, за няколко минути"
+    ],
+    "chute": "пет минути на дивана, телефонът настрана"
+   },
+   "de": {
+    "nom": "ein gemälde vor dem abendessen",
+    "accroche": "eine _ruhige pause_ zwischen _arbeit_ und _zuhause_",
+    "colonne": [
+     "ein gemälde und seine geschichte geben einem müden kopf etwas neues, das kein bildschirm und keine mail ist",
+     "_pro tipp_: artura zeigt mir jeden tag ein gemälde und die geschichte dahinter, in ein paar minuten"
+    ],
+    "chute": "fünf minuten auf dem sofa, handy weg"
+   },
+   "el": {
+    "nom": "ένας πίνακας πριν το φαγητό",
+    "accroche": "_ήσυχο διάλειμμα_ μετά τη _δουλειά_",
+    "colonne": [
+     "ένας πίνακας με την ιστορία του δίνει σε ένα κουρασμένο μυαλό κάτι νέο που δεν είναι οθόνη ή email",
+     "_μικρό tip_: το artura μου δίνει έναν πίνακα τη μέρα και την ιστορία του, σε λίγα λεπτά"
+    ],
+    "chute": "πέντε λεπτά στον καναπέ, μακριά το κινητό"
+   },
+   "es-419": {
+    "nom": "una pintura antes de cenar",
+    "accroche": "una _pausa tranquila_ entre el _trabajo_ y la _casa_",
+    "colonne": [
+     "una pintura con su historia le da a un cerebro cansado algo nuevo que no es una pantalla ni un correo",
+     "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
+    ],
+    "chute": "cinco minutos en el sillón, celular lejos"
+   },
+   "fr": {
+    "nom": "un tableau avant le dîner",
+    "accroche": "une _pause calme_ entre le _boulot_ et la _maison_",
+    "colonne": [
+     "un tableau et son histoire donnent à un cerveau fatigué du neuf qui n'est ni un écran ni un mail",
+     "_petite astuce_: artura me donne un tableau par jour et son histoire, en quelques minutes"
+    ],
+    "chute": "cinq minutes sur le canapé, téléphone loin"
+   },
+   "hu": {
+    "nom": "egy festmény vacsora előtt",
+    "accroche": "_csendes szünet_ a _munka_ és az _otthon_ között",
+    "colonne": [
+     "egy festmény és a története valami újat ad a fáradt agynak, ami se nem képernyő, se nem email",
+     "_pro tip_: az artura minden nap ad egy festményt és a mögötte lévő történetet, pár perc alatt"
+    ],
+    "chute": "öt perc a kanapén, telefon félre"
+   },
+   "it": {
+    "nom": "un dipinto prima di cena",
+    "accroche": "una _pausa tranquilla_ tra _lavoro_ e _casa_",
+    "colonne": [
+     "un dipinto con la sua storia dà a un cervello stanco qualcosa di nuovo che non è uno schermo o una mail",
+     "_piccolo consiglio_: artura mi dà un dipinto al giorno e la sua storia, in pochi minuti"
+    ],
+    "chute": "cinque minuti sul divano, telefono lontano"
+   },
+   "pt-BR": {
+    "nom": "uma pintura antes do jantar",
+    "accroche": "uma _pausa tranquila_ entre o _trabalho_ e a _casa_",
+    "colonne": [
+     "uma pintura e sua história dão a um cérebro cansado algo novo que não é tela nem e-mail",
+     "_dica_: o artura me dá uma pintura por dia e a história por trás dela, em poucos minutos"
+    ],
+    "chute": "cinco minutos no sofá, celular longe"
+   },
+   "sr": {
+    "nom": "jedna slika pre večere",
+    "accroche": "_tiha pauza_ između _posla_ i _kuće_",
+    "colonne": [
+     "slika i njena priča daju umornom mozgu nešto novo što nije ekran ni mejl",
+     "_pro tip_: artura mi daje jednu sliku dnevno i priču iza nje, za par minuta"
+    ],
+    "chute": "pet minuta na kauču, telefon sklonjen"
    }
   },
   {
@@ -69,6 +276,78 @@
      "aiming takes all your attention for a second, and you see the score right away"
     ],
     "chute": "most pubs have a board, ask at the bar"
+   },
+   "bg": {
+    "nom": "дартс",
+    "accroche": "една цел, _три стрелички_, _без мислене_",
+    "colonne": [
+     "прицелването взима цялото ти внимание за секунда и виждаш резултата веднага"
+    ],
+    "chute": "в много барове има дъска, питай на бара"
+   },
+   "de": {
+    "nom": "darts",
+    "accroche": "ein ziel, _drei pfeile_, _kein denken_",
+    "colonne": [
+     "zielen nimmt für eine sekunde deine ganze aufmerksamkeit, und du siehst die punkte sofort"
+    ],
+    "chute": "viele kneipen haben eine scheibe, frag an der bar"
+   },
+   "el": {
+    "nom": "βελάκια",
+    "accroche": "ένας στόχος, _τρία βελάκια_, _καθόλου σκέψη_",
+    "colonne": [
+     "το σημάδι θέλει όλη σου την προσοχή για ένα δευτερόλεπτο και βλέπεις το σκορ αμέσως"
+    ],
+    "chute": "τα περισσότερα μπαρ έχουν στόχο, ρώτα στο μπαρ"
+   },
+   "es-419": {
+    "nom": "dardos",
+    "accroche": "un blanco, _tres dardos_, _cero pensar_",
+    "colonne": [
+     "apuntar se lleva toda tu atención un segundo, y ves el puntaje al instante"
+    ],
+    "chute": "casi todos los bares tienen diana, pregunta en la barra"
+   },
+   "fr": {
+    "nom": "les fléchettes",
+    "accroche": "une cible, _trois fléchettes_, _zéro réflexion_",
+    "colonne": [
+     "viser prend toute ton attention une seconde, et tu vois le score tout de suite"
+    ],
+    "chute": "la plupart des bars ont une cible, demande au comptoir"
+   },
+   "hu": {
+    "nom": "darts",
+    "accroche": "egy cél, _három nyíl_, _semmi gondolkodás_",
+    "colonne": [
+     "a célzás egy pillanatra minden figyelmedet leköti, és azonnal látod az eredményt"
+    ],
+    "chute": "a legtöbb kocsmában van tábla, kérdezd a pultnál"
+   },
+   "it": {
+    "nom": "freccette",
+    "accroche": "un bersaglio, _tre freccette_, _zero pensieri_",
+    "colonne": [
+     "mirare prende tutta la tua attenzione per un secondo, e vedi subito il punteggio"
+    ],
+    "chute": "quasi tutti i pub hanno un bersaglio, chiedi al banco"
+   },
+   "pt-BR": {
+    "nom": "dardos",
+    "accroche": "um alvo, _três dardos_, _zero pensamento_",
+    "colonne": [
+     "mirar pega toda a sua atenção por um segundo, e você vê o placar na hora"
+    ],
+    "chute": "muitos bares têm um alvo, pergunte no balcão"
+   },
+   "sr": {
+    "nom": "pikado",
+    "accroche": "jedna meta, _tri strelice_, _bez razmišljanja_",
+    "colonne": [
+     "nišanjenje na sekundu uzme svu tvoju pažnju, a rezultat vidiš odmah"
+    ],
+    "chute": "većina kafića ima tablu, pitaj za šankom"
    }
   },
   {
@@ -85,6 +364,87 @@
      "_pro tip_: atala builds my runs around my goal and adjusts them every week"
     ],
     "chute": "run before you sit down at home"
+   },
+   "bg": {
+    "nom": "вечерно бягане",
+    "accroche": "остави _работния ден_ на _пътя_",
+    "colonne": [
+     "бягане след работа изгаря напрежението от седенето цял ден, а планът те държи в ритъм",
+     "_съвет_: atala нагласява бяганията ми около целта ми и ги променя всяка седмица"
+    ],
+    "chute": "тичай, преди да седнеш у дома"
+   },
+   "de": {
+    "nom": "ein abendlauf",
+    "accroche": "lass den _arbeitstag_ auf der _straße_",
+    "colonne": [
+     "ein lauf nach der arbeit baut die unruhe vom sitzen ab, und ein plan hält dich dran",
+     "_pro tipp_: atala baut meine läufe um mein ziel herum und passt sie jede woche an"
+    ],
+    "chute": "lauf, bevor du dich zuhause hinsetzt"
+   },
+   "el": {
+    "nom": "βραδινό τρέξιμο",
+    "accroche": "άφησε τη _δουλειά_ στον _δρόμο_",
+    "colonne": [
+     "ένα τρέξιμο μετά τη δουλειά καίει την ανήσυχη ενέργεια από το κάθισμα, και ένα πλάνο το κρατάει",
+     "_μικρό tip_: το atala χτίζει τα τρεξίματά μου γύρω από τον στόχο μου και τα προσαρμόζει κάθε εβδομάδα"
+    ],
+    "chute": "τρέξε πριν κάτσεις στο σπίτι"
+   },
+   "es-419": {
+    "nom": "correr en la tarde",
+    "accroche": "deja la _jornada_ en el _camino_",
+    "colonne": [
+     "correr después del trabajo quema la energía inquieta de estar sentado todo el día, y un plan lo mantiene",
+     "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
+    ],
+    "chute": "corre antes de sentarte en casa"
+   },
+   "fr": {
+    "nom": "courir le soir",
+    "accroche": "laisse la _journée_ sur la _route_",
+    "colonne": [
+     "courir après le boulot brûle l'énergie d'une journée assise, et un plan en fait une habitude",
+     "_petite astuce_: atala construit mes sorties autour de mon objectif et les ajuste chaque semaine"
+    ],
+    "chute": "cours avant de t'asseoir chez toi"
+   },
+   "hu": {
+    "nom": "esti futás",
+    "accroche": "hagyd a _munkanapot_ az _úton_",
+    "colonne": [
+     "egy futás munka után levezeti az egész napos ülés feszültségét, a terv pedig fenntartja",
+     "_pro tip_: az atala a célomhoz igazítja a futásaimat, és minden héten finomít rajtuk"
+    ],
+    "chute": "fuss, mielőtt otthon leülsz"
+   },
+   "it": {
+    "nom": "una corsa serale",
+    "accroche": "lascia la _giornata_ sulla _strada_",
+    "colonne": [
+     "una corsa dopo il lavoro brucia l'energia di un giorno da seduti, e un piano la rende un'abitudine",
+     "_piccolo consiglio_: atala costruisce le mie corse intorno al mio obiettivo e le adatta ogni settimana"
+    ],
+    "chute": "corri prima di sederti a casa"
+   },
+   "pt-BR": {
+    "nom": "uma corrida à noite",
+    "accroche": "deixe o _dia de trabalho_ na _rua_",
+    "colonne": [
+     "correr depois do trabalho queima a energia de ficar sentado o dia todo, e um plano mantém o ritmo",
+     "_dica_: o atala monta minhas corridas em torno do meu objetivo e ajusta toda semana"
+    ],
+    "chute": "corra antes de se sentar em casa"
+   },
+   "sr": {
+    "nom": "večernje trčanje",
+    "accroche": "ostavi _radni dan_ na _putu_",
+    "colonne": [
+     "trčanje posle posla izbaci nemir od celodnevnog sedenja, a plan te drži u ritmu",
+     "_pro tip_: atala pravi moja trčanja prema mom cilju i prilagođava ih svake nedelje"
+    ],
+    "chute": "trči pre nego što sedneš kod kuće"
    }
   },
   {
@@ -100,6 +460,78 @@
      "the ball comes back quickly and games are short, so a tired brain still wants _one more_"
     ],
     "chute": "most cities have free courts and drop-in nights"
+   },
+   "bg": {
+    "nom": "пикълбол",
+    "accroche": "кратки разигравания, _бързи точки_, _много смях_",
+    "colonne": [
+     "топката се връща бързо и игрите са кратки, така че уморен мозък иска _още една_"
+    ],
+    "chute": "в много градове има безплатни игрища и отворени вечери"
+   },
+   "de": {
+    "nom": "pickleball",
+    "accroche": "kurze ballwechsel, _schnelle punkte_, _viel lachen_",
+    "colonne": [
+     "der ball kommt schnell zurück und die spiele sind kurz, also will ein müder kopf noch _eine runde_"
+    ],
+    "chute": "viele städte haben gratis-plätze und offene abende"
+   },
+   "el": {
+    "nom": "pickleball",
+    "accroche": "σύντομα ράλι, _γρήγοροι πόντοι_, _πολύ γέλιο_",
+    "colonne": [
+     "η μπάλα γυρίζει γρήγορα και τα παιχνίδια είναι σύντομα, οπότε ένα κουρασμένο μυαλό θέλει _ακόμα ένα_"
+    ],
+    "chute": "πολλές πόλεις έχουν δωρεάν γήπεδα"
+   },
+   "es-419": {
+    "nom": "pickleball",
+    "accroche": "peloteos cortos, _puntos rápidos_, _muchas risas_",
+    "colonne": [
+     "la pelota vuelve rápido y los partidos son cortos, así que un cerebro cansado quiere _uno más_"
+    ],
+    "chute": "muchas ciudades tienen canchas gratis"
+   },
+   "fr": {
+    "nom": "le pickleball",
+    "accroche": "échanges courts, _points rapides_, _fous rires_",
+    "colonne": [
+     "la balle revient vite et les parties sont courtes, donc un cerveau fatigué en veut _une de plus_"
+    ],
+    "chute": "beaucoup de villes ont des terrains gratuits"
+   },
+   "hu": {
+    "nom": "pickleball",
+    "accroche": "rövid labdamenetek, _gyors pontok_, _sok nevetés_",
+    "colonne": [
+     "a labda gyorsan jön vissza, a meccsek rövidek, így a fáradt agy is kér még _egy kört_"
+    ],
+    "chute": "sok városban vannak ingyenes pályák és esti játékok"
+   },
+   "it": {
+    "nom": "pickleball",
+    "accroche": "scambi brevi, _punti veloci_, _tante risate_",
+    "colonne": [
+     "la palla torna in fretta e le partite sono brevi, così un cervello stanco ne vuole _un'altra_"
+    ],
+    "chute": "molte città hanno campi gratuiti"
+   },
+   "pt-BR": {
+    "nom": "pickleball",
+    "accroche": "pontos curtos, _rápidos_ e _muita risada_",
+    "colonne": [
+     "a bola volta rápido e os jogos são curtos, então um cérebro cansado ainda quer _mais um_"
+    ],
+    "chute": "muitas cidades têm quadras grátis e noites abertas"
+   },
+   "sr": {
+    "nom": "pikleball",
+    "accroche": "kratki poeni, _brza igra_, _puno smeha_",
+    "colonne": [
+     "loptica se brzo vraća a mečevi su kratki, pa i umoran mozak hoće _još jednu_"
+    ],
+    "chute": "mnogi gradovi imaju besplatne terene i večernje termine"
    }
   }
  ]

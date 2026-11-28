@@ -2,10 +2,28 @@
  "id": "tg-023",
  "type_bleo": "full_test",
  "titre": {
-  "en": "10/10 hobbies that feel like a game if you have adhd"
+  "en": "10/10 hobbies that feel like a game if you have adhd",
+  "bg": "10/10 хобита, които са като игра, ако имаш адхд",
+  "de": "10/10 hobbys, die sich bei adhs wie ein spiel anfühlen",
+  "el": "10/10 χόμπι που μοιάζουν με παιχνίδι αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies que se sienten como un juego si tienes tdah",
+  "fr": "10/10 loisirs qui ressemblent à un jeu quand on a un tdah",
+  "hu": "10/10 hobbi, ami olyan, mint egy játék, ha adhd-s vagy",
+  "it": "10/10 hobby che sembrano un gioco se hai l'adhd",
+  "pt-BR": "10/10 hobbies que parecem um jogo se você tem tdah",
+  "sr": "10/10 hobija koji deluju kao igra ako imaš adhd"
  },
  "legendes": {
-  "en": "#adhd #hobbies #focus #brain #selfimprovement"
+  "en": "#adhd #hobbies #focus #brain #selfimprovement",
+  "bg": "#адхд #хобита #фокус #мозък #саморазвитие",
+  "de": "#adhs #hobbys #fokus #gehirn #selbstverbesserung",
+  "el": "#δεπυ #χόμπι #συγκέντρωση #εγκέφαλος #αυτοβελτίωση",
+  "es-419": "#tdah #hobbies #enfoque #cerebro #crecimientopersonal",
+  "fr": "#tdah #loisirs #concentration #cerveau #developpementpersonnel",
+  "hu": "#adhd #hobbi #fókusz #agy #önfejlesztés",
+  "it": "#adhd #hobby #concentrazione #cervello #crescitapersonale",
+  "pt-BR": "#tdah #hobbies #foco #cerebro #autodesenvolvimento",
+  "sr": "#adhd #hobi #fokus #mozak #samorazvoj"
  },
  "musique": {
   "titre": "original sound",
@@ -23,6 +41,42 @@
    "en": {
     "titre": "10/10 hobbies that feel like a\ngame if you have adhd",
     "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 хобита, които са като\nигра, ако имаш адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 hobbys, die sich bei\nadhs wie ein spiel anfühlen",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι που μοιάζουν\nμε παιχνίδι αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies que se sienten\ncomo juego si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs qui ressemblent\nà un jeu quand on a un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 hobbi, ami olyan, mint\negy játék, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby che sembrano\nun gioco se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies que parecem\num jogo se você tem tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 hobija koji deluju kao\nigra ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
    }
   },
   {
@@ -38,6 +92,78 @@
      "you see the pins fall in seconds, so your brain gets a reward ten times a game and _never drifts_"
     ],
     "chute": "most alleys have cheap games on weeknights"
+   },
+   "bg": {
+    "nom": "боулинг",
+    "accroche": "всяко хвърляне има _точки_, _веднага_",
+    "colonne": [
+     "виждаш кеглите да падат за секунди, мозъкът получава награда десет пъти на игра и _не се разсейва_"
+    ],
+    "chute": "повечето зали са евтини в делничните вечери"
+   },
+   "de": {
+    "nom": "bowling",
+    "accroche": "jeder wurf hat _punkte_, _sofort_",
+    "colonne": [
+     "du siehst die pins in sekunden fallen, dein gehirn kriegt zehnmal pro spiel eine belohnung und _schweift nie ab_"
+    ],
+    "chute": "die meisten bahnen sind unter der woche günstig"
+   },
+   "el": {
+    "nom": "μπόουλινγκ",
+    "accroche": "κάθε ρίψη έχει _σκορ_, _αμέσως_",
+    "colonne": [
+     "βλέπεις τις κορίνες να πέφτουν σε δευτερόλεπτα, οπότε ο εγκέφαλος παίρνει ανταμοιβή δέκα φορές ανά παιχνίδι και _δεν ξεφεύγει_"
+    ],
+    "chute": "τα περισσότερα μπόουλινγκ έχουν φθηνές τιμές τις καθημερινές"
+   },
+   "es-419": {
+    "nom": "boliche",
+    "accroche": "cada tiro tiene _puntaje_, _al instante_",
+    "colonne": [
+     "ves caer los pinos en segundos, así que tu cerebro recibe una recompensa diez veces por juego y _no se dispersa_"
+    ],
+    "chute": "casi todos los boliches son baratos entre semana"
+   },
+   "fr": {
+    "nom": "le bowling",
+    "accroche": "chaque lancer a un _score_, _tout de suite_",
+    "colonne": [
+     "tu vois les quilles tomber en quelques secondes, ton cerveau a une récompense dix fois par partie et _ne décroche pas_"
+    ],
+    "chute": "la plupart des bowlings sont pas chers en semaine"
+   },
+   "hu": {
+    "nom": "bowling",
+    "accroche": "minden dobás _azonnal_ _pontot_ kap",
+    "colonne": [
+     "másodpercek alatt látod, ahogy a bábuk eldőlnek, így az agyad tízszer kap jutalmat egy játékban, és _sosem kalandozik_ el"
+    ],
+    "chute": "a legtöbb pálya hétköznap este olcsóbb"
+   },
+   "it": {
+    "nom": "bowling",
+    "accroche": "ogni tiro ha un _punteggio_, _subito_",
+    "colonne": [
+     "vedi cadere i birilli in pochi secondi, così il cervello riceve una ricompensa dieci volte a partita e _non si distrae_"
+    ],
+    "chute": "molte piste costano poco nei giorni feriali"
+   },
+   "pt-BR": {
+    "nom": "boliche",
+    "accroche": "cada jogada tem _pontos_, _na hora_",
+    "colonne": [
+     "você vê os pinos caírem em segundos, então seu cérebro ganha uma recompensa dez vezes por jogo e _nunca dispersa_"
+    ],
+    "chute": "a maioria das pistas é barata em dia de semana"
+   },
+   "sr": {
+    "nom": "kuglanje",
+    "accroche": "svako bacanje dobija _poene_, _odmah_",
+    "colonne": [
+     "za par sekundi vidiš kako čunjevi padaju, pa mozak dobija nagradu deset puta po igri i _nikad ne odluta_"
+    ],
+    "chute": "većina kuglana je jeftinija radnim danom uveče"
    }
   },
   {
@@ -54,6 +180,87 @@
      "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
     ],
     "chute": "pick a 5k three months from now"
+   },
+   "bg": {
+    "nom": "бягане с план",
+    "accroche": "всяко бягане е _ниво_, което _отключваш_",
+    "colonne": [
+     "планът превръща бягането в игра с ясни стъпки, а завършената седмица е _малка победа_",
+     "_съвет_: ползвам atala, ai треньор по бягане, който планира седмицата ми около целта ми"
+    ],
+    "chute": "избери бягане на 5 км след три месеца"
+   },
+   "de": {
+    "nom": "laufen mit plan",
+    "accroche": "jeder lauf ist ein _level_, das du _freischaltest_",
+    "colonne": [
+     "ein plan macht laufen zu einem spiel mit klaren schritten, und eine geschaffte woche fühlt sich wie ein _kleiner sieg_ an",
+     "_pro tipp_: ich nutze atala, einen ki-laufcoach, der meine woche um mein ziel herum plant"
+    ],
+    "chute": "such dir einen 5-km-lauf in drei monaten aus"
+   },
+   "el": {
+    "nom": "τρέξιμο με πλάνο",
+    "accroche": "κάθε τρέξιμο είναι ένα _επίπεδο_ που _ξεκλειδώνεις_",
+    "colonne": [
+     "ένα πλάνο κάνει το τρέξιμο παιχνίδι με ξεκάθαρα βήματα, και κάθε εβδομάδα που τελειώνεις είναι μια _μικρή νίκη_",
+     "_μικρό tip_: χρησιμοποιώ το atala, έναν ai προπονητή τρεξίματος που οργανώνει την εβδομάδα μου γύρω από τον στόχο μου"
+    ],
+    "chute": "διάλεξε ένα 5χλμ σε τρεις μήνες"
+   },
+   "es-419": {
+    "nom": "correr con un plan",
+    "accroche": "cada carrera es un _nivel_ que _desbloqueas_",
+    "colonne": [
+     "un plan convierte correr en un juego con pasos claros, y terminar una semana se siente como una _pequeña victoria_",
+     "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
+    ],
+    "chute": "elige un 5k dentro de tres meses"
+   },
+   "fr": {
+    "nom": "courir avec un plan",
+    "accroche": "chaque sortie est un _niveau_ à _débloquer_",
+    "colonne": [
+     "un plan transforme la course en jeu avec des étapes claires, et finir une semaine est une _petite victoire_",
+     "_petite astuce_: j'utilise atala, un coach de course par ia qui planifie ma semaine selon mon objectif"
+    ],
+    "chute": "choisis un 5 km dans trois mois"
+   },
+   "hu": {
+    "nom": "futás tervvel",
+    "accroche": "minden futás egy _szint_, amit _feloldasz_",
+    "colonne": [
+     "a terv játékká alakítja a futást világos lépésekkel, és egy kész hét olyan, mint egy _kis győzelem_",
+     "_pro tip_: az atala appot használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+    ],
+    "chute": "válassz egy 5 km-es futást három hónap múlva"
+   },
+   "it": {
+    "nom": "correre con un piano",
+    "accroche": "ogni corsa è un _livello_ da _sbloccare_",
+    "colonne": [
+     "un piano trasforma la corsa in un gioco con passi chiari, e finire una settimana è una _piccola vittoria_",
+     "_piccolo consiglio_: uso atala, un coach di corsa con l'ia che organizza la mia settimana intorno al mio obiettivo"
+    ],
+    "chute": "scegli una 5 km tra tre mesi"
+   },
+   "pt-BR": {
+    "nom": "correr com um plano",
+    "accroche": "cada corrida é uma _fase_ que você _desbloqueia_",
+    "colonne": [
+     "um plano transforma a corrida num jogo com passos claros, e fechar uma semana parece uma _pequena vitória_",
+     "_dica_: eu uso o atala, um coach de corrida com ia que planeja minha semana em torno do meu objetivo"
+    ],
+    "chute": "escolha uma prova de 5 km daqui a três meses"
+   },
+   "sr": {
+    "nom": "trčanje po planu",
+    "accroche": "svako trčanje je _nivo_ koji _otključaš_",
+    "colonne": [
+     "plan pretvara trčanje u igru sa jasnim koracima, a završena nedelja deluje kao _mala pobeda_",
+     "_pro tip_: koristim aplikaciju atala, ai trenera za trčanje koji mi planira nedelju prema cilju"
+    ],
+    "chute": "izaberi trku od 5 km za tri meseca"
    }
   },
   {
@@ -69,6 +276,78 @@
      "each hole has its own trick, so a brain that bores fast always has a _new problem_ to solve"
     ],
     "chute": "go on a quiet weekday evening"
+   },
+   "bg": {
+    "nom": "мини голф",
+    "accroche": "18 дупки, 18 _малки_ загадки",
+    "colonne": [
+     "всяка дупка има свой трик, така че мозък, който бързо се отегчава, винаги има _нов проблем_"
+    ],
+    "chute": "иди в спокойна делнична вечер"
+   },
+   "de": {
+    "nom": "minigolf",
+    "accroche": "18 bahnen, 18 _kleine_ rätsel",
+    "colonne": [
+     "jede bahn hat ihren trick, also hat ein gehirn, das sich schnell langweilt, immer ein _neues problem_"
+    ],
+    "chute": "geh an einem ruhigen abend unter der woche"
+   },
+   "el": {
+    "nom": "μίνι γκολφ",
+    "accroche": "18 τρύπες, 18 _μικροί_ γρίφοι",
+    "colonne": [
+     "κάθε τρύπα έχει το δικό της κόλπο, οπότε ένα μυαλό που βαριέται γρήγορα έχει πάντα _νέο πρόβλημα_"
+    ],
+    "chute": "πήγαινε ένα ήσυχο απόγευμα καθημερινής"
+   },
+   "es-419": {
+    "nom": "minigolf",
+    "accroche": "18 hoyos, 18 _pequeños_ acertijos",
+    "colonne": [
+     "cada hoyo tiene su truco, así que un cerebro que se aburre rápido siempre tiene un _problema nuevo_"
+    ],
+    "chute": "ve una tarde tranquila entre semana"
+   },
+   "fr": {
+    "nom": "le minigolf",
+    "accroche": "18 trous, 18 _petites_ énigmes",
+    "colonne": [
+     "chaque trou a son astuce, donc un cerveau qui s'ennuie vite a toujours un _nouveau problème_"
+    ],
+    "chute": "vas-y un soir calme en semaine"
+   },
+   "hu": {
+    "nom": "minigolf",
+    "accroche": "18 lyuk, 18 _apró_ rejtvény",
+    "colonne": [
+     "minden lyuknak megvan a maga trükkje, így a gyorsan unatkozó agynak mindig van _új feladata_"
+    ],
+    "chute": "menj egy csendes hétköznap este"
+   },
+   "it": {
+    "nom": "minigolf",
+    "accroche": "18 buche, 18 _piccoli_ enigmi",
+    "colonne": [
+     "ogni buca ha il suo trucco, così un cervello che si annoia in fretta ha sempre un _problema nuovo_"
+    ],
+    "chute": "vai in una sera tranquilla in settimana"
+   },
+   "pt-BR": {
+    "nom": "minigolfe",
+    "accroche": "18 buracos, 18 _pequenos_ quebra-cabeças",
+    "colonne": [
+     "cada buraco tem seu truque, então um cérebro que enjoa rápido sempre tem um _problema novo_"
+    ],
+    "chute": "vá numa noite tranquila de semana"
+   },
+   "sr": {
+    "nom": "mini golf",
+    "accroche": "18 rupa, 18 _malih_ zagonetki",
+    "colonne": [
+     "svaka rupa ima svoj trik, pa mozak koji se brzo dosađuje uvek ima _novi problem_"
+    ],
+    "chute": "idi radnim danom uveče kad je mirno"
    }
   },
   {
@@ -85,6 +364,87 @@
      "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
     ],
     "chute": "look for one hidden object per painting"
+   },
+   "bg": {
+    "nom": "намери скрития детайл",
+    "accroche": "всяка картина крие _едно нещо_, което си _пропуснал_",
+    "colonne": [
+     "търсенето на малкия символ или странния детайл превръща картината в лов на съкровища",
+     "_съвет_: ползвам artura, по едно произведение на ден с историята му и зуум върху детайлите, които иначе пропускаш"
+    ],
+    "chute": "търси по един скрит предмет във всяка картина"
+   },
+   "de": {
+    "nom": "das versteckte detail finden",
+    "accroche": "jedes gemälde versteckt _eine sache_, die du _übersehen_ hast",
+    "colonne": [
+     "nach dem kleinen symbol oder dem seltsamen detail zu suchen, macht ein gemälde zur schatzsuche",
+     "_pro tipp_: ich nutze artura, jeden tag ein kunstwerk mit seiner geschichte, mit zoom auf details, die man sonst übersieht"
+    ],
+    "chute": "such ein verstecktes objekt pro gemälde"
+   },
+   "el": {
+    "nom": "βρες την κρυμμένη λεπτομέρεια",
+    "accroche": "κάθε πίνακας κρύβει _κάτι_ που _έχασες_",
+    "colonne": [
+     "το ψάξιμο για το μικρό σύμβολο ή τη παράξενη λεπτομέρεια κάνει τον πίνακα κυνήγι θησαυρού",
+     "_μικρό tip_: χρησιμοποιώ το artura, ένα έργο τέχνης τη μέρα με την ιστορία του, με ζουμ στις λεπτομέρειες που θα έχανες"
+    ],
+    "chute": "ψάξε ένα κρυμμένο αντικείμενο σε κάθε πίνακα"
+   },
+   "es-419": {
+    "nom": "encontrar el detalle oculto",
+    "accroche": "cada pintura esconde _algo_ que _no viste_",
+    "colonne": [
+     "buscar el símbolo pequeño o el detalle raro convierte una pintura en una búsqueda del tesoro",
+     "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
+    ],
+    "chute": "busca un objeto oculto en cada pintura"
+   },
+   "fr": {
+    "nom": "trouver le détail caché",
+    "accroche": "chaque tableau cache _un truc_ que tu as _raté_",
+    "colonne": [
+     "chercher le petit symbole ou le détail bizarre transforme un tableau en chasse au trésor",
+     "_petite astuce_: j'utilise artura, une œuvre par jour avec son histoire, en zoomant sur les détails qu'on raterait"
+    ],
+    "chute": "cherche un objet caché par tableau"
+   },
+   "hu": {
+    "nom": "rejtett részletek keresése",
+    "accroche": "minden festmény rejt _egy dolgot_, amit _kihagytál_",
+    "colonne": [
+     "egy apró szimbólum vagy furcsa részlet keresése kincsvadászattá teszi a festményt",
+     "_pro tip_: az artura appot használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+    ],
+    "chute": "keress egy rejtett tárgyat minden képen"
+   },
+   "it": {
+    "nom": "trovare il dettaglio nascosto",
+    "accroche": "ogni dipinto nasconde _qualcosa_ che ti _è sfuggito_",
+    "colonne": [
+     "cercare il piccolo simbolo o il dettaglio strano trasforma un dipinto in una caccia al tesoro",
+     "_piccolo consiglio_: uso artura, un'opera al giorno con la sua storia, zoomando sui dettagli che ti sfuggirebbero"
+    ],
+    "chute": "cerca un oggetto nascosto in ogni dipinto"
+   },
+   "pt-BR": {
+    "nom": "achar o detalhe escondido",
+    "accroche": "toda pintura esconde _uma coisa_ que você _não viu_",
+    "colonne": [
+     "procurar o símbolo pequeno ou o detalhe estranho transforma uma pintura numa caça ao tesouro",
+     "_dica_: eu uso o artura, uma obra por dia com a sua história, com zoom nos detalhes que você perderia"
+    ],
+    "chute": "procure um objeto escondido por pintura"
+   },
+   "sr": {
+    "nom": "traženje skrivenog detalja",
+    "accroche": "svaka slika krije _jednu stvar_ koju si _propustio_",
+    "colonne": [
+     "traženje malog simbola ili čudnog detalja pretvara sliku u lov na blago",
+     "_pro tip_: koristim aplikaciju artura, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+    ],
+    "chute": "traži jedan skriven predmet na svakoj slici"
    }
   },
   {
@@ -100,6 +460,78 @@
      "each question is quick, your team counts on you, and the score keeps everyone _locked in_"
     ],
     "chute": "most pubs run a free quiz every week"
+   },
+   "bg": {
+    "nom": "куиз вечери",
+    "accroche": "точки, _отбор_ и _табло_",
+    "colonne": [
+     "всеки въпрос е бърз, отборът разчита на теб, а резултатът държи всички _концентрирани_"
+    ],
+    "chute": "много барове правят безплатен куиз всяка седмица"
+   },
+   "de": {
+    "nom": "quizabende",
+    "accroche": "punkte, _ein team_ und eine _anzeigetafel_",
+    "colonne": [
+     "jede frage ist schnell, dein team zählt auf dich, und der punktestand hält alle _bei der sache_"
+    ],
+    "chute": "viele kneipen machen jede woche ein gratis-quiz"
+   },
+   "el": {
+    "nom": "βραδιές κουίζ",
+    "accroche": "πόντοι, _μια ομάδα_ και ένας _πίνακας_",
+    "colonne": [
+     "κάθε ερώτηση είναι γρήγορη, η ομάδα σε χρειάζεται και το σκορ κρατάει όλους _συγκεντρωμένους_"
+    ],
+    "chute": "τα περισσότερα μπαρ κάνουν δωρεάν κουίζ κάθε εβδομάδα"
+   },
+   "es-419": {
+    "nom": "noches de trivia",
+    "accroche": "puntos, _un equipo_ y un _marcador_",
+    "colonne": [
+     "cada pregunta es rápida, tu equipo cuenta contigo y el marcador mantiene a todos _enfocados_"
+    ],
+    "chute": "muchos bares hacen trivia gratis cada semana"
+   },
+   "fr": {
+    "nom": "les soirées quiz",
+    "accroche": "des points, _une équipe_ et un _tableau_",
+    "colonne": [
+     "chaque question est rapide, ton équipe compte sur toi et le score garde tout le monde _concentré_"
+    ],
+    "chute": "beaucoup de bars font un quiz gratuit chaque semaine"
+   },
+   "hu": {
+    "nom": "kvízestek",
+    "accroche": "pontok, _csapat_ és _eredménytábla_",
+    "colonne": [
+     "minden kérdés gyors, a csapat számít rád, és az állás mindenkit _ott tart_"
+    ],
+    "chute": "a legtöbb kocsmában hetente van ingyenes kvíz"
+   },
+   "it": {
+    "nom": "serate quiz",
+    "accroche": "punti, _una squadra_ e un _tabellone_",
+    "colonne": [
+     "ogni domanda è veloce, la squadra conta su di te e il punteggio tiene tutti _concentrati_"
+    ],
+    "chute": "molti pub fanno un quiz gratis ogni settimana"
+   },
+   "pt-BR": {
+    "nom": "noites de quiz",
+    "accroche": "pontos, _um time_ e um _placar_",
+    "colonne": [
+     "cada pergunta é rápida, seu time conta com você e o placar deixa todo mundo _ligado_"
+    ],
+    "chute": "muitos bares fazem quiz grátis toda semana"
+   },
+   "sr": {
+    "nom": "kviz večeri",
+    "accroche": "poeni, _tim_ i _tabela_",
+    "colonne": [
+     "svako pitanje je brzo, tim računa na tebe, a rezultat drži sve _fokusiranim_"
+    ],
+    "chute": "većina kafića ima besplatan kviz svake nedelje"
    }
   }
  ]

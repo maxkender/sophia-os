@@ -2,10 +2,28 @@
  "id": "tg-025",
  "type_bleo": "full_test",
  "titre": {
-  "en": "10/10 social hobbies that actually work if you have adhd"
+  "en": "10/10 social hobbies that actually work if you have adhd",
+  "bg": "10/10 социални хобита, които наистина работят при адхд",
+  "de": "10/10 soziale hobbys, die bei adhs wirklich funktionieren",
+  "el": "10/10 κοινωνικά χόμπι που δουλεύουν αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies sociales que sí funcionan si tienes tdah",
+  "fr": "10/10 loisirs sociaux qui marchent quand on a un tdah",
+  "hu": "10/10 társasági hobbi, ami tényleg működik, ha adhd-s vagy",
+  "it": "10/10 hobby sociali che funzionano davvero se hai l'adhd",
+  "pt-BR": "10/10 hobbies sociais que funcionam de verdade se você tem tdah",
+  "sr": "10/10 društvenih hobija koji stvarno pomažu ako imaš adhd"
  },
  "legendes": {
-  "en": "#adhd #hobbies #friends #focus #brain"
+  "en": "#adhd #hobbies #friends #focus #brain",
+  "bg": "#адхд #хобита #приятели #фокус #мозък",
+  "de": "#adhs #hobbys #freunde #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #φίλοι #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #amigos #enfoque #cerebro",
+  "fr": "#tdah #loisirs #amis #concentration #cerveau",
+  "hu": "#adhd #hobbi #barátok #fókusz #agy",
+  "it": "#adhd #hobby #amici #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #amigos #foco #cerebro",
+  "sr": "#adhd #hobi #prijatelji #fokus #mozak"
  },
  "musique": {
   "titre": "original sound",
@@ -23,6 +41,42 @@
    "en": {
     "titre": "10/10 social hobbies that\nactually work if you have adhd",
     "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 социални хобита, които\nнаистина работят при адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 soziale hobbys, die\nbei adhs wirklich helfen",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 κοινωνικά χόμπι που\nδουλεύουν αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies sociales que\nsí funcionan si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs sociaux qui\nmarchent avec un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 társasági hobbi, ami\ntényleg működik, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby sociali che\nfunzionano se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies sociais que\nfuncionam de verdade com tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 društvenih hobija koji\nstvarno pomažu ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
    }
   },
   {
@@ -38,6 +92,78 @@
      "knowing you'll talk about it on thursday makes it easier to actually _finish_ the book"
     ],
     "chute": "pick a short book and invite three friends"
+   },
+   "bg": {
+    "nom": "книжен клуб",
+    "accroche": "_краен срок_ и _хора_, които те чакат",
+    "colonne": [
+     "като знаеш, че ще го обсъждате в четвъртък, е по-лесно наистина да _дочетеш_ книгата"
+    ],
+    "chute": "избери кратка книга и покани трима приятели"
+   },
+   "de": {
+    "nom": "ein buchclub",
+    "accroche": "eine _deadline_ und _leute_, die auf dich warten",
+    "colonne": [
+     "zu wissen, dass ihr am donnerstag darüber redet, macht es leichter, das buch wirklich _fertig_ zu lesen"
+    ],
+    "chute": "nimm ein kurzes buch und lade drei freunde ein"
+   },
+   "el": {
+    "nom": "λέσχη ανάγνωσης",
+    "accroche": "μια _προθεσμία_ και _άνθρωποι_ που σε περιμένουν",
+    "colonne": [
+     "όταν ξέρεις ότι θα το συζητήσετε την πέμπτη, είναι πιο εύκολο να _τελειώσεις_ το βιβλίο"
+    ],
+    "chute": "διάλεξε ένα μικρό βιβλίο και κάλεσε τρεις φίλους"
+   },
+   "es-419": {
+    "nom": "un club de lectura",
+    "accroche": "una _fecha límite_ y _gente_ esperándote",
+    "colonne": [
+     "saber que lo van a comentar el jueves hace más fácil _terminar_ el libro"
+    ],
+    "chute": "elige un libro corto e invita a tres amigos"
+   },
+   "fr": {
+    "nom": "un club de lecture",
+    "accroche": "une _date limite_ et des _gens_ qui t'attendent",
+    "colonne": [
+     "savoir qu'on en parle jeudi rend plus facile de _finir_ vraiment le livre"
+    ],
+    "chute": "choisis un livre court et invite trois amis"
+   },
+   "hu": {
+    "nom": "könyvklub",
+    "accroche": "_határidő_ és _emberek_, akik várnak",
+    "colonne": [
+     "ha tudod, hogy csütörtökön beszéltek róla, könnyebb tényleg _befejezni_ a könyvet"
+    ],
+    "chute": "válassz egy rövid könyvet, hívj meg három barátot"
+   },
+   "it": {
+    "nom": "un club del libro",
+    "accroche": "una _scadenza_ e _persone_ che ti aspettano",
+    "colonne": [
+     "sapere che ne parlerete giovedì rende più facile _finire_ davvero il libro"
+    ],
+    "chute": "scegli un libro breve e invita tre amici"
+   },
+   "pt-BR": {
+    "nom": "um clube do livro",
+    "accroche": "um _prazo_ e _gente_ esperando você",
+    "colonne": [
+     "saber que vocês vão conversar na quinta facilita _terminar_ o livro de verdade"
+    ],
+    "chute": "escolha um livro curto e chame três amigos"
+   },
+   "sr": {
+    "nom": "čitalački klub",
+    "accroche": "_rok_ i _ljudi_ koji te čekaju",
+    "colonne": [
+     "kad znaš da ćete u četvrtak pričati o njoj, lakše je zaista _završiti_ knjigu"
+    ],
+    "chute": "izaberi kratku knjigu i pozovi tri prijatelja"
    }
   },
   {
@@ -54,6 +180,87 @@
      "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
     ],
     "chute": "same day, same place, every week"
+   },
+   "bg": {
+    "nom": "бягане с приятели",
+    "accroche": "идваш, защото _те_ _чакат_",
+    "colonne": [
+     "седмично бягане с приятели дава структура на седмицата, а общата цел държи всички _в играта_",
+     "_съвет_: ползвам atala, ai треньор по бягане, който планира седмицата ми около целта ми"
+    ],
+    "chute": "същия ден, същото място, всяка седмица"
+   },
+   "de": {
+    "nom": "laufen mit freunden",
+    "accroche": "du kommst, weil _sie_ _warten_",
+    "colonne": [
+     "ein wöchentlicher lauf mit freunden gibt deiner woche struktur, und ein gemeinsames ziel hält alle _dran_",
+     "_pro tipp_: ich nutze atala, einen ki-laufcoach, der meine woche um mein ziel herum plant"
+    ],
+    "chute": "gleicher tag, gleicher ort, jede woche"
+   },
+   "el": {
+    "nom": "τρέξιμο με φίλους",
+    "accroche": "πας γιατί _σε περιμένουν_",
+    "colonne": [
+     "ένα εβδομαδιαίο τρέξιμο με φίλους δίνει δομή στην εβδομάδα σου, και ένας κοινός στόχος κρατάει όλους σε _κίνηση_",
+     "_μικρό tip_: χρησιμοποιώ το atala, έναν ai προπονητή τρεξίματος που οργανώνει την εβδομάδα μου γύρω από τον στόχο μου"
+    ],
+    "chute": "ίδια μέρα, ίδιο μέρος, κάθε εβδομάδα"
+   },
+   "es-419": {
+    "nom": "correr con amigos",
+    "accroche": "vas porque _te están_ _esperando_",
+    "colonne": [
+     "una carrera semanal con amigos le da estructura a tu semana, y una meta compartida mantiene a todos en _marcha_",
+     "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
+    ],
+    "chute": "mismo día, mismo lugar, cada semana"
+   },
+   "fr": {
+    "nom": "courir entre amis",
+    "accroche": "tu y vas parce qu'_ils_ _t'attendent_",
+    "colonne": [
+     "une sortie par semaine entre amis structure ta semaine, et un objectif commun fait _avancer_ tout le monde",
+     "_petite astuce_: j'utilise atala, un coach de course par ia qui planifie ma semaine selon mon objectif"
+    ],
+    "chute": "même jour, même endroit, chaque semaine"
+   },
+   "hu": {
+    "nom": "futás barátokkal",
+    "accroche": "elmész, mert _ők várnak_ _rád_",
+    "colonne": [
+     "egy heti közös futás keretet ad a hetednek, a közös cél pedig mindenkit _visz előre_",
+     "_pro tip_: az atala appot használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+    ],
+    "chute": "ugyanaz a nap, ugyanaz a hely, minden héten"
+   },
+   "it": {
+    "nom": "correre con gli amici",
+    "accroche": "ci vai perché _ti stanno_ _aspettando_",
+    "colonne": [
+     "una corsa a settimana con gli amici dà struttura alla settimana, e un obiettivo comune fa _andare avanti_ tutti",
+     "_piccolo consiglio_: uso atala, un coach di corsa con l'ia che organizza la mia settimana intorno al mio obiettivo"
+    ],
+    "chute": "stesso giorno, stesso posto, ogni settimana"
+   },
+   "pt-BR": {
+    "nom": "correr com amigos",
+    "accroche": "você vai porque _eles estão_ _esperando_",
+    "colonne": [
+     "uma corrida semanal com amigos dá estrutura à semana, e uma meta em comum mantém todo mundo _firme_",
+     "_dica_: eu uso o atala, um coach de corrida com ia que planeja minha semana em torno do meu objetivo"
+    ],
+    "chute": "mesmo dia, mesmo lugar, toda semana"
+   },
+   "sr": {
+    "nom": "trčanje sa prijateljima",
+    "accroche": "dođeš jer _oni_ _čekaju_",
+    "colonne": [
+     "nedeljno trčanje sa prijateljima daje nedelji strukturu, a zajednički cilj drži sve _u pokretu_",
+     "_pro tip_: koristim aplikaciju atala, ai trenera za trčanje koji mi planira nedelju prema cilju"
+    ],
+    "chute": "isti dan, isto mesto, svake nedelje"
    }
   },
   {
@@ -69,6 +276,78 @@
      "fast passes and a team around you keep your attention on the game for the whole hour"
     ],
     "chute": "most parks have a casual game on sundays"
+   },
+   "bg": {
+    "nom": "футбол в парка",
+    "accroche": "топката е _навсякъде_, значи и _ти_",
+    "colonne": [
+     "бързите подавания и отборът около теб държат вниманието ти в играта цял час"
+    ],
+    "chute": "в много паркове се играе в неделя"
+   },
+   "de": {
+    "nom": "kicken im park",
+    "accroche": "der ball ist _überall_, also _du auch_",
+    "colonne": [
+     "schnelle pässe und ein team um dich herum halten deine aufmerksamkeit die ganze stunde im spiel"
+    ],
+    "chute": "in vielen parks wird sonntags gekickt"
+   },
+   "el": {
+    "nom": "ποδόσφαιρο στο πάρκο",
+    "accroche": "η μπάλα είναι _παντού_, οπότε _κι εσύ_",
+    "colonne": [
+     "γρήγορες πάσες και μια ομάδα γύρω σου κρατάνε την προσοχή στο παιχνίδι για όλη την ώρα"
+    ],
+    "chute": "τα περισσότερα πάρκα έχουν χαλαρό παιχνίδι την κυριακή"
+   },
+   "es-419": {
+    "nom": "fútbol en el parque",
+    "accroche": "la pelota está _en todas partes_, y _tú también_",
+    "colonne": [
+     "pases rápidos y un equipo alrededor mantienen tu atención en el partido toda la hora"
+    ],
+    "chute": "casi todos los parques tienen partido los domingos"
+   },
+   "fr": {
+    "nom": "le foot au parc",
+    "accroche": "le ballon est _partout_, donc _toi aussi_",
+    "colonne": [
+     "des passes rapides et une équipe autour gardent ton attention sur le match toute l'heure"
+    ],
+    "chute": "la plupart des parcs ont un match le dimanche"
+   },
+   "hu": {
+    "nom": "utcai foci",
+    "accroche": "a labda _mindenhol_ ott van, és _te is_",
+    "colonne": [
+     "a gyors passzok és a csapat körülötted egész órán át a játéknál tartják a figyelmed"
+    ],
+    "chute": "a legtöbb parkban vasárnap van laza meccs"
+   },
+   "it": {
+    "nom": "calcetto al parco",
+    "accroche": "la palla è _ovunque_, quindi _anche tu_",
+    "colonne": [
+     "passaggi veloci e una squadra intorno tengono la tua attenzione sulla partita per tutta l'ora"
+    ],
+    "chute": "molti parchi hanno una partita la domenica"
+   },
+   "pt-BR": {
+    "nom": "futebol de várzea",
+    "accroche": "a bola está _em todo lugar_, então _você também_",
+    "colonne": [
+     "passes rápidos e um time em volta mantêm sua atenção no jogo a hora inteira"
+    ],
+    "chute": "muitos parques têm pelada aos domingos"
+   },
+   "sr": {
+    "nom": "fudbal u parku",
+    "accroche": "lopta je _svuda_, pa si _i ti_",
+    "colonne": [
+     "brzi pasovi i tim oko tebe drže tvoju pažnju na igri ceo sat"
+    ],
+    "chute": "u većini parkova nedeljom ima opuštena utakmica"
    }
   },
   {
@@ -85,6 +364,87 @@
      "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
     ],
     "chute": "each pick one piece to show the other"
+   },
+   "bg": {
+    "nom": "музей с приятел",
+    "accroche": "двама души виждат _две различни_ картини",
+    "colonne": [
+     "сравняването на това, което всеки е забелязал, превръща тихото посещение в разговор",
+     "_съвет_: ползвам artura, по едно произведение на ден с историята му и зуум върху детайлите, които иначе пропускаш"
+    ],
+    "chute": "всеки избира една творба да покаже на другия"
+   },
+   "de": {
+    "nom": "ins museum mit einem freund",
+    "accroche": "zwei leute sehen _zwei verschiedene_ gemälde",
+    "colonne": [
+     "zu vergleichen, was jeder bemerkt hat, macht aus einem ruhigen besuch ein gespräch",
+     "_pro tipp_: ich nutze artura, jeden tag ein kunstwerk mit seiner geschichte, mit zoom auf details, die man sonst übersieht"
+    ],
+    "chute": "jeder sucht ein werk aus, um es dem anderen zu zeigen"
+   },
+   "el": {
+    "nom": "μουσείο με έναν φίλο",
+    "accroche": "δύο άνθρωποι βλέπουν _δύο διαφορετικούς_ πίνακες",
+    "colonne": [
+     "η σύγκριση του τι πρόσεξε ο καθένας κάνει μια ήσυχη επίσκεψη κουβέντα",
+     "_μικρό tip_: χρησιμοποιώ το artura, ένα έργο τέχνης τη μέρα με την ιστορία του, με ζουμ στις λεπτομέρειες που θα έχανες"
+    ],
+    "chute": "ο καθένας διαλέγει ένα έργο να δείξει στον άλλον"
+   },
+   "es-419": {
+    "nom": "un museo con un amigo",
+    "accroche": "dos personas ven _dos pinturas_ _distintas_",
+    "colonne": [
+     "comparar lo que cada uno notó convierte una visita tranquila en una conversación",
+     "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
+    ],
+    "chute": "cada uno elige una obra para mostrarle al otro"
+   },
+   "fr": {
+    "nom": "un musée à deux",
+    "accroche": "deux personnes voient _deux tableaux_ _différents_",
+    "colonne": [
+     "comparer ce que chacun a remarqué transforme une visite calme en vraie conversation",
+     "_petite astuce_: j'utilise artura, une œuvre par jour avec son histoire, en zoomant sur les détails qu'on raterait"
+    ],
+    "chute": "chacun choisit une œuvre à montrer à l'autre"
+   },
+   "hu": {
+    "nom": "múzeum egy baráttal",
+    "accroche": "két ember _két különböző_ festményt lát",
+    "colonne": [
+     "ha összevetitek, mit vettetek észre, a csendes látogatásból beszélgetés lesz",
+     "_pro tip_: az artura appot használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+    ],
+    "chute": "mindketten válasszatok egy művet a másiknak"
+   },
+   "it": {
+    "nom": "un museo con un amico",
+    "accroche": "due persone vedono _due dipinti_ _diversi_",
+    "colonne": [
+     "confrontare cosa ha notato ciascuno trasforma una visita tranquilla in una conversazione",
+     "_piccolo consiglio_: uso artura, un'opera al giorno con la sua storia, zoomando sui dettagli che ti sfuggirebbero"
+    ],
+    "chute": "ognuno sceglie un'opera da mostrare all'altro"
+   },
+   "pt-BR": {
+    "nom": "um museu com um amigo",
+    "accroche": "duas pessoas veem _duas pinturas_ _diferentes_",
+    "colonne": [
+     "comparar o que cada um notou transforma uma visita tranquila numa conversa",
+     "_dica_: eu uso o artura, uma obra por dia com a sua história, com zoom nos detalhes que você perderia"
+    ],
+    "chute": "cada um escolhe uma obra para mostrar ao outro"
+   },
+   "sr": {
+    "nom": "muzej sa prijateljem",
+    "accroche": "dvoje ljudi vidi _dve različite_ slike",
+    "colonne": [
+     "poređenje onoga što je svako primetio pretvara tihu posetu u razgovor",
+     "_pro tip_: koristim aplikaciju artura, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+    ],
+    "chute": "neka svako izabere jedno delo da pokaže drugom"
    }
   },
   {
@@ -100,6 +460,78 @@
      "it's social, hands-on and done in one evening, and you leave with new recipes and new friends"
     ],
     "chute": "start with four people and one theme"
+   },
+   "bg": {
+    "nom": "вечеря с приятели",
+    "accroche": "всеки готви _едно ястие_, всички _ядат_",
+    "colonne": [
+     "социално е, с ръцете и за една вечер, а си тръгваш с нови рецепти и нови приятели"
+    ],
+    "chute": "започни с четирима души и една тема"
+   },
+   "de": {
+    "nom": "ein supper club",
+    "accroche": "jeder kocht _ein gericht_, alle _essen_",
+    "colonne": [
+     "es ist gesellig, praktisch und an einem abend fertig, und du gehst mit neuen rezepten und neuen freunden"
+    ],
+    "chute": "fang mit vier leuten und einem thema an"
+   },
+   "el": {
+    "nom": "δείπνο με φίλους",
+    "accroche": "ο καθένας φτιάχνει _ένα πιάτο_, όλοι _τρώνε_",
+    "colonne": [
+     "είναι κοινωνικό, πρακτικό και τελειώνει σε ένα βράδυ, και φεύγεις με νέες συνταγές και νέους φίλους"
+    ],
+    "chute": "ξεκίνα με τέσσερα άτομα και ένα θέμα"
+   },
+   "es-419": {
+    "nom": "una cena entre amigos",
+    "accroche": "cada uno cocina _un plato_, todos _comen_",
+    "colonne": [
+     "es social, práctico y dura una noche, y te vas con recetas nuevas y amigos nuevos"
+    ],
+    "chute": "empieza con cuatro personas y un tema"
+   },
+   "fr": {
+    "nom": "un dîner entre amis",
+    "accroche": "chacun cuisine _un plat_, tout le monde _mange_",
+    "colonne": [
+     "c'est social, concret et ça tient en une soirée, et tu repars avec des recettes et des amis"
+    ],
+    "chute": "commence à quatre avec un thème"
+   },
+   "hu": {
+    "nom": "vacsoraklub",
+    "accroche": "mindenki főz _egy ételt_, mindenki _eszik_",
+    "colonne": [
+     "társasági, kézzel fogható és egy este alatt kész, új receptekkel és új barátokkal jössz haza"
+    ],
+    "chute": "kezdjétek négyen, egy témával"
+   },
+   "it": {
+    "nom": "una cena tra amici",
+    "accroche": "ognuno cucina _un piatto_, tutti _mangiano_",
+    "colonne": [
+     "è sociale, pratico e dura una sera, e torni a casa con nuove ricette e nuovi amici"
+    ],
+    "chute": "inizia con quattro persone e un tema"
+   },
+   "pt-BR": {
+    "nom": "um jantar coletivo",
+    "accroche": "cada um faz _um prato_, todo mundo _come_",
+    "colonne": [
+     "é social, mão na massa e acaba numa noite, e você sai com receitas e amigos novos"
+    ],
+    "chute": "comece com quatro pessoas e um tema"
+   },
+   "sr": {
+    "nom": "klub večere",
+    "accroche": "svako kuva _jedno jelo_, svi _jedu_",
+    "colonne": [
+     "društveno je, praktično i gotovo za jedno veče, a odeš sa novim receptima i prijateljima"
+    ],
+    "chute": "počnite u četvoro, sa jednom temom"
    }
   }
  ]

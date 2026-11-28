@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o513",
+ "type_bleo": "full_test",
+ "titre": "surprising facts about famous composers #classicalmusic #music #history #smartgirl #didyouknow",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Full test 2/10 (la jauge en demande 10 sur 33) : accroche jamais faite chez nous (« composers » absent des accroches du label et de nos originaux). Accroches écrites : « surprising facts about famous composers » (retenue : anecdotes + culture), « classical music for beginners » (écartée : proche des « pieces everyone should hear »), « composers you should know » (écartée : plate). Faits vérifiés : Beethoven sourd à la création de la 9e (1824), Mozart et sa première symphonie à 8 ans, Bach et ses 20 enfants, Vivaldi « le prêtre roux » qui enseignait aux orphelines de la Pietà, Tchaïkovski et sa mécène Nadejda von Meck qu'il n'a jamais vraiment rencontrée, Clara Schumann pianiste célèbre en Europe. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cda1e2c7",
+   "texte_overlay": "surprising facts about\nfamous composers",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "10ad8071",
+   "texte_overlay": "beethoven\n\nhe was deaf when his ninth\nsymphony premiered in 1824.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d753a1b7",
+   "texte_overlay": "mozart\n\nhe wrote his first symphony\nat eight.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7df294e7",
+   "texte_overlay": "bach\n\nhe had twenty children.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "20dc7598",
+   "texte_overlay": "vivaldi\n\n\"the red priest\", who taught music\nto orphan girls in venice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "48b8dce4",
+   "texte_overlay": "tchaikovsky\n\nhis patron paid him for 13 years.\nthey agreed never to meet.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "61b60d6b",
+   "texte_overlay": "clara schumann\n\none of europe's most famous pianists.\ni read about her this morning.",
+   "texte_sophia": "clara schumann\n\none of europe's most famous pianists. i read\nabout her on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "4246183e",
+   "texte_overlay": "which one did you know?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

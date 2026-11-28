@@ -1,0 +1,69 @@
+{
+  "source_id": "sg-o524",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "79439a17-26d5-4ea5-8ac7-ce557f115dd9",
+  "titre": "subjects every woman should study on her own #selfeducation #women #learning #smartgirl #knowledge",
+  "musique_titre": "salvatore",
+  "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+  "inspirations": [
+    "905ac33d-906a-4223-9d93-29df2e258b6f"
+  ],
+  "notes": "cta B. Déclinaison G2 de la ligne 4 de la boîte (parent 79439a17, langue source en) : accroche reformulée (« subjects every woman should study on her own ») ; sujets du parent (droit de base, premiers secours, histoire de l'art, philosophie, sommeil, histoire, statistiques, une deuxième langue, culture générale). Sophia en dernier comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "3ebda58d",
+      "texte_overlay": "subjects every woman should\nstudy on her own",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b8005f50",
+      "texte_overlay": "basic law\n\nknow your rights before\nyou need them.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "175984dc",
+      "texte_overlay": "first aid",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "090c2584",
+      "texte_overlay": "art history\n\nevery museum becomes\na conversation.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "f122c127",
+      "texte_overlay": "philosophy\n\nit teaches you to think clearly.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "31f11bae",
+      "texte_overlay": "sleep science",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "c9504d2d",
+      "texte_overlay": "statistics\n\nno headline can fool you.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "83e7b475",
+      "texte_overlay": "general knowledge\n\nfive minutes a day.",
+      "texte_sophia": "general knowledge\n\nfive minutes a day on an app like Sophia.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+    },
+    {
+      "position": 9,
+      "media_id": "ce9a2c3b",
+      "texte_overlay": "which one will you start with?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/9.jpg"
+    }
+  ]
+}

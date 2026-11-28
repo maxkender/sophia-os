@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o221",
+  "type_bleo": "full_test",
+  "titre": "how i stay focused in class right after lunch #studytok #studytips #school",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 28/11 : 5 full tests sur 13, plus 1 car la boîte n'a que 7 lignes utilisables). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Santé générale seulement. Gestes vrais : un déjeuner pas trop lourd, de l'eau, s'asseoir devant, écrire plutôt qu'écouter, quelques minutes de marche ou de lecture légère avant le cours (slide Sophia, 5), une question par cours. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "307c1cbe",
+      "texte_overlay": "how i stay focused in class\nright after lunch",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "7a156913",
+      "texte_overlay": "a lighter lunch.\nthe heavy meals can wait for the weekend.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "377aeb07",
+      "texte_overlay": "a glass of water before class.\nsimple, but it helps.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "054b7145",
+      "texte_overlay": "i sit near the front.\nharder to drift off when the board is right there.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "b089a14c",
+      "texte_overlay": "before class, 5 minutes of something light but interesting.\na short story from history, not my feed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "before class, 5 minutes of something light but interesting.\na short story from history on a micro-learning app\nlike the Sophia app, not my feed."
+    },
+    {
+      "position": 6,
+      "media_id": "4cbe38b7",
+      "texte_overlay": "i write instead of just listening.\nmy hand keeps my brain awake.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6eb14564",
+      "texte_overlay": "one question per class, out loud.\nit forces me to follow.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

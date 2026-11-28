@@ -1,0 +1,123 @@
+{
+ "id": "aw-017",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7688686398827793697",
+  "vues": 3345,
+  "accroche": "4 habitudes wellness niches qui marchent vraiment"
+ },
+ "titre": {
+  "en": "niche wellness habits that actually work"
+ },
+ "legendes": {
+  "en": "the small things nobody tells you 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « 4 habitudes wellness niches qui marchent vraiment » de @healthy_with_emma6 (3,3 k), sans le chiffre (6 habitudes ici, au gabarit de 7 slides). 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : quand ralentir ; « a running coach app like Atala » ; sans « AI »). Aucun chiffre ni étude : des habitudes, sans promesse. Photos : banque de l'OS (aucune célébrité : les photos de lecture de séries écartées) ; Atala : 276780d1 (route vers la montagne, de dos).",
+ "banque": {
+  "images/banque/nh-couv-a.jpg": "1f9ba059-682c-4c01-8b11-2b80d87b8199",
+  "images/banque/nh-couv-b.jpg": "2c972d94-6592-4611-910f-588fb88e628e",
+  "images/banque/nh-pluie.jpg": "07e65dd2-47af-420e-8c22-43e6fa6d96b0",
+  "images/banque/nh-bureau.jpg": "0023cd6f-202d-466c-8b4b-e5b49e5486d1",
+  "images/banque/nh-hamac.jpg": "170e6c9d-e4c4-4d5d-a45f-2e31baa33e11",
+  "images/banque/nh-course.jpg": "276780d1-768b-43b7-bd13-ff52735fbdff",
+  "images/banque/nh-cheveux.jpg": "282de328-6f4f-46a6-b3af-6e9fd714d658",
+  "images/banque/nh-the.jpg": "2095774b-8094-4c31-b918-5471b7bbc5c0"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/nh-couv-a.jpg",
+    "images/banque/nh-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "niche wellness habits that actually work",
+    "note": "(that actually work)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/nh-pluie.jpg",
+   "en": {
+    "titre": "walk _in the rain_",
+    "intro": "not every time. _just sometimes_",
+    "paragraphes": [
+     "umbrella, boots, music in your ears. the city feels _completely different_",
+     "the park is empty, _all yours_"
+    ],
+    "chute": "rain is _a vibe_, not a problem"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/nh-bureau.jpg",
+   "en": {
+    "titre": "reset your desk _before you leave_",
+    "intro": "tomorrow-you will _thank you_",
+    "paragraphes": [
+     "clear the cups, close the tabs, _one notebook out_",
+     "2 minutes, _every evening_"
+    ],
+    "chute": "clean desk, _clear head_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/nh-hamac.jpg",
+   "en": {
+    "titre": "read _outside_ on weekends",
+    "intro": "a book, a blanket, _a view_",
+    "paragraphes": [
+     "no screen for one hour, _just pages and sky_",
+     "balcony, park, garden, _anywhere_"
+    ],
+    "chute": "weekends are _for this_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/nh-course.jpg",
+   "en": {
+    "titre": "run _slower than you think_",
+    "intro": "the slow runs are the ones _i actually enjoy_",
+    "paragraphes": [
+     "i used to go all out every time and _hate every run_",
+     "my tip: a running coach app like Atala tells you _when to slow down_, so running feels good again"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/nh-cheveux.jpg",
+   "en": {
+    "titre": "brush your hair _slowly_",
+    "intro": "at night, _100 strokes_, like in old movies",
+    "paragraphes": [
+     "it's 3 minutes where you do _nothing else_",
+     "soft brush, _soft music_"
+    ],
+    "chute": "tiny ritual, _big calm_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/nh-the.jpg",
+   "en": {
+    "titre": "tea _when it rains_",
+    "intro": "rain outside = _a cozy sign_",
+    "paragraphes": [
+     "a candle, a hot mug, the window. _no rush to go anywhere_",
+     "make it a little ritual, _not a chore_"
+    ],
+    "chute": "let the rain _slow you down_"
+   }
+  }
+ ]
+}

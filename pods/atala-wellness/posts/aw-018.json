@@ -1,0 +1,124 @@
+{
+ "id": "aw-018",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7698680855316745505",
+  "vues": 12300,
+  "publie_le": "2026-10-20",
+  "accroche": "6 habitudes wellness qui font leurs effets au bout d'une semaine (validées par la science)"
+ },
+ "titre": {
+  "en": "6 wellness habits that make you more focused in a week"
+ },
+ "legendes": {
+  "en": "focus is a habit, not a talent 📚 #wellness #healthyhabits #thatgirl #selfcare #focus"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « N habitudes wellness en une semaine » de @healthy_with_emma6 (12,3 k ; 167,9 k pour son post le plus vu), sujet : la concentration. 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : la semaine complète ; « a running coach app like Atala » ; sans « AI »). Faits vérifiés : passer d'une tâche à l'autre coûte du temps à chaque changement (Rubinstein, Meyer et Evans, Journal of Experimental Psychology: Human Perception and Performance 2001) ; une marche dans la nature améliore l'attention par rapport à une marche en ville (Berman, Jonides et Kaplan, Psychological Science 2008). Photos : banque de l'OS ; Atala : 11df0084 (champ au coucher du soleil).",
+ "banque": {
+  "images/banque/fo-couv-a.jpg": "0584e674-a08d-4455-bed9-1659eb00e93b",
+  "images/banque/fo-couv-b.jpg": "02b9abc1-af8d-466b-bd49-6e150c7844de",
+  "images/banque/fo-tache.jpg": "05a7020e-cfcd-4824-b57b-bd31d3869ce5",
+  "images/banque/fo-marche.jpg": "32278754-ae7b-4bba-a5ca-119c8227828f",
+  "images/banque/fo-main.jpg": "043c0a64-75cd-48f2-bb30-e1c22ff4678e",
+  "images/banque/fo-course.jpg": "11df0084-f299-405b-8ae6-d3aaac7f581c",
+  "images/banque/fo-calme.jpg": "04ae1908-9514-4726-a479-c32df5e2af90",
+  "images/banque/fo-fin.jpg": "0d90650e-08f4-4c83-9a8e-0f392d46d7af"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/fo-couv-a.jpg",
+    "images/banque/fo-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "6 wellness habits that make you more focused in a week",
+    "note": "(backed by science)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/fo-tache.jpg",
+   "en": {
+    "titre": "_one task_ at a time",
+    "intro": "multitasking is _a myth_",
+    "paragraphes": [
+     "studies found that switching between tasks _costs you time_ every single time",
+     "one tab, one notebook, _one thing_"
+    ],
+    "chute": "focus is _a choice_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/fo-marche.jpg",
+   "en": {
+    "titre": "a walk _before you work_",
+    "intro": "outside first, _desk after_",
+    "paragraphes": [
+     "a study found that a walk in nature _improved attention_ more than a walk in the city",
+     "15 minutes, _no phone_, trees if you can"
+    ],
+    "chute": "clear head, _clear work_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/fo-main.jpg",
+   "en": {
+    "titre": "write things _by hand_",
+    "intro": "paper, pen, _no notifications_",
+    "paragraphes": [
+     "your thoughts get slower and _more organised_ on paper",
+     "one notebook just for _your ideas_"
+    ],
+    "chute": "pen > _keyboard_, sometimes"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/fo-course.jpg",
+   "en": {
+    "titre": "run _on busy weeks_",
+    "intro": "running is my reset _between deadlines_",
+    "paragraphes": [
+     "in busy weeks i never knew when to fit my runs, so _i skipped them all_",
+     "my tip: a running coach app like Atala plans _your whole week_, so the runs just fit in"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/fo-calme.jpg",
+   "en": {
+    "titre": "find _your quiet spot_",
+    "intro": "a library, a café corner, _a desk by a lamp_",
+    "paragraphes": [
+     "the same place every time tells your brain _it's focus time_",
+     "headphones, _a warm drink_"
+    ],
+    "chute": "your spot, _your rules_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/fo-fin.jpg",
+   "en": {
+    "titre": "_stop_ at a set time",
+    "intro": "focus needs _an ending_",
+    "paragraphes": [
+     "close the laptop, turn on a lamp, _read something for you_",
+     "work ends, _you don't_"
+    ],
+    "chute": "rest is part of _the work_"
+   }
+  }
+ ]
+}

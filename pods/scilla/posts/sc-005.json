@@ -1,0 +1,297 @@
+{
+ "id": "sc-005",
+ "source": {
+  "url": "https://www.tiktok.com/@scilla2047/photo/7704461907465440526",
+  "vues": 231600,
+  "publie_le": "2026-11-04",
+  "accroche": "(des postures de yoga, suite de « 5 yoga poses that will help you release trauma »)"
+ },
+ "titre": {
+  "en": "5 paintings that will help you love ordinary days",
+  "de": "5 Gemälde, die dich gewöhnliche Tage lieben lassen",
+  "fr": "5 tableaux qui vont t'aider à aimer les jours ordinaires",
+  "it": "5 quadri che ti aiuteranno ad amare i giorni normali",
+  "es": "5 cuadros que te ayudarán a amar los días normales",
+  "pt-BR": "5 pinturas que vão te ajudar a amar os dias comuns",
+  "nl": "5 schilderijen die je helpen van gewone dagen te houden",
+  "pl": "5 obrazów, które pomogą ci pokochać zwykłe dni"
+ },
+ "legendes": {
+  "en": "ordinary days deserve a second look\n#art #paintings #slowliving #arthistory #everydaybeauty",
+  "de": "gewöhnliche Tage verdienen einen zweiten Blick\n#kunst #gemälde #slowliving #kunstgeschichte #alltag",
+  "fr": "les jours ordinaires méritent un deuxième regard\n#art #peinture #slowliving #histoiredelart #quotidien",
+  "it": "i giorni normali meritano un secondo sguardo\n#arte #pittura #slowliving #storiadellarte #quotidiano",
+  "es": "los días normales merecen una segunda mirada\n#arte #pintura #slowliving #historiadelarte #cotidiano",
+  "pt-BR": "dias comuns merecem um segundo olhar\n#arte #pintura #slowliving #historiadaarte #cotidiano",
+  "nl": "gewone dagen verdienen een tweede blik\n#kunst #schilderijen #slowliving #kunstgeschiedenis #alledaags",
+  "pl": "zwykłe dni zasługują na drugie spojrzenie\n#sztuka #malarstwo #slowliving #historiasztuki #codzienność"
+ },
+ "musique": {
+  "titre": "Doo Wop",
+  "url": "https://www.tiktok.com/music/Doo-Wop-5000000001211054791"
+ },
+ "oeuvres": {
+  "images/oeuvres/millet-meules.jpg": {
+   "musee": "The Met",
+   "id": "437097",
+   "titre": "Haystacks: Autumn",
+   "artiste": "Jean-François Millet",
+   "date": "ca. 1874",
+   "url": "https://www.metmuseum.org/art/collection/search/437097"
+  },
+  "images/oeuvres/degas-repasseuse.jpg": {
+   "musee": "The Met",
+   "id": "436174",
+   "titre": "A Woman Ironing",
+   "artiste": "Edgar Degas",
+   "date": "1873",
+   "url": "https://www.metmuseum.org/art/collection/search/436174"
+  },
+  "images/oeuvres/morisot-tricot.jpg": {
+   "musee": "The Met",
+   "id": "437159",
+   "titre": "Young Woman Knitting",
+   "artiste": "Berthe Morisot",
+   "date": "ca. 1883",
+   "url": "https://www.metmuseum.org/art/collection/search/437159"
+  },
+  "images/oeuvres/manet-brioche.jpg": {
+   "musee": "The Met",
+   "id": "436946",
+   "titre": "The Brioche",
+   "artiste": "Edouard Manet",
+   "date": "1870",
+   "url": "https://www.metmuseum.org/art/collection/search/436946"
+  },
+  "images/oeuvres/corot-liseuse.jpg": {
+   "musee": "The Met",
+   "id": "435991",
+   "titre": "A Woman Reading",
+   "artiste": "Camille Corot",
+   "date": "1869 and 1870",
+   "url": "https://www.metmuseum.org/art/collection/search/435991"
+  },
+  "images/oeuvres/millet-bergere.jpg": {
+   "musee": "The Met",
+   "id": "437098",
+   "titre": "Shepherdess Seated on a Rock",
+   "artiste": "Jean-François Millet",
+   "date": "1856",
+   "url": "https://www.metmuseum.org/art/collection/search/437098"
+  }
+ },
+ "notes": "Preuve : son post du 4/11 (232 k vues, 24 k enregistrements soit 10 %), la suite des postures de yoga, famille « 5 … that will help you … ». Angle Artura : aimer les jours ordinaires, des scènes de la vie de tous les jours. Couverture : Millet, Haystacks: Autumn (Met 437097). Faits : A Woman Ironing (Degas, 1873, Met 436174) à contre-jour devant une fenêtre ; Young Woman Knitting (Morisot, ca. 1883, Met 437159) dans un jardin (bord du cadre rogné) ; The Brioche (Manet, 1870, Met 436946) : une rose posée au sommet de la brioche, visible sur la toile ; A Woman Reading (Corot, 1869–70, Met 435991) en plein champ ; Shepherdess Seated on a Rock (Millet, 1856, Met 437098). Slide Artura (4) : la Brioche de Manet avec le logo ; cta B.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/oeuvres/millet-meules.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "titre": "5 paintings that will help you love {ordinary days}"
+   },
+   "de": {
+    "titre": "5 Gemälde, die dich {gewöhnliche Tage} lieben lassen"
+   },
+   "fr": {
+    "titre": "5 tableaux qui vont t'aider à aimer {les jours ordinaires}"
+   },
+   "it": {
+    "titre": "5 quadri che ti aiuteranno ad amare {i giorni normali}"
+   },
+   "es": {
+    "titre": "5 cuadros que te ayudarán a amar {los días normales}"
+   },
+   "pt-BR": {
+    "titre": "5 pinturas que vão te ajudar a amar {os dias comuns}"
+   },
+   "nl": {
+    "titre": "5 schilderijen die je helpen van {gewone dagen} te houden"
+   },
+   "pl": {
+    "titre": "5 obrazów, które pomogą ci pokochać {zwykłe dni}"
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/degas-repasseuse.jpg",
+   "en": {
+    "titre": "A Woman Ironing",
+    "texte": "A shirt, an iron, a window behind her. Degas painted women at work as seriously as his dancers. Nothing special happens, and it's still worth a whole canvas."
+   },
+   "de": {
+    "titre": "Büglerin",
+    "texte": "Ein Hemd, ein Bügeleisen, ein Fenster hinter ihr. Degas malte arbeitende Frauen so ernst wie seine Tänzerinnen. Nichts Besonderes passiert, und es ist trotzdem eine ganze Leinwand wert."
+   },
+   "fr": {
+    "titre": "La Repasseuse",
+    "texte": "Une chemise, un fer, une fenêtre derrière elle. Degas a peint les femmes au travail aussi sérieusement que ses danseuses. Il ne se passe rien de spécial, et ça vaut quand même une toile entière."
+   },
+   "it": {
+    "titre": "La stiratrice",
+    "texte": "Una camicia, un ferro, una finestra alle sue spalle. Degas ha dipinto le donne al lavoro con la stessa serietà delle sue ballerine. Non succede niente di speciale, eppure vale una tela intera."
+   },
+   "es": {
+    "titre": "La planchadora",
+    "texte": "Una camisa, una plancha, una ventana detrás de ella. Degas pintó a las mujeres trabajando con la misma seriedad que a sus bailarinas. No pasa nada especial, y aun así merece un lienzo entero."
+   },
+   "pt-BR": {
+    "titre": "A passadeira",
+    "texte": "Uma camisa, um ferro, uma janela atrás dela. Degas pintou mulheres trabalhando com a mesma seriedade das suas bailarinas. Nada de especial acontece, e mesmo assim vale uma tela inteira."
+   },
+   "nl": {
+    "titre": "Vrouw aan het strijken",
+    "texte": "Een hemd, een strijkijzer, een raam achter haar. Degas schilderde werkende vrouwen even serieus als zijn danseressen. Er gebeurt niets bijzonders, en toch is het een heel doek waard."
+   },
+   "pl": {
+    "titre": "Prasowaczka",
+    "texte": "Koszula, żelazko, okno za jej plecami. Degas malował pracujące kobiety tak samo poważnie jak swoje tancerki. Nic szczególnego się nie dzieje, a jednak to warte całego płótna."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/morisot-tricot.jpg",
+   "en": {
+    "titre": "Young Woman Knitting",
+    "texte": "A garden chair, a straw hat, wool in her hands. Morisot painted the kind of afternoon you forget the next day, and decided it was worth keeping."
+   },
+   "de": {
+    "titre": "Junge Frau beim Stricken",
+    "texte": "Ein Gartenstuhl, ein Strohhut, Wolle in den Händen. Morisot malte die Art Nachmittag, die man am nächsten Tag vergisst, und fand, dass er es wert war, ihn festzuhalten."
+   },
+   "fr": {
+    "titre": "Jeune femme tricotant",
+    "texte": "Une chaise de jardin, un chapeau de paille, de la laine dans les mains. Morisot a peint le genre d'après-midi qu'on oublie le lendemain, et a décidé qu'il valait la peine d'être gardé."
+   },
+   "it": {
+    "titre": "Giovane donna che lavora a maglia",
+    "texte": "Una sedia da giardino, un cappello di paglia, la lana tra le mani. Morisot ha dipinto il tipo di pomeriggio che si dimentica il giorno dopo, e ha deciso che valeva la pena tenerlo."
+   },
+   "es": {
+    "titre": "Joven tejiendo",
+    "texte": "Una silla de jardín, un sombrero de paja, lana en las manos. Morisot pintó el tipo de tarde que olvidas al día siguiente, y decidió que valía la pena guardarla."
+   },
+   "pt-BR": {
+    "titre": "Jovem tricotando",
+    "texte": "Uma cadeira de jardim, um chapéu de palha, lã nas mãos. Morisot pintou o tipo de tarde que a gente esquece no dia seguinte, e decidiu que valia a pena guardar."
+   },
+   "nl": {
+    "titre": "Jonge vrouw die breit",
+    "texte": "Een tuinstoel, een strohoed, wol in haar handen. Morisot schilderde het soort middag dat je de volgende dag vergeet, en vond dat hij het bewaren waard was."
+   },
+   "pl": {
+    "titre": "Młoda kobieta przy robótce",
+    "texte": "Ogrodowe krzesło, słomkowy kapelusz, włóczka w dłoniach. Morisot namalowała popołudnie, o którym zapomina się następnego dnia, i uznała, że warto je zatrzymać."
+   }
+  },
+  {
+   "type": "artura",
+   "image": "images/oeuvres/manet-brioche.jpg",
+   "en": {
+    "titre": "The Brioche",
+    "texte": "Look closer: Manet put a rose on top of the bread. Artura gives me one painting a day and the story behind it. Ten quiet minutes."
+   },
+   "de": {
+    "titre": "Die Brioche",
+    "texte": "Schau genauer hin: Manet hat eine Rose oben auf das Brot gesetzt. Artura gibt mir jeden Tag ein Gemälde und die Geschichte dahinter. Zehn ruhige Minuten."
+   },
+   "fr": {
+    "titre": "La Brioche",
+    "texte": "Regarde de plus près : Manet a posé une rose sur la brioche. Artura me donne un tableau par jour et l'histoire qui va avec. Dix minutes de calme."
+   },
+   "it": {
+    "titre": "La brioche",
+    "texte": "Guarda meglio: Manet ha messo una rosa sopra il pane. Artura mi dà un quadro al giorno e la storia che c'è dietro. Dieci minuti di quiete."
+   },
+   "es": {
+    "titre": "El brioche",
+    "texte": "Mira de cerca: Manet puso una rosa encima del pan. Artura me da un cuadro al día y la historia que hay detrás. Diez minutos de calma."
+   },
+   "pt-BR": {
+    "titre": "O brioche",
+    "texte": "Olhe de perto: Manet colocou uma rosa em cima do pão. O Artura me dá uma pintura por dia e a história por trás dela. Dez minutos de calma."
+   },
+   "nl": {
+    "titre": "De brioche",
+    "texte": "Kijk beter: Manet zette een roos boven op het brood. Artura geeft me elke dag één schilderij en het verhaal erachter. Tien rustige minuten."
+   },
+   "pl": {
+    "titre": "Brioszka",
+    "texte": "Przyjrzyj się: Manet położył różę na samym czubku bułki. Artura daje mi codziennie jeden obraz i historię, która za nim stoi. Dziesięć spokojnych minut."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/corot-liseuse.jpg",
+   "en": {
+    "titre": "A Woman Reading",
+    "texte": "No palace, no drama, just a book and an open field. Corot made the quietest moment of someone's day the whole subject."
+   },
+   "de": {
+    "titre": "Lesende Frau",
+    "texte": "Kein Palast, kein Drama, nur ein Buch und ein offenes Feld. Corot machte den stillsten Moment eines Tages zum ganzen Thema."
+   },
+   "fr": {
+    "titre": "La Liseuse",
+    "texte": "Pas de palais, pas de drame, juste un livre et un champ ouvert. Corot a fait du moment le plus calme d'une journée tout le sujet du tableau."
+   },
+   "it": {
+    "titre": "Donna che legge",
+    "texte": "Nessun palazzo, nessun dramma, solo un libro e un campo aperto. Corot ha fatto del momento più tranquillo di una giornata l'intero soggetto."
+   },
+   "es": {
+    "titre": "Mujer leyendo",
+    "texte": "Ni palacios ni drama, solo un libro y un campo abierto. Corot convirtió el momento más tranquilo de un día en todo el tema."
+   },
+   "pt-BR": {
+    "titre": "Mulher lendo",
+    "texte": "Nada de palácio, nada de drama, só um livro e um campo aberto. Corot fez do momento mais calmo de um dia o tema inteiro."
+   },
+   "nl": {
+    "titre": "Lezende vrouw",
+    "texte": "Geen paleis, geen drama, alleen een boek en een open veld. Corot maakte van het stilste moment van een dag het hele onderwerp."
+   },
+   "pl": {
+    "titre": "Czytająca kobieta",
+    "texte": "Żadnego pałacu, żadnego dramatu, tylko książka i otwarte pole. Corot uczynił najcichszą chwilę dnia całym tematem obrazu."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/millet-bergere.jpg",
+   "en": {
+    "titre": "Shepherdess Seated on a Rock",
+    "texte": "She isn't waiting for anything. Millet painted the plain hours of country life, and somehow they feel like enough."
+   },
+   "de": {
+    "titre": "Hirtin auf einem Felsen",
+    "texte": "Sie wartet auf nichts. Millet malte die schlichten Stunden des Landlebens, und irgendwie fühlen sie sich nach genug an."
+   },
+   "fr": {
+    "titre": "Bergère assise sur un rocher",
+    "texte": "Elle n'attend rien. Millet a peint les heures simples de la vie à la campagne, et elles ont l'air de suffire."
+   },
+   "it": {
+    "titre": "Pastorella seduta su una roccia",
+    "texte": "Non sta aspettando niente. Millet ha dipinto le ore semplici della vita di campagna, e in qualche modo sembrano bastare."
+   },
+   "es": {
+    "titre": "Pastora sentada en una roca",
+    "texte": "No está esperando nada. Millet pintó las horas sencillas de la vida en el campo, y de algún modo parecen suficientes."
+   },
+   "pt-BR": {
+    "titre": "Pastora sentada numa rocha",
+    "texte": "Ela não está esperando nada. Millet pintou as horas simples da vida no campo, e de algum jeito elas parecem bastar."
+   },
+   "nl": {
+    "titre": "Herderin op een rots",
+    "texte": "Ze wacht nergens op. Millet schilderde de gewone uren van het boerenleven, en op de een of andere manier voelen ze als genoeg."
+   },
+   "pl": {
+    "titre": "Pasterka na skale",
+    "texte": "Na nic nie czeka. Millet malował zwyczajne godziny wiejskiego życia i jakoś wydają się wystarczać."
+   }
+  }
+ ]
+}

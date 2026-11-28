@@ -1,0 +1,796 @@
+{
+ "id": "bm-014",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@thebiomechanic/photo/7695054241534168342",
+  "vues": 397500,
+  "publie_le": "2026-10-10",
+  "accroche": "Sports Tierlist For Optimal Health (Science based)"
+ },
+ "titre": {
+  "en": "running surface tierlist for optimal health",
+  "it": "tierlist delle superfici per una salute ottimale",
+  "hu": "futófelület tierlist az optimális egészségért",
+  "sr": "tierlista podloga za optimalno zdravlje",
+  "ro": "tierlist suprafețe de alergare pentru o sănătate optimă",
+  "de": "lauf-untergrund tierlist für optimale gesundheit",
+  "tr": "koşu zemini tier listesi optimal sağlık için"
+ },
+ "legendes": {
+  "en": "where you run matters more than you think 🌲 #running #trailrunning #health #biohacking #fitness",
+  "it": "dove corri conta più di quanto pensi 🌲 #corsa #trailrunning #salute #benessere #fitness",
+  "hu": "többet számít, hol futsz, mint gondolnád 🌲 #futás #terepfutás #egészség #biohacking #fitness",
+  "sr": "važnije je gde trčiš nego što misliš 🌲 #trčanje #trailtrčanje #zdravlje #biohacking #fitnes",
+  "ro": "contează mai mult decât crezi pe ce alergi 🌲 #alergare #trailrunning #sănătate #biohacking #fitness",
+  "de": "wo du läufst, zählt mehr als du denkst 🌲 #laufen #trailrunning #gesundheit #biohacking #fitness",
+  "tr": "nerede koştuğun sandığından daha önemli 🌲 #koşu #patikakoşusu #sağlık #biohacking #fitness"
+ },
+ "musique": {
+  "titre": "Becha (Sped Up)",
+  "url": "https://www.tiktok.com/music/Becha-Sped-Up-7680166793501575185"
+ },
+ "banque": {
+  "images/banque/sf-glace.jpg": "e318e96b-9309-48c7-8429-25eb0db9b25f",
+  "images/banque/sf-sable-sec.jpg": "3845bb15-0a9f-453e-91d2-00974ff1c3c5",
+  "images/banque/sf-trottoir.jpg": "c86e5ffc-9b18-4e26-a2e3-f805f18575dd",
+  "images/banque/sf-beton.jpg": "01beac72-0316-4543-8e30-7b4a82033327",
+  "images/banque/sf-asphalte.jpg": "646900f3-5b5d-4ce3-90a3-f0cccfec600e",
+  "images/banque/sf-sable-mouille.jpg": "33742fa0-233c-41af-b423-c0a2f03c0889",
+  "images/banque/sf-piste.jpg": "0da9a6fa-1ea2-488a-ab02-f037e8d4d003",
+  "images/banque/sf-gravier.jpg": "0b7a634c-e646-469b-a747-9da6b047d217",
+  "images/banque/sf-herbe.jpg": "2000d9a6-49ae-4a21-affb-4d110119fb51",
+  "images/banque/sf-foret.jpg": "1a7d7c63-385c-411b-825c-f914dfd61bb8",
+  "images/banque/sf-mix.jpg": "0796eb0a-cad8-4ab8-8291-ded78d671cd7"
+ },
+ "notes": "Full test du 28/11 : « Surface Tierlist For Optimal Health (Science based) », famille « Sports Tierlist » (398 k), sujet course. Source gardée pour mémoire. 7 langues : en, it, hu, sr, et ro, de, tr ouvertes par le palier 1 du label (0874), préparées ce jour (jauge traduite, polices complètes). Croquis : coureurs.jpg (le nouveau croquis Seedream était raté, supprimé). Slide Atala (10) : le premier S tier « Forest Trails », une coureuse en forêt (banque) et le logo d'Atala. Texte selon placement_atala : voix NEUTRE, un seul argument : la semaine complète, quelles sorties restent faciles ; version « cta N' ». Faits : le sable mou augmente le coût énergétique de la course d'environ 1,6 fois (Lejeune et al., J Exp Biol 1998) ; les coureurs ajustent la raideur de leurs jambes à la dureté du sol (Ferris et al., Proc R Soc B 1998), et la dureté du sol n'est pas clairement liée au risque de blessure (revues) ; terrain irrégulier et sollicitation des muscles stabilisateurs du pied et de la cheville ; varier les surfaces répartit les contraintes. Rien de médical : aucune blessure nommée, seulement la prudence (verglas).",
+ "slides": [
+  {
+   "type": "couverture",
+   "icone": "images/dessins/tete.png",
+   "dessin": "images/dessins/coureurs.jpg",
+   "en": {
+    "lignes": [
+     "Surface Tierlist",
+     "For *Optimal* Health"
+    ],
+    "note": "(Science based)"
+   },
+   "it": {
+    "lignes": [
+     "Tierlist Superfici",
+     "Salute *Ottimale*"
+    ],
+    "note": "(Basata sulla scienza)"
+   },
+   "hu": {
+    "lignes": [
+     "Felület Tierlist",
+     "*Optimális* Egészség"
+    ],
+    "note": "(Tudományosan megalapozva)"
+   },
+   "sr": {
+    "lignes": [
+     "Tierlista Podloga",
+     "*Optimalno* Zdravlje"
+    ],
+    "note": "(Naučno zasnovano)"
+   },
+   "ro": {
+    "lignes": [
+     "Tierlist Suprafețe",
+     "Sănătate *Optimă*"
+    ],
+    "note": "(Bazat pe știință)"
+   },
+   "de": {
+    "lignes": [
+     "Untergrund Tierlist",
+     "*Optimal* Gesund"
+    ],
+    "note": "(Wissenschaftlich belegt)"
+   },
+   "tr": {
+    "lignes": [
+     "Zemin Tier Listesi",
+     "*Optimal* Sağlık"
+    ],
+    "note": "(Bilime dayalı)"
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sf-glace.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Icy Pavement",
+    "paragraphes": [
+     "On ice, every step is a gamble. You tense up, shorten your stride and spend the whole run trying not to fall.",
+     "Too risky to be worth it. Pick a cleared path or the treadmill."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Marciapiede Ghiacciato",
+    "paragraphes": [
+     "Sul ghiaccio ogni passo è una scommessa. Ti irrigidisci, accorci il passo e passi tutta la corsa a non cadere.",
+     "Troppo rischioso. Scegli un percorso pulito o il tapis."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Jeges Járda",
+    "paragraphes": [
+     "Jégen minden lépés szerencsejáték. Megfeszülsz, rövidebben lépsz, és az egész futás arról szól, hogy ne ess el.",
+     "Túl kockázatos. Válassz letakarított utat vagy futópadot."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Zaleđen Trotoar",
+    "paragraphes": [
+     "Na ledu je svaki korak kocka. Ukočiš se, skratiš korak i celo trčanje se trudiš da ne padneš.",
+     "Previše rizično. Izaberi očišćenu stazu ili traku."
+    ]
+   },
+   "ro": {
+    "tier": "F",
+    "nom": "Trotuar cu Gheață",
+    "paragraphes": [
+     "Pe gheață, fiecare pas e un pariu. Te încordezi, scurtezi pasul și toată alergarea încerci să nu cazi.",
+     "Prea riscant. Alege o alee curățată sau banda."
+    ]
+   },
+   "de": {
+    "tier": "F",
+    "nom": "Vereister Gehweg",
+    "paragraphes": [
+     "Auf Eis ist jeder Schritt ein Risiko. Du verkrampfst, machst kürzere Schritte und versuchst den ganzen Lauf, nicht zu fallen.",
+     "Zu riskant. Nimm einen geräumten Weg oder das Laufband."
+    ]
+   },
+   "tr": {
+    "tier": "F",
+    "nom": "Buzlu Kaldırım",
+    "paragraphes": [
+     "Buzda her adım bir kumar. Kasılırsın, adımını kısaltırsın ve tüm koşu boyunca düşmemeye çalışırsın.",
+     "Çok riskli. Temizlenmiş bir yol ya da koşu bandı seç."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sf-sable-sec.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Dry Soft Sand",
+    "paragraphes": [
+     "Running on soft sand takes far more energy than on firm ground, and your calves work much harder with every step.",
+     "Fun for a few minutes. As a whole run, it wears your legs out fast."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Sabbia Asciutta",
+    "paragraphes": [
+     "Correre sulla sabbia morbida costa molta più energia che sul terreno duro, e i polpacci lavorano molto di più.",
+     "Divertente per pochi minuti. Per un'uscita intera sfinisce le gambe."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Száraz, Puha Homok",
+    "paragraphes": [
+     "A puha homokon futás sokkal több energiát igényel, mint a kemény talajon, és a vádlid minden lépésnél sokkal jobban dolgozik.",
+     "Pár percig vicces. Egy egész futásra gyorsan kifárasztja a lábad."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Suv, Mekan Pesak",
+    "paragraphes": [
+     "Trčanje po mekom pesku troši mnogo više energije nego po tvrdom tlu, a listovi rade mnogo jače na svakom koraku.",
+     "Zabavno na par minuta. Za celo trčanje brzo iscrpi noge."
+    ]
+   },
+   "ro": {
+    "tier": "F",
+    "nom": "Nisip Uscat",
+    "paragraphes": [
+     "Alergarea pe nisip moale cere mult mai multă energie decât pe teren tare, iar gambele muncesc mult mai mult la fiecare pas.",
+     "Distractiv câteva minute. O alergare întreagă îți obosește repede picioarele."
+    ]
+   },
+   "de": {
+    "tier": "F",
+    "nom": "Trockener, Weicher Sand",
+    "paragraphes": [
+     "Laufen auf weichem Sand kostet viel mehr Energie als auf festem Boden, und deine Waden arbeiten bei jedem Schritt viel härter.",
+     "Ein paar Minuten machen Spaß. Ein ganzer Lauf ermüdet die Beine schnell."
+    ]
+   },
+   "tr": {
+    "tier": "F",
+    "nom": "Kuru, Yumuşak Kum",
+    "paragraphes": [
+     "Yumuşak kumda koşmak sert zeminden çok daha fazla enerji ister ve baldırların her adımda çok daha fazla çalışır.",
+     "Birkaç dakika eğlenceli. Bütün bir koşu bacaklarını hızla yorar."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sf-trottoir.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Busy Sidewalks",
+    "paragraphes": [
+     "Traffic lights, curbs and people in the way. You stop and start every minute and never settle into a rhythm.",
+     "Fine to get out the door. Not where your best runs happen."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Marciapiedi Affollati",
+    "paragraphes": [
+     "Semafori, gradini e gente in mezzo. Ti fermi e riparti ogni minuto e non trovi mai il ritmo.",
+     "Va bene per uscire di casa. Non è lì che fai le corse migliori."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Zsúfolt Járdák",
+    "paragraphes": [
+     "Lámpák, padkák és emberek az útban. Percenként megállsz és elindulsz, sosem találod meg a ritmust.",
+     "Arra jó, hogy kijuss az ajtón. A legjobb futásaid nem itt lesznek."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Prepuni Trotoari",
+    "paragraphes": [
+     "Semafori, ivičnjaci i ljudi na putu. Staneš i kreneš svakog minuta i nikad ne uhvatiš ritam.",
+     "Dobro da izađeš iz kuće. Tvoja najbolja trčanja nisu tu."
+    ]
+   },
+   "ro": {
+    "tier": "D",
+    "nom": "Trotuare Aglomerate",
+    "paragraphes": [
+     "Semafoare, borduri și oameni în cale. Te oprești și pornești în fiecare minut și nu prinzi niciodată ritmul.",
+     "Bun ca să ieși din casă. Nu acolo ai cele mai bune alergări."
+    ]
+   },
+   "de": {
+    "tier": "D",
+    "nom": "Volle Gehwege",
+    "paragraphes": [
+     "Ampeln, Bordsteine und Menschen im Weg. Du stoppst jede Minute und findest nie deinen Rhythmus.",
+     "Gut, um rauszukommen. Deine besten Läufe passieren nicht hier."
+    ]
+   },
+   "tr": {
+    "tier": "D",
+    "nom": "Kalabalık Kaldırımlar",
+    "paragraphes": [
+     "Işıklar, kaldırım kenarları ve yoldaki insanlar. Her dakika durup kalkarsın ve ritmi hiç yakalayamazsın.",
+     "Kapıdan çıkmak için iyi. En iyi koşuların burada olmaz."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sf-beton.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Concrete",
+    "paragraphes": [
+     "The hardest surface around. Your legs adjust their stiffness to it, but it gives back almost nothing.",
+     "Not as bad as people say, just not the best place for every run."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Cemento",
+    "paragraphes": [
+     "La superficie più dura. Le gambe adattano la loro rigidità, ma non restituisce quasi nulla.",
+     "Non è grave come si dice, solo non è il posto migliore per ogni corsa."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Beton",
+    "paragraphes": [
+     "A legkeményebb felület. A lábad igazítja hozzá a merevségét, de szinte semmit nem ad vissza.",
+     "Nem olyan rossz, mint mondják, csak nem minden futáshoz a legjobb."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Beton",
+    "paragraphes": [
+     "Najtvrđa podloga. Noge joj prilagode krutost, ali ona ne vraća gotovo ništa.",
+     "Nije tako loše kao što kažu, samo nije najbolje za svako trčanje."
+    ]
+   },
+   "ro": {
+    "tier": "D",
+    "nom": "Beton",
+    "paragraphes": [
+     "Cea mai dură suprafață. Picioarele își adaptează rigiditatea, dar nu îți dă aproape nimic înapoi.",
+     "Nu e atât de rău cum se spune, doar nu e cel mai bun loc pentru orice alergare."
+    ]
+   },
+   "de": {
+    "tier": "D",
+    "nom": "Beton",
+    "paragraphes": [
+     "Der härteste Untergrund. Deine Beine passen ihre Steifigkeit an, aber er gibt fast nichts zurück.",
+     "Nicht so schlimm wie behauptet, nur nicht ideal für jeden Lauf."
+    ]
+   },
+   "tr": {
+    "tier": "D",
+    "nom": "Beton",
+    "paragraphes": [
+     "En sert zemin. Bacakların sertliğini ona göre ayarlar ama neredeyse hiçbir şey geri vermez.",
+     "Söylendiği kadar kötü değil, sadece her koşu için en iyi yer değil."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sf-asphalte.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Asphalt Roads",
+    "paragraphes": [
+     "A little softer than concrete, smooth and everywhere. Most runners do most of their miles here.",
+     "Perfectly fine. It just never challenges your balance."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Strade d'Asfalto",
+    "paragraphes": [
+     "Un po' più morbido del cemento, liscio e ovunque. Quasi tutti i runner fanno qui la maggior parte dei chilometri.",
+     "Va benissimo. Solo non allena mai l'equilibrio."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Aszfaltutak",
+    "paragraphes": [
+     "Kicsit puhább a betonnál, sima és mindenhol ott van. A legtöbb futó itt teszi meg a kilométerei nagy részét.",
+     "Teljesen rendben van. Csak az egyensúlyt sosem edzi."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Asfaltni Putevi",
+    "paragraphes": [
+     "Malo mekši od betona, gladak i svuda. Većina trkača tu pretrči najviše kilometara.",
+     "Sasvim u redu. Samo nikad ne trenira ravnotežu."
+    ]
+   },
+   "ro": {
+    "tier": "C",
+    "nom": "Drumuri de Asfalt",
+    "paragraphes": [
+     "Puțin mai moale decât betonul, neted și peste tot. Majoritatea alergătorilor fac aici cei mai mulți kilometri.",
+     "Perfect în regulă. Doar că nu îți antrenează echilibrul."
+    ]
+   },
+   "de": {
+    "tier": "C",
+    "nom": "Asphaltstraßen",
+    "paragraphes": [
+     "Etwas weicher als Beton, glatt und überall. Die meisten Läufer laufen hier die meisten Kilometer.",
+     "Völlig in Ordnung. Nur das Gleichgewicht trainiert er nie."
+    ]
+   },
+   "tr": {
+    "tier": "C",
+    "nom": "Asfalt Yollar",
+    "paragraphes": [
+     "Betondan biraz daha yumuşak, düz ve her yerde. Çoğu koşucu kilometrelerinin çoğunu burada koşar.",
+     "Tamamen iyi. Sadece dengeni hiç çalıştırmaz."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sf-sable-mouille.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Wet Sand At Low Tide",
+    "paragraphes": [
+     "Firm, flat and by the water. Much easier than dry sand, with a view that makes the time fly.",
+     "Great when you can get there. Watch the slope near the water."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Sabbia Bagnata",
+    "paragraphes": [
+     "Compatta, piatta e vicino all'acqua. Molto più facile della sabbia asciutta, con una vista che fa volare il tempo.",
+     "Ottima quando ci arrivi. Attento alla pendenza vicino all'acqua."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Nedves Homok Apálykor",
+    "paragraphes": [
+     "Kemény, sík és a víz mellett van. Sokkal könnyebb a száraz homoknál, és a kilátás repíti az időt.",
+     "Remek, ha eljutsz oda. Figyelj a lejtőre a víz közelében."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Mokar Pesak za Oseke",
+    "paragraphes": [
+     "Čvrst, ravan i pored vode. Mnogo lakši od suvog peska, uz pogled koji ubrzava vreme.",
+     "Odličan kad stigneš do njega. Pazi na nagib blizu vode."
+    ]
+   },
+   "ro": {
+    "tier": "C",
+    "nom": "Nisip Ud la Reflux",
+    "paragraphes": [
+     "Tare, plat și lângă apă. Mult mai ușor decât nisipul uscat, cu o priveliște care face timpul să zboare.",
+     "Excelent când ajungi acolo. Atenție la panta de lângă apă."
+    ]
+   },
+   "de": {
+    "tier": "C",
+    "nom": "Nasser Sand bei Ebbe",
+    "paragraphes": [
+     "Fest, flach und am Wasser. Viel leichter als trockener Sand, mit einem Blick, der die Zeit verfliegen lässt.",
+     "Super, wenn du hinkommst. Achte auf die Schräge am Wasser."
+    ]
+   },
+   "tr": {
+    "tier": "C",
+    "nom": "Cezirde Islak Kum",
+    "paragraphes": [
+     "Sert, düz ve suyun yanında. Kuru kumdan çok daha kolay, manzarası da zamanı uçurur.",
+     "Gidebildiğinde harika. Suya yakın eğime dikkat et."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sf-piste.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "A Running Track",
+    "paragraphes": [
+     "Flat, measured and soft enough. Perfect for knowing your pace and for faster sessions.",
+     "It misses A tier because endless laps get boring fast."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "La Pista",
+    "paragraphes": [
+     "Piatta, misurata e abbastanza morbida. Perfetta per conoscere il tuo ritmo e per le sedute veloci.",
+     "Manca la A perché i giri infiniti annoiano presto."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Futópálya",
+    "paragraphes": [
+     "Sík, kimért és elég puha. Tökéletes, hogy ismerd a tempód, és a gyors edzésekhez.",
+     "Azért nem A, mert a végtelen körök hamar unalmasak."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Atletska Staza",
+    "paragraphes": [
+     "Ravna, izmerena i dovoljno mekana. Savršena da znaš svoj tempo i za brže treninge.",
+     "Nije A jer beskrajni krugovi brzo dosade."
+    ]
+   },
+   "ro": {
+    "tier": "B",
+    "nom": "Pista de Atletism",
+    "paragraphes": [
+     "Plată, măsurată și destul de moale. Perfectă ca să-ți știi ritmul și pentru antrenamentele rapide.",
+     "Nu e A pentru că turele fără sfârșit plictisesc repede."
+    ]
+   },
+   "de": {
+    "tier": "B",
+    "nom": "Die Laufbahn",
+    "paragraphes": [
+     "Flach, vermessen und weich genug. Perfekt, um dein Tempo zu kennen, und für schnelle Einheiten.",
+     "Kein A, weil endlose Runden schnell langweilig werden."
+    ]
+   },
+   "tr": {
+    "tier": "B",
+    "nom": "Atletizm Pisti",
+    "paragraphes": [
+     "Düz, ölçülü ve yeterince yumuşak. Temponu bilmek ve hızlı antrenmanlar için mükemmel.",
+     "A değil çünkü bitmeyen turlar çabuk sıkar."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sf-gravier.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Gravel Paths",
+    "paragraphes": [
+     "A bit of give under your feet and small changes in the ground that keep your ankles working.",
+     "A great everyday surface if you have one nearby."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Sentieri di Ghiaia",
+    "paragraphes": [
+     "Un po' di cedevolezza sotto i piedi e piccoli cambi di terreno che fanno lavorare le caviglie.",
+     "Un'ottima superficie di tutti i giorni, se ne hai una vicino."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Murvás Utak",
+    "paragraphes": [
+     "Kicsit enged a talp alatt, és az apró talajváltozások dolgoztatják a bokádat.",
+     "Remek mindennapi felület, ha van egy a közelben."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Šljunkovite Staze",
+    "paragraphes": [
+     "Malo popušta pod nogama, a sitne promene tla teraju članke da rade.",
+     "Odlična svakodnevna podloga ako je imaš blizu."
+    ]
+   },
+   "ro": {
+    "tier": "B",
+    "nom": "Alei cu Pietriș",
+    "paragraphes": [
+     "Cedează puțin sub picior, iar micile schimbări de teren îți fac gleznele să lucreze.",
+     "O suprafață excelentă de zi cu zi, dacă ai una aproape."
+    ]
+   },
+   "de": {
+    "tier": "B",
+    "nom": "Schotterwege",
+    "paragraphes": [
+     "Etwas Nachgeben unter den Füßen und kleine Unebenheiten, die deine Knöchel arbeiten lassen.",
+     "Ein toller Alltagsuntergrund, wenn du einen in der Nähe hast."
+    ]
+   },
+   "tr": {
+    "tier": "B",
+    "nom": "Çakıllı Yollar",
+    "paragraphes": [
+     "Ayağının altında biraz esner ve zemindeki küçük değişiklikler bileklerini çalıştırır.",
+     "Yakınında varsa harika bir günlük zemin."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sf-herbe.jpg",
+   "cadrage": {
+    "y": 0.9
+   },
+   "en": {
+    "tier": "A",
+    "nom": "Grass",
+    "paragraphes": [
+     "Soft underfoot and uneven enough to train the small muscles of your feet and ankles.",
+     "It only misses S tier because holes and wet grass can surprise you."
+    ]
+   },
+   "it": {
+    "tier": "A",
+    "nom": "Erba",
+    "paragraphes": [
+     "Morbida sotto i piedi e abbastanza irregolare da allenare i piccoli muscoli di piedi e caviglie.",
+     "Manca la S solo perché buche ed erba bagnata possono sorprenderti."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Fű",
+    "paragraphes": [
+     "Puha a láb alatt, és elég egyenetlen ahhoz, hogy edzje a láb és a boka apró izmait.",
+     "Csak azért nem S, mert a gödrök és a nedves fű meglephetnek."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Trava",
+    "paragraphes": [
+     "Mekana pod nogama i dovoljno neravna da trenira sitne mišiće stopala i članaka.",
+     "Nije S samo zato što rupe i mokra trava mogu da iznenade."
+    ]
+   },
+   "ro": {
+    "tier": "A",
+    "nom": "Iarbă",
+    "paragraphes": [
+     "Moale sub picior și destul de neregulată ca să antreneze mușchii mici ai picioarelor și gleznelor.",
+     "Nu e S doar pentru că gropile și iarba udă te pot surprinde."
+    ]
+   },
+   "de": {
+    "tier": "A",
+    "nom": "Gras",
+    "paragraphes": [
+     "Weich unter den Füßen und uneben genug, um die kleinen Muskeln in Füßen und Knöcheln zu trainieren.",
+     "Nur kein S, weil Löcher und nasses Gras dich überraschen können."
+    ]
+   },
+   "tr": {
+    "tier": "A",
+    "nom": "Çim",
+    "paragraphes": [
+     "Ayağın altında yumuşak ve ayak ile bileklerin küçük kaslarını çalıştıracak kadar engebeli.",
+     "S değil, çünkü çukurlar ve ıslak çim seni şaşırtabilir."
+    ]
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/sf-foret.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "format": "carre",
+   "en": {
+    "tier": "S",
+    "nom": "Forest Trails",
+    "paragraphes": [
+     "Soft ground, shade, roots and turns. Your whole body works and the run goes by in no time.",
+     "Trails make easy days easy. A running coach app like Atala marks which runs stay easy, so trail days fit right in."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Sentieri nel Bosco",
+    "paragraphes": [
+     "Terreno morbido, ombra, radici e curve. Lavora tutto il corpo e la corsa vola.",
+     "I sentieri rendono facili i giorni facili. Un'app con coach per la corsa come Atala segna quali corse restano facili, così i giorni nel bosco ci stanno."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Erdei Ösvények",
+    "paragraphes": [
+     "Puha talaj, árnyék, gyökerek és kanyarok. Az egész tested dolgozik, és a futás elrepül.",
+     "Az ösvények könnyűvé teszik a könnyű napokat. Egy futóedző app, mint az Atala, jelöli, mely futások maradnak könnyűek, így az erdei napok is beférnek."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Šumske Staze",
+    "paragraphes": [
+     "Meko tlo, hlad, korenje i krivine. Radi celo telo, a trčanje proleti.",
+     "Staze čine lake dane lakim. Aplikacija sa trenerom za trčanje kao što je Atala označi koja trčanja ostaju laka, pa se šumski dani lako uklope."
+    ]
+   },
+   "ro": {
+    "tier": "S",
+    "nom": "Poteci prin Pădure",
+    "paragraphes": [
+     "Teren moale, umbră, rădăcini și curbe. Tot corpul lucrează, iar alergarea trece într-o clipă.",
+     "Potecile fac zilele ușoare ușoare. O aplicație de alergare cu antrenor precum Atala marchează ce alergări rămân ușoare, așa că zilele în pădure își găsesc locul."
+    ]
+   },
+   "de": {
+    "tier": "S",
+    "nom": "Waldwege",
+    "paragraphes": [
+     "Weicher Boden, Schatten, Wurzeln und Kurven. Dein ganzer Körper arbeitet und der Lauf vergeht im Nu.",
+     "Trails machen lockere Tage leicht. Eine Lauf-App mit Coach wie Atala markiert, welche Läufe locker bleiben, so passen die Waldtage rein."
+    ]
+   },
+   "tr": {
+    "tier": "S",
+    "nom": "Orman Patikaları",
+    "paragraphes": [
+     "Yumuşak zemin, gölge, kökler ve virajlar. Bütün vücudun çalışır ve koşu bir anda biter.",
+     "Patikalar kolay günleri kolay tutar. Atala gibi koçlu bir koşu uygulaması hangi koşuların kolay kalacağını işaretler, orman günleri de rahatça sığar."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sf-mix.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Mixing Surfaces",
+    "paragraphes": [
+     "Changing surfaces from run to run spreads the load across your legs instead of repeating the exact same strain.",
+     "The best surface is not one surface. It's a bit of everything."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Alternare le Superfici",
+    "paragraphes": [
+     "Cambiare superficie da un'uscita all'altra distribuisce il carico sulle gambe invece di ripetere sempre lo stesso sforzo.",
+     "La superficie migliore non è una sola. È un po' di tutto."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Felületek Váltogatása",
+    "paragraphes": [
+     "Ha futásról futásra váltod a felületet, a terhelés eloszlik a lábadon, ahelyett hogy mindig ugyanazt ismételnéd.",
+     "A legjobb felület nem egyetlen felület. Hanem egy kicsit mindegyik."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Menjanje Podloga",
+    "paragraphes": [
+     "Menjanje podloge od trčanja do trčanja raspodeli opterećenje po nogama umesto da ponavljaš isti napor.",
+     "Najbolja podloga nije jedna podloga. Već pomalo od svake."
+    ]
+   },
+   "ro": {
+    "tier": "S",
+    "nom": "Schimbarea Suprafețelor",
+    "paragraphes": [
+     "Să schimbi suprafața de la o alergare la alta împarte efortul pe picioare, în loc să repeți mereu același efort.",
+     "Cea mai bună suprafață nu e una singură. E câte puțin din toate."
+    ]
+   },
+   "de": {
+    "tier": "S",
+    "nom": "Untergründe Wechseln",
+    "paragraphes": [
+     "Den Untergrund von Lauf zu Lauf zu wechseln verteilt die Last auf deine Beine, statt immer dieselbe Belastung zu wiederholen.",
+     "Der beste Untergrund ist nicht einer. Es ist ein bisschen von allem."
+    ]
+   },
+   "tr": {
+    "tier": "S",
+    "nom": "Zemin Değiştirmek",
+    "paragraphes": [
+     "Koşudan koşuya zemin değiştirmek, hep aynı yükü tekrarlamak yerine yükü bacaklarına dağıtır.",
+     "En iyi zemin tek bir zemin değil. Her birinden biraz."
+    ]
+   }
+  }
+ ]
+}

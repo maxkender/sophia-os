@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o398",
+ "type_bleo": "full_test",
+ "titre": "How to start a small garden as a man #men #garden #plants #hobby #patience",
+ "musique_titre": "horizons",
+ "musique_url": "https://www.tiktok.com/music/horizons-7321516309459765250",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Full test du jour (3 sur 7, jauge : 7 sur 26). Accroche jamais faite chez nous : aucun « garden » dans donnees/label.json. reference_url : post source de am-o010, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "46045665",
+   "texte_overlay": "How to start a small garden\nas a man",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f620f90e",
+   "texte_overlay": "1. Start with three easy plants",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "20079773",
+   "texte_overlay": "2. Find six hours of sun",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5aff5281",
+   "texte_overlay": "3. Water the soil, not the leaves",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "062d1813",
+   "texte_overlay": "4. Grow something you'll eat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5a534bb1",
+   "texte_overlay": "5. Learn how plants actually grow\n\nPatience becomes a skill.",
+   "texte_sophia": "5. Learn how plants actually grow\n\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  }
+ ]
+}

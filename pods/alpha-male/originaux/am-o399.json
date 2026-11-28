@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o399",
+ "type_bleo": "full_test",
+ "titre": "Hiking trip rules with the boys #men #hiking #outdoors #friends #adventure",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Full test du jour (4 sur 7, jauge : 7 sur 26). Accroche jamais faite chez nous : « hike » seulement dans un item dans donnees/label.json. reference_url : post source de am-o036 (2 à 7), vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "51a17031",
+   "texte_overlay": "Hiking trip rules with the boys",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "734376fb",
+   "texte_overlay": "1. Download the map offline",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "80789c5d",
+   "texte_overlay": "2. Break in your boots first",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "107b9cb4",
+   "texte_overlay": "3. Slowest guy sets the pace",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ef9eff42",
+   "texte_overlay": "4. Know the trees and the birds\n\nThe walk gets richer.",
+   "texte_sophia": "4. Know the trees and the birds\n\nI learned them on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2f9b482c",
+   "texte_overlay": "5. Photo at the top. Then phones away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  }
+ ]
+}

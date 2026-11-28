@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o408",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "08336323-16e2-4d21-8cc6-8157fd24fe98",
+ "titre": "How to walk into any room without nerves #confidence #socialskills #men #presence #selfimprovement",
+ "musique_titre": "sonido original",
+ "musique_url": "https://www.tiktok.com/music/sonido-original-7607213209031887638",
+ "inspirations": [
+  "08336323-16e2-4d21-8cc6-8157fd24fe98"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Déclinaison G2 de la ligne 6 de la boîte (parent 08336323 = notre am-o244 ; 3e déclinaison après am-o358 et am-o384). Promesse reformulée. Format : « N. conseil! » + lignes. Rien de médical. Items neufs, ni de am-o244 ni de am-o358 et am-o384. reference_url de am-o244 (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5b9e9b79",
+   "texte_overlay": "How to walk into any room\nwithout nerves",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688447401496972562/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "339725c8",
+   "texte_overlay": "1. Pause at the door!\n\nOne breath. Then walk in.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688447401496972562/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "91b4600b",
+   "texte_overlay": "2. Find one familiar face!\n\nStart there.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688447401496972562/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6663d260",
+   "texte_overlay": "3. Ask, don't perform!\n\n\"How do you know everyone?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688447401496972562/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a4b7469b",
+   "texte_overlay": "4. Have three things to talk about!\n\nNews, a fact, a story.",
+   "texte_sophia": "4. Have three things to talk about!\n\nI get mine on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688447401496972562/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "401cccc8",
+   "texte_overlay": "5. Remember: nobody's watching\nas much as you think!",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688447401496972562/6.jpg"
+  }
+ ]
+}

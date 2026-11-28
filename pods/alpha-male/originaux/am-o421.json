@@ -1,0 +1,75 @@
+{
+ "source_id": "am-o421",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9f99ce37-0288-404b-904c-5880f1f9fc9e",
+ "titre": "30 things you need to do alone to truly know yourself #alone #men #growth #selfdiscovery #life",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [
+  "9f99ce37-0288-404b-904c-5880f1f9fc9e"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Déclinaison G1 de la ligne 80 de la boîte (parent 9f99ce37, @millyjhino, langue source en). Accroche du parent mot pour mot. Format : « N. » + activité ; 3 à 4 par slide pour tenir en 10 slides. Items neufs, aucun du parent. reference_url du parent (1 à 5) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "83cf7442",
+   "texte_overlay": "30 things you need to do alone\nto truly know yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7605378946481425687/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4428cf84",
+   "texte_overlay": "1. Eat at a nice restaurant.\n2. See a movie.\n3. Visit a museum.\n4. Take a long walk.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7605378946481425687/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "18526083",
+   "texte_overlay": "5. Drive with no destination.\n6. Take a train to a new town.\n7. Watch a sunrise.\n8. Camp one night.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7605378946481425687/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d623beb2",
+   "texte_overlay": "9. Write a letter to your\nfuture self.\n10. List your fears.\n11. List your wins.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7605378946481425687/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7da433e0",
+   "texte_overlay": "12. Run your longest distance.\n13. Try a new sport.\n14. Swim in the sea.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7605378946481425687/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "aea60bbc",
+   "texte_overlay": "15. Learn something completely new.\n16. Read a whole book in a day.\n17. Study a period of history.",
+   "texte_sophia": "15. Learn something new\non the Sophia app.\n16. Read a whole book in a day.\n17. Study a period of history.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7605378946481425687/1.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "82ddd995",
+   "texte_overlay": "18. Cook a 3-course meal.\n19. Fix something broken.\n20. Build something with wood.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7605378946481425687/2.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "24e37dfe",
+   "texte_overlay": "21. Sit in silence for an hour.\n22. Turn your phone off a day.\n23. Go stargazing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7605378946481425687/3.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "cfb7fe74",
+   "texte_overlay": "24. Explore your city as a tourist.\n25. Talk to a stranger.\n26. Volunteer somewhere.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7605378946481425687/4.jpg"
+  },
+  {
+   "position": 10,
+   "media_id": "0a77a386",
+   "texte_overlay": "27. Forgive someone.\n28. Forgive yourself.\n29. Plan your next year.\n30. Celebrate yourself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7605378946481425687/5.jpg"
+  }
+ ]
+}

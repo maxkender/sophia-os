@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o406",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "700c3ebb-75da-4774-9661-208832b2c647",
+ "titre": "You're doing better than you think if... #men #life #growth #mindset #progress",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7548607095471049478",
+ "inspirations": [
+  "700c3ebb-75da-4774-9661-208832b2c647"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Déclinaison G2 de la ligne 4 de la boîte (parent 700c3ebb = notre am-o112 ; 3e déclinaison après am-o355 et am-o382). Promesse reformulée. Format : « N. » + une phrase. Items neufs, ni de am-o112 ni de am-o355 et am-o382. reference_url de am-o112 (1 à 7) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3236095e",
+   "texte_overlay": "You're doing better than\nyou think if...",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5a9cc080",
+   "texte_overlay": "1. Mornings feel easier\nthan last year.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "943bc157",
+   "texte_overlay": "2. You choose who you spend\ntime with.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "87ed1d1d",
+   "texte_overlay": "3. You finish what you start\nmore often.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7930bf46",
+   "texte_overlay": "4. You're curious about\nnew things again.",
+   "texte_sophia": "4. You're curious about new things\nagain. I learn daily on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7cda9c4b",
+   "texte_overlay": "5. Your home is tidy without effort.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a69fe9d3",
+   "texte_overlay": "6. You're proud of small wins.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/7.jpg"
+  }
+ ]
+}

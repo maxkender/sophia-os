@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o410",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "974634ac-228a-4067-ad82-1d50f7d9cfa9",
+ "titre": "The best comebacks you need to know #comebacks #humor #men #confidence #socialskills",
+ "musique_titre": "Elle Ta Tue Instrumental (Morena)",
+ "musique_url": "https://www.tiktok.com/music/elle-ta-tue-instrumental-morena-7430147882671508257",
+ "inspirations": [
+  "974634ac-228a-4067-ad82-1d50f7d9cfa9"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Déclinaison G1 de la ligne 12 de la boîte (parent 974634ac, langue source en). Accroche du parent mot pour mot. Format du parent : « réplique » puis la réponse. Réponses calmes et drôles, sans insulte. Items neufs, aucun du parent. reference_url du parent (1 à 7) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6cae9a65",
+   "texte_overlay": "The best comebacks you need\nto know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613184934059986198/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7276a75d",
+   "texte_overlay": "\"You're late.\"\n\nI was making an entrance.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613184934059986198/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ee8ff884",
+   "texte_overlay": "\"Who asked you?\"\n\nNobody. That's why it's free.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613184934059986198/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "830cabf2",
+   "texte_overlay": "\"You'll never make it.\"\n\nSave that. I'll frame it later.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613184934059986198/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "aa256039",
+   "texte_overlay": "\"How do you know all this?\"\n\nI learn something every day.",
+   "texte_sophia": "\"How do you know all this?\"\n\nI learn something every day\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613184934059986198/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8695065e",
+   "texte_overlay": "\"You think you're so smart.\"\n\nNo, I just read a lot.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613184934059986198/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0645cb88",
+   "texte_overlay": "Stay calm.\nWin with a smile.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613184934059986198/7.jpg"
+  }
+ ]
+}

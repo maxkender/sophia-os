@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o419",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "925c4cdf-8aba-4237-b2b1-6aba0391054f",
+ "titre": "6 strange tips about success that actually work #success #tips #men #discipline #mindset",
+ "musique_titre": "the sopranos audio",
+ "musique_url": "https://www.tiktok.com/music/the-sopranos-audio-7454354398911744814",
+ "inspirations": [
+  "925c4cdf-8aba-4237-b2b1-6aba0391054f"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Déclinaison G1 de la ligne 71 de la boîte (parent 925c4cdf, @millyjhino, langue source en). Accroche du parent mot pour mot. Format : « N. » + conseil, en minuscules. Items neufs, aucun du parent. reference_url du parent (1 à 7) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7d5001f9",
+   "texte_overlay": "6 strange tips about success\nthat actually work",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594901346633911608/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "81c376b5",
+   "texte_overlay": "1. dress for the meeting\nyou want to be invited to.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594901346633911608/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a747376b",
+   "texte_overlay": "2. write your goal on your\nphone lock screen.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594901346633911608/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8c729ae5",
+   "texte_overlay": "3. tell one person your deadline.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594901346633911608/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d3eaa49c",
+   "texte_overlay": "4. do the worst task first,\nbefore checking messages.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594901346633911608/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "93de6ed3",
+   "texte_overlay": "5. spend five minutes a day\non something new.",
+   "texte_sophia": "5. spend five minutes a day\non something new, on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594901346633911608/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "21dc71fb",
+   "texte_overlay": "6. go to bed when you're\nbored, not tired.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594901346633911608/7.jpg"
+  }
+ ]
+}

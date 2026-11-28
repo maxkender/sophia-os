@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o416",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8b817904-31ae-4c44-b5a1-bdc57a5d63c2",
+ "titre": "6 places you should stay silent at all costs #men #silence #respect #discipline #wisdom",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7470927858257513246",
+ "inspirations": [
+  "8b817904-31ae-4c44-b5a1-bdc57a5d63c2"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Déclinaison G1 de la ligne 68 de la boîte (parent 8b817904, @millyjhino, langue source en). Accroche du parent mot pour mot. Format du parent : « N. Lieu: » + une ligne. Rien de am-o266 ni am-o288. Items neufs, aucun du parent. reference_url du parent (1 à 7) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "665c4d42",
+   "texte_overlay": "6 places you should stay\nsilent at all costs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678765508933586183/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1779a213",
+   "texte_overlay": "1. In the car when the driver\nis stressed:\n\nLet them focus.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678765508933586183/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0a2b68ec",
+   "texte_overlay": "2. In a meeting when your boss\nis being praised:\n\nClap. Don't add.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678765508933586183/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "45f3d79d",
+   "texte_overlay": "3. At dinner when someone\nis telling their story:\n\nNo \"me too\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678765508933586183/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4290d65b",
+   "texte_overlay": "4. In a waiting room:\n\nEveryone is worried.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678765508933586183/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "af8d5c75",
+   "texte_overlay": "5. In a debate on something\nyou haven't studied:\n\nListen. Learn later.",
+   "texte_sophia": "5. In a debate on something\nyou haven't studied:\n\nThen learn it on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678765508933586183/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b65582b9",
+   "texte_overlay": "6. When someone finally\nopens up:\n\nJust listen.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678765508933586183/7.jpg"
+  }
+ ]
+}

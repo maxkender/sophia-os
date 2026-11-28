@@ -8,10 +8,22 @@
   "accroche": "6 habitudes wellness qui font leurs effets au bout d'une semaine (validées par la science)"
  },
  "titre": {
-  "en": "6 wellness habits that make you more focused in a week"
+  "en": "6 wellness habits that make you more focused in a week",
+  "fr": "6 habitudes wellness pour être plus concentrée en une semaine",
+  "de": "6 wellness-gewohnheiten für mehr fokus in einer woche",
+  "it": "6 abitudini wellness per più concentrazione in una settimana",
+  "hu": "6 wellness szokás, amitől egy hét alatt fókuszáltabb leszel",
+  "ro": "6 obiceiuri wellness pentru mai mult focus într-o săptămână",
+  "el": "6 wellness συνήθειες για πιο πολύ focus σε μια βδομάδα"
  },
  "legendes": {
-  "en": "focus is a habit, not a talent 📚 #wellness #healthyhabits #thatgirl #selfcare #focus"
+  "en": "focus is a habit, not a talent 📚 #wellness #healthyhabits #thatgirl #selfcare #focus",
+  "fr": "le focus, c'est une habitude, pas un don 📚 #wellness #healthyhabits #thatgirl #selfcare #focus",
+  "de": "fokus ist eine gewohnheit, kein talent 📚 #wellness #healthyhabits #thatgirl #selfcare #focus",
+  "it": "il focus è un'abitudine, non un talento 📚 #wellness #healthyhabits #thatgirl #selfcare #focus",
+  "hu": "a fókusz szokás, nem tehetség 📚 #wellness #healthyhabits #thatgirl #selfcare #focus",
+  "ro": "focusul e un obicei, nu un talent 📚 #wellness #healthyhabits #thatgirl #selfcare #focus",
+  "el": "το focus είναι συνήθεια, όχι ταλέντο 📚 #wellness #healthyhabits #thatgirl #selfcare #focus"
  },
  "musique": {
   "titre": "save a prayer",
@@ -38,6 +50,30 @@
    "en": {
     "titre": "6 wellness habits that make you more focused in a week",
     "note": "(backed by science)"
+   },
+   "fr": {
+    "titre": "6 habitudes wellness pour être plus concentrée en une semaine",
+    "note": "(selon la science)"
+   },
+   "de": {
+    "titre": "6 wellness-gewohnheiten für mehr fokus in einer woche",
+    "note": "(laut wissenschaft)"
+   },
+   "it": {
+    "titre": "6 abitudini wellness per più concentrazione in una settimana",
+    "note": "(lo dice la scienza)"
+   },
+   "hu": {
+    "titre": "6 wellness szokás, amitől egy hét alatt fókuszáltabb leszel",
+    "note": "(a tudomány szerint)"
+   },
+   "ro": {
+    "titre": "6 obiceiuri wellness pentru mai mult focus într-o săptămână",
+    "note": "(conform științei)"
+   },
+   "el": {
+    "titre": "6 wellness συνήθειες για πιο πολύ focus σε μια βδομάδα",
+    "note": "(το λέει η επιστήμη)"
    }
   },
   {
@@ -51,6 +87,60 @@
      "one tab, one notebook, _one thing_"
     ],
     "chute": "focus is _a choice_"
+   },
+   "fr": {
+    "titre": "_une tâche_ à la fois",
+    "intro": "le multitâche, _un mythe_",
+    "paragraphes": [
+     "des études montrent que passer d'une tâche à l'autre _te coûte du temps_ à chaque fois",
+     "un onglet, un carnet, _une chose_"
+    ],
+    "chute": "focus = _un choix_"
+   },
+   "de": {
+    "titre": "_eins_ nach dem anderen",
+    "intro": "multitasking? _ein mythos_",
+    "paragraphes": [
+     "studien zeigen: jeder wechsel zwischen aufgaben _kostet dich zeit_, jedes einzelne mal",
+     "ein tab, ein notizbuch, _eine sache_"
+    ],
+    "chute": "fokus ist _eine wahl_"
+   },
+   "it": {
+    "titre": "_un compito_ alla volta",
+    "intro": "il multitasking è _un mito_",
+    "paragraphes": [
+     "gli studi dicono che passare da un compito all'altro _ti costa tempo_ ogni singola volta",
+     "una scheda, un quaderno, _una cosa_"
+    ],
+    "chute": "focus = _una scelta_"
+   },
+   "hu": {
+    "titre": "_egy feladat_ egyszerre",
+    "intro": "a multitasking _mítosz_",
+    "paragraphes": [
+     "kutatások szerint minden feladatváltás _időbe kerül_, minden egyes alkalommal",
+     "egy fül, egy füzet, _egy dolog_"
+    ],
+    "chute": "a fókusz _döntés_"
+   },
+   "ro": {
+    "titre": "_o sarcină_ pe rând",
+    "intro": "multitasking-ul e _un mit_",
+    "paragraphes": [
+     "studiile arată că trecerea de la o sarcină la alta _te costă timp_ de fiecare dată",
+     "un tab, un caiet, _un singur lucru_"
+    ],
+    "chute": "focusul e _o alegere_"
+   },
+   "el": {
+    "titre": "_ένα πράγμα_ τη φορά",
+    "intro": "το multitasking; _μύθος_",
+    "paragraphes": [
+     "έρευνες δείχνουν ότι η εναλλαγή εργασιών _σου κοστίζει χρόνο_ κάθε φορά",
+     "ένα tab, ένα τετράδιο, _ένα πράγμα_"
+    ],
+    "chute": "focus = _επιλογή_"
    }
   },
   {
@@ -64,6 +154,60 @@
      "15 minutes, _no phone_, trees if you can"
     ],
     "chute": "clear head, _clear work_"
+   },
+   "fr": {
+    "titre": "marche _avant de bosser_",
+    "intro": "dehors d'abord, _bureau après_",
+    "paragraphes": [
+     "une étude a montré qu'une marche en nature _améliore l'attention_ plus qu'une marche en ville",
+     "15 minutes, _sans tél_, des arbres si tu peux"
+    ],
+    "chute": "tête claire, _boulot net_"
+   },
+   "de": {
+    "titre": "geh _vor der arbeit_ raus",
+    "intro": "erst raus, _dann schreibtisch_",
+    "paragraphes": [
+     "laut einer studie steigerte ein gang im grünen _die aufmerksamkeit_ mehr als einer in der stadt",
+     "15 minuten, _kein handy_, bäume, wenn möglich"
+    ],
+    "chute": "klarer kopf, _klare arbeit_"
+   },
+   "it": {
+    "titre": "cammina _prima di lavorare_",
+    "intro": "prima fuori, _poi scrivania_",
+    "paragraphes": [
+     "uno studio ha visto che camminare nella natura _migliora l'attenzione_ più che in città",
+     "15 minuti, _niente telefono_, alberi se puoi"
+    ],
+    "chute": "mente lucida, _lavoro top_"
+   },
+   "hu": {
+    "titre": "séta _munka előtt_",
+    "intro": "előbb kint, _utána asztal_",
+    "paragraphes": [
+     "egy kutatás szerint a séta a természetben _jobban javította a figyelmet_, mint egy városi séta",
+     "15 perc, _telefon nélkül_, fák közt, ha lehet"
+    ],
+    "chute": "tiszta fej, _tiszta munka_"
+   },
+   "ro": {
+    "titre": "ieși _înainte de muncă_",
+    "intro": "întâi afară, _apoi biroul_",
+    "paragraphes": [
+     "un studiu a arătat că o plimbare în natură _a îmbunătățit atenția_ mai mult decât una în oraș",
+     "15 minute, _fără telefon_, copaci dacă poți"
+    ],
+    "chute": "minte clară, _muncă clară_"
+   },
+   "el": {
+    "titre": "περπάτα _πριν τη δουλειά_",
+    "intro": "πρώτα έξω, _μετά γραφείο_",
+    "paragraphes": [
+     "μια έρευνα βρήκε ότι μια βόλτα στη φύση _βελτίωσε την προσοχή_ περισσότερο από μια στην πόλη",
+     "15 λεπτά, _χωρίς κινητό_, δέντρα αν γίνεται"
+    ],
+    "chute": "ήσυχο μυαλό, _καλή δουλειά_"
    }
   },
   {
@@ -77,6 +221,60 @@
      "one notebook just for _your ideas_"
     ],
     "chute": "pen > _keyboard_, sometimes"
+   },
+   "fr": {
+    "titre": "écris _à la main_",
+    "intro": "papier, stylo, _zéro notif_",
+    "paragraphes": [
+     "sur papier, tes pensées ralentissent et _s'organisent mieux_",
+     "un carnet rien que pour _tes idées_"
+    ],
+    "chute": "stylo > _clavier_, parfois"
+   },
+   "de": {
+    "titre": "schreib _mit der hand_",
+    "intro": "papier, stift, _keine pushs_",
+    "paragraphes": [
+     "auf papier werden deine gedanken langsamer und _geordneter_",
+     "ein notizbuch nur für _deine ideen_"
+    ],
+    "chute": "stift > _tastatur_, manchmal"
+   },
+   "it": {
+    "titre": "scrivi _a mano_",
+    "intro": "carta, penna, _zero notifiche_",
+    "paragraphes": [
+     "su carta i pensieri rallentano e _si organizzano meglio_",
+     "un quaderno solo per _le tue idee_"
+    ],
+    "chute": "penna > _tastiera_, a volte"
+   },
+   "hu": {
+    "titre": "írj _kézzel_",
+    "intro": "papír, toll, _nincs értesítés_",
+    "paragraphes": [
+     "papíron a gondolataid lassulnak és _rendezettebbek_",
+     "egy füzet csak _az ötleteidnek_"
+    ],
+    "chute": "toll > _billentyűzet_, néha"
+   },
+   "ro": {
+    "titre": "scrie _de mână_",
+    "intro": "hârtie, pix, _zero notificări_",
+    "paragraphes": [
+     "pe hârtie gândurile tale încetinesc și _se ordonează_",
+     "un caiet doar pentru _ideile tale_"
+    ],
+    "chute": "pix > _tastatură_, uneori"
+   },
+   "el": {
+    "titre": "γράφε _με το χέρι_",
+    "intro": "χαρτί, στυλό, _χωρίς ειδοποιήσεις_",
+    "paragraphes": [
+     "στο χαρτί οι σκέψεις σου πάνε πιο αργά και _οργανώνονται_",
+     "ένα τετράδιο μόνο για _τις ιδέες σου_"
+    ],
+    "chute": "στυλό > _πληκτρολόγιο_, ενίοτε"
    }
   },
   {
@@ -92,6 +290,72 @@
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",
     "legende": "the app:"
+   },
+   "fr": {
+    "titre": "cours _même débordée_",
+    "intro": "courir, mon reset _entre deux deadlines_",
+    "paragraphes": [
+     "en semaine chargée je savais jamais où caser mes runs, donc _je zappais tout_",
+     "mon tip : une appli de coaching running comme Atala cale _toute ta semaine_, tes runs y rentrent"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "lauf _trotz stress_",
+    "intro": "laufen ist mein reset _zwischen deadlines_",
+    "paragraphes": [
+     "in vollen wochen wusste ich nie, wann ich laufen soll, also _ließ ich alles aus_",
+     "mein tipp: eine lauf-coach-app wie Atala plant _deine ganze woche_, so passen läufe einfach rein"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "corri _sotto stress_",
+    "intro": "correre è il mio reset _tra le scadenze_",
+    "paragraphes": [
+     "nelle settimane piene non sapevo mai quando correre, così _saltavo tutto_",
+     "il mio consiglio: un'app coach per la corsa come Atala organizza _l'intera settimana_, corse incluse"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "fuss _sűrű heteken_",
+    "intro": "a futás a resetem _két határidő között_",
+    "paragraphes": [
+     "sűrű heteken sosem tudtam, mikor fussak, így _mindet kihagytam_",
+     "a tippem: egy futóedző app, mint az Atala, kirakja _az egész heted_, így a futások csak beférnek"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "aleargă _și-n stres_",
+    "intro": "alergarea e resetul meu _între deadline-uri_",
+    "paragraphes": [
+     "în săptămânile pline nu știam când să alerg, așa că _le săream pe toate_",
+     "sfatul meu: o aplicație de running coach ca Atala îți face _toată săptămâna_, alergările intră"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "τρέξε _και με άγχος_",
+    "intro": "τρέχω για reset _ανάμεσα σε deadlines_",
+    "paragraphes": [
+     "τις φορτωμένες βδομάδες δεν ήξερα πότε να τρέξω, κι _έχανα όλα τα τρεξίματα_",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala στήνει _όλη σου τη βδομάδα_, όλα χωράνε"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
@@ -105,6 +369,60 @@
      "headphones, _a warm drink_"
     ],
     "chute": "your spot, _your rules_"
+   },
+   "fr": {
+    "titre": "trouve _ton coin calme_",
+    "intro": "une biblio, un coin de café, _une lampe de bureau_",
+    "paragraphes": [
+     "le même endroit dit à ton cerveau _c'est l'heure du focus_",
+     "casque, _boisson chaude_"
+    ],
+    "chute": "ton coin, _tes règles_"
+   },
+   "de": {
+    "titre": "finde _deine ruhe-ecke_",
+    "intro": "bibliothek, café-ecke, _ein tisch mit lampe_",
+    "paragraphes": [
+     "derselbe ort jedes mal sagt deinem hirn _jetzt ist fokuszeit_",
+     "kopfhörer, _was warmes_"
+    ],
+    "chute": "deine ecke, _deine regeln_"
+   },
+   "it": {
+    "titre": "trova _un angolo calmo_",
+    "intro": "biblioteca, angolo bar, _scrivania e lampada_",
+    "paragraphes": [
+     "lo stesso posto ogni volta dice al cervello _è ora di concentrarsi_",
+     "cuffie, _una bevanda calda_"
+    ],
+    "chute": "posto tuo, _regole tue_"
+   },
+   "hu": {
+    "titre": "keress _csendes zugot_",
+    "intro": "könyvtár, kávézósarok, _asztal egy lámpával_",
+    "paragraphes": [
+     "mindig ugyanaz a hely jelzi az agyadnak, _hogy fókuszidő van_",
+     "fülhallgató, _egy meleg ital_"
+    ],
+    "chute": "a zugod, _a szabályaid_"
+   },
+   "ro": {
+    "titre": "caută _un colț liniștit_",
+    "intro": "bibliotecă, colț de cafenea, _birou cu lampă_",
+    "paragraphes": [
+     "același loc de fiecare dată îi spune creierului _e timpul de focus_",
+     "căști, _o băutură caldă_"
+    ],
+    "chute": "locul tău, _regulile tale_"
+   },
+   "el": {
+    "titre": "βρες _τη δική σου γωνιά_",
+    "intro": "βιβλιοθήκη, γωνιά σε καφέ, _γραφείο με λάμπα_",
+    "paragraphes": [
+     "το ίδιο μέρος κάθε φορά λέει στο μυαλό _ώρα για focus_",
+     "ακουστικά, _ένα ζεστό ρόφημα_"
+    ],
+    "chute": "γωνιά σου, _κανόνες σου_"
    }
   },
   {
@@ -118,6 +436,60 @@
      "work ends, _you don't_"
     ],
     "chute": "rest is part of _the work_"
+   },
+   "fr": {
+    "titre": "_arrête_ à heure fixe",
+    "intro": "le focus veut _une fin_",
+    "paragraphes": [
+     "ferme l'ordi, allume une lampe, _lis un truc pour toi_",
+     "le taf finit, _pas toi_"
+    ],
+    "chute": "le repos fait partie _du taf_"
+   },
+   "de": {
+    "titre": "_stopp_ zur festen zeit",
+    "intro": "fokus braucht _ein ende_",
+    "paragraphes": [
+     "laptop zu, lampe an, _lies was für dich_",
+     "arbeit endet, _du nicht_"
+    ],
+    "chute": "ruhe gehört _zur arbeit_"
+   },
+   "it": {
+    "titre": "_stacca_ a un'ora fissa",
+    "intro": "il focus vuole _una fine_",
+    "paragraphes": [
+     "chiudi il portatile, accendi una lampada, _leggi qualcosa per te_",
+     "lavoro finito, _tu no_"
+    ],
+    "chute": "anche il riposo _è lavoro_"
+   },
+   "hu": {
+    "titre": "_állj le_ fix időben",
+    "intro": "a fókusznak _vég kell_",
+    "paragraphes": [
+     "csukd le a laptopot, kapcsolj lámpát, _olvass valamit magadnak_",
+     "munka vége, _te maradsz_"
+    ],
+    "chute": "a pihenés is _a munka része_"
+   },
+   "ro": {
+    "titre": "_stop_ la oră fixă",
+    "intro": "focusul vrea _un final_",
+    "paragraphes": [
+     "închide laptopul, aprinde o lampă, _citește ceva pentru tine_",
+     "munca se termină, _tu nu_"
+    ],
+    "chute": "odihna face parte _din muncă_"
+   },
+   "el": {
+    "titre": "_κλείσε_ σε σταθερή ώρα",
+    "intro": "το focus θέλει _ένα τέλος_",
+    "paragraphes": [
+     "κλείσε το laptop, άναψε μια λάμπα, _διάβασε κάτι για σένα_",
+     "τέλος δουλειά, _όχι εσύ_"
+    ],
+    "chute": "η ξεκούραση _είναι δουλειά_"
    }
   }
  ]

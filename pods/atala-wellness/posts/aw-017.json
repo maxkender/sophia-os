@@ -7,10 +7,22 @@
   "accroche": "4 habitudes wellness niches qui marchent vraiment"
  },
  "titre": {
-  "en": "niche wellness habits that actually work"
+  "en": "niche wellness habits that actually work",
+  "fr": "habitudes wellness de niche qui marchent",
+  "de": "nischen-wellness-gewohnheiten, die wirken",
+  "it": "abitudini wellness di nicchia che funzionano",
+  "hu": "niche wellness szokások, amik tényleg működnek",
+  "ro": "obiceiuri wellness de nișă care merg",
+  "el": "niche wellness συνήθειες που όντως πιάνουν"
  },
  "legendes": {
-  "en": "the small things nobody tells you 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving"
+  "en": "the small things nobody tells you 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving",
+  "fr": "les petits trucs que personne te dit 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving",
+  "de": "die kleinen dinge, die dir keiner sagt 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving",
+  "it": "le piccole cose che nessuno ti dice 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving",
+  "hu": "az apróságok, amikről senki nem beszél 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving",
+  "ro": "lucrurile mici pe care nu ți le spune nimeni 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving",
+  "el": "τα μικρά που κανείς δεν σου λέει 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving"
  },
  "musique": {
   "titre": "save a prayer",
@@ -37,6 +49,30 @@
    "en": {
     "titre": "niche wellness habits that actually work",
     "note": "(that actually work)"
+   },
+   "fr": {
+    "titre": "habitudes wellness de niche qui marchent",
+    "note": "(qui marchent vraiment)"
+   },
+   "de": {
+    "titre": "nischen-wellness-gewohnheiten, die wirken",
+    "note": "(die echt wirken)"
+   },
+   "it": {
+    "titre": "abitudini wellness di nicchia che funzionano",
+    "note": "(funzionano davvero)"
+   },
+   "hu": {
+    "titre": "niche wellness szokások, amik tényleg működnek",
+    "note": "(amik tényleg működnek)"
+   },
+   "ro": {
+    "titre": "obiceiuri wellness de nișă care merg",
+    "note": "(care chiar merg)"
+   },
+   "el": {
+    "titre": "niche wellness συνήθειες που όντως πιάνουν",
+    "note": "(που όντως πιάνουν)"
    }
   },
   {
@@ -50,6 +86,60 @@
      "the park is empty, _all yours_"
     ],
     "chute": "rain is _a vibe_, not a problem"
+   },
+   "fr": {
+    "titre": "sors _sous la pluie_",
+    "intro": "pas à chaque fois. _juste parfois_",
+    "paragraphes": [
+     "parapluie, bottes, musique dans les oreilles. la ville semble _totalement autre_",
+     "le parc est vide, _rien qu'à toi_"
+    ],
+    "chute": "la pluie, _un mood_, pas un souci"
+   },
+   "de": {
+    "titre": "spazier _im regen_",
+    "intro": "nicht jedes mal. _nur manchmal_",
+    "paragraphes": [
+     "schirm, stiefel, musik im ohr. die stadt fühlt sich _ganz anders_ an",
+     "der park ist leer, _ganz für dich_"
+    ],
+    "chute": "regen ist _ein vibe_, kein problem"
+   },
+   "it": {
+    "titre": "passeggia _se piove_",
+    "intro": "non sempre. _solo ogni tanto_",
+    "paragraphes": [
+     "ombrello, stivali, musica nelle orecchie. la città sembra _tutta diversa_",
+     "il parco è vuoto, _tutto tuo_"
+    ],
+    "chute": "pioggia = _un mood_, non un guaio"
+   },
+   "hu": {
+    "titre": "sétálj _az esőben_",
+    "intro": "nem mindig. _csak néha_",
+    "paragraphes": [
+     "esernyő, csizma, zene a füledben. a város _egészen más_",
+     "a park üres, _csak a tiéd_"
+    ],
+    "chute": "az eső _egy vibe_, nem gond"
+   },
+   "ro": {
+    "titre": "ieși _în ploaie_",
+    "intro": "nu mereu. _doar uneori_",
+    "paragraphes": [
+     "umbrelă, cizme, muzică în căști. orașul pare _complet altul_",
+     "parcul e gol, _doar al tău_"
+    ],
+    "chute": "ploaia e _un vibe_, nu o problemă"
+   },
+   "el": {
+    "titre": "περπάτα _στη βροχή_",
+    "intro": "όχι κάθε φορά. _απλώς πού και πού_",
+    "paragraphes": [
+     "ομπρέλα, μπότες, μουσική στα αυτιά. η πόλη μοιάζει _τελείως άλλη_",
+     "το πάρκο άδειο, _όλο δικό σου_"
+    ],
+    "chute": "η βροχή είναι _vibe_, όχι πρόβλημα"
    }
   },
   {
@@ -63,6 +153,60 @@
      "2 minutes, _every evening_"
     ],
     "chute": "clean desk, _clear head_"
+   },
+   "fr": {
+    "titre": "range ton bureau _avant de partir_",
+    "intro": "toi demain _te dira merci_",
+    "paragraphes": [
+     "vire les tasses, ferme les onglets, _un seul carnet_",
+     "2 minutes, _chaque soir_"
+    ],
+    "chute": "bureau net, _tête claire_"
+   },
+   "de": {
+    "titre": "schreibtisch-reset _vor dem gehen_",
+    "intro": "dein morgen-ich _dankt dir_",
+    "paragraphes": [
+     "tassen weg, tabs zu, _ein notizbuch bleibt_",
+     "2 minuten, _jeden abend_"
+    ],
+    "chute": "freier tisch, _freier kopf_"
+   },
+   "it": {
+    "titre": "riordina la scrivania _prima di uscire_",
+    "intro": "il te di domani _ti ringrazierà_",
+    "paragraphes": [
+     "via le tazze, chiudi le schede, _un solo quaderno_",
+     "2 minuti, _ogni sera_"
+    ],
+    "chute": "zero caos, _mente libera_"
+   },
+   "hu": {
+    "titre": "rendezd az asztalod, _mielőtt elmész_",
+    "intro": "a holnapi éned _hálás lesz_",
+    "paragraphes": [
+     "bögrék el, fülek bezárva, _egy füzet marad_",
+     "2 perc, _minden este_"
+    ],
+    "chute": "tiszta asztal, _tiszta fej_"
+   },
+   "ro": {
+    "titre": "fă ordine pe birou _înainte să pleci_",
+    "intro": "tu cea de mâine _îți mulțumește_",
+    "paragraphes": [
+     "strânge cănile, închide taburile, _un singur caiet_",
+     "2 minute, _în fiecare seară_"
+    ],
+    "chute": "birou curat, _minte clară_"
+   },
+   "el": {
+    "titre": "τακτοποίησε το γραφείο _πριν φύγεις_",
+    "intro": "η αυριανή εσύ _θα σ' ευχαριστεί_",
+    "paragraphes": [
+     "μάζεψε τις κούπες, κλείσε τα tabs, _ένα τετράδιο έξω_",
+     "2 λεπτά, _κάθε βράδυ_"
+    ],
+    "chute": "τάξη έξω, _τάξη μέσα_"
    }
   },
   {
@@ -76,6 +220,60 @@
      "balcony, park, garden, _anywhere_"
     ],
     "chute": "weekends are _for this_"
+   },
+   "fr": {
+    "titre": "lis _dehors_ le week-end",
+    "intro": "un livre, un plaid, _une vue_",
+    "paragraphes": [
+     "pas d'écran une heure, _juste pages et ciel_",
+     "balcon, parc, jardin, _n'importe où_"
+    ],
+    "chute": "le week-end _sert à ça_"
+   },
+   "de": {
+    "titre": "lies _draußen_ am wochenende",
+    "intro": "buch, decke, _ein ausblick_",
+    "paragraphes": [
+     "eine stunde ohne screen, _nur seiten und himmel_",
+     "balkon, park, garten, _egal wo_"
+    ],
+    "chute": "dafür ist _das wochenende_"
+   },
+   "it": {
+    "titre": "leggi _fuori_ nel weekend",
+    "intro": "libro, coperta, _una vista_",
+    "paragraphes": [
+     "niente schermo per un'ora, _solo pagine e cielo_",
+     "balcone, parco, giardino, _ovunque_"
+    ],
+    "chute": "il weekend _è per questo_"
+   },
+   "hu": {
+    "titre": "olvass _kint_ hétvégén",
+    "intro": "könyv, pléd, _egy kilátás_",
+    "paragraphes": [
+     "egy óráig nincs képernyő, _csak lapok és ég_",
+     "erkély, park, kert, _bárhol_"
+    ],
+    "chute": "a hétvége _erre való_"
+   },
+   "ro": {
+    "titre": "citește _afară_ în weekend",
+    "intro": "carte, pătură, _o priveliște_",
+    "paragraphes": [
+     "fără ecran o oră, _doar pagini și cer_",
+     "balcon, parc, grădină, _oriunde_"
+    ],
+    "chute": "weekendul e _pentru asta_"
+   },
+   "el": {
+    "titre": "διάβαζε _έξω_ τα weekend",
+    "intro": "βιβλίο, κουβέρτα, _μια θέα_",
+    "paragraphes": [
+     "καμία οθόνη για μια ώρα, _μόνο σελίδες κι ουρανός_",
+     "μπαλκόνι, πάρκο, κήπος, _οπουδήποτε_"
+    ],
+    "chute": "γι' αυτό _τα weekend_"
    }
   },
   {
@@ -91,6 +289,72 @@
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",
     "legende": "the app:"
+   },
+   "fr": {
+    "titre": "cours _plus lent que tu crois_",
+    "intro": "les runs lents sont ceux _que j'aime vraiment_",
+    "paragraphes": [
+     "je donnais tout à chaque fois et _je détestais chaque run_",
+     "mon tip : une appli de coaching running comme Atala te dit _quand ralentir_, et courir refait du bien"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "lauf _langsamer als du denkst_",
+    "intro": "langsame läufe sind die, _die ich echt genieße_",
+    "paragraphes": [
+     "früher gab ich jedes mal alles und _hasste jeden lauf_",
+     "mein tipp: eine lauf-coach-app wie Atala sagt dir, _wann du bremsen sollst_, so macht laufen wieder spaß"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "corri _più piano del previsto_",
+    "intro": "le corse lente sono quelle _che mi godo davvero_",
+    "paragraphes": [
+     "prima davo tutto ogni volta e _odiavo ogni corsa_",
+     "il mio consiglio: un'app coach per la corsa come Atala ti dice _quando rallentare_, così correre torna bello"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "fuss _lassabban_, mint hinnéd",
+    "intro": "a lassú futások azok, _amiket tényleg élvezek_",
+    "paragraphes": [
+     "régen mindig mindent beleadtam, és _utáltam minden futást_",
+     "a tippem: egy futóedző app, mint az Atala, megmondja, _mikor lassíts_, így a futás újra jólesik"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "aleargă _mai încet decât crezi_",
+    "intro": "alergările lente sunt cele _care chiar îmi plac_",
+    "paragraphes": [
+     "trăgeam la maxim mereu și _uram fiecare alergare_",
+     "sfatul meu: o aplicație de running coach ca Atala îți spune _când să încetinești_, iar alergatul e iar plăcut"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "τρέξε _πολύ πιο αργά_",
+    "intro": "τα αργά τρεξίματα είναι αυτά _που όντως απολαμβάνω_",
+    "paragraphes": [
+     "παλιά τα έδινα όλα κάθε φορά και _μισούσα κάθε τρέξιμο_",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala σου λέει _πότε να επιβραδύνεις_, και το τρέξιμο ξανά σ' αρέσει"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
@@ -104,6 +368,60 @@
      "soft brush, _soft music_"
     ],
     "chute": "tiny ritual, _big calm_"
+   },
+   "fr": {
+    "titre": "cheveux brossés _lentement_",
+    "intro": "le soir, _100 coups_, comme dans les vieux films",
+    "paragraphes": [
+     "3 minutes où tu fais _rien d'autre_",
+     "brosse douce, _son doux_"
+    ],
+    "chute": "mini rituel, _calme maxi_"
+   },
+   "de": {
+    "titre": "bürste dein haar _langsam_",
+    "intro": "abends, _100 striche_, wie in alten filmen",
+    "paragraphes": [
+     "3 minuten, in denen du _nichts anderes_ tust",
+     "softe bürste, _softe musik_"
+    ],
+    "chute": "mini-ritual, _viel ruhe_"
+   },
+   "it": {
+    "titre": "spazzola i capelli _piano_",
+    "intro": "la sera, _100 colpi_, come nei vecchi film",
+    "paragraphes": [
+     "sono 3 minuti in cui _non fai altro_",
+     "spazzola e _musica soft_"
+    ],
+    "chute": "mini rito, _tanta calma_"
+   },
+   "hu": {
+    "titre": "fésüld a hajad _lassan_",
+    "intro": "este, _100 húzás_, mint a régi filmekben",
+    "paragraphes": [
+     "3 perc, amikor _mást nem csinálsz_",
+     "puha kefe, _halk zene_"
+    ],
+    "chute": "mini rituálé, _sok nyugi_"
+   },
+   "ro": {
+    "titre": "perie-ți părul _încet_",
+    "intro": "seara, _100 de periaje_, ca în filmele vechi",
+    "paragraphes": [
+     "sunt 3 minute în care _nu faci altceva_",
+     "perie moale, _muzică lină_"
+    ],
+    "chute": "ritual mic, _pace mare_"
+   },
+   "el": {
+    "titre": "βούρτσισε τα μαλλιά _αργά_",
+    "intro": "το βράδυ, _100 βουρτσιές_, σαν σε παλιές ταινίες",
+    "paragraphes": [
+     "3 λεπτά που _δεν κάνεις τίποτα άλλο_",
+     "βούρτσα, _soft μουσική_"
+    ],
+    "chute": "mini ritual, _πολύ ζεν_"
    }
   },
   {
@@ -117,6 +435,60 @@
      "make it a little ritual, _not a chore_"
     ],
     "chute": "let the rain _slow you down_"
+   },
+   "fr": {
+    "titre": "thé _quand il pleut_",
+    "intro": "pluie dehors = _signe cosy_",
+    "paragraphes": [
+     "une bougie, un mug chaud, la fenêtre. _rien ne presse_",
+     "fais-en un petit rituel, _pas une corvée_"
+    ],
+    "chute": "laisse la pluie _te ralentir_"
+   },
+   "de": {
+    "titre": "tee, _wenn es regnet_",
+    "intro": "regen draußen = _kuschelzeit_",
+    "paragraphes": [
+     "eine kerze, eine heiße tasse, das fenster. _kein grund zur eile_",
+     "mach ein ritual draus, _keine pflicht_"
+    ],
+    "chute": "lass dich vom regen _bremsen_"
+   },
+   "it": {
+    "titre": "tè _quando piove_",
+    "intro": "pioggia fuori = _segnale cozy_",
+    "paragraphes": [
+     "una candela, una tazza calda, la finestra. _nessuna fretta_",
+     "fanne un piccolo rito, _non un dovere_"
+    ],
+    "chute": "fatti _rallentare_ dalla pioggia"
+   },
+   "hu": {
+    "titre": "tea, _ha esik_",
+    "intro": "eső kint = _cozy jel_",
+    "paragraphes": [
+     "egy gyertya, egy forró bögre, az ablak. _sehová nem sietsz_",
+     "legyen kis rituálé, _ne kötelesség_"
+    ],
+    "chute": "hagyd, hogy az eső _lelassítson_"
+   },
+   "ro": {
+    "titre": "ceai _când plouă_",
+    "intro": "ploaie afară = _semn de cozy_",
+    "paragraphes": [
+     "o lumânare, o cană fierbinte, fereastra. _nicio grabă_",
+     "fă-l un mic ritual, _nu o corvoadă_"
+    ],
+    "chute": "lasă ploaia _să te încetinească_"
+   },
+   "el": {
+    "titre": "τσάι _όταν βρέχει_",
+    "intro": "βροχή έξω = _cozy σημάδι_",
+    "paragraphes": [
+     "ένα κερί, μια ζεστή κούπα, το παράθυρο. _καμία βιασύνη_",
+     "κάν' το μικρό ritual, _όχι αγγαρεία_"
+    ],
+    "chute": "άσε τη βροχή _να σε επιβραδύνει_"
    }
   }
  ]

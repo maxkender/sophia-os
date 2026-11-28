@@ -1,0 +1,268 @@
+{
+ "id": "sz-001",
+ "source": {
+  "url": "https://www.tiktok.com/@ssazem/photo/7688308123127352589",
+  "vues": 222000,
+  "publie_le": "2026-09-22",
+  "accroche": "believe in sudden positive shifts, things can change for you at anytime."
+ },
+ "titre": {
+  "en": "believe in sudden positive shifts, things can change for you at anytime.",
+  "de": "glaub an plötzliche positive wendungen, alles kann sich für dich jederzeit ändern.",
+  "it": "credi nei cambiamenti positivi improvvisi, le cose possono cambiare per te in ogni momento.",
+  "hu": "higgy a hirtelen pozitív fordulatokban, bármikor megváltozhatnak neked a dolgok.",
+  "sr": "veruj u iznenadne pozitivne promene, stvari se mogu promeniti bilo kada.",
+  "tr": "ani olumlu değişimlere inan, her şey her an senin için değişebilir.",
+  "el": "πίστεψε στις ξαφνικές θετικές αλλαγές, όλα μπορούν να αλλάξουν ανά πάσα στιγμή.",
+  "ro": "crede în schimbările pozitive neașteptate, lucrurile se pot schimba pentru tine oricând."
+ },
+ "legendes": {
+  "en": "#fyp #venting",
+  "de": "#fyp #venting",
+  "it": "#fyp #venting",
+  "hu": "#fyp #venting",
+  "sr": "#fyp #venting",
+  "tr": "#fyp #venting",
+  "el": "#fyp #venting",
+  "ro": "#fyp #venting"
+ },
+ "musique": {
+  "titre": "original sound - Matt",
+  "url": "https://www.tiktok.com/music/original-sound-7638059143613434654"
+ },
+ "compte": {
+  "images/compte/lion-herbes.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7688424378199067918",
+   "slide": 2
+  },
+  "images/compte/vache-montagne.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7690683962598984973",
+   "slide": 5
+  },
+  "images/compte/randonneur-ciel.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7690683962598984973",
+   "slide": 2
+  },
+  "images/compte/plage-soleil.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7694002416433237262",
+   "slide": 2
+  },
+  "images/compte/capuche-galets.jpg": {
+   "post": "https://www.tiktok.com/@ssazem/photo/7690683962598984973",
+   "slide": 4
+  }
+ },
+ "notes": "Remake de son tube « believe in sudden positive shifts » (222 k vues, 7 k enregistrements, 22/09 ; #fyp #venting, original sound - Matt) : ses phrases 1, 2, 4 et 5 telles quelles, dans sa mise en page (le début à gauche, la suite à droite, Times en minuscules). Ses photos de ce post sont des acteurs : on ne les reprend pas, on pose ses phrases sur d'autres de SES photos sans célébrité (le lion de « sily you thinking you're behind », 56,7 k ; la vache, le randonneur et la capuche de « follow your soul », 37,3 k ; la plage de « let's not try to figure out everything at once »), son texte effacé par `npm run compte` (copie de texture, sans IA). Slide Sophia (3) à la place de sa phrase 3 (« when you become better, everything around you gets better. ») : la même idée, à la première personne, avec le logo de Sophia sous la suite ; cta A. Traduit à la main le 27/11 (demande du chef des podz, sur ordre d'Adrien) en de, it, hu, sr (latin), tr, el, ro : mêmes photos, mêmes places, lignes recoupées pour tenir ; Sophia jamais déclinée (« auf Sophia », « su Sophia », « a Sophia alkalmazásban », « u aplikaciji Sophia », « Sophia'da », « στο Sophia », « pe Sophia »).",
+ "slides": [
+  {
+   "type": "citation",
+   "image": "images/compte/lion-herbes.jpg",
+   "encre": "noir",
+   "place": {
+    "x": 252,
+    "droite": 1235,
+    "base": 440
+   },
+   "en": {
+    "gauche": "believe in\nsudden positive\nshifts,",
+    "droite": "things can\nchange for you\nat anytime."
+   },
+   "de": {
+    "gauche": "glaub an\nplötzliche\npositive wendungen,",
+    "droite": "alles kann sich\nfür dich jederzeit\nändern."
+   },
+   "it": {
+    "gauche": "credi nei\ncambiamenti\npositivi improvvisi,",
+    "droite": "le cose possono\ncambiare per te\nin ogni momento."
+   },
+   "hu": {
+    "gauche": "higgy a hirtelen\npozitív\nfordulatokban,",
+    "droite": "bármikor\nmegváltozhatnak\nneked a dolgok."
+   },
+   "sr": {
+    "gauche": "veruj u iznenadne\npozitivne\npromene,",
+    "droite": "stvari se mogu\npromeniti\nbilo kada."
+   },
+   "tr": {
+    "gauche": "ani olumlu\ndeğişimlere\ninan,",
+    "droite": "her şey her an\nsenin için\ndeğişebilir."
+   },
+   "el": {
+    "gauche": "πίστεψε στις\nξαφνικές θετικές\nαλλαγές,",
+    "droite": "όλα μπορούν\nνα αλλάξουν\nανά πάσα στιγμή."
+   },
+   "ro": {
+    "gauche": "crede în\nschimbările pozitive\nneașteptate,",
+    "droite": "lucrurile se pot\nschimba pentru tine\noricând."
+   }
+  },
+  {
+   "type": "citation",
+   "image": "images/compte/vache-montagne.jpg",
+   "encre": "blanc",
+   "place": {
+    "x": 140,
+    "droite": 1300,
+    "base": 250
+   },
+   "en": {
+    "gauche": "the coolest thing in\nthe world",
+    "droite": "is being\nyourself."
+   },
+   "de": {
+    "gauche": "das coolste auf\nder welt",
+    "droite": "ist, du selbst\nzu sein."
+   },
+   "it": {
+    "gauche": "la cosa più bella\nal mondo",
+    "droite": "è essere\nte stesso."
+   },
+   "hu": {
+    "gauche": "a legmenőbb dolog\na világon",
+    "droite": "önmagadnak\nlenni."
+   },
+   "sr": {
+    "gauche": "najbolja stvar\nna svetu",
+    "droite": "je biti\nsvoj."
+   },
+   "tr": {
+    "gauche": "dünyadaki\nen havalı şey",
+    "droite": "kendin\nolmak."
+   },
+   "el": {
+    "gauche": "το πιο ωραίο πράγμα\nστον κόσμο",
+    "droite": "είναι να είσαι\nο εαυτός σου."
+   },
+   "ro": {
+    "gauche": "cel mai tare lucru\ndin lume",
+    "droite": "e să fii\ntu însuți."
+   }
+  },
+  {
+   "type": "sophia",
+   "image": "images/compte/randonneur-ciel.jpg",
+   "encre": "noir",
+   "place": {
+    "x": 120,
+    "droite": 660,
+    "base": 420
+   },
+   "en": {
+    "gauche": "one small lesson\na day on Sophia,",
+    "droite": "that's how i'm\nbecoming better."
+   },
+   "de": {
+    "gauche": "jeden tag eine\nkleine lektion\nauf Sophia,",
+    "droite": "so werde ich\nbesser."
+   },
+   "it": {
+    "gauche": "una lezione\nal giorno\nsu Sophia,",
+    "droite": "è così che sto\nmigliorando."
+   },
+   "hu": {
+    "gauche": "napi egy kis lecke\na Sophia\nalkalmazásban,",
+    "droite": "így leszek\negyre jobb."
+   },
+   "sr": {
+    "gauche": "jedna mala lekcija\ndnevno u aplikaciji\nSophia,",
+    "droite": "tako postajem\nbolji."
+   },
+   "tr": {
+    "gauche": "Sophia'da\ngünde bir\nküçük ders,",
+    "droite": "böyle daha iyi\nbiri oluyorum."
+   },
+   "el": {
+    "gauche": "ένα μικρό\nμάθημα τη μέρα\nστο Sophia,",
+    "droite": "έτσι γίνομαι\nκαλύτερος."
+   },
+   "ro": {
+    "gauche": "o lecție mică\npe zi pe Sophia,",
+    "droite": "așa devin\nmai bun."
+   }
+  },
+  {
+   "type": "citation",
+   "image": "images/compte/plage-soleil.jpg",
+   "encre": "blanc",
+   "place": {
+    "x": 330,
+    "droite": 920,
+    "base": 240
+   },
+   "en": {
+    "gauche": "move like\neverything is gonna\nwork out,",
+    "droite": "and it will."
+   },
+   "de": {
+    "gauche": "beweg dich, als\nwürde alles\ngut ausgehen,",
+    "droite": "und das wird es."
+   },
+   "it": {
+    "gauche": "muoviti come se\ntutto stesse\nper andare bene,",
+    "droite": "e andrà così."
+   },
+   "hu": {
+    "gauche": "élj úgy, mintha\nminden\njóra fordulna,",
+    "droite": "és jóra is fordul."
+   },
+   "sr": {
+    "gauche": "ponašaj se kao da\nće sve\nbiti u redu,",
+    "droite": "i biće."
+   },
+   "tr": {
+    "gauche": "her şey yoluna\ngirecekmiş gibi\nyaşa,",
+    "droite": "ve girecek."
+   },
+   "el": {
+    "gauche": "κινήσου σαν\nόλα να πρόκειται\nνα πάνε καλά,",
+    "droite": "και θα πάνε."
+   },
+   "ro": {
+    "gauche": "mișcă-te de parcă\ntotul o să\niasă bine,",
+    "droite": "și o să iasă."
+   }
+  },
+  {
+   "type": "citation",
+   "image": "images/compte/capuche-galets.jpg",
+   "encre": "blanc",
+   "place": {
+    "x": 750,
+    "droite": 1290,
+    "base": 630
+   },
+   "en": {
+    "gauche": "seeking validation\nfrom others",
+    "droite": "is going to\ndestroy you."
+   },
+   "de": {
+    "gauche": "bestätigung von\nanderen zu suchen",
+    "droite": "wird dich\nzerstören."
+   },
+   "it": {
+    "gauche": "cercare\nl'approvazione\ndegli altri",
+    "droite": "ti distruggerà."
+   },
+   "hu": {
+    "gauche": "mások\nmegerősítését\nkeresni",
+    "droite": "tönkre fog\ntenni."
+   },
+   "sr": {
+    "gauche": "traženje\npotvrde od drugih",
+    "droite": "uništiće te."
+   },
+   "tr": {
+    "gauche": "başkalarının\nonayını aramak",
+    "droite": "seni\nmahvedecek."
+   },
+   "el": {
+    "gauche": "το να ζητάς\nτην έγκριση\nτων άλλων",
+    "droite": "θα σε\nκαταστρέψει."
+   },
+   "ro": {
+    "gauche": "să cauți\naprobarea altora",
+    "droite": "te va distruge."
+   }
+  }
+ ]
+}

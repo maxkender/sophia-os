@@ -1,0 +1,676 @@
+{
+ "id": "da-003",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7697385698168524053",
+  "vues": 424000,
+  "publie_le": "2026-10-16",
+  "accroche": "Iceberg of ADHD hobbies (*requested update)"
+ },
+ "titre": {
+  "en": "Iceberg of ADHD hobbies (*requested update)",
+  "es-419": "Iceberg de hobbies TDAH (*actualización pedida)",
+  "tr": "DEHB hobileri buzdağı (*istek üzerine güncelleme)",
+  "hu": "ADHD-s hobbik jéghegye (*kérésre frissítve)",
+  "ro": "Icebergul hobby-urilor ADHD (*actualizare la cerere)",
+  "cs": "Ledovec ADHD koníčků (*aktualizace na přání)",
+  "sr": "Santa leda ADHD hobija (*ažurirano na zahtev)",
+  "el": "Το παγόβουνο των χόμπι ΔΕΠΥ (*ενημέρωση κατόπιν αιτήματος)"
+ },
+ "legendes": {
+  "en": "y'all asked for it \n\n#iceberg #selfimprovement #hobbies #adhdtiktok #lockedin",
+  "es-419": "ustedes lo pidieron \n\n#iceberg #superacionpersonal #hobbies #tdah #lockedin",
+  "tr": "siz istediniz \n\n#buzdağı #kişiselgelişim #hobiler #dehb #lockedin",
+  "hu": "ti kértétek \n\n#jéghegy #önfejlesztés #hobbik #adhd #lockedin",
+  "ro": "voi ați cerut \n\n#iceberg #dezvoltarepersonala #hobby #adhd #lockedin",
+  "cs": "chtěli jste to \n\n#ledovec #seberozvoj #konicky #adhd #lockedin",
+  "sr": "tražili ste \n\n#santaleda #samorazvoj #hobi #adhd #lockedin",
+  "el": "το ζητήσατε \n\n#παγόβουνο #αυτοβελτίωση #χόμπι #δεπυ #lockedin"
+ },
+ "musique": {
+  "titre": "Retake (Slowed)",
+  "url": "https://www.tiktok.com/music/Retake-Slowed-7626391140129589249"
+ },
+ "oeuvres": {
+  "images/objets/guitare.png": {
+   "musee": "The Met",
+   "id": "506864",
+   "titre": "L-4 Archtop Guitar (serial no.",
+   "artiste": "Gibson Mandolin-Guitar Manufacturing Co., Ltd.",
+   "date": "ca. 1918",
+   "url": "https://www.metmuseum.org/art/collection/search/506864"
+  },
+  "images/objets/cruche.png": {
+   "musee": "The Met",
+   "id": "244837",
+   "titre": "Jug",
+   "artiste": "",
+   "date": "ca. 550–500 BCE",
+   "url": "https://www.metmuseum.org/art/collection/search/244837"
+  },
+  "images/objets/abecedaire.png": {
+   "musee": "The Met",
+   "id": "14085",
+   "titre": "Sampler",
+   "artiste": "Ruth Rogers",
+   "date": "1739",
+   "url": "https://www.metmuseum.org/art/collection/search/14085"
+  },
+  "images/objets/panier.png": {
+   "musee": "The Met",
+   "id": "319012",
+   "titre": "Basket",
+   "artiste": "",
+   "date": "ca. 1850",
+   "url": "https://www.metmuseum.org/art/collection/search/319012"
+  },
+  "images/objets/chambre-noire.png": {
+   "musee": "The Met",
+   "id": "631211",
+   "titre": "[Camera Obscura]",
+   "artiste": "Unknown",
+   "date": "19th century",
+   "url": "https://www.metmuseum.org/art/collection/search/631211"
+  },
+  "images/objets/cornemuse.png": {
+   "musee": "The Met",
+   "id": "503854",
+   "titre": "Binioù kozh (bagpipe)",
+   "artiste": "",
+   "date": "19th century",
+   "url": "https://www.metmuseum.org/art/collection/search/503854"
+  },
+  "images/objets/flacon-parfum.png": {
+   "musee": "The Met",
+   "id": "204953",
+   "titre": "Perfume bottle",
+   "artiste": "Jasper Fysher",
+   "date": "foot 1577/78, body ca. 1585",
+   "url": "https://www.metmuseum.org/art/collection/search/204953"
+  },
+  "images/objets/de-a-coudre.png": {
+   "musee": "The Met",
+   "id": "210085",
+   "titre": "Thimble",
+   "artiste": "",
+   "date": "1577",
+   "url": "https://www.metmuseum.org/art/collection/search/210085"
+  },
+  "images/objets/bouclier.png": {
+   "musee": "The Met",
+   "id": "25415",
+   "titre": "Shield",
+   "artiste": "",
+   "date": "ca. 1560",
+   "url": "https://www.metmuseum.org/art/collection/search/25415"
+  },
+  "images/objets/barometre.png": {
+   "musee": "The Met",
+   "id": "205575",
+   "titre": "Barometer",
+   "artiste": "John Whitehurst",
+   "date": "1760",
+   "url": "https://www.metmuseum.org/art/collection/search/205575"
+  },
+  "images/objets/masque-armure.png": {
+   "musee": "The Met",
+   "id": "22739",
+   "titre": "Mask",
+   "artiste": "Myōchin Muneakira",
+   "date": "dated 1745",
+   "url": "https://www.metmuseum.org/art/collection/search/22739"
+  }
+ },
+ "notes": "Remake de sa « requested update » (424 k vues, 16/10 ; sa note « *requested update », sa légende « y'all asked for it », sa musique) : sa couverture avec la note, puis l'iceberg en 5 étages (4, 4, 2, 1, 1), « disagreed? ». Sans IA, aucun objet de da-001 ni da-002 : guitare (1918), cruche grecque, abécédaire brodé (1739), panier (vers 1850), camera obscura (XIXe), cornemuse bretonne, flacon à parfum (vers 1585), dés à coudre (1577), bouclier (vers 1560), baromètre (1760), masque d'armure japonais (1745). Loisir Artura au 3e étage (2 loisirs) : « museum facts (artura) », le logo ; cta C. En 8 langues (demande du chef des podz du 27/11).",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "ADHD hobbies",
+    "note": "*requested update"
+   },
+   "es-419": {
+    "haut": "Iceberg de",
+    "bas": "hobbies TDAH",
+    "note": "*actualización pedida"
+   },
+   "tr": {
+    "haut": "Buzdağı:",
+    "bas": "DEHB hobileri",
+    "note": "*istek üzerine güncelleme"
+   },
+   "hu": {
+    "haut": "Jéghegy:",
+    "bas": "ADHD-s hobbik",
+    "note": "*kérésre frissítve"
+   },
+   "ro": {
+    "haut": "Icebergul",
+    "bas": "hobby-urilor ADHD",
+    "note": "*actualizare la cerere"
+   },
+   "cs": {
+    "haut": "Ledovec",
+    "bas": "ADHD koníčků",
+    "note": "*aktualizace na přání"
+   },
+   "sr": {
+    "haut": "Santa leda",
+    "bas": "ADHD hobija",
+    "note": "*ažurirano na zahtev"
+   },
+   "el": {
+    "haut": "Παγόβουνο:",
+    "bas": "χόμπι ΔΕΠΥ",
+    "note": "*ενημέρωση κατόπιν αιτήματος"
+   }
+  },
+  {
+   "type": "iceberg",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "playing guitar",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "pottery",
+       "image": "images/objets/cruche.png"
+      },
+      {
+       "t": "embroidery",
+       "image": "images/objets/abecedaire.png"
+      },
+      {
+       "t": "basket weaving",
+       "image": "images/objets/panier.png"
+      }
+     ],
+     [
+      {
+       "t": "camera obscura",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "bagpipes",
+       "image": "images/objets/cornemuse.png"
+      },
+      {
+       "t": "perfume making",
+       "image": "images/objets/flacon-parfum.png"
+      },
+      {
+       "t": "sewing",
+       "image": "images/objets/de-a-coudre.png"
+      }
+     ],
+     [
+      {
+       "t": "museum facts (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "heraldry",
+       "image": "images/objets/bouclier.png"
+      }
+     ],
+     [
+      {
+       "t": "weather tracking",
+       "image": "images/objets/barometre.png"
+      }
+     ],
+     [
+      {
+       "t": "samurai history",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "es-419": {
+    "etages": [
+     [
+      {
+       "t": "tocar guitarra",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "cerámica",
+       "image": "images/objets/cruche.png"
+      },
+      {
+       "t": "bordado",
+       "image": "images/objets/abecedaire.png"
+      },
+      {
+       "t": "cestería",
+       "image": "images/objets/panier.png"
+      }
+     ],
+     [
+      {
+       "t": "cámara oscura",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "gaita",
+       "image": "images/objets/cornemuse.png"
+      },
+      {
+       "t": "hacer perfumes",
+       "image": "images/objets/flacon-parfum.png"
+      },
+      {
+       "t": "costura",
+       "image": "images/objets/de-a-coudre.png"
+      }
+     ],
+     [
+      {
+       "t": "datos de museo (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "heráldica",
+       "image": "images/objets/bouclier.png"
+      }
+     ],
+     [
+      {
+       "t": "meteorología",
+       "image": "images/objets/barometre.png"
+      }
+     ],
+     [
+      {
+       "t": "historia samurái",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "¿en desacuerdo?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "gitar çalmak",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "çömlekçilik",
+       "image": "images/objets/cruche.png"
+      },
+      {
+       "t": "nakış",
+       "image": "images/objets/abecedaire.png"
+      },
+      {
+       "t": "sepet örme",
+       "image": "images/objets/panier.png"
+      }
+     ],
+     [
+      {
+       "t": "karanlık oda",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "gayda",
+       "image": "images/objets/cornemuse.png"
+      },
+      {
+       "t": "parfüm yapmak",
+       "image": "images/objets/flacon-parfum.png"
+      },
+      {
+       "t": "dikiş",
+       "image": "images/objets/de-a-coudre.png"
+      }
+     ],
+     [
+      {
+       "t": "müze bilgileri (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "armacılık",
+       "image": "images/objets/bouclier.png"
+      }
+     ],
+     [
+      {
+       "t": "meteoroloji",
+       "image": "images/objets/barometre.png"
+      }
+     ],
+     [
+      {
+       "t": "samuray tarihi",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "hu": {
+    "etages": [
+     [
+      {
+       "t": "gitározás",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "fazekasság",
+       "image": "images/objets/cruche.png"
+      },
+      {
+       "t": "hímzés",
+       "image": "images/objets/abecedaire.png"
+      },
+      {
+       "t": "kosárfonás",
+       "image": "images/objets/panier.png"
+      }
+     ],
+     [
+      {
+       "t": "camera obscura",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "duda",
+       "image": "images/objets/cornemuse.png"
+      },
+      {
+       "t": "parfümök",
+       "image": "images/objets/flacon-parfum.png"
+      },
+      {
+       "t": "varrás",
+       "image": "images/objets/de-a-coudre.png"
+      }
+     ],
+     [
+      {
+       "t": "múzeumi tények (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "heraldika",
+       "image": "images/objets/bouclier.png"
+      }
+     ],
+     [
+      {
+       "t": "meteorológia",
+       "image": "images/objets/barometre.png"
+      }
+     ],
+     [
+      {
+       "t": "szamurájok",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "nem értesz egyet?"
+   },
+   "ro": {
+    "etages": [
+     [
+      {
+       "t": "cântat la chitară",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "olărit",
+       "image": "images/objets/cruche.png"
+      },
+      {
+       "t": "broderie",
+       "image": "images/objets/abecedaire.png"
+      },
+      {
+       "t": "împletit coșuri",
+       "image": "images/objets/panier.png"
+      }
+     ],
+     [
+      {
+       "t": "camera obscură",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "cimpoi",
+       "image": "images/objets/cornemuse.png"
+      },
+      {
+       "t": "făcut parfum",
+       "image": "images/objets/flacon-parfum.png"
+      },
+      {
+       "t": "cusut",
+       "image": "images/objets/de-a-coudre.png"
+      }
+     ],
+     [
+      {
+       "t": "fapte de muzeu (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "heraldică",
+       "image": "images/objets/bouclier.png"
+      }
+     ],
+     [
+      {
+       "t": "meteorologie",
+       "image": "images/objets/barometre.png"
+      }
+     ],
+     [
+      {
+       "t": "istoria samurailor",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "nu ești de acord?"
+   },
+   "cs": {
+    "etages": [
+     [
+      {
+       "t": "hra na kytaru",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "keramika",
+       "image": "images/objets/cruche.png"
+      },
+      {
+       "t": "vyšívání",
+       "image": "images/objets/abecedaire.png"
+      },
+      {
+       "t": "pletení košíků",
+       "image": "images/objets/panier.png"
+      }
+     ],
+     [
+      {
+       "t": "camera obscura",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "dudy",
+       "image": "images/objets/cornemuse.png"
+      },
+      {
+       "t": "výroba parfémů",
+       "image": "images/objets/flacon-parfum.png"
+      },
+      {
+       "t": "šití",
+       "image": "images/objets/de-a-coudre.png"
+      }
+     ],
+     [
+      {
+       "t": "muzejní fakta (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "heraldika",
+       "image": "images/objets/bouclier.png"
+      }
+     ],
+     [
+      {
+       "t": "meteorologie",
+       "image": "images/objets/barometre.png"
+      }
+     ],
+     [
+      {
+       "t": "dějiny samurajů",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "nesouhlasíš?"
+   },
+   "sr": {
+    "etages": [
+     [
+      {
+       "t": "sviranje gitare",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "grnčarstvo",
+       "image": "images/objets/cruche.png"
+      },
+      {
+       "t": "vez",
+       "image": "images/objets/abecedaire.png"
+      },
+      {
+       "t": "pletenje korpi",
+       "image": "images/objets/panier.png"
+      }
+     ],
+     [
+      {
+       "t": "kamera opskura",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "gajde",
+       "image": "images/objets/cornemuse.png"
+      },
+      {
+       "t": "pravljenje parfema",
+       "image": "images/objets/flacon-parfum.png"
+      },
+      {
+       "t": "šivenje",
+       "image": "images/objets/de-a-coudre.png"
+      }
+     ],
+     [
+      {
+       "t": "muzeji (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "heraldika",
+       "image": "images/objets/bouclier.png"
+      }
+     ],
+     [
+      {
+       "t": "meteorologija",
+       "image": "images/objets/barometre.png"
+      }
+     ],
+     [
+      {
+       "t": "istorija samuraja",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "ne slažeš se?"
+   },
+   "el": {
+    "etages": [
+     [
+      {
+       "t": "κιθάρα",
+       "image": "images/objets/guitare.png"
+      },
+      {
+       "t": "κεραμική",
+       "image": "images/objets/cruche.png"
+      },
+      {
+       "t": "κέντημα",
+       "image": "images/objets/abecedaire.png"
+      },
+      {
+       "t": "πλέξιμο καλαθιών",
+       "image": "images/objets/panier.png"
+      }
+     ],
+     [
+      {
+       "t": "σκοτεινός θάλαμος",
+       "image": "images/objets/chambre-noire.png"
+      },
+      {
+       "t": "γκάιντα",
+       "image": "images/objets/cornemuse.png"
+      },
+      {
+       "t": "αρώματα",
+       "image": "images/objets/flacon-parfum.png"
+      },
+      {
+       "t": "ράψιμο",
+       "image": "images/objets/de-a-coudre.png"
+      }
+     ],
+     [
+      {
+       "t": "μουσεία (artura)",
+       "image": "artura"
+      },
+      {
+       "t": "εραλδική",
+       "image": "images/objets/bouclier.png"
+      }
+     ],
+     [
+      {
+       "t": "μετεωρολογία",
+       "image": "images/objets/barometre.png"
+      }
+     ],
+     [
+      {
+       "t": "ιστορία σαμουράι",
+       "image": "images/objets/masque-armure.png"
+      }
+     ]
+    ],
+    "question": "διαφωνείς;"
+   }
+  }
+ ]
+}

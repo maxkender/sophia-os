@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o396",
+ "type_bleo": "full_test",
+ "titre": "Rules for living with your parents as an adult #men #family #adulting #respect #home",
+ "musique_titre": "Interstellar",
+ "musique_url": "https://www.tiktok.com/music/interstellar-7396002037526710273",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Full test du jour (1 sur 7, jauge : 7 sur 26). Accroche jamais faite chez nous : aucun « living with your parents » dans donnees/label.json. reference_url : post source de am-o034, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d74697ad",
+   "texte_overlay": "Rules for living with your parents\nas an adult",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "63424a1d",
+   "texte_overlay": "1. Clean up before they ask",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "13a28aad",
+   "texte_overlay": "2. Pay something. Even a little.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "62126bbd",
+   "texte_overlay": "3. Cook dinner twice a week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0871da8c",
+   "texte_overlay": "4. Tell them when you're\nnot coming home",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6b16b158",
+   "texte_overlay": "5. Have a plan and a date\nto move out",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c2b5af75",
+   "texte_overlay": "6. Learn from them while you can\n\nAsk, listen, then learn more.",
+   "texte_sophia": "6. Learn from them while you can\n\nI dig deeper on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  }
+ ]
+}

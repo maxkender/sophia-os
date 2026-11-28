@@ -1,0 +1,487 @@
+{
+  "id": "hl-011",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7686199268775939350",
+    "vues": 1400000,
+    "publie_le": "2026-09-16",
+    "accroche": "HOW TO GIVE A GIRL BUTTERFLIES."
+  },
+  "musique": {
+    "titre": "Les (Instrumental Slowed)",
+    "url": "https://www.tiktok.com/music/Les-Instrumental-Slowed-7601037808778708993"
+  },
+  "notes": "Preuve de format : « HOW TO GIVE A GIRL BUTTERFLIES. » (1,4 M), famille « HOW TO … », conseils titrés. Accroche neuve « HOW TO BE A GENTLEMAN WITHOUT BEING BORING. ». Carte Artura (4) : « Know the story behind a portrait. », Velázquez, Juan de Pareja (The Met 437869), LOGO d'Artura ; cta C (tableau en hauteur). Fait vérifié : Juan de Pareja, assistant de Velázquez, devint lui-même peintre (fiche du Met). Full test (accroche jamais faite chez nous), routine du 27/11. En en, el, es-419, it, hu, sr (latin), pt-BR, es.",
+  "oeuvres": {
+    "images/oeuvres/velazquez-pareja.jpg": {
+      "musee": "The Met",
+      "id": "437869",
+      "titre": "Juan de Pareja (ca. 1608–1670)",
+      "artiste": "Velázquez (Diego Rodríguez de Silva y Velázquez)",
+      "date": "1650",
+      "url": "https://www.metmuseum.org/art/collection/search/437869"
+    }
+  },
+  "titre": {
+    "en": "How to be a gentleman without being boring.",
+    "el": "Πώς να είσαι τζέντλεμαν χωρίς να είσαι βαρετός.",
+    "es-419": "Cómo ser un caballero sin ser aburrido.",
+    "it": "Come essere un gentiluomo senza essere noioso.",
+    "hu": "Hogyan légy úriember anélkül, hogy unalmas lennél.",
+    "sr": "Kako da budeš džentlmen a da ne budeš dosadan.",
+    "pt-BR": "Como ser um cavalheiro sem ser chato.",
+    "es": "Cómo ser un caballero sin ser aburrido."
+  },
+  "legendes": {
+    "en": "#gentleman #datingadvice #tipsformen ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "sr": "#savetizamuškarce #veze #zavođenje ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "en": {
+        "titre": "HOW TO BE\nA GENTLEMAN\nWITHOUT BEING\nBORING."
+      },
+      "el": {
+        "titre": "ΠΩΣ ΝΑ ΕΙΣΑΙ\nΤΖΕΝΤΛΕΜΑΝ\nΧΩΡΙΣ ΝΑ ΕΙΣΑΙ\nΒΑΡΕΤΟΣ."
+      },
+      "es-419": {
+        "titre": "CÓMO SER\nUN CABALLERO\nSIN SER\nABURRIDO."
+      },
+      "it": {
+        "titre": "COME ESSERE\nUN GENTILUOMO\nSENZA ESSERE\nNOIOSO."
+      },
+      "hu": {
+        "titre": "HOGYAN LÉGY\nÚRIEMBER\nANÉLKÜL, HOGY\nUNALMAS LENNÉL."
+      },
+      "sr": {
+        "titre": "KAKO DA BUDEŠ\nDŽENTLMEN\nA DA NE BUDEŠ\nDOSADAN."
+      },
+      "pt-BR": {
+        "titre": "COMO SER\nUM CAVALHEIRO\nSEM SER\nCHATO."
+      },
+      "es": {
+        "titre": "CÓMO SER\nUN CABALLERO\nSIN SER\nABURRIDO."
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Manners, with a smile.",
+        "paragraphes": [
+          "Open the door for her.\nThen make her laugh on the way in.",
+          "Respect plus humor. Never just one."
+        ]
+      },
+      "el": {
+        "titre": "Τρόποι, με χαμόγελο.",
+        "paragraphes": [
+          "Άνοιξέ της την πόρτα. Μετά κάνε τη να γελάσει καθώς μπαίνει.",
+          "Σεβασμός και χιούμορ. Ποτέ μόνο το ένα."
+        ]
+      },
+      "es-419": {
+        "titre": "Modales, con una sonrisa.",
+        "paragraphes": [
+          "Ábrele la puerta. Luego hazla reír al entrar.",
+          "Respeto y humor. Nunca solo uno."
+        ]
+      },
+      "it": {
+        "titre": "Buone maniere, col sorriso.",
+        "paragraphes": [
+          "Aprile la porta. Poi falla ridere mentre entra.",
+          "Rispetto e ironia. Mai solo uno dei due."
+        ]
+      },
+      "hu": {
+        "titre": "Jó modor, mosollyal.",
+        "paragraphes": [
+          "Nyisd ki neki az ajtót. Aztán nevettesd meg, ahogy belép.",
+          "Tisztelet és humor. Sosem csak az egyik."
+        ]
+      },
+      "sr": {
+        "titre": "Manir, uz osmeh.",
+        "paragraphes": [
+          "Otvori joj vrata. Onda je nasmej dok ulazi.",
+          "Poštovanje i humor. Nikad samo jedno."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Educação, com um sorriso.",
+        "paragraphes": [
+          "Abra a porta para ela. Depois faça ela rir ao entrar.",
+          "Respeito e humor. Nunca só um dos dois."
+        ]
+      },
+      "es": {
+        "titre": "Modales, con una sonrisa.",
+        "paragraphes": [
+          "Ábrele la puerta. Luego hazla reír al entrar.",
+          "Respeto y humor. Nunca solo uno."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Walk on the street side.",
+        "paragraphes": [
+          "Small, old-fashioned,\nand she'll notice.",
+          "You don't have to explain it."
+        ]
+      },
+      "el": {
+        "titre": "Περπάτα από τη μεριά του δρόμου.",
+        "paragraphes": [
+          "Μικρό, παλιομοδίτικο, και θα το προσέξει.",
+          "Δεν χρειάζεται να το εξηγήσεις."
+        ]
+      },
+      "es-419": {
+        "titre": "Camina del lado de la calle.",
+        "paragraphes": [
+          "Pequeño, a la antigua, y lo va a notar.",
+          "No hace falta explicarlo."
+        ]
+      },
+      "it": {
+        "titre": "Cammina dal lato della strada.",
+        "paragraphes": [
+          "Piccolo, all'antica, e lo noterà.",
+          "Non serve spiegarlo."
+        ]
+      },
+      "hu": {
+        "titre": "Te menj az úttest felőli oldalon.",
+        "paragraphes": [
+          "Apróság, régimódi, és észre fogja venni.",
+          "Nem kell megmagyaráznod."
+        ]
+      },
+      "sr": {
+        "titre": "Hodaj sa strane ulice.",
+        "paragraphes": [
+          "Sitnica, staromodno, i primetiće.",
+          "Ne moraš to da objašnjavaš."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Ande do lado da rua.",
+        "paragraphes": [
+          "Pequeno, antiquado, e ela vai notar.",
+          "Não precisa explicar."
+        ]
+      },
+      "es": {
+        "titre": "Camina del lado de la calle.",
+        "paragraphes": [
+          "Pequeño, a la antigua, y lo va a notar.",
+          "No hace falta explicarlo."
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/velazquez-pareja.jpg",
+      "en": {
+        "titre": "Know the story behind a portrait.",
+        "avant": [
+          "Velázquez painted his assistant, Juan de Pareja. Pareja later became a painter himself."
+        ],
+        "apres": [
+          "I didn't know anything about art.\nArtura fixed that, one painting a day."
+        ]
+      },
+      "el": {
+        "titre": "Μάθε την ιστορία ενός πορτρέτου.",
+        "avant": [
+          "Ο Βελάσκεθ ζωγράφισε τον βοηθό του, τον Χουάν δε Παρέχα. Αργότερα ο Παρέχα έγινε κι εκείνος ζωγράφος."
+        ],
+        "apres": [
+          "Δεν ήξερα τίποτα για την τέχνη. Το Artura το έφτιαξε αυτό, έναν πίνακα τη μέρα."
+        ]
+      },
+      "es-419": {
+        "titre": "Conoce la historia de un retrato.",
+        "avant": [
+          "Velázquez pintó a su asistente, Juan de Pareja. Años después, Pareja también se hizo pintor."
+        ],
+        "apres": [
+          "No sabía nada de arte. Artura lo arregló, un cuadro al día."
+        ]
+      },
+      "it": {
+        "titre": "Conosci la storia di un ritratto.",
+        "avant": [
+          "Velázquez ritrasse il suo assistente, Juan de Pareja. Più tardi anche Pareja diventò pittore."
+        ],
+        "apres": [
+          "Non sapevo niente di arte. Artura ha sistemato tutto, un quadro al giorno."
+        ]
+      },
+      "hu": {
+        "titre": "Ismerd egy portré történetét.",
+        "avant": [
+          "Velázquez a segédjét, Juan de Pareját festette meg. Pareja később maga is festő lett."
+        ],
+        "apres": [
+          "Semmit sem tudtam a művészetről. Az Artura ezt megoldotta, napi egy festménnyel."
+        ]
+      },
+      "sr": {
+        "titre": "Znaj priču jednog portreta.",
+        "avant": [
+          "Velaskez je naslikao svog pomoćnika, Huana de Pareha. Pareha je kasnije i sam postao slikar."
+        ],
+        "apres": [
+          "Nisam znao ništa o umetnosti. Artura je to rešila, jedna slika dnevno."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Saiba a história de um retrato.",
+        "avant": [
+          "Velázquez pintou seu assistente, Juan de Pareja. Mais tarde, Pareja também virou pintor."
+        ],
+        "apres": [
+          "Eu não sabia nada de arte. O Artura resolveu isso, um quadro por dia."
+        ]
+      },
+      "es": {
+        "titre": "Conoce la historia de un retrato.",
+        "avant": [
+          "Velázquez pintó a su asistente, Juan de Pareja. Años después, Pareja también se hizo pintor."
+        ],
+        "apres": [
+          "No sabía nada de arte. Artura lo arregló, un cuadro al día."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Be on time. Always.",
+        "paragraphes": [
+          "Late says: you weren't a priority.",
+          "Early says: I wanted to be here."
+        ]
+      },
+      "el": {
+        "titre": "Να είσαι στην ώρα σου. Πάντα.",
+        "paragraphes": [
+          "Το αργά λέει: δεν ήσουν προτεραιότητα.",
+          "Το νωρίς λέει: ήθελα να είμαι εδώ."
+        ]
+      },
+      "es-419": {
+        "titre": "Sé puntual. Siempre.",
+        "paragraphes": [
+          "Llegar tarde dice: no eras prioridad.",
+          "Llegar temprano dice: quería estar aquí."
+        ]
+      },
+      "it": {
+        "titre": "Sii puntuale. Sempre.",
+        "paragraphes": [
+          "Il ritardo dice: non eri una priorità.",
+          "L'anticipo dice: volevo essere qui."
+        ]
+      },
+      "hu": {
+        "titre": "Légy pontos. Mindig.",
+        "paragraphes": [
+          "A késés azt üzeni: nem voltál fontos.",
+          "A korai érkezés azt: itt akartam lenni."
+        ]
+      },
+      "sr": {
+        "titre": "Budi tačan. Uvek.",
+        "paragraphes": [
+          "Kašnjenje kaže: nisi bila prioritet.",
+          "Rani dolazak kaže: želeo sam da budem ovde."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Seja pontual. Sempre.",
+        "paragraphes": [
+          "Atraso diz: você não era prioridade.",
+          "Chegar antes diz: eu queria estar aqui."
+        ]
+      },
+      "es": {
+        "titre": "Sé puntual. Siempre.",
+        "paragraphes": [
+          "Llegar tarde dice: no eras prioridad.",
+          "Llegar temprano dice: quería estar aquí."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Tease, but kindly.",
+        "paragraphes": [
+          "Joke with her,\nnever about her insecurities.",
+          "Playful is attractive. Mean is not."
+        ]
+      },
+      "el": {
+        "titre": "Πείραξέ τη, αλλά με καλοσύνη.",
+        "paragraphes": [
+          "Αστειέψου μαζί της, ποτέ με τις ανασφάλειές της.",
+          "Το παιχνιδιάρικο είναι ελκυστικό. Το κακό όχι."
+        ]
+      },
+      "es-419": {
+        "titre": "Bromea, pero con cariño.",
+        "paragraphes": [
+          "Bromea con ella, nunca con sus inseguridades.",
+          "Lo juguetón atrae. Lo cruel, no."
+        ]
+      },
+      "it": {
+        "titre": "Scherza, ma con gentilezza.",
+        "paragraphes": [
+          "Scherza con lei, mai sulle sue insicurezze.",
+          "Giocoso attrae. Cattivo no."
+        ]
+      },
+      "hu": {
+        "titre": "Ugrasd, de kedvesen.",
+        "paragraphes": [
+          "Viccelj vele, de soha ne a bizonytalanságain.",
+          "A játékos vonzó. A gonosz nem."
+        ]
+      },
+      "sr": {
+        "titre": "Zadirkuj, ali nežno.",
+        "paragraphes": [
+          "Šali se sa njom, nikad na račun njenih nesigurnosti.",
+          "Razigrano privlači. Zlobno ne."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Provoque, mas com carinho.",
+        "paragraphes": [
+          "Brinque com ela, nunca com as inseguranças dela.",
+          "Brincalhão atrai. Maldoso, não."
+        ]
+      },
+      "es": {
+        "titre": "Bromea, pero con cariño.",
+        "paragraphes": [
+          "Bromea con ella, nunca con sus inseguridades.",
+          "Lo juguetón atrae. Lo cruel, no."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "Manners aren't old-fashioned.\nBeing boring is.",
+          "**A boy is polite.**\n**A man is polite and fun.**"
+        ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Το να είσαι τζέντλεμαν δεν είναι ξεπερασμένο. Το να είσαι βαρετός είναι.",
+          "**Το αγόρι είναι ευγενικό.**\n**Ο άντρας είναι και κεφάτος.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Ser caballero no pasa de moda. Ser aburrido, sí.",
+          "**Un niño es educado.**\n**Un hombre es educado y divertido.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "Essere un gentiluomo non è fuori moda. Essere noiosi sì.",
+          "**Un ragazzino è educato.**\n**Un uomo è educato e divertente.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "Úriembernek lenni nem divatjamúlt. Unalmasnak lenni az.",
+          "**A kisfiú udvarias.**\n**A férfi udvarias és vicces.**"
+        ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Biti džentlmen nije staromodno. Biti dosadan jeste.",
+          "**Dečak je pristojan.**\n**Muškarac je pristojan i zabavan.**"
+        ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Ser cavalheiro não é antiquado. Ser chato é.",
+          "**O garoto é educado.**\n**O homem é educado e divertido.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Ser caballero no pasa de moda. Ser aburrido, sí.",
+          "**Un niño es educado.**\n**Un hombre es educado y divertido.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      }
+    }
+  ]
+}

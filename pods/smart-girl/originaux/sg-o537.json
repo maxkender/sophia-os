@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o537",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5572011a-b792-4a0a-876b-b3b459592fd4",
+ "titre": "how to become the best version of yourself #selfimprovement #glowup #habits #smartgirl #thatgirl",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "5572011a-b792-4a0a-876b-b3b459592fd4"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 25 de la boîte (parent 5572011a, langue source en) : accroche du parent mot pour mot. Conseils du parent (8 heures de sommeil, bouger chaque jour, lire des sujets variés, apprendre chaque jour, manger sain, méditer ou écrire). Sophia comme chez le parent (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3dc4145c",
+   "texte_overlay": "how to become the best\nversion of yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650292772745809173/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d15c44bd",
+   "texte_overlay": "sleep your 8 hours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650292772745809173/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "84cdbcd2",
+   "texte_overlay": "move every day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650292772745809173/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "231891fe",
+   "texte_overlay": "read about different topics\n\nphilosophy, psychology, history.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650292772745809173/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7a8fbab0",
+   "texte_overlay": "learn something new every day",
+   "texte_sophia": "learn something new every day on a\nmicro-learning app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650292772745809173/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7b854f37",
+   "texte_overlay": "eat well",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650292772745809173/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "cd1d47de",
+   "texte_overlay": "journal to clear your mind",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650292772745809173/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "27c117e1",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650292772745809173/6.jpg"
+  }
+ ]
+}

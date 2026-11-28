@@ -68,11 +68,11 @@
       "url": "https://www.metmuseum.org/art/collection/search/438417"
     }
   },
-  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : Velázquez peint Juan de Pareja à Rome en 1650, l'expose au Panthéon (mot rapporté par Palomino : tout le reste paraissait peinture, celui-ci seul vérité), signe sa lettre d'affranchissement à Rome en novembre 1650 (effective en 1654). Aristote : 1653, pour Don Antonio Ruffo (Messine) ; acheté par le Met en 1961 pour 2,3 M$, record d'enchères pour un tableau. Marché aux chevaux : Bonheur dessine au marché du boulevard de l'Hôpital pendant environ un an et demi, en habits d'homme (elle avait une permission de travestissement de la préfecture) ; Salon de 1853 ; donné au Met par Cornelius Vanderbilt en 1887. Friedrich : plusieurs versions (Dresde 1819, Berlin, Met vers 1825-30) ; Beckett a dit à Ruby Cohn que le tableau (vu à Dresde en 1937) était la source d'En attendant Godot. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (une foule ou des visiteurs de dos, le tableau n'est qu'une tache de lumière).",
+  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : Velázquez peint Juan de Pareja à Rome en 1650, l'expose au Panthéon (mot rapporté par Palomino : tout le reste paraissait peinture, celui-ci seul vérité), signe sa lettre d'affranchissement à Rome en novembre 1650 (effective en 1654). Aristote : 1653, pour Don Antonio Ruffo (Messine) ; acheté par le Met en 1961 pour 2,3 M$, record d'enchères pour un tableau. Marché aux chevaux : Bonheur dessine au marché du boulevard de l'Hôpital pendant environ un an et demi, en habits d'homme (elle avait une permission de travestissement de la préfecture) ; Salon de 1853 ; donné au Met par Cornelius Vanderbilt en 1887. Friedrich : plusieurs versions (Dresde 1819, Berlin, Met vers 1825-30) ; Beckett a dit à Ruby Cohn que le tableau (vu à Dresde en 1937) était la source d'En attendant Godot. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA (refaite le 27/11).",
   "slides": [
     {
       "type": "couverture",
-      "image": "images/photos/musee-foule-3.jpg",
+      "image": "images/banque/b-salle-angle.jpg",
       "en": {
         "titre": "Paintings That Devour My Soul"
       },
@@ -320,5 +320,8 @@
         "artiste": "Caspar David Friedrich"
       }
     }
-  ]
+  ],
+  "banque": {
+    "images/banque/b-salle-angle.jpg": "040ef31e-2a48-4544-801c-c9dd135108b4"
+  }
 }

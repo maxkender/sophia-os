@@ -1,0 +1,65 @@
+{
+  "source_id": "ad-001",
+  "type_bleo": "full_test",
+  "titre": "i genuinely thought everyone's brain worked like this 😭 #adhd #adhdtiktok #neurodivergent #adhdcheck #fyp",
+  "musique_titre": "Born Slippy - Nuxx / Remastered",
+  "musique_url": "https://www.tiktok.com/music/born-slippy-nuxx-remastered-6745171528700135426",
+  "inspirations": ["cf4cb881", "ee969328"],
+  "notes": "Pilote du podz 35 (27/11). Format « relatable » de @fraserparkinson0 : une phrase courte en minuscules par slide, sur ses photos (son « \"ADHD can't be that bad\" », 225,6 k, cf4cb881, dont les slides servent de modèle de mise en page et dont on reprend le son ; et « 5 more things people with ADHD do », 141,9 k, ee969328). Accroche neuve (full test) : « things my ADHD brain does that i thought were normal ». Items neufs, aucun de ses listes (pas de pacing, safe food, song on loop, doom pile, waiting mode, books, objets perdus) : les idées sous la douche, les onglets, la deadline, le loisir de 3 semaines, le terrier sur un tableau à 3 h du matin (l'item où Artura se place naturellement : l'OS la place), oublier de manger, la cécité temporelle, la pièce oubliée. Aucun chiffre, aucun diagnostic, aucun médicament. Photos de la banque sans visage mis en avant. Accroches écartées : « normal things my ADHD brain does », « ADHD things nobody warned me about ».",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0a06471e",
+      "texte_overlay": "things my ADHD brain does\nthat i thought were normal",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0ee3f26e",
+      "texte_overlay": "my best ideas only show up\nwhen i can't write them down",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "283c7f99",
+      "texte_overlay": "opening 6 tabs for one task\nand finishing none of them",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "059ad398",
+      "texte_overlay": "not being able to start anything\nuntil the deadline is close\nenough to scare me",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "2284c80c",
+      "texte_overlay": "being obsessed with a new hobby\nfor 3 weeks, then never\ntouching it again",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0e0e8967",
+      "texte_overlay": "falling into a 3am rabbit hole\nabout one random painting\nand knowing its whole story by sunrise",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "18e6352b",
+      "texte_overlay": "forgetting to eat all day\nthen eating everything at 11pm",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "0d6b5194",
+      "texte_overlay": "\"5 more minutes\"\nsomehow turning into 2 hours",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/8.jpg"
+    },
+    {
+      "position": 9,
+      "media_id": "0abca857",
+      "texte_overlay": "walking into a room\nand forgetting why.\nevery. single. time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/9.jpg"
+    }
+  ]
+}

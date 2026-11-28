@@ -1,0 +1,353 @@
+{
+ "post_id": "var-signes-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 signs that you've harmed",
+      "your brain from scrolling"
+     ],
+     "fr": "5 signes que le scroll t'a grillé le cerveau",
+     "texte": "5 jel, hogy a görgetés eltérítette a figyelmedet"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience-backed sources at the end)"
+     ],
+     "fr": "(les sources en neurosciences sont à la fin)",
+     "texte": "(az összes forrást a végén megtalálod)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0028f0a3.jpg",
+      "boite": [
+       0,
+       200,
+       944,
+       732
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you can't read a book without",
+      "getting bored"
+     ],
+     "fr": "t'arrives pas à lire un livre [[sans t'ennuyer]]",
+     "texte": "szinte [[20 másodpercenként]] másik appot nyitsz"
+    },
+    "T2": {
+     "en": [
+      "if the idea of reading 20 pages seems daunting but",
+      "watching 100 tiktoks is easy, that's a serious issue"
+     ],
+     "fr": "si lire [[20 pages]] te paraît insurmontable mais que [[100 tiktoks]] passent tout seuls, y'a un [[vrai souci]]",
+     "texte": "egy videó, egy üzenet, egy story, vissza a videóhoz: be se fejezed az egyiket, és [[már a következőn vagy]]"
+    },
+    "T3": {
+     "en": [
+      "this is because your attention",
+      "span is damaged from all the",
+      "short-form content"
+     ],
+     "fr": "c'est parce que ta [[concentration est cramée]] par tous ces formats courts",
+     "texte": "egy kutatásban az emberek átlagosan [[19 másodpercenként]] váltottak tartalmat a képernyőn"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for 20",
+      "minutes, it keeps me",
+      "consistent"
+     ],
+     "fr": "perso, j'ai remplacé une partie de mon scroll par [[5 min par jour sur l'appli Sophia]], et je m'y tiens",
+     "texte": "ma reggel görgetés helyett 5 percet olvastam arról, miért Itáliában indult a reneszánsz, a [[Sophia appban]]"
+    },
+    "T5": {
+     "en": [
+      "you can also try moving your",
+      "phone in a different room"
+     ],
+     "fr": "sinon, laisse ton tel dans une autre pièce",
+     "texte": "és egyszerre csak egy app legyen nyitva, [[a többit zárd be]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you watch everything at",
+      "2x speed"
+     ],
+     "fr": "tu regardes tout [[en vitesse x2]]",
+     "texte": "mindent [[csak átfutsz]] mostanában"
+    },
+    "T2": {
+     "en": [
+      "a 20-minute video becoming 10 feels efficient, but",
+      "you're teaching yourself that normal pacing is too",
+      "slow"
+     ],
+     "fr": "passer une vidéo de 20 min en 10, ça a l'air [[rentable]] mais ton cerveau retient qu'un rythme normal, c'est [[trop lent]]",
+     "texte": "egy cikk, egy e-mail, akár egy fejezet: a szemed átugrik sorokat, és a végén [[semmire se emlékszel]]"
+    },
+    "T3": {
+     "en": [
+      "eventually lectures,",
+      "reading, and even",
+      "conversations start",
+      "feeling painfully",
+      "under-stimulating"
+     ],
+     "fr": "à force, même les cours, les livres et les [[conversations]] te paraissent [[d'un ennui mortel]]",
+     "texte": "egy rengeteg kutatást összesítő elemzés szerint [[képernyőn rosszabbul értjük]] a szöveget, mint papíron"
+    },
+    "T4": {
+     "en": [
+      "are you really in a rush",
+      "to watch a tiktok?"
+     ],
+     "fr": "y'a vraiment urgence à regarder [[un tiktok]] ?",
+     "texte": "a tényleg fontos dolgokat [[olvasd papíron]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_193e5ff1.jpg",
+      "boite": [
+       0,
+       0,
+       2392,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you feel tired even during the",
+      "day"
+     ],
+     "fr": "t'es à plat [[même en pleine journée]]",
+     "texte": "elfelejted, [[mit akartál csinálni]]"
+    },
+    "T2": {
+     "en": [
+      "you can sleep 8 hours and still",
+      "feel mentally exhausted if",
+      "your brain is getting",
+      "hammered with stimulation all",
+      "day"
+     ],
+     "fr": "tu peux dormir 8 heures et [[avoir quand même la tête en vrac]] si ton cerveau se fait [[bombarder toute la journée]]",
+     "texte": "előveszed a telót, hogy válaszolj valakinek, három videó után leteszed, és [[végül nem is válaszoltál]]"
+    },
+    "T3": {
+     "en": [
+      "constant switching, scrolling",
+      "and notifications create",
+      "attentional fatigue"
+     ],
+     "fr": "zapper sans arrêt, scroller, les notifs : ton attention finit par saturer",
+     "texte": "egy kutatásban rövid videók után [[gyakrabban felejtették el]], mit kell tenniük"
+    },
+    "T4": {
+     "en": [
+      "so even simple tasks start",
+      "feeling weirdly draining"
+     ],
+     "fr": "du coup, même les trucs simples te [[lessivent sans raison]]",
+     "texte": "előbb csináld meg, amit terveztél, [[csak utána görgess]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1329ac2e.jpg",
+      "boite": [
+       250,
+       0,
+       1410,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you want to stop scrolling but",
+      "can't"
+     ],
+     "fr": "tu veux décrocher [[mais t'y arrives pas]]",
+     "texte": "evés közben is [[a képernyőt nézed]]"
+    },
+    "T2": {
+     "en": [
+      "if you keep opening tiktok",
+      "without even deciding to,",
+      "that's the problem"
+     ],
+     "fr": "si t'ouvres tiktok sans même l'avoir décidé, [[le problème est là]]",
+     "texte": "üres a tányér, és őszintén meg se tudnád mondani, [[mit ettél pontosan]]"
+    },
+    "T3": {
+     "en": [
+      "endless feeds remove",
+      "natural stopping points, so",
+      "“5 minutes” turns into 45"
+     ],
+     "fr": "le fil est sans fin, rien ne t'arrête, du coup [[« 5 min » ça devient 45]]",
+     "texte": "egy kutatásban, aki képernyős játék mellett ebédelt, fél órával később [[többet nassolt]]"
+    },
+    "T4": {
+     "en": [
+      "make scrolling harder, not",
+      "your self-control stronger"
+     ],
+     "fr": "complique-toi le scroll [[au lieu de]] forcer sur ta volonté",
+     "texte": "amíg eszel, a telefon szépen [[maradjon a zsebedben]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_056d56ab.jpg",
+      "boite": [
+       0,
+       250,
+       752,
+       917
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you reach for your phone the",
+      "second nothing is happening"
+     ],
+     "fr": "tu sors ton tel [[à la seconde où]] il se passe rien",
+     "texte": "rengeteg emberrel beszélsz online, mégis [[magányos vagy]]"
+    },
+    "T2": {
+     "en": [
+      "waiting 30 seconds,",
+      "standing in a queue, sitting",
+      "in a lift, you instantly need",
+      "input"
+     ],
+     "fr": "30 secondes d'attente, une file, un ascenseur… et [[il te faut direct un truc à regarder]]",
+     "texte": "lájkok, storyk, üzenetek egész nap, este pedig [[nagy üresség]], amikor leteszed a telót"
+    },
+    "T3": {
+     "en": [
+      "boredom is where your",
+      "brain gets a chance to",
+      "wander, reflect and",
+      "connect ideas"
+     ],
+     "fr": "l'ennui, c'est le moment où ton cerveau peut divaguer, réfléchir et faire des liens",
+     "texte": "egy kutatásban napi 30 perc közösségi média 3 hét alatt [[csökkentette a magányt]]"
+    },
+    "T4": {
+     "en": [
+      "stop deleting every empty",
+      "moment"
+     ],
+     "fr": "[[arrête de remplir]] chaque temps mort",
+     "texte": "napi 30 perc social, [[nem több]]"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "fr": "[[écoute tes pensées]]",
+     "texte": "[[hívj fel valakit ma este]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0295a08a.jpg",
+      "boite": [
+       0,
+       100,
+       1760,
+       2200
+      ]
+     }
+    }
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "sources"
+     ],
+     "fr": "sources",
+     "texte": "források"
+    },
+    "T2": {
+     "en": [
+      "Nguyen et al. (2025)",
+      "“Feeds, feelings, and focus: A systematic review and meta-analysis",
+      "examining the cognitive and mental health correlates of short-form",
+      "video use”",
+      "https://doi.org/10.1037/bul0000498"
+     ],
+     "fr": "Nguyen et al. (2025)\n“Feeds, feelings, and focus: A systematic review and meta-analysis examining the cognitive and mental health correlates of short-form video use”\nhttps://doi.org/10.1037/bul0000498",
+     "texte": "Yeykelis, Cummings & Reeves (2014), Journal of Communication\nhttps://doi.org/10.1111/jcom.12070\nDelgado, Vargas, Ackerman & Salmerón (2018), Educational Research Review\n“Don't throw away your printed books”\nhttps://doi.org/10.1016/j.edurev.2018.09.003"
+    },
+    "T3": {
+     "en": [
+      "“The effect of short-form video addiction on users’ attention”",
+      "https://doi.org/10.1080/0144929X.2022.2151512"
+     ],
+     "fr": "Chen, Li, Guo & Wang (2023)\n“The effect of short-form video addiction on users’ attention”\nhttps://doi.org/10.1080/0144929X.2022.2151512",
+     "texte": "Chiossi et al. (2023), CHI '23\n“Short-form videos degrade our capacity to retain intentions”\nhttps://doi.org/10.1145/3544548.3580778"
+    },
+    "T4": {
+     "en": [
+      "Ebster et al. (2026)",
+      "“Taming the endless scroll? Short-form videos, digital routines and",
+      "https://doi.org/10.1007/s00787-026-03083-7"
+     ],
+     "fr": "Ebster et al. (2026)\n“Taming the endless scroll? Short-form videos, digital routines and neurocognitive outcomes in youth” https://doi.org/10.1007/s00787-026-03083-7",
+     "texte": "Oldham-Cooper, Hardman, Nicoll, Rogers & Brunstrom (2011), American Journal of Clinical Nutrition\nhttps://doi.org/10.3945/ajcn.110.004580"
+    },
+    "T5": {
+     "en": [
+      "Stothart, Mitchum & Yehnert (2015)",
+      "“The attentional cost of receiving a cell phone notification”",
+      "https://doi.org/10.1037/xhp0000100"
+     ],
+     "fr": "Stothart, Mitchum & Yehnert (2015)\n“The attentional cost of receiving a cell phone notification”\nhttps://doi.org/10.1037/xhp0000100",
+     "texte": "Hunt, Marx, Lipson & Young (2018), Journal of Social and Clinical Psychology\n“No more FOMO: Limiting social media decreases loneliness and depression”\nhttps://doi.org/10.1521/jscp.2018.37.10.751"
+    }
+   },
+   "images": {}
+  }
+ }
+}

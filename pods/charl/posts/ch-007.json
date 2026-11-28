@@ -1,0 +1,488 @@
+{
+  "id": "ch-007",
+  "source": {
+    "url": "https://www.tiktok.com/@charl.focus/photo/7706258701463653664",
+    "vues": 246700,
+    "publie_le": "2026-11-09",
+    "accroche": "cómo dejar de PROCRASTINAR (de verdad)"
+  },
+  "titre": {
+    "es": "cómo recuperar tu motivación (según la neurociencia)",
+    "fr": "comment retrouver ta motivation (selon les neurosciences)",
+    "it": "come ritrovare la tua motivazione (secondo le neuroscienze)",
+    "pt-BR": "como recuperar a sua motivação (segundo a neurociência)",
+    "de": "so findest du deine motivation (laut neurowissenschaft)",
+    "ro": "cum să-ți recuperezi motivația (după neuroștiință)",
+    "hu": "hogyan szerezd vissza a motivációd (az idegtudomány szerint)",
+    "es-419": "cómo recuperar tu motivación (según la neurociencia)"
+  },
+  "legendes": {
+    "es": "#motivacion #disciplina #habitos #productividad #exito",
+    "fr": "#motivation #discipline #habitudes #productivite #reussite",
+    "it": "#motivazione #disciplina #abitudini #produttivita #successo",
+    "pt-BR": "#motivacao #disciplina #habitos #produtividade #sucesso",
+    "de": "#motivation #disziplin #gewohnheiten #produktivitaet #erfolg",
+    "ro": "#motivatie #disciplina #obiceiuri #productivitate #succes",
+    "hu": "#motivacio #fegyelem #szokasok #produktivitas #siker",
+    "es-419": "#motivacion #disciplina #habitos #productividad #exito"
+  },
+  "musique": {
+    "titre": "original sound - star3d",
+    "url": "https://www.tiktok.com/music/original-sound-7647638316610833174"
+  },
+  "notes": "Preuve : « cómo dejar de PROCRASTINAR (de verdad) » de @charl.focus (246,7 k vues, 09/11), sa famille. Faits vérifiés : Schultz, Dayan et Montague (1997, Science) : les neurones à dopamine du singe réagissent à la prédiction de la récompense (ils s'activent au signal qui l'annonce), pas seulement à la récompense ; Berridge (université du Michigan) : « wanting » contre « liking » ; Amabile et Kramer (2011, « The Progress Principle », Harvard) : près de 12 000 entrées de journal de 238 personnes, avancer dans un travail qui compte est le premier moteur de la motivation ; Gollwitzer et Sheeran (2006, Advances in Experimental Social Psychology) : méta-analyse de 94 études, les intentions « si… alors… » aident nettement à passer à l'action. Rien de médical. Slide Sophia (4) : « 3 · empieza el día ganando », LOGO ; cta A. Images : 6 Seedream et 8 de la banque. 6 slides.",
+  "banque": {
+    "images/banque/b-16a1b80d.jpg": "16a1b80d-4c3a-4afe-9086-5959ea15b865",
+    "images/banque/b-07c01365.jpg": "07c01365-4e1c-4022-907b-de4cf662e631",
+    "images/banque/b-083f8fe3.jpg": "083f8fe3-1fa2-4b7e-9a20-7461dcad8be3",
+    "images/banque/b-1d3ea3ca.jpg": "1d3ea3ca-ae1c-45fd-9437-4f6ab7b2b78f",
+    "images/banque/b-15692881.jpg": "15692881-cb0f-4b1a-903f-29d273485aa5",
+    "images/banque/b-0dda41f9.jpg": "0dda41f9-08cd-4f4d-b5c8-b242dfcff834",
+    "images/banque/b-039e43f9.jpg": "039e43f9-f581-423a-bbe1-4690130c7b75",
+    "images/banque/b-01c1c847.jpg": "01c1c847-a4e8-4bab-bc16-6569a950ee9e"
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/photos/s7-irm.jpg"
+        },
+        {
+          "image": "images/banque/b-16a1b80d.jpg"
+        },
+        {
+          "image": "images/photos/s7-cerveau.jpg"
+        },
+        {
+          "image": "images/banque/b-07c01365.jpg"
+        },
+        {
+          "image": "images/photos/s7-tete.jpg"
+        },
+        {
+          "image": "images/banque/b-083f8fe3.jpg"
+        }
+      ],
+      "es": {
+        "haut": "cómo recuperar tu",
+        "mot": "MOTIVACIÓN",
+        "note": "(según la neurociencia)"
+      },
+      "fr": {
+        "haut": "comment retrouver ta",
+        "mot": "MOTIVATION",
+        "note": "(selon les neurosciences)"
+      },
+      "it": {
+        "haut": "come ritrovare la tua",
+        "mot": "MOTIVAZIONE",
+        "note": "(secondo le neuroscienze)"
+      },
+      "pt-BR": {
+        "haut": "como recuperar a sua",
+        "mot": "MOTIVAÇÃO",
+        "note": "(segundo a neurociência)"
+      },
+      "de": {
+        "haut": "so findest du deine",
+        "mot": "MOTIVATION",
+        "note": "(laut neurowissenschaft)"
+      },
+      "ro": {
+        "haut": "cum să-ți recuperezi",
+        "mot": "MOTIVAȚIA",
+        "note": "(după neuroștiință)"
+      },
+      "hu": {
+        "haut": "hogyan szerezd vissza a",
+        "mot": "MOTIVÁCIÓD",
+        "note": "(az idegtudomány szerint)"
+      },
+      "es-419": {
+        "haut": "cómo recuperar tu",
+        "mot": "MOTIVACIÓN",
+        "note": "(según la neurociencia)"
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/banque/b-1d3ea3ca.jpg"
+        },
+        {
+          "image": "images/photos/s7-marche.jpg"
+        }
+      ],
+      "es": {
+        "titre": "no te falta motivación.",
+        "paragraphes": [
+          "esperas a tener ganas para empezar. y las ganas **no llegan nunca**.",
+          "en los años 90, **wolfram schultz** vio que la dopamina se dispara **cuando esperas un premio**, no cuando lo tienes. es la molécula de las ganas, no del placer.",
+          "si todo te aburre, **tu cerebro no espera nada**."
+        ]
+      },
+      "fr": {
+        "titre": "l'envie ne vient pas.",
+        "paragraphes": [
+          "tu attends d'avoir envie pour commencer. et l'envie **n'arrive jamais**.",
+          "dans les années 90, **wolfram schultz** a vu que la dopamine s'active **quand tu attends une récompense**, pas quand tu l'as. c'est la molécule de l'envie, pas du plaisir.",
+          "si tout t'ennuie, **ton cerveau n'attend plus rien**."
+        ]
+      },
+      "it": {
+        "titre": "la voglia non arriva.",
+        "paragraphes": [
+          "aspetti di avere voglia per iniziare. e la voglia **non arriva mai**.",
+          "negli anni '90 **wolfram schultz** vide che la dopamina si attiva **quando aspetti un premio**, non quando ce l'hai. è la molecola della voglia, non del piacere.",
+          "se tutto ti annoia, **il cervello non aspetta più niente**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "a vontade não vem.",
+        "paragraphes": [
+          "você espera ter vontade pra começar. e a vontade **nunca chega**.",
+          "nos anos 90, **wolfram schultz** viu que a dopamina dispara **quando você espera um prêmio**, não quando já tem. é a molécula da vontade, não do prazer.",
+          "se tudo te entedia, **seu cérebro não espera mais nada**."
+        ]
+      },
+      "de": {
+        "titre": "die lust kommt nicht.",
+        "paragraphes": [
+          "du wartest auf lust, um anzufangen. und die lust **kommt nie**.",
+          "in den 90ern sah **wolfram schultz**, dass dopamin feuert, **wenn du eine belohnung erwartest**, nicht wenn du sie hast. es ist das molekül der lust, nicht des genusses.",
+          "wenn dich alles langweilt, **erwartet dein gehirn nichts mehr**."
+        ]
+      },
+      "ro": {
+        "titre": "chefu' nu vine.",
+        "paragraphes": [
+          "aștepți să ai chef ca să începi. și chefu' **nu vine niciodată**.",
+          "în anii '90, **wolfram schultz** a văzut că dopamina se activează **când aștepți o recompensă**, nu când o ai. e molecula poftei, nu a plăcerii.",
+          "dacă totul te plictisește, **creierul nu mai așteaptă nimic**."
+        ]
+      },
+      "hu": {
+        "titre": "a kedv nem jön.",
+        "paragraphes": [
+          "vársz, hogy kedved legyen elkezdeni. és a kedv **sosem jön**.",
+          "a 90-es években **wolfram schultz** látta, hogy a dopamin akkor lő ki, **amikor jutalmat vársz**, nem amikor már megkaptad. a vágy molekulája, nem az élvezeté.",
+          "ha minden untat, **az agyad már nem vár semmit**."
+        ]
+      },
+      "es-419": {
+        "titre": "no te falta motivación.",
+        "paragraphes": [
+          "esperas a tener ganas para empezar. y las ganas **no llegan nunca**.",
+          "en los años 90, **wolfram schultz** vio que la dopamina se dispara **cuando esperas un premio**, no cuando lo tienes. es la molécula de las ganas, no del placer.",
+          "si todo te aburre, **tu cerebro no espera nada**."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/b-15692881.jpg"
+        },
+        {
+          "image": "images/photos/s7-pousse.jpg"
+        }
+      ],
+      "es": {
+        "titre": "las pequeñas victorias",
+        "paragraphes": [
+          "en harvard, **teresa amabile** leyó casi **12.000 diarios** de 238 trabajadores.",
+          "los días más motivados no eran los de grandes éxitos: eran los días en que **avanzaban un poco** en algo que les importaba.",
+          "busca **una victoria pequeña** antes de las diez de la mañana."
+        ]
+      },
+      "fr": {
+        "titre": "les petites victoires",
+        "paragraphes": [
+          "à harvard, **teresa amabile** a lu près de **12 000 journaux** de 238 employés.",
+          "les jours les plus motivés n'étaient pas ceux des grands succès: c'étaient ceux où ils **avançaient un peu** sur quelque chose qui comptait.",
+          "trouve **une petite victoire** avant dix heures du matin."
+        ]
+      },
+      "it": {
+        "titre": "le piccole vittorie",
+        "paragraphes": [
+          "ad harvard, **teresa amabile** ha letto quasi **12.000 diari** di 238 lavoratori.",
+          "i giorni più motivati non erano quelli dei grandi successi: erano quelli in cui **andavano avanti un po'** in qualcosa che contava.",
+          "cerca **una piccola vittoria** prima delle dieci di mattina."
+        ]
+      },
+      "pt-BR": {
+        "titre": "as pequenas vitórias",
+        "paragraphes": [
+          "em harvard, **teresa amabile** leu quase **12 mil diários** de 238 trabalhadores.",
+          "os dias mais motivados não eram os de grandes conquistas: eram os dias em que eles **avançavam um pouco** em algo que importava.",
+          "busca **uma vitória pequena** antes das dez da manhã."
+        ]
+      },
+      "de": {
+        "titre": "die kleinen siege",
+        "paragraphes": [
+          "in harvard las **teresa amabile** fast **12.000 tagebucheinträge** von 238 angestellten.",
+          "die motiviertesten tage waren nicht die großen erfolge: es waren die, an denen sie **ein stück vorankamen** bei etwas, das ihnen wichtig war.",
+          "such dir **einen kleinen sieg** vor zehn uhr morgens."
+        ]
+      },
+      "ro": {
+        "titre": "victoriile mici",
+        "paragraphes": [
+          "la harvard, **teresa amabile** a citit aproape **12.000 de jurnale** de la 238 de angajați.",
+          "zilele cu cea mai mare motivație nu erau cele cu mari succese: erau cele în care **avansau puțin** la ceva ce conta pentru ei.",
+          "caută **o victorie mică** înainte de ora zece dimineața."
+        ]
+      },
+      "hu": {
+        "titre": "a kis győzelmek",
+        "paragraphes": [
+          "a harvardon **teresa amabile** majdnem **12 000 naplóbejegyzést** olvasott el 238 dolgozótól.",
+          "a legmotiváltabb napok nem a nagy sikerek napjai voltak, hanem azok, amikor **haladtak egy kicsit** valamiben, ami fontos volt nekik.",
+          "keress **egy kis győzelmet** délelőtt tíz előtt."
+        ]
+      },
+      "es-419": {
+        "titre": "las pequeñas victorias",
+        "paragraphes": [
+          "en harvard, **teresa amabile** leyó casi **12.000 diarios** de 238 trabajadores.",
+          "los días más motivados no eran los de grandes éxitos: eran los días en que **avanzaban un poco** en algo que les importaba.",
+          "busca **una victoria pequeña** antes de las diez de la mañana."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "photos": [
+        {
+          "image": "images/banque/b-0dda41f9.jpg"
+        }
+      ],
+      "es": {
+        "titre": "empieza el día ganando",
+        "paragraphes": [
+          "si tu primera hora es scroll, el resto del día **va cuesta arriba**.",
+          "yo cambié el primer scroll del día por **una lección corta en Sophia**, de 10 minutos y con un quiz al final.",
+          "es pequeño, pero **lo termino**. y esa primera victoria arrastra las demás."
+        ]
+      },
+      "fr": {
+        "titre": "commence par gagner",
+        "paragraphes": [
+          "si ta première heure, c'est du scroll, le reste de la journée **devient une montée**.",
+          "j'ai remplacé le premier scroll de la journée par **une leçon courte sur Sophia**, de 10 minutes, avec un quiz à la fin.",
+          "c'est petit, mais **je la finis**. et cette première victoire entraîne les autres."
+        ]
+      },
+      "it": {
+        "titre": "inizia vincendo",
+        "paragraphes": [
+          "se la tua prima ora è scroll, il resto della giornata **è in salita**.",
+          "ho sostituito il primo scroll della giornata con **una lezione breve su Sophia**, di 10 minuti e con un quiz alla fine.",
+          "è piccola, ma **la finisco**. e quella prima vittoria si porta dietro le altre."
+        ]
+      },
+      "pt-BR": {
+        "titre": "começa o dia ganhando",
+        "paragraphes": [
+          "se a sua primeira hora é scroll, o resto do dia **vira ladeira acima**.",
+          "eu troquei o primeiro scroll do dia por **uma lição curta no Sophia**, de 10 minutos e com um quiz no final.",
+          "é pequeno, mas **eu termino**. e essa primeira vitória puxa as outras."
+        ]
+      },
+      "de": {
+        "titre": "starte mit einem sieg",
+        "paragraphes": [
+          "wenn deine erste stunde scrollen ist, **geht der restliche tag bergauf**.",
+          "ich habe das erste scrollen am tag gegen **eine kurze lektion in Sophia** getauscht, 10 minuten mit einem quiz am ende.",
+          "sie ist klein, aber **ich schaffe sie**. und dieser erste sieg zieht die anderen mit."
+        ]
+      },
+      "ro": {
+        "titre": "începe ziua câștigând",
+        "paragraphes": [
+          "dacă prima ta oră e scroll, restul zilei **e în urcare**.",
+          "am înlocuit primul scroll al zilei cu **o lecție scurtă în Sophia**, de 10 minute și cu un quiz la final.",
+          "e mică, dar **o termin**. și prima victorie le trage după ea pe celelalte."
+        ]
+      },
+      "hu": {
+        "titre": "kezdd győzelemmel",
+        "paragraphes": [
+          "ha az első órád görgetés, a nap többi része **emelkedő lesz**.",
+          "én a nap első görgetését **egy rövid leckére cseréltem a Sophia appban**, 10 percre, a végén egy kvízzel.",
+          "kicsi, de **befejezem**. és ez az első győzelem magával húzza a többit."
+        ]
+      },
+      "es-419": {
+        "titre": "empieza el día ganando",
+        "paragraphes": [
+          "si tu primera hora es scroll, el resto del día **va cuesta arriba**.",
+          "yo cambié el primer scroll del día por **una lección corta en Sophia**, de 10 minutos y con un quiz al final.",
+          "es pequeño, pero **lo termino**. y esa primera victoria arrastra las demás."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/banque/b-039e43f9.jpg"
+        },
+        {
+          "image": "images/photos/s7-baskets.jpg"
+        }
+      ],
+      "es": {
+        "titre": "decide el cuándo.",
+        "paragraphes": [
+          "**peter gollwitzer** reunió 94 estudios sobre un truco simple: decidir antes **cuándo y dónde** vas a hacer algo.",
+          "«si son las siete, **salgo a correr**». así cumples bastante más que con un simple «tengo que».",
+          "no esperes las ganas: **ponles hora**."
+        ]
+      },
+      "fr": {
+        "titre": "décide du quand.",
+        "paragraphes": [
+          "**peter gollwitzer** a réuni 94 études sur une astuce simple: décider à l'avance **quand et où** tu vas faire quelque chose.",
+          "«s'il est sept heures, **je vais courir**». tu tiens bien plus souvent qu'avec un simple «il faut que».",
+          "n'attends pas l'envie: **donne-lui une heure**."
+        ]
+      },
+      "it": {
+        "titre": "decidi il quando.",
+        "paragraphes": [
+          "**peter gollwitzer** ha riunito 94 studi su un trucco semplice: decidere prima **quando e dove** farai una cosa.",
+          "«se sono le sette, **vado a correre**». così mantieni molto più spesso che con un semplice «devo».",
+          "non aspettare la voglia: **dalle un orario**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "decide o quando.",
+        "paragraphes": [
+          "**peter gollwitzer** reuniu 94 estudos sobre um truque simples: decidir antes **quando e onde** você vai fazer algo.",
+          "«se for sete horas, **eu vou correr**». assim você cumpre bem mais do que com um simples «eu tenho que».",
+          "não espera a vontade: **marca um horário**."
+        ]
+      },
+      "de": {
+        "titre": "leg das wann fest.",
+        "paragraphes": [
+          "**peter gollwitzer** hat 94 studien zu einem einfachen trick gesammelt: vorher festlegen, **wann und wo** du etwas tust.",
+          "«wenn es sieben uhr ist, **gehe ich laufen**». so ziehst du es viel öfter durch als mit einem bloßen «ich muss».",
+          "warte nicht auf lust: **gib ihr eine uhrzeit**."
+        ]
+      },
+      "ro": {
+        "titre": "decide când.",
+        "paragraphes": [
+          "**peter gollwitzer** a adunat 94 de studii despre un truc simplu: să decizi dinainte **când și unde** faci ceva.",
+          "«dacă e ora șapte, **ies la alergat**». așa te ții de ce ți-ai propus mult mai des decât cu un simplu «trebuie».",
+          "nu aștepta chefu': **dă-i o oră**."
+        ]
+      },
+      "hu": {
+        "titre": "döntsd el, mikor.",
+        "paragraphes": [
+          "**peter gollwitzer** 94 tanulmányt gyűjtött össze egy egyszerű trükkről: előre eldönteni, **mikor és hol** csinálsz meg valamit.",
+          "«ha hét óra van, **elmegyek futni**». így sokkal többször tartod magad hozzá, mint egy sima «muszáj»-jal.",
+          "ne várd a kedvet: **adj neki időpontot**."
+        ]
+      },
+      "es-419": {
+        "titre": "decide el cuándo.",
+        "paragraphes": [
+          "**peter gollwitzer** reunió 94 estudios sobre un truco simple: decidir antes **cuándo y dónde** vas a hacer algo.",
+          "«si son las siete, **salgo a correr**». así cumples bastante más que con un simple «tengo que».",
+          "no esperes las ganas: **ponles hora**."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "photos": [
+        {
+          "image": "images/banque/b-01c1c847.jpg"
+        }
+      ],
+      "es": {
+        "titre": "la motivación llega después.",
+        "paragraphes": [
+          "primero haces algo pequeño. luego **vienen las ganas**.",
+          "cada victoria le enseña a tu cerebro que **vale la pena seguir**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo y **empieza mañana temprano**."
+        ]
+      },
+      "fr": {
+        "titre": "l'envie vient après.",
+        "paragraphes": [
+          "d'abord tu fais un petit truc. ensuite **l'envie arrive**.",
+          "chaque victoire apprend à ton cerveau que **ça vaut le coup de continuer**.",
+          "laquelle tu vas tester en premier? commente le numéro.",
+          "enregistre-le et **commence demain matin**."
+        ]
+      },
+      "it": {
+        "titre": "la motivazione arriva dopo.",
+        "paragraphes": [
+          "prima fai una piccola cosa. poi **arriva la voglia**.",
+          "ogni vittoria insegna al cervello che **vale la pena continuare**.",
+          "quale provi per primo? scrivi il numero nei commenti.",
+          "salvalo e **inizia domattina presto**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "a motivação vem depois.",
+        "paragraphes": [
+          "primeiro você faz algo pequeno. depois **vem a vontade**.",
+          "cada vitória ensina ao cérebro que **vale a pena continuar**.",
+          "qual você vai testar primeiro? comenta o número.",
+          "salva e **começa amanhã cedo**."
+        ]
+      },
+      "de": {
+        "titre": "motivation kommt danach.",
+        "paragraphes": [
+          "erst machst du etwas kleines. dann **kommt die lust**.",
+          "jeder sieg zeigt deinem gehirn, dass **es sich lohnt weiterzumachen**.",
+          "welchen probierst du zuerst? kommentier die nummer.",
+          "speicher es und **fang morgen früh an**."
+        ]
+      },
+      "ro": {
+        "titre": "motivația vine după.",
+        "paragraphes": [
+          "întâi faci ceva mic. apoi **vine chefu'**.",
+          "fiecare victorie îl învață pe creier că **merită să continui**.",
+          "pe care îl încerci primul? scrie numărul în comentarii.",
+          "salvează-l și **începe mâine dimineață**."
+        ]
+      },
+      "hu": {
+        "titre": "a motiváció utána jön.",
+        "paragraphes": [
+          "először csinálsz valami kicsit. aztán **jön a kedv**.",
+          "minden győzelem megtanítja az agyadnak, hogy **megéri folytatni**.",
+          "melyiket próbálod ki először? írd meg kommentben a számot.",
+          "mentsd el, és **kezdd el holnap reggel**."
+        ]
+      },
+      "es-419": {
+        "titre": "la motivación llega después.",
+        "paragraphes": [
+          "primero haces algo pequeño. luego **vienen las ganas**.",
+          "cada victoria le enseña a tu cerebro que **vale la pena seguir**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo y **empieza mañana temprano**."
+        ]
+      }
+    }
+  ]
+}

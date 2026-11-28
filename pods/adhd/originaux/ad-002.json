@@ -1,0 +1,61 @@
+{
+  "source_id": "ad-002",
+  "type_bleo": "full_test",
+  "titre": "the difference nobody posts about 🫠 #adhd #adhdtiktok #neurodivergent #adhdcheck #fyp",
+  "musique_titre": "Cry",
+  "musique_url": "https://www.tiktok.com/music/cry-6742764592344090626",
+  "inspirations": [
+    "ad31458b"
+  ],
+  "notes": "Format « Fake vs Real » (ad31458b, 293,6 k ; 823b328b, 284,4 k). Accroche neuve : « fake ADHD vs real ADHD (the version nobody posts) ». Items neufs (aucun des siens : procrastination, oubli, ménage, distraction, superpower). Aucune appli, aucun chiffre, aucun diagnostic. Accroche écartée : « what people think ADHD is vs what it is ».",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4fd3f776",
+      "texte_overlay": "fake ADHD\nvs\nreal ADHD\n(the version nobody posts)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "39a01aff",
+      "texte_overlay": "fake ADHD\n\"i'm so ADHD, i forgot my keys\"\n\nreal ADHD\nchecking for your keys 4 times\nand still turning back at the door",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "3a189506",
+      "texte_overlay": "fake ADHD\n\"i get bored easily lol\"\n\nreal ADHD\nboredom that feels physical,\nlike an itch in your brain\nyou can't reach",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "e22b891e",
+      "texte_overlay": "fake ADHD\n\"i'm just a bit messy\"\n\nreal ADHD\nknowing where everything is in the mess\nand losing it all the second\nsomeone tidies up",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "a509522e",
+      "texte_overlay": "fake ADHD\n\"i work better under pressure\"\n\nreal ADHD\nnot choosing the panic.\nit's just the only thing\nthat finally starts the engine",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "7aef594b",
+      "texte_overlay": "fake ADHD\n\"i zone out sometimes\"\n\nreal ADHD\nnodding through a whole conversation\nthen realising you missed\nthe one part that mattered",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6a8d792f",
+      "texte_overlay": "fake ADHD\n\"i'm a night owl\"\n\nreal ADHD\nyour brain finally goes quiet at 1am\nso that's when it decides\nto start everything",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/2.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "9086ed88",
+      "texte_overlay": "fake ADHD\n\"everyone's a little ADHD\"\n\nreal ADHD\ntrying twice as hard\nto look half as organised\nas everyone else",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/3.jpg"
+    }
+  ]
+}

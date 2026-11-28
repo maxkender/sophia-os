@@ -252,8 +252,86 @@ export async function statsChoixLabel(
   });
   if (error) throw new Error(`stats_choix_label : ${error.message}`);
   const stats = ((data ?? []) as Record<string, unknown>[]).map(normaliserStatLabel);
-  const ouverts = await labelsLangueOuverte(supabase, args.langue);
-  return ouverts.size === 0 ? stats : stats.map((s) => (ouverts.has(s.label_id) ? { ...s, langue_ouverte: true } : s));
+  const places = await placesPodzLangue(supabase, args.langue);
+  const contenus = await contenusValidesLabels(supabase, args.labels, args.application);
+  return stats.map((s) => ({
+    ...s,
+    ...(placeOuverte(places.get(s.label_id)) ? { langue_ouverte: true } : {}),
+    ...(places.has(s.label_id)
+      ? { palier_podz: places.get(s.label_id)!.palier, cible_langue: places.get(s.label_id)!.cible }
+      : {}),
+    ...(contenus.has(s.label_id) ? { contenus_valides: contenus.get(s.label_id) } : {}),
+  }));
+}
+
+/**
+ * Les contenus valides que l'application peut servir, par label (0867) : la
+ * règle « langue saturée » du choix de label. Ne lève jamais : sans réponse
+ * (fonction pas encore en base, panne), aucun chiffre, et la règle ne joue pas.
+ */
+export async function contenusValidesLabels(
+  supabase: Supabase,
+  labels: string[],
+  application: string,
+): Promise<Map<string, number>> {
+  if (labels.length === 0) return new Map();
+  try {
+    const { data, error } = await supabase.rpc("contenus_valides_labels", {
+      p_labels: labels,
+      p_application: application,
+    });
+    if (error) {
+      console.warn(`[choix label] contenus_valides_labels : ${error.message}`);
+      return new Map();
+    }
+    const out = new Map<string, number>();
+    for (const l of (data ?? []) as Array<{ label_id: string; contenus_valides: number | string }>) {
+      const n = Number(l.contenus_valides);
+      if (Number.isFinite(n)) out.set(String(l.label_id), n);
+    }
+    // Un label sans aucun contenu servable n'a pas de ligne : 0, pas « inconnu ».
+    for (const id of labels) if (!out.has(id)) out.set(id, 0);
+    return out;
+  } catch (e) {
+    console.warn(`[choix label] contenus_valides_labels : ${e instanceof Error ? e.message : String(e)}`);
+    return new Map();
+  }
+}
+
+/** Une place d'un podz dans une langue (0874) : son palier, et combien de comptes il peut y avoir. */
+export interface PlacePodz {
+  palier: number | null;
+  cible: number;
+}
+
+const placeOuverte = (p: PlacePodz | undefined) => p !== undefined && p.cible > 0;
+
+/**
+ * Les places des podz dans cette langue (0874, `podz_places_langue`) : les
+ * labels dont un podz actif a ouvert la langue (cible 1, ou celle de leur
+ * palier), et les labels au palier hors de leurs langues (cible 0). Sans la
+ * fonction (pas encore en base) : les langues ouvertes de 0794, cible 1, comme
+ * avant. Ne lève jamais.
+ */
+export async function placesPodzLangue(supabase: Supabase, langue: string | null): Promise<Map<string, PlacePodz>> {
+  if (!langue) return new Map();
+  try {
+    const { data, error } = await supabase.rpc("podz_places_langue", { p_langue: langue });
+    if (!error) {
+      const out = new Map<string, PlacePodz>();
+      for (const l of (data ?? []) as Array<{ label_id: string; palier: number | null; cible: number | string }>) {
+        const cible = Number(l.cible);
+        const palier = l.palier === null || l.palier === undefined ? null : Number(l.palier);
+        out.set(String(l.label_id), { palier: Number.isFinite(palier) ? palier : null, cible: Number.isFinite(cible) ? cible : 0 });
+      }
+      return out;
+    }
+    console.warn(`[choix label] podz_places_langue : ${error.message}`);
+  } catch (e) {
+    console.warn(`[choix label] podz_places_langue : ${e instanceof Error ? e.message : String(e)}`);
+  }
+  const ouverts = await labelsLangueOuverte(supabase, langue);
+  return new Map([...ouverts].map((id) => [id, { palier: null, cible: 1 }]));
 }
 
 /**

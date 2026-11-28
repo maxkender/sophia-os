@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o372",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a5957c7e-4fa1-4f44-9f97-90dec2d802a5",
+ "titre": "ce que l'ex-rh que j'étais voulait vraiment entendre à ces 5 questions #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Overcome",
+ "musique_url": "https://www.tiktok.com/music/overcome-7040203837050882050",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 28/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 4. Déclinaison G2 de la ligne #2 (parent a5957c7e, notre rh-o310) : même promesse, autres mots, autres questions. Inspirations reprises de rh-o310. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ee804502",
+   "texte_overlay": "ce que l'ex-rh que j'étais\nvoulait vraiment entendre\nà ces 5 questions",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "59fb19d8",
+   "texte_overlay": "« vous avez déjà eu un manager difficile ? »\nce que je voulais : ce que t'as appris de lui",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "21bd2bc4",
+   "texte_overlay": "« pourquoi ce secteur ? »\nce que je voulais : un déclic précis, pas « ça m'a toujours plu »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "51a15578",
+   "texte_overlay": "« vous apprenez comment ? »\nce que je voulais : une méthode. ma préférée : 5 minutes par jour, tous les jours",
+   "texte_sophia": "« vous apprenez comment ? »\nce que je voulais : une méthode. ma préférée : 5 minutes par jour sur l'appli Sophia, tous les jours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "43e0bd8d",
+   "texte_overlay": "« vous seriez prête à changer de poste en interne ? »\nce que je voulais : « oui, si j'y apprends quelque chose »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bab987dd",
+   "texte_overlay": "« qu'est-ce qui vous fait rester dans une boîte ? »\nce que je voulais : l'équipe, pas le baby-foot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "875c258c",
+   "texte_overlay": "réponds à la n°3 en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

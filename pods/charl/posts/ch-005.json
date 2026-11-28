@@ -1,0 +1,489 @@
+{
+  "id": "ch-005",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@charl.focus/photo/7710972158259858720",
+    "vues": 115900,
+    "publie_le": "2026-11-22",
+    "accroche": "cómo dejar de ser INSEGURO (según la neurociencia)"
+  },
+  "titre": {
+    "es": "cómo dejar de pensar demasiado (de verdad)",
+    "fr": "comment arrêter de trop penser (pour de vrai)",
+    "it": "come smettere di pensare troppo (davvero)",
+    "pt-BR": "como parar de pensar demais (de verdade)",
+    "de": "so hörst du auf mit dem grübeln (wirklich)",
+    "ro": "cum să nu te mai gândești prea mult (pe bune)",
+    "hu": "hogyan hagyd abba a túlgondolást (tényleg)",
+    "es-419": "cómo dejar de pensar demasiado (de verdad)"
+  },
+  "legendes": {
+    "es": "#pensardemasiado #mente #calma #habitos #productividad",
+    "fr": "#overthinking #mental #calme #habitudes #productivite",
+    "it": "#overthinking #mente #calma #abitudini #produttivita",
+    "pt-BR": "#overthinking #mente #calma #habitos #produtividade",
+    "de": "#overthinking #kopf #ruhe #gewohnheiten #produktivitaet",
+    "ro": "#overthinking #minte #liniste #obiceiuri #productivitate",
+    "hu": "#tulgondolas #elme #nyugalom #szokasok #produktivitas",
+    "es-419": "#pensardemasiado #mente #calma #habitos #productividad"
+  },
+  "musique": {
+    "titre": "Pinegrove in the Rain",
+    "url": "https://www.tiktok.com/music/pinegrove-in-the-rain-7400988693842070277"
+  },
+  "notes": "Full test (jauge du 27/11 : 2 full tests sur 5) : accroche jamais faite chez nous, sa famille (« cómo dejar de ser INSEGURO (según la neurociencia) », 115,9 k, 22/11 ; « cómo dejar de PROCRASTINAR (de verdad) », 246,7 k). Faits vérifiés : Killingsworth et Gilbert (2010, Science, Harvard) : l'esprit vagabonde 46,9 % du temps éveillé et les gens sont moins heureux quand il vagabonde ; Ramirez et Beilock (2011, Science, université de Chicago) : écrire ses inquiétudes 10 minutes avant un examen améliore la note ; Bratman et al. (2015, PNAS, Stanford) : 90 minutes de marche dans la nature, moins de rumination et moins d'activité du cortex préfrontal subgénual qu'après une marche en ville. Rien de médical (ni anxiété ni diagnostic). Slide Sophia (4) : « 3 · dale otra cosa », LOGO en haut de la colonne ; cta B. Images : 6 Seedream et 8 de la banque. 6 slides.",
+  "banque": {
+    "images/banque/b-086bb90b.jpg": "086bb90b-bdd5-47e0-b9a3-35b415e0aead",
+    "images/banque/b-499984dd.jpg": "499984dd-216f-487f-8854-23a1f71698a8",
+    "images/banque/b-06a480f4.jpg": "06a480f4-58f6-4c1c-8a10-e218981fde5f",
+    "images/banque/b-2095774b.jpg": "2095774b-8094-4c31-b918-5471b7bbc5c0",
+    "images/banque/b-43ad1aee.jpg": "43ad1aee-a07e-49b2-a080-6fa33861d0ad",
+    "images/banque/b-1c3464cc.jpg": "1c3464cc-edcc-4271-988e-f99ffea6fce2",
+    "images/banque/b-32b3e262.jpg": "32b3e262-fea6-41ef-8e37-c2268a4094ec",
+    "images/banque/b-0a60706f.jpg": "0a60706f-5038-494e-a61c-de9681098cad"
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/photos/s5-irm.jpg"
+        },
+        {
+          "image": "images/banque/b-086bb90b.jpg"
+        },
+        {
+          "image": "images/photos/s5-cerveau.jpg"
+        },
+        {
+          "image": "images/banque/b-499984dd.jpg"
+        },
+        {
+          "image": "images/photos/s5-tete.jpg"
+        },
+        {
+          "image": "images/banque/b-06a480f4.jpg"
+        }
+      ],
+      "es": {
+        "haut": "cómo dejar de pensar",
+        "mot": "DEMASIADO",
+        "note": "(de verdad)"
+      },
+      "fr": {
+        "haut": "comment arrêter de",
+        "mot": "TROP PENSER",
+        "note": "(pour de vrai)"
+      },
+      "it": {
+        "haut": "come smettere di",
+        "mot": "PENSARE TROPPO",
+        "note": "(davvero)"
+      },
+      "pt-BR": {
+        "haut": "como parar de",
+        "mot": "PENSAR DEMAIS",
+        "note": "(de verdade)"
+      },
+      "de": {
+        "haut": "so hörst du auf mit dem",
+        "mot": "GRÜBELN",
+        "note": "(wirklich)"
+      },
+      "ro": {
+        "haut": "cum să nu te mai",
+        "mot": "GÂNDEȘTI",
+        "note": "prea mult (pe bune)"
+      },
+      "hu": {
+        "haut": "hogyan hagyd abba a",
+        "mot": "TÚLGONDOLÁST",
+        "note": "(tényleg)"
+      },
+      "es-419": {
+        "haut": "cómo dejar de pensar",
+        "mot": "DEMASIADO",
+        "note": "(de verdad)"
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/banque/b-2095774b.jpg"
+        },
+        {
+          "image": "images/photos/s5-carnet.jpg"
+        }
+      ],
+      "es": {
+        "titre": "tu mente se va.",
+        "paragraphes": [
+          "te tumbas para dormir y tu cabeza repasa **lo que dijiste hace tres años**. o lo que podría salir mal mañana.",
+          "en harvard preguntaron a miles de personas qué pensaban en cada momento: **casi la mitad del tiempo**, su mente estaba en otra parte. y eran **menos felices**.",
+          "no estás roto. **tu mente vuelve sola a dar vueltas**."
+        ]
+      },
+      "fr": {
+        "titre": "ton esprit s'en va.",
+        "paragraphes": [
+          "tu te couches pour dormir et ta tête repasse **ce que tu as dit il y a trois ans**. ou ce qui pourrait mal tourner demain.",
+          "à harvard, on a demandé à des milliers de personnes à quoi elles pensaient à chaque instant: **presque la moitié du temps**, leur esprit était ailleurs. et elles étaient **moins heureuses**.",
+          "tu n'es pas cassé. **ton esprit repart tout seul en boucle**."
+        ]
+      },
+      "it": {
+        "titre": "la mente vola via.",
+        "paragraphes": [
+          "ti metti a letto e la testa ripassa **quello che hai detto tre anni fa**. o cosa potrebbe andare storto domani.",
+          "ad harvard hanno chiesto a migliaia di persone a cosa pensassero in ogni momento: **quasi metà del tempo** la mente era altrove. ed erano **meno felici**.",
+          "non sei rotto. **la mente torna da sola a girare in tondo**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "sua mente viaja.",
+        "paragraphes": [
+          "você deita pra dormir e a cabeça repassa **o que você disse há três anos**. ou o que pode dar errado amanhã.",
+          "em harvard, perguntaram a milhares de pessoas no que estavam pensando a cada momento: **quase metade do tempo** a mente estava em outro lugar. e elas estavam **menos felizes**.",
+          "você não está quebrado. **a mente volta sozinha a dar voltas**."
+        ]
+      },
+      "de": {
+        "titre": "dein kopf schweift ab.",
+        "paragraphes": [
+          "du legst dich schlafen und dein kopf spielt **ab, was du vor drei jahren gesagt hast**. oder was morgen schiefgehen könnte.",
+          "in harvard fragte man tausende menschen, woran sie gerade denken: **fast die hälfte der zeit** war ihr kopf woanders. und sie waren **weniger glücklich**.",
+          "du bist nicht kaputt. **dein kopf dreht sich einfach von selbst im kreis**."
+        ]
+      },
+      "ro": {
+        "titre": "mintea ta pleacă.",
+        "paragraphes": [
+          "te pui în pat și mintea repetă **ce ai spus acum trei ani**. sau ce ar putea merge prost mâine.",
+          "la harvard au întrebat mii de oameni la ce se gândeau în fiecare moment: **aproape jumătate din timp** mintea lor era în altă parte. și erau **mai puțin fericiți**.",
+          "nu ești stricat. **mintea se întoarce singură să se învârtă**."
+        ]
+      },
+      "hu": {
+        "titre": "elkalandozik az elméd.",
+        "paragraphes": [
+          "lefekszel aludni, és a fejed újrajátssza, **amit három éve mondtál**. vagy hogy mi mehet félre holnap.",
+          "a harvardon emberek ezreitől kérdezték meg, mire gondolnak épp: **az idő majdnem felében** máshol jártak a gondolataik. és **kevésbé voltak boldogok**.",
+          "nem vagy elromolva. **az elméd magától visszatér a körözéshez**."
+        ]
+      },
+      "es-419": {
+        "titre": "tu mente se va.",
+        "paragraphes": [
+          "te tumbas para dormir y tu cabeza repasa **lo que dijiste hace tres años**. o lo que podría salir mal mañana.",
+          "en harvard preguntaron a miles de personas qué pensaban en cada momento: **casi la mitad del tiempo**, su mente estaba en otra parte. y eran **menos felices**.",
+          "no estás roto. **tu mente vuelve sola a dar vueltas**."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/b-43ad1aee.jpg"
+        },
+        {
+          "image": "images/photos/s5-papier.jpg"
+        }
+      ],
+      "es": {
+        "titre": "sácalo de la cabeza",
+        "paragraphes": [
+          "unos estudiantes de la universidad de chicago escribieron **10 minutos** lo que les preocupaba justo antes de un examen.",
+          "sacaron **mejor nota** que los que se quedaron callados.",
+          "cuando una idea no te deja, **escríbela en papel**. ya no tienes que sostenerla tú."
+        ]
+      },
+      "fr": {
+        "titre": "sors-le de ta tête",
+        "paragraphes": [
+          "des étudiants de l'université de chicago ont écrit pendant **10 minutes** ce qui les inquiétait juste avant un examen.",
+          "ils ont eu **une meilleure note** que ceux qui n'avaient rien écrit.",
+          "quand une idée ne te lâche pas, **écris-la sur papier**. tu n'as plus à la porter."
+        ]
+      },
+      "it": {
+        "titre": "tiralo fuori",
+        "paragraphes": [
+          "alcuni studenti dell'università di chicago hanno scritto per **10 minuti** cosa li preoccupava, subito prima di un esame.",
+          "hanno preso **un voto migliore** di chi non aveva scritto niente.",
+          "quando un pensiero non ti molla, **scrivilo su carta**. non devi più tenerlo tu."
+        ]
+      },
+      "pt-BR": {
+        "titre": "tira da cabeça",
+        "paragraphes": [
+          "alunos da universidade de chicago escreveram por **10 minutos** o que os preocupava logo antes de uma prova.",
+          "tiraram **nota melhor** do que quem não escreveu nada.",
+          "quando uma ideia não te larga, **escreve no papel**. você não precisa mais segurar ela."
+        ]
+      },
+      "de": {
+        "titre": "raus aus dem kopf",
+        "paragraphes": [
+          "studierende der university of chicago schrieben **10 minuten** lang auf, was sie beunruhigte, kurz vor einer prüfung.",
+          "sie bekamen **bessere noten** als die, die nichts aufschrieben.",
+          "wenn dich ein gedanke nicht loslässt, **schreib ihn auf papier**. dann musst du ihn nicht mehr tragen."
+        ]
+      },
+      "ro": {
+        "titre": "scoate-l din cap",
+        "paragraphes": [
+          "niște studenți de la universitatea din chicago au scris **10 minute** ce îi îngrijora, chiar înainte de un examen.",
+          "au luat **o notă mai bună** decât cei care n-au scris nimic.",
+          "când un gând nu te lasă, **scrie-l pe hârtie**. nu mai trebuie să-l ții tu."
+        ]
+      },
+      "hu": {
+        "titre": "írd ki a fejedből",
+        "paragraphes": [
+          "a chicagói egyetem diákjai **10 percig** leírták, mi aggasztja őket, közvetlenül egy vizsga előtt.",
+          "**jobb jegyet** kaptak, mint akik nem írtak semmit.",
+          "ha egy gondolat nem hagy nyugodni, **írd le papírra**. akkor már nem neked kell cipelned."
+        ]
+      },
+      "es-419": {
+        "titre": "sácalo de la cabeza",
+        "paragraphes": [
+          "unos estudiantes de la universidad de chicago escribieron **10 minutos** lo que les preocupaba justo antes de un examen.",
+          "sacaron **mejor nota** que los que se quedaron callados.",
+          "cuando una idea no te deja, **escríbela en papel**. ya no tienes que sostenerla tú."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "photos": [
+        {
+          "image": "images/banque/b-1c3464cc.jpg"
+        }
+      ],
+      "es": {
+        "titre": "dale otra cosa",
+        "paragraphes": [
+          "una mente sin nada que hacer **se inventa problemas**. dale algo mejor que masticar.",
+          "por la noche, en vez de abrir tiktok, hago **la lección del día en Sophia**: un tema de historia, filosofía o ciencia.",
+          "**10 minutos y un quiz**. me voy a dormir pensando en otra cosa."
+        ]
+      },
+      "fr": {
+        "titre": "donne-lui autre chose",
+        "paragraphes": [
+          "un esprit qui n'a rien à faire **s'invente des problèmes**. donne-lui mieux à mâcher.",
+          "le soir, au lieu d'ouvrir tiktok, je fais **la leçon du jour sur Sophia**: un sujet d'histoire, de philosophie ou de sciences.",
+          "**10 minutes et un quiz**. je m'endors en pensant à autre chose."
+        ]
+      },
+      "it": {
+        "titre": "dalle altro a cui pensare",
+        "paragraphes": [
+          "una mente senza niente da fare **si inventa problemi**. dalle qualcosa di meglio da masticare.",
+          "la sera, invece di aprire tiktok, faccio **la lezione del giorno su Sophia**: un tema di storia, filosofia o scienza.",
+          "**10 minuti e un quiz**. vado a dormire pensando ad altro."
+        ]
+      },
+      "pt-BR": {
+        "titre": "dá outra coisa",
+        "paragraphes": [
+          "uma mente sem nada pra fazer **inventa problemas**. dá algo melhor pra ela mastigar.",
+          "à noite, em vez de abrir o tiktok, faço **a lição do dia no Sophia**: um tema de história, filosofia ou ciência.",
+          "**10 minutos e um quiz**. vou dormir pensando em outra coisa."
+        ]
+      },
+      "de": {
+        "titre": "gib ihm was anderes",
+        "paragraphes": [
+          "ein kopf ohne aufgabe **erfindet sich probleme**. gib ihm etwas besseres zum kauen.",
+          "abends mache ich statt tiktok **die lektion des tages in Sophia**: ein thema aus geschichte, philosophie oder wissenschaft.",
+          "**10 minuten und ein quiz**. ich schlafe ein und denke an etwas anderes."
+        ]
+      },
+      "ro": {
+        "titre": "dă-i altceva",
+        "paragraphes": [
+          "o minte fără nimic de făcut **își inventează probleme**. dă-i ceva mai bun de rumegat.",
+          "seara, în loc să deschid tiktok, fac **lecția zilei în Sophia**: o temă de istorie, filozofie sau știință.",
+          "**10 minute și un quiz**. adorm gândindu-mă la altceva."
+        ]
+      },
+      "hu": {
+        "titre": "adj neki mást",
+        "paragraphes": [
+          "egy elme, aminek nincs dolga, **problémákat talál ki magának**. adj neki valami jobbat, amin rágódhat.",
+          "este a tiktok helyett **megcsinálom a napi leckét a Sophia appban**: egy témát történelemből, filozófiából vagy tudományból.",
+          "**10 perc és egy kvíz**. úgy alszom el, hogy másra gondolok."
+        ]
+      },
+      "es-419": {
+        "titre": "dale otra cosa",
+        "paragraphes": [
+          "una mente sin nada que hacer **se inventa problemas**. dale algo mejor que masticar.",
+          "por la noche, en vez de abrir tiktok, hago **la lección del día en Sophia**: un tema de historia, filosofía o ciencia.",
+          "**10 minutos y un quiz**. me voy a dormir pensando en otra cosa."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/banque/b-32b3e262.jpg"
+        },
+        {
+          "image": "images/photos/s5-sentier.jpg"
+        }
+      ],
+      "es": {
+        "titre": "sal a caminar.",
+        "paragraphes": [
+          "en stanford, unas personas caminaron **90 minutos**: unas por la naturaleza, otras por la ciudad.",
+          "las del parque **daban menos vueltas a las cosas**, y una zona de su cerebro ligada a eso **se calmaba**.",
+          "cuando no puedas parar de pensar, **sal sin el móvil**."
+        ]
+      },
+      "fr": {
+        "titre": "va marcher.",
+        "paragraphes": [
+          "à stanford, des gens ont marché **90 minutes**: les uns dans la nature, les autres en ville.",
+          "ceux du parc **ruminaient moins**, et une zone de leur cerveau liée à ça **se calmait**.",
+          "quand tu n'arrives pas à arrêter de penser, **sors sans ton téléphone**."
+        ]
+      },
+      "it": {
+        "titre": "vai a camminare.",
+        "paragraphes": [
+          "a stanford, alcune persone hanno camminato per **90 minuti**: alcune nella natura, altre in città.",
+          "quelle del parco **rimuginavano meno**, e una zona del cervello legata a questo **si calmava**.",
+          "quando non riesci a smettere di pensare, **esci senza telefono**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "vai caminhar.",
+        "paragraphes": [
+          "em stanford, pessoas caminharam **90 minutos**: umas na natureza, outras na cidade.",
+          "as do parque **ruminavam menos**, e uma área do cérebro ligada a isso **se acalmava**.",
+          "quando não conseguir parar de pensar, **sai sem o celular**."
+        ]
+      },
+      "de": {
+        "titre": "geh spazieren.",
+        "paragraphes": [
+          "in stanford gingen menschen **90 minuten** spazieren: die einen in der natur, die anderen in der stadt.",
+          "die im park **grübelten weniger**, und ein bereich ihres gehirns, der damit zu tun hat, **wurde ruhiger**.",
+          "wenn du nicht aufhören kannst zu denken, **geh raus ohne handy**."
+        ]
+      },
+      "ro": {
+        "titre": "ieși la plimbare.",
+        "paragraphes": [
+          "la stanford, niște oameni au mers pe jos **90 de minute**: unii prin natură, alții prin oraș.",
+          "cei din parc **rumegau mai puțin**, iar o zonă a creierului legată de asta **se liniștea**.",
+          "când nu te poți opri din gândit, **ieși fără telefon**."
+        ]
+      },
+      "hu": {
+        "titre": "menj sétálni.",
+        "paragraphes": [
+          "a stanfordon emberek **90 percet** sétáltak: egyesek a természetben, mások a városban.",
+          "a parkban sétálók **kevésbé rágódtak**, és az agyuk egy ehhez kötődő területe **megnyugodott**.",
+          "ha nem tudod abbahagyni a gondolkodást, **menj ki telefon nélkül**."
+        ]
+      },
+      "es-419": {
+        "titre": "sal a caminar.",
+        "paragraphes": [
+          "en stanford, unas personas caminaron **90 minutos**: unas por la naturaleza, otras por la ciudad.",
+          "las del parque **daban menos vueltas a las cosas**, y una zona de su cerebro ligada a eso **se calmaba**.",
+          "cuando no puedas parar de pensar, **sal sin el celular**."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "photos": [
+        {
+          "image": "images/banque/b-0a60706f.jpg"
+        }
+      ],
+      "es": {
+        "titre": "no tienes que pensarlo todo.",
+        "paragraphes": [
+          "la mayoría de las vueltas **no llevan a ninguna parte**.",
+          "escribe, camina y dale a tu mente **algo mejor que hacer**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo para la próxima noche que **no puedas dormir**."
+        ]
+      },
+      "fr": {
+        "titre": "pas besoin de tout penser.",
+        "paragraphes": [
+          "la plupart des boucles **ne mènent nulle part**.",
+          "écris, marche et donne à ton esprit **mieux à faire**.",
+          "laquelle tu vas tester en premier? commente le numéro.",
+          "enregistre-le pour le prochain soir où **tu n'arrives pas à dormir**."
+        ]
+      },
+      "it": {
+        "titre": "non devi pensare a tutto.",
+        "paragraphes": [
+          "la maggior parte dei giri **non porta da nessuna parte**.",
+          "scrivi, cammina e dai alla mente **qualcosa di meglio da fare**.",
+          "quale provi per primo? scrivi il numero nei commenti.",
+          "salvalo per la prossima notte in cui **non riesci a dormire**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "não precisa pensar em tudo.",
+        "paragraphes": [
+          "a maioria das voltas **não leva a lugar nenhum**.",
+          "escreve, caminha e dá pra mente **algo melhor pra fazer**.",
+          "qual você vai testar primeiro? comenta o número.",
+          "salva pra próxima noite que **você não conseguir dormir**."
+        ]
+      },
+      "de": {
+        "titre": "du musst nicht alles denken.",
+        "paragraphes": [
+          "die meisten gedankenschleifen **führen nirgendwohin**.",
+          "schreib, geh raus und gib deinem kopf **etwas besseres zu tun**.",
+          "welchen probierst du zuerst? kommentier die nummer.",
+          "speicher es für die nächste nacht, in der **du nicht schlafen kannst**."
+        ]
+      },
+      "ro": {
+        "titre": "nu trebuie să gândești tot.",
+        "paragraphes": [
+          "cele mai multe învârteli **nu duc nicăieri**.",
+          "scrie, plimbă-te și dă-i minții **ceva mai bun de făcut**.",
+          "pe care îl încerci primul? scrie numărul în comentarii.",
+          "salvează-l pentru următoarea noapte în care **nu poți dormi**."
+        ]
+      },
+      "hu": {
+        "titre": "engedd el a köröket.",
+        "paragraphes": [
+          "a legtöbb körözés **nem vezet sehova**.",
+          "írj, sétálj, és adj az elmédnek **valami jobb dolgot**.",
+          "melyiket próbálod ki először? írd meg kommentben a számot.",
+          "mentsd el a következő éjszakára, amikor **nem tudsz aludni**."
+        ]
+      },
+      "es-419": {
+        "titre": "no tienes que pensarlo todo.",
+        "paragraphes": [
+          "la mayoría de las vueltas **no llevan a ninguna parte**.",
+          "escribe, camina y dale a tu mente **algo mejor que hacer**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo para la próxima noche que **no puedas dormir**."
+        ]
+      }
+    }
+  ]
+}

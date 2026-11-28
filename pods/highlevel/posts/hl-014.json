@@ -1,0 +1,479 @@
+{
+  "id": "hl-014",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7686199268775939350",
+    "vues": 1400000,
+    "publie_le": "2026-09-16",
+    "accroche": "HOW TO GIVE A GIRL BUTTERFLIES."
+  },
+  "musique": {
+    "titre": "Les (Instrumental Slowed)",
+    "url": "https://www.tiktok.com/music/Les-Instrumental-Slowed-7601037808778708993"
+  },
+  "notes": "Preuve de format : « HOW TO GIVE A GIRL BUTTERFLIES. » (1,4 M), famille « HOW TO … », conseils titrés. Accroche neuve « HOW TO FLIRT WITHOUT BEING CREEPY. » : respect, lire les signaux, partir quand elle n'est pas intéressée. Carte Artura (5) : « Talk about art, not about her. », Vermeer, Young Woman with a Lute (The Met 437880), LOGO d'Artura ; cta C (tableau en hauteur). Pas de fait affirmé : une question ouverte sur ce qu'elle regarde par la fenêtre. Full test (accroche jamais faite chez nous), routine du 27/11. En en, el, es-419, it, hu, sr (latin), pt-BR, es.",
+  "oeuvres": {
+    "images/oeuvres/vermeer-luth.jpg": {
+      "musee": "The Met",
+      "id": "437880",
+      "titre": "Young Woman with a Lute",
+      "artiste": "Johannes Vermeer",
+      "date": "ca. 1662–63",
+      "url": "https://www.metmuseum.org/art/collection/search/437880"
+    }
+  },
+  "titre": {
+    "en": "How to flirt without being creepy.",
+    "el": "Πώς να φλερτάρεις χωρίς να γίνεσαι ενοχλητικός.",
+    "es-419": "Cómo coquetear sin incomodar.",
+    "it": "Come flirtare senza essere invadente.",
+    "hu": "Hogyan flörtölj anélkül, hogy kellemetlen lennél.",
+    "sr": "Kako da flertuješ a da ne budeš napadan.",
+    "pt-BR": "Como paquerar sem ser inconveniente.",
+    "es": "Cómo coquetear sin incomodar."
+  },
+  "legendes": {
+    "en": "#flirtingtips #datingadvice #tipsformen ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "sr": "#savetizamuškarce #veze #zavođenje ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "en": {
+        "titre": "HOW TO FLIRT\nWITHOUT BEING\nCREEPY."
+      },
+      "el": {
+        "titre": "ΠΩΣ ΝΑ\nΦΛΕΡΤΑΡΕΙΣ ΧΩΡΙΣ\nΝΑ ΓΙΝΕΣΑΙ\nΕΝΟΧΛΗΤΙΚΟΣ."
+      },
+      "es-419": {
+        "titre": "CÓMO COQUETEAR\nSIN INCOMODAR."
+      },
+      "it": {
+        "titre": "COME FLIRTARE\nSENZA ESSERE\nINVADENTE."
+      },
+      "hu": {
+        "titre": "HOGYAN FLÖRTÖLJ\nANÉLKÜL, HOGY\nKELLEMETLEN\nLENNÉL."
+      },
+      "sr": {
+        "titre": "KAKO DA\nFLERTUJEŠ\nA DA NE BUDEŠ\nNAPADAN."
+      },
+      "pt-BR": {
+        "titre": "COMO PAQUERAR\nSEM SER\nINCONVENIENTE."
+      },
+      "es": {
+        "titre": "CÓMO COQUETEAR\nSIN INCOMODAR."
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Compliment choices, not bodies.",
+        "paragraphes": [
+          "“You have great taste in music”\nbeats any comment on her looks."
+        ]
+      },
+      "el": {
+        "titre": "Επαίνεσε επιλογές, όχι σώματα.",
+        "paragraphes": [
+          "Το «Έχεις τέλειο γούστο στη μουσική» νικάει κάθε σχόλιο για την εμφάνισή της."
+        ]
+      },
+      "es-419": {
+        "titre": "Elogia elecciones, no cuerpos.",
+        "paragraphes": [
+          "“Tienes muy buen gusto musical” gana a cualquier comentario sobre su físico."
+        ]
+      },
+      "it": {
+        "titre": "Complimenti alle scelte, non al corpo.",
+        "paragraphes": [
+          "“Hai un gusto musicale fantastico” batte qualsiasi commento sul suo aspetto."
+        ]
+      },
+      "hu": {
+        "titre": "Dicsérd a döntéseit, ne a testét.",
+        "paragraphes": [
+          "A „Nagyon jó a zenei ízlésed” minden külsőre tett megjegyzést lever."
+        ]
+      },
+      "sr": {
+        "titre": "Hvali izbore, ne telo.",
+        "paragraphes": [
+          "„Imaš odličan ukus za muziku” pobeđuje svaki komentar o izgledu."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Elogie escolhas, não o corpo.",
+        "paragraphes": [
+          "“Você tem um ótimo gosto musical” vale mais que qualquer comentário sobre a aparência."
+        ]
+      },
+      "es": {
+        "titre": "Elogia elecciones, no cuerpos.",
+        "paragraphes": [
+          "“Tienes muy buen gusto musical” gana a cualquier comentario sobre su físico."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Read the room.",
+        "paragraphes": [
+          "Short answers, phone out,\nbody turned away:\nshe's not interested.",
+          "Smile, say goodbye, move on."
+        ]
+      },
+      "el": {
+        "titre": "Διάβασε την ατμόσφαιρα.",
+        "paragraphes": [
+          "Σύντομες απαντήσεις, κινητό στο χέρι, σώμα γυρισμένο: δεν ενδιαφέρεται.",
+          "Χαμογέλα, χαιρέτα, προχώρα."
+        ]
+      },
+      "es-419": {
+        "titre": "Lee la situación.",
+        "paragraphes": [
+          "Respuestas cortas, celular en la mano, cuerpo girado: no le interesa.",
+          "Sonríe, despídete, sigue adelante."
+        ]
+      },
+      "it": {
+        "titre": "Leggi la situazione.",
+        "paragraphes": [
+          "Risposte brevi, telefono in mano, corpo girato: non è interessata.",
+          "Sorridi, saluta, vai avanti."
+        ]
+      },
+      "hu": {
+        "titre": "Olvass a helyzetből.",
+        "paragraphes": [
+          "Rövid válaszok, telefon a kézben, elfordult test: nem érdekli.",
+          "Mosolyogj, köszönj el, lépj tovább."
+        ]
+      },
+      "sr": {
+        "titre": "Pročitaj situaciju.",
+        "paragraphes": [
+          "Kratki odgovori, telefon u ruci, okrenuta na drugu stranu: nije zainteresovana.",
+          "Nasmeši se, pozdravi se, idi dalje."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Leia o clima.",
+        "paragraphes": [
+          "Respostas curtas, celular na mão, corpo virado: ela não está interessada.",
+          "Sorria, se despeça, siga em frente."
+        ]
+      },
+      "es": {
+        "titre": "Lee la situación.",
+        "paragraphes": [
+          "Respuestas cortas, móvil en la mano, cuerpo girado: no le interesa.",
+          "Sonríe, despídete, sigue adelante."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Keep it light.",
+        "paragraphes": [
+          "Flirting is a game, not a pitch.",
+          "If it feels heavy, you're pushing."
+        ]
+      },
+      "el": {
+        "titre": "Κράτα το ελαφρύ.",
+        "paragraphes": [
+          "Το φλερτ είναι παιχνίδι, όχι πώληση.",
+          "Αν μοιάζει βαρύ, πιέζεις."
+        ]
+      },
+      "es-419": {
+        "titre": "Mantenlo ligero.",
+        "paragraphes": [
+          "Coquetear es un juego, no una venta.",
+          "Si se siente pesado, estás presionando."
+        ]
+      },
+      "it": {
+        "titre": "Mantienilo leggero.",
+        "paragraphes": [
+          "Flirtare è un gioco, non una vendita.",
+          "Se diventa pesante, stai insistendo."
+        ]
+      },
+      "hu": {
+        "titre": "Maradj könnyed.",
+        "paragraphes": [
+          "A flört játék, nem értékesítés.",
+          "Ha nehéznek érzed, erőlteted."
+        ]
+      },
+      "sr": {
+        "titre": "Neka bude lagano.",
+        "paragraphes": [
+          "Flert je igra, ne prodaja.",
+          "Ako postane teško, previše guraš."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Mantenha leve.",
+        "paragraphes": [
+          "Paquera é um jogo, não uma venda.",
+          "Se ficou pesado, você está forçando."
+        ]
+      },
+      "es": {
+        "titre": "Mantenlo ligero.",
+        "paragraphes": [
+          "Coquetear es un juego, no una venta.",
+          "Si se siente pesado, estás presionando."
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/vermeer-luth.jpg",
+      "en": {
+        "titre": "Talk about art, not about her.",
+        "avant": [
+          "Vermeer's lute player looks out the window. Ask her: “Who is she waiting for?”"
+        ],
+        "apres": [
+          "I didn't know anything about art.\nArtura fixed that, one painting a day."
+        ]
+      },
+      "el": {
+        "titre": "Μίλα για τέχνη, όχι για εκείνη.",
+        "avant": [
+          "Η κοπέλα με το λαούτο του Βερμέερ κοιτάζει από το παράθυρο. Ρώτα: «Ποιον περιμένει;»"
+        ],
+        "apres": [
+          "Δεν ήξερα τίποτα για την τέχνη. Το Artura το έφτιαξε αυτό, έναν πίνακα τη μέρα."
+        ]
+      },
+      "es-419": {
+        "titre": "Habla de arte, no de ella.",
+        "avant": [
+          "La joven del laúd de Vermeer mira por la ventana. Pregúntale: “¿A quién espera?”"
+        ],
+        "apres": [
+          "No sabía nada de arte. Artura lo arregló, un cuadro al día."
+        ]
+      },
+      "it": {
+        "titre": "Parla d'arte, non di lei.",
+        "avant": [
+          "La ragazza col liuto di Vermeer guarda fuori dalla finestra. Chiedile: “Chi aspetta?”"
+        ],
+        "apres": [
+          "Non sapevo niente di arte. Artura ha sistemato tutto, un quadro al giorno."
+        ]
+      },
+      "hu": {
+        "titre": "Művészetről beszélj, ne róla.",
+        "avant": [
+          "Vermeer lantos lánya kinéz az ablakon. Kérdezd meg: „Kire vár?”"
+        ],
+        "apres": [
+          "Semmit sem tudtam a művészetről. Az Artura ezt megoldotta, napi egy festménnyel."
+        ]
+      },
+      "sr": {
+        "titre": "Pričaj o umetnosti, ne o njoj.",
+        "avant": [
+          "Vermerova devojka sa lautom gleda kroz prozor. Pitaj je: „Koga čeka?”"
+        ],
+        "apres": [
+          "Nisam znao ništa o umetnosti. Artura je to rešila, jedna slika dnevno."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Fale de arte, não dela.",
+        "avant": [
+          "A moça com o alaúde de Vermeer olha pela janela. Pergunte: “Quem ela espera?”"
+        ],
+        "apres": [
+          "Eu não sabia nada de arte. O Artura resolveu isso, um quadro por dia."
+        ]
+      },
+      "es": {
+        "titre": "Habla de arte, no de ella.",
+        "avant": [
+          "La joven del laúd de Vermeer mira por la ventana. Pregúntale: “¿A quién espera?”"
+        ],
+        "apres": [
+          "No sabía nada de arte. Artura lo arregló, un cuadro al día."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Let her lean in.",
+        "paragraphes": [
+          "Don't close the distance.\nMake her want to.",
+          "Interest grows when there's space."
+        ]
+      },
+      "el": {
+        "titre": "Άφησέ τη να πλησιάσει.",
+        "paragraphes": [
+          "Μην κλείνεις εσύ την απόσταση. Κάνε τη να το θέλει.",
+          "Το ενδιαφέρον μεγαλώνει όταν υπάρχει χώρος."
+        ]
+      },
+      "es-419": {
+        "titre": "Deja que ella se acerque.",
+        "paragraphes": [
+          "No acortes tú la distancia. Haz que ella quiera.",
+          "El interés crece cuando hay espacio."
+        ]
+      },
+      "it": {
+        "titre": "Lascia che si avvicini lei.",
+        "paragraphes": [
+          "Non accorciare tu le distanze. Fai in modo che lo voglia lei.",
+          "L'interesse cresce quando c'è spazio."
+        ]
+      },
+      "hu": {
+        "titre": "Hagyd, hogy ő közeledjen.",
+        "paragraphes": [
+          "Ne te csökkentsd a távolságot. Érd el, hogy ő akarja.",
+          "Az érdeklődés ott nő, ahol tér van."
+        ]
+      },
+      "sr": {
+        "titre": "Pusti da se ona približi.",
+        "paragraphes": [
+          "Ne smanjuj ti razdaljinu. Neka ona poželi.",
+          "Interesovanje raste kad ima prostora."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Deixe ela se aproximar.",
+        "paragraphes": [
+          "Não encurte você a distância. Faça ela querer.",
+          "O interesse cresce quando há espaço."
+        ]
+      },
+      "es": {
+        "titre": "Deja que ella se acerque.",
+        "paragraphes": [
+          "No acortes tú la distancia. Haz que ella quiera.",
+          "El interés crece cuando hay espacio."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "Flirting is making her feel good,\nnot making her feel watched.",
+          "**A boy pushes.**\n**A man invites.**"
+        ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Φλερτ είναι να την κάνεις να νιώθει ωραία, όχι να νιώθει ότι την παρακολουθούν.",
+          "**Το αγόρι πιέζει.**\n**Ο άντρας προσκαλεί.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Coquetear es hacerla sentir bien, no observada.",
+          "**Un niño presiona.**\n**Un hombre invita.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "Flirtare è farla sentire bene, non osservata.",
+          "**Un ragazzino insiste.**\n**Un uomo invita.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "A flört az, hogy jól érezze magát, nem az, hogy figyelve érezze magát.",
+          "**A kisfiú erőltet.**\n**A férfi hív.**"
+        ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Flert je da se oseća lepo, a ne posmatrano.",
+          "**Dečak navaljuje.**\n**Muškarac poziva.**"
+        ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Paquerar é fazer ela se sentir bem, não observada.",
+          "**O garoto força.**\n**O homem convida.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Coquetear es hacerla sentir bien, no observada.",
+          "**Un niño presiona.**\n**Un hombre invita.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      }
+    }
+  ]
+}

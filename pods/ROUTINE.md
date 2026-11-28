@@ -11,7 +11,7 @@ Les mots (label, podz, modèle, source, format) sont définis dans
 Ce fichier vaut pour tous les podz. Ton `AGENT.md` dit **quoi** livrer et
 **comment** ; ce fichier dit **quand** et **combien**. Il a deux parties :
 
-- **Voie 1**, les podz d'originaux (2, 4, 5, 7, 8, 9, 12 et 14) : ils déclinent
+- **Voie 1**, les podz d'originaux (2, 4, 5, 7, 8, 9, 12, 14, 35 et 36) : ils déclinent
   les familles gagnantes de leur boîte BLEO et ajoutent des full tests (§4).
 - **Voie 2**, les podz de remakes (1, 10, 11 et 13 ; le 6 est arrêté) : ils
   refont les posts neufs de leur compte modèle, déclinent les familles
@@ -326,6 +326,20 @@ toute seule quand ses langues sont validées.
   que si Adrien ou Max l'ont demandé.
 - Retirer une langue de `LANGUES` ne la ferme pas. Fermer une langue, c'est
   Adrien ou Max (page Podz, fiche du podz, bloc Langues).
+- **Les paliers (0874, depuis le 27/11)** : un label 100 % podz lancé depuis
+  le 27/11 (ou basculé par Adrien ou Max, page Allocation) monte par paliers :
+  **palier 1** = 7 langues × 1 compte, **palier 2** = 14 langues × 1 compte,
+  **palier 3** = 14 langues × 2 comptes. Une semaine à r > 0,9 (médiane des r
+  de tes passages mûrs, 14 au moins, 7 jours au palier) fait monter ; sous
+  0,9, ton label reste à son palier. Les langues du palier **s'ouvrent toutes
+  seules** (les plus recrutées d'abord) : elles arrivent dans « Langues à
+  PRÉPARER » de `npm run boite`. Prépare-les et livre-les **le jour même**,
+  comme ci-dessus : chaque langue ouverte reçoit un compte de ton label dès
+  la création suivante. Une langue que tu ne sais vraiment pas mettre en
+  page : dis-le dans ton compte rendu (Adrien décide de la fermer).
+  Un nouveau podz en images finies a ses 7 langues de palier 1 ouvertes dès
+  sa création (0875) : le pilote et les premiers posts partent dans les 7
+  (`pods/LANCEMENT.md`).
 
 ### 5.7 Le reste
 

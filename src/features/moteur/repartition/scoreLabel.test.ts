@@ -8,6 +8,7 @@ import {
   classerLabels,
   classerPropose,
   estFerme,
+  estSatureLangue,
   facteurPerformance,
   joursApresCompte,
   lireReglagesChoixLabel,
@@ -70,6 +71,7 @@ describe("copie Deno", () => {
     ["estSuspendu", "export function estSuspendu("],
     ["estASec", "export function estASec("],
     ["estSaturePays", "export function estSaturePays("],
+    ["estSatureLangue", "export function estSatureLangue("],
     ["enTestPod", "export function enTestPod("],
     ["testPodPlein", "export function testPodPlein("],
     ["poidsLabel", "export function poidsLabel("],
@@ -280,6 +282,45 @@ describe("règle proposée", () => {
       opts,
     )[0].score;
     expect(apres).toBeLessThan(avant / 2);
+  });
+});
+
+describe("langue saturée (0867)", () => {
+  const r = REGLAGES_CHOIX_LABEL_DEFAUT;
+  const opts = { applicationId: APP };
+
+  it("244 contenus, 8 comptes dans la langue : un 9e passerait sous 30 contenus par compte", () => {
+    expect(estSatureLangue(stat({ label_id: "psycho", contenus_valides: 244, comptes_langue: 7 }), r)).toBe(false);
+    expect(estSatureLangue(stat({ label_id: "psycho", contenus_valides: 244, comptes_langue: 8 }), r)).toBe(true);
+  });
+
+  it("sans chiffre de contenus, la règle ne joue pas", () => {
+    expect(estSatureLangue(stat({ label_id: "l", comptes_langue: 50 }), r)).toBe(false);
+  });
+
+  it("un label 100 % pod n'est jamais jugé saturé (son stock suit ses comptes)", () => {
+    expect(estSatureLangue(stat({ label_id: "p", pod_seul: true, contenus_valides: 5, comptes_langue: 3 }), r)).toBe(false);
+  });
+
+  it("un label saturé dans la langue passe derrière un label moins bon mais pas saturé", () => {
+    const stats = [
+      stat({ label_id: "psycho", perf_label: 4, contenus_valides: 244, comptes_langue: 9 }),
+      stat({ label_id: "alpha", perf_label: 1, contenus_valides: 1765, comptes_langue: 7 }),
+    ];
+    expect(classerLabels(stats, r, opts)[0].label_id).toBe("alpha");
+  });
+
+  it("si tous les labels sont saturés dans la langue, la règle ne bloque personne", () => {
+    const stats = [
+      stat({ label_id: "a", contenus_valides: 10, comptes_langue: 5 }),
+      stat({ label_id: "b", contenus_valides: 10, comptes_langue: 5 }),
+    ];
+    expect(classerLabels(stats, r, opts)).toHaveLength(2);
+  });
+
+  it("le réglage contenus_par_compte_langue est lu", () => {
+    expect(lireReglagesChoixLabel({ contenus_par_compte_langue: 50 }).contenusParCompteLangue).toBe(50);
+    expect(lireReglagesChoixLabel({}).contenusParCompteLangue).toBe(30);
   });
 });
 

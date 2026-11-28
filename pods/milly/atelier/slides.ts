@@ -152,7 +152,7 @@ function couper(ctx: Ctx, t: string, largeur: number): string[] {
   const lignes: string[] = [];
   for (const para of t.split("\n")) {
     let ligne = "";
-    for (const mot of para.split(/\s+/).filter(Boolean)) {
+    for (const mot of para.split(/[^\S\u00a0]+/).filter(Boolean)) {
       const essai = ligne ? `${ligne} ${mot}` : mot;
       if (ligne && ctx.measureText(essai).width > largeur) {
         lignes.push(ligne);
@@ -246,7 +246,7 @@ const CONT = {
 /** Le titre sur une ligne, ou deux lignes de longueurs proches (jamais un mot seul en bas). */
 function titreEquilibre(ctx: Ctx, t: string, largeur: number): string[] {
   if (ctx.measureText(t).width <= largeur) return [t];
-  const mots = t.split(/\s+/);
+  const mots = t.split(/[^\S\u00a0]+/);
   let meilleur: string[] | null = null;
   let ecart = Infinity;
   for (let i = 1; i < mots.length; i++) {

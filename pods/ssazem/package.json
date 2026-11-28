@@ -1,0 +1,25 @@
+{
+  "name": "pod-ssazem",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 31 — remakes de @ssazem (citations de réconfort en cinq slides carrées : sa photo en carte arrondie sur cadre noir, du grain, la phrase en Times minuscule coupée en deux blocs, à gauche puis à droite), pour Sophia, en anglais, sans IA : ses propres photos, son texte effacé par copie de texture ; une phrase cite Sophia avec son logo, jamais une capture de l'appli.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "photos": "NODE_USE_ENV_PROXY=1 node atelier/cli-photos.ts",
+    "compte": "node atelier/cli-compte.ts"
+  }
+}

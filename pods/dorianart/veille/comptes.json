@@ -1,0 +1,6 @@
+{
+  "note": "Comptes relevés par `npm run veille` : le compte modèle (@dorian.frog), pour ses icebergs seulement. Budget Apify : 1 $ par semaine glissante.",
+  "comptes": [
+    "dorian.frog"
+  ]
+}

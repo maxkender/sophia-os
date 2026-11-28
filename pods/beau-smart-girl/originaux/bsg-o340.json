@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o340",
+  "type_bleo": "full_test",
+  "titre": "comment je me fais une culture en danse classique #danse #ballet #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Différent de bsg-o307 (premier ballet) : culture générale de la danse. Aucun fait daté. Routine du 28/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 et 16 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12 à 15 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "30d8aba6",
+      "texte_overlay": "comment je me fais une culture\nen danse classique",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "23937fa2",
+      "texte_overlay": "1. je regarde les grands ballets en vidéo\n\nle lac des cygnes, giselle.\nun acte par soir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7a7c439e",
+      "texte_overlay": "2. j'apprends le vocabulaire\n\nplié, arabesque, pas de deux.\ntout est en français.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2efa5a7a",
+      "texte_overlay": "3. je lis la vie des danseuses\n\nla discipline, la douleur, la grâce.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "751762f3",
+      "texte_overlay": "4. je vais aux répétitions publiques\n\nmoins chères,\net on voit le travail.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "429847f1",
+      "texte_overlay": "5. je cherche l'histoire de chaque ballet\n\navant, je ne voyais que des tutus.\nmaintenant, j'apprends un truc sur le monde chaque matin. et chaque ballet me raconte une histoire.",
+      "texte_sophia": "5. je cherche l'histoire de chaque ballet\n\navant, je ne voyais que des tutus.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et chaque ballet me raconte une histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "32bf2507",
+      "texte_overlay": "tu as déjà fait de la danse ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -69,11 +69,11 @@
       "url": "https://www.metmuseum.org/art/collection/search/435844"
     }
   },
-  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Un orfèvre dans sa boutique (Petrus Christus) : signé et daté 1449 ; le miroir convexe du comptoir montre la rue et deux hommes, l'un avec un faucon (notice du Met, coll. Lehman). Bronzino, Portrait d'un jeune homme, années 1530, Florence : masques grotesques sculptés sur le pied de table et l'accoudoir ; modèle non identifié. Vermeer, Allégorie de la foi catholique (vers 1670-72) : iconographie tirée de l'Iconologia de Cesare Ripa (trad. néerlandaise 1644) : pomme croquée, serpent écrasé par la pierre angulaire, globe sous le pied ; la sphère de verre suspendue reflète la pièce ; Vermeer catholique converti à son mariage. Caravage, Les Musiciens (vers 1597), pour le cardinal Francesco Maria del Monte ; l'enfant ailé aux raisins = Cupidon ; le jeune homme au cornet souvent vu comme un autoportrait. Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou, une tache de lumière).",
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Un orfèvre dans sa boutique (Petrus Christus) : signé et daté 1449 ; le miroir convexe du comptoir montre la rue et deux hommes, l'un avec un faucon (notice du Met, coll. Lehman). Bronzino, Portrait d'un jeune homme, années 1530, Florence : masques grotesques sculptés sur le pied de table et l'accoudoir ; modèle non identifié. Vermeer, Allégorie de la foi catholique (vers 1670-72) : iconographie tirée de l'Iconologia de Cesare Ripa (trad. néerlandaise 1644) : pomme croquée, serpent écrasé par la pierre angulaire, globe sous le pied ; la sphère de verre suspendue reflète la pièce ; Vermeer catholique converti à son mariage. Caravage, Les Musiciens (vers 1597), pour le cardinal Francesco Maria del Monte ; l'enfant ailé aux raisins = Cupidon ; le jeune homme au cornet souvent vu comme un autoportrait. Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA (refaite le 27/11).",
   "slides": [
     {
       "type": "couverture",
-      "image": "images/photos/musee-loupe.jpg",
+      "image": "images/banque/b-homme-tableau.jpg",
       "en": {
         "titre": "Paintings With Secrets Hidden In Plain Sight"
       },
@@ -321,5 +321,8 @@
         "artiste": "Caravaggio"
       }
     }
-  ]
+  ],
+  "banque": {
+    "images/banque/b-homme-tableau.jpg": "8a07dff1-6292-4a27-bfe1-4f56e749ef58"
+  }
 }

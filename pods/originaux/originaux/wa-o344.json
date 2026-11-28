@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o344",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6443cfee-01e3-4e10-ba7d-41de2e7ef5f5",
+ "titre": "clear signs your brain works better than average #intelligence #brain #psychology #signs #selfimprovement",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "f490daf5-f20d-4891-a1ce-4219bcb84d2d"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f490daf5). déclinaison G2 de « quiet signs you re smarter than you think » (parent 6443cfee). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "339031f6-6f4d-46fa-9ea9-781e2f3bb0b7",
+   "texte_overlay": "clear signs your brain\nworks better than average",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4869aa2c-487c-4c2b-a381-820e0b375520",
+   "texte_overlay": "you're happy alone with your thoughts\n\nyou can spend hours with your own mind without feeling bored. a brain that keeps itself company usually has a lot of interesting things going on inside it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bf19f277-214b-49a1-9935-a99f95b438cf",
+   "texte_overlay": "you update your opinions\n\nwhen someone shows you good evidence, you change your mind without a fight. being able to say i was wrong is one of the clearest signs of a strong mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ea59eabc-e00f-4899-8074-56eed1163795",
+   "texte_overlay": "you always want new ideas\n\nyour brain keeps asking for something new to learn, and you feed it a little every day. a mind that is always hungry for ideas tends to keep getting sharper.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/4.jpg",
+   "texte_sophia": "you always want new ideas\n\nmy brain always wants something new. i spend 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and even that small dose keeps my mind sharp and happy."
+  },
+  {
+   "position": 5,
+   "media_id": "e24d0395-8c93-4cf0-aafb-238cca83ab3b",
+   "texte_overlay": "you ask how things work\n\nyou can't hear about something new without wondering how it actually works. constant questions are the quiet habit behind almost every brilliant mind in history.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "47b64a99-98ef-475a-bf5a-0bd3886f8ee7",
+   "texte_overlay": "you link unrelated things\n\nyou connect ideas that seem to have nothing in common: a song and a memory, a habit and a mood. spotting hidden connections is a powerful kind of intelligence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/6.jpg"
+  }
+ ]
+}

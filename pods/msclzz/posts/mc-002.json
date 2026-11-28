@@ -1,0 +1,798 @@
+{
+ "id": "mc-002",
+ "source": {
+  "url": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+  "vues": 200200,
+  "publie_le": "2026-10-09",
+  "accroche": "How To Make People Love Talking To You"
+ },
+ "titre": {
+  "en": "How To Make People Love Talking To You",
+  "de": "So reden Menschen gern mit dir",
+  "it": "Come far amare alle persone parlare con te",
+  "fr": "Comment donner envie aux gens de te parler",
+  "pt-BR": "Como fazer as pessoas amarem conversar com você",
+  "es-419": "Cómo hacer que a la gente le encante hablar contigo",
+  "pl": "Jak sprawić, żeby ludzie uwielbiali z tobą rozmawiać",
+  "cs": "Jak zařídit, aby si s tebou lidé rádi povídali"
+ },
+ "legendes": {
+  "en": "Good conversations are about listening, not talking.\n\n#psychology #charisma #socialskills #communication #socialintelligence",
+  "de": "Gute Gespräche drehen sich ums Zuhören, nicht ums Reden.\n\n#psychologie #charisma #socialskills #kommunikation #menschenkenntnis",
+  "it": "Le belle conversazioni si basano sull'ascolto, non sul parlare.\n\n#psicologia #carisma #socialskills #comunicazione #comportamentoumano",
+  "fr": "Une bonne conversation, c'est écouter, pas parler.\n\n#psychologie #charisme #confianceensoi #communication #comportementhumain",
+  "pt-BR": "Boas conversas são sobre ouvir, não sobre falar.\n\n#psicologia #carisma #habilidadessociais #comunicacao #comportamentohumano",
+  "es-419": "Las buenas conversaciones se tratan de escuchar, no de hablar.\n\n#psicologia #carisma #habilidadessociales #comunicacion #comportamientohumano",
+  "pl": "Dobra rozmowa to słuchanie, a nie mówienie.\n\n#psychologia #charyzma #umiejetnoscispoleczne #komunikacja #rozwojosobisty",
+  "cs": "Dobrý rozhovor je o naslouchání, ne o mluvení.\n\n#psychologie #charisma #socialniinteligence #komunikace #osobnirozvoj"
+ },
+ "musique": {
+  "titre": "son original - Trendformusic",
+  "url": "https://www.tiktok.com/music/son-original-7501723046605671223"
+ },
+ "compte": {
+  "images/compte/sourire.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+   "slide": 4
+  },
+  "images/compte/visage-fragmente.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+   "slide": 2
+  },
+  "images/compte/etoile-vitruve.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+   "slide": 3
+  },
+  "images/compte/cerveau-couleurs.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+   "slide": 7
+  },
+  "images/compte/silhouette-portail.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+   "slide": 5
+  },
+  "images/compte/regard.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+   "slide": 6
+  },
+  "images/compte/femme-floue.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 2
+  }
+ },
+ "notes": "Remake de son 3e tube « How To Make People Love Talking To You » (200 k vues, 13 k enregistrements, 9/10 ; son original de Trendformusic) : son texte (apostrophes rétablies, « fuck up » → « mess up »), ses étapes dans son ordre, ses images découpées par `npm run compte`. Sa couverture pose un acteur : on prend son sourire de la slide 4. Sa slide 8 (une femme dans l'ombre, possible scène de film) est écartée : la slide finale reprend la femme floue de son post du 5/10 (déjà découpée pour mc-001). Slide Sophia (7) à la place de son étape « BRING IT BACK LATER » : « GIVE SOMETHING BACK », la suite de sa phrase « Getting someone to open up is only half though. » ; cta B. Dans la dernière étape, « You didn't forget it » (qui renvoyait à l'étape retirée) devient « You gave something back. ». Sa slide 9 (vente de son ebook, « EYES WIDE SHUT ») est retirée.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/compte/sourire.jpg",
+   "en": {
+    "titre": "How To Make People {Love Talking To You}"
+   },
+   "de": {
+    "titre": "So reden Menschen {gern mit dir}"
+   },
+   "it": {
+    "titre": "Come far amare alle persone {parlare con te}"
+   },
+   "fr": {
+    "titre": "Comment donner envie aux gens {de te parler}"
+   },
+   "pt-BR": {
+    "titre": "Como fazer as pessoas {amarem conversar com você}"
+   },
+   "es-419": {
+    "titre": "Cómo hacer que a la gente {le encante hablar contigo}"
+   },
+   "pl": {
+    "titre": "Jak sprawić, żeby ludzie {uwielbiali z tobą rozmawiać}"
+   },
+   "cs": {
+    "titre": "Jak zařídit, aby si s tebou lidé {rádi povídali}"
+   }
+  },
+  {
+   "type": "avertissement",
+   "image": "images/compte/visage-fragmente.jpg",
+   "en": {
+    "surtitre": "DISCLAIMER",
+    "titre": "READ THIS BEFORE YOU USE IT",
+    "avant": [
+     "Ten minutes with you and someone feels closer to you than to people they've known for months.",
+     "And you barely talk about yourself.",
+     "They won't even be able to explain why.",
+     "[The thing that does this is the exact thing people mess up while trying to look interested.]"
+    ]
+   },
+   "de": {
+    "surtitre": "ACHTUNG",
+    "titre": "LIES DAS, BEVOR DU ES ANWENDEST",
+    "avant": [
+     "Zehn Minuten mit dir, und jemand fühlt sich dir näher als Leuten, die er seit Monaten kennt.",
+     "Und du redest kaum über dich selbst.",
+     "Er wird nicht mal erklären können, warum.",
+     "[Genau das, was es bewirkt, machen die meisten falsch, während sie interessiert wirken wollen.]"
+    ]
+   },
+   "it": {
+    "surtitre": "ATTENZIONE",
+    "titre": "LEGGI PRIMA DI USARLO",
+    "avant": [
+     "Dieci minuti con te e qualcuno si sente più vicino a te che a persone che conosce da mesi.",
+     "E tu parli a malapena di te.",
+     "Non saprà nemmeno spiegare perché.",
+     "[La cosa che lo fa succedere è proprio quella che tutti sbagliano mentre cercano di sembrare interessati.]"
+    ]
+   },
+   "fr": {
+    "surtitre": "ATTENTION",
+    "titre": "LIS ÇA AVANT DE L'UTILISER",
+    "avant": [
+     "Dix minutes avec toi et quelqu'un se sent plus proche de toi que de gens qu'il connaît depuis des mois.",
+     "Et tu parles à peine de toi.",
+     "Il ne saura même pas expliquer pourquoi.",
+     "[Ce qui fait ça, c'est exactement ce que les gens ratent en essayant d'avoir l'air intéressés.]"
+    ]
+   },
+   "pt-BR": {
+    "surtitre": "AVISO",
+    "titre": "LEIA ISSO ANTES DE USAR",
+    "avant": [
+     "Dez minutos com você e a pessoa se sente mais próxima de você do que de gente que conhece há meses.",
+     "E você quase não fala de si.",
+     "Ela nem vai saber explicar por quê.",
+     "[O que faz isso acontecer é exatamente o que todo mundo erra tentando parecer interessado.]"
+    ]
+   },
+   "es-419": {
+    "surtitre": "AVISO",
+    "titre": "LEE ESTO ANTES DE USARLO",
+    "avant": [
+     "Diez minutos contigo y alguien se siente más cerca de ti que de gente que conoce hace meses.",
+     "Y casi no hablas de ti.",
+     "Ni siquiera va a poder explicar por qué.",
+     "[Lo que hace que pase es justo lo que todos arruinan tratando de parecer interesados.]"
+    ]
+   },
+   "pl": {
+    "surtitre": "UWAGA",
+    "titre": "PRZECZYTAJ, ZANIM TO WYKORZYSTASZ",
+    "avant": [
+     "Dziesięć minut z tobą i ktoś czuje się ci bliższy niż ludziom, których zna od miesięcy.",
+     "A ty prawie nie mówisz o sobie.",
+     "Nawet nie będzie umiał wyjaśnić dlaczego.",
+     "[To, co to robi, to dokładnie to, co ludzie psują, próbując wyglądać na zainteresowanych.]"
+    ]
+   },
+   "cs": {
+    "surtitre": "UPOZORNĚNÍ",
+    "titre": "PŘEČTI SI TO, NEŽ TO POUŽIJEŠ",
+    "avant": [
+     "Deset minut s tebou a někdo se ti cítí blíž než lidem, které zná měsíce.",
+     "A ty o sobě skoro nemluvíš.",
+     "Ani nebude umět vysvětlit proč.",
+     "[To, co to dělá, je přesně to, co lidi kazí, když se snaží vypadat zaujatě.]"
+    ]
+   },
+   "hauteur": 680
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/etoile-vitruve.jpg",
+   "en": {
+    "titre": "{STOP} COLLECTING ANSWERS",
+    "avant": [
+     "You know how a boring convo goes. Question. Answer. Next question. Answer. Next question.",
+     "Polite as hell, and it feels like filling out a job application.",
+     "The questions aren't the problem."
+    ],
+    "apres": [
+     "{They're throwing away the good part of every answer.}",
+     "Sometimes the whole conversation is hiding in one word..."
+    ]
+   },
+   "de": {
+    "titre": "{HÖR AUF,} ANTWORTEN ZU SAMMELN",
+    "avant": [
+     "Du kennst langweilige Gespräche. Frage. Antwort. Nächste Frage. Antwort. Nächste Frage.",
+     "Höflich, aber es fühlt sich an wie ein Bewerbungsformular.",
+     "Die Fragen sind nicht das Problem."
+    ],
+    "apres": [
+     "{Sie werfen den besten Teil jeder Antwort weg.}",
+     "Manchmal versteckt sich das ganze Gespräch in einem Wort..."
+    ]
+   },
+   "it": {
+    "titre": "{SMETTI} DI COLLEZIONARE RISPOSTE",
+    "avant": [
+     "Sai com'è una conversazione noiosa. Domanda. Risposta. Altra domanda. Risposta. Altra domanda.",
+     "Educatissima, e sembra di compilare un modulo per un colloquio.",
+     "Il problema non sono le domande."
+    ],
+    "apres": [
+     "{Stanno buttando via la parte migliore di ogni risposta.}",
+     "A volte tutta la conversazione si nasconde in una parola..."
+    ]
+   },
+   "fr": {
+    "titre": "{ARRÊTE} DE COLLECTIONNER LES RÉPONSES",
+    "avant": [
+     "Tu sais comment se passe une conversation chiante. Question. Réponse. Question suivante. Réponse. Question suivante.",
+     "Hyper poli, et on a l'impression de remplir un formulaire d'embauche.",
+     "Les questions ne sont pas le problème."
+    ],
+    "apres": [
+     "{Ils jettent la meilleure partie de chaque réponse.}",
+     "Parfois, toute la conversation se cache dans un seul mot..."
+    ]
+   },
+   "pt-BR": {
+    "titre": "{PARE} DE COLECIONAR RESPOSTAS",
+    "avant": [
+     "Você sabe como é uma conversa chata. Pergunta. Resposta. Próxima pergunta. Resposta. Próxima pergunta.",
+     "Educada demais, e parece que você está preenchendo uma ficha de emprego.",
+     "As perguntas não são o problema."
+    ],
+    "apres": [
+     "{A pessoa está jogando fora a melhor parte de cada resposta.}",
+     "Às vezes a conversa inteira está escondida numa palavra..."
+    ]
+   },
+   "es-419": {
+    "titre": "{DEJA} DE COLECCIONAR RESPUESTAS",
+    "avant": [
+     "Ya sabes cómo va una conversación aburrida. Pregunta. Respuesta. Otra pregunta. Respuesta. Otra pregunta.",
+     "Muy educada, y se siente como llenar una solicitud de empleo.",
+     "Las preguntas no son el problema."
+    ],
+    "apres": [
+     "{Están tirando la mejor parte de cada respuesta.}",
+     "A veces toda la conversación se esconde en una palabra..."
+    ]
+   },
+   "pl": {
+    "titre": "{PRZESTAŃ} ZBIERAĆ ODPOWIEDZI",
+    "avant": [
+     "Znasz nudną rozmowę. Pytanie. Odpowiedź. Kolejne pytanie. Odpowiedź. Kolejne pytanie.",
+     "Bardzo uprzejmie, a czujesz się jak przy wypełnianiu podania o pracę.",
+     "Pytania nie są problemem."
+    ],
+    "apres": [
+     "{Wyrzucają najlepszą część każdej odpowiedzi.}",
+     "Czasem cała rozmowa chowa się w jednym słowie..."
+    ]
+   },
+   "cs": {
+    "titre": "{PŘESTAŇ} SBÍRAT ODPOVĚDI",
+    "avant": [
+     "Víš, jak vypadá nudný rozhovor. Otázka. Odpověď. Další otázka. Odpověď. Další otázka.",
+     "Hrozně slušné a připadá ti to jako vyplňování přihlášky do práce.",
+     "Otázky nejsou ten problém."
+    ],
+    "apres": [
+     "{Zahazují tu nejlepší část každé odpovědi.}",
+     "Někdy se celý rozhovor schovává v jednom slově..."
+    ]
+   },
+   "hauteur": 570
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/cerveau-couleurs.jpg",
+   "en": {
+    "titre": "THE WORD {EVERYONE SKIPS}",
+    "avant": [
+     "Someone says, “I almost moved abroad last year.” Everybody asks where.",
+     "Wrong word. The word is ALMOST.",
+     "They nearly left their whole life, and something made them stay. That's the story.",
+     "So you ask, “what made you stay?”"
+    ],
+    "apres": [
+     "{Now they're in a conversation they didn't see coming.}",
+     "What you say next makes it or kills it."
+    ]
+   },
+   "de": {
+    "titre": "DAS WORT, {DAS ALLE ÜBERHÖREN}",
+    "avant": [
+     "Jemand sagt: „Ich wäre letztes Jahr fast ins Ausland gezogen.“ Alle fragen, wohin.",
+     "Falsches Wort. Das Wort ist FAST.",
+     "Er hätte beinahe sein ganzes Leben verlassen, und etwas hat ihn bleiben lassen. Das ist die Geschichte.",
+     "Also fragst du: „Was hat dich bleiben lassen?“"
+    ],
+    "apres": [
+     "{Jetzt ist er in einem Gespräch, mit dem er nicht gerechnet hat.}",
+     "Was du als Nächstes sagst, macht es oder killt es."
+    ]
+   },
+   "it": {
+    "titre": "LA PAROLA {CHE TUTTI SALTANO}",
+    "avant": [
+     "Qualcuno dice: “L'anno scorso mi sono quasi trasferito all'estero.” Tutti chiedono dove.",
+     "Parola sbagliata. La parola è QUASI.",
+     "Stava per lasciare tutta la sua vita, e qualcosa l'ha fatto restare. Quella è la storia.",
+     "Allora chiedi: “cosa ti ha fatto restare?”"
+    ],
+    "apres": [
+     "{Ora è in una conversazione che non si aspettava.}",
+     "Quello che dici dopo la fa decollare o la uccide."
+    ]
+   },
+   "fr": {
+    "titre": "LE MOT {QUE TOUT LE MONDE ZAPPE}",
+    "avant": [
+     "Quelqu'un dit : « J'ai failli partir à l'étranger l'an dernier. » Tout le monde demande où.",
+     "Mauvais mot. Le mot, c'est FAILLI.",
+     "Il a presque tout quitté, et quelque chose l'a retenu. C'est ça, l'histoire.",
+     "Alors tu demandes : « qu'est-ce qui t'a fait rester ? »"
+    ],
+    "apres": [
+     "{Là, il est dans une conversation qu'il n'a pas vue venir.}",
+     "Ce que tu dis ensuite la lance ou la tue."
+    ]
+   },
+   "pt-BR": {
+    "titre": "A PALAVRA {QUE TODO MUNDO PULA}",
+    "avant": [
+     "Alguém diz: “Ano passado eu quase me mudei pro exterior.” Todo mundo pergunta pra onde.",
+     "Palavra errada. A palavra é QUASE.",
+     "A pessoa quase largou a vida inteira, e algo fez ela ficar. Essa é a história.",
+     "Então você pergunta: “o que te fez ficar?”"
+    ],
+    "apres": [
+     "{Agora ela está numa conversa que não viu chegando.}",
+     "O que você diz depois faz ou mata a conversa."
+    ]
+   },
+   "es-419": {
+    "titre": "LA PALABRA {QUE TODOS SE SALTAN}",
+    "avant": [
+     "Alguien dice: “El año pasado casi me mudo al extranjero.” Todos preguntan a dónde.",
+     "Palabra equivocada. La palabra es CASI.",
+     "Casi lo deja todo, y algo lo hizo quedarse. Esa es la historia.",
+     "Entonces preguntas: “¿qué hizo que te quedaras?”"
+    ],
+    "apres": [
+     "{Ahora está en una conversación que no vio venir.}",
+     "Lo que digas después la hace o la mata."
+    ]
+   },
+   "pl": {
+    "titre": "SŁOWO, {KTÓRE WSZYSCY POMIJAJĄ}",
+    "avant": [
+     "Ktoś mówi: „W zeszłym roku prawie wyjechałem za granicę.” Wszyscy pytają, dokąd.",
+     "Złe słowo. Tym słowem jest PRAWIE.",
+     "Prawie zostawił całe swoje życie i coś sprawiło, że został. To jest ta historia.",
+     "Więc pytasz: „co sprawiło, że zostałeś?”"
+    ],
+    "apres": [
+     "{Teraz jest w rozmowie, której się nie spodziewał.}",
+     "To, co powiesz dalej, ją rozkręci albo zabije."
+    ]
+   },
+   "cs": {
+    "titre": "SLOVO, {KTERÉ VŠICHNI PŘESKOČÍ}",
+    "avant": [
+     "Někdo řekne: „Loni jsem se skoro odstěhoval do zahraničí.“ Všichni se ptají kam.",
+     "Špatné slovo. To slovo je SKORO.",
+     "Málem opustil celý svůj život a něco ho přimělo zůstat. To je ten příběh.",
+     "Tak se zeptáš: „Co tě přimělo zůstat?“"
+    ],
+    "apres": [
+     "{Teď je v rozhovoru, který nečekal.}",
+     "Co řekneš dál, ho buď rozjede, nebo zabije."
+    ]
+   },
+   "hauteur": 520
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/silhouette-portail.jpg",
+   "en": {
+    "titre": "THIS IS WHERE {PEOPLE RUIN IT}",
+    "avant": [
+     "They tell you they were scared of starting over.",
+     "Your instinct is to fire another question.",
+     "Don't. That's how it turns into an interrogation.",
+     "Give them something to push against instead. “Sounds like staying was the braver call.”",
+     "Maybe they're like yeah. Maybe they're like nah, you've got it wrong."
+    ],
+    "apres": [
+     "{Getting it wrong is weirdly the best thing that can happen.}"
+    ]
+   },
+   "de": {
+    "titre": "HIER {MACHEN ES DIE MEISTEN KAPUTT}",
+    "avant": [
+     "Er erzählt dir, dass er Angst hatte, neu anzufangen.",
+     "Dein Instinkt: gleich die nächste Frage.",
+     "Lass es. So wird es ein Verhör.",
+     "Gib ihm lieber etwas zum Widersprechen. „Klingt, als wäre Bleiben die mutigere Entscheidung gewesen.“",
+     "Vielleicht sagt er ja. Vielleicht sagt er nein, du liegst falsch."
+    ],
+    "apres": [
+     "{Danebenzuliegen ist komischerweise das Beste, was passieren kann.}"
+    ]
+   },
+   "it": {
+    "titre": "QUI {LA MAGGIOR PARTE ROVINA TUTTO}",
+    "avant": [
+     "Ti racconta che aveva paura di ricominciare da zero.",
+     "Il tuo istinto è sparare un'altra domanda.",
+     "Non farlo. Così diventa un interrogatorio.",
+     "Dagli invece qualcosa su cui ribattere. “Sembra che restare sia stata la scelta più coraggiosa.”",
+     "Magari dice sì. Magari dice no, hai capito male."
+    ],
+    "apres": [
+     "{Sbagliare è stranamente la cosa migliore che possa succedere.}"
+    ]
+   },
+   "fr": {
+    "titre": "C'EST LÀ QUE {LES GENS GÂCHENT TOUT}",
+    "avant": [
+     "Il te dit qu'il avait peur de tout recommencer.",
+     "Ton réflexe : enchaîner une autre question.",
+     "Ne fais pas ça. Sinon, ça devient un interrogatoire.",
+     "Donne-lui plutôt quelque chose à contredire. « On dirait que rester, c'était le choix le plus courageux. »",
+     "Peut-être qu'il dira oui. Peut-être qu'il dira non, t'as tout faux."
+    ],
+    "apres": [
+     "{Te tromper, c'est bizarrement la meilleure chose qui puisse arriver.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "É AQUI QUE {TODO MUNDO ESTRAGA}",
+    "avant": [
+     "Ela conta que tinha medo de recomeçar do zero.",
+     "Seu instinto é disparar outra pergunta.",
+     "Não faça isso. É assim que vira um interrogatório.",
+     "Dê algo pra ela rebater. “Parece que ficar foi a escolha mais corajosa.”",
+     "Talvez ela diga que sim. Talvez diga que não, você entendeu errado."
+    ],
+    "apres": [
+     "{Errar é, estranhamente, a melhor coisa que pode acontecer.}"
+    ]
+   },
+   "es-419": {
+    "titre": "AQUÍ ES DONDE {TODOS LO ARRUINAN}",
+    "avant": [
+     "Te cuenta que le daba miedo empezar de cero.",
+     "Tu instinto es lanzar otra pregunta.",
+     "No lo hagas. Así se vuelve un interrogatorio.",
+     "Mejor dale algo con qué discutir. “Suena a que quedarte fue la decisión más valiente.”",
+     "Tal vez te diga que sí. Tal vez te diga que no, que lo entendiste mal."
+    ],
+    "apres": [
+     "{Equivocarte es, curiosamente, lo mejor que puede pasar.}"
+    ]
+   },
+   "pl": {
+    "titre": "TU WŁAŚNIE {LUDZIE WSZYSTKO PSUJĄ}",
+    "avant": [
+     "Mówi ci, że bał się zaczynać od nowa.",
+     "Twój odruch to rzucić kolejne pytanie.",
+     "Nie rób tego. Tak powstaje przesłuchanie.",
+     "Daj mu raczej coś, z czym może się spierać. „Brzmi, jakby zostanie było odważniejszą decyzją.”",
+     "Może powie, że tak. Może powie, że nie, źle to zrozumiałeś."
+    ],
+    "apres": [
+     "{Pomyłka to dziwnie najlepsze, co może się stać.}"
+    ]
+   },
+   "cs": {
+    "titre": "TADY {TO LIDI POKAZÍ}",
+    "avant": [
+     "Řekne ti, že se bál začít znovu.",
+     "Tvůj instinkt je vypálit další otázku.",
+     "Nedělej to. Tak z toho vznikne výslech.",
+     "Dej mu radši něco, s čím může nesouhlasit. „Zní to, že zůstat bylo odvážnější rozhodnutí.“",
+     "Možná řekne jo. Možná řekne ne, tos pochopil špatně."
+    ],
+    "apres": [
+     "{Splést se je zvláštně to nejlepší, co se může stát.}"
+    ]
+   },
+   "hauteur": 455
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/regard.jpg",
+   "en": {
+    "titre": "LET THEM {CORRECT YOU}",
+    "avant": [
+     "When someone corrects you, they have to explain what they actually meant.",
+     "Not the short version they give everyone.",
+     "The real one. The stuff they've thought about but never said out loud.",
+     "You're not trying to read their mind. You're handing them something to work with."
+    ],
+    "apres": [
+     "{Now you're both building it, and it stops feeling like work.}",
+     "Getting someone to open up is only half though."
+    ]
+   },
+   "de": {
+    "titre": "LASS DICH {KORRIGIEREN}",
+    "avant": [
+     "Wenn dich jemand korrigiert, muss er erklären, was er wirklich meint.",
+     "Nicht die Kurzversion, die alle bekommen.",
+     "Die echte. Das, worüber er nachgedacht, aber nie laut gesprochen hat.",
+     "Du versuchst nicht, Gedanken zu lesen. Du gibst ihm etwas, womit er arbeiten kann."
+    ],
+    "apres": [
+     "{Jetzt baut ihr es zusammen, und es fühlt sich nicht mehr nach Arbeit an.}",
+     "Jemanden zum Reden zu bringen, ist aber nur die halbe Sache."
+    ]
+   },
+   "it": {
+    "titre": "FATTI {CORREGGERE}",
+    "avant": [
+     "Quando qualcuno ti corregge, deve spiegarti cosa intendeva davvero.",
+     "Non la versione breve che dà a tutti.",
+     "Quella vera. Le cose a cui ha pensato ma che non ha mai detto ad alta voce.",
+     "Non stai cercando di leggergli nel pensiero. Gli stai dando qualcosa su cui lavorare."
+    ],
+    "apres": [
+     "{Ora la state costruendo insieme, e smette di sembrare una fatica.}",
+     "Far aprire qualcuno però è solo metà del lavoro."
+    ]
+   },
+   "fr": {
+    "titre": "LAISSE-LES {TE CORRIGER}",
+    "avant": [
+     "Quand quelqu'un te corrige, il doit expliquer ce qu'il voulait vraiment dire.",
+     "Pas la version courte qu'il donne à tout le monde.",
+     "La vraie. Ce à quoi il a pensé sans jamais le dire à voix haute.",
+     "Tu n'essaies pas de lire dans ses pensées. Tu lui donnes de quoi travailler."
+    ],
+    "apres": [
+     "{Maintenant vous la construisez à deux, et ça ne ressemble plus à un effort.}",
+     "Faire parler quelqu'un, ce n'est que la moitié du truc."
+    ]
+   },
+   "pt-BR": {
+    "titre": "DEIXE ELAS {TE CORRIGIREM}",
+    "avant": [
+     "Quando alguém te corrige, precisa explicar o que realmente quis dizer.",
+     "Não a versão curta que dá pra todo mundo.",
+     "A verdadeira. Aquilo em que pensou mas nunca disse em voz alta.",
+     "Você não está tentando ler a mente dela. Está dando algo pra ela trabalhar."
+    ],
+    "apres": [
+     "{Agora vocês estão construindo juntos, e para de parecer esforço.}",
+     "Mas fazer alguém se abrir é só metade."
+    ]
+   },
+   "es-419": {
+    "titre": "DEJA QUE {TE CORRIJAN}",
+    "avant": [
+     "Cuando alguien te corrige, tiene que explicar lo que de verdad quiso decir.",
+     "No la versión corta que le da a todos.",
+     "La real. Lo que ha pensado pero nunca ha dicho en voz alta.",
+     "No estás tratando de leerle la mente. Le estás dando algo con qué trabajar."
+    ],
+    "apres": [
+     "{Ahora lo están construyendo entre los dos, y deja de sentirse como trabajo.}",
+     "Pero lograr que alguien se abra es solo la mitad."
+    ]
+   },
+   "pl": {
+    "titre": "POZWÓL SIĘ {POPRAWIĆ}",
+    "avant": [
+     "Kiedy ktoś cię poprawia, musi wyjaśnić, co naprawdę miał na myśli.",
+     "Nie krótką wersję, którą daje wszystkim.",
+     "Prawdziwą. To, o czym myślał, ale nigdy nie powiedział na głos.",
+     "Nie próbujesz czytać mu w myślach. Dajesz mu coś, z czym może pracować."
+    ],
+    "apres": [
+     "{Teraz budujecie to razem i przestaje to przypominać pracę.}",
+     "Ale otworzenie kogoś to dopiero połowa."
+    ]
+   },
+   "cs": {
+    "titre": "NECH SE {OPRAVIT}",
+    "avant": [
+     "Když tě někdo opraví, musí vysvětlit, co tím doopravdy myslel.",
+     "Ne tu krátkou verzi, kterou dává všem.",
+     "Tu skutečnou. To, o čem přemýšlel, ale nikdy to neřekl nahlas.",
+     "Nesnažíš se mu číst myšlenky. Dáváš mu něco, s čím může pracovat."
+    ],
+    "apres": [
+     "{Teď to stavíte spolu a přestane to připomínat práci.}",
+     "Přimět někoho, aby se otevřel, je ale jen polovina."
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "en": {
+    "titre": "{GIVE SOMETHING} BACK",
+    "avant": [
+     "The other half is what they walk away with.",
+     "A strange fact. A story they never heard. Something that makes them go “wait, really?”"
+    ],
+    "apres": [
+     "Ten minutes on {Sophia} every morning, and I never run out of things to talk about.",
+     "{Now they get something from you too.}"
+    ]
+   },
+   "de": {
+    "titre": "{GIB ETWAS} ZURÜCK",
+    "avant": [
+     "Die andere Hälfte ist das, was er mitnimmt.",
+     "Ein seltsamer Fakt. Eine Geschichte, die er nie gehört hat. Etwas, bei dem er sagt: „Warte, echt?“"
+    ],
+    "apres": [
+     "Zehn Minuten auf {Sophia} jeden Morgen, und mir gehen nie die Gesprächsthemen aus.",
+     "{Jetzt bekommt er auch etwas von dir.}"
+    ]
+   },
+   "it": {
+    "titre": "{RESTITUISCI} QUALCOSA",
+    "avant": [
+     "L'altra metà è quello che si porta a casa.",
+     "Un fatto strano. Una storia mai sentita. Qualcosa che gli fa dire “aspetta, davvero?”"
+    ],
+    "apres": [
+     "Dieci minuti su {Sophia} ogni mattina, e non resto mai senza cose di cui parlare.",
+     "{Ora anche lui riceve qualcosa da te.}"
+    ]
+   },
+   "fr": {
+    "titre": "{DONNE QUELQUE CHOSE} EN RETOUR",
+    "avant": [
+     "L'autre moitié, c'est ce qu'il garde en repartant.",
+     "Un fait étrange. Une histoire jamais entendue. Un truc qui lui fait dire « attends, sérieux ? »"
+    ],
+    "apres": [
+     "Dix minutes sur {Sophia} chaque matin, et je ne suis jamais à court de sujets.",
+     "{Maintenant, lui aussi repart avec quelque chose.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "{DEVOLVA} ALGUMA COISA",
+    "avant": [
+     "A outra metade é o que ela leva embora.",
+     "Um fato estranho. Uma história que nunca ouviu. Algo que faz ela dizer “pera, sério?”"
+    ],
+    "apres": [
+     "Dez minutos no {Sophia} toda manhã, e nunca me faltam assuntos.",
+     "{Agora ela também ganha algo de você.}"
+    ]
+   },
+   "es-419": {
+    "titre": "{DEVUELVE} ALGO",
+    "avant": [
+     "La otra mitad es lo que se lleva.",
+     "Un dato raro. Una historia que nunca escuchó. Algo que le hace decir “espera, ¿en serio?”"
+    ],
+    "apres": [
+     "Diez minutos en {Sophia} cada mañana, y nunca me quedo sin temas de conversación.",
+     "{Ahora también recibe algo de ti.}"
+    ]
+   },
+   "pl": {
+    "titre": "{DAJ COŚ} OD SIEBIE",
+    "avant": [
+     "Druga połowa to to, z czym ktoś od ciebie wychodzi.",
+     "Dziwny fakt. Historia, której nigdy nie słyszał. Coś, po czym mówi „czekaj, serio?”"
+    ],
+    "apres": [
+     "Dziesięć minut w {Sophia} każdego ranka i nigdy nie brakuje mi tematów do rozmowy.",
+     "{Teraz on też coś od ciebie dostaje.}"
+    ]
+   },
+   "cs": {
+    "titre": "{DEJ NĚCO} ZPÁTKY",
+    "avant": [
+     "Druhá polovina je to, s čím odchází.",
+     "Zvláštní fakt. Příběh, který nikdy neslyšel. Něco, u čeho řekne „počkej, fakt?“"
+    ],
+    "apres": [
+     "Deset minut na {Sophia} každé ráno a nikdy mi nedojdou témata k hovoru.",
+     "{Teď i on dostane něco od tebe.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "image": "images/compte/femme-floue.jpg",
+   "en": {
+    "titre": "THE PART THAT {ACTUALLY MATTERS}",
+    "avant": [
+     "Nobody walks away counting your good questions.",
+     "They remember how it felt to talk to you.",
+     "You caught what they almost skipped. You let them go deep on it. You gave something back."
+    ],
+    "apres": [
+     "You don't need crazy stories or a big personality.",
+     "{Make people like who they are when they're talking to you.}"
+    ]
+   },
+   "de": {
+    "titre": "DER TEIL, DER {WIRKLICH ZÄHLT}",
+    "avant": [
+     "Niemand geht und zählt deine guten Fragen.",
+     "Man erinnert sich daran, wie es sich angefühlt hat, mit dir zu reden.",
+     "Du hast gehört, was er fast übersprungen hätte. Du hast ihn tief gehen lassen. Du hast etwas zurückgegeben."
+    ],
+    "apres": [
+     "Du brauchst keine verrückten Geschichten und keine große Persönlichkeit.",
+     "{Sorg dafür, dass Menschen mögen, wer sie sind, wenn sie mit dir reden.}"
+    ]
+   },
+   "it": {
+    "titre": "LA PARTE CHE {CONTA DAVVERO}",
+    "avant": [
+     "Nessuno se ne va contando le tue belle domande.",
+     "Si ricordano com'era parlare con te.",
+     "Hai colto quello che stava per saltare. L'hai lasciato andare a fondo. Gli hai dato qualcosa in cambio."
+    ],
+    "apres": [
+     "Non ti servono storie pazzesche o una personalità enorme.",
+     "{Fai sì che le persone si piacciano quando parlano con te.}"
+    ]
+   },
+   "fr": {
+    "titre": "LA PARTIE QUI {COMPTE VRAIMENT}",
+    "avant": [
+     "Personne ne repart en comptant tes bonnes questions.",
+     "On se souvient de ce qu'on a ressenti en te parlant.",
+     "Tu as relevé ce qu'il allait zapper. Tu l'as laissé creuser. Tu as donné quelque chose en retour."
+    ],
+    "apres": [
+     "Pas besoin d'histoires de fou ni d'une grosse personnalité.",
+     "{Fais que les gens s'aiment quand ils te parlent.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "A PARTE QUE {REALMENTE IMPORTA}",
+    "avant": [
+     "Ninguém vai embora contando suas boas perguntas.",
+     "As pessoas lembram de como foi conversar com você.",
+     "Você pegou o que ela quase pulou. Deixou ela ir fundo. Devolveu alguma coisa."
+    ],
+    "apres": [
+     "Você não precisa de histórias malucas nem de uma personalidade enorme.",
+     "{Faça as pessoas gostarem de quem elas são quando falam com você.}"
+    ]
+   },
+   "es-419": {
+    "titre": "LA PARTE QUE {DE VERDAD IMPORTA}",
+    "avant": [
+     "Nadie se va contando tus buenas preguntas.",
+     "Recuerdan cómo se sintió hablar contigo.",
+     "Notaste lo que casi se saltó. Dejaste que profundizara. Le devolviste algo."
+    ],
+    "apres": [
+     "No necesitas historias locas ni una gran personalidad.",
+     "{Haz que la gente se caiga bien cuando habla contigo.}"
+    ]
+   },
+   "pl": {
+    "titre": "CZĘŚĆ, KTÓRA {NAPRAWDĘ SIĘ LICZY}",
+    "avant": [
+     "Nikt nie wychodzi, licząc twoje dobre pytania.",
+     "Pamięta, jak się z tobą rozmawiało.",
+     "Wyłapałeś to, co prawie pominął. Pozwoliłeś mu wejść głębiej. Dałeś coś od siebie."
+    ],
+    "apres": [
+     "Nie potrzebujesz szalonych historii ani wielkiej osobowości.",
+     "{Spraw, żeby ludzie lubili siebie, kiedy z tobą rozmawiają.}"
+    ]
+   },
+   "cs": {
+    "titre": "ČÁST, NA KTERÉ {OPRAVDU ZÁLEŽÍ}",
+    "avant": [
+     "Nikdo neodchází a nepočítá tvoje dobré otázky.",
+     "Pamatují si, jaké bylo s tebou mluvit.",
+     "Zachytil jsi, co málem přeskočil. Nechal jsi ho jít do hloubky. Dal jsi něco zpátky."
+    ],
+    "apres": [
+     "Nepotřebuješ šílené příběhy ani velkou osobnost.",
+     "{Ať se lidi mají rádi, když mluví s tebou.}"
+    ]
+   },
+   "hauteur": 640
+  }
+ ]
+}

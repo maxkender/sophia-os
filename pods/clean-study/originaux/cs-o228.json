@@ -1,0 +1,58 @@
+{
+  "source_id": "cs-o228",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "632bf2af-4605-4917-a14e-313a77037323",
+  "titre": "comment devenir la meilleure version de toi-même cette année scolaire #studytok #lycée #motivation",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [
+    "632bf2af-4605-4917-a14e-313a77037323"
+  ],
+  "notes": "Déclinaison G1 de 632bf2af (notre cs-o112), ligne 6 de la boîte, 2e déclinaison de la famille. Langue source du parent : français ; accroche du parent mot pour mot. Texte de base et slide Sophia en français (comme cs-o194 et cs-o220). Habitudes neuves, aucune du parent ni de cs-o112. Santé générale seulement. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "433b55cc",
+      "texte_overlay": "Comment devenir la meilleure version\nde toi-même cette année scolaire",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "ab3b8421",
+      "texte_overlay": "prépare ton sac la veille.\ntes matins deviennent calmes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9bc081fe",
+      "texte_overlay": "range ton bureau chaque vendredi.\nle lundi commence sans désordre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "00da4c5f",
+      "texte_overlay": "marche 20 minutes par jour.\ntu réfléchis mieux après.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d1ce95a7",
+      "texte_overlay": "apprends une chose nouvelle chaque jour, hors des cours.\nun tableau, une date, une découverte.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "apprends une chose nouvelle chaque jour, hors des cours,\nsur une appli de micro-learning comme l'appli Sophia.\nun tableau, une date, une découverte."
+    },
+    {
+      "position": 6,
+      "media_id": "12b839db",
+      "texte_overlay": "dis merci à tes profs.\nça change l'ambiance du cours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "c003aa86",
+      "texte_overlay": "compare-toi à toi-même de septembre.\npas aux autres.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ],
+  "langue_source": "fr"
+}

@@ -16,7 +16,10 @@
   "ro": "Abilități de 10/10 pe care le poți învăța într-o zi",
   "cs": "Dovednosti na 10/10, které se naučíš za jeden den",
   "hu": "10/10-es készségek, amiket egy nap alatt megtanulhatsz",
-  "sr": "Veštine 10/10 koje možeš da naučiš za jedan dan"
+  "sr": "Veštine 10/10 koje možeš da naučiš za jedan dan",
+  "es-419": "Habilidades 10/10 que puedes aprender en un día",
+  "sk": "Zručnosti 10/10, ktoré sa naučíš za jeden deň",
+  "lv": "10/10 prasmes, ko vari apgūt vienā dienā"
  },
  "legendes": {
   "fr": "Les compétences 10/10 que tu peux apprendre en un jour #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -28,13 +31,16 @@
   "ro": "Abilități de 10/10 pe care le poți învăța într-o zi #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "Dovednosti na 10/10, které se naučíš za jeden den #učímesenatiktoku #osobnírozvoj #dovednosti",
   "hu": "10/10-es készségek, amiket egy nap alatt megtanulhatsz #tanuljtiktokon #önfejlesztés #készségek",
-  "sr": "Veštine 10/10 koje možeš da naučiš za jedan dan #učinatiktoku #samorazvoj #veštine"
+  "sr": "Veštine 10/10 koje možeš da naučiš za jedan dan #učinatiktoku #samorazvoj #veštine",
+  "es-419": "Habilidades 10/10 que puedes aprender en un día #aprendeentiktok #desarrollopersonal #habilidades",
+  "sk": "Zručnosti 10/10, ktoré sa naučíš za jeden deň #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "lv": "10/10 prasmes, ko vari apgūt vienā dienā #mācītiestiktokā #pašattīstība #prasmes"
  },
  "musique": {
   "titre": "sonido original - Lexn🧛🏽",
   "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
  },
- "notes": "Son post à 81,5 k (21/08), refait le 16/11 en 8 langues. Couverture actuelle (la sienne était l'ancienne) avec ses 4 lignes « COMPÉTENCES / QUE TU PEUX / APPRENDRE / EN UNE JOURNÉE », la ligne orange passée en brun. Ses 5 compétences dans son ordre (nuages, calcul mental, forêt, omelette, cravate), d'autres vraies vidéos natives que les siennes (MétéoMédia, LesCoursSimples, Brut, Robb Report, Pratiks). Sophia en étape 4 sur 7 (cta C : « NOURRIR / SON CERVEAU »), sa slide « ENREGISTRE CE POST » retirée. Deck sr ajouté le 26/11 (rattrapage) : titre et couverture de sg-039 ; vidéos Pravi Trenutak, Mirjana Spajić Buturac, Знање У Пракси (titre natif en cyrillique), Najbolji domaći recepti, e-kako portal (chaîne croate, la seule correcte pour la cravate).",
+ "notes": "Son post à 81,5 k (21/08), refait le 16/11 en 8 langues. Couverture actuelle (la sienne était l'ancienne) avec ses 4 lignes « COMPÉTENCES / QUE TU PEUX / APPRENDRE / EN UNE JOURNÉE », la ligne orange passée en brun. Ses 5 compétences dans son ordre (nuages, calcul mental, forêt, omelette, cravate), d'autres vraies vidéos natives que les siennes (MétéoMédia, LesCoursSimples, Brut, Robb Report, Pratiks). Sophia en étape 4 sur 7 (cta C : « NOURRIR / SON CERVEAU »), sa slide « ENREGISTRE CE POST » retirée. Deck sr ajouté le 26/11 (rattrapage) : titre et couverture de sg-039 ; vidéos Pravi Trenutak, Mirjana Spajić Buturac, Знање У Пракси (titre natif en cyrillique), Najbolji domaći recepti, e-kako portal (chaîne croate, la seule correcte pour la cravate). Decks es-419, sk, lv ajoutés le 28/11 (rattrapage) : vidéos natives ; cta C ; en sk et lv « lire les nuages » devient « comprendre les nuages » (pas de tuto natif sur la lecture des nuages), en lv « monstre du calcul » devient « maître du calcul mental ».",
  "slides": [
   {
    "type": "couverture",
@@ -236,6 +242,69 @@
      },
      {
       "t": "ZA JEDAN DAN",
+      "cap": 118
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 138
+     },
+     {
+      "t": "QUE PUEDES",
+      "cap": 120
+     },
+     {
+      "t": "APRENDER",
+      "cap": 190,
+      "couleur": "brun"
+     },
+     {
+      "t": "EN UN DÍA",
+      "cap": 118
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "t": "ZRUČNOSTI,",
+      "cap": 138
+     },
+     {
+      "t": "KTORÉ SA",
+      "cap": 120
+     },
+     {
+      "t": "NAUČÍŠ",
+      "cap": 190,
+      "couleur": "brun"
+     },
+     {
+      "t": "ZA JEDEN DEŇ",
+      "cap": 118
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "t": "PRASMES,",
+      "cap": 138
+     },
+     {
+      "t": "KO VARI",
+      "cap": 120
+     },
+     {
+      "t": "APGŪT",
+      "cap": 190,
+      "couleur": "brun"
+     },
+     {
+      "t": "VIENĀ DIENĀ",
       "cap": 118
      }
     ]
@@ -471,6 +540,75 @@
     },
     "sous": [
      "2-3 sata za učenje"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "CÓMO",
+     [
+      {
+       "t": "LEER LAS NUBES",
+       "couleur": "#3a9bd9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fFlsbaBtVPo",
+     "titre": "Clasificación de las Nubes: Aprende a leer el cielo en 3 minutos",
+     "chaine": "Nacho Bergara",
+     "vues": "120 k vistas",
+     "date": "hace 10 meses",
+     "duree": "3:04",
+     "avatar": "https://yt3.ggpht.com/SxEYLfbBvsXPr7-QoQD4Roi8ItgjiWVvhdkf33hBmTOw77IzeO7HUEPiQswgIj39OieVEL3YVA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "AKO",
+     [
+      {
+       "t": "POROZUMIEŤ OBLAKOM",
+       "couleur": "#3a9bd9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cc-7ATCeQEM",
+     "titre": "🌦️ Kde sa „varia“ oblaky? Objav fascinujúci svet troposféry – kuchyne počasia! ☁️🌪️",
+     "chaine": "Meteorológia pre každého",
+     "vues": "426 zhliadnutí",
+     "date": "pred 1 rokom",
+     "duree": "5:17",
+     "avatar": "https://yt3.ggpht.com/j7ACX8BTWAXTn8TZIQjZMRU8EGgmuFstZ24ABqJ-oxvVcY1j_e0uzX8_rmZ5a0OPF1T4oPOMv_s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "KĀ",
+     [
+      {
+       "t": "SAPRAST MĀKOŅUS",
+       "couleur": "#3a9bd9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "w39g4P7LfKw",
+     "titre": "Kā veidojas mākoņi?",
+     "chaine": "FIZMIX lv",
+     "vues": "26 tūkst. skatījumu",
+     "date": "pirms 10 gadiem",
+     "duree": "2:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgkZXE2aUZj-qZrCwH4x0sMuMBjYgC0AkHh2YLw-IKjw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 stundas mācību"
     ]
    }
   },
@@ -715,6 +853,78 @@
     "sous": [
      "3-4 sata za učenje"
     ]
+   },
+   "es-419": {
+    "titre": [
+     "VOLVERTE",
+     [
+      {
+       "t": "UN MONSTRUO",
+       "couleur": "#e0262b"
+      }
+     ],
+     "DEL CÁLCULO MENTAL"
+    ],
+    "video": {
+     "id": "TvV-mTlvoV8",
+     "titre": "CÁLCULO MENTAL PARA SUMAS- Superfacil y rapido",
+     "chaine": "Daniel Carreón",
+     "vues": "58 k vistas",
+     "date": "hace 1 año",
+     "duree": "5:26",
+     "avatar": "https://yt3.ggpht.com/l7sq5ZuUXMJ1tSpkYTHJNBUHxyGnDCVXY8w9fA3pwMJeqECqtBa2ul73aWYUwXkzRlWhBdLhmDc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 horas para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "STAŤ SA",
+     [
+      {
+       "t": "MONŠTROM",
+       "couleur": "#e0262b"
+      }
+     ],
+     "V POČÍTANÍ SPAMÄTI"
+    ],
+    "video": {
+     "id": "VCmyK2nZPaU",
+     "titre": "DRUHÁ MOCNINA ČÍSEL - počítanie bez kalkulačky",
+     "chaine": "MaTYkár",
+     "vues": "21 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "10:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mvwSeT-L0wvTn8nAu7wBqvNbp-aLIOMWCfa8iGhp-q6A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 hodiny na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "KĻŪT PAR",
+     [
+      {
+       "t": "MEISTARU",
+       "couleur": "#e0262b"
+      }
+     ],
+     "GALVAS RĒĶINOS"
+    ],
+    "video": {
+     "id": "VCKtpoLuWZc",
+     "titre": "Reizināšana galvā. (Divciparu un trīsciparu skaitļu reizināšanas ar viencipara skaitli)",
+     "chaine": "AA Kornejeva",
+     "vues": "2,3 tūkst. skatījumu",
+     "date": "pirms 5 gadiem",
+     "duree": "7:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lB2qqy26yIynEzU0Vs_PyPQfSy07KKzizt0cEk-xhvOw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 stundas mācību"
+    ]
    }
   },
   {
@@ -928,6 +1138,69 @@
     },
     "sous": [
      "5 min dnevno"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "ALIMENTAR",
+     [
+      {
+       "t": "TU CEREBRO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de hacer scroll."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "NAKŔMIŤ",
+     [
+      {
+       "t": "SVOJ MOZOG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "toto otváram",
+      "namiesto scrollovania."
+     ]
+    },
+    "sous": [
+     "5 min denne"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "BAROT",
+     [
+      {
+       "t": "SAVAS SMADZENES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "to es atveru",
+      "ritināšanas vietā."
+     ]
+    },
+    "sous": [
+     "5 min dienā"
     ]
    }
   },
@@ -1162,6 +1435,75 @@
     "sous": [
      "1 sat za učenje"
     ]
+   },
+   "es-419": {
+    "titre": [
+     "ORIENTARTE EN",
+     [
+      {
+       "t": "EL BOSQUE",
+       "couleur": "#2fa84f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "i4lPmV25W64",
+     "titre": "¿¡CÓMO ORIENTARSE con un PALO y el SOL!? - Método FÁCIL | Técnicas de Supervivencia en la Montaña",
+     "chaine": "Aventuristico",
+     "vues": "15 k vistas",
+     "date": "hace 4 años",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nn2wc5uY8b7-ouoAfwaVUPuJC3IRiuKL92hOW7CmwtOQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ORIENTOVAŤ SA",
+     [
+      {
+       "t": "V LESE",
+       "couleur": "#2fa84f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lLgWAbEOxec",
+     "titre": "URČENIE SVETOVÝCH STRÁN BEZ KOMPASU: Určovanie Severu podľa Tieňa Slnka a Hodiniek",
+     "chaine": "Život v prírode",
+     "vues": "5,1 tis. zhliadnutí",
+     "date": "pred 3 rokmi",
+     "duree": "24:49",
+     "avatar": "https://yt3.ggpht.com/bPdfuJ-PS2oOJ7f8W5TfuDY2C4-brjHf5T-lAYngHz-htf3PbT9sFlWYbyPeJ_zT8gUwd5J5SA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "ORIENTĒTIES",
+     [
+      {
+       "t": "MEŽĀ",
+       "couleur": "#2fa84f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QbVNzGPJAiM",
+     "titre": "Video pamācība - orientēšanās, izmantojot karti un kompasu.",
+     "chaine": "Zemessardzes 4.Kurzemes brigāde",
+     "vues": "10 tūkst. skatījumu",
+     "date": "pirms 6 gadiem",
+     "duree": "8:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mhUuuTKYxPFdUDHvK92J3-RZs0bvijArmpM5vsrcPNpP8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 stunda mācību"
+    ]
    }
   },
   {
@@ -1394,6 +1736,75 @@
     },
     "sous": [
      "30 min za učenje"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER UN OMELETTE",
+     [
+      {
+       "t": "COMO UN CHEF",
+       "couleur": "#d9b52c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FzT7-Ay-1X4",
+     "titre": "OMELETTE DE HUEVO: TÉCNICA INFALIBLE (Tortilla francesa) - ¡Huevo, Paulina!",
+     "chaine": "Paulina Cocina",
+     "vues": "831 k vistas",
+     "date": "hace 7 años",
+     "duree": "5:33",
+     "avatar": "https://yt3.ggpht.com/P0V5-Jm1Fy52BElhuvjpUnhCWa0rUZ7s7021beosWE5WgUQlvkgl7L8Z8durFuthhGh0MxpGsw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "UROBIŤ OMELETU",
+     [
+      {
+       "t": "AKO ŠÉFKUCHÁR",
+       "couleur": "#d9b52c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lOmN314aIPc",
+     "titre": "Ako pripraviť nadýchanú omeletu? 🍳 | Marcel Ihnačák | Kuchyna Lidla",
+     "chaine": "Kuchyňa Lidla",
+     "vues": "148 tis. zhliadnutí",
+     "date": "pred 10 rokmi",
+     "duree": "1:13",
+     "avatar": "https://yt3.ggpht.com/bnp4TW9sYNfOkq0H_87CNoectYSzqZ4QF19zCjTUJCHVtakEa5rkPSlbE4aNUFIjfVTf1yJl=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "PAGATAVOT OMLETI",
+     [
+      {
+       "t": "KĀ ŠEFPAVĀRS",
+       "couleur": "#d9b52c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mXspWSxN0ZU",
+     "titre": "Klasiskā krāsnī cepta omlete",
+     "chaine": "Receptes Video Virtuve",
+     "vues": "6,1 tūkst. skatījumu",
+     "date": "pirms 4 gadiem",
+     "duree": "4:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n2HpAB5lc6Cr2ZrWfuchTrxPkUs7kfRvwaGNj_LBFFH60=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min mācību"
     ]
    }
   },
@@ -1632,6 +2043,76 @@
     },
     "sous": [
      "15 min za učenje"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER",
+     [
+      {
+       "t": "UN NUDO",
+       "couleur": "#b77bd6"
+      }
+     ],
+     "DE CORBATA"
+    ],
+    "video": {
+     "id": "V_e2KGAywLM",
+     "titre": "Cómo hacer el nudo de la corbata FÁCIL y RÁPIDO | Humberto Gutiérrez",
+     "chaine": "Consejos Imagen",
+     "vues": "20 M de vistas",
+     "date": "hace 8 años",
+     "duree": "4:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kcXHJmLuU9CHJdVBWhjeoKC9v9Ne4C0XEhMltM1r4v4A8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "UVIAZAŤ SI",
+     [
+      {
+       "t": "KRAVATU",
+       "couleur": "#b77bd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tfZnLTHsArc",
+     "titre": "Ako uviazať kravatu   uzol Half windsor",
+     "chaine": "Bubibubi sk",
+     "vues": "175 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "1:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_miLnLMfDRJOBMmCsQBxMzwcAP6wictnjoFDaQPPAxvxA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "SASIET",
+     [
+      {
+       "t": "KAKLASAITI",
+       "couleur": "#b77bd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "leVm0DFBt7Y",
+     "titre": "Kā sasiet kaklasaiti?",
+     "chaine": "TukumaJauniesuTV",
+     "vues": "66 tūkst. skatījumu",
+     "date": "pirms 12 gadiem",
+     "duree": "4:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nK1Q8ao35tevxRNgQ0pcOaOGZf6PzTqkYoFEhJ33fSdQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min mācību"
     ]
    }
   }

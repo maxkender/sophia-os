@@ -1,0 +1,2918 @@
+{
+ "id": "sg-051",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0c93a7b8-7809-42ef-914d-ebbfa89ffa40",
+ "titre": {
+  "fr": "Compétences 10/10 hors programme scolaire",
+  "en": "10/10 skills that aren't on the school curriculum",
+  "de": "10/10-Skills, die in keinem Lehrplan stehen",
+  "it": "Abilità 10/10 fuori dal programma scolastico",
+  "pt-BR": "Habilidades 10/10 fora do currículo escolar",
+  "tr": "Okul müfredatında olmayan 10/10 beceriler",
+  "ro": "Abilități 10/10 care nu sunt în programa școlară",
+  "cs": "Dovednosti 10/10, které nejsou ve školních osnovách",
+  "hu": "10/10-es készségek, amik nincsenek a tantervben",
+  "el": "Δεξιότητες 10/10 εκτός σχολικής ύλης",
+  "sr": "Veštine 10/10 koje nisu u školskom programu",
+  "es": "Habilidades 10/10 fuera del temario escolar",
+  "es-419": "Habilidades 10/10 fuera del plan de estudios",
+  "pl": "Umiejętności 10/10 spoza szkolnego programu",
+  "sk": "Zručnosti 10/10, ktoré nie sú v školských osnovách",
+  "hr": "Vještine 10/10 kojih nema u školskom programu",
+  "sv": "10/10-färdigheter som inte finns i läroplanen",
+  "lv": "10/10 prasmes, kuru nav skolas programmā"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 hors programme scolaire #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills that aren't on the school curriculum #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die in keinem Lehrplan stehen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 fuori dal programma scolastico #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 fora do currículo escolar #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Okul müfredatında olmayan 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 care nu sunt în programa școlară #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které nejsou ve školních osnovách #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10-es készségek, amik nincsenek a tantervben #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 εκτός σχολικής ύλης #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 koje nisu u školskom programu #učinatiktoku #samorazvoj #veštine",
+  "es": "Habilidades 10/10 fuera del temario escolar #aprendeentiktok #desarrollopersonal #habilidades",
+  "es-419": "Habilidades 10/10 fuera del plan de estudios #aprendeentiktok #desarrollopersonal #habilidades",
+  "pl": "Umiejętności 10/10 spoza szkolnego programu #uczsięnatiktoku #rozwójosobisty #umiejętności",
+  "sk": "Zručnosti 10/10, ktoré nie sú v školských osnovách #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "hr": "Vještine 10/10 kojih nema u školskom programu #učinatiktoku #osobnirazvoj #vještine",
+  "sv": "10/10-färdigheter som inte finns i läroplanen #lärdigpåtiktok #självutveckling #färdigheter",
+  "lv": "10/10 prasmes, kuru nav skolas programmā #mācītiestiktokā #pašattīstība #prasmes"
+ },
+ "musique": {
+  "titre": "original sound - クリスティーナ",
+  "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
+ },
+ "notes": "Déclinaison G2 de sg-030 (28/11) : même promesse, autres mots (« Compétences 10/10 hors programme scolaire »), couverture neuve dans son style, musique de sg-030 ; 5 compétences de vie que l'école n'apprend pas (reconnaître un AVC, cuire un steak, faire une soupe, nouer une cravate, laver les vitres), vraies vidéos natives dans les 18 langues ; Sophia en étape 4 (slide 4), cta A « ENTRETENIR / SA CULTURE ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 122
+     },
+     {
+      "t": "HORS",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "PROGRAMME",
+      "cap": 150
+     },
+     {
+      "t": "SCOLAIRE",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 122
+     },
+     {
+      "t": "NOT ON THE",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "SCHOOL",
+      "cap": 150
+     },
+     {
+      "t": "CURRICULUM",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS,",
+      "cap": 122
+     },
+     {
+      "t": "DIE IN KEINEM",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "LEHRPLAN",
+      "cap": 150
+     },
+     {
+      "t": "STEHEN",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 122
+     },
+     {
+      "t": "FUORI DAL",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "PROGRAMMA",
+      "cap": 150
+     },
+     {
+      "t": "SCOLASTICO",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 122
+     },
+     {
+      "t": "FORA DO",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "CURRÍCULO",
+      "cap": 150
+     },
+     {
+      "t": "ESCOLAR",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "OKUL",
+      "cap": 122
+     },
+     {
+      "t": "MÜFREDATINDA",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "OLMAYAN",
+      "cap": 150
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 122
+     },
+     {
+      "t": "CARE NU SUNT ÎN",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "PROGRAMA",
+      "cap": 150
+     },
+     {
+      "t": "ȘCOLARĂ",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI,",
+      "cap": 122
+     },
+     {
+      "t": "KTERÉ NEJSOU",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "VE ŠKOLNÍCH",
+      "cap": 150
+     },
+     {
+      "t": "OSNOVÁCH",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK,",
+      "cap": 122
+     },
+     {
+      "t": "AMIK",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "NINCSENEK A",
+      "cap": 150
+     },
+     {
+      "t": "TANTERVBEN",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 122
+     },
+     {
+      "t": "ΕΚΤΟΣ",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΣΧΟΛΙΚΗΣ",
+      "cap": 150
+     },
+     {
+      "t": "ΥΛΗΣ",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 122
+     },
+     {
+      "t": "KOJE NISU U",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "ŠKOLSKOM",
+      "cap": 150
+     },
+     {
+      "t": "PROGRAMU",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 122
+     },
+     {
+      "t": "FUERA DEL",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "TEMARIO",
+      "cap": 150
+     },
+     {
+      "t": "ESCOLAR",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 122
+     },
+     {
+      "t": "FUERA DEL",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "PLAN DE",
+      "cap": 150
+     },
+     {
+      "t": "ESTUDIOS",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pl": {
+    "lignes": [
+     {
+      "t": "UMIEJĘTNOŚCI",
+      "cap": 122
+     },
+     {
+      "t": "SPOZA",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "SZKOLNEGO",
+      "cap": 150
+     },
+     {
+      "t": "PROGRAMU",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "t": "ZRUČNOSTI,",
+      "cap": 122
+     },
+     {
+      "t": "KTORÉ NIE SÚ",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "V ŠKOLSKÝCH",
+      "cap": 150
+     },
+     {
+      "t": "OSNOVÁCH",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "VJEŠTINE",
+      "cap": 122
+     },
+     {
+      "t": "KOJIH NEMA U",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "ŠKOLSKOM",
+      "cap": 150
+     },
+     {
+      "t": "PROGRAMU",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sv": {
+    "lignes": [
+     {
+      "t": "FÄRDIGHETER",
+      "cap": 122
+     },
+     {
+      "t": "SOM INTE",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "FINNS I",
+      "cap": 150
+     },
+     {
+      "t": "LÄROPLANEN",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "t": "PRASMES,",
+      "cap": 122
+     },
+     {
+      "t": "KURU NAV",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "SKOLAS",
+      "cap": 150
+     },
+     {
+      "t": "PROGRAMMĀ",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RECONNAÎTRE",
+     [
+      {
+       "t": "UN AVC",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "macL7hUyBeU",
+     "titre": "AVC : comment reconnaître les signes et réagir vite ?",
+     "chaine": "CHU Besançon Franche-Comté",
+     "vues": "22 k vues",
+     "date": "il y a 1 an",
+     "duree": "1:50",
+     "avatar": "https://yt3.ggpht.com/jDoKexXGOCmV8v-SxVIifC5H9H7Fq5O-4y-TUPaz9IShukcPNhNNZc7XLei3KekbWBkaytOtwA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SPOT",
+     [
+      {
+       "t": "A STROKE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mkpbbWZvYmw",
+     "titre": "Recognize the Signs and Symptoms of Stroke",
+     "chaine": "Centers for Disease Control and Prevention (CDC)",
+     "vues": "491K views",
+     "date": "11 years ago",
+     "duree": "2:31",
+     "avatar": "https://yt3.ggpht.com/R9PJB3tDxvsHEzZ4DDWslsM9YJvFZGiFkxYUNOtGkmppNQVhYe6wdO1-jASR0IrksD81zYcIWBQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SCHLAGANFALL",
+     [
+      {
+       "t": "ERKENNEN",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "75E8H_83p-Y",
+     "titre": "Schlaganfall: Erkennen und schnell handeln | Notarzt erklärt Erste Hilfe für Alle",
+     "chaine": "DoktorWeigl",
+     "vues": "33.763 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "6:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_la_3DQ-H6W6MSa2n7C3wwNS3-H8iFXQYYvDJjOoKFY_C0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RICONOSCERE",
+     [
+      {
+       "t": "UN ICTUS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "M9jDpjE8Mco",
+     "titre": "ICTUS: ecco i sintomi e il percorso di cura del Policlinico",
+     "chaine": "PoliclinicoSantOrsola",
+     "vues": "1,9K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "4:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lmsvq-ZLO2o0dJ7AYPHwnQHwTqWBO7An1t0DpvSxr1bA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "RECONHECER",
+     [
+      {
+       "t": "UM AVC",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SDkZB4nkVO0",
+     "titre": "SAMU 192: O que fazer em caso de AVC e como reconhecer sinais de alertas?",
+     "chaine": "Ministério da Saúde",
+     "vues": "220 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/x_MfzMoYMoobOPS2z7qwwgvRSQTz21fjF4s8eWh_a_z5gtdDXH4H_MEwE1yA2ITYc-Sx9l3D=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "İNMEYİ",
+     [
+      {
+       "t": "FARK ET",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HcDzMrRtktI",
+     "titre": "Birinin İnme Geçirdiği Nasıl Anlaşılır? Gerçek Vakayla Anlattık!",
+     "chaine": "Prof. Dr. Muhammed Keskin",
+     "vues": "105 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "4:52",
+     "avatar": "https://yt3.ggpht.com/Zwp_jGl6_M8rPWQnP2ThrIV2UbE_BFvufSN2ZNkhl2loTnv5jkAeZuAT-VqNSx5_XMtavzLdeQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ RECUNOȘTI",
+     [
+      {
+       "t": "UN AVC",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pTgTSll4vgk",
+     "titre": "ATACUL VASCULAR CEREBRAL| Cum recunoști un AVC",
+     "chaine": "Medical TV",
+     "vues": "2,1 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "3:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nfMVR943_bKOaKz4eOxmKUXZVsLtcw99QE_PSe4R9Xow=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "POZNAT",
+     [
+      {
+       "t": "MRTVICI",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "V8XEmZs2nes",
+     "titre": "Jak včas rozpoznat příznaky mrtvice (cévní mozková příhoda)",
+     "chaine": "Přírodní lékárna",
+     "vues": "9,9 tis. zhlédnutí",
+     "date": "před 10 lety",
+     "duree": "3:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ngjXZH05moicQy8gEf3JZY7e4mjwze2_-pCxhstYHB3Cs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "FELISMERNI",
+     [
+      {
+       "t": "A STROKE-OT",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yuaFXVmaFKU",
+     "titre": "A stroke tüneteinek felismerése",
+     "chaine": "Stroke Társ",
+     "vues": "7,9 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "2:38",
+     "avatar": "https://yt3.ggpht.com/fghwhVkY85dzpukj9lZ_lgN3wkMa1UC41RwwIO4RSBxV0aCIdmFfuwuIiTkHnSX5lfDHTtIR=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΑΝΑΓΝΩΡΙΖΕΙΣ",
+     [
+      {
+       "t": "ΕΝΑ ΕΓΚΕΦΑΛΙΚΟ",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SQVDBkLiTcM",
+     "titre": "Πώς αναγνωρίζουμε ένα εγκεφαλικό - Be fast!",
+     "chaine": "Human Nature",
+     "vues": "30 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "5:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kyUD51pc-i6DY3KoVV7-4H21mNgmUnRloIGG3OXOMrTCM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "PREPOZNATI",
+     [
+      {
+       "t": "MOŽDANI UDAR",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5ouc7GQOxkU",
+     "titre": "Simptomi moždanog udara",
+     "chaine": "Dom Zdravlja Dr Ristić",
+     "vues": "65 hilj. pregleda",
+     "date": "pre 15 godina",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_leBjxr1dFQpDthE4KFvgRiWSKBUEaOLY4RJKBVKThGBg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "DETECTAR",
+     [
+      {
+       "t": "UN ICTUS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ehjgu0o7vt8",
+     "titre": "Cómo detectar un ictus",
+     "chaine": "Centro de Emergencias Sanitarias 061",
+     "vues": "29 K visualizaciones",
+     "date": "hace 12 años",
+     "duree": "3:42",
+     "avatar": "https://yt3.ggpht.com/vV2MfNVX15oYZtlUljZyeKCrNJp6MQ0-ROlfQOTLtu43lc3qeUt3onZ96_BvMPlcWS6lzeJPvw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "RECONOCER",
+     [
+      {
+       "t": "UN DERRAME",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dacwk-ykMKw",
+     "titre": "Así puedes RECONOCER un DERRAME CEREBRAL 🧠",
+     "chaine": "El Financiero Bloomberg",
+     "vues": "20 k vistas",
+     "date": "hace 5 años",
+     "duree": "3:49",
+     "avatar": "https://yt3.ggpht.com/jvG-2caUu5L0CJ5Fws9d-4kyo1eIIlxhOwJPaitZs3IpmBUmuOP9ATlycob9uWFz8jkPE2AT9sI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "ROZPOZNAĆ",
+     [
+      {
+       "t": "UDAR",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zytTpmpe_TY",
+     "titre": "5 OBJAWÓW UDARU MÓZGU🧠🧠",
+     "chaine": "Fizjoidea Łukasz Kot",
+     "vues": "2 tys. wyświetleń",
+     "date": "3 lata temu",
+     "duree": "1:37",
+     "avatar": "https://yt3.ggpht.com/tatH65alvci3sLfEtiDP2VuX1VTy-nj5ihero8_CQfc0iAToulmLnOsMb6x0WYIw4n_fUakkkA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ROZPOZNAŤ",
+     [
+      {
+       "t": "MŔTVICU",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gx4IQylss9A",
+     "titre": "Cievna mozgová príhoda z pohľadu všeobecného lekára",
+     "chaine": "SSVPL",
+     "vues": "2,5 tis. zhliadnutí",
+     "date": "pred 3 rokmi",
+     "duree": "4:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lYSoVqwZ9ps-yj7Q_jp9ikTyyLAErXS-GAkpdc1CBr2g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "PREPOZNATI",
+     [
+      {
+       "t": "MOŽDANI UDAR",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vMyIVnlp75Y",
+     "titre": "Moždani udar: kako prepoznati simptome i reagirati na vrijeme (GROM) - prim. dr. sc. Svjetlana Šupe",
+     "chaine": "Rotim Poliklinika",
+     "vues": "505 pregleda",
+     "date": "prije 6 mjeseci",
+     "duree": "28:26",
+     "avatar": "https://yt3.ggpht.com/iKPqnx7hIUgSsO1Pd6TBFA93lLT6p1hnc3S0eQOCbqpJY2BFs0M6EAqwhTWa53naznOoqLfmTyo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "KÄNNA IGEN",
+     [
+      {
+       "t": "EN STROKE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RU0RAE4cVlY",
+     "titre": "Lär dig känna igen stroke – Kan du AKUT-testet?",
+     "chaine": "Hjärt -Lungfonden",
+     "vues": "1,6 tn visningar",
+     "date": "för 5 månader sedan",
+     "duree": "0:41",
+     "avatar": "https://yt3.ggpht.com/AsSP50X5Tg7lnupedMeasQWXPwg2yXSZ0tuuqjNzwrPfvUl2GwtP3i7rF595n5YGZirfMUhElFU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "ATPAZĪT",
+     [
+      {
+       "t": "INSULTU",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1UBa111RTN4",
+     "titre": "Atpazīsti insulta pazīmes, veic testu ĀTRI!",
+     "chaine": "Slimību profilakses un kontroles centrs",
+     "vues": "4,7 tūkst. skatījumu",
+     "date": "pirms 8 gadiem",
+     "duree": "0:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kSZbZDQgBxEkwIL9LF84RyF2AgAAgLtGRzjxQqJTLZcGI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min, lai iemācītos"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "CUIRE",
+     [
+      {
+       "t": "UN STEAK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Pss1Vo74ryg",
+     "titre": "Comment cuire un STEAK",
+     "chaine": "Daniel Homechef",
+     "vues": "104 k vues",
+     "date": "il y a 2 ans",
+     "duree": "4:00",
+     "avatar": "https://yt3.ggpht.com/CY3lixpDXFudJTBHv0auaMTFxdJ65Lsi8WvWzXFl90dLAxuffZxse8pDdQQ1AJJbBQmqjxQTyQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "COOK",
+     [
+      {
+       "t": "A STEAK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SdHE2zgSaxU",
+     "titre": "How To Cook A Perfect Steak Every Time",
+     "chaine": "Joshua Weissman",
+     "vues": "5.4M views",
+     "date": "7 years ago",
+     "duree": "5:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nfXRvoxu5cFt2H4WhJfFLbL5SVdzmvEnFymnPzH3_1qPM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EIN STEAK",
+     [
+      {
+       "t": "BRATEN",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uvrYNvzDcEs",
+     "titre": "Steak richtig braten - So geht's! | Chefkoch.de",
+     "chaine": "Chefkoch",
+     "vues": "587.066 Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "6:33",
+     "avatar": "https://yt3.ggpht.com/vykxOIIIbfMY1Rdld2itE2iIZVXNBtmuKYqXwUfcm7fLPVhTQZ2fcC6AURH3D-iv7_GCw8MkzQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CUOCERE",
+     [
+      {
+       "t": "UNA BISTECCA",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ojAwlOVhUdQ",
+     "titre": "Come cuocere una BISTECCA PERFETTA: 8 consigli per prepararla perfetta anche a casa 😋",
+     "chaine": "Cookist",
+     "vues": "62K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "2:11",
+     "avatar": "https://yt3.ggpht.com/WPNJIVZN7XwPf0_7encqZocDjPzLB6Niz0H8JEQbIx2lFChAG1zFEqBbrzMZUo_m4rHm3KlqbJk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "UM BIFE",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_dhNRTfRii0",
+     "titre": "Como Fazer o Bife Perfeito - Receitas Nestlé",
+     "chaine": "Receitas Nestlé",
+     "vues": "1,5 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "1:19",
+     "avatar": "https://yt3.ggpht.com/11Wxo5PWAYhkfStLQTy9u-MIp37DPyHMFdOKwLnxSjrTOuBMHLUZL0rUIYmhvv7c-3I7GXGRRg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "BİFTEK",
+     [
+      {
+       "t": "PİŞİRMEK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "P1FujsD4saw",
+     "titre": "Biftek Kızartması Nasıl Yapılır? | Tavada Biftek Kızartması Tarifi",
+     "chaine": "Sevilay'ın Mutfağı",
+     "vues": "821 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "5:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lswn0y0xa-HOAxZtwuolAuL7hP9QTeU4dYk3Z9uwR3ND0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ GĂTEȘTI",
+     [
+      {
+       "t": "UN STEAK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iBLc4EjNOrE",
+     "titre": "CUM SA FACI STEAK DE VITA PERFECT (MEREU)  - Ep. 31 | Nu Mor De Foame",
+     "chaine": "Nu Mor De Foame",
+     "vues": "38 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "2:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lIRwmg-A7IFtPPTxLPLkLXqsDhjNagS9ug-G9ZjqMwLQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "USMAŽIT",
+     [
+      {
+       "t": "STEAK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Pu6J2U2SHpk",
+     "titre": "Jak připravit perfektní steak | Menu od Koko",
+     "chaine": "Menu od Koko",
+     "vues": "121 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "5:56",
+     "avatar": "https://yt3.ggpht.com/X4uvgEmR17jPlRV5wmUFekamOyU7V0fiB9hwLCJnTstprXYaFK2llfKaLeCW4VZKfnSLavNkklc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "STEAKET",
+     [
+      {
+       "t": "SÜTNI",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "p6ENPkwU8eo",
+     "titre": "A tökéletes marhasteak | Lidl Konyha - Séftippek",
+     "chaine": "Lidl Magyarország",
+     "vues": "202 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "3:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kKtBGk4-itgJpYw9YGiSpULdzspB5nZvfztDF0zfT8F0Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΨΗΝΕΙΣ",
+     [
+      {
+       "t": "ΜΠΡΙΖΟΛΑ",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mxm1q8VyF6I",
+     "titre": "Μοσχαρίσια Μπριζόλα στο Τηγάνι σε 10 Λεπτά - Ζουμερή να λιώνει στο στόμα!",
+     "chaine": "Stelios Mixailidis",
+     "vues": "80 χιλ. προβολές",
+     "date": "πριν από 1 έτος",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/BUMqvNmxdg96SUXbnAkC95r1VEjF-BQR417s3GZJ3o6UoFQvMhPbKk_0eE6fGNOvcPNwP4oGNmo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "ISPEĆI",
+     [
+      {
+       "t": "BIFTEK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CzLia-f7PZ4",
+     "titre": "Kako ispeći savršen biftek kod kuće",
+     "chaine": "Volim Meso",
+     "vues": "121 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "1:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mTr2eKXa-MvH5Uvaq22c624JFTSKl1zrm_ce4vIKXt7mo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "HACER",
+     [
+      {
+       "t": "UN CHULETÓN",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iw-OIF7V4-g",
+     "titre": "Cómo asar chuletón en casa. Tutorial DEFINITIVO !!! www.pepechuleton.com 660835773",
+     "chaine": "Pepe Chuletón | Maestro Carnicero",
+     "vues": "87 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/9eYQpH84E-VsD4ztfQKVcZpKW-FZKmFlyQjAcw4Qj5VnPG-R5KSFAbkfPtzEd4i9hkh3-vdLcqc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "COCINAR",
+     [
+      {
+       "t": "UN BISTEC",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Jp2VvaUrues",
+     "titre": "TÉCNICA PARA SELLAR BISTEC 🥩  COMO COCINAR 🧑‍🍳 BISTEC BLANDO Y JUGOSO 🤤 | CHEF VILLAMAN 👍🏼",
+     "chaine": "CHEF VILLAMAN",
+     "vues": "332 k vistas",
+     "date": "hace 6 años",
+     "duree": "6:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kXyuapUK2QGs9uzw66ZXkIbrbRZa5HmSNS5ioEMIB1Mso=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "USMAŻYĆ",
+     [
+      {
+       "t": "STEK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OKXPpB94XNo",
+     "titre": "Czy wiesz jak przygotować steka na patelni?",
+     "chaine": "Stół i Wół",
+     "vues": "183 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "2:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mQQbxI9sY04Q6TXyvW81I8EUw3oPVq5LKLGWvb6HeOWQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "PRIPRAVIŤ",
+     [
+      {
+       "t": "STEAK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HE1LSBSf1DU",
+     "titre": "Ako pripraviť dokonalý steak z hovädzej sviečkovice.",
+     "chaine": "GOGS-recepty",
+     "vues": "44 tis. zhliadnutí",
+     "date": "pred 4 rokmi",
+     "duree": "1:41",
+     "avatar": "https://yt3.ggpht.com/zhoWSPne88w5EiTj4XGASmMRD88HhL4FZ8sQFrpPj8wfvNSVVQwmEyjRle31_Cmt4ZzriSJkfXI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "ISPEĆI",
+     [
+      {
+       "t": "ODREZAK",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XtS8DYYwUx4",
+     "titre": "Kako ispeći Juneći odrezak - Ribeye Steak",
+     "chaine": "Najbolji domaći recepti",
+     "vues": "215 tis. pregleda",
+     "date": "prije 5 godina",
+     "duree": "1:35",
+     "avatar": "https://yt3.ggpht.com/H9NlYiNskl2FQ3-VnrKjdgEsvEE4Fn6ICNTNP7U4vi3juxGCjD4cHMW2U12SJnN1U7nyK5Gjuw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "STEKA",
+     [
+      {
+       "t": "EN ENTRECÔTE",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IQkn_s5R0SM",
+     "titre": "Köttguiden - Steka entrecôte, så här gör du!",
+     "chaine": "Scan",
+     "vues": "224 tn visningar",
+     "date": "för 8 år sedan",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/XZbP1ewPmvs3dj--O0B3tUWkODoeJW647biaj7XJXZmQkxAKMzTurrGodyiRW8VpiQMB7nqqvQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "PAGATAVOT",
+     [
+      {
+       "t": "STEIKU",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qHNyHRkmiZ0",
+     "titre": "Kā ziemā pagatavot izcilu steiku!",
+     "chaine": "Oak'A BBQ",
+     "vues": "837 skatījumi",
+     "date": "pirms 3 gadiem",
+     "duree": "3:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mazlCT20mDK7bNb0dOJigqktVPf1Jn43y2U9fClpco7w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min, lai iemācītos"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "ENTRETENIR",
+     [
+      {
+       "t": "SA CULTURE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "STAY",
+     [
+      {
+       "t": "CULTURED",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "BILDUNG",
+     [
+      {
+       "t": "PFLEGEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COLTIVARE",
+     [
+      {
+       "t": "LA CULTURA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CULTIVAR",
+     [
+      {
+       "t": "A CULTURA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KÜLTÜRÜNÜ",
+     [
+      {
+       "t": "GELİŞTİR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI ÎNTREȚII",
+     [
+      {
+       "t": "CULTURA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ROZVÍJET",
+     [
+      {
+       "t": "SVŮJ PŘEHLED",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ÁPOLNI",
+     [
+      {
+       "t": "A MŰVELTSÉGED",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "rövid leckék, valódi",
+      "tanárok tollából."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΚΑΛΛΙΕΡΓΕΙΣ",
+     [
+      {
+       "t": "ΤΗ ΓΝΩΣΗ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "σύντομα μαθήματα",
+      "από αληθινούς καθηγητές."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NEGOVATI",
+     [
+      {
+       "t": "OPŠTU KULTURU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   },
+   "es": {
+    "titre": [
+     "CULTIVAR",
+     [
+      {
+       "t": "TU CULTURA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "cursos cortos escritos",
+      "por profesores de verdad."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "CULTIVAR",
+     [
+      {
+       "t": "TU CULTURA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "clases cortas escritas",
+      "por profesores de verdad."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "DBAĆ",
+     [
+      {
+       "t": "O WIEDZĘ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krótkie lekcje od",
+      "prawdziwych nauczycieli."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ROZVÍJAŤ",
+     [
+      {
+       "t": "SVOJ PREHĽAD",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátke lekcie od",
+      "skutočných učiteľov."
+     ]
+    },
+    "sous": [
+     "5 min denne"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "NJEGOVATI",
+     [
+      {
+       "t": "OPĆU KULTURU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "VÅRDA",
+     [
+      {
+       "t": "DIN ALLMÄNBILDNING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "korta lektioner skrivna",
+      "av riktiga lärare."
+     ]
+    },
+    "sous": [
+     "5 min om dagen"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "KOPT",
+     [
+      {
+       "t": "SAVU ERUDĪCIJU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "īsas nodarbības, ko raksta",
+      "īsti skolotāji."
+     ]
+    },
+    "sous": [
+     "5 min dienā"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE UNE",
+     [
+      {
+       "t": "SOUPE MAISON",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IKqYkM2KGUo",
+     "titre": "Recette de soupe aux légumes d'hiver",
+     "chaine": "Juju Cuisine",
+     "vues": "133 k vues",
+     "date": "il y a 8 ans",
+     "duree": "2:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mUJmOquKF8-wkC4ozegyo2krHzp8N0n10Mx2iz2pB5yg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE",
+     [
+      {
+       "t": "HOMEMADE SOUP",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LrKhcvZYFdQ",
+     "titre": "Easy Vegetable Soup Recipe",
+     "chaine": "Inspired Taste",
+     "vues": "547K views",
+     "date": "5 years ago",
+     "duree": "2:21",
+     "avatar": "https://yt3.ggpht.com/cwjQYiQGzmGe2vyttTzKQXM2LIg6xMoViWZe90qU0YP6dFG4_3ZhFses2oPhKSuAYwaeXHjH=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "GEMÜSESUPPE",
+     [
+      {
+       "t": "KOCHEN",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5uAM1QrKml4",
+     "titre": "Gemüsesuppe ohne Rezept",
+     "chaine": "Kochen mit Muddi",
+     "vues": "149.426 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "11:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mmPDKrQsZyer8kryAR5qHMsy_BGYN_zV8LMWdc-ZDg5Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE IL",
+     [
+      {
+       "t": "MINESTRONE",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VEng-t7ZcBE",
+     "titre": "MINESTRONE DI VERDURE Ricetta Facile - Fatto in Casa da Benedetta",
+     "chaine": "Fatto in Casa da Benedetta",
+     "vues": "226K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "3:58",
+     "avatar": "https://yt3.ggpht.com/9H-mqH7bg3p2YbjgO9kzFmQZhI3RGbne8qmfU8NOQsvWqWmL_4yR2I5swai5lSv8lGeyYFQ-CPw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "SOPA DE LEGUMES",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wjihy_jyZ2g",
+     "titre": "Sopa de Legumes - sem carne e sem macarrão",
+     "chaine": "Chef Iracema Bertoco",
+     "vues": "490 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "6:55",
+     "avatar": "https://yt3.ggpht.com/Wid4xZL9ch-Z_4DjIVGt6Xaw_1OZ8YDn0YuboERRcK8wy-3g6RcBhNDvgQWPznn6VvcAvx8x5Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "SEBZE ÇORBASI",
+     [
+      {
+       "t": "YAPMAK",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2z7kuRPiwT8",
+     "titre": "Sebze Çorbası | Nasıl Yapılır?",
+     "chaine": "Nefis Yemek Tarifleri | Bugün Ne Pişirsem?",
+     "vues": "567 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "2:49",
+     "avatar": "https://yt3.ggpht.com/SlYKkIpSlt9fYd_LAEq1jWrCwR1hUmTnmw1oC7JpwiPz6K4_U-0q6rFIjYqo9occ6Zmo0fiw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "O SUPĂ",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SAEzWLSa0so",
+     "titre": "Supa de legume rapida si sanatoasa [Reteta de post]",
+     "chaine": "In bucatarie cu Jenny",
+     "vues": "11 K vizionări",
+     "date": "acum 2 ani",
+     "duree": "1:37",
+     "avatar": "https://yt3.ggpht.com/dIPJxsnPDoGXAvwiCOIK2j9JDsV7tNh5vKA_UV2JBOgGfigC_C_JA8e3EV52JBhu23UNYqMS=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UVAŘIT",
+     [
+      {
+       "t": "POLÉVKU",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QcoOoQpEYFk",
+     "titre": "Jednoduchá zeleninová polévka za 30 minut",
+     "chaine": "Vaříme s Kubíčkem",
+     "vues": "22 tis. zhlédnutí",
+     "date": "před 8 měsíci",
+     "duree": "6:58",
+     "avatar": "https://yt3.ggpht.com/sOehAfUsS1EVG8PcVPMtaKuLrcDWutm1oij5BilubUd0kog5Wso30lGEwT5tmeKXaiqEy3-jgw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ZÖLDSÉGLEVEST",
+     [
+      {
+       "t": "FŐZNI",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YD8SV0z2Mis",
+     "titre": "Gyors zöldségleves | Mindmegette.hu",
+     "chaine": "Mindmegette.hu",
+     "vues": "124 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "0:58",
+     "avatar": "https://yt3.ggpht.com/ZwTJhDTG2iC1XRY8pa6CE4GfXhB59QVr69UBWmE3gELM-rFB44TFQk_BHrKb-qMSLp3xZf_s2A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΦΤΙΑΧΝΕΙΣ",
+     [
+      {
+       "t": "ΣΟΥΠΑ",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6mLqPQ4EUqk",
+     "titre": "Σούπα Λαχανικών, για το χειμώνα και το κρυολόγημα - ΧΡΥΣΕΣ ΣΥΝΤΑΓΕΣ",
+     "chaine": "Χρυσές Συνταγές",
+     "vues": "124 χιλ. προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "3:01",
+     "avatar": "https://yt3.ggpht.com/DvK3G8MVb6Ct6wdjfYFeIWMbgSToSneokZNzJWJQJt_407q9ni3WHGZB_HbrBc7LH1qq5Yif6Wc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "SKUVATI",
+     [
+      {
+       "t": "ČORBU",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "U9ItqxPNURM",
+     "titre": "Najbrža čorba od povrća - bolja od gotove supe!",
+     "chaine": "Kuvar TV - Domaća kuhinja",
+     "vues": "44 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "3:05",
+     "avatar": "https://yt3.ggpht.com/Hweq-3YICQdE_iWwOIVJAoj8Mhz9CrLYjjMX5RemBXxIJqDUIom979mHEQVsIKRlyX3IuQ1F=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "HACER",
+     [
+      {
+       "t": "UNA SOPA",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_ph-LgZcCFI",
+     "titre": "😋 Cómo Hacer SOPA DE VERDURAS Casera ► Receta Saludable con 🥕🌽🥔🧄 y +",
+     "chaine": "Cocina Guru",
+     "vues": "180 K visualizaciones",
+     "date": "hace 4 años",
+     "duree": "3:40",
+     "avatar": "https://yt3.ggpht.com/1iDeCKByiRDZcgDe7FEPP7VTAlOF1cHiiOzvymlLxmdzcqUZH9b8UYo70Yn5ff_EVKhLAOcWYg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER",
+     [
+      {
+       "t": "UNA SOPA",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pNMfnNw3Q6A",
+     "titre": "Sopa de Verduras",
+     "chaine": "Jauja Cocina Mexicana",
+     "vues": "3.3 M de vistas",
+     "date": "hace 8 años",
+     "duree": "5:47",
+     "avatar": "https://yt3.ggpht.com/xhd9189-fhB72zaEyB7rOEEvQSJ0OYxGHMtggzFFr53R44wLppB-PM3672jcd5vOwYHe6o8Hcg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "UGOTOWAĆ",
+     [
+      {
+       "t": "ZUPĘ",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dvonV51aQ10",
+     "titre": "Zupa jarzynowa z kurczakiem – prosty przepis na domową zupę",
+     "chaine": "Anka Gotuje",
+     "vues": "319 tys. wyświetleń",
+     "date": "11 lat temu",
+     "duree": "3:14",
+     "avatar": "https://yt3.ggpht.com/wrEX6q6uctMQDIcelAwZ4cMkJUX35oH8uI744gI3opGojr5KgXmgKIb9ujJgm05R0Ckrt2m6=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 godzina nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "UVARIŤ",
+     [
+      {
+       "t": "POLIEVKU",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_HE6Xufyf9g",
+     "titre": "Zeleninová polievka s krupicovými haluškami | Vegetable soup with semolina dumplings",
+     "chaine": "Bola raz jedna kuchyňa",
+     "vues": "19 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "2:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mTA_iBdHx_lyQODyJM8gyY1opm0MEnC7SX_CsQlPtBlg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "SKUHATI",
+     [
+      {
+       "t": "JUHU",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EqHiaaOvTPE",
+     "titre": "Juha od povrća - recept",
+     "chaine": "I am Ana",
+     "vues": "30 tis. pregleda",
+     "date": "prije 7 godina",
+     "duree": "2:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kOkCPv8X9L0rt0FC9KLDYO6Bw7StFm0cv353SzUB6sWwo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "LAGA",
+     [
+      {
+       "t": "EN SOPPA",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dz5hA9dQ-3M",
+     "titre": "Se och gör värmande grönsakssoppa",
+     "chaine": "Köket",
+     "vues": "9 tn visningar",
+     "date": "för 10 år sedan",
+     "duree": "2:09",
+     "avatar": "https://yt3.ggpht.com/shX0wVow2LGlhD0JlIJssWEeOE7eCYrJonP65LJVpswv0H4Z8qS_isJAUNKHiwyZYbzBl3wbog=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 timme att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "UZVĀRĪT",
+     [
+      {
+       "t": "ZUPU",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qZ2YJYfcuPo",
+     "titre": "Pavasara dārzeņu zupa",
+     "chaine": "TOP VEIKALI",
+     "vues": "2,6 tūkst. skatījumu",
+     "date": "pirms 4 gadiem",
+     "duree": "0:52",
+     "avatar": "https://yt3.ggpht.com/ApqfmUNL6ZLnY4yXZdLCF20-L9PdfibYm4NL5JE8Me9uBEsK7OytcXDmxBuvSGr5A3vu_E2sPw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 stunda, lai iemācītos"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "NOUER",
+     [
+      {
+       "t": "UNE CRAVATE",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mFDT5LdDjyk",
+     "titre": "Comment faire un noeud de cravate",
+     "chaine": "Pratiks",
+     "vues": "6,5 M de vues",
+     "date": "il y a 17 ans",
+     "duree": "1:29",
+     "avatar": "https://yt3.ggpht.com/lkMqn-NPmbpigbinjGK47Av0hMQCtujEYl8pOGYc1yEjU0xlL_p8mGb3A4sSE1g8SBXsOwbj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "TIE",
+     [
+      {
+       "t": "A TIE",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "X_3z7QneFOI",
+     "titre": "How to tie a tie EASY (Windsor knot)",
+     "chaine": "How to tie a tie",
+     "vues": "7.7M views",
+     "date": "5 years ago",
+     "duree": "2:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nFUUnQj9xU7fdnvgnZ0fXXDyQ1Yz2eBMpdwR3GJWrkPA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "KRAWATTE",
+     [
+      {
+       "t": "BINDEN",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PMEs-kMf_7A",
+     "titre": "Krawattenknoten binden: Der einfache Knoten",
+     "chaine": "Modehaus Adelsberger",
+     "vues": "5,6 Mio. Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "1:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lryRa3xSbQj91bjLdJJNd2QGfI2G9xKJlsm15uy9Vsqvs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE IL NODO",
+     [
+      {
+       "t": "ALLA CRAVATTA",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uE_VmzdlrLU",
+     "titre": "Come fare il nodo perfetto alla cravatta",
+     "chaine": "Fabio Porta",
+     "vues": "590K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "2:28",
+     "avatar": "https://yt3.ggpht.com/ukze-xmv6FNr433yk-r_JZj2_8ldEziZa1JEHBdBJY8DBUQWPRlr5ELiLH7TEpJC-SQvr_5bQb4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DAR NÓ",
+     [
+      {
+       "t": "NA GRAVATA",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Y8FVyg5MRMo",
+     "titre": "Nó de gravata mais fácil de fazer",
+     "chaine": "Fábio Souza Carvalho",
+     "vues": "799 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "0:49",
+     "avatar": "https://yt3.ggpht.com/fR0HO498gMYAJUkGY42RgsYwhIp7dYkMR5bBaapyXmUEh1oc6xWlc9UKsHNtTdg-7D3HwpDY6Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KRAVAT",
+     [
+      {
+       "t": "BAĞLAMAK",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KITmrpEmZR4",
+     "titre": "Kravat Nasıl Bağlanır En Detaylı Anlatımı - How To Tie a Tie?",
+     "chaine": "Bıdık Amca",
+     "vues": "636 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "2:16",
+     "avatar": "https://yt3.ggpht.com/5oqUmyEqr8D9VBVl7ZH70K3VQndM2omgSewZnxx7ErQIfKldNbNiY3Xwo80X4j4mzWAUX2Eo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ LEGI",
+     [
+      {
+       "t": "O CRAVATĂ",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Ewtibu3DPQQ",
+     "titre": "Cum se face nodul simplu la cravata",
+     "chaine": "Bman",
+     "vues": "838 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "1:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n4OOazBu0ALd40yP1gYr58JF_sywFO2OB9Mxyxy9zt4Bs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UVÁZAT",
+     [
+      {
+       "t": "KRAVATU",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dze9gau4lPc",
+     "titre": "Jak uvázat kravatu s jedinečným uzlem Windsor Full | BANDI",
+     "chaine": "Pánské obleky BANDI",
+     "vues": "293 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "2:10",
+     "avatar": "https://yt3.ggpht.com/oJS9GMw8BRH-1e8hQNR8suGbUUl1GzxHm96_bDBXQdfpgPBfR9W8KFR8xhJ1MCEKfmrYULW7ew=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "NYAKKENDŐT",
+     [
+      {
+       "t": "KÖTNI",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lple1QL6CP8",
+     "titre": "Nyakkendő kötés Tutorial - windsor csomó",
+     "chaine": "W4Szabi Channel",
+     "vues": "100 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "4:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kwEewsRaPWbEoLO9e3LIuGzRVOXS0p0r44OUJeG5AhsUU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΔΕΝΕΙΣ",
+     [
+      {
+       "t": "ΓΡΑΒΑΤΑ",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7JHjC1_aqFU",
+     "titre": "Δέσιμο γραβάτας - Meandhome.gr",
+     "chaine": "Meandhome",
+     "vues": "617 χιλ. προβολές",
+     "date": "πριν από 14 έτη",
+     "duree": "1:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kdCaU6XFSe9t-HXdzpvijIRMC0EP4dejQ64zUToK9ThA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "VEZATI",
+     [
+      {
+       "t": "KRAVATU",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mbvDoOfdK0A",
+     "titre": "Učimo vezati kravatu: Korak po korak do savršenog čvora",
+     "chaine": "Imagine Interactive TV",
+     "vues": "93 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l1rOe0l300xFnF4KtmW0Tl-T51rFJV3JtPZdtmM9PBmw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "HACER EL NUDO",
+     [
+      {
+       "t": "DE CORBATA",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XzKTVetMAIg",
+     "titre": "Nudo de Corbata Windsor - Como Hacer el Nudo Windsor",
+     "chaine": "Viendo y Aprendiendo",
+     "vues": "3,3 M de visualizaciones",
+     "date": "hace 3 años",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kbfxg3pcZtOlOrk9iwcbZvnkmoGQ2-zNriMDfj6fBIpD0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER EL NUDO",
+     [
+      {
+       "t": "DE CORBATA",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oLWMOzc_IBY",
+     "titre": "Como hacer NUDO de CORBATA paso a paso - Nudo Winsdor",
+     "chaine": "A Crear",
+     "vues": "1.5 M de vistas",
+     "date": "hace 1 año",
+     "duree": "1:51",
+     "avatar": "https://yt3.ggpht.com/7vslBhc6sn5hzJvqLW7e-AWKeBlqG1CGjHtJiu_sJEePr8uzMYP58A-l7roqUQHYY2ieYQ8x=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "ZAWIĄZAĆ",
+     [
+      {
+       "t": "KRAWAT",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OwAyuyyGpAg",
+     "titre": "Jak zawiązać krawat - węzeł prosty / How to tie a tie (four-in-hand)",
+     "chaine": "To łatwe TV",
+     "vues": "669 tys. wyświetleń",
+     "date": "8 lat temu",
+     "duree": "1:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lR3mdDPjWiKak89fvbDoTqUpIXVM6sx2qi7J11P3WWTOo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "UVIAZAŤ",
+     [
+      {
+       "t": "KRAVATU",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ku4iU3WoakM",
+     "titre": "Ako sa viaže kravata - uzol Windsor",
+     "chaine": "Bubibubi sk",
+     "vues": "239 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "1:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_miLnLMfDRJOBMmCsQBxMzwcAP6wictnjoFDaQPPAxvxA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "VEZATI",
+     [
+      {
+       "t": "KRAVATU",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "b62Gb-deMsQ",
+     "titre": "Kako zavezati kravatu?",
+     "chaine": "e-kako portal",
+     "vues": "1,4 mil. pregleda",
+     "date": "prije 15 godina",
+     "duree": "1:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m3nrvanl1fBQ5e2hBstn7MLCL1-8oDYsAKgEE-SwRqgMA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "KNYTA",
+     [
+      {
+       "t": "EN SLIPS",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kglwf1gJK-4",
+     "titre": "Hur man knyter en slips - Snabbt & Enkelt",
+     "chaine": "Menofties official",
+     "vues": "778 tn visningar",
+     "date": "för 10 år sedan",
+     "duree": "1:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1HfljeK0BPHtLGTI8Gj0Dmkw-PFJC5_XQemdVOLTYtg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "SASIET",
+     [
+      {
+       "t": "KAKLASAITI",
+       "couleur": "#2c5aa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kZ4OhLTZnQ8",
+     "titre": "Dari gudri - kā sasiet kaklasaiti",
+     "chaine": "NordeaLatvija",
+     "vues": "4,3 tūkst. skatījumu",
+     "date": "pirms 14 gadiem",
+     "duree": "1:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kqxXOaemkrWrpsqldHCjrZOst34HnoC21ZYZCM47C2tw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min, lai iemācītos"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "LAVER LES VITRES",
+     [
+      {
+       "t": "SANS TRACES",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_z7rKeK-RP4",
+     "titre": "🪟​🧽Comment nettoyer les vitres sans laisser de traces ? ​🫧",
+     "chaine": "Les Dénicheurs",
+     "vues": "65 k vues",
+     "date": "il y a 3 ans",
+     "duree": "5:00",
+     "avatar": "https://yt3.ggpht.com/sSSy_EeXr4X-q6uyLwjOb1syhYF7FdOtX6YD-QqaX3OinXyGFDJwId2U-Rp_d_C95s6GIcZc7w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "CLEAN WINDOWS",
+     [
+      {
+       "t": "WITHOUT STREAKS",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KjlsEZvdyg0",
+     "titre": "How To Clean Windows Like a PRO | 5 TIPS",
+     "chaine": "The Window Experts",
+     "vues": "459K views",
+     "date": "3 years ago",
+     "duree": "2:10",
+     "avatar": "https://yt3.ggpht.com/Y_jPTRI2XsU2tQg0bOKOapBRzAqBRpHTbAVj57GM6qkdUbC3WB6kCu48Wzo7QR07RHhqrAGVPg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "FENSTER PUTZEN",
+     [
+      {
+       "t": "OHNE STREIFEN",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5mwVF-Rm4m8",
+     "titre": "Fenster richtig putzen ohne Streifen - einfach und fast kostenlos",
+     "chaine": "Leuchtende Freiheit",
+     "vues": "132.373 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "4:54",
+     "avatar": "https://yt3.ggpht.com/OwZesyu-ecb4TAMpJUzfD6jx5w-_2cNSI5Um-eRR1kjDKLxpA6q37fFTtDPaeNxboU5BwyeWoMY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PULIRE I VETRI",
+     [
+      {
+       "t": "SENZA ALONI",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AKOnG09ioP8",
+     "titre": "👉 VETRI BRILLANTI: il metodo semplice per non avere più aloni!",
+     "chaine": "tata domizi",
+     "vues": "727K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "3:14",
+     "avatar": "https://yt3.ggpht.com/apb7Ao5jpMxxp7yOMhJOrRON-120Ys5YGSJm9ZBjrYDietZ1n6QDMe9zGHsEtjTGBjWKyxQKFAY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "LIMPAR VIDROS",
+     [
+      {
+       "t": "SEM MANCHAS",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jY726Kjmcuo",
+     "titre": "COMO LIMPAR VIDROS SEM JOGAR AGUA RAPIDO E FACIL",
+     "chaine": "Casinha da Mah",
+     "vues": "205 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "1:54",
+     "avatar": "https://yt3.ggpht.com/PyQk2WwDTu1eT4EDaExjCMWU4_XA5EtOG0ywOCLbnUSSkobTMglWayODuBXLFDMPiUD8KgAm=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "CAM SİLMEK",
+     [
+      {
+       "t": "İZ BIRAKMADAN",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ltmvrFZHlYg",
+     "titre": "Leke Bırakmadan Cam Nasıl Silinir",
+     "chaine": "Osman Çakır",
+     "vues": "6,1 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "3:09",
+     "avatar": "https://yt3.ggpht.com/NEFmbD3jcvPbP5ljKNNuftXJxHzbdhs8o75vT-nKQ9rDJWdTX4Pzx7igI7550VD4cTYgrgziWw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ SPELI GEAMURI",
+     [
+      {
+       "t": "FĂRĂ URME",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VNjewkMrUH4",
+     "titre": "CURATA GEAMURILE CA UN PROFESIONIST / METODA USOARA",
+     "chaine": "Ada Loves Life",
+     "vues": "42 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "4:21",
+     "avatar": "https://yt3.ggpht.com/pMAiHL4qx4ME4AZ0XByjKlHWTylEmlxwQnQRN4hpGvX4OyTMxXUb5l7LRPHJWnQs3s63R_qXAA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UMÝT OKNA",
+     [
+      {
+       "t": "BEZ ŠMOUH",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6jufFPXKCKI",
+     "titre": "Ekologické čištění oken bez chemických přípravků",
+     "chaine": "Nanie_cz",
+     "vues": "1,3 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "0:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kLVcYV0LvruUfcSE5VtqEA4A00buEwREy2BNSbkg4a3Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ABLAKOT PUCOLNI",
+     [
+      {
+       "t": "CSÍKMENTESEN",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l4OKRSV6QBA",
+     "titre": "Csíkmentes ablaktisztítás 20 másodperc alatt! – Profi technika",
+     "chaine": "ablakpucolo.hu",
+     "vues": "23 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "0:22",
+     "avatar": "https://yt3.ggpht.com/wL9okwKFUGNtpQI_RD8slZuQrhvjwG9hghy_lHkdc44DG6bl0N7OfFE9CW50zS8qUEmwmFaV2Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΚΑΘΑΡΙΖΕΙΣ ΤΖΑΜΙΑ",
+     [
+      {
+       "t": "ΧΩΡΙΣ ΣΗΜΑΔΙΑ",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GMYA6UiC1iU",
+     "titre": "✅ 4 λάθη που κάνουμε όλοι στο καθάρισμα των τζαμιών- Ο σωστός τρόπος για να το κάνεις!",
+     "chaine": "24h Online",
+     "vues": "20 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "2:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m5HbNXyMOkzfI9JfQLKIg6M_4iFTJnFPXPhzA6pchqow=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "OPRATI PROZORE",
+     [
+      {
+       "t": "BEZ FLEKA",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dIWmg73ot4U",
+     "titre": "Pogrešno čistite prozore ceo život❓ Žao mi je što ranije nisam ovo isprobala✅",
+     "chaine": "Uradi Sama- Ideje za kreativce",
+     "vues": "1 mil. pregleda",
+     "date": "pre 3 godine",
+     "duree": "3:24",
+     "avatar": "https://yt3.ggpht.com/Elrl7_yFdGLgE1FROiPS0Q3s818ibiSfrSaUhbBEirHJwkOL8nsCYw38DssF1_nVM-wtAjLCQA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "LIMPIAR CRISTALES",
+     [
+      {
+       "t": "SIN MARCAS",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "J7oeVlADzys",
+     "titre": "Como limpiar cristales sin dejar marcas! ¡Aprenda a limpiar los cristales como un profesional!",
+     "chaine": "UNGER España",
+     "vues": "803 K visualizaciones",
+     "date": "hace 4 años",
+     "duree": "3:42",
+     "avatar": "https://yt3.ggpht.com/EnxuylJ_47OCfoxpJRvkEj55hxyaqG7gLm81CQFDy-3w1uB33fwaKNKa4SwdAx9RUYzzMNhB=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "LIMPIAR VIDRIOS",
+     [
+      {
+       "t": "SIN MANCHAS",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Ibsi6PDn-hQ",
+     "titre": "✅ CON UN POQUITO DEJA TUS VIDRIOS, ESPEJOS Y CRISTALES INVISIBLES, COMO LIMPIAR VIDRIOS Y VENTANAS",
+     "chaine": "Sandy Elizabeth *LIMPIEZA*",
+     "vues": "956 k vistas",
+     "date": "hace 4 años",
+     "duree": "11:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nOvUzCoLDWEebKEfUAjOSDNVFHBXJrF7J8Y0dkzGOom-U=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "MYĆ OKNA",
+     [
+      {
+       "t": "BEZ SMUG",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8tfqj7fBXwA",
+     "titre": "Jak myć okna szybko i bez smug",
+     "chaine": "Uporządkowana",
+     "vues": "404 tys. wyświetleń",
+     "date": "9 lat temu",
+     "duree": "3:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nozJVLj_sTWgQHz3Lnt6ii3dl1j8QayU56KBQiD6Ycf3Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "UMYŤ OKNÁ",
+     [
+      {
+       "t": "BEZ ŠMÚH",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nSmhx8rV7G0",
+     "titre": "VOŇAVÉ TIPY OD MARTINY 8. Ako na čisté okná?",
+     "chaine": "Voňavý Domov",
+     "vues": "161 tis. zhliadnutí",
+     "date": "pred 1 rokom",
+     "duree": "0:57",
+     "avatar": "https://yt3.ggpht.com/6GhRAEwXFjDyXJEWjmK4nw_GLGEKO5cmcGoFbJcLUEGpbocuSoKk6RVzpaykm0G4TXNyJkHp=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "OPRATI PROZORE",
+     [
+      {
+       "t": "BEZ MRLJA",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "o1x-irOnz7o",
+     "titre": "Kako vrhunski oprati prozore u stanu?",
+     "chaine": "Imagine Interactive TV",
+     "vues": "27 tis. pregleda",
+     "date": "prije 8 godina",
+     "duree": "0:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l1rOe0l300xFnF4KtmW0Tl-T51rFJV3JtPZdtmM9PBmw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "PUTSA FÖNSTER",
+     [
+      {
+       "t": "UTAN RÄNDER",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BELaf0sj8xQ",
+     "titre": "Putsa fönster utan ränder – gör som proffsen",
+     "chaine": "Kent Pira",
+     "vues": "4 tn visningar",
+     "date": "för 8 månader sedan",
+     "duree": "14:28",
+     "avatar": "https://yt3.ggpht.com/ma-QX5VbGwcgyrNmSs5Af8nhl_wiPek0QCS8i6TzY57hAGUX-GP4G-5hZcDiDVf6LQBVeiVB7Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "MAZGĀT LOGUS",
+     [
+      {
+       "t": "BEZ SVĪTRĀM",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tenFBf102Eo",
+     "titre": "Logu mazgāšana dzīvoklī- Logu mazgāšanas eksperti - Anytime Profesionālais serviss",
+     "chaine": "Anytime Profesionālais Serviss",
+     "vues": "124 skatījumi",
+     "date": "pirms 9 gadiem",
+     "duree": "0:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lXOY5EDfdE-RuWLXdtKpDVqoH-cBQvrt3IcalPLcaEmg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min, lai iemācītos"
+    ]
+   }
+  }
+ ]
+}

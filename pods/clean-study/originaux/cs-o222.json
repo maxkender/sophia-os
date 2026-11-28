@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o222",
+  "type_bleo": "full_test",
+  "titre": "how i keep up with the world in 10 minutes a day as a student #studytok #studytips #generalknowledge",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 28/11 : 5 full tests sur 13, plus 1 car la boîte n'a que 7 lignes utilisables). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Culture générale, sans marque ni titre de média. Gestes vrais : un seul moment fixe, trois titres et un seul lu en entier, chercher le pays sur une carte, une leçon courte pour le contexte (slide Sophia, 5), en parler à table, un carnet de mots nouveaux. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "5d633dc3",
+      "texte_overlay": "how i keep up with the world\nin 10 minutes a day as a student",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "a562d174",
+      "texte_overlay": "same time every day.\nmine is breakfast.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "bbac8083",
+      "texte_overlay": "3 headlines, only 1 read fully.\ndepth beats quantity.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "56c194b3",
+      "texte_overlay": "i find the place on a map.\nevery time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "613b4bf7",
+      "texte_overlay": "then a short lesson for the context.\nthe history behind the headline.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "then a short lesson for the context\non a micro-learning app like the Sophia app.\nthe history behind the headline."
+    },
+    {
+      "position": 6,
+      "media_id": "d0f90167",
+      "texte_overlay": "i tell my family about it at dinner.\nexplaining it is how i remember it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3609c7ea",
+      "texte_overlay": "new words go in a small notebook.\nmy essays got so much better.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o341",
+ "type_bleo": "full_test",
+ "titre": "things effortlessly cool people never do #cool #confidence #psychology #socialskills #selfimprovement",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "5b39aa5e-5308-40f5-8693-18773c10278f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 5b39aa5e). full test BLEO : accroche jamais faite (format « things effortlessly X people never do »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c183ef64-a1e6-4475-9f6e-112dbdc0f04f",
+   "texte_overlay": "things effortlessly cool\npeople never do",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9366d27b-fb06-483d-9dbf-74df1b3d02b6",
+   "texte_overlay": "they never try too hard\n\nthey don't force jokes or fill every silence to be liked. being relaxed and genuine draws people in far more than any amount of effort to impress them ever could.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "116a2024-e454-47df-9601-ed902cba1756",
+   "texte_overlay": "they never chase approval\n\nthey're kind to everyone, but they don't change who they are to fit in. quiet self respect is the real secret behind people who seem effortlessly cool.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "fc1a8f94-cecc-4ff4-ba57-b708aa22d0fe",
+   "texte_overlay": "they never stop being curious\n\ncool people always have something interesting going on in their heads, because they keep learning. curiosity makes people relaxed, and relaxed is what reads as effortlessly cool.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/4.jpg",
+   "texte_sophia": "they never stop being curious\n\ni used to try so hard to seem interesting. now i spend 5 minutes a day on one lesson in the Sophia app, a strange myth or a planet, and being curious made me relaxed instead."
+  },
+  {
+   "position": 5,
+   "media_id": "79bcb9de-6168-4be8-bc9a-d7d4721c2e4d",
+   "texte_overlay": "they never gossip\n\nthey don't talk badly about people who aren't in the room. it tells everyone they can be trusted, and that quiet loyalty is far cooler than any juicy story.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d57c371d-7c7f-4f6d-abb8-b293935e2114",
+   "texte_overlay": "they never rush\n\nthey walk, talk and decide at a calm pace. moving without hurry signals that you're comfortable in your own skin, and people notice that ease within seconds.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/6.jpg"
+  }
+ ]
+}

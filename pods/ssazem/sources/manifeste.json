@@ -1,0 +1,764 @@
+{
+ "compte": "ssazem",
+ "releve_le": "2026-11-27",
+ "abonnes": 16500,
+ "posts_releves": 80,
+ "note": "Ses 40 posts les plus vus (Apify, 27/11). `slides_reprenables` : ses slides relues une à une où la photo est reprenable (un animal, un paysage, un inconnu de dos ou de loin : jamais un acteur, un sportif, un rappeur, un personnage comme Spider-Man, Deadpool ou un Pokémon, ni une marque lisible) ; leur texte s'efface avec `npm run compte`. Rangs sans la clé : non relus ou rien de reprenable (le n° 1 n'a que des acteurs). `autre_style` : un post d'un autre gabarit que son habituel (on ne le refait pas).",
+ "posts": [
+  {
+   "rang": 1,
+   "url": "https://www.tiktok.com/@ssazem/photo/7688308123127352589",
+   "publie_le": "2026-09-22",
+   "vues": 222000,
+   "likes": 40800,
+   "enregistrements": 7068,
+   "partages": 1826,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   }
+  },
+  {
+   "rang": 2,
+   "url": "https://www.tiktok.com/@ssazem/photo/7688424378199067918",
+   "publie_le": "2026-09-22",
+   "vues": 56700,
+   "likes": 9394,
+   "enregistrements": 1384,
+   "partages": 745,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    1,
+    2,
+    3,
+    5
+   ]
+  },
+  {
+   "rang": 3,
+   "url": "https://www.tiktok.com/@ssazem/photo/7697691520207506701",
+   "publie_le": "2026-10-17",
+   "vues": 38500,
+   "likes": 5601,
+   "enregistrements": 985,
+   "partages": 181,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "rang": 4,
+   "url": "https://www.tiktok.com/@ssazem/photo/7690683962598984973",
+   "publie_le": "2026-09-28",
+   "vues": 37300,
+   "likes": 6589,
+   "enregistrements": 876,
+   "partages": 285,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "rang": 5,
+   "url": "https://www.tiktok.com/@ssazem/photo/7683600779776675086",
+   "publie_le": "2026-09-09",
+   "vues": 36700,
+   "likes": 6029,
+   "enregistrements": 902,
+   "partages": 238,
+   "slides": 5,
+   "legende": "#venting #fyp",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "autre_style": "carrés de couleur sur les visages, texte en italique entre guillemets"
+  },
+  {
+   "rang": 6,
+   "url": "https://www.tiktok.com/@ssazem/photo/7685456545332710669",
+   "publie_le": "2026-09-14",
+   "vues": 36200,
+   "likes": 6084,
+   "enregistrements": 705,
+   "partages": 933,
+   "slides": 5,
+   "legende": "#venting #fyp",
+   "musique": {
+    "id": "7392717690038668062",
+    "titre": "original sound",
+    "auteur": "song recommendations"
+   },
+   "autre_style": "gros texte gras en couleur"
+  },
+  {
+   "rang": 7,
+   "url": "https://www.tiktok.com/@ssazem/photo/7684709509549329677",
+   "publie_le": "2026-09-12",
+   "vues": 34300,
+   "likes": 4887,
+   "enregistrements": 844,
+   "partages": 198,
+   "slides": 5,
+   "legende": "#venting #fyp",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "autre_style": "carrés de couleur sur les visages, texte en italique entre guillemets"
+  },
+  {
+   "rang": 8,
+   "url": "https://www.tiktok.com/@ssazem/photo/7682077810667556109",
+   "publie_le": "2026-09-05",
+   "vues": 33000,
+   "likes": 4823,
+   "enregistrements": 823,
+   "partages": 201,
+   "slides": 5,
+   "legende": "#venting #fyp",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "autre_style": "carrés de couleur sur les visages"
+  },
+  {
+   "rang": 9,
+   "url": "https://www.tiktok.com/@ssazem/photo/7688795724003216653",
+   "publie_le": "2026-09-23",
+   "vues": 26000,
+   "likes": 4188,
+   "enregistrements": 591,
+   "partages": 169,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "rang": 10,
+   "url": "https://www.tiktok.com/@ssazem/photo/7684342391771286797",
+   "publie_le": "2026-09-11",
+   "vues": 25200,
+   "likes": 3648,
+   "enregistrements": 576,
+   "partages": 96,
+   "slides": 5,
+   "legende": "#venting #fyp",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "autre_style": "carrés de couleur sur les visages"
+  },
+  {
+   "rang": 11,
+   "url": "https://www.tiktok.com/@ssazem/photo/7691393240636886286",
+   "publie_le": "2026-09-30",
+   "vues": 21500,
+   "likes": 3593,
+   "enregistrements": 466,
+   "partages": 119,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    1,
+    3,
+    5
+   ]
+  },
+  {
+   "rang": 12,
+   "url": "https://www.tiktok.com/@ssazem/photo/7691759029894401293",
+   "publie_le": "2026-10-01",
+   "vues": 20900,
+   "likes": 3456,
+   "enregistrements": 506,
+   "partages": 102,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    2,
+    4,
+    5
+   ]
+  },
+  {
+   "rang": 13,
+   "url": "https://www.tiktok.com/@ssazem/photo/7681752923260472590",
+   "publie_le": "2026-09-04",
+   "vues": 19600,
+   "likes": 2984,
+   "enregistrements": 449,
+   "partages": 156,
+   "slides": 5,
+   "legende": "#venting #fyp",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "autre_style": "carrés de couleur sur les visages"
+  },
+  {
+   "rang": 14,
+   "url": "https://www.tiktok.com/@ssazem/photo/7689808981828619534",
+   "publie_le": "2026-09-26",
+   "vues": 19300,
+   "likes": 2694,
+   "enregistrements": 396,
+   "partages": 81,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    1,
+    4
+   ]
+  },
+  {
+   "rang": 15,
+   "url": "https://www.tiktok.com/@ssazem/photo/7697422256447753486",
+   "publie_le": "2026-10-17",
+   "vues": 17600,
+   "likes": 2840,
+   "enregistrements": 372,
+   "partages": 73,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    2
+   ]
+  },
+  {
+   "rang": 16,
+   "url": "https://www.tiktok.com/@ssazem/photo/7698444021500300558",
+   "publie_le": "2026-10-19",
+   "vues": 17500,
+   "likes": 2572,
+   "enregistrements": 405,
+   "partages": 111,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   }
+  },
+  {
+   "rang": 17,
+   "url": "https://www.tiktok.com/@ssazem/photo/7690393638043471117",
+   "publie_le": "2026-09-28",
+   "vues": 17500,
+   "likes": 2385,
+   "enregistrements": 355,
+   "partages": 63,
+   "slides": 4,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    1,
+    3
+   ]
+  },
+  {
+   "rang": 18,
+   "url": "https://www.tiktok.com/@ssazem/photo/7693619856561786125",
+   "publie_le": "2026-10-06",
+   "vues": 17400,
+   "likes": 2543,
+   "enregistrements": 328,
+   "partages": 126,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    4
+   ]
+  },
+  {
+   "rang": 19,
+   "url": "https://www.tiktok.com/@ssazem/photo/7698827525107027214",
+   "publie_le": "2026-10-20",
+   "vues": 16700,
+   "likes": 2805,
+   "enregistrements": 433,
+   "partages": 85,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    2,
+    5
+   ]
+  },
+  {
+   "rang": 20,
+   "url": "https://www.tiktok.com/@ssazem/photo/7693145783679454477",
+   "publie_le": "2026-10-05",
+   "vues": 16300,
+   "likes": 2654,
+   "enregistrements": 347,
+   "partages": 68,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    4
+   ]
+  },
+  {
+   "rang": 21,
+   "url": "https://www.tiktok.com/@ssazem/photo/7699925967485013262",
+   "publie_le": "2026-10-23",
+   "vues": 15700,
+   "likes": 1944,
+   "enregistrements": 281,
+   "partages": 38,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    2,
+    4,
+    5
+   ]
+  },
+  {
+   "rang": 22,
+   "url": "https://www.tiktok.com/@ssazem/photo/7689190085761223950",
+   "publie_le": "2026-09-24",
+   "vues": 15500,
+   "likes": 2154,
+   "enregistrements": 293,
+   "partages": 59,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    1,
+    4,
+    5
+   ]
+  },
+  {
+   "rang": 23,
+   "url": "https://www.tiktok.com/@ssazem/photo/7692490578273062158",
+   "publie_le": "2026-10-03",
+   "vues": 15100,
+   "likes": 2256,
+   "enregistrements": 315,
+   "partages": 112,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    2,
+    5
+   ]
+  },
+  {
+   "rang": 24,
+   "url": "https://www.tiktok.com/@ssazem/photo/7696962767064026382",
+   "publie_le": "2026-10-15",
+   "vues": 14300,
+   "likes": 2073,
+   "enregistrements": 274,
+   "partages": 92,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    1,
+    4,
+    5
+   ]
+  },
+  {
+   "rang": 25,
+   "url": "https://www.tiktok.com/@ssazem/photo/7701134914934164750",
+   "publie_le": "2026-10-27",
+   "vues": 14100,
+   "likes": 1864,
+   "enregistrements": 290,
+   "partages": 64,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "rang": 26,
+   "url": "https://www.tiktok.com/@ssazem/photo/7696581926601100558",
+   "publie_le": "2026-10-14",
+   "vues": 13500,
+   "likes": 2078,
+   "enregistrements": 276,
+   "partages": 93,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   }
+  },
+  {
+   "rang": 27,
+   "url": "https://www.tiktok.com/@ssazem/photo/7687625257653505293",
+   "publie_le": "2026-09-20",
+   "vues": 13300,
+   "likes": 1979,
+   "enregistrements": 291,
+   "partages": 112,
+   "slides": 4,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    1
+   ]
+  },
+  {
+   "rang": 28,
+   "url": "https://www.tiktok.com/@ssazem/photo/7703684630406319373",
+   "publie_le": "2026-11-02",
+   "vues": 12700,
+   "likes": 1749,
+   "enregistrements": 298,
+   "partages": 91,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7688914980095249166",
+    "titre": "original sound",
+    "auteur": "🎶🎶🎶"
+   },
+   "autre_style": "texte machine à écrire espacé"
+  },
+  {
+   "rang": 29,
+   "url": "https://www.tiktok.com/@ssazem/photo/7701785894516182286",
+   "publie_le": "2026-10-28",
+   "vues": 12700,
+   "likes": 1641,
+   "enregistrements": 239,
+   "partages": 42,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    2
+   ]
+  },
+  {
+   "rang": 30,
+   "url": "https://www.tiktok.com/@ssazem/photo/7696217745431514381",
+   "publie_le": "2026-10-13",
+   "vues": 12700,
+   "likes": 1767,
+   "enregistrements": 245,
+   "partages": 61,
+   "slides": 4,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    1,
+    3
+   ]
+  },
+  {
+   "rang": 31,
+   "url": "https://www.tiktok.com/@ssazem/photo/7683313374645603597",
+   "publie_le": "2026-09-08",
+   "vues": 12600,
+   "likes": 1945,
+   "enregistrements": 259,
+   "partages": 62,
+   "slides": 5,
+   "legende": "#venting #fyp",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "autre_style": "carrés de couleur sur les visages"
+  },
+  {
+   "rang": 32,
+   "url": "https://www.tiktok.com/@ssazem/photo/7705496142703774989",
+   "publie_le": "2026-11-07",
+   "vues": 12000,
+   "likes": 1838,
+   "enregistrements": 251,
+   "partages": 39,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7701795269133912845",
+    "titre": "original sound",
+    "auteur": "Nick Tomasunas"
+   }
+  },
+  {
+   "rang": 33,
+   "url": "https://www.tiktok.com/@ssazem/photo/7692799023551417614",
+   "publie_le": "2026-10-04",
+   "vues": 11300,
+   "likes": 1580,
+   "enregistrements": 209,
+   "partages": 68,
+   "slides": 4,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "rang": 34,
+   "url": "https://www.tiktok.com/@ssazem/photo/7685070763996499213",
+   "publie_le": "2026-09-13",
+   "vues": 11100,
+   "likes": 1565,
+   "enregistrements": 213,
+   "partages": 43,
+   "slides": 5,
+   "legende": "#venting #fyp",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   }
+  },
+  {
+   "rang": 35,
+   "url": "https://www.tiktok.com/@ssazem/photo/7682471084997790990",
+   "publie_le": "2026-09-06",
+   "vues": 11000,
+   "likes": 1507,
+   "enregistrements": 200,
+   "partages": 57,
+   "slides": 5,
+   "legende": "#venting #fyp",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   }
+  },
+  {
+   "rang": 36,
+   "url": "https://www.tiktok.com/@ssazem/photo/7699558171530071309",
+   "publie_le": "2026-10-22",
+   "vues": 10400,
+   "likes": 1449,
+   "enregistrements": 187,
+   "partages": 40,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   }
+  },
+  {
+   "rang": 37,
+   "url": "https://www.tiktok.com/@ssazem/photo/7698332229134552334",
+   "publie_le": "2026-10-19",
+   "vues": 10300,
+   "likes": 1418,
+   "enregistrements": 198,
+   "partages": 66,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "rang": 38,
+   "url": "https://www.tiktok.com/@ssazem/photo/7704000139190471949",
+   "publie_le": "2026-11-03",
+   "vues": 10200,
+   "likes": 1532,
+   "enregistrements": 258,
+   "partages": 49,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   }
+  },
+  {
+   "rang": 39,
+   "url": "https://www.tiktok.com/@ssazem/photo/7685120800768216333",
+   "publie_le": "2026-09-13",
+   "vues": 9989,
+   "likes": 1462,
+   "enregistrements": 214,
+   "partages": 91,
+   "slides": 5,
+   "legende": "#venting #fyp",
+   "musique": {
+    "id": "7392717690038668062",
+    "titre": "original sound",
+    "auteur": "song recommendations"
+   }
+  },
+  {
+   "rang": 40,
+   "url": "https://www.tiktok.com/@ssazem/photo/7694728181189807373",
+   "publie_le": "2026-10-09",
+   "vues": 9071,
+   "likes": 1293,
+   "enregistrements": 190,
+   "partages": 64,
+   "slides": 5,
+   "legende": "#fyp #venting",
+   "musique": {
+    "id": "7638059143613434654",
+    "titre": "original sound",
+    "auteur": "Matt"
+   },
+   "slides_reprenables": [
+    1,
+    2,
+    4,
+    5
+   ]
+  }
+ ]
+}

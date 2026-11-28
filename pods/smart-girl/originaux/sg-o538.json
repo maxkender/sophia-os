@@ -1,0 +1,75 @@
+{
+ "source_id": "sg-o538",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5b08d6ba-95e7-4d26-9e5f-0cfb0dcf4069",
+ "titre": "hobbies that make you disgustingly disciplined #discipline #hobbies #selfimprovement #smartgirl #thatgirl",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "5b08d6ba-95e7-4d26-9e5f-0cfb0dcf4069"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 27 de la boîte (parent 5b08d6ba, langue source en) : accroche du parent mot pour mot. Hobbies du parent (yoga quotidien, une langue avec une série, la musique, la course, cuisiner, le journal, le jardinage, le micro-apprentissage). Sophia en 8 comme chez le parent (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d31938b3",
+   "texte_overlay": "hobbies that make you\ndisgustingly disciplined",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661974680257006869/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5691ede4",
+   "texte_overlay": "1. daily yoga",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661974680257006869/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d8d6a735",
+   "texte_overlay": "2. a language streak\n\nten minutes, every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661974680257006869/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "93a9910a",
+   "texte_overlay": "3. an instrument",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661974680257006869/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "43484e86",
+   "texte_overlay": "4. running, even in the rain",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661974680257006869/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "927f3b65",
+   "texte_overlay": "5. cooking from scratch",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661974680257006869/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9875cb6f",
+   "texte_overlay": "6. journaling",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661974680257006869/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a2eaa1c2",
+   "texte_overlay": "7. gardening\n\nyou can't rush a seed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661974680257006869/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "55cd211e",
+   "texte_overlay": "8. daily micro-learning\n\nfive minutes every morning.",
+   "texte_sophia": "8. daily micro-learning\n\nfive minutes a day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661974680257006869/9.jpg"
+  },
+  {
+   "position": 10,
+   "media_id": "1cc9d3c9",
+   "texte_overlay": "follow for more",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661974680257006869/10.jpg"
+  }
+ ]
+}

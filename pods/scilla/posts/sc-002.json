@@ -1,0 +1,357 @@
+{
+ "id": "sc-002",
+ "source": {
+  "url": "https://www.tiktok.com/@scilla2047/photo/7698439398261656846",
+  "vues": 240400,
+  "publie_le": "2026-10-19",
+  "accroche": "5 yoga poses that will help you release trauma"
+ },
+ "titre": {
+  "en": "5 paintings that will help you slow down",
+  "de": "5 Gemälde, die dir helfen, langsamer zu werden",
+  "fr": "5 tableaux qui vont t'aider à ralentir",
+  "it": "5 quadri che ti aiuteranno a rallentare",
+  "es": "5 cuadros que te ayudarán a ir más despacio",
+  "pt-BR": "5 pinturas que vão te ajudar a desacelerar",
+  "nl": "5 schilderijen die je helpen om te vertragen",
+  "pl": "5 obrazów, które pomogą ci zwolnić"
+ },
+ "legendes": {
+  "en": "save this for the next time your brain won't slow down\n#art #paintings #slowliving #arthistory #calm",
+  "de": "speicher dir das für den nächsten Tag, an dem dein Kopf nicht runterfährt\n#kunst #gemälde #slowliving #kunstgeschichte #ruhe",
+  "fr": "enregistre-le pour la prochaine fois que ton cerveau refuse de ralentir\n#art #peinture #slowliving #histoiredelart #calme",
+  "it": "salvalo per la prossima volta che la tua testa non vuole rallentare\n#arte #pittura #slowliving #storiadellarte #calma",
+  "es": "guárdalo para la próxima vez que tu cabeza no quiera frenar\n#arte #pintura #slowliving #historiadelarte #calma",
+  "pt-BR": "salva pra próxima vez que sua cabeça não quiser desacelerar\n#arte #pintura #slowliving #historiadaarte #calma",
+  "nl": "bewaar dit voor de volgende keer dat je hoofd niet tot rust komt\n#kunst #schilderijen #slowliving #kunstgeschiedenis #rust",
+  "pl": "zapisz na następny raz, gdy głowa nie chce zwolnić\n#sztuka #malarstwo #slowliving #historiasztuki #spokój"
+ },
+ "musique": {
+  "titre": "Doo Wop",
+  "url": "https://www.tiktok.com/music/Doo-Wop-5000000001211054791"
+ },
+ "oeuvres": {
+  "images/oeuvres/daubigny-ruisseau.jpg": {
+   "musee": "The Met",
+   "id": "436090",
+   "titre": "Landscape with a Sunlit Stream",
+   "artiste": "Charles-François Daubigny",
+   "date": "ca. 1877",
+   "url": "https://www.metmuseum.org/art/collection/search/436090",
+   "titres": {
+    "en": "Landscape with a Sunlit Stream",
+    "de": "Landschaft mit sonnigem Bach",
+    "fr": "Paysage au ruisseau ensoleillé",
+    "it": "Paesaggio con ruscello assolato",
+    "es": "Paisaje con arroyo soleado",
+    "pt-BR": "Paisagem com riacho ensolarado",
+    "nl": "Landschap met zonnige beek",
+    "pl": "Pejzaż z nasłonecznionym strumieniem"
+   }
+  },
+  "images/oeuvres/hammershoi-strandgade.jpg": {
+   "musee": "The Met",
+   "id": "441933",
+   "titre": "Moonlight, Strandgade 30",
+   "artiste": "Vilhelm Hammershøi",
+   "date": "1900–1906",
+   "url": "https://www.metmuseum.org/art/collection/search/441933",
+   "titres": {
+    "en": "Moonlight, Strandgade 30",
+    "de": "Mondschein, Strandgade 30",
+    "fr": "Clair de lune, Strandgade 30",
+    "it": "Chiaro di luna, Strandgade 30",
+    "es": "Claro de luna, Strandgade 30",
+    "pt-BR": "Luar, Strandgade 30",
+    "nl": "Maanlicht, Strandgade 30",
+    "pl": "Światło księżyca, Strandgade 30"
+   }
+  },
+  "images/oeuvres/chardin-bulles.jpg": {
+   "musee": "The Met",
+   "id": "435888",
+   "titre": "Soap Bubbles",
+   "artiste": "Jean Siméon Chardin",
+   "date": "ca. 1733–34",
+   "url": "https://www.metmuseum.org/art/collection/search/435888",
+   "titres": {
+    "en": "Soap Bubbles",
+    "de": "Seifenblasen",
+    "fr": "Les Bulles de savon",
+    "it": "Bolle di sapone",
+    "es": "Pompas de jabón",
+    "pt-BR": "Bolhas de sabão",
+    "nl": "Zeepbellen",
+    "pl": "Bańki mydlane"
+   }
+  },
+  "images/oeuvres/vangogh-ble-cypres.jpg": {
+   "musee": "The Met",
+   "id": "436535",
+   "titre": "Wheat Field with Cypresses",
+   "artiste": "Vincent van Gogh",
+   "date": "1889",
+   "url": "https://www.metmuseum.org/art/collection/search/436535",
+   "titres": {
+    "en": "Wheat Field with Cypresses",
+    "de": "Weizenfeld mit Zypressen",
+    "fr": "Champ de blé avec cyprès",
+    "it": "Campo di grano con cipressi",
+    "es": "Campo de trigo con cipreses",
+    "pt-BR": "Campo de trigo com ciprestes",
+    "nl": "Korenveld met cipressen",
+    "pl": "Pole pszenicy z cyprysami"
+   }
+  },
+  "images/oeuvres/hiroshige-neige.jpg": {
+   "musee": "The Met",
+   "id": "48893",
+   "titre": "Woman Walking in the Snow",
+   "artiste": "Utagawa Hiroshige",
+   "date": "1840s–early 1850s",
+   "url": "https://www.metmuseum.org/art/collection/search/48893",
+   "titres": {
+    "en": "Woman Walking in the Snow",
+    "de": "Frau im Schnee",
+    "fr": "Femme marchant dans la neige",
+    "it": "Donna che cammina nella neve",
+    "es": "Mujer caminando en la nieve",
+    "pt-BR": "Mulher caminhando na neve",
+    "nl": "Vrouw die door de sneeuw loopt",
+    "pl": "Kobieta idąca w śniegu"
+   }
+  },
+  "images/oeuvres/cezanne-sainte-victoire.jpg": {
+   "musee": "The Met",
+   "id": "435877",
+   "titre": "Mont Sainte-Victoire and the Viaduct of the Arc River Valley",
+   "artiste": "Paul Cézanne",
+   "date": "1882–85",
+   "url": "https://www.metmuseum.org/art/collection/search/435877",
+   "titres": {
+    "en": "Mont Sainte-Victoire",
+    "de": "Mont Sainte-Victoire",
+    "fr": "La Montagne Sainte-Victoire",
+    "it": "Il monte Sainte-Victoire",
+    "es": "La montaña Sainte-Victoire",
+    "pt-BR": "A montanha Sainte-Victoire",
+    "nl": "Mont Sainte-Victoire",
+    "pl": "Góra Sainte-Victoire"
+   }
+  }
+ },
+ "notes": "Preuve : « 5 yoga poses that will help you release trauma » de @scilla2047 (240 k vues, 24 k enregistrements soit 10 %, 19/10 ; Doo Wop) : la famille « 5 … that will help you … », une liste pratique très enregistrée ; une couverture puis un point par slide, comme ses postures. Angle Artura : cinq tableaux lents, rien sur le soin. Couverture : Daubigny, Landscape with a Sunlit Stream (Met 436090, cadrée sur le ruisseau). Faits : Hammershøi a peint de nombreuses fois les pièces de son appartement du 30 Strandgade à Copenhague (notice du Met 441933) ; Soap Bubbles de Chardin montre un jeune homme qui souffle une bulle et un enfant qui regarde par-dessus le rebord (Met 435888) ; Woman Walking in the Snow de Hiroshige est un rouleau, encre et couleur sur soie (Met 48893) ; Cézanne a peint la montagne Sainte-Victoire des dizaines de fois (notice du Met 435877). Slide Artura (4, au milieu de la liste) : Wheat Field with Cypresses (Van Gogh) avec le logo d'Artura ; cta B. Les Monet du Met (Bridge over a Pond of Water Lilies) ne sont pas marqués domaine public : écartés.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/oeuvres/daubigny-ruisseau.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "titre": "5 paintings that will help you {slow down}"
+   },
+   "de": {
+    "titre": "5 Gemälde, die dir helfen, {langsamer zu werden}"
+   },
+   "fr": {
+    "titre": "5 tableaux qui vont t'aider à {ralentir}"
+   },
+   "it": {
+    "titre": "5 quadri che ti aiuteranno a {rallentare}"
+   },
+   "es": {
+    "titre": "5 cuadros que te ayudarán a {ir más despacio}"
+   },
+   "pt-BR": {
+    "titre": "5 pinturas que vão te ajudar a {desacelerar}"
+   },
+   "nl": {
+    "titre": "5 schilderijen die je helpen om {te vertragen}"
+   },
+   "pl": {
+    "titre": "5 obrazów, które pomogą ci {zwolnić}"
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/hammershoi-strandgade.jpg",
+   "en": {
+    "titre": "Moonlight, Strandgade 30",
+    "texte": "An empty room, a closed door, moonlight on the floor. Hammershøi painted the rooms of his own home again and again. Nothing happens here, and that's the point."
+   },
+   "de": {
+    "titre": "Mondschein, Strandgade 30",
+    "texte": "Ein leerer Raum, eine geschlossene Tür, Mondlicht auf dem Boden. Hammershøi malte die Zimmer seiner eigenen Wohnung immer wieder. Hier passiert nichts, und genau darum geht es."
+   },
+   "fr": {
+    "titre": "Clair de lune, Strandgade 30",
+    "texte": "Une pièce vide, une porte fermée, la lune sur le plancher. Hammershøi a peint les pièces de son propre appartement encore et encore. Il ne se passe rien, et c'est tout l'intérêt."
+   },
+   "it": {
+    "titre": "Chiaro di luna, Strandgade 30",
+    "texte": "Una stanza vuota, una porta chiusa, la luna sul pavimento. Hammershøi ha dipinto le stanze della sua casa ancora e ancora. Qui non succede niente, ed è proprio questo il punto."
+   },
+   "es": {
+    "titre": "Claro de luna, Strandgade 30",
+    "texte": "Una habitación vacía, una puerta cerrada, la luna sobre el suelo. Hammershøi pintó las habitaciones de su propia casa una y otra vez. Aquí no pasa nada, y de eso se trata."
+   },
+   "pt-BR": {
+    "titre": "Luar, Strandgade 30",
+    "texte": "Um cômodo vazio, uma porta fechada, o luar no chão. Hammershøi pintou os cômodos da própria casa de novo e de novo. Nada acontece aqui, e é exatamente essa a ideia."
+   },
+   "nl": {
+    "titre": "Maanlicht, Strandgade 30",
+    "texte": "Een lege kamer, een dichte deur, maanlicht op de vloer. Hammershøi schilderde de kamers van zijn eigen huis keer op keer. Hier gebeurt niets, en daar gaat het om."
+   },
+   "pl": {
+    "titre": "Światło księżyca, Strandgade 30",
+    "texte": "Pusty pokój, zamknięte drzwi, księżycowe światło na podłodze. Hammershøi raz za razem malował pokoje własnego mieszkania. Nic się tu nie dzieje i właśnie o to chodzi."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/chardin-bulles.jpg",
+   "en": {
+    "titre": "Soap Bubbles",
+    "texte": "A young man holds his breath so the bubble won't burst. A child peeks over the ledge to watch. The whole painting is one second, stretched out."
+   },
+   "de": {
+    "titre": "Seifenblasen",
+    "texte": "Ein junger Mann hält den Atem an, damit die Blase nicht platzt. Ein Kind lugt über die Brüstung. Das ganze Bild ist eine einzige Sekunde, ausgedehnt."
+   },
+   "fr": {
+    "titre": "Les Bulles de savon",
+    "texte": "Un jeune homme retient son souffle pour que la bulle n'éclate pas. Un enfant regarde par-dessus le rebord. Tout le tableau tient en une seconde, étirée."
+   },
+   "it": {
+    "titre": "Bolle di sapone",
+    "texte": "Un ragazzo trattiene il respiro perché la bolla non scoppi. Un bambino sbircia oltre il davanzale. Tutto il quadro è un solo secondo, allungato."
+   },
+   "es": {
+    "titre": "Pompas de jabón",
+    "texte": "Un joven contiene la respiración para que la pompa no explote. Un niño se asoma por el borde para mirar. Todo el cuadro es un solo segundo, estirado."
+   },
+   "pt-BR": {
+    "titre": "Bolhas de sabão",
+    "texte": "Um rapaz prende a respiração para a bolha não estourar. Uma criança espia por cima do parapeito. A pintura inteira é um único segundo, esticado."
+   },
+   "nl": {
+    "titre": "Zeepbellen",
+    "texte": "Een jongeman houdt zijn adem in zodat de bel niet knapt. Een kind gluurt over de rand. Het hele schilderij is één seconde, uitgerekt."
+   },
+   "pl": {
+    "titre": "Bańki mydlane",
+    "texte": "Chłopak wstrzymuje oddech, żeby bańka nie pękła. Dziecko zerka znad parapetu. Cały obraz to jedna sekunda, rozciągnięta w czasie."
+   }
+  },
+  {
+   "type": "artura",
+   "image": "images/oeuvres/vangogh-ble-cypres.jpg",
+   "en": {
+    "titre": "Wheat Field with Cypresses",
+    "texte": "Follow the wind: the wheat, the cypress and the clouds all bend the same way. Artura gives me one painting a day and the story behind it. Ten quiet minutes."
+   },
+   "de": {
+    "titre": "Weizenfeld mit Zypressen",
+    "texte": "Folge dem Wind: Weizen, Zypresse und Wolken biegen sich alle in dieselbe Richtung. Artura gibt mir jeden Tag ein Gemälde und die Geschichte dahinter. Zehn ruhige Minuten."
+   },
+   "fr": {
+    "titre": "Champ de blé avec cyprès",
+    "texte": "Suis le vent : le blé, le cyprès et les nuages se courbent tous dans le même sens. Artura me donne un tableau par jour et l'histoire qui va avec. Dix minutes de calme."
+   },
+   "it": {
+    "titre": "Campo di grano con cipressi",
+    "texte": "Segui il vento: il grano, il cipresso e le nuvole si piegano tutti nella stessa direzione. Artura mi dà un quadro al giorno e la storia che c'è dietro. Dieci minuti di quiete."
+   },
+   "es": {
+    "titre": "Campo de trigo con cipreses",
+    "texte": "Sigue el viento: el trigo, el ciprés y las nubes se doblan hacia el mismo lado. Artura me da un cuadro al día y la historia que hay detrás. Diez minutos de calma."
+   },
+   "pt-BR": {
+    "titre": "Campo de trigo com ciprestes",
+    "texte": "Siga o vento: o trigo, o cipreste e as nuvens se curvam todos para o mesmo lado. O Artura me dá uma pintura por dia e a história por trás dela. Dez minutos de calma."
+   },
+   "nl": {
+    "titre": "Korenveld met cipressen",
+    "texte": "Volg de wind: het koren, de cipres en de wolken buigen allemaal dezelfde kant op. Artura geeft me elke dag één schilderij en het verhaal erachter. Tien rustige minuten."
+   },
+   "pl": {
+    "titre": "Pole pszenicy z cyprysami",
+    "texte": "Podążaj za wiatrem: pszenica, cyprys i chmury uginają się w tę samą stronę. Artura daje mi codziennie jeden obraz i historię, która za nim stoi. Dziesięć spokojnych minut."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/hiroshige-neige.jpg",
+   "en": {
+    "titre": "Woman Walking in the Snow",
+    "texte": "One figure, one umbrella, and a lot of empty silk. Hiroshige leaves most of the scroll pale and bare, so you can almost hear the snow."
+   },
+   "de": {
+    "titre": "Frau im Schnee",
+    "texte": "Eine Gestalt, ein Schirm und viel leere Seide. Hiroshige lässt den größten Teil der Rolle blass und frei, sodass man den Schnee fast hören kann."
+   },
+   "fr": {
+    "titre": "Femme marchant dans la neige",
+    "texte": "Une silhouette, une ombrelle et beaucoup de soie vide. Hiroshige laisse presque tout le rouleau pâle et nu, si bien qu'on entendrait presque la neige."
+   },
+   "it": {
+    "titre": "Donna che cammina nella neve",
+    "texte": "Una figura, un ombrello e tanta seta vuota. Hiroshige lascia quasi tutto il rotolo chiaro e spoglio, così che quasi si sente la neve."
+   },
+   "es": {
+    "titre": "Mujer caminando en la nieve",
+    "texte": "Una figura, un paraguas y mucha seda vacía. Hiroshige deja casi todo el rollo pálido y desnudo, y casi puedes oír la nieve."
+   },
+   "pt-BR": {
+    "titre": "Mulher caminhando na neve",
+    "texte": "Uma figura, um guarda-chuva e muita seda vazia. Hiroshige deixa quase todo o rolo claro e vazio, e dá para quase ouvir a neve."
+   },
+   "nl": {
+    "titre": "Vrouw die door de sneeuw loopt",
+    "texte": "Eén figuur, één paraplu en veel lege zijde. Hiroshige laat het grootste deel van de rol bleek en leeg, zodat je de sneeuw bijna kunt horen."
+   },
+   "pl": {
+    "titre": "Kobieta idąca w śniegu",
+    "texte": "Jedna postać, jeden parasol i dużo pustego jedwabiu. Hiroshige zostawia większość zwoju jasną i pustą, więc śnieg niemal słychać."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/cezanne-sainte-victoire.jpg",
+   "en": {
+    "titre": "Mont Sainte-Victoire",
+    "texte": "Cézanne painted this same mountain again and again for years. Same view, never the same painting. Slowing down just means you're not done looking yet."
+   },
+   "de": {
+    "titre": "Mont Sainte-Victoire",
+    "texte": "Cézanne malte diesen Berg jahrelang immer wieder. Derselbe Blick, nie dasselbe Bild. Langsamer werden heißt nur: Du bist mit dem Schauen noch nicht fertig."
+   },
+   "fr": {
+    "titre": "La Montagne Sainte-Victoire",
+    "texte": "Cézanne a peint cette même montagne encore et encore, pendant des années. Même vue, jamais le même tableau. Ralentir, c'est juste ne pas avoir fini de regarder."
+   },
+   "it": {
+    "titre": "Il monte Sainte-Victoire",
+    "texte": "Cézanne ha dipinto questa stessa montagna per anni, ancora e ancora. Stessa vista, mai lo stesso quadro. Rallentare vuol dire solo non aver ancora finito di guardare."
+   },
+   "es": {
+    "titre": "La montaña Sainte-Victoire",
+    "texte": "Cézanne pintó esta misma montaña una y otra vez durante años. La misma vista, nunca el mismo cuadro. Ir despacio solo significa que aún no terminaste de mirar."
+   },
+   "pt-BR": {
+    "titre": "A montanha Sainte-Victoire",
+    "texte": "Cézanne pintou essa mesma montanha de novo e de novo, por anos. A mesma vista, nunca a mesma pintura. Desacelerar é só não ter terminado de olhar."
+   },
+   "nl": {
+    "titre": "Mont Sainte-Victoire",
+    "texte": "Cézanne schilderde deze berg jarenlang keer op keer. Hetzelfde uitzicht, nooit hetzelfde schilderij. Vertragen betekent gewoon dat je nog niet klaar bent met kijken."
+   },
+   "pl": {
+    "titre": "Góra Sainte-Victoire",
+    "texte": "Cézanne latami malował tę samą górę, raz za razem. Ten sam widok, nigdy ten sam obraz. Zwolnić to po prostu jeszcze nie skończyć patrzeć."
+   }
+  }
+ ]
+}

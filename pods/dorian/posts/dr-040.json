@@ -10,12 +10,22 @@
  "titre": {
   "en": "5 niche ways to disgustingly improve your sleep",
   "pt-BR": "5 jeitos nichados de deixar seu sono absurdo",
-  "tr": "uykunu aşırı iyileştirmenin 5 niş yolu"
+  "tr": "uykunu aşırı iyileştirmenin 5 niş yolu",
+  "de": "5 nischige wege, deinen schlaf krass zu verbessern",
+  "hu": "5 niche módszer a brutálisan jobb alvásért",
+  "it": "5 trucchi di nicchia per dormire molto meglio",
+  "nl": "5 niche manieren om veel beter te slapen",
+  "sv": "5 nischade sätt att sova sjukt mycket bättre"
  },
  "legendes": {
   "en": "#niche #sleep #lockedin #selfimprovement",
   "pt-BR": "#sono #saúde #autodesenvolvimento #nicho",
-  "tr": "#uyku #sağlık #kişiselgelişim #niş"
+  "tr": "#uyku #sağlık #kişiselgelişim #niş",
+  "de": "#schlaf #gesundheit #gewohnheiten #selbstverbesserung",
+  "hu": "#alvás #egészség #szokások #önfejlesztés",
+  "it": "#sonno #salute #abitudini #crescitapersonale",
+  "nl": "#slaap #gezondheid #gewoontes #zelfontwikkeling",
+  "sv": "#sömn #hälsa #vanor #självutveckling"
  },
  "musique": {
   "titre": "original sound - LanguFilms",
@@ -39,6 +49,31 @@
     "titre": "uykunu aşırı iyileştirmenin 5 niş yolu",
     "image": "images/cerveau-irm.jpg",
     "legende": "(bilimsel olarak kanıtlı)"
+   },
+   "de": {
+    "titre": "5 nischige wege, deinen schlaf krass zu verbessern",
+    "image": "images/cerveau-32.jpg",
+    "legende": "(wissenschaftlich belegt)"
+   },
+   "hu": {
+    "titre": "5 niche módszer a brutálisan jobb alvásért",
+    "image": "images/cerveau-34.jpg",
+    "legende": "(tudományosan igazolt)"
+   },
+   "it": {
+    "titre": "5 trucchi di nicchia per dormire molto meglio",
+    "image": "images/cerveau-36.jpg",
+    "legende": "(basato sulla scienza)"
+   },
+   "nl": {
+    "titre": "5 niche manieren om veel beter te slapen",
+    "image": "images/cerveau-38.jpg",
+    "legende": "(wetenschappelijk onderbouwd)"
+   },
+   "sv": {
+    "titre": "5 nischade sätt att sova sjukt mycket bättre",
+    "image": "images/cerveau-40.jpg",
+    "legende": "(vetenskapligt belagt)"
    }
   },
   {
@@ -57,6 +92,31 @@
     "titre": "Her gün aynı saatte uyan",
     "texte": "hafta sonları da. biyolojik saatin yatma saatine değil, uyanma saatine göre ayarlanır",
     "image": "images/objets/reveil.png"
+   },
+   "de": {
+    "titre": "Jeden tag gleiche aufstehzeit",
+    "texte": "auch am wochenende. deine innere uhr stellt sich nach der zeit, zu der du aufwachst, nicht nach der, zu der du ins bett gehst",
+    "image": "images/objets/reveil.png"
+   },
+   "hu": {
+    "titre": "Mindig ugyanakkor kelj",
+    "texte": "hétvégén is. a belső órád ahhoz igazodik, mikor ébredsz, nem ahhoz, mikor fekszel le",
+    "image": "images/objets/reveil.png"
+   },
+   "it": {
+    "titre": "Sveglia sempre alla stessa ora",
+    "texte": "anche nel weekend. il tuo orologio biologico si regola sull'ora in cui ti svegli, non su quella in cui vai a letto",
+    "image": "images/objets/reveil.png"
+   },
+   "nl": {
+    "titre": "Elke dag dezelfde wektijd",
+    "texte": "ook in het weekend. je biologische klok stelt zich in op het tijdstip waarop je wakker wordt, niet waarop je gaat slapen",
+    "image": "images/objets/reveil.png"
+   },
+   "sv": {
+    "titre": "Samma uppvakningstid varje dag",
+    "texte": "helger också. din inre klocka ställer in sig efter när du vaknar, inte efter när du lägger dig",
+    "image": "images/objets/reveil.png"
    }
   },
   {
@@ -74,6 +134,31 @@
    "tr": {
     "titre": "Sabah ışığı",
     "texte": "uyandıktan sonraki ilk saatte dışarıda on dakika. gün ışığı beynine günün ne zaman başladığını söyler, böylece seni ne zaman uykulu yapacağını bilir",
+    "image": "images/brume-vernet.jpg"
+   },
+   "de": {
+    "titre": "Morgenlicht",
+    "texte": "zehn minuten draußen in der ersten stunde nach dem aufwachen. tageslicht sagt deinem gehirn, wann der tag beginnt, damit es weiß, wann es dich müde machen soll",
+    "image": "images/brume-vernet.jpg"
+   },
+   "hu": {
+    "titre": "Reggeli fény",
+    "texte": "tíz perc a szabadban az ébredés utáni első órában. a nappali fény jelzi az agyadnak, mikor kezdődik a nap, így tudja, mikor tegyen álmossá",
+    "image": "images/brume-vernet.jpg"
+   },
+   "it": {
+    "titre": "Luce del mattino",
+    "texte": "dieci minuti fuori nella prima ora dopo il risveglio. la luce del giorno dice al cervello quando inizia la giornata, così sa quando farti venire sonno",
+    "image": "images/brume-vernet.jpg"
+   },
+   "nl": {
+    "titre": "Ochtendlicht",
+    "texte": "tien minuten buiten in het eerste uur na het wakker worden. daglicht vertelt je brein wanneer de dag begint, zodat het weet wanneer het je slaperig moet maken",
+    "image": "images/brume-vernet.jpg"
+   },
+   "sv": {
+    "titre": "Morgonljus",
+    "texte": "tio minuter utomhus under första timmen efter att du vaknat. dagsljus talar om för hjärnan när dagen börjar, så att den vet när den ska göra dig sömnig",
     "image": "images/brume-vernet.jpg"
    }
   },
@@ -94,6 +179,31 @@
     "titre": "Sophia'da günde bir ders",
     "texte": "yatakta kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. 10 dakika, sonra telefon kenara",
     "telephone": "cours"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "was ich im bett statt scrollen öffne: eine lektion, ein quiz, fertig. 10 minuten, dann kommt das handy weg",
+    "telephone": "cours"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "amit az ágyban görgetés helyett megnyitok: egy lecke, egy kvíz, kész. 10 perc, aztán leteszem a telefont",
+    "telephone": "cours"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "quello che apro a letto invece di scrollare: una lezione, un quiz, fine. 10 minuti, poi il telefono va giù",
+    "telephone": "cours"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "wat ik in bed open in plaats van scrollen: één les, één quiz, klaar. 10 minuten, dan gaat de telefoon weg",
+    "telephone": "cours"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "det jag öppnar i sängen i stället för att scrolla: en lektion, ett quiz, klart. 10 minuter, sen åker mobilen undan",
+    "telephone": "cours"
    }
   },
   {
@@ -112,6 +222,31 @@
     "titre": "Öğleden sonra kafein yok",
     "texte": "kafeinin yarı ömrü yaklaşık beş saattir. saat 16'da içilen kahvenin yarısı saat 21'de hâlâ vücudundadır",
     "image": "images/objets/tasse-the.png"
+   },
+   "de": {
+    "titre": "Kein koffein nach mittag",
+    "texte": "koffein hat eine halbwertszeit von etwa fünf stunden. von einem kaffee um 16 uhr ist um 21 uhr noch die hälfte in deinem körper",
+    "image": "images/objets/tasse-the.png"
+   },
+   "hu": {
+    "titre": "Délután már nincs koffein",
+    "texte": "a koffein felezési ideje nagyjából öt óra. egy délután 4-es kávé fele este 9-kor még a szervezetedben van",
+    "image": "images/objets/tasse-the.png"
+   },
+   "it": {
+    "titre": "Niente caffeina dopo mezzogiorno",
+    "texte": "la caffeina ha un'emivita di circa cinque ore. di un caffè alle 16, alle 21 ne hai ancora metà in corpo",
+    "image": "images/objets/tasse-the.png"
+   },
+   "nl": {
+    "titre": "Geen cafeïne na de middag",
+    "texte": "cafeïne heeft een halfwaardetijd van ongeveer vijf uur. van een koffie om 16.00 uur zit om 21.00 uur nog de helft in je lichaam",
+    "image": "images/objets/tasse-the.png"
+   },
+   "sv": {
+    "titre": "Inget koffein efter lunch",
+    "texte": "koffein har en halveringstid på ungefär fem timmar. en kaffe klockan 16 finns fortfarande till hälften kvar i kroppen klockan 21",
+    "image": "images/objets/tasse-the.png"
    }
   },
   {
@@ -129,6 +264,31 @@
    "tr": {
     "titre": "Serin ve karanlık bir oda",
     "texte": "uykuya dalmak için vücut ısının düşmesi gerekir. uyku uzmanları genelde 18°c civarında bir yatak odası önerir",
+    "image": "images/chambre-nuit.jpg"
+   },
+   "de": {
+    "titre": "Ein kühler, dunkler raum",
+    "texte": "deine körpertemperatur muss sinken, damit du einschläfst. schlafexperten empfehlen meist ein schlafzimmer um 18 °c",
+    "image": "images/chambre-nuit.jpg"
+   },
+   "hu": {
+    "titre": "Hűvös, sötét szoba",
+    "texte": "a testhőmérsékletednek csökkennie kell, hogy elaludj. az alváskutatók általában 18 °c körüli hálószobát javasolnak",
+    "image": "images/chambre-nuit.jpg"
+   },
+   "it": {
+    "titre": "Una stanza fresca e buia",
+    "texte": "la temperatura del corpo deve scendere per addormentarti. gli esperti del sonno di solito consigliano una camera intorno ai 18 °c",
+    "image": "images/chambre-nuit.jpg"
+   },
+   "nl": {
+    "titre": "Een koele, donkere kamer",
+    "texte": "je lichaamstemperatuur moet dalen om in slaap te vallen. slaapexperts raden meestal een slaapkamer van rond de 18 °c aan",
+    "image": "images/chambre-nuit.jpg"
+   },
+   "sv": {
+    "titre": "Ett svalt, mörkt rum",
+    "texte": "kroppstemperaturen måste sjunka för att du ska somna. sömnexperter brukar föreslå ett sovrum runt 18 °c",
     "image": "images/chambre-nuit.jpg"
    }
   }

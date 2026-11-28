@@ -1,0 +1,62 @@
+{
+  "source_id": "sg-o517",
+  "type_bleo": "full_test",
+  "titre": "the most famous rivalries in history #history #rivalry #didyouknow #smartgirl #culture",
+  "musique_titre": "The Spins",
+  "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+  "inspirations": [
+    "577cae13-0359-486e-ac83-6c2d0d347df6"
+  ],
+  "notes": "cta B. Full test 6/10 (la jauge en demande 10 sur 33) : accroche jamais faite chez nous (« rivalries » absent des accroches du label et de nos originaux). Accroches écrites : « the most famous rivalries in history » (retenue : drame + culture), « history's biggest feuds » (écartée : même idée, moins clair), « enemies in history » (écartée : sombre). Faits vérifiés : Edison et Tesla (courant continu contre alternatif), Michel-Ange et Léonard de Vinci (fresques rivales au Palazzo Vecchio), Newton et Leibniz (paternité du calcul), Élisabeth Iʳᵉ et Marie Stuart, Chanel et Schiaparelli, Mozart et Salieri (rivalité largement exagérée par la légende). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b56afb82",
+      "texte_overlay": "the most famous rivalries\nin history",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "503be8f2",
+      "texte_overlay": "edison vs tesla\n\nthe war of the currents.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c27d3c3a",
+      "texte_overlay": "michelangelo vs leonardo\n\nthey painted rival battle scenes\nin the same florence hall.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d6b201aa",
+      "texte_overlay": "newton vs leibniz\n\nwho invented calculus?",
+      "texte_sophia": "newton vs leibniz: who invented calculus?\ni read it on an app like Sophia.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0278531a",
+      "texte_overlay": "elizabeth i vs mary, queen of scots",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "5cc4ea21",
+      "texte_overlay": "chanel vs schiaparelli\n\nthe two queens of paris fashion.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "ad7afe45",
+      "texte_overlay": "mozart vs salieri\n\nmostly a legend.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "48f70cc0",
+      "texte_overlay": "whose side are you on?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+    }
+  ]
+}

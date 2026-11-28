@@ -1,3 +1,4 @@
+// NE PLUS S'EN SERVIR (27/11, Adrien) : jamais d'image IA, les couvertures viennent de la banque (npm run photos).
 // Usage :
 //   npm run image -- <nom> "<la scène, en anglais>" [--n 2]     une photo de couverture (3:4)
 //

@@ -1,5 +1,5 @@
 {
- "_doc": "Livraisons par jour de chaque podz : par_jour (pas de plafond), pause (true = rien à livrer). Tenu par le chef des podz, voir pods/chef/AGENT.md. Objectif : 30 % des posts venant des podz. Podz de remakes et d'originaux en images finies (page-blanche, fathom, yasmine, kaja, mentalapp, sagace, dorian, appshelf, inspogirly, atala, atala-wellness, milly, built, studyingsmiski, biomechanic, polytay, tracey, raretheory, charl, mariadiana, highlevel) : depuis le 5/11 (lot 4, 0655), leur rythme est calculé par l'OS sur les comptes de leur label (npm run boite, ligne « Rythme du jour ») ; ici, seulement leur pause.",
+ "_doc": "Livraisons par jour de chaque podz : par_jour (pas de plafond), pause (true = rien à livrer). Tenu par le chef des podz, voir pods/chef/AGENT.md. Objectif : 30 % des posts venant des podz. Podz de remakes et d'originaux en images finies (page-blanche, fathom, yasmine, kaja, mentalapp, sagace, dorian, appshelf, inspogirly, atala, atala-wellness, milly, built, studyingsmiski, biomechanic, polytay, tracey, raretheory, charl, mariadiana, highlevel, ssazem, msclzz, scilla, dorianart) : depuis le 5/11 (lot 4, 0655), leur rythme est calculé par l'OS sur les comptes de leur label (npm run boite, ligne « Rythme du jour ») ; ici, seulement leur pause.",
  "page-blanche": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite" },
  "originaux": { "par_jour": 9 },
  "reactions": { "par_jour": 0, "pause": true, "motif": "routine vidéo en pause depuis le 07/10" },
@@ -7,8 +7,8 @@
  "rh": { "par_jour": 11 },
  "mentalapp": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; relancé pour Sophia le 15/11 (0723), en test" },
  "beau-smart-girl": { "par_jour": 18 },
- "smart-girl": { "par_jour": 33 },
- "alpha-male": { "par_jour": 26 },
+ "smart-girl": { "par_jour": 35 },
+ "alpha-male": { "par_jour": 27 },
  "yasmine": { "par_jour": 0, "pause": true, "motif": "en pause depuis le 20/11 (demande d'Adrien, refonte des labels micabo) : that_girl_study ne sert plus aucune application, ses 9 comptes sont passés à polytay, cozy_girl, clean_girl_run et classic_girl_run ; routine du matin coupée, guichet fermé (pods.actif = false)" },
  "fathom": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite" },
  "clean-study": { "par_jour": 13 },
@@ -29,5 +29,11 @@
  "raretheory": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 24/11 (0856), en test" },
  "charl": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 24/11 (0857), en test ; en espagnol" },
  "mariadiana": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 25/11 (0861), en test ; Artura encore inactive" },
- "highlevel": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 25/11 (0862), en test ; Artura encore inactive" }
+ "highlevel": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 25/11 (0862), en test ; Artura encore inactive" },
+ "ssazem": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 27/11 (0868), en test" },
+ "msclzz": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 27/11 (0869), en test" },
+ "scilla": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 27/11 (0870), en test ; Artura encore inactive" },
+ "dorianart": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 27/11 (0871), en test ; Artura encore inactive" },
+ "adhd": { "par_jour": 10, "motif": "lancé le 27/11 (0872), en test : originaux en texte sur la banque du label adhd (Artura), traduits par l'OS dans ses 17 langues ; réserve du label à 0,9 jour au lancement" },
+ "arthistoire": { "par_jour": 5, "motif": "lancé le 27/11 (0873), en test : originaux en texte sur des tableaux du Met ajoutés à la banque du label art_histoire (Artura), traduits par l'OS dans ses 24 langues ; 40 images par 24 h au plus, environ 4 tableaux neufs par jour ; réserve du label à 0 jour au lancement" }
 }

@@ -11,7 +11,7 @@
     "titre": "Les (Instrumental Slowed)",
     "url": "https://www.tiktok.com/music/Les-Instrumental-Slowed-7601037808778708993"
   },
-  "notes": "Preuve de format : « HOW TO GIVE A GIRL BUTTERFLIES. » (1,4 M), famille « HOW TO … », conseils titrés. Accroche neuve « HOW TO MAKE HER MISS YOU. ». Carte Artura (4) : « Show her a painting. », Van Gogh, Irises (The Met 436528), LOGO d'Artura ; cta C. Fait vérifié : le fond, rose à l'origine, a blanchi (laque rouge qui s'est effacée, fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es (pas de sr : aucun compte).",
+  "notes": "Preuve de format : « HOW TO GIVE A GIRL BUTTERFLIES. » (1,4 M), famille « HOW TO … », conseils titrés. Accroche neuve « HOW TO MAKE HER MISS YOU. ». Carte Artura (4) : « Show her a painting. », Van Gogh, Irises (The Met 436528), LOGO d'Artura ; cta C. Fait vérifié : le fond, rose à l'origine, a blanchi (laque rouge qui s'est effacée, fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es + sr (latin) le 27/11.",
   "oeuvres": {
     "images/oeuvres/vangogh-iris.jpg": {
       "musee": "The Met",
@@ -29,7 +29,8 @@
     "it": "Come farti mancare da lei.",
     "hu": "Hogyan hiányozz neki.",
     "pt-BR": "Como fazer ela sentir sua falta.",
-    "es": "Cómo hacer que te eche de menos."
+    "es": "Cómo hacer que te eche de menos.",
+    "sr": "Kako da joj nedostaješ."
   },
   "legendes": {
     "en": "#datingadvice #tipsformen #attraction ",
@@ -38,7 +39,8 @@
     "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
     "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
     "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
-    "es": "#consejosdecitas #consejosparahombres #ligar "
+    "es": "#consejosdecitas #consejosparahombres #ligar ",
+    "sr": "#savetizamuškarce #veze #zavođenje "
   },
   "slides": [
     {
@@ -63,6 +65,9 @@
       },
       "es": {
         "titre": "CÓMO HACER\nQUE TE ECHE\nDE MENOS."
+      },
+      "sr": {
+        "titre": "KAKO DA\nJOJ NEDOSTAJEŠ."
       }
     },
     {
@@ -115,6 +120,13 @@
           "Responder en diez segundos, siempre, dice que no tienes nada más.",
           "Vive tu día. Responde cuando puedas."
         ]
+      },
+      "sr": {
+        "titre": "Ne budi uvek dostupan.",
+        "paragraphes": [
+          "Ako uvek odgovoriš za deset sekundi, poručuješ da nemaš ništa drugo da radiš.",
+          "Živi svoj dan. Odgovori kad stigneš."
+        ]
       }
     },
     {
@@ -166,6 +178,13 @@
         "paragraphes": [
           "Una canción que le enseñaste. Un lugar al que la llevaste.",
           "Dale cosas que le recuerden a ti."
+        ]
+      },
+      "sr": {
+        "titre": "Ostavi nešto iza sebe.",
+        "paragraphes": [
+          "Pesmu koju si joj pokazao. Mesto na koje si je odveo.",
+          "Daj joj stvari koje je podsećaju na tebe."
         ]
       }
     },
@@ -241,6 +260,16 @@
         "apres": [
           "No sabía nada de arte. Artura lo arregló, un cuadro al día."
         ]
+      },
+      "sr": {
+        "titre": "Pokaži joj sliku.",
+        "avant": [
+          "Van Gogove Perunike imale su ružičastu pozadinu. Vremenom je izbledela u belu.",
+          "Reci joj. Nikad je više neće gledati isto."
+        ],
+        "apres": [
+          "Nisam znao ništa o umetnosti. Artura je to rešila, jedna slika dnevno."
+        ]
       }
     },
     {
@@ -293,6 +322,13 @@
           "Sin frialdad. Cálido, y te vas: “Tengo que irme. Ha estado bien.”",
           "Deja que el silencio haga el resto."
         ]
+      },
+      "sr": {
+        "titre": "Ti prvi završi razgovor.",
+        "paragraphes": [
+          "Ne hladno. Toplo, pa odlaziš: „Moram da idem. Bilo je lepo.”",
+          "Pusti da tišina uradi ostalo."
+        ]
       }
     },
     {
@@ -337,6 +373,12 @@
         "titre": "Ten tus propios planes.",
         "paragraphes": [
           "Cuando pregunte por el viernes, a veces la respuesta es: “Tengo planes. ¿El domingo?”"
+        ]
+      },
+      "sr": {
+        "titre": "Imaj svoje planove.",
+        "paragraphes": [
+          "Kad pita za petak, ponekad je odgovor: „Zauzet sam. Nedelja?”"
         ]
       }
     },
@@ -390,6 +432,13 @@
           "No puede echar de menos a alguien que nunca se va.",
           "**Un niño siempre está ahí.**\n**Un hombre vale la espera.**"
         ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Ne može da joj nedostaje neko ko nikad ne ode.",
+          "**Dečak je uvek tu.**\n**Muškarac vredi čekanja.**"
+        ]
       }
     },
     {
@@ -427,6 +476,11 @@
         "gras": "Sígueme",
         "milieu": " para no perderte",
         "suite": "lo que viene."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
       }
     }
   ]

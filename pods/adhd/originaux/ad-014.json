@@ -1,0 +1,67 @@
+{
+  "source_id": "ad-014",
+  "type_bleo": "full_test",
+  "titre": "every one of these has a source 🧠 #adhd #adhdtiktok #neurodivergent #adhdcheck #fyp",
+  "musique_titre": "Life Will Be",
+  "musique_url": "https://www.tiktok.com/music/life-will-be-7288041310028302338",
+  "inspirations": [
+    "9f4fd230"
+  ],
+  "notes": "Format « faits » (9f4fd230, 857,6 k), en mythe / vérité. Accroche neuve : « ADHD myths people still believe ». Sources : (1) 1798, Alexander Crichton, « An Inquiry into the Nature and Origin of Mental Derangement » (Palmer & Finger, Child Psychol Psychiatry Rev, 2001) ; (2) persistance à l'âge adulte (Faraone et al., World Federation of ADHD International Consensus Statement, Neurosci Biobehav Rev, 2021 ; Song et al., J Glob Health, 2021) ; (3) héritabilité ~74 % (Faraone & Larsson, Mol Psychiatry, 2019) ; (4) hyperfocus rapporté plus souvent par les adultes avec TDAH (Hupfeld, Abagis & Shah, ADHD Atten Def Hyp Disord, 2019) ; (5) critère DSM-5 : symptômes dans au moins deux contextes et gêne réelle (APA, DSM-5, 2013) ; (6) ~5 % des enfants, sur tous les continents (Polanczyk et al., Am J Psychiatry, 2007) ; (7) 1 713 personnes avec TDAH et 1 529 sans, 3 242 IRM, petites différences moyennes de volumes sous-corticaux (Hoogman et al., Lancet Psychiatry, 2017). Aucun médicament, aucune mort.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8b29b26f",
+      "texte_overlay": "ADHD myths\npeople still believe",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "781857ce",
+      "texte_overlay": "myth: ADHD is a new trend.\n\ntruth: a scottish doctor\ndescribed it back in 1798",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "74994bf1",
+      "texte_overlay": "myth: you grow out of it.\n\ntruth: for many people\nit carries on into adulthood",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "1b5505fa",
+      "texte_overlay": "myth: it's caused by bad parenting.\n\ntruth: genes play a big role.\ntwin studies put it at about 74%",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "db2efb65",
+      "texte_overlay": "myth: people with ADHD\ncan't focus.\n\ntruth: many adults with ADHD\ndescribe hyperfocus on the things\nthat grab them",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "e421ffe3",
+      "texte_overlay": "myth: everyone is a little ADHD.\n\ntruth: a diagnosis needs symptoms\nthat cause real problems\nin more than one part of life",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0d817379",
+      "texte_overlay": "myth: it's just an american thing.\n\ntruth: it's found all over the world,\nin around 1 in 20 kids",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "a54766c8",
+      "texte_overlay": "myth: it's just personality.\n\ntruth: a 2017 study of over\n3,000 brain scans found small\naverage differences in the brain",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/8.jpg"
+    },
+    {
+      "position": 9,
+      "media_id": "f690fd80",
+      "texte_overlay": "follow for more ADHD myths,\nwith sources",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7699832504068640002/9.jpg"
+    }
+  ]
+}

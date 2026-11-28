@@ -1,0 +1,55 @@
+{
+  "source_id": "ad-019",
+  "type_bleo": "full_test",
+  "titre": "the internet makes it look cute #adhd #adhdtiktok #neurodivergent #adhdcheck #fyp",
+  "musique_titre": "do i clench my fists? (slowed + reverb)",
+  "musique_url": "https://www.tiktok.com/music/do-i-clench-my-fists-slowed-reverb-7647914074269059847",
+  "inspirations": [
+    "ad31458b"
+  ],
+  "notes": "Format « Fake vs Real » (ad31458b, 293,6 k ; 823b328b). Accroche neuve : « ADHD on the internet vs ADHD in real life ». Items neufs. Aucun diagnostic, aucun chiffre.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b921e8b6",
+      "texte_overlay": "ADHD on the internet\nvs\nADHD in real life",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0042dfdc",
+      "texte_overlay": "on the internet\n\"ADHD is so random and fun\"\n\nin real life\nbeing tired of your own brain\nby 3pm",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "6b61896e",
+      "texte_overlay": "on the internet\n\"i did everything in one night\"\n\nin real life\nthat one night costs you\nthe next 2 days",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "69a6d853",
+      "texte_overlay": "on the internet\n\"i'm so forgetful haha\"\n\nin real life\napologising again for the thing\nyou forgot last week",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "8128332a",
+      "texte_overlay": "on the internet\n\"i can't sit still\"\n\nin real life\nsitting still for hours,\nunable to start anything",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "03677886",
+      "texte_overlay": "on the internet\n\"i'm always late lol\"\n\nin real life\nmissing things that mattered\nand feeling awful about it",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "f2947c0e",
+      "texte_overlay": "online it's a joke.\nin real life it's a brain\nthat works differently",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667579552171871510/2.jpg"
+    }
+  ]
+}

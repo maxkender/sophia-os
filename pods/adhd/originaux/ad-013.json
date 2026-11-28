@@ -1,0 +1,67 @@
+{
+  "source_id": "ad-013",
+  "type_bleo": "full_test",
+  "titre": "the small stuff nobody sees #adhd #adhdtiktok #neurodivergent #adhdcheck #fyp",
+  "musique_titre": "Born Slippy - Nuxx / Remastered",
+  "musique_url": "https://www.tiktok.com/music/born-slippy-nuxx-remastered-6745171528700135426",
+  "inspirations": [
+    "cf4cb881"
+  ],
+  "notes": "Format « liste relatable » (cf4cb881, 225,6 k). Accroche neuve : « things i do because of ADHD that nobody notices ». Items neufs, ni les siens ni ceux d'ad-001, ad-005, ad-010. Aucun chiffre, aucun diagnostic.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "404660ad",
+      "texte_overlay": "things i do because of ADHD\nthat nobody notices",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c0decd9e",
+      "texte_overlay": "rehearsing a phone call\n5 times before making it",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "e017634e",
+      "texte_overlay": "taking the long way home\nbecause my brain needed\nthe extra quiet",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "8c1c9469",
+      "texte_overlay": "setting 4 alarms\nfor one appointment",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "2ca1f931",
+      "texte_overlay": "staring out the window\nand losing 40 minutes\nwithout noticing",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "b52406fc",
+      "texte_overlay": "buying a new notebook\nfor a fresh start.\nagain.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6ca8f2be",
+      "texte_overlay": "tapping my foot under the table\nso i can sit through\nthe whole thing",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "f97647a7",
+      "texte_overlay": "putting headphones in\nwith nothing playing\njust to block the world out",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/8.jpg"
+    },
+    {
+      "position": 9,
+      "media_id": "cba11be7",
+      "texte_overlay": "being proud of myself\nfor something tiny\nnobody else would notice",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/9.jpg"
+    }
+  ]
+}

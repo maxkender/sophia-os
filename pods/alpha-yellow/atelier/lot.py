@@ -41,10 +41,10 @@ SOPH_OK = ["surf", "wave", "ocean", "back to the camera", "silhouette", "swimmin
            "shelf", "vinyl", "record", "camera", "bicycle", "boat", "sail", "tree", "garden", "flower", "stairs", "sunrise"]
 SOPH_NON = ["edge of a swimming pool", "face", "portrait", "smiling", "looking at the camera", "two people", "three people",
             "group", "woman", "girl", "child", "showroom", "mercedes", "car",
-            "superman", "batman", "superhero", "spider", "cape", "costume", "actor", "celebrity", "monk", "yak", "lama", "joker", "prison", "bars", "jail", "mask", "bane", "helmet", "villain", "vader", "star wars", "shirtless", "walking"]
+            "superman", "batman", "superhero", "spider", "cape", "costume", "actor", "celebrity", "monk", "yak", "lama", "joker", "prison", "bars", "jail", "mask", "bane", "helmet", "villain", "vader", "star wars", "knight", "man swimming in the ocean", "shirtless", "walking"]
 
 # images vues sur un aperçu avec un visage reconnaissable : jamais sur la slide Sophia
-SOPH_EXCLUS = {"3089a52f", "4d3a1468", "4f9f0624", "683dda1a", "99d2bcf3", "a04728e0", "a71f427e", "b71971e6", "c1b128f0", "d080a54e", "d947496d", "d9a6d9f7", "f01d70fc", "fc7de629"}
+SOPH_EXCLUS = {"0ca3b0a3", "1af3af0f", "3089a52f", "4d3a1468", "4f9f0624", "683dda1a", "99d2bcf3", "a04728e0", "a71f427e", "b71971e6", "c1b128f0", "d080a54e", "d947496d", "d9a6d9f7", "f01d70fc", "fc7de629"}
 
 CACHE = "donnees/cache/empreintes.json"
 

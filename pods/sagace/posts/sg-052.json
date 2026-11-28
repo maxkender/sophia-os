@@ -1,0 +1,2918 @@
+{
+ "id": "sg-052",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "517ed881-2544-47e1-8563-a2fad9c63adf",
+ "titre": {
+  "fr": "Compétences qui ne servent à rien mais qui en jettent",
+  "en": "Skills that are totally useless but look so cool",
+  "de": "Skills, die nichts bringen, aber mega cool aussehen",
+  "it": "Abilità che non servono a niente ma fanno un figurone",
+  "pt-BR": "Habilidades que não servem pra nada, mas são estilosas demais",
+  "tr": "Hiçbir işe yaramayan ama çok havalı beceriler",
+  "ro": "Abilități total inutile, dar care arată super",
+  "cs": "Dovednosti, které jsou k ničemu, ale vypadají skvěle",
+  "hu": "Teljesen haszontalan, de nagyon menő készségek",
+  "el": "Δεξιότητες που δεν χρειάζεσαι, αλλά είναι φοβερές",
+  "sr": "Veštine koje ne služe ničemu, ali izgledaju moćno",
+  "es": "Habilidades que no sirven para nada pero molan muchísimo",
+  "es-419": "Habilidades que no sirven para nada pero se ven increíbles",
+  "pl": "Umiejętności bez żadnego pożytku, ale robią wrażenie",
+  "sk": "Zručnosti, ktoré sú na nič, ale vyzerajú skvele",
+  "hr": "Vještine koje ne služe ničemu, ali izgledaju moćno",
+  "sv": "Färdigheter som är meningslösa men så coola",
+  "lv": "Prasmes, kas nekam neder, bet izskatās lieliski"
+ },
+ "legendes": {
+  "fr": "Compétences qui ne servent à rien mais qui en jettent #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "Skills that are totally useless but look so cool #learnontiktok #selfimprovement #skills",
+  "de": "Skills, die nichts bringen, aber mega cool aussehen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità che non servono a niente ma fanno un figurone #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades que não servem pra nada, mas são estilosas demais #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Hiçbir işe yaramayan ama çok havalı beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități total inutile, dar care arată super #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti, které jsou k ničemu, ale vypadají skvěle #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "Teljesen haszontalan, de nagyon menő készségek #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες που δεν χρειάζεσαι, αλλά είναι φοβερές #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine koje ne služe ničemu, ali izgledaju moćno #učinatiktoku #samorazvoj #veštine",
+  "es": "Habilidades que no sirven para nada pero molan muchísimo #aprendeentiktok #desarrollopersonal #habilidades",
+  "es-419": "Habilidades que no sirven para nada pero se ven increíbles #aprendeentiktok #desarrollopersonal #habilidades",
+  "pl": "Umiejętności bez żadnego pożytku, ale robią wrażenie #uczsięnatiktoku #rozwójosobisty #umiejętności",
+  "sk": "Zručnosti, ktoré sú na nič, ale vyzerajú skvele #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "hr": "Vještine koje ne služe ničemu, ali izgledaju moćno #učinatiktoku #osobnirazvoj #vještine",
+  "sv": "Färdigheter som är meningslösa men så coola #lärdigpåtiktok #självutveckling #färdigheter",
+  "lv": "Prasmes, kas nekam neder, bet izskatās lieliski #mācītiestiktokā #pašattīstība #prasmes"
+ },
+ "musique": {
+  "titre": "original sound - Jacob . P",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "Déclinaison G2 de sg-027 (28/11) : même promesse (« compétences inutiles mais cool »), autres mots (« Compétences qui ne servent à rien mais qui en jettent »), couverture neuve dans son style, musique de sg-027 ; 5 compétences hors sg-027/sg-005/sg-047 (tour de cartes, nœud de cravate, dessiner un œil réaliste, valse, mat en 4 coups), vraies vidéos natives dans les 18 langues ; Sophia en étape 4, cta B « AVOIR UN / TALENT CACHÉ ». lv : l'étape échecs devient « IZLIKT / ŠAHA LAMATAS » (pièges d'ouverture, chess_kids_lv), faute de vidéo lettone sur le mat en 4 coups ; el : « ΕΝΑ ΓΡΗΓΟΡΟ / ΜΑΤ ». sk : valse de Fun Radio (slovaque). hr : chaînes de la région en ijekavien pour les cartes, l'œil et les échecs ; sr : valse de PlesniCentarZagreb et cravate de Home Factory (titres neutres, rien de serbe trouvé).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 111
+     },
+     {
+      "t": "QUI NE SERVENT À RIEN",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "MAIS QUI",
+      "cap": 93
+     },
+     {
+      "t": "EN JETTENT",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS THAT ARE",
+      "cap": 111
+     },
+     {
+      "t": "TOTALLY USELESS",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "BUT LOOK",
+      "cap": 93
+     },
+     {
+      "t": "SO COOL",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS, DIE",
+      "cap": 111
+     },
+     {
+      "t": "NICHTS BRINGEN,",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "ABER MEGA",
+      "cap": 93
+     },
+     {
+      "t": "COOL AUSSEHEN",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ CHE",
+      "cap": 111
+     },
+     {
+      "t": "NON SERVONO A NIENTE",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "MA FANNO",
+      "cap": 93
+     },
+     {
+      "t": "UN FIGURONE",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 111
+     },
+     {
+      "t": "QUE NÃO SERVEM PRA NADA",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "MAS SÃO",
+      "cap": 93
+     },
+     {
+      "t": "ESTILOSAS",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "HİÇBİR İŞE",
+      "cap": 111
+     },
+     {
+      "t": "YARAMAYAN",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "AMA ÇOK HAVALI",
+      "cap": 93
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 111
+     },
+     {
+      "t": "TOTAL INUTILE,",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "DAR CARE ARATĂ",
+      "cap": 93
+     },
+     {
+      "t": "SUPER",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI,",
+      "cap": 111
+     },
+     {
+      "t": "KTERÉ JSOU K NIČEMU,",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "ALE VYPADAJÍ",
+      "cap": 93
+     },
+     {
+      "t": "SKVĚLE",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "TELJESEN",
+      "cap": 111
+     },
+     {
+      "t": "HASZONTALAN,",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "DE NAGYON MENŐ",
+      "cap": 93
+     },
+     {
+      "t": "KÉSZSÉGEK",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 111
+     },
+     {
+      "t": "ΠΟΥ ΔΕΝ ΧΡΕΙΑΖΕΣΑΙ,",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΑΛΛΑ ΕΙΝΑΙ",
+      "cap": 93
+     },
+     {
+      "t": "ΦΟΒΕΡΕΣ",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 111
+     },
+     {
+      "t": "KOJE NE SLUŽE NIČEMU,",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "ALI IZGLEDAJU",
+      "cap": 93
+     },
+     {
+      "t": "MOĆNO",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 111
+     },
+     {
+      "t": "QUE NO SIRVEN PARA NADA",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "PERO MOLAN",
+      "cap": 93
+     },
+     {
+      "t": "MUCHÍSIMO",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 111
+     },
+     {
+      "t": "QUE NO SIRVEN PARA NADA",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "PERO SE VEN",
+      "cap": 93
+     },
+     {
+      "t": "INCREÍBLES",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pl": {
+    "lignes": [
+     {
+      "t": "UMIEJĘTNOŚCI",
+      "cap": 111
+     },
+     {
+      "t": "BEZ ŻADNEGO POŻYTKU,",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "ALE ROBIĄ",
+      "cap": 93
+     },
+     {
+      "t": "WRAŻENIE",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "t": "ZRUČNOSTI,",
+      "cap": 111
+     },
+     {
+      "t": "KTORÉ SÚ NA NIČ,",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "ALE VYZERAJÚ",
+      "cap": 93
+     },
+     {
+      "t": "SKVELE",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "VJEŠTINE",
+      "cap": 111
+     },
+     {
+      "t": "KOJE NE SLUŽE NIČEMU,",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "ALI IZGLEDAJU",
+      "cap": 93
+     },
+     {
+      "t": "MOĆNO",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sv": {
+    "lignes": [
+     {
+      "t": "FÄRDIGHETER",
+      "cap": 111
+     },
+     {
+      "t": "SOM ÄR MENINGSLÖSA",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "MEN SÅ",
+      "cap": 93
+     },
+     {
+      "t": "COOLA",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "t": "PRASMES,",
+      "cap": 111
+     },
+     {
+      "t": "KAS NEKAM NEDER,",
+      "cap": 110,
+      "couleur": "brun"
+     },
+     {
+      "t": "BET IZSKATĀS",
+      "cap": 93
+     },
+     {
+      "t": "LIELISKI",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉUSSIR UN",
+     [
+      {
+       "t": "TOUR DE CARTES",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_vb4tTX8Z8M",
+     "titre": "Tour De Magie Facile Et Impressionnant Expliqué!",
+     "chaine": "Achille Magic",
+     "vues": "333 k vues",
+     "date": "il y a 3 ans",
+     "duree": "6:34",
+     "avatar": "https://yt3.ggpht.com/EehWGqFl_qR5wDGemg3oQeNPKMxiItYjqyuy8WFkOgn0IYYOd9RwsC1tTAvTHLdGwA_CT_2H=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PULL OFF A",
+     [
+      {
+       "t": "CARD TRICK",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZrYP9m3MpAU",
+     "titre": "EASIEST CARD TRICK EVER! Learn In Less Than 5 Minutes!",
+     "chaine": "A Million Card Tricks",
+     "vues": "2.2M views",
+     "date": "7 years ago",
+     "duree": "4:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ni_o_UOPiP_ap38jM6kF92YXEFIrr6HFeygWspbVWPpS4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "ZAUBERN",
+     [
+      {
+       "t": "MIT KARTEN",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "p91nhMzmz6M",
+     "titre": "Der PERFEKTE KARTENTRICK für ANFÄNGER (Reverse Card) | Erklärung zum Nachmachen",
+     "chaine": "Matthias Berger",
+     "vues": "281.139 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "13:25",
+     "avatar": "https://yt3.ggpht.com/kQ1QDzYwam75I7aPqT1kqee57mKx2YZW66KIytbSeZGjfTYeNHyAPCbRWeExtNf2n5efu7HQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "UN TRUCCO",
+     [
+      {
+       "t": "CON LE CARTE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gau59cRmn-U",
+     "titre": "QUESTO TRUCCO DI MAGIA FREGA TUTTI, SENZA PREPARAZIONE!(Tutorial)",
+     "chaine": "Jack Nobile",
+     "vues": "138K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "8:24",
+     "avatar": "https://yt3.ggpht.com/SUyrlrFnx2vnJ0YZvqpZv74Hiyx0ueS1n7Us3KBXvpUoqk3O-B0BdSPCHExzthxt0n1QZH7Svw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER MÁGICA",
+     [
+      {
+       "t": "COM CARTAS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mllNmczxsmY",
+     "titre": "MÁGICA PROFISSIONAL com BARALHO | COMO FAZER | TUTORIAL",
+     "chaine": "Felipe Barbieri",
+     "vues": "604 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "8:50",
+     "avatar": "https://yt3.ggpht.com/hiKeUuhODZtLDpaRg_3sV4M9JkiJjPH4OP3p0AKDiHb46Cm1KcfNb-XbO8RXxJJumRWLWxOn=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KARTLA",
+     [
+      {
+       "t": "SİHİRBAZLIK",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pcVCoZSgbvs",
+     "titre": "HERKESİN YAPABİLECEĞİ 3 KART NUMARASI !!",
+     "chaine": "Doruk Sayar",
+     "vues": "506 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "17:14",
+     "avatar": "https://yt3.ggpht.com/i1uu4lwltMS2PO3_PUEkuB7pX25bnX8QzSSoMiFjpk2i5lBS7bhDM8SuiDgu_d-qFwMzr-9z=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "UN TRUC CU CĂRȚI",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MEmnmep7QzA",
+     "titre": "Truc Usor Cu Carti De Joc Pentru Incepatori // TUTORIAL!",
+     "chaine": "Claudiu Munteanu",
+     "vues": "137 K vizionări",
+     "date": "acum 9 ani",
+     "duree": "3:09",
+     "avatar": "https://yt3.ggpht.com/PM726y4ETgvASUPvOjMu7lcVYq8pdfSlTuVSQ98639qQKqBasqMGTx9F7h0-s3ac8qkouMWY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "KARETNÍ",
+     [
+      {
+       "t": "TRIK",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LDrVyJI-L34",
+     "titre": "JEDNODUCHÝ KARETNÍ TRIK PRO ZAČÁTEČNÍKY S VYSVĚTLENÍM! 🔥✅",
+     "chaine": "Exit8472",
+     "vues": "21 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "5:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kEghG64tYjWfI7Hx0zD_In8vanBCx--wWhLq067wFfTrY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "EGY",
+     [
+      {
+       "t": "KÁRTYATRÜKK",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2otKI9qiPtM",
+     "titre": "Trükk Tanulás - Kártyatrükk kezdőknek  (Németh Gábor bűvész)",
+     "chaine": "Németh Gábor bűvész",
+     "vues": "30 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "5:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nMsf3gTJL3KZznZjvT18Q95Ii1btXQCdb66gkzvrWcPMk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΕΝΑ ΚΟΛΠΟ",
+     [
+      {
+       "t": "ΜΕ ΤΡΑΠΟΥΛΑ",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "k3l-ebX1OtA",
+     "titre": "Μάθε το καλύτερο μαγικό κόλπο με τράπουλα.",
+     "chaine": "Ερμής Ο Μάγος",
+     "vues": "14 χιλ. προβολές",
+     "date": "πριν από 2 έτη",
+     "duree": "10:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ncpIuBxhRCLXLjzIRghsDIBP5Zrr_7EgUwPSH8arLtZA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "TRIK",
+     [
+      {
+       "t": "SA KARTAMA",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jUmG100k6ak",
+     "titre": "Veoma Cool Trik Za Pocetnike - Objasnjenje",
+     "chaine": "Jacks&Jokers15",
+     "vues": "492 hilj. pregleda",
+     "date": "pre 11 godina",
+     "duree": "6:19",
+     "avatar": "https://yt3.ggpht.com/H4CJR2exrE5vHLR2kWMw6c7tYKy5h34-SVZF5wjanb-J5gpPmldgBUcH9E0dVH7W_s-47ysVeg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "UN TRUCO",
+     [
+      {
+       "t": "DE CARTAS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LSWclCi81xc",
+     "titre": "El truco de cartas que funciona SIN HABILIDAD (es locura)",
+     "chaine": "Santi Marcilla",
+     "vues": "505 K visualizaciones",
+     "date": "hace 9 meses",
+     "duree": "13:15",
+     "avatar": "https://yt3.ggpht.com/a7ADEThSPxBOUEnA5sCnF3TqO04Er7oysAEhuWHeOvj6nejyUAoseoY3q27Yub6QF6REqLQF=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "UN TRUCO",
+     [
+      {
+       "t": "DE CARTAS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5TlnWUInDHc",
+     "titre": "EL MEJOR TRUCO DE MAGIA CON CARTAS FÁCIL! 😱",
+     "chaine": "Julio Ribera",
+     "vues": "934 k vistas",
+     "date": "hace 7 años",
+     "duree": "3:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nhY1UFNP3B_vEoVWDst0d_0FkubFGWMUn4sF18S395zM0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "SZTUCZKA",
+     [
+      {
+       "t": "KARCIANA",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AzZViXYlJOc",
+     "titre": "Sztuczki karciane #3| najlepszy trick dla początkujących!",
+     "chaine": "Miczuu",
+     "vues": "66 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "3:24",
+     "avatar": "https://yt3.ggpht.com/Z-IiJzt7KQYZEpLjI-d8tiDcPcdUyoydXgtaBtqBsugyCVJ7jEgcmzuUYW2sQHAiZyCMiBTNTw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "KÚZLO",
+     [
+      {
+       "t": "S KARTAMI",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-OU-nGWy8Bk",
+     "titre": "Toto kúzlo s kartami dostane aj kúzelníka! | Návod na kúzlo",
+     "chaine": "Michal Ďurovič",
+     "vues": "123 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "13:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mL_FMihwyWJE-gNkf6M0tH0twM3lDIjfGgvWDuiiy6EQit=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "TRIK",
+     [
+      {
+       "t": "S KARTAMA",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Ep5OSU40Pbo",
+     "titre": "Objasnjenje:Nevjerovatno Lagan trik sa Kartama // Majstor Magije //",
+     "chaine": "Goran Kojic",
+     "vues": "9,7 tis. pregleda",
+     "date": "prije 10 godina",
+     "duree": "2:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lhE9z8W3-ApsT9HWpzpkZ6v8QXQERr8rbQ-MtDbpPpylk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "ETT",
+     [
+      {
+       "t": "KORTTRICK",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1aC5nvZkO2o",
+     "titre": "Korttrick tutorial! Lätt att lära.",
+     "chaine": "Johan Ståhl",
+     "vues": "26 tn visningar",
+     "date": "för 3 år sedan",
+     "duree": "1:10",
+     "avatar": "https://yt3.ggpht.com/1i3i8p_N69Ar-419qxDCCTqsoAgOznYciDCRRQZfco-V7t75Zml9sz6HqQsj32kNpULYEGbncg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "TRIKS",
+     [
+      {
+       "t": "AR KĀRTĪM",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zR18HzJ4Wvs",
+     "titre": "Uzzini pirmais - pieci vienkārši kāršu triki",
+     "chaine": "TukumaJauniesuTV",
+     "vues": "64 tūkst. skatījumu",
+     "date": "pirms 10 gadiem",
+     "duree": "6:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nK1Q8ao35tevxRNgQ0pcOaOGZf6PzTqkYoFEhJ33fSdQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min, lai iemācītos"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "NOUER",
+     [
+      {
+       "t": "UNE CRAVATE",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "L1oMD1Wz63k",
+     "titre": "LE NOEUD DE CRAVATE SIMPLE : Comment faire un noeud de cravate?",
+     "chaine": "CravateAvenue",
+     "vues": "2,6 M de vues",
+     "date": "il y a 17 ans",
+     "duree": "2:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m5i9X47fT18lH9BX4KwYZ29ZIqxGz1SGzELwZT_p-w0Gc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "TIE",
+     [
+      {
+       "t": "A TIE",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9BMhFmNzw-o",
+     "titre": "How to tie a tie - Quick and Easy",
+     "chaine": "Math Meeting",
+     "vues": "69M views",
+     "date": "14 years ago",
+     "duree": "1:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lcfyJi-2PfJaUFwFQ1A9QNPA3IzooZazEPtHVARvp74Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINE KRAWATTE",
+     [
+      {
+       "t": "BINDEN",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "scuPIlPPw2s",
+     "titre": "Schlips binden einfacher Windsor Knoten",
+     "chaine": "83metoo",
+     "vues": "3,2 Mio. Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "2:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nESQb2r7q0QXoJPR1DBUiKs90ORi4wPEwlBNZuph_keS8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IL NODO",
+     [
+      {
+       "t": "ALLA CRAVATTA",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3_tRQBCtjpE",
+     "titre": "Come fare il nodo alla cravatta - Nodo Windsor",
+     "chaine": "Douglas Mortimer",
+     "vues": "862K visualizzazioni",
+     "date": "10 anni fa",
+     "duree": "2:59",
+     "avatar": "https://yt3.ggpht.com/aJ89bgadb56ScoedvlWmHcKvc0utgeoKSYS8lgWER1tgmCbJjmp_0rZ_U93lubsaMKyLaWDt=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DAR NÓ",
+     [
+      {
+       "t": "NA GRAVATA",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HMm8OiovFJY",
+     "titre": "Como fazer o Nó de Gravata Windsor",
+     "chaine": "ComoFaz",
+     "vues": "2,9 mi visualizações",
+     "date": "há 11 anos",
+     "duree": "3:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nrRFChgBJWc483czaegWXUGNjhv6_ImWYAnTA87PMnc2w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KRAVAT",
+     [
+      {
+       "t": "BAĞLAMAK",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_oQh27v-YVY",
+     "titre": "KRAVAT NASIL BAĞLANIR? EN KOLAY YÖNTEMLER!",
+     "chaine": "SOSYOSELF",
+     "vues": "916 B görüntüleme",
+     "date": "10 yıl önce",
+     "duree": "3:16",
+     "avatar": "https://yt3.ggpht.com/gNgVYqKT_thn0AyCvbatB5-L3SySLwAGi-glIRdiRdEAhgGOtJaQfCd-pYT6KIo-vIenigOsjQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ LEGI",
+     [
+      {
+       "t": "O CRAVATĂ",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZFVZSqwN-VI",
+     "titre": "[Cum să] Nod de cravată simplu - Cavaleria.ro",
+     "chaine": "Cavaleria.ro",
+     "vues": "559 K vizionări",
+     "date": "acum 11 ani",
+     "duree": "0:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ksqs2s3fjaK8787eGgCGIRyC3ulQjt_ItUoK8y2MN-cTM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UVÁZAT",
+     [
+      {
+       "t": "KRAVATU",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DIUtlBsoJpw",
+     "titre": "Jak Uvázat Kravatu | Uzel Windsor",
+     "chaine": "Bubibubi cz",
+     "vues": "491 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "2:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ksJaYHqX0oux6c-WnEnYcJYxLnkSSgQjbdU2UxGkcWsH0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "NYAKKENDŐT",
+     [
+      {
+       "t": "KÖTNI",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "d7PQwk_zYgc",
+     "titre": "Nyakkendő kötés tenyéren- avagy a legegyszerűbb kötési technika",
+     "chaine": "ThunderP1g",
+     "vues": "2,9 M megtekintés",
+     "date": "11 évvel ezelőtt",
+     "duree": "1:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kh1tpFM5TYsf58sU_BNlTmmp5t5hh3GyMzb8BaxmVCxw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΔΕΝΕΙΣ",
+     [
+      {
+       "t": "ΓΡΑΒΑΤΑ",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0qYcfEu4heI",
+     "titre": "Πως να δέσετε τη Γραβάτα σας!",
+     "chaine": "getitnowtv",
+     "vues": "568 χιλ. προβολές",
+     "date": "πριν από 14 έτη",
+     "duree": "1:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nzPCFZXSHPOS8T0cqKqmW5fk5KIgYZ7bt2eNXAWj6Ksg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "VEZATI",
+     [
+      {
+       "t": "KRAVATU",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kUqwtkvPGGY",
+     "titre": "Brzo i jednostavno vezanje kravate! - (NEVJEROVATNO!!!)",
+     "chaine": "Home Factory",
+     "vues": "414 hilj. pregleda",
+     "date": "pre 10 godina",
+     "duree": "0:54",
+     "avatar": "https://yt3.ggpht.com/g4imFB2ghUlABYXzD4l2T-_I0MpG9G_tRU3aiOIqOnwMWSl7gh54smLQ9cQ2uX3ItP7VoTcKag=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "HACER EL",
+     [
+      {
+       "t": "NUDO DE CORBATA",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oLWMOzc_IBY",
+     "titre": "Como hacer NUDO de CORBATA paso a paso - Nudo Winsdor",
+     "chaine": "A Crear",
+     "vues": "1,5 M de visualizaciones",
+     "date": "hace 1 año",
+     "duree": "1:51",
+     "avatar": "https://yt3.ggpht.com/7vslBhc6sn5hzJvqLW7e-AWKeBlqG1CGjHtJiu_sJEePr8uzMYP58A-l7roqUQHYY2ieYQ8x=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER EL",
+     [
+      {
+       "t": "NUDO DE CORBATA",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Cw8Rt_OtB9k",
+     "titre": "Como hacer nudo de corbata, fácil y rápido",
+     "chaine": "Alex Cococha",
+     "vues": "19 M de vistas",
+     "date": "hace 11 años",
+     "duree": "1:43",
+     "avatar": "https://yt3.ggpht.com/iYcdjE3VcAMRDc5EAFiZFSa1I-ZDF4TiKPlqW5H781li7vjL52BgmqpzWj8hE0RUhkE73JnH=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "ZAWIĄZAĆ",
+     [
+      {
+       "t": "KRAWAT",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IJ1tkiLrQ4o",
+     "titre": "Jak zawiązać elegancki węzeł krawata (windsorski) | Łatwo i szybko",
+     "chaine": "To łatwe TV",
+     "vues": "1,4 mln wyświetleń",
+     "date": "8 lat temu",
+     "duree": "3:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lR3mdDPjWiKak89fvbDoTqUpIXVM6sx2qi7J11P3WWTOo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "UVIAZAŤ",
+     [
+      {
+       "t": "KRAVATU",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bJT3DRkgsEo",
+     "titre": "Ako uviazať kravatu s dokonalým uzlom Windsor Half | BANDI",
+     "chaine": "Pánské obleky BANDI",
+     "vues": "21 tis. zhliadnutí",
+     "date": "pred 7 rokmi",
+     "duree": "2:31",
+     "avatar": "https://yt3.ggpht.com/oJS9GMw8BRH-1e8hQNR8suGbUUl1GzxHm96_bDBXQdfpgPBfR9W8KFR8xhJ1MCEKfmrYULW7ew=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "VEZATI",
+     [
+      {
+       "t": "KRAVATU",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mbvDoOfdK0A",
+     "titre": "Učimo vezati kravatu: Korak po korak do savršenog čvora",
+     "chaine": "Imagine Interactive TV",
+     "vues": "93 tis. pregleda",
+     "date": "prije 8 godina",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l1rOe0l300xFnF4KtmW0Tl-T51rFJV3JtPZdtmM9PBmw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "KNYTA",
+     [
+      {
+       "t": "EN SLIPS",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vct8ZZR_FFQ",
+     "titre": "Hur knyter jag en slipsknut? Lärd dig knyta klassiska knuten four-in-hand.",
+     "chaine": "Tieroom",
+     "vues": "212 tn visningar",
+     "date": "för 5 år sedan",
+     "duree": "1:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kYBAx8j-5ayeOe8TZcYR_g3W789yW-oxNe5yRfZMp_mw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "SASIET",
+     [
+      {
+       "t": "KAKLASAITI",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DOgLTBYyH6g",
+     "titre": "Kā sasiet kaklasaiti? / Dari gudri #20",
+     "chaine": "darigudri",
+     "vues": "26 tūkst. skatījumu",
+     "date": "pirms 15 gadiem",
+     "duree": "1:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nOd0r4ius_DD1BZLPe3WB8qTrqnDJ7ql2RSrsJOhk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min, lai iemācītos"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "DESSINER",
+     [
+      {
+       "t": "UN ŒIL RÉALISTE",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TSVRNOAD64I",
+     "titre": "Comment dessiner un œil réaliste [Tutoriel]",
+     "chaine": "TutoDraw",
+     "vues": "2,4 M de vues",
+     "date": "il y a 9 ans",
+     "duree": "8:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ljM9Ai6lbXd0B986x8iT4P30VyCoHwrJdvymnGwlB4SbI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "DRAW A",
+     [
+      {
+       "t": "REALISTIC EYE",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LZ9Hpp8JygI",
+     "titre": "How to Draw a Realistic Eye",
+     "chaine": "markcrilley",
+     "vues": "31M views",
+     "date": "17 years ago",
+     "duree": "10:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mJl4_Ejzj65JeOABQadFwxzRQefEmL9qGozatSh2b0SQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EIN AUGE",
+     [
+      {
+       "t": "ZEICHNEN",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HaqUGcfSiKk",
+     "titre": "AUGE ZEICHNEN TUTORIAL FÜR ANFÄNGER | Schritt Für Schritt | ZEICHNEN LERNEN FÜR ANFÄNGER #4",
+     "chaine": "TONI",
+     "vues": "227.587 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "7:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l5LgKcLXCDcunOIfCIHSHQZfe3-_5vQ6xrPGlr17PDXQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "DISEGNARE",
+     [
+      {
+       "t": "UN OCCHIO",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TQvBtmIkO0A",
+     "titre": "COME DISEGNARE UN OCCHIO? DISEGNAMOLI TUTTI E DUE! Tutorial disegno realistico a matita per imparare",
+     "chaine": "Vale su Tela",
+     "vues": "538K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "12:10",
+     "avatar": "https://yt3.ggpht.com/wL7aRwGSckLejiqHM_remViRH0f3Rj_5-rLIXHeQMETPv1mFn8tCh-YbIusB5nvSFU1ICqjJvg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DESENHAR",
+     [
+      {
+       "t": "UM OLHO REALISTA",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zpbPJXHOaJk",
+     "titre": "Como desenhar um OLHO realista PASSO A PASSO para iniciantes",
+     "chaine": "Atevaldo Novais",
+     "vues": "321 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "8:53",
+     "avatar": "https://yt3.ggpht.com/wvGdCj0rPjYKXjMwWs4d7Z_xSNUTTF8z_WzHC6fvTQSGq5W5AbHdHrkx7r4ypJBx74rYYOMR=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "GERÇEKÇİ",
+     [
+      {
+       "t": "GÖZ ÇİZMEK",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ABBgPVdNJ0w",
+     "titre": "Adım Adım Gerçekçi Göz Çizimi Nasıl Yapılır ?",
+     "chaine": "ÇiZiO",
+     "vues": "1,1 Mn görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "14:48",
+     "avatar": "https://yt3.ggpht.com/PvvJr1zjggsbXa5z-N7DA1O_b0VQqJuj1L_qmikHZrTkCSPUF_ozUMmST5VuwhcfttceUoXG2g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ DESENEZI",
+     [
+      {
+       "t": "UN OCHI",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AQoGk9debUY",
+     "titre": "CUM SA DESENEZI OCHI - TUTORIAL EXPLICAT PAS CU PAS ( desen in creion )",
+     "chaine": "☆ Artista la Desen ☆",
+     "vues": "35 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "11:43",
+     "avatar": "https://yt3.ggpht.com/cE5-LoEN77MTSxVdAtgEwbEgnYhKCEzlCj2K-SkmZjku1wsLLh6hsppLN_p6Mo832attyOKSJQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAKRESLIT",
+     [
+      {
+       "t": "OKO",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ccNYwHEiBA4",
+     "titre": "Jak nakreslit OKO? Český tutorial",
+     "chaine": "DzejnArt",
+     "vues": "143 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "12:55",
+     "avatar": "https://yt3.ggpht.com/pQrG1dOixppD2vXEVmaDbslHGhAyB_qpDQ-RG5b8UELZkYbkGdouc3xgX5WINKo_zlKMEbuRXQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "SZEMET",
+     [
+      {
+       "t": "RAJZOLNI",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "K7ghYbvuBaU",
+     "titre": "Rajz - Hogyan rajzolj szemet? | Vida Ágnes",
+     "chaine": "Ágnes Vida",
+     "vues": "32 E megtekintés",
+     "date": "9 évvel ezelőtt",
+     "duree": "3:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ncOQzPbSanvByBOoHDNWcZsZVHuK7fZmMC7YmmZo_6vPU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΖΩΓΡΑΦΙΖΕΙΣ",
+     [
+      {
+       "t": "ΕΝΑ ΜΑΤΙ",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-PtAiDd-OZ0",
+     "titre": "Πως να ζωγραφίσω ενα μάτι",
+     "chaine": "ΒΑΣΙΛΗΣ ΠΑΝ",
+     "vues": "142 χιλ. προβολές",
+     "date": "πριν από 8 έτη",
+     "duree": "1:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k4q8F6fol2Nr2_U6l2NJIu-paU5wmB1sHFVvRu7Ggtlis=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NACRTATI",
+     [
+      {
+       "t": "OKO",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9VrRv5zBLr4",
+     "titre": "Kako nacrtati oko",
+     "chaine": "Golden Hen",
+     "vues": "1,2 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "1:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mlUsZz0qUU1Koe0_3Q5q1jJPkTx2IdBnhGtxixOWAMhQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "DIBUJAR",
+     [
+      {
+       "t": "UN OJO REALISTA",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lzkumPR8dhQ",
+     "titre": "Cómo Dibujar un Ojo Realista a lápiz - paso a paso",
+     "chaine": "Gamo Art",
+     "vues": "2 M de visualizaciones",
+     "date": "hace 4 años",
+     "duree": "10:01",
+     "avatar": "https://yt3.ggpht.com/0vuA0_BCto8KPIvv7ZCcg717-aiV0QJBJ9W6wdoBcy1YoahdQJ9anx1icD_2ir0Qz6uOIQXJ6A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "DIBUJAR",
+     [
+      {
+       "t": "UN OJO REALISTA",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "f3SEhqFA_TE",
+     "titre": "Cómo dibujar un ojo realista con lápiz - paso a paso",
+     "chaine": "Fancylooks",
+     "vues": "9.2 M de vistas",
+     "date": "hace 7 años",
+     "duree": "18:54",
+     "avatar": "https://yt3.ggpht.com/KbeVnfktKcP96azFEpz8WjZZP5pJ949Kx-e-YMsPUesW4lYD4t_lLSQ0khvDJLPxj6rZuwq0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "NARYSOWAĆ",
+     [
+      {
+       "t": "OKO",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FZ7XA0dMfKE",
+     "titre": "Jak narysować realistyczne oko? Poradnik krok po kroku #1",
+     "chaine": "Maksym Maluje",
+     "vues": "1,8 mln wyświetleń",
+     "date": "9 lat temu",
+     "duree": "15:11",
+     "avatar": "https://yt3.ggpht.com/NGDWlN63VpAQ5bWKhTS70UG22a7tESlUD97hn3Y8ANSmjE3R8ITCxDEMQptmNXqV71sP_sFReQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 godzina nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "NAKRESLIŤ",
+     [
+      {
+       "t": "OKO",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bqEjqXa2MOM",
+     "titre": "Skúste to nakresliť Realistické oko (how to draw realistic eye) 100 odberov špeciál Môj Komenták",
+     "chaine": "Max Balický",
+     "vues": "448 zhliadnutí",
+     "date": "pred 10 rokmi",
+     "duree": "7:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_myHy84oDLuLFjA5S1C6dWFjPvV-YGxa159nHUV7nR2BVTH=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "NACRTATI",
+     [
+      {
+       "t": "OKO",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FVuz_dJN2sY",
+     "titre": "Kako nacrtati oko - TUTORIAL",
+     "chaine": "Merima Beslagic",
+     "vues": "264 tis. pregleda",
+     "date": "prije 8 godina",
+     "duree": "16:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ml4vENH01z-DrKj0EINm-nYTq7Nl5gJIrHAG1OE3BKUiE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat učenja"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "RITA",
+     [
+      {
+       "t": "ETT ÖGA",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ll-HsrajyA8",
+     "titre": "Hur man ritar ett realistiskt öga – Lätt lär dig teckna-video med svenska röstinstruktioner!",
+     "chaine": "Teckna med Elise",
+     "vues": "263 tn visningar",
+     "date": "för 7 år sedan",
+     "duree": "13:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m75ULAwo5-hPA59oG922zAjE0dnmwnh2dJw_vef0byEz8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 timme att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "UZZĪMĒT",
+     [
+      {
+       "t": "ACI",
+       "couleur": "#3a929a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gwwL7FY5jzo",
+     "titre": "Kā uzzīmēt aci? How to draw an eye.",
+     "chaine": "Bruno Bahs",
+     "vues": "660 skatījumu",
+     "date": "pirms 7 gadiem",
+     "duree": "15:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nEq9hckkqXBX1ABaSFbfhMinsU5m2RgoYtmiJa07uwRA0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 stunda mācību"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "AVOIR UN",
+     [
+      {
+       "t": "TALENT CACHÉ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "HAVE A",
+     [
+      {
+       "t": "HIDDEN TALENT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EIN",
+     [
+      {
+       "t": "GEHEIMES TALENT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "UN TALENTO",
+     [
+      {
+       "t": "NASCOSTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TER UM",
+     [
+      {
+       "t": "TALENTO ESCONDIDO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "GİZLİ BİR",
+     [
+      {
+       "t": "YETENEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "UN TALENT",
+     [
+      {
+       "t": "ASCUNS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MÍT",
+     [
+      {
+       "t": "SKRYTÝ TALENT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "EGY REJTETT",
+     [
+      {
+       "t": "TEHETSÉG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj valami újat",
+      "minden nap."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΕΝΑ ΚΡΥΦΟ",
+     [
+      {
+       "t": "ΤΑΛΕΝΤΟ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "μάθε κάτι καινούργιο",
+      "κάθε μέρα."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "SKRIVENI",
+     [
+      {
+       "t": "TALENAT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo",
+      "svaki dan."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   },
+   "es": {
+    "titre": [
+     "TENER UN",
+     [
+      {
+       "t": "TALENTO OCULTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo",
+      "cada día."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "TENER UN",
+     [
+      {
+       "t": "TALENTO OCULTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo",
+      "todos los días."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "UKRYTY",
+     [
+      {
+       "t": "TALENT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "naucz się czegoś",
+      "nowego każdego dnia."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "MAŤ",
+     [
+      {
+       "t": "SKRYTÝ TALENT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč sa každý deň",
+      "niečo nové."
+     ]
+    },
+    "sous": [
+     "5 min denne"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "SKRIVENI",
+     [
+      {
+       "t": "TALENT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo",
+      "svaki dan."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "EN DOLD",
+     [
+      {
+       "t": "TALANG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lär dig något nytt",
+      "varje dag."
+     ]
+    },
+    "sous": [
+     "5 min om dagen"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "SLĒPTS",
+     [
+      {
+       "t": "TALANTS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "uzzini ko jaunu",
+      "katru dienu."
+     ]
+    },
+    "sous": [
+     "5 min dienā"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "DANSER",
+     [
+      {
+       "t": "LA VALSE",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Z7_X_9jO3fc",
+     "titre": "Comment danser la VALSE tout simplement (bases en solo pour débutant)",
+     "chaine": "Danse à la maison",
+     "vues": "119 k vues",
+     "date": "il y a 4 ans",
+     "duree": "17:39",
+     "avatar": "https://yt3.ggpht.com/D-UxULHh5D2fSngKn14NOBIaJXRrKJK3Y7KMbwGebQHy2BnnJu9yXry8p_1EUMD4Z1PP5et9gg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "DANCE",
+     [
+      {
+       "t": "THE WALTZ",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NBKTN6c_MEQ",
+     "titre": "How To Waltz Dance For Beginners - Waltz Box Step",
+     "chaine": "LearnToDance",
+     "vues": "3.8M views",
+     "date": "9 years ago",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kolWDzG2RDf5E1ip2qBbRt4GS47GDjc4fH31-f2ax8Ug=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "WALZER",
+     [
+      {
+       "t": "TANZEN",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iRzdpJuvJsQ",
+     "titre": "Langsamer Walzer Grundschritt in 5 Minuten - Perfekt als Hochzeitstanz (für jedes Kleid)",
+     "chaine": "AO Dance - online Tanzen lernen: Flashmob&Paartanz",
+     "vues": "847.826 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "5:22",
+     "avatar": "https://yt3.ggpht.com/LTBHKhvkVib99cK3sJOfCFSp1HM7ZpB279fOi7CApWaS4mDguH0wt4nV6PnfFPOD0IHLkb6BZw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "BALLARE",
+     [
+      {
+       "t": "IL VALZER",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "t1i-gx3kM7I",
+     "titre": "LEZIONI DI BALLO - Valzer lento",
+     "chaine": "FONOLADISCHI",
+     "vues": "311K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "11:58",
+     "avatar": "https://yt3.ggpht.com/hyERnPhX2Vli7O_Xfloyusg4iEm9ndJQ2NRtguZmO6ufr1H9CzE-GbeYCzLGNkoHRrMotNDezw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DANÇAR",
+     [
+      {
+       "t": "VALSA",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JtXTrHRowpg",
+     "titre": "COMO DANÇAR VALSA  - Passo a Passo Para Aprender Como Dançar Valsa",
+     "chaine": "Como Dançar",
+     "vues": "1,6 mi visualizações",
+     "date": "há 7 anos",
+     "duree": "10:25",
+     "avatar": "https://yt3.ggpht.com/0YU4k7LiQ-soMJXyftiKmDeC0HCjrbfsJgYArgArw4H5iAAsx_ajwef4QFOnYZEA1bvzD5fFIsA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "VALS",
+     [
+      {
+       "t": "DANS ETMEK",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DTQL1oS83DM",
+     "titre": "Vals Nasıl Yapılır? Vals Temel Adımını Anlatan Eğitim Videosu. Düğün İçin Vals Örneği ile Birlikte",
+     "chaine": "Dance with Devrim",
+     "vues": "79 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "12:58",
+     "avatar": "https://yt3.ggpht.com/fFS3EHFqCVGaH8eWlSFyFekwQf8XWuVFRbazD7SIyym5udgB-So0yj_DfxmoYZR8fT1zCrC0tfk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ DANSEZI",
+     [
+      {
+       "t": "VALS",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RDnhW9SvBr4",
+     "titre": "Vals pentru incepatori - valsul mirilor - modulul nr. 1",
+     "chaine": "invatavals",
+     "vues": "321 K vizionări",
+     "date": "acum 11 ani",
+     "duree": "8:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_9NV1gdS_9XFMpWOtUVyOtWUBcA1u8R_R-hAEfYg-MQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "TANČIT",
+     [
+      {
+       "t": "VALČÍK",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YucBy02tTBw",
+     "titre": "Valčík: Základní kroky tance | All Arts Club",
+     "chaine": "All Arts Club",
+     "vues": "199 tis. zhlédnutí",
+     "date": "před 10 lety",
+     "duree": "1:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mGLPbPPKY8zZWFopeb0B46kauEQb4hH7xov5_BE9t7TdI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 hodiny na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "KERINGŐT",
+     [
+      {
+       "t": "TÁNCOLNI",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YtHHSeHq8aw",
+     "titre": "Angolkeringő alaplépés - Figurák 1 percben",
+     "chaine": "Goldance Tánciskola",
+     "vues": "131 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "1:45",
+     "avatar": "https://yt3.ggpht.com/ZZSWbVl8qCjtNeYzWCNyU2eCemFN3ga7y_WMiRcYjxznycsWF1Coi_i2_V4MX5DCwDg8C8s9=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΧΟΡΕΥΕΙΣ",
+     [
+      {
+       "t": "ΒΑΛΣ",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BbH8_DNkb-c",
+     "titre": "WEDDING DANCE - FIRST DANCE - WALTZ. ΓΑΜΗΛΙΟΣ ΧΟΡΟΣ. ΣΧΟΛΗ ΧΟΡΟΥ ΔΑΦΚΑ ΣΤΕΦΑΝΟΥ.",
+     "chaine": "ΣΤΕΦΑΝΟΣ ΔΑΦΚΑΣ",
+     "vues": "403 προβολές",
+     "date": "πριν από 2 έτη",
+     "duree": "2:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mI1T_0HrCKhwScibrxnBOePbeM9RpDWmXmxjIiTOb8XQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ώρες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "PLESATI",
+     [
+      {
+       "t": "VALCER",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qr5GUZHZtzQ",
+     "titre": "Tečaj plesa 008 - Bečki Valcer - Ksenija i Nicolas - Plesni centar Zagreb",
+     "chaine": "PlesniCentarZagreb",
+     "vues": "581 hilj. pregleda",
+     "date": "pre 15 godina",
+     "duree": "11:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m79KlwHyiEvWC3NfZ1gaisCeXzozI-VTQpiGonUCHBlhI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "BAILAR",
+     [
+      {
+       "t": "UN VALS",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rhmwBIuJp70",
+     "titre": "Vals: Paso básico en pareja (8/11) - Academia de Baile",
+     "chaine": "Academia De Baile",
+     "vues": "1,4 M de visualizaciones",
+     "date": "hace 15 años",
+     "duree": "1:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_llcLoCpgDudR6dlhaVlVRuwwNq_x4i-ztNFUZmaz9Srw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "BAILAR",
+     [
+      {
+       "t": "UN VALS",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bYMuec5JLOo",
+     "titre": "COMO BAILAR VALS | PASO BASICO DESDE CERO 🕺💃",
+     "chaine": "Baila Facilito",
+     "vues": "222 k vistas",
+     "date": "hace 5 años",
+     "duree": "10:56",
+     "avatar": "https://yt3.ggpht.com/1vI3CQHm387wdluYo7uYPbGGHtZ1w4MV7WoW0v41TWV2F3d32TIzOBZlVH7u1eJPwVAPk0aX=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "TAŃCZYĆ",
+     [
+      {
+       "t": "WALCA",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JMZ4OvUugnw",
+     "titre": "Walc Angielski - Podstawy - Lekcja Tańca || Studio Tańca Rytm - English Waltz tutorial in Polish",
+     "chaine": "Studio Tańca Rytm",
+     "vues": "421 tys. wyświetleń",
+     "date": "8 lat temu",
+     "duree": "8:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nxF3Mu7ZsCSbCucpvVHlQqAvETd0V9BUoCJmiZ6N6MiGE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 godziny nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "TANCOVAŤ",
+     [
+      {
+       "t": "VALČÍK",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "19hoZy366iU",
+     "titre": "Smiem prosiť? Naučte sa valčík!",
+     "chaine": "Fun Radio",
+     "vues": "333 tis. zhliadnutí",
+     "date": "pred 13 rokmi",
+     "duree": "2:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_niUH455B3J3TNWuMR1jez81UxI_mXNeMfNZ0RyU7nWWA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "PLESATI",
+     [
+      {
+       "t": "VALCER",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JTrYj2BLNXw",
+     "titre": "Tečaj plesa 006 - Engleski valcer - Ksenija i Nicolas - Plesni centar Zagreb",
+     "chaine": "PlesniCentarZagreb",
+     "vues": "434 tis. pregleda",
+     "date": "prije 15 godina",
+     "duree": "5:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m79KlwHyiEvWC3NfZ1gaisCeXzozI-VTQpiGonUCHBlhI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata učenja"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "DANSA",
+     [
+      {
+       "t": "VALS",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "__rvnqVTr-4",
+     "titre": "Grundsteg vals",
+     "chaine": "dansa som Folk",
+     "vues": "12 tn visningar",
+     "date": "för 4 år sedan",
+     "duree": "0:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lhgTZIWf-Yp7CImGZr5vUWKGPXbs_zrSoLsl89G_w0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 timmar att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "DEJOT",
+     [
+      {
+       "t": "VALSI",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "g637c4rUCz0",
+     "titre": "Deja Lēnais valsis. Kvadrāts - pamatsolis ar labo pēdu uz priekšu. Ceturtdaļas grieziens pa labi.",
+     "chaine": "MrAleksara",
+     "vues": "1,6 tūkst. skatījumu",
+     "date": "pirms 5 gadiem",
+     "duree": "10:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nA_ih4P4DDiCUDphnOcUjS_P5S63_CXCtggjbmg7I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 stundas mācību"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "MATER",
+     [
+      {
+       "t": "EN 4 COUPS",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_47qO7w_h_g",
+     "titre": "LES ECHECS - LE COUP DU BERGER ( MAT EN 4 COUPS ! )",
+     "chaine": "thonain",
+     "vues": "291 k vues",
+     "date": "il y a 5 ans",
+     "duree": "2:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kFYyhgp-mv5TcOD-SC6vr4qgc5QP8RhsNMYwpoB8IUNcQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "CHECKMATE",
+     [
+      {
+       "t": "IN 4 MOVES",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vdebCC4YKb0",
+     "titre": "The 4-Move Checkmate (Scholar's Mate)",
+     "chaine": "thechesswebsite",
+     "vues": "207K views",
+     "date": "2 years ago",
+     "duree": "5:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nirtzYIG2mXhSL3P-KheeF5STwBWCksEkNNe5DrSgCEg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SCHACHMATT",
+     [
+      {
+       "t": "IN 4 ZÜGEN",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CUX6yjUJND8",
+     "titre": "Das Schäfermatt 🐑 Schnell gewinnen mit Weiß",
+     "chaine": "Willeinhelm",
+     "vues": "21.427 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "5:23",
+     "avatar": "https://yt3.ggpht.com/m3IJ_wo-CN4I2NddevjQRJbeRGRQGTUf24Q6rn3IFA_-3Dx_ASrjLFH5g3SDGCIxvXcEltn-SQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SCACCO MATTO",
+     [
+      {
+       "t": "IN 4 MOSSE",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tr9k3FoA5rA",
+     "titre": "il matto del barbiere da webscacchi",
+     "chaine": "webscacchi",
+     "vues": "142K visualizzazioni",
+     "date": "15 anni fa",
+     "duree": "1:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mFoS3pFkLh_jzvU34Vhht5BrrnjjxT7YVcKpH6zX3i1A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "XEQUE-MATE",
+     [
+      {
+       "t": "EM 4 LANCES",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "75T7S_5LglU",
+     "titre": "Xeque Mate do Pastor | Xadrez para iniciantes",
+     "chaine": "GM Krikor",
+     "vues": "393 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "3:54",
+     "avatar": "https://yt3.ggpht.com/HpLQpHxpU0FRc4gV9ctqNN6ofvIZf3GuLJZ3CcFEMDMpmjGuIMhwYIClbEsgrxJL3I3k01qRAQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "4 HAMLEDE",
+     [
+      {
+       "t": "MAT ETMEK",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FTxh5lmlG1I",
+     "titre": "Ders 13 - Tembel Matı ve Çoban Matı",
+     "chaine": "Türkiye Satranç Federasyonu",
+     "vues": "186 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "9:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l5Dl3AoOOsX-RdHDVC91YbxfqG4BVFU1JxOjd16NHVWw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ DAI MAT",
+     [
+      {
+       "t": "ÎN 4 MUTĂRI",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eupYsYe3k9k",
+     "titre": "SAH-MAT din 4 mutari (Matul incepatorului)",
+     "chaine": "SAHISTII ROMANIEI",
+     "vues": "14 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "1:49",
+     "avatar": "https://yt3.ggpht.com/7_ZB7L9o7yxUA2ghJqiHiORVi8md0OVkomVMtaiSP-IHnFLIfFNzXcouYQOqUYaJEvt8P8iekfM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MAT",
+     [
+      {
+       "t": "VE 4 TAZÍCH",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7TL6O6RzOqE",
+     "titre": "Tři nejrychlejší maty, které DÁŠ nebo DOSTANEŠ",
+     "chaine": "Šachy s Kateřinou",
+     "vues": "43 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "26:44",
+     "avatar": "https://yt3.ggpht.com/ENZnW9ACKxjwRdIAiDH2KOA-84UcEoPThB4j1CXfqq7e9ZpofmAjqtBw_aLjP78asc4t_0QVdaM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "MATT",
+     [
+      {
+       "t": "4 LÉPÉSBŐL",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "w_F_07fujG8",
+     "titre": "leggyorsabb sakk - matt 4 lépésből - suszter matt - susztermatt",
+     "chaine": "Laszlo Laszlo",
+     "vues": "32 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "0:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nNHzukXIGsGfCca8c2gsMYLsHCJpVuVbKTyt9hixw1HT4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΕΝΑ ΓΡΗΓΟΡΟ",
+     [
+      {
+       "t": "ΜΑΤ",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NHUIg6EM3gw",
+     "titre": "ΣΚΑΚΙ- ΠΩΣ ΝΑ ΔΩΣΕΤΕ ΕΥΚΟΛΑ ΜΑΤ",
+     "chaine": "RenOTour",
+     "vues": "6,8 χιλ. προβολές",
+     "date": "πριν από 9 έτη",
+     "duree": "1:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nhd6tXZBgUfaESUE-dm9xGYMa90S7enqyg-4m-gKs4dg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "MAT",
+     [
+      {
+       "t": "U 4 POTEZA",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8P2XMLR641I",
+     "titre": "ŠUSTER MAT i NAJBOLJA ODBRANA OD NJEGA! (Zamke u otvaranju 5)",
+     "chaine": "Šah Klub Pobednik",
+     "vues": "61 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "14:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kjBA5upHpUrthDa14X-VDRz16APU8qJJ8BImB4w4chGQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "JAQUE MATE",
+     [
+      {
+       "t": "EN 4 JUGADAS",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ooqy9BPVjQY",
+     "titre": "Aprende ¡el JAQUE MATE DEL PASTOR! - Tu Profe De Ajedrez",
+     "chaine": "TuProfeDeAjedrez",
+     "vues": "21 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "2:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nzNcTeH6tC1aZmB6zTsNahxD9fGMOnGeIKRSQpEfyUlA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "JAQUE MATE",
+     [
+      {
+       "t": "EN 4 MOVIMIENTOS",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0wUpwPFbWwo",
+     "titre": "JAQUE MATE PASTOR ✅ Así se gana al ajedrez en 4 movimientos",
+     "chaine": "Ajedrez desde cero",
+     "vues": "17 k vistas",
+     "date": "hace 5 años",
+     "duree": "10:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mQqDl86i8QRV1OXt9Ly0cAuSLVzKfhqvQsqBj1UP_ekA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "MAT",
+     [
+      {
+       "t": "W 4 RUCHACH",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zN2fi30Y7T0",
+     "titre": "Szachowy SZEWCZYK czyli błyskawiczny MAT SZEWSKI! \"szachy\"",
+     "chaine": "Pan Szachuś NM Krzysztof Budrewicz",
+     "vues": "96 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "2:34",
+     "avatar": "https://yt3.ggpht.com/j3K6Qzdr6kPBM9QvUzQ8eCNYJQuJrg-s5pEBohw_vny-k1qeE7LvNXOevPJTeB2r7ZJ3lZGLOA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "MAT",
+     [
+      {
+       "t": "NA 4 ŤAHY",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "A_g-rOLJ4hk",
+     "titre": "❤️ Rýchla pasca ako dať súperovi šach-mat 💠 2021 |Bratislavská šachová akadémia|",
+     "chaine": "Sachova Akademia",
+     "vues": "11 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "5:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nwEpz7WyW9vqnXzg89cdpz3N8mHkFis3g04zt9fct53w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "MAT",
+     [
+      {
+       "t": "U 4 POTEZA",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZrXDWwqx6HI",
+     "titre": "Brzi matovi od 2 do 6 poteza + Legalov mat",
+     "chaine": "Chess Art",
+     "vues": "13 tis. pregleda",
+     "date": "prije 3 godine",
+     "duree": "6:35",
+     "avatar": "https://yt3.ggpht.com/kQblu8pgNcaQSNUsI5ypcY2p8DJVdAv-c_7mXlU9RUlo94LrPcAmz6UYzcOJHp5a0lSFJO4pfeQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "SCHACKMATT",
+     [
+      {
+       "t": "PÅ 4 DRAG",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "63L0gzDKJFg",
+     "titre": "Schack öppningsfälla | Skolmatt och schackmatt på 4 drag",
+     "chaine": "Klar Kunskap",
+     "vues": "8,6 tn visningar",
+     "date": "för 6 år sedan",
+     "duree": "4:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nbAIoqzcOyU3YnoaRsP14GUxOhhhiwxoF4QATurbo2JA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "IZLIKT",
+     [
+      {
+       "t": "ŠAHA LAMATAS",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hbo_pY-9lRU",
+     "titre": "Šaha Apmācība. Kā nevajaga spēlēt Krievu aizsardzību...",
+     "chaine": "chess_kids_lv",
+     "vues": "3,1 tūkst. skatījumu",
+     "date": "pirms 5 gadiem",
+     "duree": "13:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mqT3iKATVXYXdqKFEa-4VEmT0Z8djUnjXGZPU70O0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min, lai iemācītos"
+    ]
+   }
+  }
+ ]
+}

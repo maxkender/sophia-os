@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o351",
+  "type_bleo": "full_test",
+  "titre": "les questions à te poser pour trouver ta passion #passion #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Aucun fait daté. Routine du 28/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 et 16 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12 à 15 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "3280dda5",
+      "texte_overlay": "les questions à te poser\npour trouver ta passion",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "022d253a",
+      "texte_overlay": "1. de quoi je parle sans m'arrêter ?\n\nmes amis le savent souvent\navant moi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "64beca19",
+      "texte_overlay": "2. qu'est-ce que je faisais enfant ?\n\nles passions d'enfance\nreviennent toujours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "245f0da5",
+      "texte_overlay": "3. sur quoi je cherche sans qu'on me le demande ?\n\nla curiosité ne ment pas.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "af8e4f25",
+      "texte_overlay": "4. qu'est-ce qui me fait oublier l'heure ?\n\nc'est souvent là que tout commence.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "5c1df3c1",
+      "texte_overlay": "5. qu'est-ce que je n'ai jamais essayé ?\n\navant, je pensais ne pas avoir de passion.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'en découvre une nouvelle chaque mois.",
+      "texte_sophia": "5. qu'est-ce que je n'ai jamais essayé ?\n\navant, je pensais ne pas avoir de passion.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'en découvre une nouvelle chaque mois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "texte_overlay": "c'est quoi ta passion ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg",
+      "media_id": "53f63daf"
+    }
+  ]
+}

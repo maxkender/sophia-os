@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o339",
+  "type_bleo": "full_test",
+  "titre": "ce que j'ai appris en suivant un cours du soir d'histoire de l'art #art #cours #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta C. Différent de bsg-o217 (cours gratuit) : cours du soir en présentiel. Aucun fait daté. Routine du 28/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 et 16 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12 à 15 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "730c5999",
+      "texte_overlay": "ce que j'ai appris en suivant\nun cours du soir d'histoire de l'art",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "78ce41e2",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "3039505c",
+      "texte_overlay": "1. tout le monde peut s'y mettre\n\nretraités, étudiants, curieux.\npersonne ne juge.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2e1a9ac2",
+      "texte_overlay": "2. regarder prend du temps\n\nvingt minutes sur un seul tableau.\net on voit tout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "2f9ac04b",
+      "texte_overlay": "3. chaque époque répond à la précédente\n\nl'art est une conversation\nqui dure des siècles.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "2b8f17ef",
+      "texte_overlay": "4. les musées deviennent des amis\n\nje reconnais les salles,\nles noms, les styles.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "30168bcf",
+      "texte_overlay": "5. on en sort plus curieuse\n\nchaque cours ouvre dix portes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "267f8f86",
+      "texte_overlay": "tu suivrais un cours du soir ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

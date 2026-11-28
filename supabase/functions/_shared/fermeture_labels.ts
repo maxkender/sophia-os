@@ -252,11 +252,14 @@ export async function statsChoixLabel(
   });
   if (error) throw new Error(`stats_choix_label : ${error.message}`);
   const stats = ((data ?? []) as Record<string, unknown>[]).map(normaliserStatLabel);
-  const ouverts = await labelsLangueOuverte(supabase, args.langue);
+  const places = await placesPodzLangue(supabase, args.langue);
   const contenus = await contenusValidesLabels(supabase, args.labels, args.application);
   return stats.map((s) => ({
     ...s,
-    ...(ouverts.has(s.label_id) ? { langue_ouverte: true } : {}),
+    ...(placeOuverte(places.get(s.label_id)) ? { langue_ouverte: true } : {}),
+    ...(places.has(s.label_id)
+      ? { palier_podz: places.get(s.label_id)!.palier, cible_langue: places.get(s.label_id)!.cible }
+      : {}),
     ...(contenus.has(s.label_id) ? { contenus_valides: contenus.get(s.label_id) } : {}),
   }));
 }
@@ -293,6 +296,42 @@ export async function contenusValidesLabels(
     console.warn(`[choix label] contenus_valides_labels : ${e instanceof Error ? e.message : String(e)}`);
     return new Map();
   }
+}
+
+/** Une place d'un podz dans une langue (0874) : son palier, et combien de comptes il peut y avoir. */
+export interface PlacePodz {
+  palier: number | null;
+  cible: number;
+}
+
+const placeOuverte = (p: PlacePodz | undefined) => p !== undefined && p.cible > 0;
+
+/**
+ * Les places des podz dans cette langue (0874, `podz_places_langue`) : les
+ * labels dont un podz actif a ouvert la langue (cible 1, ou celle de leur
+ * palier), et les labels au palier hors de leurs langues (cible 0). Sans la
+ * fonction (pas encore en base) : les langues ouvertes de 0794, cible 1, comme
+ * avant. Ne lève jamais.
+ */
+export async function placesPodzLangue(supabase: Supabase, langue: string | null): Promise<Map<string, PlacePodz>> {
+  if (!langue) return new Map();
+  try {
+    const { data, error } = await supabase.rpc("podz_places_langue", { p_langue: langue });
+    if (!error) {
+      const out = new Map<string, PlacePodz>();
+      for (const l of (data ?? []) as Array<{ label_id: string; palier: number | null; cible: number | string }>) {
+        const cible = Number(l.cible);
+        const palier = l.palier === null || l.palier === undefined ? null : Number(l.palier);
+        out.set(String(l.label_id), { palier: Number.isFinite(palier) ? palier : null, cible: Number.isFinite(cible) ? cible : 0 });
+      }
+      return out;
+    }
+    console.warn(`[choix label] podz_places_langue : ${error.message}`);
+  } catch (e) {
+    console.warn(`[choix label] podz_places_langue : ${e instanceof Error ? e.message : String(e)}`);
+  }
+  const ouverts = await labelsLangueOuverte(supabase, langue);
+  return new Map([...ouverts].map((id) => [id, { palier: null, cible: 1 }]));
 }
 
 /**

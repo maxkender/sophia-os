@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o476",
+ "type_bleo": "full_test",
+ "titre": "How to sleep well in a noisy city #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "ENDO SMOKE",
+ "musique_url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to sleep well in a noisy city » (retenue), « City sleep hacks » (écartée : jargon), « Can't sleep in the city? » (écartée : sans promesse).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1a4f6e51-c5ae-409a-8d34-3a02cea66544",
+   "texte_overlay": "How to sleep well\nin a noisy city",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Use good earplugs. Soft foam ones that fit properly block most traffic and neighbour noise. Try a few types until you find the right one.",
+   "media_id": "2bce5fd1-eaab-4b9e-b327-ed052aa28563"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Add steady background sound. A fan or white noise covers sudden noises like sirens or doors slamming. It's cheap and simple.",
+   "media_id": "2e21bae8-a0a7-4cca-874a-14e4e9a582c2"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Make the room as dark as possible. City lights sneak in. Blackout curtains or a sleep mask make a big difference.",
+   "media_id": "3308ac34-5493-4b92-90c6-6cfeff803668"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Keep the same bedtime. A regular rhythm helps your body fall asleep faster, even when the city is still awake.",
+   "media_id": "342a5310-fffc-41e4-8c3a-89d580c70670"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Wind down with something calm. I do five minutes a day of history, art or science, and it helps me switch off from the city noise.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It helps me switch off from the city noise.",
+   "media_id": "1e23c6c1-8e18-41dc-ac4f-fb9e6084adfb"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Move your bed away from the window. Even a metre further from the street can make the room much quieter. Try it tonight.",
+   "media_id": "35041aa7-43c5-407f-81ba-33185ca880e0"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Keep the bedroom cool. A slightly cold room helps deep sleep. Use a fan if you can't open the window. Cool and calm.",
+   "media_id": "3cf8699a-7c52-4089-8bcb-d6a6dc598a0f"
+  }
+ ]
+}

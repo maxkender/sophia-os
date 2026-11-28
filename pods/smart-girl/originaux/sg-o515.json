@@ -1,0 +1,68 @@
+{
+ "source_id": "sg-o515",
+ "type_bleo": "full_test",
+ "titre": "where the days of the week got their names #etymology #history #mythology #smartgirl #didyouknow",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Full test 4/10 (la jauge en demande 10 sur 33) : accroche jamais faite chez nous (« days of the week » absent des accroches du label et de nos originaux). Accroches écrites : « where the days of the week got their names » (retenue : quotidien + mythologie), « norse gods in english » (écartée : confuse), « weird etymology » (écartée : vague). Faits vérifiés : Monday (la lune), Tuesday (Tiw), Wednesday (Woden / Odin), Thursday (Thor), Friday (Frigg), Saturday (Saturne), Sunday (le soleil). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d053cc56",
+   "texte_overlay": "where the days of the week\ngot their names",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "542919fa",
+   "texte_overlay": "monday\n\nthe moon's day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "34f708ae",
+   "texte_overlay": "tuesday\n\ntiw, a norse god of war.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "497e1174",
+   "texte_overlay": "wednesday\n\nwoden, better known as odin.",
+   "texte_sophia": "wednesday: woden, better known as odin.\ni learned it on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "47a97e2a",
+   "texte_overlay": "thursday\n\nthor, god of thunder.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b3a89fe8",
+   "texte_overlay": "friday\n\nfrigg, odin's wife.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "fb4c004a",
+   "texte_overlay": "saturday\n\nsaturn, the roman god.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "19d52908",
+   "texte_overlay": "sunday\n\nthe sun's day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "9bc081fe",
+   "texte_overlay": "which one is your favourite?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/9.jpg"
+  }
+ ]
+}

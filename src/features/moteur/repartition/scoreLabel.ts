@@ -57,6 +57,11 @@ export interface StatLabel {
    */
   niveau_pod?: number | null;
   /**
+   * PALIER du label 100 % podz (0874) : 1, 2 ou 3 ; nul ou absent = l'ancien
+   * test. La page le lit à part (`podz_paliers_etat`) et le pose ici.
+   */
+  palier_podz?: number | null;
+  /**
    * Contenus valides du label que l'application peut servir (0867), lus à part
    * (`contenus_valides_labels`). Absent : la règle « langue saturée » ne joue pas.
    */
@@ -317,6 +322,8 @@ export function enAvanceRemplissage(s: StatLabel): boolean {
  */
 export function enTestPod(s: StatLabel, r: ReglagesChoixLabel, applicationId: string): boolean {
   if (!estPodSeul(s)) return false;
+  // 0874 : un label au palier n'est jamais en test, ses places font la règle.
+  if (s.palier_podz) return false;
   if (s.comptes_total > r.testPodComptes) return false;
   if (r.ouvertsApp.includes(cleFermeture(applicationId, s.label_id)) || r.ouverts.includes(s.label_id)) return false;
   const rel = perfRelative(s);

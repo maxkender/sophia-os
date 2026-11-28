@@ -10,7 +10,8 @@
   "sl": "nedeljske navade, da si v ponedeljek bolj razgledana",
   "de": "was ich sonntags mache, um montags klüger zu sein",
   "sk": "nedeľné zvyky, vďaka ktorým si v pondelok rozhľadenejšia",
-  "sv": "söndagsvanor som gör dig smartare till måndag"
+  "sv": "söndagsvanor som gör dig smartare till måndag",
+  "pt-BR": "hábitos de domingo que te deixam mais culta na segunda"
  },
  "legendes": {
   "en": "a slow sunday can still teach you something. save it for this weekend <3 #girlblogger #selfimprovement #sundayreset #learning #booktok",
@@ -22,7 +23,8 @@
   "sl": "tudi počasna nedelja te lahko česa nauči. shrani za ta vikend <3 #girlblogger #osebnirazvoj #nedelja #učenje #booktok",
   "de": "auch ein langsamer sonntag kann dir etwas beibringen. speicher es für dieses wochenende <3 #girlblogger #selbstverbesserung #sonntag #lernen #booktokdeutschland",
   "sk": "aj pomalá nedeľa ťa môže niečo naučiť. ulož si to na tento víkend <3 #girlblogger #osobnyrozvoj #nedela #ucenie #booktok",
-  "sv": "en lugn söndag kan också lära dig något. spara den till helgen <3 #girlblogger #självutveckling #söndag #lärande #booktoksverige"
+  "sv": "en lugn söndag kan också lära dig något. spara den till helgen <3 #girlblogger #självutveckling #söndag #lärande #booktoksverige",
+  "pt-BR": "um domingo devagar também pode te ensinar alguma coisa. salva pro fim de semana <3 #girlblogger #autodesenvolvimento #domingo #aprender #booktokbrasil"
  },
  "musique": {
   "titre": "Solace",
@@ -94,6 +96,9 @@
    },
    "sv": {
     "titre": "söndagsvanor som\ngör dig smartare\ntill måndag"
+   },
+   "pt-BR": {
+    "titre": "hábitos de domingo\nque te deixam\nmais culta\nna segunda"
    }
   },
   {
@@ -176,6 +181,13 @@
     "paragraphes": [
      "En timme, ingen musik, ingen podd. gå någonstans du aldrig har varit och lägg märke till gatunamnen och årtalen på husen.",
      "Huvudet blir lugnt nog att faktiskt tänka, och du kommer hem med frågor"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. caminhada lenta, sem fone",
+    "paragraphes": [
+     "Uma hora, sem música, sem podcast. caminha por um lugar onde você nunca foi e repara nos nomes das ruas e nas datas dos prédios.",
+     "Sua cabeça fica quieta o bastante pra pensar de verdade, e você volta cheia de perguntas"
     ]
    }
   },
@@ -260,6 +272,13 @@
      "Gör inte hela museet. välj en sal, titta på allt långsamt och läs varje liten skylt.",
      "Du går därifrån mindre trött, och du minns allt"
     ]
+   },
+   "pt-BR": {
+    "titre": "2. uma sala de um museu",
+    "paragraphes": [
+     "Não faz o museu inteiro. escolhe uma sala, olha tudo com calma e lê cada plaquinha.",
+     "Você sai menos cansada, e lembra de tudo"
+    ]
    }
   },
   {
@@ -338,6 +357,13 @@
     "paragraphes": [
      "Sophia ger mig en lektion om dagen, skriven av riktiga professorer. på söndagar blir det historia eller filosofi, med ett litet quiz efteråt.",
      "Tio minuter, och måndagen börjar med något nytt i huvudet"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula antes da semana",
+    "paragraphes": [
+     "O Sophia me dá uma aula por dia, escrita por professores de verdade. no domingo é história ou filosofia, com um quiz no final.",
+     "Dez minutos, e a segunda começa com algo novo na cabeça"
     ]
    }
   },
@@ -422,6 +448,13 @@
      "Ta med boken du undviker till ett kafé och ge den en timme. ingen mobil på bordet, bara en penna.",
      "Svåra böcker känns lättare med en kaffe. och en timme i veckan räcker för att läsa ut dem"
     ]
+   },
+   "pt-BR": {
+    "titre": "4. um café e um livro difícil",
+    "paragraphes": [
+     "Leva o livro que você vive evitando pra um café e dá uma hora pra ele. nada de celular na mesa, só um lápis.",
+     "Livro difícil fica mais leve com um café. e uma hora por semana termina ele"
+    ]
    }
   },
   {
@@ -505,6 +538,13 @@
      "Baka något enkelt och läs om dess historia medan det står i ugnen. det sägs att bananbröd blev populärt på 1930-talet.",
      "Du får en liten historielektion, och hela lägenheten doftar ljuvligt"
     ]
+   },
+   "pt-BR": {
+    "titre": "5. fazer um bolo com história",
+    "paragraphes": [
+     "Faz algo simples no forno e lê a história dele enquanto assa. dizem que o pão de banana ficou popular nos anos 1930.",
+     "Você ganha uma mini aula de história, e o apê inteiro fica com um cheiro incrível"
+    ]
    }
   },
   {
@@ -562,6 +602,12 @@
     "lignes": [
      "tack för att du tittade",
      "spara & följ"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
     ]
    }
   }

@@ -68,11 +68,11 @@
       "url": "https://www.metmuseum.org/art/collection/search/436176"
     }
   },
-  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : Le Reniement de saint Pierre : 1610, une des dernières œuvres ; Caravage mort en juillet 1610, en fuite depuis le meurtre de Ranuccio Tomassoni à Rome (1606). La Madeleine à la veilleuse (« aux deux flammes ») : main sur le crâne, bijoux posés, la flamme reflétée dans le miroir. Salomé : Salon de 1870 ; Regnault tué à Buzenval le 19 janvier 1871, à 27 ans ; couteau et plat vide sur les genoux. Delacroix : sujet peint plusieurs fois dans les années 1850 (Marc 4, 35-41). Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (une foule ou des visiteurs de dos, le tableau n'est qu'une tache de lumière).",
+  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : Le Reniement de saint Pierre : 1610, une des dernières œuvres ; Caravage mort en juillet 1610, en fuite depuis le meurtre de Ranuccio Tomassoni à Rome (1606). La Madeleine à la veilleuse (« aux deux flammes ») : main sur le crâne, bijoux posés, la flamme reflétée dans le miroir. Salomé : Salon de 1870 ; Regnault tué à Buzenval le 19 janvier 1871, à 27 ans ; couteau et plat vide sur les genoux. Delacroix : sujet peint plusieurs fois dans les années 1850 (Marc 4, 35-41). Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA (refaite le 27/11).",
   "slides": [
     {
       "type": "couverture",
-      "image": "images/photos/musee-bougie.jpg",
+      "image": "images/banque/b-salle-noire.jpg",
       "en": {
         "titre": "Paintings With The Darkest Stories"
       },
@@ -320,5 +320,8 @@
         "artiste": "Eugène Delacroix"
       }
     }
-  ]
+  ],
+  "banque": {
+    "images/banque/b-salle-noire.jpg": "91216c38-6922-4b39-acff-75e89bb9fa01"
+  }
 }

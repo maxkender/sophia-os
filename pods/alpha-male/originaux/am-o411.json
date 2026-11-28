@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o411",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "aa43d56b-d726-4f50-ac03-02d23eb3a8ea",
+ "titre": "Public transport rules every man should follow #men #manners #respect #city #gentleman",
+ "musique_titre": "dźwięk oryginalny",
+ "musique_url": "https://www.tiktok.com/music/dzwiek-oryginalny-7378481013607533345",
+ "inspirations": [
+  "aa43d56b-d726-4f50-ac03-02d23eb3a8ea"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Déclinaison G1 de la ligne 13 de la boîte (parent aa43d56b, = notre full test am-o271, langue source en). Accroche du parent mot pour mot. Format : « N. règle » + une ligne. Rien de am-o271. Items neufs, aucun du parent. reference_url du parent (1, 3 à 7) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "786b5c9a",
+   "texte_overlay": "Public transport rules every man\nshould follow",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8fef4e6c",
+   "texte_overlay": "1. Don't put your bag on a seat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "09e7eb84",
+   "texte_overlay": "2. No speakerphone calls",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "25d027b1",
+   "texte_overlay": "3. Move to the middle of the car",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a0779a4e",
+   "texte_overlay": "4. No smelly food on board",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "49de5787",
+   "texte_overlay": "5. Use the ride to learn something\n\nTen stops, one lesson.",
+   "texte_sophia": "5. Use the ride to learn something\n\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  }
+ ]
+}

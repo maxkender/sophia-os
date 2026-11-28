@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o334",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8889918a-4791-4f04-9bfb-1b144b863fba",
+  "titre": "les questions qui font de toi l'élève préférée de tes profs (sans faire la fayotte) #etudes #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [
+    "8889918a-4791-4f04-9bfb-1b144b863fba"
+  ],
+  "notes": "G2, déclinaison de 8889918a (« les questions à poser en cours pour que tes profs se souviennent de toi », G1 gagnante, génération 1 en français ; meilleur passage it 6,7 k vues, r 4,67), en français, 3e et dernière déclinaison (après bsg-o298 et o316). Accroche reformulée : « les questions qui font de toi l'élève préférée de tes profs (sans faire la fayotte) ». cta B. Questions neuves. Fait vérifié le 10/11 sur https://en.wikipedia.org/wiki/William_Shakespeare et https://en.wikipedia.org/wiki/Miguel_de_Cervantes. Routine du 28/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 et 16 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12 à 15 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "f3171cce",
+      "texte_overlay": "les questions qui font de toi\nl'élève préférée de tes profs\n(sans faire la fayotte)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "1a51cd42",
+      "texte_overlay": "1. « c'est quoi le lien avec aujourd'hui ? »\n\nles profs adorent\nrelier leur matière au présent.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2c1312d2",
+      "texte_overlay": "2. « vous avez un exemple qui vous a marqué ? »\n\nils racontent toujours une belle histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "4cfcda39",
+      "texte_overlay": "3. « c'est vrai que… ? »\n\nce matin, j'ai appris que shakespeare et cervantès sont morts tous les deux en avril 1616.\nmon prof de lettres a adoré la question.",
+      "texte_sophia": "3. « c'est vrai que… ? »\n\nce matin, l'appli Sophia m'a appris que shakespeare et cervantès sont morts tous les deux en avril 1616.\nmon prof de lettres a adoré la question.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1ad353c9",
+      "texte_overlay": "4. « je peux venir vous voir après le cours ? »\n\ncinq minutes,\net ils se souviennent de toi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "60efa906",
+      "texte_overlay": "5. « qu'est-ce que vous auriez aimé savoir à mon âge ? »\n\nla plus belle des questions.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "2d7cbe72",
+      "texte_overlay": "garde-la pour lundi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

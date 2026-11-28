@@ -1,0 +1,73 @@
+{
+  "source_id": "ad-010",
+  "type_bleo": "full_test",
+  "titre": "celebrate the small ones 🏆 #adhd #adhdtiktok #neurodivergent #adhdcheck #fyp",
+  "musique_titre": "angels",
+  "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+  "inspirations": [
+    "cf4cb881"
+  ],
+  "notes": "Format « liste relatable » (cf4cb881, 225,6 k), version positive. Accroche neuve : « tiny ADHD wins nobody claps for ». L'item 8 (le terrier sur un vieux tableau) est le pont naturel vers l'art, sans appli. Aucun chiffre, aucun diagnostic.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "648c188a",
+      "texte_overlay": "tiny ADHD wins\nnobody claps for",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "53b0f62c",
+      "texte_overlay": "remembering an appointment\nwithout 6 reminders",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "3613fc23",
+      "texte_overlay": "answering a text\nthe same day",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "1484a39b",
+      "texte_overlay": "finishing a show\ni actually started",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "35cb8649",
+      "texte_overlay": "putting something back\nwhere it actually goes",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "f369624a",
+      "texte_overlay": "cooking a real meal\ninstead of eating cereal\nover the sink",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "29b7092f",
+      "texte_overlay": "going for a walk\ninstead of scrolling for 2 hours",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "293d2be2",
+      "texte_overlay": "going down a rabbit hole\non purpose, reading about\none old painting for an hour,\nand calling it rest",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/8.jpg"
+    },
+    {
+      "position": 9,
+      "media_id": "e35f0c0d",
+      "texte_overlay": "doing the thing\nbefore the deadline.\n(once. but it counts)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/9.jpg"
+    },
+    {
+      "position": 10,
+      "media_id": "3997b108",
+      "texte_overlay": "if you did one of these today,\nthat's a win.\ni'm proud of you",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690287004223065347/10.jpg"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o367",
+ "type_bleo": "full_test",
+ "titre": "ce que j'ai appris en travaillant avec une collègue que je n'aimais pas #travail #collegues #carriere #relations #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 28/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (la collègue qu'on n'aime pas). Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e0b36e8c",
+   "texte_overlay": "ce que j'ai appris\nen travaillant avec une collègue\nque je n'aimais pas",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "743d8ec9",
+   "texte_overlay": "on n'a pas besoin de s'aimer\npour bien travailler ensemble",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2d4703ad",
+   "texte_overlay": "j'ai cherché ce qu'elle faisait mieux que moi\net il y avait beaucoup",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5111582a",
+   "texte_overlay": "j'ai tout mis par écrit\nça a évité les malentendus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8e37fac7",
+   "texte_overlay": "je ne parlais jamais d'elle aux autres",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9bb3f547",
+   "texte_overlay": "et j'ai appris son métier\nun peu chaque jour, 5 minutes. on se comprenait mieux",
+   "texte_sophia": "et j'ai appris son métier\nun peu chaque jour, 5 minutes sur l'appli Sophia. on se comprenait mieux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3ab758a4",
+   "texte_overlay": "t'as une collègue comme ça ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

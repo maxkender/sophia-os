@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o516",
+ "type_bleo": "full_test",
+ "titre": "the stories behind the most iconic handbags #handbags #fashionhistory #elegance #smartgirl #oldmoney",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 5/10 (la jauge en demande 10 sur 33) : accroche jamais faite chez nous (« handbags » absent des accroches du label et de nos originaux). Accroches écrites : « the stories behind the most iconic handbags » (retenue : mode + anecdotes), « bags worth investing in » (écartée : achat, pas savoir), « designer bags explained » (écartée : sèche). Faits vérifiés : le Kelly d'Hermès (renommé d'après Grace Kelly, qui s'en servait pour cacher sa grossesse en 1956), le Birkin (Jane Birkin dans un avion, 1984), le 2.55 de Chanel (février 1955), le Lady Dior (Princesse Diana, 1995), le Jackie de Gucci (Jackie Kennedy), la Baguette de Fendi (1997, portée sous le bras comme une baguette). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "baf586d0",
+   "texte_overlay": "the stories behind the most\niconic handbags",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2c1b0fe4",
+   "texte_overlay": "the kelly\n\nrenamed after grace kelly, who hid\nher pregnancy behind it in 1956.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "92b9f308",
+   "texte_overlay": "the birkin\n\nborn from a chat with jane birkin\non a plane, 1984.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "da086e1c",
+   "texte_overlay": "the 2.55\n\nnamed after its date:\nfebruary 1955.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "cd6495a8",
+   "texte_overlay": "the lady dior\n\nrenamed after princess diana\ncarried it in 1995.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a1046635",
+   "texte_overlay": "the jackie\n\nnamed after jackie kennedy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "56af4d19",
+   "texte_overlay": "the baguette\n\ncarried under the arm like bread.\ni learned that this morning.",
+   "texte_sophia": "the baguette\n\ncarried under the arm like bread. i learned\nthat on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e2780c4e",
+   "texte_overlay": "which one is your dream?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

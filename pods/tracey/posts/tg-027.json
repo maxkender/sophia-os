@@ -1,0 +1,538 @@
+{
+ "id": "tg-027",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies that give adhd brains a dopamine hit",
+  "bg": "10/10 хобита, които дават на адхд мозъка допаминов тласък",
+  "de": "10/10 hobbys, die adhs-köpfen einen dopamin-kick geben",
+  "el": "10/10 χόμπι που δίνουν στο μυαλό με ΔΕΠΥ ντοπαμίνη",
+  "es-419": "10/10 hobbies que le dan dopamina a cerebros con tdah",
+  "fr": "10/10 loisirs qui donnent de la dopamine aux cerveaux tdah",
+  "hu": "10/10 hobbi, ami dopaminlöketet ad az adhd-s agynak",
+  "it": "10/10 hobby che danno dopamina ai cervelli adhd",
+  "pt-BR": "10/10 hobbies que dão um pico de dopamina no cérebro com tdah",
+  "sr": "10/10 hobija koji daju adhd mozgu dopaminski udar"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #dopamine #focus #brain",
+  "bg": "#адхд #хобита #допамин #фокус #мозък",
+  "de": "#adhs #hobbys #dopamin #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #ντοπαμίνη #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #dopamina #enfoque #cerebro",
+  "fr": "#tdah #loisirs #dopamine #concentration #cerveau",
+  "hu": "#adhd #hobbi #dopamin #fókusz #agy",
+  "it": "#adhd #hobby #dopamina #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #dopamina #foco #cerebro",
+  "sr": "#adhd #hobi #dopamin #fokus #mozak"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies that give adhd brains a dopamine hit », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Couverture : une IRM neuve, propre à ce post (irm-027). Slide Atala sur une photo de course de la banque (96aaa6f8), slide Artura sur un tableau ou un musée de la banque (ebb0314a), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-piste-pov.jpg": "96aaa6f8-afd3-4c7f-b17c-ff83874489e3",
+  "images/banque/a-atelier.jpg": "ebb0314a-7e95-4a44-8211-42fcd12c2d47"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/irm-027.jpg",
+   "en": {
+    "titre": "10/10 hobbies that give adhd\nbrains a dopamine hit",
+    "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 хобита, които дават на\nадхд мозъка допаминов тласък",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 hobbys, die adhs-köpfen\neinen dopamin-kick geben",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι που δίνουν σε\nμυαλά με ΔΕΠΥ ντοπαμίνη",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies que le dan\ndopamina a cerebros con tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs qui donnent de\nla dopamine aux tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 hobbi, ami dopaminlöketet\nad az adhd-s agynak",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby che danno\ndopamina ai cervelli adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies que animam\no cérebro com tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 hobija koji daju adhd\nmozgu dopaminski udar",
+    "note": "(potvrđeno neuronaukom)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/trampoline.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "trampoline parks",
+    "accroche": "you _jump_, you _fly_, you _laugh_",
+    "colonne": [
+     "fast movement and a bit of thrill give your brain the rush it was looking for in your phone"
+    ],
+    "chute": "most parks have cheap weekday sessions"
+   },
+   "bg": {
+    "nom": "батутни паркове",
+    "accroche": "_скачаш_, _летиш_, _смееш се_",
+    "colonne": [
+     "бързото движение и малко тръпка дават на мозъка ти емоцията, която е търсил в телефона"
+    ],
+    "chute": "много паркове имат евтини делнични часове"
+   },
+   "de": {
+    "nom": "trampolinhallen",
+    "accroche": "du _springst_, du _fliegst_, du _lachst_",
+    "colonne": [
+     "schnelle bewegung und ein bisschen nervenkitzel geben deinem gehirn den kick, den es im handy gesucht hat"
+    ],
+    "chute": "viele hallen haben günstige termine unter der woche"
+   },
+   "el": {
+    "nom": "πάρκα τραμπολίνο",
+    "accroche": "_πηδάς_, _πετάς_, _γελάς_",
+    "colonne": [
+     "η γρήγορη κίνηση και λίγη συγκίνηση δίνουν στον εγκέφαλο την ένταση που έψαχνε στο κινητό"
+    ],
+    "chute": "τα περισσότερα πάρκα έχουν φθηνές ώρες τις καθημερινές"
+   },
+   "es-419": {
+    "nom": "parques de trampolines",
+    "accroche": "_saltas_, _vuelas_, _te ríes_",
+    "colonne": [
+     "el movimiento rápido y un poco de emoción le dan a tu cerebro la descarga que buscaba en el celular"
+    ],
+    "chute": "casi todos tienen sesiones baratas entre semana"
+   },
+   "fr": {
+    "nom": "les parcs de trampolines",
+    "accroche": "tu _sautes_, tu _voles_, tu _ris_",
+    "colonne": [
+     "le mouvement rapide et un peu de frisson donnent à ton cerveau la décharge d'adrénaline qu'il cherchait dans ton téléphone"
+    ],
+    "chute": "la plupart des parcs ont des créneaux pas chers en semaine"
+   },
+   "hu": {
+    "nom": "trambulinpark",
+    "accroche": "_ugrasz_, _repülsz_, _nevetsz_",
+    "colonne": [
+     "a gyors mozgás és egy kis izgalom megadja az agyadnak azt a löketet, amit a telefonban keresett"
+    ],
+    "chute": "a legtöbb park hétköznap olcsóbb"
+   },
+   "it": {
+    "nom": "parchi trampolini",
+    "accroche": "_salti_, _voli_, _ridi_",
+    "colonne": [
+     "il movimento veloce e un po' di brivido danno al cervello la scarica che cercava nel telefono"
+    ],
+    "chute": "molti parchi hanno sessioni economiche in settimana"
+   },
+   "pt-BR": {
+    "nom": "parques de trampolim",
+    "accroche": "você _pula_, você _voa_, você _ri_",
+    "colonne": [
+     "movimento rápido e um pouco de adrenalina dão ao cérebro a emoção que ele procurava no celular"
+    ],
+    "chute": "muitos parques têm sessões baratas na semana"
+   },
+   "sr": {
+    "nom": "trambolina park",
+    "accroche": "_skačeš_, _letiš_, _smeješ se_",
+    "colonne": [
+     "brz pokret i malo uzbuđenja daju mozgu nalet koji je tražio u telefonu"
+    ],
+    "chute": "većina parkova je jeftinija radnim danom"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-piste-pov.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "nom": "sprints",
+    "accroche": "ten seconds _all out_, then _breathe_",
+    "colonne": [
+     "a few short sprints feel amazing after, and a plan stops you from doing too much too soon",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "6 sprints, walk back between each one"
+   },
+   "bg": {
+    "nom": "спринтове",
+    "accroche": "десет секунди _на максимум_, после _дишай_",
+    "colonne": [
+     "няколко кратки спринта носят страхотно усещане, а планът те пази да не прекалиш твърде рано",
+     "_съвет_: ползвам atala, ai треньор по бягане, който планира седмицата ми около целта ми"
+    ],
+    "chute": "6 спринта, връщай се ходом между тях"
+   },
+   "de": {
+    "nom": "sprints",
+    "accroche": "zehn sekunden _vollgas_, dann _atmen_",
+    "colonne": [
+     "ein paar kurze sprints fühlen sich danach super an, und ein plan verhindert, dass du zu früh zu viel machst",
+     "_pro tipp_: ich nutze atala, einen ki-laufcoach, der meine woche um mein ziel herum plant"
+    ],
+    "chute": "6 sprints, zwischendurch zurückgehen"
+   },
+   "el": {
+    "nom": "σπριντ",
+    "accroche": "δέκα δευτερόλεπτα _στο φουλ_, μετά _ανάσα_",
+    "colonne": [
+     "λίγα σύντομα σπριντ σε κάνουν να νιώθεις υπέροχα μετά, και ένα πλάνο σε κρατάει από το να το παρακάνεις",
+     "_μικρό tip_: χρησιμοποιώ το atala, έναν ai προπονητή τρεξίματος που οργανώνει την εβδομάδα μου γύρω από τον στόχο μου"
+    ],
+    "chute": "6 σπριντ, περπάτημα πίσω ανάμεσα"
+   },
+   "es-419": {
+    "nom": "sprints",
+    "accroche": "diez segundos _a tope_, luego _respira_",
+    "colonne": [
+     "unos sprints cortos se sienten increíbles después, y un plan evita que te pases de más demasiado pronto",
+     "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
+    ],
+    "chute": "6 sprints, camina de vuelta entre cada uno"
+   },
+   "fr": {
+    "nom": "les sprints",
+    "accroche": "dix secondes _à fond_, puis _respire_",
+    "colonne": [
+     "quelques sprints courts font un bien fou après, et un plan t'évite d'en faire trop trop vite",
+     "_petite astuce_: j'utilise atala, un coach de course par ia qui planifie ma semaine selon mon objectif"
+    ],
+    "chute": "6 sprints, retour en marchant entre chaque"
+   },
+   "hu": {
+    "nom": "sprintek",
+    "accroche": "tíz másodperc _teljes erővel_, aztán _lélegezz_",
+    "colonne": [
+     "néhány rövid sprint után nagyszerűen érzed magad, a terv pedig megóv attól, hogy túl sokat csinálj túl hamar",
+     "_pro tip_: az atala appot használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+    ],
+    "chute": "6 sprint, köztük sétálj vissza"
+   },
+   "it": {
+    "nom": "scatti",
+    "accroche": "dieci secondi _a tutta_, poi _respira_",
+    "colonne": [
+     "pochi scatti brevi fanno sentire benissimo dopo, e un piano ti evita di esagerare troppo presto",
+     "_piccolo consiglio_: uso atala, un coach di corsa con l'ia che organizza la mia settimana intorno al mio obiettivo"
+    ],
+    "chute": "6 scatti, torna camminando tra uno e l'altro"
+   },
+   "pt-BR": {
+    "nom": "tiros curtos",
+    "accroche": "dez segundos _com tudo_, depois _respira_",
+    "colonne": [
+     "alguns tiros curtos dão uma sensação ótima, e um plano evita que você faça demais cedo demais",
+     "_dica_: eu uso o atala, um coach de corrida com ia que planeja minha semana em torno do meu objetivo"
+    ],
+    "chute": "6 tiros, voltando andando entre cada um"
+   },
+   "sr": {
+    "nom": "sprintovi",
+    "accroche": "deset sekundi _punom snagom_, pa _diši_",
+    "colonne": [
+     "nekoliko kratkih sprintova posle prija, a plan te čuva da ne preteraš prerano",
+     "_pro tip_: koristim aplikaciju atala, ai trenera za trčanje koji mi planira nedelju prema cilju"
+    ],
+    "chute": "6 sprintova, hodaj nazad između svakog"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/karaoke.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "karaoke",
+    "accroche": "one song, _three minutes_, _all eyes_",
+    "colonne": [
+     "singing loud with friends is short, silly and a huge rush, no talent needed"
+    ],
+    "chute": "book a small room with friends"
+   },
+   "bg": {
+    "nom": "караоке",
+    "accroche": "една песен, _три минути_, _всички гледат_",
+    "colonne": [
+     "да пееш силно с приятели е кратко, глупаво и голяма тръпка, без нужда от талант"
+    ],
+    "chute": "запази малка стая с приятели"
+   },
+   "de": {
+    "nom": "karaoke",
+    "accroche": "ein song, _drei minuten_, _alle schauen_",
+    "colonne": [
+     "laut mit freunden singen ist kurz, albern und ein riesiger kick, ganz ohne talent"
+    ],
+    "chute": "buch einen kleinen raum mit freunden"
+   },
+   "el": {
+    "nom": "καραόκε",
+    "accroche": "ένα τραγούδι, _τρία λεπτά_, _όλα τα βλέμματα_",
+    "colonne": [
+     "το δυνατό τραγούδι με φίλους είναι σύντομο, χαζό και τεράστια ένταση, χωρίς ταλέντο"
+    ],
+    "chute": "κλείσε ένα μικρό δωμάτιο με φίλους"
+   },
+   "es-419": {
+    "nom": "karaoke",
+    "accroche": "una canción, _tres minutos_, _todas las miradas_",
+    "colonne": [
+     "cantar fuerte con amigos es corto, tonto y una gran emoción, sin necesidad de talento"
+    ],
+    "chute": "reserva un cuarto pequeño con amigos"
+   },
+   "fr": {
+    "nom": "le karaoké",
+    "accroche": "une chanson, _trois minutes_, _tous les regards_",
+    "colonne": [
+     "chanter fort entre amis, c'est court, idiot et grisant, sans besoin de talent"
+    ],
+    "chute": "réserve une petite salle entre amis"
+   },
+   "hu": {
+    "nom": "karaoke",
+    "accroche": "egy dal, _három perc_, _minden szem_ rajtad",
+    "colonne": [
+     "hangosan énekelni a barátokkal rövid, vicces és hatalmas löket, tehetség nem kell"
+    ],
+    "chute": "foglaljatok egy kis szobát a barátokkal"
+   },
+   "it": {
+    "nom": "karaoke",
+    "accroche": "una canzone, _tre minuti_, _tutti gli occhi_",
+    "colonne": [
+     "cantare forte con gli amici è breve, stupido e una scarica enorme, senza bisogno di talento"
+    ],
+    "chute": "prenota una saletta con gli amici"
+   },
+   "pt-BR": {
+    "nom": "karaokê",
+    "accroche": "uma música, _três minutos_, _todos olhando_",
+    "colonne": [
+     "cantar alto com os amigos é curto, bobo e uma baita emoção, sem precisar de talento"
+    ],
+    "chute": "reserve uma sala pequena com amigos"
+   },
+   "sr": {
+    "nom": "karaoke",
+    "accroche": "jedna pesma, _tri minuta_, _svi gledaju_",
+    "colonne": [
+     "glasno pevanje sa prijateljima je kratko, smešno i ogroman nalet, talenat nije potreban"
+    ],
+    "chute": "rezervišite malu sobu sa prijateljima"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-atelier.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "nom": "finding a painting you love",
+    "accroche": "that _wow_ when one picture _gets you_",
+    "colonne": [
+     "walking around until one painting stops you is a rush you can repeat every week",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "visit a small gallery and pick a favorite"
+   },
+   "bg": {
+    "nom": "да намериш картина, която обичаш",
+    "accroche": "онова _уау_, когато картина те _грабне_",
+    "colonne": [
+     "да обикаляш, докато една картина те спре, е тръпка, която можеш да повтаряш всяка седмица",
+     "_съвет_: ползвам artura, по едно произведение на ден с историята му и зуум върху детайлите, които иначе пропускаш"
+    ],
+    "chute": "посети малка галерия и си избери любима"
+   },
+   "de": {
+    "nom": "ein gemälde finden, das du liebst",
+    "accroche": "dieses _wow_, wenn ein bild dich _packt_",
+    "colonne": [
+     "herumlaufen, bis dich ein gemälde stoppt, ist ein kick, den du jede woche wiederholen kannst",
+     "_pro tipp_: ich nutze artura, jeden tag ein kunstwerk mit seiner geschichte, mit zoom auf details, die man sonst übersieht"
+    ],
+    "chute": "geh in eine kleine galerie und wähl einen favoriten"
+   },
+   "el": {
+    "nom": "βρίσκω έναν πίνακα που αγαπώ",
+    "accroche": "εκείνο το _ουάου_ όταν μια εικόνα σε _πιάνει_",
+    "colonne": [
+     "το να γυρνάς μέχρι να σε σταματήσει ένας πίνακας είναι ένταση που μπορείς να ζεις κάθε εβδομάδα",
+     "_μικρό tip_: χρησιμοποιώ το artura, ένα έργο τέχνης τη μέρα με την ιστορία του, με ζουμ στις λεπτομέρειες που θα έχανες"
+    ],
+    "chute": "πήγαινε σε μια μικρή γκαλερί και διάλεξε έναν"
+   },
+   "es-419": {
+    "nom": "encontrar una pintura que te encante",
+    "accroche": "ese _wow_ cuando una imagen te _atrapa_",
+    "colonne": [
+     "recorrer hasta que una pintura te detenga es una emoción que puedes repetir cada semana",
+     "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
+    ],
+    "chute": "visita una galería pequeña y elige tu favorita"
+   },
+   "fr": {
+    "nom": "trouver un tableau qu'on adore",
+    "accroche": "ce _waouh_ quand une image te _happe_",
+    "colonne": [
+     "se balader jusqu'à ce qu'un tableau t'arrête, c'est une émotion à refaire chaque semaine",
+     "_petite astuce_: j'utilise artura, une œuvre par jour avec son histoire, en zoomant sur les détails qu'on raterait"
+    ],
+    "chute": "va dans une petite galerie et choisis ton préféré"
+   },
+   "hu": {
+    "nom": "megtalálni a kedvenc festményed",
+    "accroche": "az a _wow_, amikor egy kép _megfog_",
+    "colonne": [
+     "körbejárni, amíg egy festmény meg nem állít, olyan élmény, amit minden héten megismételhetsz",
+     "_pro tip_: az artura appot használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+    ],
+    "chute": "nézz meg egy kis galériát, és válassz kedvencet"
+   },
+   "it": {
+    "nom": "trovare un dipinto che ami",
+    "accroche": "quel _wow_ quando un'immagine ti _prende_",
+    "colonne": [
+     "girare finché un dipinto non ti ferma è un'emozione che puoi ripetere ogni settimana",
+     "_piccolo consiglio_: uso artura, un'opera al giorno con la sua storia, zoomando sui dettagli che ti sfuggirebbero"
+    ],
+    "chute": "visita una piccola galleria e scegli il preferito"
+   },
+   "pt-BR": {
+    "nom": "achar uma pintura que você ama",
+    "accroche": "aquele _uau_ quando uma imagem _te pega_",
+    "colonne": [
+     "andar até uma pintura te parar é uma emoção que dá para repetir toda semana",
+     "_dica_: eu uso o artura, uma obra por dia com a sua história, com zoom nos detalhes que você perderia"
+    ],
+    "chute": "visite uma galeria pequena e escolha uma favorita"
+   },
+   "sr": {
+    "nom": "pronaći sliku koju voliš",
+    "accroche": "ono _vau_ kad te jedna slika _uhvati_",
+    "colonne": [
+     "šetati dok te jedna slika ne zaustavi je nalet koji možeš da ponoviš svake nedelje",
+     "_pro tip_: koristim aplikaciju artura, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+    ],
+    "chute": "poseti malu galeriju i izaberi favorita"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/karting.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "go-karting",
+    "accroche": "speed, _corners_ and a _lap time_",
+    "colonne": [
+     "the track needs all your attention, and beating your last lap is an instant reward"
+    ],
+    "chute": "most tracks do a 10 minute beginner race"
+   },
+   "bg": {
+    "nom": "картинг",
+    "accroche": "скорост, _завои_ и _време за обиколка_",
+    "colonne": [
+     "пистата иска цялото ти внимание, а да подобриш последната си обиколка е мигновена награда"
+    ],
+    "chute": "много писти имат 10-минутно състезание за начинаещи"
+   },
+   "de": {
+    "nom": "kartfahren",
+    "accroche": "tempo, _kurven_ und eine _rundenzeit_",
+    "colonne": [
+     "die strecke braucht deine ganze aufmerksamkeit, und deine letzte runde zu schlagen ist eine sofortige belohnung"
+    ],
+    "chute": "viele bahnen haben ein 10-minuten-rennen für anfänger"
+   },
+   "el": {
+    "nom": "καρτ",
+    "accroche": "ταχύτητα, _στροφές_ και ένας _χρόνος γύρου_",
+    "colonne": [
+     "η πίστα θέλει όλη σου την προσοχή, και το να νικάς τον προηγούμενο γύρο είναι άμεση ανταμοιβή"
+    ],
+    "chute": "οι περισσότερες πίστες έχουν αγώνα 10 λεπτών για αρχάριους"
+   },
+   "es-419": {
+    "nom": "go-karts",
+    "accroche": "velocidad, _curvas_ y un _tiempo por vuelta_",
+    "colonne": [
+     "la pista se lleva toda tu atención, y mejorar tu última vuelta es una recompensa al instante"
+    ],
+    "chute": "casi todas las pistas hacen carreras de 10 minutos"
+   },
+   "fr": {
+    "nom": "le karting",
+    "accroche": "vitesse, _virages_ et un _temps au tour_",
+    "colonne": [
+     "la piste prend toute ton attention, et battre ton dernier tour est une récompense immédiate"
+    ],
+    "chute": "la plupart des pistes font une course de 10 minutes pour débutants"
+   },
+   "hu": {
+    "nom": "gokart",
+    "accroche": "sebesség, _kanyarok_ és _köridő_",
+    "colonne": [
+     "a pálya minden figyelmedet leköti, és a legutóbbi köröd megverése azonnali jutalom"
+    ],
+    "chute": "a legtöbb pályán van 10 perces kezdő futam"
+   },
+   "it": {
+    "nom": "go-kart",
+    "accroche": "velocità, _curve_ e un _tempo sul giro_",
+    "colonne": [
+     "la pista prende tutta la tua attenzione, e battere il giro precedente è una ricompensa immediata"
+    ],
+    "chute": "molte piste fanno gare da 10 minuti per principianti"
+   },
+   "pt-BR": {
+    "nom": "kart",
+    "accroche": "velocidade, _curvas_ e um _tempo de volta_",
+    "colonne": [
+     "a pista pede toda a sua atenção, e bater sua última volta é uma recompensa na hora"
+    ],
+    "chute": "muitas pistas fazem uma corrida de 10 minutos para iniciantes"
+   },
+   "sr": {
+    "nom": "karting",
+    "accroche": "brzina, _krivine_ i _vreme kruga_",
+    "colonne": [
+     "staza traži svu tvoju pažnju, a obaranje prošlog kruga je trenutna nagrada"
+    ],
+    "chute": "većina staza ima trku od 10 minuta za početnike"
+   }
+  }
+ ]
+}

@@ -1,0 +1,52 @@
+{
+  "source_id": "cs-o230",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "24bfb4e1-cbe0-4d7b-a266-b0fb24ba954f",
+  "titre": "comment étudier chaques matières #studytok #lycée #révisions",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "24bfb4e1-cbe0-4d7b-a266-b0fb24ba954f"
+  ],
+  "notes": "Déclinaison G1 de 24bfb4e1 (notre cs-o107), ligne 8 de la boîte, 2e déclinaison de la famille. Langue source du parent : français ; accroche du parent mot pour mot (orthographe du parent gardée). Pas de moyennes chiffrées (elles seraient inventées). Matières neuves, aucune du parent ni de cs-o107 : SVT, allemand, histoire des arts (slide Sophia), musique, EMC. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "a924287d",
+      "texte_overlay": "COMMENT ÉTUDIER CHAQUES\nMATIÈRES",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b749aee6",
+      "texte_overlay": "SVT\nmon conseil : dessine chaque schéma de mémoire, puis compare avec le cours. ce qui manque, tu le revois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "bc2c233c",
+      "texte_overlay": "ALLEMAND\nmon conseil : apprends chaque nom avec son article. der, die, das, dès le premier jour.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "438e88cc",
+      "texte_overlay": "HISTOIRE DES ARTS\nmon conseil : pour chaque œuvre, retiens qui, quand, et pourquoi elle a choqué ou marqué.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg",
+      "texte_sophia": "HISTOIRE DES ARTS\nmon conseil : une œuvre par jour sur une appli de micro-learning\ncomme l'appli Sophia. qui, quand, et pourquoi elle a marqué."
+    },
+    {
+      "position": 5,
+      "media_id": "11fe759a",
+      "texte_overlay": "MUSIQUE\nmon conseil : écoute l'œuvre avant de lire l'analyse. ton oreille retient avant tes yeux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0bc716ff",
+      "texte_overlay": "EMC\nmon conseil : relie chaque notion à un exemple de l'actualité. c'est ce que le prof attend.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ],
+  "langue_source": "fr"
+}

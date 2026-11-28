@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o335",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "0e7df652-e609-4206-9f30-9048e2cbd208",
+  "titre": "𖦹 my favourite ways to wind down after an overwhelming day #winddown #selfcare",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [
+    "0e7df652-e609-4206-9f30-9048e2cbd208"
+  ],
+  "notes": "G1, déclinaison de 0e7df652 (« 𖦹 my favourite ways to wind down after an overwhelming day », génération 0 ; meilleur passage tr 3,3 k vues, r 1,16), en anglais. 1re déclinaison. Accroche du parent mot pour mot, glyphe 𖦹 gardé. cta A. Idées neuves (rien du parent : ni ne pas déranger, ni lumières tamisées, ni hobby, ni coucher tôt). Routine du 28/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 et 16 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12 à 15 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "5d48fdb1",
+      "texte_overlay": "𖦹 my favourite ways to wind down\nafter an overwhelming day",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5bffe2f6",
+      "texte_overlay": "1. a long shower with music.\n\nwash the day off, literally.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "056c419a",
+      "texte_overlay": "2. write down three things that went okay.\n\neven tiny ones.\nthe day was not all bad.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "1c37cab9",
+      "texte_overlay": "3. tidy one small corner.\n\na clean desk feels like a clean head.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "4ef18a09",
+      "texte_overlay": "4. tea and a window.\n\nten minutes watching the sky.\nno phone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "54052da3",
+      "texte_overlay": "5. something gentle to think about.\n\nbefore, i scrolled until my brain buzzed.\nnow i learn one new thing every morning. and i end the day with one calm, interesting story.",
+      "texte_sophia": "5. something gentle to think about.\n\nbefore, i scrolled until my brain buzzed.\nnow i open the Sophia app every morning. and i end the day with one calm, interesting story.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0fa632b7",
+      "texte_overlay": "save this for your next long day.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

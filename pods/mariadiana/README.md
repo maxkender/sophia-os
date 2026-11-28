@@ -23,11 +23,11 @@ atelier/
   slides.ts         le rendu : couverture, œuvre, slide Artura (logo)
   polices.ts        TikTok Sans Regular et Medium (OFL)
   cli-oeuvre.ts     cherche et garde une œuvre du domaine public au Met (bords noirs retirés)
-  cli-image.ts      une photo Seedream de couverture (une salle de musée)
+  cli-image.ts      (abandonné le 27/11 : jamais d'image IA)
   cli-*.ts          veille, photos, rendu, livrer, etat, boite
 assets/artura/      l'icône d'Artura (envoyée par Adrien le 24/11)
 images/oeuvres/     les tableaux (fiche de chacun dans `oeuvres` du post)
-images/photos/      les couvertures Seedream
+images/photos/      anciennes couvertures IA (ne plus utiliser) ; images/banque/ : les couvertures, vraies photos de la banque
 posts/md-NNN.json   les originaux (versionnés)
 sources/manifeste.json  son post : la preuve
 ```

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o480",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5f38bcac-4f80-4e2c-b6ef-caa743c7b23e",
+ "titre": "Social skills that make people remember you #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "5f38bcac-4f80-4e2c-b6ef-caa743c7b23e"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 1 de la boîte (5f38bcac, notre ay-o295), 3e et dernière déclinaison après ay-o446 et ay-o465. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o295, o310, o446, o465. Sans « magnetic » ni « charismatic » Lignes sautées : 3 à 5 (quota de 3 déclinaisons déjà atteint au guichet), 8 (voisine de la ligne 6), 10 (voisine de la ligne 9), 11 à 14 (faute de frappe dans l'accroche)..",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5c65f5cc-b314-4652-a337-4e5f8d276ba1",
+   "texte_overlay": "Social skills that make\npeople remember you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695144994897661216/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Introducing people warmly. \"This is Sam, he just ran his first marathon.\" A great introduction makes both people feel good.",
+   "media_id": "66becc05-9812-42fe-b4c7-e2c93acc67ec"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Asking the second question. Most people stop after one. \"And how did that feel?\" is where real conversations begin.",
+   "media_id": "696ee94e-5081-4165-b290-5fcd8a961f83"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Remembering birthdays and big days. A message on the right day shows people they matter to you. Set reminders and write a short, personal message.",
+   "media_id": "72973b9e-4ceb-4aaf-b5cf-69f6112e75c9"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Making people laugh without putting anyone down. Warm humour brings people together and makes you good company.",
+   "media_id": "79f96ed2-5d4e-4bab-a011-9811918c9997"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I was forgettable in groups. After: five minutes a day of history, art or science, and people now remember the stories I tell.",
+   "texte_sophia": "Before: I was forgettable in groups. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. People now remember the stories I tell.",
+   "media_id": "6b30100c-a809-4e7c-8cbb-02fab79a3d38"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Being fully present. Phone away, eyes up, real attention. It's rare, and people notice it immediately. Be there.",
+   "media_id": "7bc34e32-a7fc-4b7f-a5be-a588ed35ee32"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Following up after meeting someone. \"Great to meet you yesterday.\" Few people do it, so it stands out. Send the message.",
+   "media_id": "7bf10730-b847-4fea-8aa2-40cc355898ff"
+  }
+ ]
+}

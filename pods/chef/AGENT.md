@@ -93,6 +93,20 @@ Les podz :
   identifiant de modèle** dans les commits, PR ou messages.
 - **Tout message que tu postes commence par `🤖`**, en français, court.
 
+## Les paliers des labels 100 % podz (0874, depuis le 27/11)
+
+Un label 100 % podz lancé depuis le 27/11 n'a plus de test (4 comptes, 30
+posts) : il monte par **paliers**. Palier 1 = 7 langues × 1 compte, palier 2
+= 14 × 1, palier 3 = 14 × 2 (le dernier automatique). Une semaine à r > 0,9
+fait monter (tâche horaire `podz-paliers`), et les langues du palier
+s'ouvrent toutes seules ; ses places passent avant tout à la création d'un
+compte. Les anciens labels gardent le test tant qu'Adrien ou Max ne les
+basculent pas (carte « Labels 100 % podz », page Allocation). Pour voir où en
+est chacun : `select * from podz_paliers_etat();`. Un podz dont une langue de
+palier reste « à préparer » plus d'un jour : signale-le au point du matin. Un
+nouveau podz en images finies entre au palier 1 dès sa création, 7 langues
+ouvertes d'office (0875, `pods/LANCEMENT.md`).
+
 ## BLEO, voie 1 (depuis le 1/11) et voie 2 (depuis le 5/11)
 
 Les podz de la voie 1 (2, 4, 5, 7, 8, 9, 12, 14, 35 et 36) passent sur BLEO quand

@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o403",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d5e82854-9454-4ec0-bd5d-f534b98e7dfd",
+ "titre": "Quiet manners every grown man knows #men #manners #respect #gentleman #etiquette",
+ "musique_titre": "Expansion",
+ "musique_url": "https://www.tiktok.com/music/expansion-7383085187666184209",
+ "inspirations": [
+  "d5e82854-9454-4ec0-bd5d-f534b98e7dfd"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Déclinaison G2 de la ligne 1 de la boîte (parent d5e82854 = notre am-o262 ; 2e déclinaison après am-o378). Promesse reformulée. Format : « N. règle » en une ou deux lignes. Items neufs, ni de am-o262 ni de am-o378. reference_url de am-o262 (1 à 3, 5 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "38b2e5c4",
+   "texte_overlay": "Quiet manners every grown man\nknows",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "48dd4e0d",
+   "texte_overlay": "1. Wait until everyone has\ntheir plate.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4b285fec",
+   "texte_overlay": "2. Bring something when\nyou're invited.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3f3fc7a5",
+   "texte_overlay": "3. Phone face-down is not enough.\nPut it away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "410103f5",
+   "texte_overlay": "4. Ask good questions.\nLearn a little every day.",
+   "texte_sophia": "4. Ask good questions.\nI learn a little daily\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fee15fca",
+   "texte_overlay": "5. Walk your guest to the door.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "20edd31f",
+   "texte_overlay": "See you soon.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/8.jpg"
+  }
+ ]
+}

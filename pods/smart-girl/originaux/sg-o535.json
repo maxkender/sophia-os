@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o535",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4950b76f-e997-4a7b-ab3d-bbf38bbc33d2",
+ "titre": "timeless elegant accessories every woman should own #accessories #elegance #oldmoney #smartgirl #timeless",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "4950b76f-e997-4a7b-ab3d-bbf38bbc33d2"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 23 de la boîte (parent 4950b76f, langue source en) : accroche du parent mot pour mot. Accessoires du parent (petit médaillon, trench, montre fine, puces, rang de perles, bracelets fins en or) et « un esprit cultivé ». Sophia comme chez le parent (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "eeeb11fe",
+   "texte_overlay": "timeless elegant accessories\nevery woman should own",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621989508904406292/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4e22276f",
+   "texte_overlay": "a small locket",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621989508904406292/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0220c872",
+   "texte_overlay": "a trench coat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621989508904406292/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7b4397be",
+   "texte_overlay": "a slim metal watch",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621989508904406292/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ad866351",
+   "texte_overlay": "a pearl strand",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621989508904406292/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2035a6a1",
+   "texte_overlay": "thin gold bangles",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621989508904406292/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b0d3800f",
+   "texte_overlay": "a well-read mind\n\ni build mine five minutes\nevery morning.",
+   "texte_sophia": "a well-read mind\n\ni build mine on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621989508904406292/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0c252070",
+   "texte_overlay": "follow for more",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621989508904406292/8.jpg"
+  }
+ ]
+}

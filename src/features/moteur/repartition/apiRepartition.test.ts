@@ -21,7 +21,17 @@ vi.mock("@/lib/supabase/client", () => ({
     from: () => ({
       select: () => ({ eq: () => ({ maybeSingle: () => maybeSingle() }) }),
     }),
-    rpc: (nom: string, args: unknown) => rpc(nom, args),
+    // simulation_repartition se lit par pages : rpc(...).order(...).range(a, b).
+    rpc: (nom: string, args: unknown) => {
+      const q = {
+        order: () => q,
+        range: (a: number, b: number) => {
+          return rpc(nom, args, a, b);
+        },
+        then: (ok: (v: unknown) => unknown, ko?: (e: unknown) => unknown) => rpc(nom, args).then(ok, ko),
+      };
+      return q;
+    },
   },
 }));
 
@@ -179,7 +189,7 @@ describe("lire les marchés d'une application (simulation_repartition)", () => {
       error: null,
     });
     const [m] = await lireMarchesRepartition("id-micabo");
-    expect(rpc).toHaveBeenCalledWith("simulation_repartition", { p_application: "id-micabo" });
+    expect(rpc).toHaveBeenCalledWith("simulation_repartition", { p_application: "id-micabo" }, 0, 999);
     expect(m.stats[0]).toMatchObject({ pod_seul: true, livre_langue: false, niveau_pod: 2, comptes_app: 6, comptes_total: 45 });
   });
 
@@ -187,5 +197,18 @@ describe("lire les marchés d'une application (simulation_repartition)", () => {
     rpc.mockResolvedValue({ data: [ligne], error: null });
     const [m] = await lireMarchesRepartition("id-micabo");
     expect(m.stats[0]).toMatchObject({ pod_seul: false, livre_langue: true, niveau_pod: null, comptes_app: 45 });
+  });
+
+  it("lit toutes les pages : plus de 1 000 lignes, la fin de l'alphabet n'est plus coupée", async () => {
+    const page1 = Array.from({ length: 1000 }, (_, i) => ({ ...ligne, langue: "cs", label_id: `l${i}` }));
+    const page2 = [{ ...ligne, langue: "tr", pays: "TR", label_id: "l1" }];
+    rpc.mockReset();
+    rpc.mockImplementation((_nom: string, _args: unknown, debut: number) =>
+      Promise.resolve({ data: debut === 0 ? page1 : debut === 1000 ? page2 : [], error: null }),
+    );
+    const marches = await lireMarchesRepartition("id-sophia");
+    expect(rpc).toHaveBeenCalledTimes(2);
+    expect(rpc).toHaveBeenLastCalledWith("simulation_repartition", { p_application: "id-sophia" }, 1000, 1999);
+    expect(marches.map((m) => m.langue).sort()).toEqual(["cs", "tr"]);
   });
 });

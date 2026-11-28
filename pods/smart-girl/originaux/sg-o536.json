@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o536",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4cca072f-2f26-48c6-8b6e-912b9d07e10b",
+ "titre": "habits that will make your success inevitable #success #habits #discipline #smartgirl #mindset",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "4cca072f-2f26-48c6-8b6e-912b9d07e10b"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 24 de la boîte (parent 4cca072f, langue source en) : accroche du parent mot pour mot. Habitudes du parent (tout écrire, s'améliorer chaque jour, la régularité plutôt que la perfection, la culture générale, une heure sans écran le matin) et neuves. Sophia comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "00525728",
+   "texte_overlay": "habits that will make your\nsuccess inevitable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629504356336815381/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "fd015b44",
+   "texte_overlay": "writing down every goal",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629504356336815381/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3aa83c84",
+   "texte_overlay": "improving 1% a day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629504356336815381/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b12e5c53",
+   "texte_overlay": "consistency over perfection",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629504356336815381/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "cbe8ef67",
+   "texte_overlay": "growing your general knowledge",
+   "texte_sophia": "growing your general knowledge with an app\nlike Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629504356336815381/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9c050a09",
+   "texte_overlay": "no screens for the first hour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629504356336815381/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7b573f12",
+   "texte_overlay": "finishing what you start",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629504356336815381/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ceaeae05",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629504356336815381/5.jpg"
+  }
+ ]
+}

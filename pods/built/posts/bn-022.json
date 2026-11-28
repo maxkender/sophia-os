@@ -1,0 +1,343 @@
+{
+ "id": "bn-022",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7707980369747823880",
+  "vues": 494600,
+  "publie_le": "2026-11-14",
+  "accroche": "GLOW UP HACKS FOR MEN."
+ },
+ "titre": {
+  "en": "winter glow up hacks for men",
+  "de": "winter-glow-up-hacks für männer",
+  "es-419": "hacks de glow up de invierno para hombres",
+  "it": "glow up invernale per uomini",
+  "pl": "zimowe triki glow up dla facetów",
+  "tr": "erkekler için kış glow up tüyoları",
+  "hu": "téli glow up trükkök férfiaknak",
+  "el": "χειμωνιάτικα glow up tips για άντρες",
+  "ro": "trucuri de glow up de iarnă pentru bărbați",
+  "sr": "zimski glow up trikovi za muškarce"
+ },
+ "legendes": {
+  "en": "don't hibernate this winter #glowup #wintertips #tipsformen #running #selfimprovement",
+  "de": "kein winterschlaf dieses jahr #glowup #wintertips #tipsformen #running #selfimprovement",
+  "es-419": "nada de hibernar este invierno #glowup #wintertips #tipsformen #running #selfimprovement",
+  "it": "niente letargo quest'inverno #glowup #wintertips #tipsformen #running #selfimprovement",
+  "pl": "żadnego zimowego snu #glowup #wintertips #tipsformen #running #selfimprovement",
+  "tr": "bu kış kış uykusu yok #glowup #wintertips #tipsformen #running #selfimprovement",
+  "hu": "idén nincs téli álom #glowup #wintertips #tipsformen #running #selfimprovement",
+  "el": "όχι χειμερία νάρκη φέτος #glowup #wintertips #tipsformen #running #selfimprovement",
+  "ro": "fără hibernare iarna asta #glowup #wintertips #tipsformen #running #selfimprovement",
+  "sr": "bez zimskog sna ove godine #glowup #wintertips #tipsformen #running #selfimprovement"
+ },
+ "musique": {
+  "titre": "FUNDO DE VIDEO",
+  "url": "https://www.tiktok.com/music/fundo-de-video-7517337106206656513"
+ },
+ "notes": "Full test (boîte vide). Famille « GLOW UP HACKS FOR MEN. » de @built.not.born61 (494.6 k vues, 2026-11-14), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : b9a4788b, aucune marque lisible, pas ceux de la veille) et le logo d'Atala. placement_atala : voix TOUCHE PERSO (hook de 6 mots), argument « organisation : les sorties planifiées ». En 10 langues, traduites à la main. Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-nuit.png": "b9a4788b-8fc8-4695-920b-e12eeb59ab37"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-22.png",
+   "en": {
+    "titre": "WINTER GLOW UP\nHACKS FOR MEN."
+   },
+   "de": {
+    "titre": "WINTER-GLOW-UP-\nHACKS FÜR\nMÄNNER."
+   },
+   "es-419": {
+    "titre": "HACKS DE GLOW UP\nDE INVIERNO\nPARA HOMBRES."
+   },
+   "it": {
+    "titre": "GLOW UP\nINVERNALE\nPER UOMINI."
+   },
+   "pl": {
+    "titre": "ZIMOWE TRIKI\nGLOW UP\nDLA FACETÓW."
+   },
+   "tr": {
+    "titre": "ERKEKLER İÇİN\nKIŞ GLOW UP\nTÜYOLARI."
+   },
+   "hu": {
+    "titre": "TÉLI GLOW UP\nTRÜKKÖK\nFÉRFIAKNAK."
+   },
+   "el": {
+    "titre": "ΧΕΙΜΩΝΙΑΤΙΚΑ\nGLOW UP TIPS\nΓΙΑ ΑΝΤΡΕΣ."
+   },
+   "ro": {
+    "titre": "TRUCURI DE\nGLOW UP DE IARNĂ\nPENTRU BĂRBAȚI."
+   },
+   "sr": {
+    "titre": "ZIMSKI GLOW UP\nTRIKOVI\nZA MUŠKARCE."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/nettoyant.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "1. Wash and moisturize",
+    "texte": "Cold air and heating dry out your skin. Use a gentle cleanser, then a moisturizer."
+   },
+   "de": {
+    "titre": "1. Waschen und eincremen",
+    "texte": "Kalte Luft und Heizung trocknen die Haut aus. Nimm einen milden Reiniger, dann eine Feuchtigkeitscreme."
+   },
+   "es-419": {
+    "titre": "1. Lava e hidrata",
+    "texte": "El frío y la calefacción resecan la piel. Usa un limpiador suave y luego crema hidratante."
+   },
+   "it": {
+    "titre": "1. Lava e idrata",
+    "texte": "Freddo e riscaldamento seccano la pelle. Usa un detergente delicato, poi una crema idratante."
+   },
+   "pl": {
+    "titre": "1. Myj i nawilżaj",
+    "texte": "Zimne powietrze i ogrzewanie wysuszają skórę. Użyj łagodnego żelu, potem kremu nawilżającego."
+   },
+   "tr": {
+    "titre": "1. Yıka ve nemlendir",
+    "texte": "Soğuk hava ve kalorifer cildi kurutur. Yumuşak bir temizleyici, sonra nemlendirici kullan."
+   },
+   "hu": {
+    "titre": "1. Mosd és hidratáld",
+    "texte": "A hideg és a fűtés kiszárítja a bőrt. Használj kíméletes lemosót, aztán hidratálót."
+   },
+   "el": {
+    "titre": "1. Πλύσιμο και ενυδάτωση",
+    "texte": "Το κρύο και η θέρμανση ξεραίνουν το δέρμα. Ήπιο καθαριστικό και μετά ενυδατική."
+   },
+   "ro": {
+    "titre": "1. Spală și hidratează",
+    "texte": "Frigul și caloriferul usucă pielea. Folosește un gel blând, apoi o cremă hidratantă."
+   },
+   "sr": {
+    "titre": "1. Umij se i hidriraj",
+    "texte": "Hladan vazduh i grejanje isušuju kožu. Koristi blago sredstvo za umivanje, pa kremu."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/soleil.png",
+   "mode": "bas",
+   "taille": 560,
+   "en": {
+    "titre": "2. Get morning daylight",
+    "texte": "Go outside in the morning, even when it's grey. Daylight helps set your sleep rhythm."
+   },
+   "de": {
+    "titre": "2. Hol dir Morgenlicht",
+    "texte": "Geh morgens raus, auch wenn es grau ist. Tageslicht hilft, deinen Schlafrhythmus einzustellen."
+   },
+   "es-419": {
+    "titre": "2. Toma luz de mañana",
+    "texte": "Sal en la mañana, aunque esté nublado. La luz del día ayuda a ajustar tu ritmo de sueño."
+   },
+   "it": {
+    "titre": "2. Prendi luce al mattino",
+    "texte": "Esci la mattina, anche se è grigio. La luce del giorno aiuta a regolare il ritmo del sonno."
+   },
+   "pl": {
+    "titre": "2. Łap poranne światło",
+    "texte": "Wyjdź rano na dwór, nawet gdy jest szaro. Światło dzienne pomaga ustawić rytm snu."
+   },
+   "tr": {
+    "titre": "2. Sabah ışığı al",
+    "texte": "Hava gri olsa da sabah dışarı çık. Gün ışığı uyku düzenini ayarlamaya yardım eder."
+   },
+   "hu": {
+    "titre": "2. Reggeli fény",
+    "texte": "Menj ki reggel, akkor is, ha szürke az idő. A nappali fény segít beállítani az alvásritmusod."
+   },
+   "el": {
+    "titre": "2. Πρωινό φως",
+    "texte": "Βγες έξω το πρωί, ακόμα κι αν είναι συννεφιά. Το φως της μέρας ρυθμίζει τον ύπνο σου."
+   },
+   "ro": {
+    "titre": "2. Lumină de dimineață",
+    "texte": "Ieși afară dimineața, chiar dacă e gri. Lumina zilei te ajută să-ți reglezi somnul."
+   },
+   "sr": {
+    "titre": "2. Hvataj jutarnje svetlo",
+    "texte": "Izađi ujutru, čak i kad je sivo. Dnevno svetlo pomaže da namestiš ritam spavanja."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-nuit.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Keep running after dark",
+    "texte": "Dark evenings are no reason to stop. Wear something bright. Personally, a running coach app like Atala keeps my runs planned."
+   },
+   "de": {
+    "titre": "3. Lauf auch im Dunkeln",
+    "texte": "Dunkle Abende sind kein Grund aufzuhören. Trag etwas Helles. Bei mir plant eine Lauf-App mit Coach wie Atala die Läufe."
+   },
+   "es-419": {
+    "titre": "3. Corre aunque oscurezca",
+    "texte": "Las tardes oscuras no son razón para parar. Usa algo claro. En lo personal, una app de running con entrenador como Atala me planea las salidas."
+   },
+   "it": {
+    "titre": "3. Corri anche col buio",
+    "texte": "Le sere buie non sono un motivo per fermarsi. Metti qualcosa di chiaro. Io personalmente ho le uscite pianificate da un'app con coach per la corsa come Atala."
+   },
+   "pl": {
+    "titre": "3. Biegaj po zmroku",
+    "texte": "Ciemne wieczory to nie powód, żeby przestać. Załóż coś jasnego. Mnie osobiście biegi planuje aplikacja z trenerem biegania, taka jak Atala."
+   },
+   "tr": {
+    "titre": "3. Karanlıkta da koş",
+    "texte": "Karanlık akşamlar bırakmak için sebep değil. Açık renk bir şey giy. Kişisel olarak koşularımı Atala gibi bir koşu koçu uygulaması planlıyor."
+   },
+   "hu": {
+    "titre": "3. Fuss sötétben is",
+    "texte": "A sötét esték nem ok a leállásra. Viselj valami világosat. Nekem személy szerint egy futóedzős app, mint az Atala, tervezi a futásaimat."
+   },
+   "el": {
+    "titre": "3. Τρέχα και στο σκοτάδι",
+    "texte": "Τα σκοτεινά βράδια δεν είναι λόγος να σταματήσεις. Φόρα κάτι φωτεινό. Προσωπικά, μια εφαρμογή προπονητή τρεξίματος όπως το Atala μου σχεδιάζει τα τρεξίματα."
+   },
+   "ro": {
+    "titre": "3. Aleargă și pe întuneric",
+    "texte": "Serile întunecate nu sunt un motiv să te oprești. Poartă ceva deschis la culoare. Mie personal o aplicație cu antrenor de alergare, ca Atala, îmi planifică alergările."
+   },
+   "sr": {
+    "titre": "3. Trči i po mraku",
+    "texte": "Mračne večeri nisu razlog da staneš. Obuci nešto svetlo. Meni lično aplikacija sa trenerom za trčanje, kao što je Atala, planira trčanja."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/gourde.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "4. Keep drinking water",
+    "texte": "You feel less thirsty in winter, but you still need water. Keep a bottle on your desk."
+   },
+   "de": {
+    "titre": "4. Trink weiter Wasser",
+    "texte": "Im Winter hast du weniger Durst, brauchst aber trotzdem Wasser. Stell eine Flasche auf den Tisch."
+   },
+   "es-419": {
+    "titre": "4. Sigue tomando agua",
+    "texte": "En invierno te da menos sed, pero igual necesitas agua. Ten una botella en tu escritorio."
+   },
+   "it": {
+    "titre": "4. Continua a bere acqua",
+    "texte": "D'inverno hai meno sete, ma l'acqua ti serve lo stesso. Tieni una borraccia sulla scrivania."
+   },
+   "pl": {
+    "titre": "4. Pij dalej wodę",
+    "texte": "Zimą mniej chce ci się pić, ale wody potrzebujesz tak samo. Trzymaj butelkę na biurku."
+   },
+   "tr": {
+    "titre": "4. Su içmeye devam et",
+    "texte": "Kışın daha az susarsın ama yine de suya ihtiyacın var. Masanda bir şişe bulundur."
+   },
+   "hu": {
+    "titre": "4. Igyál tovább vizet",
+    "texte": "Télen kevésbé vagy szomjas, de vízre ugyanúgy szükséged van. Tarts egy palackot az asztalodon."
+   },
+   "el": {
+    "titre": "4. Συνέχισε να πίνεις νερό",
+    "texte": "Τον χειμώνα διψάς λιγότερο, αλλά χρειάζεσαι νερό. Κράτα ένα μπουκάλι στο γραφείο."
+   },
+   "ro": {
+    "titre": "4. Bea apă în continuare",
+    "texte": "Iarna ți-e mai puțin sete, dar tot ai nevoie de apă. Ține o sticlă pe birou."
+   },
+   "sr": {
+    "titre": "4. Nastavi da piješ vodu",
+    "texte": "Zimi si manje žedan, ali ti voda i dalje treba. Drži flašu na stolu."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/ciseaux.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "5. Get a fresh cut",
+    "texte": "Get a trim every 3 to 4 weeks. A fresh cut makes any outfit look sharper."
+   },
+   "de": {
+    "titre": "5. Frischer Haarschnitt",
+    "texte": "Lass alle 3 bis 4 Wochen nachschneiden. Ein frischer Schnitt lässt jedes Outfit schärfer wirken."
+   },
+   "es-419": {
+    "titre": "5. Corte fresco",
+    "texte": "Recórtate cada 3 o 4 semanas. Un corte fresco hace que cualquier outfit se vea mejor."
+   },
+   "it": {
+    "titre": "5. Taglio fresco",
+    "texte": "Spunta i capelli ogni 3-4 settimane. Un taglio fresco rende più curato qualsiasi outfit."
+   },
+   "pl": {
+    "titre": "5. Świeże cięcie",
+    "texte": "Podcinaj włosy co 3–4 tygodnie. Świeża fryzura poprawia każdy strój."
+   },
+   "tr": {
+    "titre": "5. Taze bir kesim",
+    "texte": "3-4 haftada bir saçını aldır. Taze bir kesim her kombini daha keskin gösterir."
+   },
+   "hu": {
+    "titre": "5. Friss hajvágás",
+    "texte": "Vágasd 3-4 hetente. Egy friss frizura minden szettet élesebbé tesz."
+   },
+   "el": {
+    "titre": "5. Φρέσκο κούρεμα",
+    "texte": "Κουρέψου κάθε 3-4 βδομάδες. Ένα φρέσκο κούρεμα κάνει κάθε ντύσιμο πιο προσεγμένο."
+   },
+   "ro": {
+    "titre": "5. Tunsoare proaspătă",
+    "texte": "Tunde-te la 3-4 săptămâni. O tunsoare proaspătă face orice ținută mai îngrijită."
+   },
+   "sr": {
+    "titre": "5. Sveže šišanje",
+    "texte": "Šišaj se na 3 do 4 nedelje. Sveža frizura čini svaki outfit oštrijim."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-4.png",
+   "en": {
+    "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
+   }
+  }
+ ]
+}

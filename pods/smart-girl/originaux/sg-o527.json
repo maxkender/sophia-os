@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o527",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3eee2fa4-96b3-41a6-a8bc-50ee7177bda8",
+ "titre": "fabrics every elegant woman should know #fabrics #fashion #elegance #smartgirl #oldmoney",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 10 de la boîte (parent 3eee2fa4, langue source en) : accroche du parent mot pour mot. Tissus neufs face au parent (lin et soie gardés, plus mohair, alpaga, popeline, crêpe de Chine, organza). Sophia en dernier comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1d988fad",
+   "texte_overlay": "fabrics every elegant woman\nshould know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c7d6dbc0",
+   "texte_overlay": "silk\n\nspun by silkworms\nfor their cocoons.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "519dac63",
+   "texte_overlay": "linen\n\nwoven from flax, one of the\noldest fabrics in the world.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a44cb9f7",
+   "texte_overlay": "alpaca\n\nwarmer and lighter than wool.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "67abb973",
+   "texte_overlay": "poplin\n\nthe crisp cotton of\na perfect shirt.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2a82460e",
+   "texte_overlay": "crêpe de chine\n\na fluid, matte silk.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "22d0e4ef",
+   "texte_overlay": "organza\n\nsheer and stiff, for evening.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "7f651554",
+   "texte_overlay": "learning one new thing a day beats\nan hour of scrolling.",
+   "texte_sophia": "learning one new thing a day on an app like\nSophia beats an hour of scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "311160c4",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/9.jpg"
+  }
+ ]
+}

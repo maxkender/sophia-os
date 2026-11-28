@@ -69,11 +69,11 @@
       "url": "https://www.metmuseum.org/art/collection/search/437549"
     }
   },
-  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Turner, Baleiniers (vers 1845) : exposé à la Royal Academy en 1845, Turner né en 1775 ; scène tirée de The Natural History of the Sperm Whale de Thomas Beale ; peint pour Elhanan Bicknell, enrichi dans l'huile de baleine. Dahl, Deux hommes devant une cascade au coucher du soleil (1823) : Dahl s'installe en 1823 dans la maison de Friedrich à Dresde (An der Elbe 33). Courbet, La Source de la Loue (1864) : Courbet né à Ornans ; série de vues de la source peintes en 1864. Ruisdael, Champs de blé (vers 1670) : Ruisdael à Amsterdam depuis 1657 ; legs Benjamin Altman 1913. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou, une tache de lumière).",
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Turner, Baleiniers (vers 1845) : exposé à la Royal Academy en 1845, Turner né en 1775 ; scène tirée de The Natural History of the Sperm Whale de Thomas Beale ; peint pour Elhanan Bicknell, enrichi dans l'huile de baleine. Dahl, Deux hommes devant une cascade au coucher du soleil (1823) : Dahl s'installe en 1823 dans la maison de Friedrich à Dresde (An der Elbe 33). Courbet, La Source de la Loue (1864) : Courbet né à Ornans ; série de vues de la source peintes en 1864. Ruisdael, Champs de blé (vers 1670) : Ruisdael à Amsterdam depuis 1657 ; legs Benjamin Altman 1913. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA (refaite le 27/11).",
   "slides": [
     {
       "type": "couverture",
-      "image": "images/photos/musee-immense.jpg",
+      "image": "images/banque/b-couloir-tableaux.jpg",
       "en": {
         "titre": "Paintings That Make Me Feel So Small"
       },
@@ -321,5 +321,8 @@
         "artiste": "Jacob van Ruisdael"
       }
     }
-  ]
+  ],
+  "banque": {
+    "images/banque/b-couloir-tableaux.jpg": "065c5865-a1f1-46bb-b75b-d49000c4c8c3"
+  }
 }

@@ -1,0 +1,343 @@
+{
+ "id": "bn-018",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7707980369747823880",
+  "vues": 494600,
+  "publie_le": "2026-11-14",
+  "accroche": "GLOW UP HACKS FOR MEN."
+ },
+ "titre": {
+  "en": "glow up habits for men who want results",
+  "de": "glow-up-gewohnheiten für männer, die ergebnisse wollen",
+  "es-419": "hábitos de glow up para hombres que quieren resultados",
+  "it": "abitudini glow up per uomini che vogliono risultati",
+  "pl": "nawyki glow up dla facetów, którzy chcą efektów",
+  "tr": "sonuç isteyen erkekler için glow up alışkanlıkları",
+  "hu": "glow up szokások férfiaknak, akik eredményt akarnak",
+  "el": "συνήθειες glow up για άντρες που θέλουν αποτελέσματα",
+  "ro": "obiceiuri de glow up pentru bărbații care vor rezultate",
+  "sr": "glow up navike za muškarce koji žele rezultate"
+ },
+ "legendes": {
+  "en": "consistency beats everything #glowup #selfimprovement #tipsformen #running #menshealth",
+  "de": "konstanz schlägt alles #glowup #selfimprovement #tipsformen #running #menshealth",
+  "es-419": "la constancia le gana a todo #glowup #selfimprovement #tipsformen #running #menshealth",
+  "it": "la costanza batte tutto #glowup #selfimprovement #tipsformen #running #menshealth",
+  "pl": "regularność wygrywa ze wszystkim #glowup #selfimprovement #tipsformen #running #menshealth",
+  "tr": "istikrar her şeyi yener #glowup #selfimprovement #tipsformen #running #menshealth",
+  "hu": "a kitartás mindent legyőz #glowup #selfimprovement #tipsformen #running #menshealth",
+  "el": "η συνέπεια νικάει τα πάντα #glowup #selfimprovement #tipsformen #running #menshealth",
+  "ro": "constanța bate tot #glowup #selfimprovement #tipsformen #running #menshealth",
+  "sr": "doslednost pobeđuje sve #glowup #selfimprovement #tipsformen #running #menshealth"
+ },
+ "musique": {
+  "titre": "FUNDO DE VIDEO",
+  "url": "https://www.tiktok.com/music/fundo-de-video-7517337106206656513"
+ },
+ "notes": "Full test (boîte vide). Famille « GLOW UP HACKS FOR MEN. » de @built.not.born61 (494.6 k vues, 2026-11-14), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : 1df6a59e, aucune marque lisible, pas celui de la veille) et le logo d'Atala. placement_atala : voix NEUTRE (hook de 8 mots), argument « s'essouffle : le coach dit quand ralentir » ; photovieillissement : le soleil est la première cause du vieillissement cutané précoce (AAD, OMS). En 10 langues, traduites à la main. Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-montagne.png": "1df6a59e-98f6-41b6-bf7b-f3cbb23fdf7c"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-18.png",
+   "en": {
+    "titre": "GLOW UP HABITS\nFOR MEN WHO\nWANT RESULTS."
+   },
+   "de": {
+    "titre": "GLOW-UP-GEWOHNHEITEN\nFÜR MÄNNER, DIE\nERGEBNISSE WOLLEN."
+   },
+   "es-419": {
+    "titre": "HÁBITOS DE GLOW UP\nPARA HOMBRES QUE\nQUIEREN RESULTADOS."
+   },
+   "it": {
+    "titre": "ABITUDINI GLOW UP\nPER UOMINI CHE\nVOGLIONO RISULTATI."
+   },
+   "pl": {
+    "titre": "NAWYKI GLOW UP\nDLA FACETÓW, KTÓRZY\nCHCĄ EFEKTÓW."
+   },
+   "tr": {
+    "titre": "SONUÇ İSTEYEN\nERKEKLER İÇİN\nGLOW UP ALIŞKANLIKLARI."
+   },
+   "hu": {
+    "titre": "GLOW UP SZOKÁSOK\nFÉRFIAKNAK, AKIK\nEREDMÉNYT AKARNAK."
+   },
+   "el": {
+    "titre": "ΣΥΝΗΘΕΙΕΣ GLOW UP\nΓΙΑ ΑΝΤΡΕΣ ΠΟΥ\nΘΕΛΟΥΝ ΑΠΟΤΕΛΕΣΜΑΤΑ."
+   },
+   "ro": {
+    "titre": "OBICEIURI DE GLOW UP\nPENTRU BĂRBAȚII CARE\nVOR REZULTATE."
+   },
+   "sr": {
+    "titre": "GLOW UP NAVIKE\nZA MUŠKARCE KOJI\nŽELE REZULTATE."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/tondeuse.png",
+   "mode": "objet",
+   "taille": 460,
+   "en": {
+    "titre": "1. Keep your lines clean",
+    "texte": "Trim your beard and neckline every few days. Clean lines make any face look sharper."
+   },
+   "de": {
+    "titre": "1. Halte deine Linien sauber",
+    "texte": "Trimm Bart und Halslinie alle paar Tage. Saubere Linien lassen jedes Gesicht schärfer wirken."
+   },
+   "es-419": {
+    "titre": "1. Líneas siempre limpias",
+    "texte": "Recorta la barba y el cuello cada pocos días. Las líneas limpias hacen que cualquier cara se vea más definida."
+   },
+   "it": {
+    "titre": "1. Linee sempre pulite",
+    "texte": "Regola barba e collo ogni pochi giorni. Le linee pulite rendono qualsiasi viso più definito."
+   },
+   "pl": {
+    "titre": "1. Dbaj o czyste linie",
+    "texte": "Przycinaj brodę i linię szyi co kilka dni. Czyste linie wyostrzają każdą twarz."
+   },
+   "tr": {
+    "titre": "1. Çizgilerin temiz olsun",
+    "texte": "Sakalını ve boyun çizgini birkaç günde bir düzelt. Temiz çizgiler her yüzü daha keskin gösterir."
+   },
+   "hu": {
+    "titre": "1. Tiszta vonalak",
+    "texte": "Pár naponta igazítsd a szakállad és a nyakvonalad. A tiszta vonalak minden arcot élesebbé tesznek."
+   },
+   "el": {
+    "titre": "1. Καθαρές γραμμές",
+    "texte": "Κόβε γένια και λαιμό κάθε λίγες μέρες. Οι καθαρές γραμμές κάνουν κάθε πρόσωπο πιο κοφτό."
+   },
+   "ro": {
+    "titre": "1. Linii mereu curate",
+    "texte": "Aranjează barba și linia gâtului la câteva zile. Liniile curate fac orice față mai definită."
+   },
+   "sr": {
+    "titre": "1. Čiste linije",
+    "texte": "Skraćuj bradu i liniju vrata na par dana. Čiste linije čine svako lice oštrijim."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/creme-solaire.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "2. Wear sunscreen",
+    "texte": "Use SPF on sunny days. The sun is the main cause of early skin aging."
+   },
+   "de": {
+    "titre": "2. Trag Sonnencreme",
+    "texte": "Benutze an sonnigen Tagen LSF. Die Sonne ist die Hauptursache für frühe Hautalterung."
+   },
+   "es-419": {
+    "titre": "2. Usa protector solar",
+    "texte": "Usa SPF en días soleados. El sol es la causa principal del envejecimiento prematuro de la piel."
+   },
+   "it": {
+    "titre": "2. Metti la crema solare",
+    "texte": "Usa l'SPF nei giorni di sole. Il sole è la causa principale dell'invecchiamento precoce della pelle."
+   },
+   "pl": {
+    "titre": "2. Używaj filtra SPF",
+    "texte": "Stosuj SPF w słoneczne dni. Słońce to główna przyczyna przedwczesnego starzenia się skóry."
+   },
+   "tr": {
+    "titre": "2. Güneş kremi sür",
+    "texte": "Güneşli günlerde SPF kullan. Güneş, cildin erken yaşlanmasının ana nedenidir."
+   },
+   "hu": {
+    "titre": "2. Használj naptejet",
+    "texte": "Napos napokon használj fényvédőt. A nap a bőr korai öregedésének fő oka."
+   },
+   "el": {
+    "titre": "2. Βάλε αντηλιακό",
+    "texte": "Χρησιμοποίησε SPF τις ηλιόλουστες μέρες. Ο ήλιος είναι η κύρια αιτία της πρόωρης γήρανσης του δέρματος."
+   },
+   "ro": {
+    "titre": "2. Folosește cremă solară",
+    "texte": "Pune SPF în zilele cu soare. Soarele e principala cauză a îmbătrânirii premature a pielii."
+   },
+   "sr": {
+    "titre": "2. Koristi kremu za sunčanje",
+    "texte": "Stavljaj SPF sunčanim danima. Sunce je glavni uzrok ranog starenja kože."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-montagne.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Run at an easy pace",
+    "texte": "Easy runs build the base, fast days come later. Running coach apps like Atala tell you when to slow down."
+   },
+   "de": {
+    "titre": "3. Lauf locker",
+    "texte": "Lockere Läufe bauen die Basis, schnelle Tage kommen später. Lauf-Apps mit Coach wie Atala sagen dir, wann du langsamer machen sollst."
+   },
+   "es-419": {
+    "titre": "3. Corre a ritmo suave",
+    "texte": "Los trotes suaves construyen la base, los días rápidos vienen después. Las apps de running con entrenador como Atala te dicen cuándo bajar el ritmo."
+   },
+   "it": {
+    "titre": "3. Corri a ritmo facile",
+    "texte": "Le corse facili costruiscono la base, i giorni veloci vengono dopo. Le app con coach per la corsa come Atala ti dicono quando rallentare."
+   },
+   "pl": {
+    "titre": "3. Biegaj spokojnie",
+    "texte": "Spokojne biegi budują bazę, szybkie dni przychodzą później. Aplikacje z trenerem biegania, takie jak Atala, mówią ci, kiedy zwolnić."
+   },
+   "tr": {
+    "titre": "3. Rahat tempoda koş",
+    "texte": "Hafif koşular temeli kurar, hızlı günler sonra gelir. Atala gibi koşu koçu uygulamaları sana ne zaman yavaşlaman gerektiğini söyler."
+   },
+   "hu": {
+    "titre": "3. Fuss könnyű tempóban",
+    "texte": "A könnyű futások építik az alapot, a gyors napok később jönnek. Az olyan futóedzős appok, mint az Atala, szólnak, mikor lassíts."
+   },
+   "el": {
+    "titre": "3. Τρέχα σε χαλαρό ρυθμό",
+    "texte": "Τα χαλαρά τρεξίματα χτίζουν τη βάση, οι γρήγορες μέρες έρχονται μετά. Οι εφαρμογές προπονητή τρεξίματος όπως το Atala σου λένε πότε να κόψεις ταχύτητα."
+   },
+   "ro": {
+    "titre": "3. Aleargă în ritm ușor",
+    "texte": "Alergările ușoare construiesc baza, zilele rapide vin mai târziu. Aplicațiile cu antrenor de alergare, ca Atala, îți spun când să încetinești."
+   },
+   "sr": {
+    "titre": "3. Trči laganim tempom",
+    "texte": "Laka trčanja grade osnovu, brzi dani dolaze kasnije. Aplikacije sa trenerom za trčanje, kao što je Atala, kažu ti kada da usporiš."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/assiette.png",
+   "mode": "objet",
+   "taille": 460,
+   "en": {
+    "titre": "4. Eat more protein",
+    "texte": "Eggs, chicken, fish, beans. Protein keeps you full and helps your muscles recover."
+   },
+   "de": {
+    "titre": "4. Iss mehr Eiweiß",
+    "texte": "Eier, Hähnchen, Fisch, Bohnen. Eiweiß macht satt und hilft deinen Muskeln bei der Erholung."
+   },
+   "es-419": {
+    "titre": "4. Come más proteína",
+    "texte": "Huevos, pollo, pescado, frijoles. La proteína te llena y ayuda a que tus músculos se recuperen."
+   },
+   "it": {
+    "titre": "4. Mangia più proteine",
+    "texte": "Uova, pollo, pesce, legumi. Le proteine saziano e aiutano i muscoli a recuperare."
+   },
+   "pl": {
+    "titre": "4. Jedz więcej białka",
+    "texte": "Jajka, kurczak, ryby, fasola. Białko syci i pomaga mięśniom się regenerować."
+   },
+   "tr": {
+    "titre": "4. Daha çok protein ye",
+    "texte": "Yumurta, tavuk, balık, fasulye. Protein tok tutar ve kaslarının toparlanmasına yardım eder."
+   },
+   "hu": {
+    "titre": "4. Egyél több fehérjét",
+    "texte": "Tojás, csirke, hal, bab. A fehérje laktat és segíti az izmaid regenerálódását."
+   },
+   "el": {
+    "titre": "4. Φάε περισσότερη πρωτεΐνη",
+    "texte": "Αυγά, κοτόπουλο, ψάρι, όσπρια. Η πρωτεΐνη χορταίνει και βοηθά τους μύες να ανακάμψουν."
+   },
+   "ro": {
+    "titre": "4. Mănâncă mai multe proteine",
+    "texte": "Ouă, pui, pește, fasole. Proteinele te țin sătul și ajută mușchii să se refacă."
+   },
+   "sr": {
+    "titre": "4. Jedi više proteina",
+    "texte": "Jaja, piletina, riba, pasulj. Proteini te drže sitim i pomažu mišićima da se oporave."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/masque.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "5. Fix your sleep",
+    "texte": "Same bedtime, dark room, no screens in bed. Everything else works better after good sleep."
+   },
+   "de": {
+    "titre": "5. Bring deinen Schlaf in Ordnung",
+    "texte": "Gleiche Schlafenszeit, dunkles Zimmer, keine Bildschirme im Bett. Alles andere klappt danach besser."
+   },
+   "es-419": {
+    "titre": "5. Arregla tu sueño",
+    "texte": "Misma hora de dormir, cuarto oscuro, nada de pantallas en la cama. Todo lo demás funciona mejor después."
+   },
+   "it": {
+    "titre": "5. Sistema il sonno",
+    "texte": "Stessa ora per dormire, stanza buia, niente schermi a letto. Tutto il resto funziona meglio dopo."
+   },
+   "pl": {
+    "titre": "5. Napraw swój sen",
+    "texte": "Stała pora snu, ciemny pokój, bez ekranów w łóżku. Wszystko inne działa potem lepiej."
+   },
+   "tr": {
+    "titre": "5. Uykunu düzelt",
+    "texte": "Aynı yatış saati, karanlık oda, yatakta ekran yok. Gerisi ondan sonra daha iyi çalışır."
+   },
+   "hu": {
+    "titre": "5. Rendezd az alvásod",
+    "texte": "Ugyanakkor lefekvés, sötét szoba, nincs képernyő az ágyban. Utána minden más jobban megy."
+   },
+   "el": {
+    "titre": "5. Φτιάξε τον ύπνο σου",
+    "texte": "Ίδια ώρα ύπνου, σκοτεινό δωμάτιο, χωρίς οθόνες στο κρεβάτι. Όλα τα άλλα δουλεύουν καλύτερα μετά."
+   },
+   "ro": {
+    "titre": "5. Repară-ți somnul",
+    "texte": "Aceeași oră de culcare, cameră întunecată, fără ecrane în pat. Restul merge mai bine după."
+   },
+   "sr": {
+    "titre": "5. Sredi san",
+    "texte": "Isto vreme za spavanje, mračna soba, bez ekrana u krevetu. Sve ostalo posle bolje radi."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-5.png",
+   "en": {
+    "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
+   }
+  }
+ ]
+}

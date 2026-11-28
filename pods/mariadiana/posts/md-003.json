@@ -68,11 +68,11 @@
       "url": "https://www.metmuseum.org/art/collection/search/437898"
     }
   },
-  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : La Diseuse de bonne aventure : pendant que la vieille lit l'avenir, une fille coupe la médaille de la chaîne du jeune homme, une autre lui prend sa bourse ; achat du Met en 1960, polémique en France (licence d'exportation, débat à l'Assemblée). Vermeer : vente Dissius, Amsterdam 1696 (« Een dronke slapende Meyd aen een Tafel ») ; radiographies : un homme dans l'embrasure et un chien, effacés (notice du Met). Labille-Guiard : l'Académie limitait à quatre les femmes membres ; Salon de 1785 ; Marie-Marguerite Carreaux de Rosemond (1765-1788). Madame Grand : 1783, Salon de 1783 ; Vigée Le Brun et Labille-Guiard reçues à l'Académie le même jour, le 31 mai 1783 ; Noël Catherine Vorlée née en 1761 à Tranquebar (Inde), scandale Philip Francis à Calcutta (1778), épouse Talleyrand en 1802. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (une foule ou des visiteurs de dos, le tableau n'est qu'une tache de lumière).",
+  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : La Diseuse de bonne aventure : pendant que la vieille lit l'avenir, une fille coupe la médaille de la chaîne du jeune homme, une autre lui prend sa bourse ; achat du Met en 1960, polémique en France (licence d'exportation, débat à l'Assemblée). Vermeer : vente Dissius, Amsterdam 1696 (« Een dronke slapende Meyd aen een Tafel ») ; radiographies : un homme dans l'embrasure et un chien, effacés (notice du Met). Labille-Guiard : l'Académie limitait à quatre les femmes membres ; Salon de 1785 ; Marie-Marguerite Carreaux de Rosemond (1765-1788). Madame Grand : 1783, Salon de 1783 ; Vigée Le Brun et Labille-Guiard reçues à l'Académie le même jour, le 31 mai 1783 ; Noël Catherine Vorlée née en 1761 à Tranquebar (Inde), scandale Philip Francis à Calcutta (1778), épouse Talleyrand en 1802. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA (refaite le 27/11).",
   "slides": [
     {
       "type": "couverture",
-      "image": "images/photos/musee-banc.jpg",
+      "image": "images/banque/b-banc-homme.jpg",
       "en": {
         "titre": "Paintings That Live In My Head"
       },
@@ -320,5 +320,8 @@
         "artiste": "Élisabeth Vigée Le Brun"
       }
     }
-  ]
+  ],
+  "banque": {
+    "images/banque/b-banc-homme.jpg": "fada3c53-8009-4dbd-87a7-683abbd22130"
+  }
 }

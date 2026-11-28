@@ -1,0 +1,343 @@
+{
+ "id": "bn-021",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7708629737287044359",
+  "vues": 67500,
+  "publie_le": "2026-11-16",
+  "accroche": "6 RULES FOR MEN."
+ },
+ "titre": {
+  "en": "5 rules for men who want respect",
+  "de": "5 regeln für männer, die respekt wollen",
+  "es-419": "5 reglas para hombres que quieren respeto",
+  "it": "5 regole per uomini che vogliono rispetto",
+  "pl": "5 zasad dla facetów, którzy chcą szacunku",
+  "tr": "saygı isteyen erkekler için 5 kural",
+  "hu": "5 szabály férfiaknak, akik tiszteletet akarnak",
+  "el": "5 κανόνες για άντρες που θέλουν σεβασμό",
+  "ro": "5 reguli pentru bărbații care vor respect",
+  "sr": "5 pravila za muškarce koji žele poštovanje"
+ },
+ "legendes": {
+  "en": "respect is earned #rulesformen #discipline #tipsformen #running #selfimprovement",
+  "de": "respekt verdient man sich #rulesformen #discipline #tipsformen #running #selfimprovement",
+  "es-419": "el respeto se gana #rulesformen #discipline #tipsformen #running #selfimprovement",
+  "it": "il rispetto si guadagna #rulesformen #discipline #tipsformen #running #selfimprovement",
+  "pl": "na szacunek się zapracowuje #rulesformen #discipline #tipsformen #running #selfimprovement",
+  "tr": "saygı kazanılır #rulesformen #discipline #tipsformen #running #selfimprovement",
+  "hu": "a tiszteletet ki kell érdemelni #rulesformen #discipline #tipsformen #running #selfimprovement",
+  "el": "ο σεβασμός κερδίζεται #rulesformen #discipline #tipsformen #running #selfimprovement",
+  "ro": "respectul se câștigă #rulesformen #discipline #tipsformen #running #selfimprovement",
+  "sr": "poštovanje se zaslužuje #rulesformen #discipline #tipsformen #running #selfimprovement"
+ },
+ "musique": {
+  "titre": "Keep On Winning",
+  "url": "https://www.tiktok.com/music/keep-on-winning-7686584884982269978"
+ },
+ "notes": "Full test (boîte vide). Famille « 6 RULES FOR MEN. » de @built.not.born61 (67.5 k vues, 2026-11-16), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : a80b4cad, aucune marque lisible, pas ceux de la veille) et le logo d'Atala. placement_atala : voix TU (hook de 7 mots), argument « régularité : la séance du jour déjà décidée ». En 10 langues, traduites à la main. Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-sweat.png": "a80b4cad-6639-487e-a8b7-454c028b4bf9"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-21.png",
+   "en": {
+    "titre": "5 RULES FOR MEN\nWHO WANT\nRESPECT."
+   },
+   "de": {
+    "titre": "5 REGELN FÜR\nMÄNNER, DIE RESPEKT\nWOLLEN."
+   },
+   "es-419": {
+    "titre": "5 REGLAS PARA\nHOMBRES QUE QUIEREN\nRESPETO."
+   },
+   "it": {
+    "titre": "5 REGOLE PER\nUOMINI CHE VOGLIONO\nRISPETTO."
+   },
+   "pl": {
+    "titre": "5 ZASAD DLA\nFACETÓW, KTÓRZY\nCHCĄ SZACUNKU."
+   },
+   "tr": {
+    "titre": "SAYGI İSTEYEN\nERKEKLER İÇİN\n5 KURAL."
+   },
+   "hu": {
+    "titre": "5 SZABÁLY\nFÉRFIAKNAK, AKIK\nTISZTELETET AKARNAK."
+   },
+   "el": {
+    "titre": "5 ΚΑΝΟΝΕΣ ΓΙΑ\nΑΝΤΡΕΣ ΠΟΥ ΘΕΛΟΥΝ\nΣΕΒΑΣΜΟ."
+   },
+   "ro": {
+    "titre": "5 REGULI PENTRU\nBĂRBAȚII CARE VOR\nRESPECT."
+   },
+   "sr": {
+    "titre": "5 PRAVILA ZA\nMUŠKARCE KOJI\nŽELE POŠTOVANJE."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/montre.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "1. Be on time",
+    "texte": "Arrive five minutes early. It shows people you take them seriously."
+   },
+   "de": {
+    "titre": "1. Sei pünktlich",
+    "texte": "Komm fünf Minuten früher. So zeigst du, dass du andere ernst nimmst."
+   },
+   "es-419": {
+    "titre": "1. Sé puntual",
+    "texte": "Llega cinco minutos antes. Demuestra que tomas en serio a los demás."
+   },
+   "it": {
+    "titre": "1. Sii puntuale",
+    "texte": "Arriva cinque minuti prima. Dimostra che prendi sul serio gli altri."
+   },
+   "pl": {
+    "titre": "1. Bądź punktualny",
+    "texte": "Przychodź pięć minut wcześniej. Pokazujesz, że traktujesz ludzi poważnie."
+   },
+   "tr": {
+    "titre": "1. Dakik ol",
+    "texte": "Beş dakika erken gel. İnsanları ciddiye aldığını gösterir."
+   },
+   "hu": {
+    "titre": "1. Légy pontos",
+    "texte": "Érkezz öt perccel korábban. Ezzel mutatod, hogy komolyan veszed a többieket."
+   },
+   "el": {
+    "titre": "1. Να είσαι στην ώρα σου",
+    "texte": "Έλα πέντε λεπτά νωρίτερα. Δείχνει ότι παίρνεις τους άλλους στα σοβαρά."
+   },
+   "ro": {
+    "titre": "1. Fii punctual",
+    "texte": "Ajungi cu cinci minute mai devreme. Arată că îi iei pe ceilalți în serios."
+   },
+   "sr": {
+    "titre": "1. Budi tačan",
+    "texte": "Dođi pet minuta ranije. Time pokazuješ da ljude shvataš ozbiljno."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/agenda.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "2. Keep your word",
+    "texte": "If you say you'll do it, do it. Write it down so you don't forget."
+   },
+   "de": {
+    "titre": "2. Halte dein Wort",
+    "texte": "Wenn du sagst, dass du es machst, mach es. Schreib es auf, damit du es nicht vergisst."
+   },
+   "es-419": {
+    "titre": "2. Cumple tu palabra",
+    "texte": "Si dices que lo vas a hacer, hazlo. Anótalo para no olvidarlo."
+   },
+   "it": {
+    "titre": "2. Mantieni la parola",
+    "texte": "Se dici che lo fai, fallo. Scrivilo per non dimenticarlo."
+   },
+   "pl": {
+    "titre": "2. Dotrzymuj słowa",
+    "texte": "Jeśli mówisz, że coś zrobisz, zrób to. Zapisz, żeby nie zapomnieć."
+   },
+   "tr": {
+    "titre": "2. Sözünü tut",
+    "texte": "Yapacağım dediysen yap. Unutmamak için not al."
+   },
+   "hu": {
+    "titre": "2. Tartsd a szavad",
+    "texte": "Ha azt mondod, megcsinálod, csináld meg. Írd fel, hogy ne felejtsd el."
+   },
+   "el": {
+    "titre": "2. Κράτα τον λόγο σου",
+    "texte": "Αν πεις ότι θα το κάνεις, κάν' το. Γράψ' το για να μην το ξεχάσεις."
+   },
+   "ro": {
+    "titre": "2. Ține-ți cuvântul",
+    "texte": "Dacă spui că faci ceva, fă-l. Notează-l ca să nu uiți."
+   },
+   "sr": {
+    "titre": "2. Drži reč",
+    "texte": "Ako kažeš da ćeš nešto uraditi, uradi. Zapiši da ne zaboraviš."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-sweat.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Run on lazy days",
+    "texte": "Running when you don't feel like it builds discipline. A running coach app like Atala gives you today's run, so there's nothing to decide."
+   },
+   "de": {
+    "titre": "3. Lauf an faulen Tagen",
+    "texte": "Laufen, wenn du keine Lust hast, baut Disziplin auf. Eine Lauf-App mit Coach wie Atala gibt dir den Lauf des Tages vor, du musst nichts entscheiden."
+   },
+   "es-419": {
+    "titre": "3. Corre en días flojos",
+    "texte": "Correr cuando no tienes ganas construye disciplina. Una app de running con entrenador como Atala te da la carrera del día, así no hay nada que decidir."
+   },
+   "it": {
+    "titre": "3. Corri nei giorni pigri",
+    "texte": "Correre quando non ne hai voglia costruisce disciplina. Un'app con coach per la corsa come Atala ti dà la corsa del giorno, così non devi decidere niente."
+   },
+   "pl": {
+    "titre": "3. Biegaj w leniwe dni",
+    "texte": "Bieganie, kiedy ci się nie chce, buduje dyscyplinę. Aplikacja z trenerem biegania, taka jak Atala, daje ci bieg na dziś, więc nie musisz nic decydować."
+   },
+   "tr": {
+    "titre": "3. Tembel günlerde de koş",
+    "texte": "İçinden gelmediğinde koşmak disiplin kazandırır. Atala gibi bir koşu koçu uygulaması günün koşusunu verir, karar verecek bir şey kalmaz."
+   },
+   "hu": {
+    "titre": "3. Fuss a lusta napokon is",
+    "texte": "Ha akkor is futsz, amikor nincs kedved, fegyelmet építesz. Egy futóedzős app, mint az Atala, megadja a napi futást, nincs mit eldönteni."
+   },
+   "el": {
+    "titre": "3. Τρέχα και στις τεμπέλικες",
+    "texte": "Το τρέξιμο όταν δεν έχεις όρεξη χτίζει πειθαρχία. Μια εφαρμογή προπονητή τρεξίματος όπως το Atala σου δίνει το τρέξιμο της μέρας."
+   },
+   "ro": {
+    "titre": "3. Aleargă și în zilele leneșe",
+    "texte": "Să alergi când n-ai chef construiește disciplină. O aplicație cu antrenor de alergare, ca Atala, îți dă alergarea zilei, n-ai nimic de decis."
+   },
+   "sr": {
+    "titre": "3. Trči i u lenje dane",
+    "texte": "Trčanje kad ti se ne da gradi disciplinu. Aplikacija sa trenerom za trčanje, kao što je Atala, daje ti trčanje za danas, pa nemaš šta da odlučuješ."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/micro.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "4. Speak slowly",
+    "texte": "Slow, clear words make people listen. Rushing makes you sound unsure."
+   },
+   "de": {
+    "titre": "4. Sprich langsam",
+    "texte": "Langsame, klare Worte lassen andere zuhören. Hast du es eilig, klingst du unsicher."
+   },
+   "es-419": {
+    "titre": "4. Habla despacio",
+    "texte": "Las palabras lentas y claras hacen que te escuchen. Apurarte te hace sonar inseguro."
+   },
+   "it": {
+    "titre": "4. Parla piano",
+    "texte": "Parole lente e chiare fanno ascoltare. Se vai di fretta sembri insicuro."
+   },
+   "pl": {
+    "titre": "4. Mów powoli",
+    "texte": "Powolne, wyraźne słowa sprawiają, że ludzie słuchają. Pośpiech brzmi niepewnie."
+   },
+   "tr": {
+    "titre": "4. Yavaş konuş",
+    "texte": "Yavaş ve net kelimeler insanları dinletir. Acele etmek seni emin olmayan biri gibi gösterir."
+   },
+   "hu": {
+    "titre": "4. Beszélj lassan",
+    "texte": "A lassú, tiszta szavakra figyelnek. Ha sietsz, bizonytalannak hangzol."
+   },
+   "el": {
+    "titre": "4. Μίλα αργά",
+    "texte": "Τα αργά, καθαρά λόγια κάνουν τους άλλους να ακούνε. Η βιασύνη ακούγεται ανασφαλής."
+   },
+   "ro": {
+    "titre": "4. Vorbește rar",
+    "texte": "Cuvintele rare și clare îi fac pe oameni să asculte. Graba te face să pari nesigur."
+   },
+   "sr": {
+    "titre": "4. Govori polako",
+    "texte": "Spore, jasne reči teraju ljude da slušaju. Žurba zvuči nesigurno."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/haltere.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "5. Lift weights",
+    "texte": "Train strength twice a week. A strong body changes how you carry yourself."
+   },
+   "de": {
+    "titre": "5. Heb Gewichte",
+    "texte": "Trainier zweimal pro Woche Kraft. Ein starker Körper verändert, wie du auftrittst."
+   },
+   "es-419": {
+    "titre": "5. Levanta pesas",
+    "texte": "Entrena fuerza dos veces por semana. Un cuerpo fuerte cambia cómo te mueves."
+   },
+   "it": {
+    "titre": "5. Solleva pesi",
+    "texte": "Allena la forza due volte a settimana. Un corpo forte cambia il modo in cui ti porti."
+   },
+   "pl": {
+    "titre": "5. Podnoś ciężary",
+    "texte": "Trenuj siłę dwa razy w tygodniu. Silne ciało zmienia to, jak się nosisz."
+   },
+   "tr": {
+    "titre": "5. Ağırlık kaldır",
+    "texte": "Haftada iki kez kuvvet çalış. Güçlü bir vücut duruşunu değiştirir."
+   },
+   "hu": {
+    "titre": "5. Emelj súlyt",
+    "texte": "Edzd az erőd hetente kétszer. Egy erős test megváltoztatja a kiállásod."
+   },
+   "el": {
+    "titre": "5. Σήκωνε βάρη",
+    "texte": "Κάνε δύναμη δύο φορές τη βδομάδα. Ένα δυνατό σώμα αλλάζει το πώς κινείσαι."
+   },
+   "ro": {
+    "titre": "5. Ridică greutăți",
+    "texte": "Antrenează forța de două ori pe săptămână. Un corp puternic schimbă felul în care te porți."
+   },
+   "sr": {
+    "titre": "5. Diži tegove",
+    "texte": "Treniraj snagu dva puta nedeljno. Snažno telo menja kako se držiš."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-2.png",
+   "en": {
+    "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
+   }
+  }
+ ]
+}

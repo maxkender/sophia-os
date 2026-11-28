@@ -69,11 +69,11 @@
       "url": "https://www.metmuseum.org/art/collection/search/436322"
     }
   },
-  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Mezzetin (vers 1718-20) : le valet amoureux de la commedia dell'arte chante ; derrière lui une statue de femme de dos ; Watteau mort de tuberculose en 1721 à 36 ans. En bateau (1874) : été à Argenteuil auprès de Monet ; le modèle masculin est Rodolphe Leenhoff, beau-frère de Manet (notice du Met) ; cadrage coupé inspiré des estampes japonaises ; Salon de 1879. Jo, la belle Irlandaise : Joanna Hiffernan, modèle et compagne de Whistler ; peinte à Trouville en 1865 ; quatre versions (Met, Stockholm, Kansas City, coll. privée). La Lettre d'amour (début des années 1770) : la lettre porte « Cuvillier » ; peut-être Marie-Émilie Boucher, mariée à Charles-Étienne-Gabriel Cuvillier en 1773 (notice du Met) ; Fragonard élève de Boucher. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou, une tache de lumière).",
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Mezzetin (vers 1718-20) : le valet amoureux de la commedia dell'arte chante ; derrière lui une statue de femme de dos ; Watteau mort de tuberculose en 1721 à 36 ans. En bateau (1874) : été à Argenteuil auprès de Monet ; le modèle masculin est Rodolphe Leenhoff, beau-frère de Manet (notice du Met) ; cadrage coupé inspiré des estampes japonaises ; Salon de 1879. Jo, la belle Irlandaise : Joanna Hiffernan, modèle et compagne de Whistler ; peinte à Trouville en 1865 ; quatre versions (Met, Stockholm, Kansas City, coll. privée). La Lettre d'amour (début des années 1770) : la lettre porte « Cuvillier » ; peut-être Marie-Émilie Boucher, mariée à Charles-Étienne-Gabriel Cuvillier en 1773 (notice du Met) ; Fragonard élève de Boucher. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA (refaite le 27/11).",
   "slides": [
     {
       "type": "couverture",
-      "image": "images/photos/musee-couple.jpg",
+      "image": "images/banque/b-femme-derby.jpg",
       "en": {
         "titre": "Paintings That Feel Like Falling In Love"
       },
@@ -321,5 +321,8 @@
         "artiste": "Jean-Honoré Fragonard"
       }
     }
-  ]
+  ],
+  "banque": {
+    "images/banque/b-femme-derby.jpg": "822f8e03-fb44-4984-9188-ecb583590bc9"
+  }
 }

@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o518",
+ "type_bleo": "full_test",
+ "titre": "tiny countries you didn't know existed #travel #europe #geography #smartgirl #didyouknow",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 7/10 (la jauge en demande 10 sur 33) : accroche jamais faite chez nous (« countries » absent des accroches du label et de nos originaux). Accroches écrites : « tiny countries you didn't know existed » (retenue : voyage + surprise), « smallest countries in the world » (écartée : liste sèche), « hidden places in europe » (écartée : vague). Faits vérifiés : Saint-Marin (république qui revendique 301 comme fondation), Liechtenstein (sans aéroport), Andorre (deux coprinces, dont le président français), Vatican (le plus petit État du monde), Monaco (deuxième plus petit), Nauru (république insulaire du Pacifique, environ 21 km²). Sophia à la fin comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c3c12a7d",
+   "texte_overlay": "tiny countries you didn't\nknow existed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3c13ef54",
+   "texte_overlay": "san marino\n\none of the oldest republics,\nsaid to date from 301.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8bdecdfb",
+   "texte_overlay": "liechtenstein\n\nno airport of its own.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5614f7c0",
+   "texte_overlay": "andorra\n\ntwo co-princes, one of them is\nthe president of france.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2e1aba7f",
+   "texte_overlay": "vatican city\n\nthe smallest country on earth.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "837d17ed",
+   "texte_overlay": "monaco\n\nthe second smallest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bc8606e5",
+   "texte_overlay": "nauru\n\nan island republic of\nabout 21 km².",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "25f16d4c",
+   "texte_overlay": "one place a day, learned instead\nof scrolled past.",
+   "texte_sophia": "one place a day, learned on an app like\nSophia instead of scrolled past.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

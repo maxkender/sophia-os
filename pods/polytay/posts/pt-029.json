@@ -1,0 +1,616 @@
+{
+ "id": "pt-029",
+ "titre": {
+  "en": "solo dates for girls who love learning",
+  "fr": "des dates en solo pour les filles qui aiment apprendre",
+  "es": "citas en solitario para chicas a las que les encanta aprender",
+  "es-419": "citas a solas para chicas que aman aprender",
+  "it": "appuntamenti da sola per ragazze che amano imparare",
+  "tr": "öğrenmeyi seven kızlar için kendinle buluşmalar",
+  "pt-BR": "dates sozinha pra meninas que amam aprender",
+  "sl": "zmenki s sabo za punce, ki se rade učijo",
+  "de": "solo-dates für mädchen, die gern lernen",
+  "sk": "rande so sebou pre dievčatá, ktoré sa rady učia",
+  "sv": "dejter med dig själv för tjejer som älskar att lära sig"
+ },
+ "legendes": {
+  "en": "take yourself out, and come home a little smarter <3 #girlblogger #solodate #learning #selflove #thatgirl",
+  "fr": "sors-toi toute seule, et rentre un peu plus cultivée <3 #girlblogger #datesolo #apprendre #selflove #thatgirl",
+  "es": "sácate a ti misma y vuelve a casa un poco más culta <3 #girlblogger #citaconmigo #aprender #amorpropio #thatgirl",
+  "es-419": "invítate a salir y regresa a casa un poco más culta <3 #girlblogger #citaconmigo #aprender #amorpropio #thatgirl",
+  "it": "porta fuori te stessa, e torna a casa un po' più colta <3 #girlblogger #appuntamentodasola #imparare #selflove #thatgirl",
+  "tr": "kendini dışarı çıkar, eve biraz daha bilgili dön <3 #girlblogger #kendinlebuluşma #öğrenmek #selflove #thatgirl",
+  "pt-BR": "se leva pra sair e volta pra casa um pouco mais culta <3 #girlblogger #datesozinha #aprender #amorproprio #thatgirl",
+  "sl": "povabi se ven in pridi domov malo pametnejša <3 #girlblogger #zmenekssabo #učenje #selflove #thatgirl",
+  "de": "führ dich selbst aus und komm ein bisschen klüger nach hause <3 #girlblogger #solodate #lernen #selflove #thatgirl",
+  "sk": "vezmi sa von a vráť sa domov o niečo múdrejšia <3 #girlblogger #randesosebou #ucenie #selflove #thatgirl",
+  "sv": "ta ut dig själv och kom hem lite klokare <3 #girlblogger #solodejt #lärande #selflove #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7428338324530285358"
+ },
+ "notes": "Full test (BLEO, 28/11) : accroche neuve chez nous (« solo dates »), au gabarit des listes d'habitudes de @polytay (famille « things that made me smarter »). Éléments : une matinée au bord de l'eau avec un livre, une balade photo, Sophia, un café et une grande question (les années bissextiles : la Terre met environ 365,25 jours à faire le tour du Soleil, vrai), un château et son histoire. cta A.",
+ "banque": {
+  "images/banque/couv-cafe-tabouret.jpg": "aa747013-5684-41f3-a84c-fdc96cd3798f",
+  "images/banque/couv-tasse-cuir.jpg": "1587c202-1ea9-4df5-8341-19d752ab6771",
+  "images/banque/mer-coucher.jpg": "b47a4b7a-4214-4bec-9b2f-2dc95732e098",
+  "images/banque/livre-plage.jpg": "8dda3320-75cd-4493-8b2b-1da7ee611554",
+  "images/banque/appareil-fleur.jpg": "af134c07-6e07-459b-a1bf-318bb2ddf254",
+  "images/banque/rue-nuit-lampes.jpg": "09f6ede9-0851-4a5b-9ace-3e4a7d0ba5d9",
+  "images/banque/bougie-lit-livre.jpg": "38d562a6-d390-4fe7-a295-e300e93a6606",
+  "images/banque/espresso.jpg": "11bfceac-7918-4f4b-8b77-e8732372be09",
+  "images/banque/cafe-lunettes.jpg": "09e0be7c-b764-44a8-8c2e-69fdc26c1cd0",
+  "images/banque/chateau-cygnes.jpg": "97d73c6d-ae44-4d8b-bc0f-7fe9229d1f89",
+  "images/banque/terrasse-feuilles.jpg": "0134581e-664f-4ae7-aeea-cee3a61f2da7"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-cafe-tabouret.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-tasse-cuir.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "solo dates for\ngirls who love\nlearning"
+   },
+   "fr": {
+    "titre": "des dates en solo\npour les filles qui\naiment apprendre"
+   },
+   "es": {
+    "titre": "citas en solitario\npara chicas a las\nque les encanta\naprender"
+   },
+   "es-419": {
+    "titre": "citas a solas\npara chicas que\naman aprender"
+   },
+   "it": {
+    "titre": "appuntamenti da\nsola per ragazze\nche amano imparare"
+   },
+   "tr": {
+    "titre": "öğrenmeyi seven\nkızlar için\nkendinle\nbuluşmalar"
+   },
+   "pt-BR": {
+    "titre": "dates sozinha\npra meninas que\namam aprender"
+   },
+   "sl": {
+    "titre": "zmenki s sabo\nza punce, ki se\nrade učijo"
+   },
+   "de": {
+    "titre": "solo-dates für\nmädchen, die\ngern lernen"
+   },
+   "sk": {
+    "titre": "rande so sebou\npre dievčatá, ktoré\nsa rady učia"
+   },
+   "sv": {
+    "titre": "dejter med dig\nsjälv för tjejer\nsom älskar att\nlära sig"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/mer-coucher.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/livre-plage.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. a morning by the water",
+    "paragraphes": [
+     "Take the book you've been saving and spend a whole morning by the water with it. no phone, just the waves.",
+     "You come home with a finished book and a quiet head"
+    ]
+   },
+   "fr": {
+    "titre": "1. une matinée au bord de l'eau",
+    "paragraphes": [
+     "Prends le livre que tu gardes pour plus tard et passe toute une matinée au bord de l'eau avec lui. pas de téléphone, juste les vagues.",
+     "Tu rentres avec un livre fini et la tête calme"
+    ]
+   },
+   "es": {
+    "titre": "1. una mañana junto al agua",
+    "paragraphes": [
+     "Coge el libro que llevas tiempo guardando y pasa una mañana entera junto al agua con él. sin móvil, solo las olas.",
+     "Vuelves a casa con un libro terminado y la cabeza tranquila"
+    ]
+   },
+   "es-419": {
+    "titre": "1. una mañana junto al agua",
+    "paragraphes": [
+     "Toma el libro que has estado guardando y pasa una mañana entera junto al agua con él. sin celular, solo las olas.",
+     "Regresas a casa con un libro terminado y la cabeza tranquila"
+    ]
+   },
+   "it": {
+    "titre": "1. una mattina in riva all'acqua",
+    "paragraphes": [
+     "Prendi il libro che stai tenendo da parte e passa un'intera mattina in riva all'acqua con lui. niente telefono, solo le onde.",
+     "Torni a casa con un libro finito e la testa tranquilla"
+    ]
+   },
+   "tr": {
+    "titre": "1. su kenarında bir sabah",
+    "paragraphes": [
+     "Sakladığın kitabı al ve onunla su kenarında koca bir sabah geçir. telefon yok, sadece dalgalar.",
+     "Eve bitmiş bir kitap ve sakin bir kafayla dönersin"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. uma manhã perto da água",
+    "paragraphes": [
+     "Pega aquele livro que você está guardando e passa uma manhã inteira perto da água com ele. sem celular, só as ondas.",
+     "Você volta pra casa com um livro terminado e a cabeça tranquila"
+    ]
+   },
+   "sl": {
+    "titre": "1. jutro ob vodi",
+    "paragraphes": [
+     "Vzemi knjigo, ki jo hraniš za pozneje, in z njo preživi celo jutro ob vodi. brez telefona, samo valovi.",
+     "Domov prideš s prebrano knjigo in mirno glavo"
+    ]
+   },
+   "de": {
+    "titre": "1. ein morgen am wasser",
+    "paragraphes": [
+     "Nimm das buch, das du dir aufhebst, und verbring einen ganzen morgen damit am wasser. kein handy, nur die wellen.",
+     "Du kommst mit einem ausgelesenen buch und einem ruhigen kopf nach hause"
+    ]
+   },
+   "sk": {
+    "titre": "1. ráno pri vode",
+    "paragraphes": [
+     "Vezmi si knihu, ktorú si odkladáš, a strávi s ňou celé ráno pri vode. žiadny telefón, len vlny.",
+     "Domov sa vrátiš s dočítanou knihou a pokojnou hlavou"
+    ]
+   },
+   "sv": {
+    "titre": "1. en morgon vid vattnet",
+    "paragraphes": [
+     "Ta boken du har sparat och tillbringa en hel morgon vid vattnet med den. ingen telefon, bara vågorna.",
+     "Du kommer hem med en utläst bok och ett lugnt huvud"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/appareil-fleur.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/rue-nuit-lampes.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. a photo walk",
+    "paragraphes": [
+     "Take a camera, not your phone, and photograph ten details of your city: doors, windows, old balconies. then look one of them up.",
+     "You start seeing your city like an architect, and every street has a story"
+    ]
+   },
+   "fr": {
+    "titre": "2. une balade photo",
+    "paragraphes": [
+     "Prends un appareil photo, pas ton téléphone, et photographie dix détails de ta ville : portes, fenêtres, vieux balcons. puis renseigne-toi sur l'un d'eux.",
+     "Tu vois ta ville comme une architecte, et chaque rue a une histoire"
+    ]
+   },
+   "es": {
+    "titre": "2. un paseo de fotos",
+    "paragraphes": [
+     "Lleva una cámara, no el móvil, y fotografía diez detalles de tu ciudad: puertas, ventanas, balcones antiguos. luego investiga uno de ellos.",
+     "Empiezas a ver tu ciudad como una arquitecta, y cada calle tiene una historia"
+    ]
+   },
+   "es-419": {
+    "titre": "2. una caminata de fotos",
+    "paragraphes": [
+     "Lleva una cámara, no el celular, y fotografía diez detalles de tu ciudad: puertas, ventanas, balcones antiguos. luego investiga uno.",
+     "Empiezas a ver tu ciudad como una arquitecta, y cada calle tiene una historia"
+    ]
+   },
+   "it": {
+    "titre": "2. una passeggiata fotografica",
+    "paragraphes": [
+     "Prendi una macchina fotografica, non il telefono, e fotografa dieci dettagli della tua città: porte, finestre, vecchi balconi. poi cerca la storia di uno.",
+     "Inizi a vedere la tua città come un'architetta, e ogni strada ha una storia"
+    ]
+   },
+   "tr": {
+    "titre": "2. bir fotoğraf yürüyüşü",
+    "paragraphes": [
+     "Telefonunu değil bir fotoğraf makinesi al, şehrinden on detay çek: kapılar, pencereler, eski balkonlar. sonra birinin hikâyesine bak.",
+     "Şehrini bir mimar gibi görmeye başlarsın, ve her sokağın bir hikâyesi olur"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. um passeio fotográfico",
+    "paragraphes": [
+     "Leva uma câmera, não o celular, e fotografa dez detalhes da sua cidade: portas, janelas, sacadas antigas. depois pesquisa um deles.",
+     "Você começa a ver a cidade como uma arquiteta, e toda rua tem uma história"
+    ]
+   },
+   "sl": {
+    "titre": "2. sprehod s fotoaparatom",
+    "paragraphes": [
+     "Vzemi fotoaparat, ne telefona, in fotografiraj deset podrobnosti svojega mesta: vrata, okna, stare balkone. nato poišči zgodbo enega.",
+     "Mesto začneš gledati kot arhitektka, in vsaka ulica ima zgodbo"
+    ]
+   },
+   "de": {
+    "titre": "2. ein fotospaziergang",
+    "paragraphes": [
+     "Nimm eine kamera, nicht dein handy, und fotografier zehn details deiner stadt: türen, fenster, alte balkone. dann recherchier eins davon.",
+     "Du siehst deine stadt plötzlich wie eine architektin, und jede straße hat eine geschichte"
+    ]
+   },
+   "sk": {
+    "titre": "2. prechádzka s foťákom",
+    "paragraphes": [
+     "Vezmi si foťák, nie telefón, a odfoť desať detailov svojho mesta: dvere, okná, staré balkóny. potom si o jednom zisti viac.",
+     "Začneš vidieť svoje mesto ako architektka, a každá ulica má príbeh"
+    ]
+   },
+   "sv": {
+    "titre": "2. en fotopromenad",
+    "paragraphes": [
+     "Ta en kamera, inte telefonen, och fotografera tio detaljer i din stad: dörrar, fönster, gamla balkonger. ta sedan reda på mer om en av dem.",
+     "Du börjar se din stad som en arkitekt, och varje gata har en historia"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/bougie-lit-livre.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. a lesson in bed",
+    "paragraphes": [
+     "I do one short lesson on Sophia every night instead of scrolling. history, philosophy or science, written by actual professors.",
+     "My favourite date ends with something new in my head"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon au lit",
+    "paragraphes": [
+     "Je fais une courte leçon sur Sophia chaque soir au lieu de scroller. histoire, philo ou sciences, écrites par de vrais profs.",
+     "Mon date préféré finit avec quelque chose de nouveau dans la tête"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección en la cama",
+    "paragraphes": [
+     "Cada noche hago una lección corta en Sophia en vez de hacer scroll. historia, filosofía o ciencia, escritas por profesores de verdad.",
+     "Mi cita favorita termina con algo nuevo en la cabeza"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección en la cama",
+    "paragraphes": [
+     "Cada noche hago una lección corta en Sophia en vez de scrollear. historia, filosofía o ciencia, escritas por profesores de verdad.",
+     "Mi cita favorita termina con algo nuevo en la cabeza"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione a letto",
+    "paragraphes": [
+     "Ogni sera faccio una breve lezione su Sophia invece di scrollare. storia, filosofia o scienza, scritte da veri professori.",
+     "Il mio appuntamento preferito finisce con qualcosa di nuovo in testa"
+    ]
+   },
+   "tr": {
+    "titre": "3. yatakta bir ders",
+    "paragraphes": [
+     "Her akşam kaydırmak yerine Sophia'da kısa bir ders yapıyorum. tarih, felsefe ya da bilim, gerçek profesörlerin kaleminden.",
+     "En sevdiğim buluşma kafamda yeni bir şeyle biter"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula na cama",
+    "paragraphes": [
+     "Toda noite eu faço uma aula curta no Sophia em vez de rolar o feed. história, filosofia ou ciência, escritas por professores de verdade.",
+     "Meu date favorito termina com algo novo na cabeça"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija v postelji",
+    "paragraphes": [
+     "Vsak večer namesto skrolanja naredim kratko lekcijo v aplikaciji Sophia. zgodovina, filozofija ali znanost, ki jih pišejo pravi profesorji.",
+     "Moj najljubši zmenek se konča z nečim novim v glavi"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion im bett",
+    "paragraphes": [
+     "Ich mache jeden abend statt zu scrollen eine kurze lektion auf Sophia. geschichte, philosophie oder wissenschaft, geschrieben von echten professoren.",
+     "Mein liebstes date endet mit etwas neuem im kopf"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia v posteli",
+    "paragraphes": [
+     "Každý večer si namiesto scrollovania dám krátku lekciu v aplikácii Sophia. história, filozofia alebo veda od skutočných profesorov.",
+     "Moje najobľúbenejšie rande končí niečím novým v hlave"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion i sängen",
+    "paragraphes": [
+     "Jag gör en kort lektion på Sophia varje kväll i stället för att scrolla. historia, filosofi eller vetenskap, skrivna av riktiga professorer.",
+     "Min favoritdejt slutar med något nytt i huvudet"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/espresso.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/cafe-lunettes.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. a café and a big question",
+    "paragraphes": [
+     "Sit in a café with one question you've always wondered about, like why we have leap years, and find the answer before your coffee is gone.",
+     "It's the cheapest lesson in town, and the coffee makes it better"
+    ]
+   },
+   "fr": {
+    "titre": "4. un café et une grande question",
+    "paragraphes": [
+     "Installe-toi dans un café avec une question que tu t'es toujours posée, comme pourquoi les années bissextiles existent, et trouve la réponse avant la fin de ton café.",
+     "C'est la leçon la moins chère de la ville, et le café la rend meilleure"
+    ]
+   },
+   "es": {
+    "titre": "4. un café y una gran pregunta",
+    "paragraphes": [
+     "Siéntate en un café con una pregunta que siempre te has hecho, como por qué existen los años bisiestos, y encuentra la respuesta antes de terminarte el café.",
+     "Es la clase más barata de la ciudad, y el café la hace mejor"
+    ]
+   },
+   "es-419": {
+    "titre": "4. un café y una gran pregunta",
+    "paragraphes": [
+     "Siéntate en un café con una pregunta que siempre te has hecho, como por qué existen los años bisiestos, y encuentra la respuesta antes de terminarte el café.",
+     "Es la clase más barata de la ciudad, y el café la hace mejor"
+    ]
+   },
+   "it": {
+    "titre": "4. un caffè e una grande domanda",
+    "paragraphes": [
+     "Siediti in un bar con una domanda che ti sei sempre fatta, tipo perché esistono gli anni bisestili, e trova la risposta prima di finire il caffè.",
+     "È la lezione più economica della città, e il caffè la rende migliore"
+    ]
+   },
+   "tr": {
+    "titre": "4. bir kafe ve büyük bir soru",
+    "paragraphes": [
+     "Hep merak ettiğin bir soruyla bir kafeye otur, mesela artık yıllar neden var, ve kahven bitmeden cevabını bul.",
+     "Şehrin en ucuz dersi, ve kahve onu daha güzel yapar"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. um café e uma grande pergunta",
+    "paragraphes": [
+     "Senta num café com uma pergunta que você sempre teve, tipo por que existem anos bissextos, e acha a resposta antes do café acabar.",
+     "É a aula mais barata da cidade, e o café deixa ela melhor"
+    ]
+   },
+   "sl": {
+    "titre": "4. kavarna in veliko vprašanje",
+    "paragraphes": [
+     "Sedi v kavarno z vprašanjem, ki te od nekdaj zanima, recimo zakaj imamo prestopna leta, in poišči odgovor, preden spiješ kavo.",
+     "To je najcenejša lekcija v mestu, in kava jo naredi še boljšo"
+    ]
+   },
+   "de": {
+    "titre": "4. ein café und eine große frage",
+    "paragraphes": [
+     "Setz dich mit einer frage, die du dir schon immer gestellt hast, in ein café, zum beispiel warum es schaltjahre gibt, und finde die antwort, bevor dein kaffee leer ist.",
+     "Es ist die günstigste lektion der stadt, und der kaffee macht sie besser"
+    ]
+   },
+   "sk": {
+    "titre": "4. kaviareň a veľká otázka",
+    "paragraphes": [
+     "Sadni si do kaviarne s otázkou, ktorá ťa odjakživa zaujíma, napríklad prečo máme priestupné roky, a nájdi odpoveď, kým dopiješ kávu.",
+     "Je to najlacnejšia lekcia v meste, a káva ju robí ešte lepšou"
+    ]
+   },
+   "sv": {
+    "titre": "4. ett kafé och en stor fråga",
+    "paragraphes": [
+     "Sätt dig på ett kafé med en fråga du alltid undrat över, som varför vi har skottår, och hitta svaret innan kaffet är slut.",
+     "Det är stadens billigaste lektion, och kaffet gör den bättre"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/chateau-cygnes.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/terrasse-feuilles.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. an afternoon at an old house",
+    "paragraphes": [
+     "Visit a castle or an old house near you and read its story while you walk the gardens. who lived there, and what happened to them?",
+     "History feels real when you're standing where it happened"
+    ]
+   },
+   "fr": {
+    "titre": "5. une vieille maison",
+    "paragraphes": [
+     "Visite un château ou une vieille demeure près de chez toi et lis son histoire en marchant dans les jardins. qui vivait là, et que leur est-il arrivé ?",
+     "L'histoire devient réelle quand tu es là où elle s'est passée"
+    ]
+   },
+   "es": {
+    "titre": "5. una tarde en una casa antigua",
+    "paragraphes": [
+     "Visita un castillo o una casa antigua cerca de ti y lee su historia mientras paseas por los jardines. ¿quién vivió allí y qué les pasó?",
+     "La historia se siente real cuando estás donde ocurrió"
+    ]
+   },
+   "es-419": {
+    "titre": "5. una tarde en una casa antigua",
+    "paragraphes": [
+     "Visita un castillo o una casa antigua cerca de ti y lee su historia mientras caminas por los jardines. ¿quién vivió ahí y qué les pasó?",
+     "La historia se siente real cuando estás donde pasó"
+    ]
+   },
+   "it": {
+    "titre": "5. un pomeriggio in una casa antica",
+    "paragraphes": [
+     "Visita un castello o una dimora antica vicino a te e leggi la sua storia mentre passeggi nei giardini. chi ci viveva, e cosa gli è successo?",
+     "La storia sembra vera quando sei proprio dove è successa"
+    ]
+   },
+   "tr": {
+    "titre": "5. eski bir evde bir öğleden sonra",
+    "paragraphes": [
+     "Yakınındaki bir şatoyu ya da eski bir konağı ziyaret et ve bahçelerinde yürürken hikâyesini oku. orada kim yaşadı, onlara ne oldu?",
+     "Tarih, yaşandığı yerde durunca gerçek hissettirir"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. uma tarde numa casa antiga",
+    "paragraphes": [
+     "Visita um castelo ou uma casa antiga perto de você e lê a história dela enquanto anda pelos jardins. quem morou ali, e o que aconteceu com eles?",
+     "A história parece real quando você está onde ela aconteceu"
+    ]
+   },
+   "sl": {
+    "titre": "5. popoldne v stari hiši",
+    "paragraphes": [
+     "Obišči grad ali staro hišo blizu sebe in med sprehodom po vrtovih preberi njeno zgodbo. kdo je živel tam in kaj se jim je zgodilo?",
+     "Zgodovina postane resnična, ko stojiš tam, kjer se je zgodila"
+    ]
+   },
+   "de": {
+    "titre": "5. ein nachmittag in einem alten haus",
+    "paragraphes": [
+     "Besuch ein schloss oder ein altes herrenhaus in deiner nähe und lies seine geschichte, während du durch die gärten gehst. wer hat dort gelebt, und was ist aus ihnen geworden?",
+     "Geschichte fühlt sich echt an, wenn du dort stehst, wo sie passiert ist"
+    ]
+   },
+   "sk": {
+    "titre": "5. popoludnie v starom dome",
+    "paragraphes": [
+     "Navštív zámok alebo starý dom vo svojom okolí a pri prechádzke záhradami si prečítaj jeho príbeh. kto tam žil a čo sa s nimi stalo?",
+     "História pôsobí skutočne, keď stojíš tam, kde sa stala"
+    ]
+   },
+   "sv": {
+    "titre": "5. en eftermiddag i ett gammalt hus",
+    "paragraphes": [
+     "Besök ett slott eller ett gammalt hus nära dig och läs dess historia medan du går i trädgårdarna. vem bodde där, och vad hände med dem?",
+     "Historien känns verklig när du står där den hände"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

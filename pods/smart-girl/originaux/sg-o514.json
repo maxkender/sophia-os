@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o514",
+ "type_bleo": "full_test",
+ "titre": "what famous women did before they were famous #womeninhistory #inspiration #history #smartgirl #didyouknow",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 3/10 (la jauge en demande 10 sur 33) : accroche jamais faite chez nous (« before they were famous » absent des accroches du label et de nos originaux). Accroches écrites : « what famous women did before they were famous » (retenue : surprise + inspiration), « late bloomers » (écartée : proche de « average millionaire is 55 »), « famous women's first jobs » (écartée : plate). Faits vérifiés : Julia Child à l'OSS pendant la guerre, Agatha Christie préparatrice en pharmacie (d'où sa science des poisons), Harper Lee employée de réservation aérienne, Toni Morrison éditrice chez Random House, Coco Chanel chanteuse de cabaret à Moulins, Vera Wang patineuse puis rédactrice chez Vogue. Sophia à la fin comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c635b309",
+   "texte_overlay": "what famous women did before\nthey were famous",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "01fa62b1",
+   "texte_overlay": "julia child\n\nworked for the oss, the us\nintelligence service, in the war.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6f3ece1f",
+   "texte_overlay": "agatha christie\n\na pharmacy assistant. that's\nwhere she learned her poisons.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8e976544",
+   "texte_overlay": "harper lee\n\nan airline reservation clerk.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fa34f8be",
+   "texte_overlay": "toni morrison\n\nan editor at a publishing house.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1b49ae5d",
+   "texte_overlay": "coco chanel\n\na cabaret singer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ea5c80a7",
+   "texte_overlay": "vera wang\n\na figure skater, then\na vogue editor.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "df28df64",
+   "texte_overlay": "one inspiring story a day instead\nof an hour of scrolling.",
+   "texte_sophia": "one inspiring story a day on an app like\nSophia instead of an hour of scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

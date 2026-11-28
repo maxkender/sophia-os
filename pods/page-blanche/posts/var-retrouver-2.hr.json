@@ -1,0 +1,329 @@
+{
+ "post_id": "var-retrouver-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "extremely productive"
+     ],
+     "fr": "10/10 habitudes pour exploser ta productivité",
+     "texte": "10/10 navika da ti mozak ponovno proradi"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(potvrđeno istraživanjima)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_159bb76d.jpg",
+      "boite": [
+       0,
+       822,
+       1504,
+       1139
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop building the perfect plan"
+     ],
+     "fr": "arrête de peaufiner [[le plan parfait]]",
+     "texte": "čuvaj svoj [[san]]"
+    },
+    "T2": {
+     "en": [
+      "colour-coded calendars, notion templates, a 5am routine",
+      "you've never actually done"
+     ],
+     "fr": "agendas en couleurs, templates stylés, une routine à 5h que t'as jamais faite",
+     "texte": "kasno lijeganje radi produktivnosti najgora je pogodba koju možeš sklopiti s mozgom"
+    },
+    "T3": {
+     "en": [
+      "but your brain gets a",
+      "hit of dopamine from",
+      "planning, so it stops",
+      "pushing you to do the",
+      "actual work"
+     ],
+     "fr": "sauf que planifier te file [[un shot de dopamine]], du coup ton cerveau te pousse plus à [[bosser pour de vrai]]",
+     "texte": "istraživanje iz 2013. na miševima pokazalo je da san pomaže mozgu [[izbaciti otpad]] nakupljen tijekom dana"
+    },
+    "T4": {
+     "en": [
+      "a plain list is enough"
+     ],
+     "fr": "une simple liste suffit",
+     "texte": "cilj je [[7 do 9 sati]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_8d21ae9a.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       1987
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "use the 2 minute rule"
+     ],
+     "fr": "applique [[la règle des 2 minutes]]",
+     "texte": "bilješke piši [[rukom]]"
+    },
+    "T2": {
+     "en": [
+      "if something takes less",
+      "than 2 minutes, do it right",
+      "now instead of adding it",
+      "to your list"
+     ],
+     "fr": "si un truc prend [[moins de 2 minutes]], fais-le direct, ne l'ajoute pas à ta liste",
+     "texte": "kad tipkaš, sve prepisuješ od riječi do riječi i zapravo ne razmišljaš"
+    },
+    "T3": {
+     "en": [
+      "replying to that",
+      "message, putting the",
+      "dishes away, booking",
+      "the appointment"
+     ],
+     "fr": "répondre à ce message, ranger la vaisselle, prendre ce rendez-vous",
+     "texte": "istraživanje iz 2014.: tko bilježi na laptopu, [[slabije razumije gradivo]]"
+    },
+    "T4": {
+     "en": [
+      "small tasks stop piling up into one big thing you avoid"
+     ],
+     "fr": "les petits trucs s'empilent plus en [[un gros truc que tu fuis]]",
+     "texte": "sporije pisanje tjera te da [[izabereš bitno]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_045f1f7b.jpg",
+      "boite": [
+       133,
+       0,
+       2235,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "work out in the morning"
+     ],
+     "fr": "fais du sport [[le matin]]",
+     "texte": "ostavi mobitel [[u drugoj sobi]]"
+    },
+    "T2": {
+     "en": [
+      "your cortisol is at its peak in the morning, so it's the",
+      "easiest time to do something hard"
+     ],
+     "fr": "ton cortisol est [[au max le matin]], c'est le meilleur moment pour faire un truc dur",
+     "texte": "istraživanje iz 2017. pokazalo je da sam mobitel na stolu [[snižava rezultate]] na testovima pamćenja"
+    },
+    "T3": {
+     "en": [
+      "once the hardest thing is",
+      "done, work feels easy in",
+      "comparison"
+     ],
+     "fr": "une fois le plus dur fait, [[le boulot paraît facile]] à côté",
+     "texte": "čak i ekranom dolje i utišan, dio mozga [[stalno ga prati]]"
+    },
+    "T4": {
+     "en": [
+      "and how you start your",
+      "day sets the mood for",
+      "the rest of it"
+     ],
+     "fr": "et comment tu commences ta journée [[conditionne tout le reste]]",
+     "texte": "samo kad ga ne vidiš, [[ne misliš na njega]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0531b483.jpg",
+      "boite": [
+       172,
+       0,
+       2023,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read classic books"
+     ],
+     "fr": "lis [[des classiques]]",
+     "texte": "[[podučavaj]] ono što učiš"
+    },
+    "T2": {
+     "en": [
+      "do you remember what tiktok you saw",
+      "5 scrolls ago?"
+     ],
+     "fr": "tu te souviens du tiktok que t'as vu [[il y a 5 scrolls]] ?",
+     "texte": "kad znaš da ćeš nekome objašnjavati, učiš drugačije"
+    },
+    "T3": {
+     "en": [
+      "exactly. short form content",
+      "is frying your attention span"
+     ],
+     "fr": "[[exactement]]. les vidéos courtes [[te grillent l'attention]]",
+     "texte": "istraživanje iz 2014.: tko očekuje da će podučavati, [[zapamti više]]"
+    },
+    "T4": {
+     "en": [
+      "books force your brain to",
+      "focus on one thing for",
+      "longer"
+     ],
+     "fr": "un livre apprend à ton cerveau à [[tenir sur une seule chose]]",
+     "texte": "ispričaj prijatelju nešto novo od danas, [[svojim riječima]]"
+    },
+    "T5": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]]. mes 5 min du jour sur [[l'appli Sophia]] : Camus et le mythe de Sisyphe",
+     "texte": "prije beskonačno skrolanje, a sad, kad već uzmem mobitel, [[5 minuta lekcije u aplikaciji Sophia]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "work before you communicate"
+     ],
+     "fr": "bosse [[avant]] de répondre",
+     "texte": "[[meditiraj]] 13 minuta"
+    },
+    "T2": {
+     "en": [
+      "give yourself 60–90 minutes",
+      "of uninterrupted creation",
+      "before becoming available",
+      "to everyone else"
+     ],
+     "fr": "accorde-toi [[60 à 90 minutes de création sans interruption]] avant d'être dispo pour les autres",
+     "texte": "u istraživanju iz 2019. početnici koji su 8 tjedana meditirali 13 minuta dnevno imali su [[bolju pažnju i pamćenje]]"
+    },
+    "T3": {
+     "en": [
+      "your priorities should enter",
+      "your head before theirs do"
+     ],
+     "fr": "[[tes priorités]] doivent entrer dans ta tête avant les leurs",
+     "texte": "sjedni, diši i [[vrati se]] svaki put kad ti misli odlutaju"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0ed17eab.jpg",
+      "boite": [
+       199,
+       0,
+       1597,
+       1664
+      ]
+     }
+    }
+   }
+  }
+ }
+}

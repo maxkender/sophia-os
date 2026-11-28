@@ -1,0 +1,785 @@
+{
+ "id": "mi-032",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7681333188714646814",
+  "vues": 367000,
+  "publie_le": "2026-09-03",
+  "accroche": "The secret / to / Memorizing / Anything"
+ },
+ "fond": "gris_clair",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fbca5151-5443-4f10-a3ac-3b93ce51ebbe",
+ "musique": {
+  "titre": "son original",
+  "url": "https://www.tiktok.com/music/son-original-7487620221440674582"
+ },
+ "notes": "Déclinaison G2 de mi-009 « The secret to Understanding Anything » (ligne 1 de la boîte du 28/11, passage es-419 5,8 k vues, r 7,75) : même promesse, autres mots (« How to Understand any Topic Fast »), autres conseils, autres images, autre fond, autre CTA. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta B. Faits vérifiés : lire d'abord une introduction générale (« organisateur avancé ») fait mieux apprendre et retenir un texte de métallurgie (Ausubel, Journal of Educational Psychology 1960) ; répartir l'étude en plusieurs séances fait mieux retenir que tout d'un coup, sur 317 expériences (Cepeda, Pashler, Vul, Wixted et Rohrer, Psychological Bulletin 2006) ; des étudiants qui comparaient deux cas de négociation appliquaient bien plus souvent le principe commun que ceux qui les lisaient séparément (Gentner, Loewenstein et Thompson, Journal of Educational Psychology 2003). 11 langues. Images : banque (irm-sagittale, synapse, cerveau-frontal), sans texte, aucune du parent.",
+ "titre": {
+  "en": "How to Understand any Topic Fast",
+  "fr": "Comment comprendre vite n'importe quel sujet",
+  "es": "Cómo entender rápido cualquier tema",
+  "es-419": "Cómo entender rápido cualquier tema",
+  "it": "Come capire in fretta qualsiasi argomento",
+  "tr": "Her konuyu hızla nasıl anlarsın",
+  "pt-BR": "Como entender rápido qualquer assunto",
+  "sl": "Kako hitro razumeti katero koli temo",
+  "hr": "Kako brzo razumjeti bilo koju temu",
+  "de": "Wie du jedes Thema schnell verstehst",
+  "hu": "Hogyan érts meg gyorsan bármilyen témát"
+ },
+ "legendes": {
+  "en": "see the whole map first #learning #understanding #studytips #brain #psychology",
+  "fr": "vois toute la carte d'abord #apprendre #comprendre #méthodedetravail #cerveau #psychologie",
+  "es": "mira primero el mapa entero #aprender #entender #técnicasdeestudio #cerebro #psicología",
+  "es-419": "mira primero el mapa completo #aprender #entender #tipsdeestudio #cerebro #psicología",
+  "it": "guarda prima tutta la mappa #imparare #capire #metododistudio #cervello #psicologia",
+  "tr": "önce haritanın tamamına bak #öğrenme #anlamak #dersçalışma #beyin #psikoloji",
+  "pt-BR": "veja o mapa inteiro primeiro #aprender #entender #dicasdeestudo #cerebro #psicologia",
+  "sl": "najprej poglej ves zemljevid #učenje #razumevanje #učnenavade #možgani #psihologija",
+  "hr": "najprije pogledaj cijelu kartu #učenje #razumijevanje #tehnikeučenja #mozak #psihologija",
+  "de": "erst die ganze karte ansehen #lernen #verstehen #lerntipps #gehirn #psychologie",
+  "hu": "előbb nézd meg az egész térképet #tanulás #megértés #tanulásimódszerek #agy #pszichológia"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-sagittale.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to",
+      "taille": "petit"
+     },
+     {
+      "t": "Understand",
+      "taille": "grand"
+     },
+     {
+      "t": "any Topic",
+      "taille": "petit"
+     },
+     {
+      "t": "Fast",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment",
+      "taille": "petit"
+     },
+     {
+      "t": "Comprendre",
+      "taille": "grand"
+     },
+     {
+      "t": "vite n'importe quel",
+      "taille": "petit"
+     },
+     {
+      "t": "Sujet",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Entender",
+      "taille": "grand"
+     },
+     {
+      "t": "rápido cualquier",
+      "taille": "petit"
+     },
+     {
+      "t": "Tema",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Entender",
+      "taille": "grand"
+     },
+     {
+      "t": "rápido cualquier",
+      "taille": "petit"
+     },
+     {
+      "t": "Tema",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come",
+      "taille": "petit"
+     },
+     {
+      "t": "Capire",
+      "taille": "grand"
+     },
+     {
+      "t": "in fretta qualsiasi",
+      "taille": "petit"
+     },
+     {
+      "t": "Argomento",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Her",
+      "taille": "petit"
+     },
+     {
+      "t": "Konuyu",
+      "taille": "grand"
+     },
+     {
+      "t": "hızla nasıl",
+      "taille": "petit"
+     },
+     {
+      "t": "Anlarsın",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como",
+      "taille": "petit"
+     },
+     {
+      "t": "Entender",
+      "taille": "grand"
+     },
+     {
+      "t": "rápido qualquer",
+      "taille": "petit"
+     },
+     {
+      "t": "Assunto",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako hitro",
+      "taille": "petit"
+     },
+     {
+      "t": "Razumeti",
+      "taille": "grand"
+     },
+     {
+      "t": "katero koli",
+      "taille": "petit"
+     },
+     {
+      "t": "Temo",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako brzo",
+      "taille": "petit"
+     },
+     {
+      "t": "Razumjeti",
+      "taille": "grand"
+     },
+     {
+      "t": "bilo koju",
+      "taille": "petit"
+     },
+     {
+      "t": "Temu",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du jedes",
+      "taille": "petit"
+     },
+     {
+      "t": "Thema",
+      "taille": "grand"
+     },
+     {
+      "t": "schnell",
+      "taille": "petit"
+     },
+     {
+      "t": "Verstehst",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan érts meg",
+      "taille": "petit"
+     },
+     {
+      "t": "Gyorsan",
+      "taille": "grand"
+     },
+     {
+      "t": "bármilyen",
+      "taille": "petit"
+     },
+     {
+      "t": "Témát",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Start With The Big Picture",
+    "blocs": [
+     {
+      "p": "Before the details, get the overview. In a classic experiment, students who first read a short introduction to the main ideas learned and remembered a technical text on metals better than students who read an unrelated history passage first."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Skim the chapter titles, the summary or a one-page overview first. Each detail then has a place to land instead of floating on its own."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Commence par la vue d'ensemble",
+    "blocs": [
+     {
+      "p": "Avant les détails, la vue d'ensemble. Dans une expérience classique, des étudiants qui lisaient d'abord une courte introduction aux idées principales apprenaient et retenaient mieux un texte technique sur les métaux que ceux qui lisaient d'abord un texte d'histoire sans rapport."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Parcours d'abord les titres du chapitre, le résumé ou une page de synthèse. Chaque détail a alors une place où se poser au lieu de flotter seul."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Empieza por la visión general",
+    "blocs": [
+     {
+      "p": "Antes de los detalles, la visión general. En un experimento clásico, los estudiantes que leían primero una breve introducción a las ideas principales aprendían y recordaban mejor un texto técnico sobre metales que quienes leían antes un texto de historia sin relación."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Repasa primero los títulos del capítulo, el resumen o una página de síntesis. Así cada detalle tiene dónde encajar en lugar de quedar suelto."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Empieza por el panorama general",
+    "blocs": [
+     {
+      "p": "Antes de los detalles, el panorama general. En un experimento clásico, los estudiantes que leían primero una breve introducción a las ideas principales aprendían y recordaban mejor un texto técnico sobre metales que quienes leían antes un texto de historia sin relación."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Revisa primero los títulos del capítulo, el resumen o una página de síntesis. Así cada detalle tiene dónde acomodarse en lugar de quedar suelto."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Parti dal quadro generale",
+    "blocs": [
+     {
+      "p": "Prima dei dettagli, il quadro generale. In un esperimento classico, gli studenti che leggevano prima una breve introduzione alle idee principali imparavano e ricordavano meglio un testo tecnico sui metalli di chi leggeva prima un brano di storia senza legami."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Scorri prima i titoli del capitolo, il riassunto o una pagina di sintesi. Così ogni dettaglio ha un posto dove atterrare invece di restare isolato."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Büyük resimle başla",
+    "blocs": [
+     {
+      "p": "Ayrıntılardan önce genel bakış. Klasik bir deneyde, önce ana fikirlere kısa bir giriş okuyan öğrenciler, metaller üzerine teknik bir metni, önce ilgisiz bir tarih metni okuyanlardan daha iyi öğrendi ve hatırladı."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Önce bölüm başlıklarına, özete ya da tek sayfalık bir genel bakışa göz at. Böylece her ayrıntının yerleşeceği bir yer olur; tek başına havada kalmaz."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Comece pela visão geral",
+    "blocs": [
+     {
+      "p": "Antes dos detalhes, a visão geral. Num experimento clássico, alunos que liam primeiro uma introdução curta às ideias principais aprendiam e lembravam melhor um texto técnico sobre metais do que os que liam antes um texto de história sem relação."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Passe os olhos primeiro nos títulos do capítulo, no resumo ou numa página de síntese. Assim cada detalhe tem onde se encaixar em vez de ficar solto."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Začni s celotno sliko",
+    "blocs": [
+     {
+      "p": "Pred podrobnostmi pregled. V klasičnem poskusu so se študenti, ki so najprej prebrali kratek uvod v glavne zamisli, tehnično besedilo o kovinah bolje naučili in zapomnili kot tisti, ki so najprej brali nepovezano zgodovinsko besedilo."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Najprej preleti naslove poglavja, povzetek ali stran pregleda. Tako ima vsaka podrobnost svoje mesto in ne visi sama v zraku."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Počni od šire slike",
+    "blocs": [
+     {
+      "p": "Prije detalja pregled. U klasičnom pokusu studenti koji su najprije pročitali kratak uvod u glavne ideje bolje su naučili i zapamtili tehnički tekst o metalima od onih koji su najprije čitali nepovezan povijesni tekst."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Najprije preleti naslove poglavlja, sažetak ili stranicu pregleda. Tako svaki detalj ima gdje sjesti umjesto da visi sam."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Fang mit dem großen Ganzen an",
+    "blocs": [
+     {
+      "p": "Vor den Details der Überblick. In einem klassischen Experiment lernten und behielten Studierende, die zuerst eine kurze Einführung in die Hauptideen lasen, einen Fachtext über Metalle besser als jene, die zuerst einen unverbundenen Geschichtstext lasen."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Überflieg zuerst die Kapitelüberschriften, die Zusammenfassung oder eine Übersichtsseite. Dann hat jedes Detail einen Platz, statt lose herumzuschweben."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Kezdd a nagy képpel",
+    "blocs": [
+     {
+      "p": "A részletek előtt az áttekintés. Egy klasszikus kísérletben azok a diákok, akik előbb egy rövid bevezetőt olvastak a fő gondolatokról, jobban megtanultak és megjegyeztek egy fémekről szóló szakszöveget, mint akik előtte egy ahhoz nem kapcsolódó történelmi szöveget olvastak."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Előbb fusd át a fejezetcímeket, az összefoglalót vagy egy egyoldalas áttekintést. Így minden részletnek lesz helye, ahová beilleszkedhet, és nem lóg a levegőben."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Little And Often Beats Cramming",
+    "blocs": [
+     {
+      "p": "Spreading your study over several sessions works better than doing it all at once. A review of 317 experiments found this spacing effect again and again, across ages and subjects."
+     },
+     {
+      "p": "So learn a little every evening, like a training session: one short lesson, then sleep on it."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia makes this easy: one short lesson a night, on a different subject each time."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Un peu, souvent : mieux que bachoter",
+    "blocs": [
+     {
+      "p": "Étaler ton travail sur plusieurs séances marche mieux que tout faire d'un coup. Une revue de 317 expériences a retrouvé cet effet d'espacement encore et encore, à tous les âges et dans toutes les matières."
+     },
+     {
+      "p": "Alors apprends un peu chaque soir, comme une séance d'entraînement : une courte leçon, puis une nuit de sommeil."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia rend ça facile : une courte leçon par soir, sur un sujet différent à chaque fois."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Poco y a menudo gana al atracón",
+    "blocs": [
+     {
+      "p": "Repartir el estudio en varias sesiones funciona mejor que hacerlo todo de golpe. Una revisión de 317 experimentos encontró este efecto de espaciado una y otra vez, en todas las edades y materias."
+     },
+     {
+      "p": "Así que aprende un poco cada noche, como una sesión de entrenamiento: una lección corta y luego a dormir."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo pone fácil: una lección corta por noche, cada vez sobre un tema distinto."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Poco y seguido le gana a estudiar de golpe",
+    "blocs": [
+     {
+      "p": "Repartir el estudio en varias sesiones funciona mejor que hacerlo todo de una vez. Una revisión de 317 experimentos encontró este efecto de espaciado una y otra vez, en todas las edades y materias."
+     },
+     {
+      "p": "Entonces aprende un poco cada noche, como una sesión de entrenamiento: una lección corta y luego a dormir."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo hace fácil: una lección corta cada noche, sobre un tema diferente cada vez."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Poco e spesso batte le maratone",
+    "blocs": [
+     {
+      "p": "Distribuire lo studio su più sessioni funziona meglio che fare tutto in una volta. Una rassegna di 317 esperimenti ha ritrovato questo effetto di distribuzione più e più volte, a ogni età e in ogni materia."
+     },
+     {
+      "p": "Quindi impara un po' ogni sera, come un allenamento: una breve lezione, poi una notte di sonno."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo rende facile: una breve lezione a sera, ogni volta su un argomento diverso."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Az ve sık, son dakikayı yener",
+    "blocs": [
+     {
+      "p": "Çalışmayı birkaç oturuma yaymak, hepsini bir seferde yapmaktan daha iyi işler. 317 deneyi inceleyen bir derleme, bu aralıklı tekrar etkisini her yaşta ve her derste tekrar tekrar buldu."
+     },
+     {
+      "p": "O yüzden her akşam bir antrenman gibi biraz öğren: kısa bir ders, sonra uyku."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia bunu kolaylaştırıyor: her gece kısa bir ders, her seferinde farklı bir konuda."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Pouco e sempre vence o virote",
+    "blocs": [
+     {
+      "p": "Espalhar o estudo em várias sessões funciona melhor do que fazer tudo de uma vez. Uma revisão de 317 experimentos encontrou esse efeito de espaçamento várias e várias vezes, em todas as idades e matérias."
+     },
+     {
+      "p": "Então aprenda um pouco toda noite, como um treino: uma lição curta e depois dormir."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophia facilita isso: uma lição curta por noite, cada vez sobre um assunto diferente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Malo in pogosto premaga piflanje",
+    "blocs": [
+     {
+      "p": "Učenje, razporejeno na več srečanj, deluje bolje kot vse naenkrat. Pregled 317 poskusov je ta učinek razporejanja našel znova in znova, v vseh starostih in pri vseh predmetih."
+     },
+     {
+      "p": "Zato se vsak večer nauči malo, kot trening: kratka lekcija, nato spanec."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia to olajša: ena kratka lekcija na večer, vsakič o drugi temi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Malo i često pobjeđuje štrebanje",
+    "blocs": [
+     {
+      "p": "Učenje raspoređeno na više navrata djeluje bolje nego sve odjednom. Pregled 317 pokusa nalazio je taj učinak raspoređivanja opet i opet, u svim dobima i predmetima."
+     },
+     {
+      "p": "Zato svake večeri nauči malo, kao trening: kratka lekcija, pa spavanje."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia to olakšava: jedna kratka lekcija navečer, svaki put o drugoj temi."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Wenig und oft schlägt Pauken",
+    "blocs": [
+     {
+      "p": "Lernen auf mehrere Einheiten zu verteilen wirkt besser als alles auf einmal. Eine Übersicht über 317 Experimente fand diesen Verteilungseffekt immer wieder, in jedem Alter und jedem Fach."
+     },
+     {
+      "p": "Also lern jeden Abend ein bisschen, wie eine Trainingseinheit: eine kurze Lektion, dann schlafen."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia macht es leicht: eine kurze Lektion pro Abend, jedes Mal zu einem anderen Thema."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "A kevés, de gyakori legyőzi a magolást",
+    "blocs": [
+     {
+      "p": "A tanulást több alkalomra szétosztani jobban működik, mint egyszerre letudni. 317 kísérlet áttekintése újra és újra kimutatta ezt az elosztott gyakorlás hatást, minden korban és tárgyban."
+     },
+     {
+      "p": "Ezért tanulj minden este egy kicsit, mint egy edzés: egy rövid lecke, aztán alvás."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophia ezt könnyűvé teszi: egy rövid lecke esténként, mindig más témáról."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Compare Two Examples",
+    "blocs": [
+     {
+      "p": "One example shows you a case; two side by side show you the rule. Business students who compared two negotiation stories were far more likely to use the shared strategy later than students who read the same stories one at a time."
+     },
+     {
+      "image": "images/cerveau-frontal.jpg"
+     },
+     {
+      "p": "When you learn something new, find a second example and ask: what do these two have in common, and where do they differ?"
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Compare deux exemples",
+    "blocs": [
+     {
+      "p": "Un exemple te montre un cas ; deux côte à côte te montrent la règle. Des étudiants en commerce qui comparaient deux histoires de négociation utilisaient ensuite bien plus souvent la stratégie commune que ceux qui lisaient les mêmes histoires une par une."
+     },
+     {
+      "image": "images/cerveau-frontal.jpg"
+     },
+     {
+      "p": "Quand tu apprends quelque chose de nouveau, cherche un deuxième exemple et demande-toi : qu'ont-ils en commun, et en quoi diffèrent-ils ?"
+     }
+    ]
+   },
+   "es": {
+    "titre": "Compara dos ejemplos",
+    "blocs": [
+     {
+      "p": "Un ejemplo te enseña un caso; dos lado a lado te enseñan la regla. Estudiantes de empresa que compararon dos historias de negociación usaron después la estrategia común mucho más que quienes leyeron las mismas historias por separado."
+     },
+     {
+      "image": "images/cerveau-frontal.jpg"
+     },
+     {
+      "p": "Cuando aprendas algo nuevo, busca un segundo ejemplo y pregúntate: ¿qué tienen en común y en qué se diferencian?"
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Compara dos ejemplos",
+    "blocs": [
+     {
+      "p": "Un ejemplo te muestra un caso; dos lado a lado te muestran la regla. Estudiantes de negocios que compararon dos historias de negociación usaron después la estrategia común mucho más que quienes leyeron las mismas historias por separado."
+     },
+     {
+      "image": "images/cerveau-frontal.jpg"
+     },
+     {
+      "p": "Cuando aprendas algo nuevo, busca un segundo ejemplo y pregúntate: ¿qué tienen en común y en qué son diferentes?"
+     }
+    ]
+   },
+   "it": {
+    "titre": "Confronta due esempi",
+    "blocs": [
+     {
+      "p": "Un esempio ti mostra un caso; due fianco a fianco ti mostrano la regola. Studenti di economia che confrontavano due storie di negoziazione usavano poi la strategia comune molto più spesso di chi leggeva le stesse storie una alla volta."
+     },
+     {
+      "image": "images/cerveau-frontal.jpg"
+     },
+     {
+      "p": "Quando impari qualcosa di nuovo, cerca un secondo esempio e chiediti: che cosa hanno in comune, e in che cosa si differenziano?"
+     }
+    ]
+   },
+   "tr": {
+    "titre": "İki örneği karşılaştır",
+    "blocs": [
+     {
+      "p": "Bir örnek sana bir durumu gösterir; yan yana iki örnek kuralı gösterir. İki pazarlık hikâyesini karşılaştıran işletme öğrencileri, ortak stratejiyi aynı hikâyeleri ayrı ayrı okuyanlardan çok daha sık kullandı."
+     },
+     {
+      "image": "images/cerveau-frontal.jpg"
+     },
+     {
+      "p": "Yeni bir şey öğrendiğinde ikinci bir örnek bul ve kendine sor: bu ikisinin ortak noktası ne, nerede ayrılıyorlar?"
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Compare dois exemplos",
+    "blocs": [
+     {
+      "p": "Um exemplo mostra um caso; dois lado a lado mostram a regra. Estudantes de administração que compararam duas histórias de negociação usaram depois a estratégia em comum muito mais do que quem leu as mesmas histórias separadamente."
+     },
+     {
+      "image": "images/cerveau-frontal.jpg"
+     },
+     {
+      "p": "Quando aprender algo novo, procure um segundo exemplo e pergunte: o que os dois têm em comum, e onde eles diferem?"
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Primerjaj dva primera",
+    "blocs": [
+     {
+      "p": "En primer ti pokaže primer, dva drug ob drugem pa pravilo. Študenti poslovnih ved, ki so primerjali dve zgodbi o pogajanjih, so skupno strategijo pozneje uporabili veliko pogosteje kot tisti, ki so iste zgodbe brali posamič."
+     },
+     {
+      "image": "images/cerveau-frontal.jpg"
+     },
+     {
+      "p": "Ko se naučiš nekaj novega, poišči drug primer in se vprašaj: kaj imata skupnega in v čem se razlikujeta?"
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Usporedi dva primjera",
+    "blocs": [
+     {
+      "p": "Jedan primjer pokazuje slučaj, a dva jedan uz drugi pokazuju pravilo. Studenti poslovnih studija koji su usporedili dvije priče o pregovorima kasnije su zajedničku strategiju koristili mnogo češće od onih koji su iste priče čitali odvojeno."
+     },
+     {
+      "image": "images/cerveau-frontal.jpg"
+     },
+     {
+      "p": "Kad naučiš nešto novo, pronađi drugi primjer i pitaj se: što im je zajedničko i u čemu se razlikuju?"
+     }
+    ]
+   },
+   "de": {
+    "titre": "Vergleiche zwei Beispiele",
+    "blocs": [
+     {
+      "p": "Ein Beispiel zeigt dir einen Fall, zwei nebeneinander zeigen dir die Regel. Wirtschaftsstudierende, die zwei Verhandlungsgeschichten verglichen, nutzten die gemeinsame Strategie später viel häufiger als jene, die dieselben Geschichten einzeln lasen."
+     },
+     {
+      "image": "images/cerveau-frontal.jpg"
+     },
+     {
+      "p": "Wenn du etwas Neues lernst, such dir ein zweites Beispiel und frag dich: Was haben die beiden gemeinsam, und worin unterscheiden sie sich?"
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Hasonlíts össze két példát",
+    "blocs": [
+     {
+      "p": "Egy példa egy esetet mutat, kettő egymás mellett a szabályt. Azok az üzleti hallgatók, akik két tárgyalási történetet hasonlítottak össze, később sokkal gyakrabban alkalmazták a közös stratégiát, mint akik ugyanazokat a történeteket külön olvasták."
+     },
+     {
+      "image": "images/cerveau-frontal.jpg"
+     },
+     {
+      "p": "Ha valami újat tanulsz, keress egy második példát, és kérdezd meg magadtól: mi a közös bennük, és miben különböznek?"
+     }
+    ]
+   }
+  }
+ ]
+}

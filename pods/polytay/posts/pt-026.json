@@ -1,0 +1,617 @@
+{
+ "id": "pt-026",
+ "titre": {
+  "en": "things to put in your week so you always have something new to talk about",
+  "fr": "quoi mettre dans ta semaine pour toujours avoir un sujet de conversation",
+  "es": "cosas para meter en tu semana y tener siempre algo nuevo de qué hablar",
+  "es-419": "cosas para poner en tu semana y siempre tener algo nuevo de qué hablar",
+  "it": "cose da mettere nella settimana per avere sempre qualcosa da dire",
+  "tr": "hep konuşacak yeni bir şeyin olsun diye haftana ekleyeceklerin",
+  "pt-BR": "coisas pra colocar na sua semana e sempre ter assunto novo",
+  "sl": "kaj dodati v teden, da imaš vedno kaj novega za povedati",
+  "de": "was in deine woche gehört, damit du immer etwas neues zu erzählen hast",
+  "sk": "čo pridať do týždňa, aby si mala vždy o čom rozprávať",
+  "sv": "saker att lägga in i veckan så att du alltid har något nytt att prata om"
+ },
+ "legendes": {
+  "en": "five small things for your week, and you'll never run out of things to say. save it <3 #girlblogger #selfimprovement #learning #studytok #thatgirl",
+  "fr": "cinq petites choses pour ta semaine, et tu ne seras plus jamais à court de sujets. enregistre <3 #girlblogger #developpementpersonnel #apprendre #studytok #thatgirl",
+  "es": "cinco cositas para tu semana y nunca te quedarás sin tema. guárdalo <3 #girlblogger #desarrollopersonal #aprender #studytok #thatgirl",
+  "es-419": "cinco cositas para tu semana y nunca te vas a quedar sin tema. guárdalo <3 #girlblogger #desarrollopersonal #aprender #studytok #thatgirl",
+  "it": "cinque piccole cose per la tua settimana e non resterai mai senza argomenti. salvalo <3 #girlblogger #crescitapersonale #imparare #studytok #thatgirl",
+  "tr": "haftan için beş küçük şey, ve asla konu sıkıntısı çekmezsin. kaydet <3 #girlblogger #kişiselgelişim #öğrenmek #studytok #thatgirl",
+  "pt-BR": "cinco coisinhas pra sua semana e você nunca mais fica sem assunto. salva <3 #girlblogger #autodesenvolvimento #aprender #studytok #thatgirl",
+  "sl": "pet majhnih stvari za tvoj teden in nikoli ti ne zmanjka tem. shrani si <3 #girlblogger #osebnirazvoj #učenje #studytok #thatgirl",
+  "de": "fünf kleine dinge für deine woche, und dir gehen nie die themen aus. speicher es dir <3 #girlblogger #selbstverbesserung #lernen #studytok #thatgirl",
+  "sk": "päť malých vecí na tvoj týždeň a nikdy ti nedôjdu témy. ulož si to <3 #girlblogger #osobnyrozvoj #ucenie #studytok #thatgirl",
+  "sv": "fem små saker för din vecka, och du står aldrig utan samtalsämne. spara den <3 #girlblogger #självutveckling #lärande #studytok #thatgirl"
+ },
+ "musique": {
+  "titre": "Solace",
+  "url": "https://www.tiktok.com/music/Solace-7629352188019509265"
+ },
+ "notes": "Déclinaison G1 (BLEO, 28/11) de pt-007 « things to put in your week so you always have something new to talk about » (3e et dernière déclinaison ; famille : es 2,8 k r 2,41 ; en 2,5 k r 3,12), titre du parent mot pour mot, titres traduits et couvertures repris du parent. Prévue d'abord en G1 de pt-008, refusée par le guichet (accroche voisine du rattrapage pt-008 pt-BR du jour) : ligne suivante de la boîte. Tout le reste change : autres éléments (un thé qu'on n'a jamais goûté et d'où il vient : le rooibos ne pousse que dans le Cederberg, Cap-Occidental, Afrique du Sud, vrai ; un album entier, dans l'ordre ; Sophia le dimanche soir ; une page sur sa semaine ; le coucher de soleil expliqué : diffusion de Rayleigh, vrai), autres photos (neuves), cta C (pt-007 avait cta A).",
+ "banque": {
+  "images/banque/couv-cafe-livre-bois.jpg": "15acb423-7009-46a2-8e51-8cb7bd414776",
+  "images/banque/couv-the-verse-bougie.jpg": "3f44d608-bcd1-42d8-9c8a-aa5cb1ecdb8e",
+  "images/banque/the-herbes.jpg": "37a17b24-1021-4b05-a28a-94e279e65976",
+  "images/banque/the-tasses-verse.jpg": "92159b45-917a-4041-8ff5-8dfaa7dfedb3",
+  "images/banque/vinyle-blanc.jpg": "ec493211-d081-434c-920e-eb9d7052f2d2",
+  "images/banque/vinyle-noir.jpg": "3f7816a2-af48-4043-bdc8-2ff3b4272445",
+  "images/banque/bougie-lunettes-bois.jpg": "a42f68d9-cd47-4cd0-91b2-14fd876aac81",
+  "images/banque/carnet-table-bois.jpg": "1bfc62f6-cf31-4c3f-bc9b-b75eae109110",
+  "images/banque/main-ecrit-lit.jpg": "04454a82-1527-4b47-a7f3-2b6476689df7",
+  "images/banque/crepuscule-ville.jpg": "f9923e0b-6ec7-4849-80be-2bd118586391",
+  "images/banque/crepuscule-colline.jpg": "a2d44e4b-7899-4202-b104-2e66e85ccf74"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-cafe-livre-bois.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-the-verse-bougie.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "things to put in your\nweek so you always\nhave something new\nto talk about"
+   },
+   "fr": {
+    "titre": "quoi mettre dans ta\nsemaine pour avoir\ntoujours un sujet\nde conversation"
+   },
+   "es": {
+    "titre": "cosas para meter en\ntu semana y tener\nsiempre algo nuevo\nde qué hablar"
+   },
+   "es-419": {
+    "titre": "cosas para poner en\ntu semana y siempre\ntener algo nuevo\nde qué hablar"
+   },
+   "it": {
+    "titre": "cose da mettere\nnella settimana per\navere sempre\nqualcosa da dire"
+   },
+   "tr": {
+    "titre": "hep konuşacak yeni\nbir şeyin olsun diye\nhaftana\nekleyeceklerin"
+   },
+   "pt-BR": {
+    "titre": "coisas pra colocar\nna sua semana e\nsempre ter\nassunto novo"
+   },
+   "sl": {
+    "titre": "kaj dodati v teden,\nda imaš vedno kaj\nnovega povedati"
+   },
+   "de": {
+    "titre": "was in deine woche\ngehört, damit du\nimmer etwas neues\nzu erzählen hast"
+   },
+   "sk": {
+    "titre": "čo pridať do týždňa,\naby si mala vždy\no čom rozprávať"
+   },
+   "sv": {
+    "titre": "saker att lägga in i\nveckan så att du\nalltid har något nytt\natt prata om"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/the-herbes.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/the-tasses-verse.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. a tea you've never tried",
+    "paragraphes": [
+     "Buy one tea you've never had, like rooibos or oolong, and read where it grows while it brews. rooibos only grows in one small region of south africa.",
+     "A cup turns into a little map, and you'll think of it every time you drink it"
+    ]
+   },
+   "fr": {
+    "titre": "1. un thé jamais goûté",
+    "paragraphes": [
+     "Achète un thé que tu n'as jamais bu, comme le rooibos ou l'oolong, et lis d'où il vient pendant qu'il infuse. le rooibos ne pousse que dans une petite région d'afrique du sud.",
+     "Une tasse devient une petite carte, et tu y penseras à chaque gorgée"
+    ]
+   },
+   "es": {
+    "titre": "1. un té que nunca has probado",
+    "paragraphes": [
+     "Compra un té que nunca has tomado, como rooibos u oolong, y lee de dónde viene mientras reposa. el rooibos solo crece en una pequeña región de sudáfrica.",
+     "Una taza se convierte en un pequeño mapa, y pensarás en ello cada vez que lo bebas"
+    ]
+   },
+   "es-419": {
+    "titre": "1. un té que nunca has probado",
+    "paragraphes": [
+     "Compra un té que nunca hayas tomado, como rooibos u oolong, y lee de dónde viene mientras reposa. el rooibos solo crece en una pequeña región de sudáfrica.",
+     "Una taza se vuelve un pequeño mapa, y vas a pensar en eso cada vez que lo tomes"
+    ]
+   },
+   "it": {
+    "titre": "1. un tè mai assaggiato",
+    "paragraphes": [
+     "Compra un tè che non hai mai bevuto, come il rooibos o l'oolong, e leggi da dove viene mentre è in infusione. il rooibos cresce solo in una piccola regione del sudafrica.",
+     "Una tazza diventa una piccola mappa, e ci penserai ogni volta che lo bevi"
+    ]
+   },
+   "tr": {
+    "titre": "1. hiç denemediğin bir çay",
+    "paragraphes": [
+     "Hiç içmediğin bir çay al, rooibos ya da oolong gibi, ve demlenirken nerede yetiştiğini oku. rooibos sadece güney afrika'nın küçük bir bölgesinde yetişir.",
+     "Bir fincan küçük bir haritaya dönüşür, ve her yudumda aklına gelir"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. um chá que você nunca provou",
+    "paragraphes": [
+     "Compra um chá que você nunca tomou, tipo rooibos ou oolong, e lê de onde ele vem enquanto fica em infusão. o rooibos só cresce numa pequena região da áfrica do sul.",
+     "Uma xícara vira um mapinha, e você vai lembrar disso toda vez que tomar"
+    ]
+   },
+   "sl": {
+    "titre": "1. čaj, ki ga še nisi poskusila",
+    "paragraphes": [
+     "Kupi čaj, ki ga še nisi pila, recimo rooibos ali oolong, in med namakanjem preberi, od kod prihaja. rooibos raste samo v majhni regiji južne afrike.",
+     "Skodelica postane majhen zemljevid, in nanj pomisliš ob vsakem požirku"
+    ]
+   },
+   "de": {
+    "titre": "1. ein tee, den du nie probiert hast",
+    "paragraphes": [
+     "Kauf einen tee, den du noch nie getrunken hast, wie rooibos oder oolong, und lies, wo er wächst, während er zieht. rooibos wächst nur in einer kleinen region südafrikas.",
+     "Eine tasse wird zu einer kleinen landkarte, und du denkst bei jedem schluck daran"
+    ]
+   },
+   "sk": {
+    "titre": "1. čaj, ktorý si ešte neskúsila",
+    "paragraphes": [
+     "Kúp si čaj, ktorý si ešte nepila, napríklad rooibos alebo oolong, a kým sa lúhuje, prečítaj si, odkiaľ pochádza. rooibos rastie len v malom regióne južnej afriky.",
+     "Šálka sa zmení na malú mapu, a spomenieš si na to pri každom dúšku"
+    ]
+   },
+   "sv": {
+    "titre": "1. ett te du aldrig provat",
+    "paragraphes": [
+     "Köp ett te du aldrig druckit, som rooibos eller oolong, och läs var det växer medan det drar. rooibos växer bara i en liten region i sydafrika.",
+     "En kopp blir en liten karta, och du tänker på det varje gång du dricker det"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/vinyle-blanc.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/vinyle-noir.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. a whole album, in order",
+    "paragraphes": [
+     "Put on an album from before you were born and play it start to finish, no shuffle. read about the year it came out.",
+     "You hear it the way it was meant to be heard, and you learn a whole year in forty minutes"
+    ]
+   },
+   "fr": {
+    "titre": "2. un album entier, dans l'ordre",
+    "paragraphes": [
+     "Mets un album sorti avant ta naissance et écoute-le du début à la fin, sans aléatoire. lis sur l'année de sa sortie.",
+     "Tu l'entends comme il devait être écouté, et tu apprends toute une année en quarante minutes"
+    ]
+   },
+   "es": {
+    "titre": "2. un álbum entero, en orden",
+    "paragraphes": [
+     "Pon un álbum de antes de que nacieras y escúchalo de principio a fin, sin aleatorio. lee sobre el año en que salió.",
+     "Lo escuchas como se pensó, y aprendes un año entero en cuarenta minutos"
+    ]
+   },
+   "es-419": {
+    "titre": "2. un álbum completo, en orden",
+    "paragraphes": [
+     "Pon un álbum de antes de que nacieras y escúchalo de principio a fin, sin aleatorio. lee sobre el año en que salió.",
+     "Lo escuchas como se pensó, y aprendes un año entero en cuarenta minutos"
+    ]
+   },
+   "it": {
+    "titre": "2. un album intero, in ordine",
+    "paragraphes": [
+     "Metti un album uscito prima che nascessi e ascoltalo dall'inizio alla fine, senza shuffle. leggi dell'anno in cui è uscito.",
+     "Lo senti come doveva essere ascoltato, e impari un anno intero in quaranta minuti"
+    ]
+   },
+   "tr": {
+    "titre": "2. baştan sona bir albüm",
+    "paragraphes": [
+     "Sen doğmadan önce çıkmış bir albüm aç ve karıştırmadan baştan sona dinle. çıktığı yılı oku.",
+     "Onu dinlenmesi gerektiği gibi dinlersin, ve kırk dakikada koca bir yılı öğrenirsin"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. um álbum inteiro, na ordem",
+    "paragraphes": [
+     "Coloca um álbum de antes de você nascer e ouve do começo ao fim, sem aleatório. lê sobre o ano em que ele saiu.",
+     "Você ouve do jeito que ele foi pensado, e aprende um ano inteiro em quarenta minutos"
+    ]
+   },
+   "sl": {
+    "titre": "2. cel album, po vrsti",
+    "paragraphes": [
+     "Zavrti album, ki je izšel pred tvojim rojstvom, in ga poslušaj od začetka do konca, brez mešanja. preberi o letu, ko je izšel.",
+     "Slišiš ga tako, kot je bil mišljen, in v štiridesetih minutah spoznaš celo leto"
+    ]
+   },
+   "de": {
+    "titre": "2. ein ganzes album, der reihe nach",
+    "paragraphes": [
+     "Leg ein album von vor deiner geburt auf und hör es von anfang bis ende, ohne shuffle. lies über das jahr, in dem es erschien.",
+     "Du hörst es so, wie es gemeint war, und lernst ein ganzes jahr in vierzig minuten"
+    ]
+   },
+   "sk": {
+    "titre": "2. celý album, po poradí",
+    "paragraphes": [
+     "Pusti si album spred svojho narodenia a vypočuj si ho od začiatku do konca, bez náhodného poradia. prečítaj si o roku, keď vyšiel.",
+     "Počuješ ho tak, ako bol myslený, a za štyridsať minút spoznáš celý rok"
+    ]
+   },
+   "sv": {
+    "titre": "2. ett helt album, i ordning",
+    "paragraphes": [
+     "Sätt på ett album från innan du föddes och lyssna från början till slut, utan shuffle. läs om året det kom ut.",
+     "Du hör det som det var tänkt, och lär dig ett helt år på fyrtio minuter"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/bougie-lunettes-bois.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson before the week",
+    "paragraphes": [
+     "One lesson a day on Sophia, like why we dream, with a little quiz after. on sundays I always pick history or philosophy.",
+     "Ten minutes, and I walk into monday with something new to talk about"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon avant la semaine",
+    "paragraphes": [
+     "Une leçon par jour sur Sophia, genre pourquoi on rêve, avec un petit quiz après. le dimanche, je choisis toujours histoire ou philo.",
+     "Dix minutes, et j'arrive lundi avec un nouveau sujet de conversation"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección antes de la semana",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. los domingos siempre elijo historia o filosofía.",
+     "Diez minutos, y empiezo el lunes con algo nuevo de qué hablar"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección antes de la semana",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. los domingos siempre elijo historia o filosofía.",
+     "Diez minutos, y empiezo el lunes con algo nuevo de qué platicar"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione prima della settimana",
+    "paragraphes": [
+     "Una lezione al giorno su Sophia, tipo perché sogniamo, con un piccolo quiz alla fine. la domenica scelgo sempre storia o filosofia.",
+     "Dieci minuti, e arrivo al lunedì con qualcosa di nuovo da raccontare"
+    ]
+   },
+   "tr": {
+    "titre": "3. haftadan önce bir ders",
+    "paragraphes": [
+     "Her gün Sophia'da bir ders, mesela neden rüya görürüz, sonunda da küçük bir test. pazar günleri hep tarih ya da felsefe seçiyorum.",
+     "On dakika, ve pazartesiye konuşacak yeni bir şeyle başlıyorum"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula antes da semana",
+    "paragraphes": [
+     "Uma aula por dia no Sophia, tipo por que a gente sonha, com um quiz no final. no domingo eu sempre escolho história ou filosofia.",
+     "Dez minutos, e eu começo a segunda com um assunto novo"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija pred tednom",
+    "paragraphes": [
+     "Ena lekcija na dan v aplikaciji Sophia, recimo zakaj sanjamo, na koncu pa kratek kviz. ob nedeljah vedno izberem zgodovino ali filozofijo.",
+     "Deset minut, in v ponedeljek pridem z novo temo za pogovor"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion vor der woche",
+    "paragraphes": [
+     "Eine lektion am tag auf Sophia, zum beispiel warum wir träumen, mit einem kleinen quiz danach. sonntags nehme ich immer geschichte oder philosophie.",
+     "Zehn minuten, und ich starte mit etwas neuem zum erzählen in den montag"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia pred týždňom",
+    "paragraphes": [
+     "Jedna lekcia denne v aplikácii Sophia, napríklad prečo snívame, a na konci malý kvíz. v nedeľu si vždy vyberiem históriu alebo filozofiu.",
+     "Desať minút a do pondelka vstupujem s novou témou na rozhovor"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion före veckan",
+    "paragraphes": [
+     "En lektion om dagen på Sophia, som varför vi drömmer, med ett litet quiz efteråt. på söndagar väljer jag alltid historia eller filosofi.",
+     "Tio minuter, och jag går in i måndagen med något nytt att prata om"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/carnet-table-bois.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/main-ecrit-lit.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. one page about your week",
+    "paragraphes": [
+     "Write down three things you learned this week, and one question you want answered by next sunday.",
+     "Your weeks stop blurring together, and the question pulls you through the next one"
+    ]
+   },
+   "fr": {
+    "titre": "4. une page sur ta semaine",
+    "paragraphes": [
+     "Note trois choses que tu as apprises cette semaine, et une question à laquelle tu veux une réponse d'ici dimanche prochain.",
+     "Tes semaines ne se mélangent plus, et la question te porte jusqu'à la suivante"
+    ]
+   },
+   "es": {
+    "titre": "4. una página sobre tu semana",
+    "paragraphes": [
+     "Apunta tres cosas que aprendiste esta semana, y una pregunta que quieras responder antes del próximo domingo.",
+     "Tus semanas dejan de mezclarse, y la pregunta te lleva hasta la siguiente"
+    ]
+   },
+   "es-419": {
+    "titre": "4. una página sobre tu semana",
+    "paragraphes": [
+     "Anota tres cosas que aprendiste esta semana, y una pregunta que quieras responder antes del próximo domingo.",
+     "Tus semanas dejan de mezclarse, y la pregunta te lleva hasta la siguiente"
+    ]
+   },
+   "it": {
+    "titre": "4. una pagina sulla tua settimana",
+    "paragraphes": [
+     "Scrivi tre cose che hai imparato questa settimana, e una domanda a cui vuoi rispondere entro domenica prossima.",
+     "Le settimane smettono di confondersi, e la domanda ti porta fino alla prossima"
+    ]
+   },
+   "tr": {
+    "titre": "4. haftan hakkında bir sayfa",
+    "paragraphes": [
+     "Bu hafta öğrendiğin üç şeyi ve gelecek pazara kadar cevaplamak istediğin bir soruyu yaz.",
+     "Haftaların birbirine karışmaz, ve o soru seni bir sonrakine taşır"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. uma página sobre a sua semana",
+    "paragraphes": [
+     "Anota três coisas que você aprendeu essa semana, e uma pergunta que você quer responder até o próximo domingo.",
+     "Suas semanas param de se misturar, e a pergunta te leva até a próxima"
+    ]
+   },
+   "sl": {
+    "titre": "4. stran o tvojem tednu",
+    "paragraphes": [
+     "Zapiši tri stvari, ki si se jih naučila ta teden, in eno vprašanje, na katero želiš odgovor do naslednje nedelje.",
+     "Tedni se ne zlivajo več, in vprašanje te nese v naslednjega"
+    ]
+   },
+   "de": {
+    "titre": "4. eine seite über deine woche",
+    "paragraphes": [
+     "Schreib drei dinge auf, die du diese woche gelernt hast, und eine frage, die du bis nächsten sonntag beantworten willst.",
+     "Deine wochen verschwimmen nicht mehr, und die frage trägt dich durch die nächste"
+    ]
+   },
+   "sk": {
+    "titre": "4. strana o tvojom týždni",
+    "paragraphes": [
+     "Zapíš si tri veci, ktoré si sa tento týždeň naučila, a jednu otázku, na ktorú chceš odpoveď do budúcej nedele.",
+     "Týždne sa ti prestanú zlievať, a otázka ťa prenesie do ďalšieho"
+    ]
+   },
+   "sv": {
+    "titre": "4. en sida om din vecka",
+    "paragraphes": [
+     "Skriv ner tre saker du lärt dig den här veckan, och en fråga du vill ha svar på till nästa söndag.",
+     "Veckorna slutar flyta ihop, och frågan bär dig genom nästa"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/crepuscule-ville.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/crepuscule-colline.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. the sunset, explained",
+    "paragraphes": [
+     "Go out at sunset and look up why the sky turns orange: the light crosses more air, and the blue gets scattered away first.",
+     "You'll never see a sunset the same way, and you'll want to explain it to everyone"
+    ]
+   },
+   "fr": {
+    "titre": "5. le coucher de soleil, expliqué",
+    "paragraphes": [
+     "Sors au coucher du soleil et cherche pourquoi le ciel devient orange : la lumière traverse plus d'air, et le bleu se disperse en premier.",
+     "Tu ne verras plus jamais un coucher de soleil pareil, et tu voudras l'expliquer à tout le monde"
+    ]
+   },
+   "es": {
+    "titre": "5. el atardecer, explicado",
+    "paragraphes": [
+     "Sal al atardecer y busca por qué el cielo se vuelve naranja: la luz atraviesa más aire, y el azul se dispersa primero.",
+     "Nunca volverás a ver un atardecer igual, y querrás explicárselo a todo el mundo"
+    ]
+   },
+   "es-419": {
+    "titre": "5. el atardecer, explicado",
+    "paragraphes": [
+     "Sal al atardecer y busca por qué el cielo se pone naranja: la luz atraviesa más aire, y el azul se dispersa primero.",
+     "Nunca vas a volver a ver un atardecer igual, y vas a querer explicárselo a todos"
+    ]
+   },
+   "it": {
+    "titre": "5. il tramonto, spiegato",
+    "paragraphes": [
+     "Esci al tramonto e cerca perché il cielo diventa arancione: la luce attraversa più aria, e il blu si disperde per primo.",
+     "Non vedrai mai più un tramonto allo stesso modo, e vorrai spiegarlo a tutti"
+    ]
+   },
+   "tr": {
+    "titre": "5. gün batımı, açıklanmış hali",
+    "paragraphes": [
+     "Gün batımında dışarı çık ve gökyüzünün neden turuncu olduğuna bak: ışık daha çok havadan geçer, ve mavi önce saçılır.",
+     "Bir gün batımını asla aynı görmezsin, ve herkese anlatmak istersin"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. o pôr do sol, explicado",
+    "paragraphes": [
+     "Sai no pôr do sol e pesquisa por que o céu fica laranja: a luz atravessa mais ar, e o azul se espalha primeiro.",
+     "Você nunca mais vai ver um pôr do sol do mesmo jeito, e vai querer explicar pra todo mundo"
+    ]
+   },
+   "sl": {
+    "titre": "5. sončni zahod, razložen",
+    "paragraphes": [
+     "Ob sončnem zahodu pojdi ven in poišči, zakaj nebo postane oranžno: svetloba prečka več zraka, modra pa se razprši prva.",
+     "Sončnega zahoda ne boš nikoli več videla enako, in to boš hotela razložiti vsem"
+    ]
+   },
+   "de": {
+    "titre": "5. das abendrot, erklärt",
+    "paragraphes": [
+     "Geh zum sonnenuntergang raus und schau nach, warum der himmel orange wird: das licht durchquert mehr luft, und das blau wird zuerst gestreut.",
+     "Du siehst nie wieder einen sonnenuntergang gleich, und willst es allen erklären"
+    ]
+   },
+   "sk": {
+    "titre": "5. západ slnka, vysvetlený",
+    "paragraphes": [
+     "Choď von pri západe slnka a zisti, prečo je obloha oranžová: svetlo prechádza viac vzduchu a modrá sa rozptýli ako prvá.",
+     "Západ slnka už nikdy neuvidíš rovnako, a budeš to chcieť vysvetliť každému"
+    ]
+   },
+   "sv": {
+    "titre": "5. solnedgången, förklarad",
+    "paragraphes": [
+     "Gå ut i solnedgången och ta reda på varför himlen blir orange: ljuset passerar mer luft, och det blå sprids bort först.",
+     "Du ser aldrig en solnedgång på samma sätt igen, och du vill förklara det för alla"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c9240f9d-3723-4c91-8dcd-449ab3bc558b"
+}

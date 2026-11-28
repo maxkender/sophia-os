@@ -69,11 +69,11 @@
       "url": "https://www.metmuseum.org/art/collection/search/437314"
     }
   },
-  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Corot, Ville-d'Avray (1870) : maison de campagne des parents de Corot achetée en 1817 ; il y peint jusqu'à sa mort (1875). Vermeer, Jeune femme à l'aiguière (vers 1662) : acheté par Henry G. Marquand en 1887, premier Vermeer aux États-Unis, donné au Met en 1889 ; carte des Pays-Bas au mur. Fantin-Latour, Fleurs d'été (1880) : vendues surtout en Angleterre (Edwin et Ruth Edwards) ; épouse Victoria Dubourg, peintre de fleurs. Pissarro, Le Jardin des Tuileries, après-midi d'hiver (1899) : depuis l'appartement du 204 rue de Rivoli ; infection oculaire, peinture aux fenêtres (notice du Met). Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou).",
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Corot, Ville-d'Avray (1870) : maison de campagne des parents de Corot achetée en 1817 ; il y peint jusqu'à sa mort (1875). Vermeer, Jeune femme à l'aiguière (vers 1662) : acheté par Henry G. Marquand en 1887, premier Vermeer aux États-Unis, donné au Met en 1889 ; carte des Pays-Bas au mur. Fantin-Latour, Fleurs d'été (1880) : vendues surtout en Angleterre (Edwin et Ruth Edwards) ; épouse Victoria Dubourg, peintre de fleurs. Pissarro, Le Jardin des Tuileries, après-midi d'hiver (1899) : depuis l'appartement du 204 rue de Rivoli ; infection oculaire, peinture aux fenêtres (notice du Met). Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
   "slides": [
     {
       "type": "couverture",
-      "image": "images/photos/musee-silence.jpg",
+      "image": "images/banque/musee-trois-tableaux.jpg",
       "en": {
         "titre": "Paintings That Feel Like Silence"
       },
@@ -321,5 +321,8 @@
         "artiste": "Camille Pissarro"
       }
     }
-  ]
+  ],
+  "banque": {
+    "images/banque/musee-trois-tableaux.jpg": "03059ce2-fdd8-4e1f-b9ff-981d791c2523"
+  }
 }

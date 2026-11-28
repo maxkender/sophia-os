@@ -20,6 +20,7 @@
     "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
     "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
     "photos": "NODE_USE_ENV_PROXY=1 node atelier/cli-photos.ts",
-    "image": "NODE_USE_ENV_PROXY=1 node atelier/cli-image.ts"
+    "image": "NODE_USE_ENV_PROXY=1 node atelier/cli-image.ts",
+    "compte": "node atelier/cli-compte.ts"
   }
 }

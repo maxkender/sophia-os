@@ -1,0 +1,75 @@
+{
+ "source_id": "am-o413",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "79d9926f-e4b4-41c2-bb42-48b16c69d808",
+ "titre": "18 lessons I wish I knew at 18 #18 #lessons #men #life #growth",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7652148333531663135",
+ "inspirations": [
+  "79d9926f-e4b4-41c2-bb42-48b16c69d808"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Déclinaison G1 de la ligne 60 de la boîte (parent 79d9926f, @millyjhino, langue source en). Accroche du parent mot pour mot. Format : « N. Leçon: » ; 2 par slide pour tenir en 10 slides. Rien de financier ni de couple. Items neufs, aucun du parent. reference_url du parent (1 à 5, 7 à 9, 11, 12) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6bddb93b",
+   "texte_overlay": "18 lessons I wish I knew at 18",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672098684133281032/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7b701124",
+   "texte_overlay": "1. Sleep is a superpower.\n2. Mornings decide the day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672098684133281032/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5be1ee66",
+   "texte_overlay": "3. Start training now.\n4. Your body keeps every habit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672098684133281032/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9d7edcf5",
+   "texte_overlay": "5. Friends change. That's normal.\n6. Keep the ones who call.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672098684133281032/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7c2d3ef6",
+   "texte_overlay": "7. Being early is a skill.\n8. Finish what you start.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672098684133281032/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "76bf2322",
+   "texte_overlay": "9. Learn beyond school.\n10. Curiosity is the real degree.",
+   "texte_sophia": "9. Learn beyond school.\n10. I learn daily on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672098684133281032/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "097c3c2a",
+   "texte_overlay": "11. Your parents are people too.\n12. Ask them about their youth.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672098684133281032/8.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "722639c6",
+   "texte_overlay": "13. Learn to cook five meals.\n14. Clean as you go.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672098684133281032/9.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "67b61c20",
+   "texte_overlay": "15. Walk more. Think more.\n16. Say sorry fast.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672098684133281032/11.jpg"
+  },
+  {
+   "position": 10,
+   "media_id": "0a72018f",
+   "texte_overlay": "17. Nobody has it figured out.\n18. Start anyway.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672098684133281032/12.jpg"
+  }
+ ]
+}

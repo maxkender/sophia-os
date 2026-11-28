@@ -14,7 +14,8 @@
   "fr": "5 talents inutiles qui te rendent instantanément plus cool",
   "es": "5 habilidades inútiles que te hacen más cool al instante",
   "pl": "5 bezużytecznych umiejętności, które od razu czynią cię fajniejszym",
-  "tr": "Seni anında daha havalı yapan 5 gereksiz beceri"
+  "tr": "Seni anında daha havalı yapan 5 gereksiz beceri",
+  "sr": "5 beskorisnih veština zbog kojih si odmah kul"
  },
  "legendes": {
   "en": "5 Pointless Skills That Make You Instantly Cooler #skills #learnontiktok #selfimprovement",
@@ -25,13 +26,14 @@
   "fr": "5 talents inutiles qui te rendent instantanément plus cool #apprendresurtiktok #astuces #talents",
   "es": "5 habilidades inútiles que te hacen más cool al instante #aprendeentiktok #trucos #habilidades",
   "pl": "5 bezużytecznych umiejętności, które od razu czynią cię fajniejszym #umiejętności #rozwójosobisty #nauka",
-  "tr": "Seni anında daha havalı yapan 5 gereksiz beceri #beceriler #kişiselgelişim #öğrenme"
+  "tr": "Seni anında daha havalı yapan 5 gereksiz beceri #beceriler #kişiselgelişim #öğrenme",
+  "sr": "5 beskorisnih veština zbog kojih si odmah kul #veštine #ličnirazvoj #učenje"
  },
  "musique": {
   "titre": "Cinderella (Instrumental)",
   "url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864"
  },
- "notes": "Variante de fa-003 (sa reprise à 2,5 M, sans « ! »). cta A. Sophia à l'étape 3 « KNOW A FUN FACT FOR EVERY SITUATION ». Pas d'UnSwipe. Autres compétences (siffler avec les doigts, rouler une pièce, mélanger les cartes, moonwalk), autres vidéos. en, de et pt (Portugal). 27/11 : ajouté en pl et tr ; faute de moonwalk natif sans visage de Michael Jackson, le moonwalk devient le pen spinning en pl.",
+ "notes": "Variante de fa-003 (sa reprise à 2,5 M, sans « ! »). cta A. Sophia à l'étape 3 « KNOW A FUN FACT FOR EVERY SITUATION ». Pas d'UnSwipe. Autres compétences (siffler avec les doigts, rouler une pièce, mélanger les cartes, moonwalk), autres vidéos. en, de et pt (Portugal). 27/11 : ajouté en pl et tr ; faute de moonwalk natif sans visage de Michael Jackson, le moonwalk devient le pen spinning en pl. 28/11 : ajouté en sr ; faute de vidéos natives, la pièce devient le tour de l'élastique, les cartes le pen spinning et le moonwalk le jonglage.",
  "slides": [
   {
    "type": "couverture",
@@ -221,6 +223,27 @@
       }
      ]
     ]
+   },
+   "sr": {
+    "lignes": [
+     [
+      {
+       "t": "5",
+       "bronze": true
+      }
+     ],
+     "BESKORISNIH VEŠTINA",
+     "ZBOG KOJIH SI",
+     [
+      {
+       "t": "ODMAH ",
+       "bronze": true
+      },
+      {
+       "t": "KUL"
+      }
+     ]
+    ]
    }
   },
   {
@@ -358,6 +381,21 @@
      "date": "11 yıl önce",
      "duree": "2:03",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwYFyWD2yAthoaQvJCe0DfxeK9H1w35Clg5dSvT28fQA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "ZVIŽDI",
+     "PRSTIMA"
+    ],
+    "video": {
+     "id": "vMytDpJ-GTw",
+     "titre": "TUTORIJAL: Kako naučiti zviždati pomoću prstiju",
+     "chaine": "Magazinba",
+     "vues": "178 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "2.25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lvtyK3MWAylUnfNZYSxBdZpvlS09h9HUAQe5UkzKHFIQ=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -497,6 +535,21 @@
      "duree": "3:08",
      "avatar": "https://yt3.ggpht.com/9UShcnRNBnvykgR69mWC1ZMQChf_os_bhUFKtMe6mHX7T2R2yw2Yqg_gUwVvvaS2YTPY8T4=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "sr": {
+    "titre": [
+     "PROVUCI GUMICU",
+     "KROZ PRST"
+    ],
+    "video": {
+     "id": "WXDr8h6lPx8",
+     "titre": "Objašnjenje trika: Gumica kroz prst",
+     "chaine": "Magic Angel",
+     "vues": "45 hilj. pregleda",
+     "date": "pre 11 godina",
+     "duree": "1.39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mLHapi8c08ze_KrBly0fKyN03TBK_l1_zJYP6-L8XeKw=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -616,6 +669,19 @@
      "texte": [
       "her gün yeni bir şey öğren,",
       "5 dakikada."
+     ]
+    }
+   },
+   "sr": {
+    "titre": [
+     "ZANIMLJIVOST ZA",
+     "SVAKU PRILIKU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo svaki dan,",
+      "za 5 minuta."
      ]
     }
    }
@@ -756,6 +822,21 @@
      "duree": "6:52",
      "avatar": "https://yt3.ggpht.com/9UShcnRNBnvykgR69mWC1ZMQChf_os_bhUFKtMe6mHX7T2R2yw2Yqg_gUwVvvaS2YTPY8T4=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "sr": {
+    "titre": [
+     "VRTI OLOVKU",
+     "OKO PRSTIJU"
+    ],
+    "video": {
+     "id": "QFYgjNIWa08",
+     "titre": "Kako vrteti olovku oko prstiju - OBJASNJENJE",
+     "chaine": "Jacks&Jokers15",
+     "vues": "258 hilj. pregleda",
+     "date": "pre 11 godina",
+     "duree": "5.45",
+     "avatar": "https://yt3.ggpht.com/H4CJR2exrE5vHLR2kWMw6c7tYKy5h34-SVZF5wjanb-J5gpPmldgBUcH9E0dVH7W_s-47ysVeg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -885,6 +966,20 @@
      "date": "8 yıl önce",
      "duree": "7:24",
      "avatar": "https://yt3.ggpht.com/tJKGGozJ6rbQvP6FQEB8325JKSgQ_M3Wxzd_WQokK6KD5mllWSu-S1X_XBy_bhLMJpYuxLS3rg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "ŽONGLIRAJ"
+    ],
+    "video": {
+     "id": "0eTqPkeaTPI",
+     "titre": "Kako Žonglirati Sa 3 Loptice?",
+     "chaine": "DakiMC",
+     "vues": "68 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "3.44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mCTo2OptHGpxKfCm31FcG8rB52wT03jIJPmQLPkbvqmA=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

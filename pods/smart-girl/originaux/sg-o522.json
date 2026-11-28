@@ -1,0 +1,63 @@
+{
+  "source_id": "sg-o522",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "b8e13c80-0dce-4537-89dc-3192e9ce8927",
+  "titre": "what my grandmother taught me about being a lady #elegance #grandmother #classy #smartgirl #oldmoney",
+  "musique_titre": "i love this song",
+  "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+  "inspirations": [
+    "905ac33d-906a-4223-9d93-29df2e258b6f"
+  ],
+  "notes": "cta B. Déclinaison G2 de la ligne 1 de la boîte (parent b8e13c80, langue source en) : accroche reformulée (« what my grandmother taught me about being a lady »), différente de sg-o490 ; leçons neuves. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "2ccd9534",
+      "texte_overlay": "what my grandmother taught me\nabout being a lady",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "4c66aeb3",
+      "texte_overlay": "set the table properly,\neven for one",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "5b825ad9",
+      "texte_overlay": "keep a pretty handkerchief",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "54e81404",
+      "texte_overlay": "always have something interesting\nto say",
+      "texte_sophia": "always have something interesting to say: i\nlearn on an app like Sophia",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "9a58f208",
+      "texte_overlay": "never leave a guest's glass empty",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "8389b079",
+      "texte_overlay": "dress up for no reason",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "aa747013",
+      "texte_overlay": "call, don't just text",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "c6ba2b47",
+      "texte_overlay": "save this and call\nyour grandmother",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+    }
+  ]
+}

@@ -1,0 +1,319 @@
+{
+ "post_id": "var-concentration-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things destroying your",
+      "attention span"
+     ],
+     "fr": "10/10 trucs qui te bousillent la concentration",
+     "texte": "10/10 dalykų, kurie tyliai vagia tavo dėmesį"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T4": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(labai niche)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_02108ec4.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       2208
+      ]
+     }
+    },
+    "I2": {
+     "remplacer": {
+      "source": "sources/os_17f636d9.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "mokytis [[prieblandoje]]"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "šviečia tik ekranas tamsiame kambaryje, o 16 val. akys jau sunkios"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "prie silpnos šviesos smegenys [[ruošiasi miegui]]"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "atitrauk užuolaidas arba įjunk tikrą lempą. ryški šviesa padeda smegenims [[išlikti budrioms]], ypač pilkomis žiemos dienomis"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_014dd2cc.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to multitask"
+     ],
+     "fr": "arrête [[le multitâche]]",
+     "texte": "visi tie [[„turi minutę?“]]"
+    },
+    "T2": {
+     "en": [
+      "texting, watching youtube, and doing homework",
+      "isn't doing 3 things at once"
+     ],
+     "fr": "texter, mater des vidéos, faire tes devoirs : c'est pas [[3 trucs à la fois]]",
+     "texte": "kambariokas įkiša galvą, mama šaukia iš virtuvės, draugas prisėda „2 minutėms“"
+    },
+    "T3": {
+     "en": [
+      "a stanford study",
+      "found heavy",
+      "multitaskers get",
+      "worse at",
+      "ignoring",
+      "distractions"
+     ],
+     "fr": "une étude de stanford montre que les pros du multitâche [[se laissent plus distraire]]",
+     "texte": "kiekvienas pokalbis trunka minutę, bet vėl įsivažiuoti [[užtrunka daug ilgiau]]"
+    },
+    "T4": {
+     "en": [
+      "pick one thing and finish it before",
+      "you start the next"
+     ],
+     "fr": "choisis un truc et [[finis-le]] avant d'attaquer le suivant",
+     "texte": "atsakyk [[„po 17 val., pažadu“]] ir ramiai uždaryk duris"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_25b2d3c6.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop opening the comments",
+      "during a video"
+     ],
+     "fr": "arrête d'ouvrir [[les coms pendant une vidéo]]",
+     "texte": "mesti užduotį [[vos tik pasidaro sunku]]"
+    },
+    "T2": {
+     "en": [
+      "a tiktok is already a large dose of artificial dopamine,",
+      "but it's not enough"
+     ],
+     "fr": "un tiktok, c'est déjà une dose de [[dopamine artificielle]], mais ça suffit pas",
+     "texte": "vienas sunkesnis uždavinys, ir tu jau prie kito dalyko, telefono ar šaldytuvo"
+    },
+    "T3": {
+     "en": [
+      "so you open the",
+      "comments instead",
+      "of watching a 20",
+      "second clip"
+     ],
+     "fr": "alors t'ouvres les coms au lieu de [[regarder un clip de 20 secondes]]",
+     "texte": "smegenys išmoksta, kad kiekvienas sunkumas [[turi išėjimą]]"
+    },
+    "T4": {
+     "en": [
+      "your brain skips the hard part, and you just",
+      "copy the top comment"
+     ],
+     "fr": "ton cerveau zappe l'effort et tu [[recopies le com le plus liké]]",
+     "texte": "pabūk prie jo dar 10 min. noras mesti [[dažniausiai praeina]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_248a7660.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "[[be jokio ritualo]]"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "kasdien kita vieta, kitas laikas, kitas gėrimas, tad kaskart pradedi nuo nulio"
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "kai signalai kaskart tie patys, smegenys supranta, [[kad laikas dirbti]], ir įsijungia greičiau"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "tas pats stalas, arbata ir grojaraštis. [[tai tampa tavo jungikliu]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_2983297b.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       2208
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never stop scrolling"
+     ],
+     "fr": "scrolle non-stop",
+     "texte": "[[skrolas, tada mokslai]]"
+    },
+    "T2": {
+     "en": [
+      "maybe the next tiktok will finally",
+      "solve your problems"
+     ],
+     "fr": "le [[prochain tiktok]] va [[enfin]] régler tes problèmes, qui sait",
+     "texte": "30 min. reels, tada užrašai, o galva vis dar sraute"
+    },
+    "T3": {
+     "en": [
+      "don’t limit your screen time,",
+      "don’t start reading, don’t give",
+      "your brain a chance to get",
+      "bored"
+     ],
+     "fr": "limite pas ton temps d'écran, ouvre surtout pas [[l'appli Sophia]] 5 min, laisse jamais ton cerveau [[s'ennuyer]]",
+     "texte": "dalis dėmesio lieka įstrigusi prie to, ką ką tik darei. tai vadinama [[dėmesio likučiu]]"
+    },
+    "T4": {
+     "en": [
+      "just keep feeding the algorithm",
+      "until it knows what you want",
+      "better than you do"
+     ],
+     "fr": "continue de [[nourrir l'algo]] jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]",
+     "texte": "vietoj skrolo prieš mokslus: vanduo, tempimas ir kodėl renesansas prasidėjo italijoje"
+    },
+    "T5": {
+     "en": [
+      "keep giving them your data,",
+      "they deserve it!"
+     ],
+     "fr": "file-leur [[tes données]], ils le méritent !",
+     "texte": "per trumpą 5 min. pamoką [[programėlėje Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  }
+ }
+}

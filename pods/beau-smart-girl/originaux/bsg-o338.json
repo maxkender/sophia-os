@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o338",
+  "type_bleo": "full_test",
+  "titre": "les livres à lire en hiver sous un plaid #lecture #hiver #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Fait vérifié le 10/11 sur https://en.wikipedia.org/wiki/Les_Mis%C3%A9rables : Hugo en exil à Guernesey à la parution, 1862. Routine du 28/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 et 16 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12 à 15 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "07232ee2",
+      "texte_overlay": "les livres à lire en hiver\nsous un plaid",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "328d46af",
+      "texte_overlay": "1. les hauts de hurlevent\n\nla lande, le vent, la passion.\nparfait quand il fait froid dehors.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "596685bd",
+      "texte_overlay": "2. le crime de l'orient-express\n\nun train bloqué par la neige,\nun meurtre à résoudre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "75cad2fe",
+      "texte_overlay": "3. les misérables\n\nce matin, j'ai appris que victor hugo était en exil à guernesey quand les misérables est paru, en 1862.\nj'ai commencé le premier tome le soir même.",
+      "texte_sophia": "3. les misérables\n\nce matin, l'appli Sophia m'a appris que victor hugo était en exil à guernesey quand les misérables est paru, en 1862.\nj'ai commencé le premier tome le soir même.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "733706f3",
+      "texte_overlay": "4. un conte de noël\n\ndickens, un fantôme, une leçon.\nà relire chaque décembre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "2205b508",
+      "texte_overlay": "5. la reine des neiges d'andersen\n\nle conte d'origine,\nbien plus sombre que le film.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "4ea53d22",
+      "texte_overlay": "tu lis quoi cet hiver ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

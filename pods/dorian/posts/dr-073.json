@@ -1,0 +1,288 @@
+{
+ "id": "dr-073",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696990065343532309",
+  "vues": 1100000,
+  "publie_le": "2026-10-15",
+  "accroche": "Iceberg of ADHD hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of old man hobbies",
+  "pt-BR": "Iceberg de hobbies de velhinho",
+  "de": "Eisberg der Hobbys alter Männer"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #grandpa #oldsoul #selfimprovement",
+  "pt-BR": "#iceberg #hobbies #vovô #autodesenvolvimento",
+  "de": "#eisberg #hobbys #opa #selbstverbesserung"
+ },
+ "musique": {
+  "titre": "A Song of Ice and Fire - Ramin Djawadi",
+  "url": "https://www.tiktok.com/music/original-sound-6723045131219372033"
+ },
+ "notes": "Déclinaison G2 de dr-050 : accroche reformulée (« old man hobbies »), autres objets que le parent. Sophia au 2e étage (icône). Objets de la banque. En, pt-BR, de ; variantes 0, 1, 2.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "old man hobbies",
+    "variante": 0
+   },
+   "pt-BR": {
+    "haut": "Iceberg de",
+    "bas": "hobbies de velhinho",
+    "variante": 1
+   },
+   "de": {
+    "haut": "Eisberg der",
+    "bas": "Hobbys alter Männer",
+    "variante": 2
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "golf",
+       "image": "images/objets/golf.png"
+      },
+      {
+       "t": "jazz records",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "birdwatching",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "baking bread",
+       "image": "images/objets/pain.png"
+      }
+     ],
+     [
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "harmonica",
+       "image": "images/objets/harmonica.png"
+      },
+      {
+       "t": "writing letters",
+       "image": "images/objets/machine-ecrire.png"
+      },
+      {
+       "t": "horse riding",
+       "image": "images/objets/selle.png"
+      }
+     ],
+     [
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "coin collecting",
+       "image": "images/objets/pieces-antiques.png"
+      },
+      {
+       "t": "tin soldiers",
+       "image": "images/objets/soldats-plomb.png"
+      },
+      {
+       "t": "film photography",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "morse code",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "sailing knots",
+       "image": "images/objets/corde-noeud.png"
+      },
+      {
+       "t": "old maps",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "writing your memoirs",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "pt-BR": {
+    "etages": [
+     [
+      {
+       "t": "golfe",
+       "image": "images/objets/golf.png"
+      },
+      {
+       "t": "discos de jazz",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "observar pássaros",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "fazer pão",
+       "image": "images/objets/pain.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia todo dia",
+       "image": "sophia"
+      },
+      {
+       "t": "gaita",
+       "image": "images/objets/harmonica.png"
+      },
+      {
+       "t": "escrever cartas",
+       "image": "images/objets/machine-ecrire.png"
+      },
+      {
+       "t": "andar a cavalo",
+       "image": "images/objets/selle.png"
+      }
+     ],
+     [
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "colecionar moedas",
+       "image": "images/objets/pieces-antiques.png"
+      },
+      {
+       "t": "soldadinhos",
+       "image": "images/objets/soldats-plomb.png"
+      },
+      {
+       "t": "fotografia analógica",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "código morse",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "nós de marinheiro",
+       "image": "images/objets/corde-noeud.png"
+      },
+      {
+       "t": "mapas antigos",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "escrever memórias",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "discorda?"
+   },
+   "de": {
+    "etages": [
+     [
+      {
+       "t": "golf",
+       "image": "images/objets/golf.png"
+      },
+      {
+       "t": "jazzplatten",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "vögel beobachten",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "brot backen",
+       "image": "images/objets/pain.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia jeden tag",
+       "image": "sophia"
+      },
+      {
+       "t": "mundharmonika",
+       "image": "images/objets/harmonica.png"
+      },
+      {
+       "t": "briefe schreiben",
+       "image": "images/objets/machine-ecrire.png"
+      },
+      {
+       "t": "reiten",
+       "image": "images/objets/selle.png"
+      }
+     ],
+     [
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "münzen sammeln",
+       "image": "images/objets/pieces-antiques.png"
+      },
+      {
+       "t": "zinnsoldaten",
+       "image": "images/objets/soldats-plomb.png"
+      },
+      {
+       "t": "analoge fotos",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "morsen",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "seemannsknoten",
+       "image": "images/objets/corde-noeud.png"
+      },
+      {
+       "t": "alte karten",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "memoiren schreiben",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "nicht einverstanden?"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7c4ea5cc-cb7a-43cb-8fa5-42098a52e8f7"
+}

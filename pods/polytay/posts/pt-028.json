@@ -1,0 +1,616 @@
+{
+ "id": "pt-028",
+ "titre": {
+  "en": "things that taught me more than school ever did",
+  "fr": "ce qui m'a appris plus que l'école",
+  "es": "lo que me enseñó más que el colegio",
+  "es-419": "lo que me enseñó más que la escuela",
+  "it": "cose che mi hanno insegnato più della scuola",
+  "tr": "bana okuldan daha çok şey öğretenler",
+  "pt-BR": "coisas que me ensinaram mais que a escola",
+  "sl": "kar me je naučilo več kot šola",
+  "de": "was mir mehr beigebracht hat als die schule",
+  "sk": "čo ma naučilo viac ako škola",
+  "sv": "saker som lärde mig mer än skolan"
+ },
+ "legendes": {
+  "en": "school was the start, not the whole thing. save this <3 #girlblogger #selfimprovement #learning #booktok #thatgirl",
+  "fr": "l'école c'était le début, pas tout. enregistre <3 #girlblogger #developpementpersonnel #apprendre #booktok #thatgirl",
+  "es": "el colegio fue el comienzo, no todo. guárdalo <3 #girlblogger #desarrollopersonal #aprender #booktok #thatgirl",
+  "es-419": "la escuela fue el comienzo, no todo. guárdalo <3 #girlblogger #desarrollopersonal #aprender #booktok #thatgirl",
+  "it": "la scuola era l'inizio, non tutto. salvalo <3 #girlblogger #crescitapersonale #imparare #booktok #thatgirl",
+  "tr": "okul başlangıçtı, her şey değil. kaydet <3 #girlblogger #kişiselgelişim #öğrenmek #booktok #thatgirl",
+  "pt-BR": "a escola foi o começo, não tudo. salva <3 #girlblogger #autodesenvolvimento #aprender #booktok #thatgirl",
+  "sl": "šola je bila začetek, ne vse. shrani si <3 #girlblogger #osebnirazvoj #učenje #booktok #thatgirl",
+  "de": "die schule war der anfang, nicht alles. speicher es dir <3 #girlblogger #selbstverbesserung #lernen #booktok #thatgirl",
+  "sk": "škola bola začiatok, nie všetko. ulož si to <3 #girlblogger #osobnyrozvoj #ucenie #booktok #thatgirl",
+  "sv": "skolan var början, inte allt. spara den här <3 #girlblogger #självutveckling #lärande #booktok #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7041742373038066478"
+ },
+ "notes": "Full test (BLEO, 28/11) : accroche neuve chez nous dans la famille « ressources qui remplacent l'école » de @polytay (« youtube channels that are basically a free degree », 296 k au relevé du 23/11), version vécue et sans ressource nommée (traduisible dans les 11 langues). Éléments : voyager seule en train, une carte de bibliothèque, Sophia, un musée seule, demander à ses grands-parents. cta B.",
+ "banque": {
+  "images/banque/couv-lecture-fenetre.jpg": "19905258-1aed-416a-9522-81c7fb42a740",
+  "images/banque/couv-cafe-livre-table.jpg": "124638b3-c2f9-4e21-92f5-8e7ab89867f9",
+  "images/banque/train-flou.jpg": "308e1ff1-97e2-4406-afe2-9792353c3fb7",
+  "images/banque/fenetre-train.jpg": "bf443248-2ae2-4d29-b2fe-2974c4f8701f",
+  "images/banque/livres-encens.jpg": "18e0dfcf-f42a-4353-9dc0-2a18b56acd74",
+  "images/banque/livre-robe-blanche.jpg": "20a1de9f-051d-497c-91f9-e2a06eb48790",
+  "images/banque/plage-lune.jpg": "1ea229f0-b4d6-4109-a451-4bfe0acf0c68",
+  "images/banque/statue-ange.jpg": "96ee3a56-2fc0-482a-9df0-737e47e70841",
+  "images/banque/galerie-statue.jpg": "b4cfdb1a-9bd1-4715-801b-91c19cf5e603",
+  "images/banque/tasse-the-pull.jpg": "023a53c5-1635-4747-a44f-069b02030bc4",
+  "images/banque/oranges-the.jpg": "abd7ae87-c92f-4882-9a72-186c6ccbd9e8"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-lecture-fenetre.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-cafe-livre-table.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "things that taught\nme more than\nschool ever did"
+   },
+   "fr": {
+    "titre": "ce qui m'a appris\nplus que l'école"
+   },
+   "es": {
+    "titre": "lo que me enseñó\nmás que el colegio"
+   },
+   "es-419": {
+    "titre": "lo que me enseñó\nmás que la escuela"
+   },
+   "it": {
+    "titre": "cose che mi hanno\ninsegnato più\ndella scuola"
+   },
+   "tr": {
+    "titre": "bana okuldan\ndaha çok şey\nöğretenler"
+   },
+   "pt-BR": {
+    "titre": "coisas que me\nensinaram mais\nque a escola"
+   },
+   "sl": {
+    "titre": "kar me je naučilo\nveč kot šola"
+   },
+   "de": {
+    "titre": "was mir mehr\nbeigebracht hat\nals die schule"
+   },
+   "sk": {
+    "titre": "čo ma naučilo\nviac ako škola"
+   },
+   "sv": {
+    "titre": "saker som lärde\nmig mer än skolan"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/train-flou.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/fenetre-train.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. travelling alone by train",
+    "paragraphes": [
+     "Take a train to a city you don't know, alone, with no plan except one museum and one café.",
+     "You learn to find your way, talk to strangers and trust yourself. no classroom does that"
+    ]
+   },
+   "fr": {
+    "titre": "1. voyager seule en train",
+    "paragraphes": [
+     "Prends un train vers une ville que tu ne connais pas, seule, sans autre plan qu'un musée et un café.",
+     "Tu apprends à trouver ton chemin, à parler à des inconnus et à te faire confiance. aucune salle de classe ne fait ça"
+    ]
+   },
+   "es": {
+    "titre": "1. viajar sola en tren",
+    "paragraphes": [
+     "Coge un tren a una ciudad que no conoces, sola, sin más plan que un museo y un café.",
+     "Aprendes a orientarte, a hablar con desconocidos y a confiar en ti. ninguna clase hace eso"
+    ]
+   },
+   "es-419": {
+    "titre": "1. viajar sola en tren",
+    "paragraphes": [
+     "Toma un tren a una ciudad que no conoces, sola, sin más plan que un museo y un café.",
+     "Aprendes a ubicarte, a hablar con desconocidos y a confiar en ti. ningún salón de clases hace eso"
+    ]
+   },
+   "it": {
+    "titre": "1. viaggiare da sola in treno",
+    "paragraphes": [
+     "Prendi un treno per una città che non conosci, da sola, senza altro piano che un museo e un caffè.",
+     "Impari a orientarti, a parlare con gli sconosciuti e a fidarti di te. nessuna classe lo fa"
+    ]
+   },
+   "tr": {
+    "titre": "1. tek başına trenle yolculuk",
+    "paragraphes": [
+     "Tanımadığın bir şehre tek başına bir trene bin, bir müze ve bir kafe dışında hiçbir plan yapmadan.",
+     "Yolunu bulmayı, yabancılarla konuşmayı ve kendine güvenmeyi öğrenirsin. hiçbir sınıf bunu yapmaz"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. viajar sozinha de trem",
+    "paragraphes": [
+     "Pega um trem pra uma cidade que você não conhece, sozinha, sem nenhum plano além de um museu e um café.",
+     "Você aprende a se virar, a conversar com estranhos e a confiar em si mesma. nenhuma sala de aula faz isso"
+    ]
+   },
+   "sl": {
+    "titre": "1. sama z vlakom",
+    "paragraphes": [
+     "Z vlakom se sama odpelji v mesto, ki ga ne poznaš, brez načrta razen enega muzeja in ene kavarne.",
+     "Naučiš se znajti, govoriti z neznanci in zaupati sebi. tega ne naredi noben razred"
+    ]
+   },
+   "de": {
+    "titre": "1. allein zug fahren",
+    "paragraphes": [
+     "Fahr allein mit dem zug in eine stadt, die du nicht kennst, ohne plan außer einem museum und einem café.",
+     "Du lernst, dich zurechtzufinden, mit fremden zu reden und dir selbst zu vertrauen. das schafft kein klassenzimmer"
+    ]
+   },
+   "sk": {
+    "titre": "1. cestovať sama vlakom",
+    "paragraphes": [
+     "Choď sama vlakom do mesta, ktoré nepoznáš, bez plánu okrem jedného múzea a jednej kaviarne.",
+     "Naučíš sa zorientovať, rozprávať sa s cudzími a veriť si. to žiadna trieda nedokáže"
+    ]
+   },
+   "sv": {
+    "titre": "1. resa ensam med tåg",
+    "paragraphes": [
+     "Ta tåget till en stad du inte känner, ensam, utan någon plan förutom ett museum och ett kafé.",
+     "Du lär dig hitta rätt, prata med främlingar och lita på dig själv. det gör inget klassrum"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/livres-encens.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/livre-robe-blanche.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. a library card",
+    "paragraphes": [
+     "I got a library card and read whatever looked interesting. no reading list, no grades, no rush.",
+     "Learning becomes something you choose, and you never stop choosing it"
+    ]
+   },
+   "fr": {
+    "titre": "2. une carte de bibliothèque",
+    "paragraphes": [
+     "J'ai pris une carte de bibliothèque et j'ai lu tout ce qui m'intriguait. pas de liste de lecture, pas de notes, pas de pression.",
+     "Apprendre devient un choix, et tu n'arrêtes plus de le choisir"
+    ]
+   },
+   "es": {
+    "titre": "2. un carné de biblioteca",
+    "paragraphes": [
+     "Me saqué el carné de la biblioteca y leí todo lo que me parecía interesante. sin lista de lecturas, sin notas, sin prisa.",
+     "Aprender se vuelve algo que eliges, y nunca dejas de elegirlo"
+    ]
+   },
+   "es-419": {
+    "titre": "2. una credencial de biblioteca",
+    "paragraphes": [
+     "Saqué mi credencial de la biblioteca y leí todo lo que me pareció interesante. sin lista de lecturas, sin calificaciones, sin prisa.",
+     "Aprender se vuelve algo que eliges, y nunca dejas de elegirlo"
+    ]
+   },
+   "it": {
+    "titre": "2. una tessera della biblioteca",
+    "paragraphes": [
+     "Ho fatto la tessera della biblioteca e ho letto tutto quello che mi incuriosiva. niente lista di letture, niente voti, niente fretta.",
+     "Imparare diventa una scelta, e non smetti più di sceglierlo"
+    ]
+   },
+   "tr": {
+    "titre": "2. bir kütüphane kartı",
+    "paragraphes": [
+     "Bir kütüphane kartı çıkardım ve ilgimi çeken her şeyi okudum. okuma listesi yok, not yok, acele yok.",
+     "Öğrenmek senin seçimin olur, ve onu seçmeyi hiç bırakmazsın"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. uma carteirinha da biblioteca",
+    "paragraphes": [
+     "Fiz a carteirinha da biblioteca e li tudo que parecia interessante. sem lista de leitura, sem nota, sem pressa.",
+     "Aprender vira uma escolha sua, e você nunca para de escolher"
+    ]
+   },
+   "sl": {
+    "titre": "2. izkaznica knjižnice",
+    "paragraphes": [
+     "Naredila sem si izkaznico knjižnice in brala vse, kar se mi je zdelo zanimivo. brez bralnega seznama, brez ocen, brez naglice.",
+     "Učenje postane tvoja izbira, in nikoli je ne nehaš izbirati"
+    ]
+   },
+   "de": {
+    "titre": "2. ein bibliotheksausweis",
+    "paragraphes": [
+     "Ich habe mir einen bibliotheksausweis geholt und alles gelesen, was mich interessiert hat. keine leseliste, keine noten, kein druck.",
+     "Lernen wird etwas, das du wählst, und du hörst nie auf, es zu wählen"
+    ]
+   },
+   "sk": {
+    "titre": "2. preukaz do knižnice",
+    "paragraphes": [
+     "Vybavila som si preukaz do knižnice a čítala všetko, čo ma zaujalo. žiadny zoznam povinnej literatúry, žiadne známky, žiadny zhon.",
+     "Učenie sa stane tvojou voľbou, a nikdy ho neprestaneš voliť"
+    ]
+   },
+   "sv": {
+    "titre": "2. ett lånekort",
+    "paragraphes": [
+     "Jag skaffade ett lånekort och läste allt som såg intressant ut. ingen läslista, inga betyg, ingen stress.",
+     "Att lära sig blir något du väljer, och du slutar aldrig välja det"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/plage-lune.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson a day",
+    "paragraphes": [
+     "Sophia gives me one lesson a day, written by actual professors. history, philosophy, art, with a little quiz after.",
+     "Ten minutes, and all the things I skipped in class finally make sense"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon par jour",
+    "paragraphes": [
+     "Sophia me donne une leçon par jour, écrite par de vrais profs. histoire, philo, art, avec un petit quiz après.",
+     "Dix minutes, et tout ce que j'ai zappé en cours prend enfin sens"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección al día",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. historia, filosofía, arte, con un pequeño quiz al final.",
+     "Diez minutos, y todo lo que me salté en clase por fin tiene sentido"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección al día",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. historia, filosofía, arte, con un pequeño quiz al final.",
+     "Diez minutos, y todo lo que me salté en clase por fin tiene sentido"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione al giorno",
+    "paragraphes": [
+     "Sophia mi dà una lezione al giorno, scritta da veri professori. storia, filosofia, arte, con un piccolo quiz alla fine.",
+     "Dieci minuti, e tutto quello che avevo saltato in classe finalmente ha senso"
+    ]
+   },
+   "tr": {
+    "titre": "3. günde bir ders",
+    "paragraphes": [
+     "Sophia bana her gün gerçek profesörlerin yazdığı bir ders veriyor. tarih, felsefe, sanat, sonunda küçük bir test.",
+     "On dakika, ve derste kaçırdığım her şey sonunda anlam kazanıyor"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula por dia",
+    "paragraphes": [
+     "O Sophia me dá uma aula por dia, escrita por professores de verdade. história, filosofia, arte, com um quiz no final.",
+     "Dez minutos, e tudo que eu pulei na escola finalmente faz sentido"
+    ]
+   },
+   "sl": {
+    "titre": "3. ena lekcija na dan",
+    "paragraphes": [
+     "Sophia mi da eno lekcijo na dan, ki jo napišejo pravi profesorji. zgodovina, filozofija, umetnost, na koncu pa kratek kviz.",
+     "Deset minut, in vse, kar sem v šoli preskočila, končno dobi smisel"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion am tag",
+    "paragraphes": [
+     "Sophia gibt mir eine lektion am tag, geschrieben von echten professoren. geschichte, philosophie, kunst, mit einem kleinen quiz danach.",
+     "Zehn minuten, und alles, was ich im unterricht verpasst habe, ergibt endlich sinn"
+    ]
+   },
+   "sk": {
+    "titre": "3. jedna lekcia denne",
+    "paragraphes": [
+     "Sophia mi dáva jednu lekciu denne od skutočných profesorov. história, filozofia, umenie, a na konci malý kvíz.",
+     "Desať minút a všetko, čo som v škole vynechala, konečne dáva zmysel"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion om dagen",
+    "paragraphes": [
+     "Sophia ger mig en lektion om dagen, skriven av riktiga professorer. historia, filosofi, konst, med ett litet quiz efteråt.",
+     "Tio minuter, och allt jag missade på lektionerna börjar äntligen gå ihop"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/statue-ange.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/galerie-statue.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. museums, on my own",
+    "paragraphes": [
+     "Go to a museum alone and read every label in one room. nobody's waiting, nobody's rushing you.",
+     "You learn at your own speed, and for once it actually sticks"
+    ]
+   },
+   "fr": {
+    "titre": "4. les musées, seule",
+    "paragraphes": [
+     "Va seule au musée et lis chaque cartel d'une seule salle. personne ne t'attend, personne ne te presse.",
+     "Tu apprends à ton rythme, et pour une fois ça reste"
+    ]
+   },
+   "es": {
+    "titre": "4. museos, sola",
+    "paragraphes": [
+     "Ve sola a un museo y lee cada cartela de una sola sala. nadie te espera, nadie te mete prisa.",
+     "Aprendes a tu ritmo, y por una vez se te queda"
+    ]
+   },
+   "es-419": {
+    "titre": "4. museos, sola",
+    "paragraphes": [
+     "Ve sola a un museo y lee cada cédula de una sola sala. nadie te espera, nadie te apura.",
+     "Aprendes a tu ritmo, y por una vez sí se te queda"
+    ]
+   },
+   "it": {
+    "titre": "4. musei, da sola",
+    "paragraphes": [
+     "Vai in un museo da sola e leggi ogni didascalia di una sola sala. nessuno ti aspetta, nessuno ti mette fretta.",
+     "Impari ai tuoi ritmi, e per una volta ti resta"
+    ]
+   },
+   "tr": {
+    "titre": "4. müzelere tek başıma",
+    "paragraphes": [
+     "Bir müzeye tek başına git ve tek bir salondaki her etiketi oku. kimse seni beklemiyor, kimse acele ettirmiyor.",
+     "Kendi hızında öğrenirsin, ve bu sefer gerçekten akılda kalır"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. museus, sozinha",
+    "paragraphes": [
+     "Vai sozinha num museu e lê cada plaquinha de uma sala só. ninguém te esperando, ninguém te apressando.",
+     "Você aprende no seu ritmo, e dessa vez fica de verdade"
+    ]
+   },
+   "sl": {
+    "titre": "4. muzeji, sama",
+    "paragraphes": [
+     "Pojdi sama v muzej in preberi vsak napis v eni sami sobi. nihče te ne čaka, nihče te ne priganja.",
+     "Učiš se v svojem tempu, in tokrat res ostane"
+    ]
+   },
+   "de": {
+    "titre": "4. museen, allein",
+    "paragraphes": [
+     "Geh allein ins museum und lies jedes schild in einem einzigen raum. niemand wartet, niemand drängt dich.",
+     "Du lernst in deinem tempo, und diesmal bleibt es wirklich hängen"
+    ]
+   },
+   "sk": {
+    "titre": "4. múzeá, sama",
+    "paragraphes": [
+     "Choď sama do múzea a prečítaj si každý popis v jednej jedinej sále. nikto na teba nečaká, nikto ťa nesúri.",
+     "Učíš sa vlastným tempom, a tentoraz to naozaj ostane"
+    ]
+   },
+   "sv": {
+    "titre": "4. museer, ensam",
+    "paragraphes": [
+     "Gå ensam till ett museum och läs varje skylt i ett enda rum. ingen väntar, ingen stressar dig.",
+     "Du lär dig i din egen takt, och för en gångs skull fastnar det"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/tasse-the-pull.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/oranges-the.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. asking my grandparents",
+    "paragraphes": [
+     "Ask your grandparents or an older neighbour what the world was like at your age, then ask one more question.",
+     "It's history no textbook has, and they've been waiting for someone to ask"
+    ]
+   },
+   "fr": {
+    "titre": "5. demander à mes grands-parents",
+    "paragraphes": [
+     "Demande à tes grands-parents ou à une voisine âgée à quoi ressemblait le monde à ton âge, puis pose une question de plus.",
+     "C'est de l'histoire qu'aucun manuel ne contient, et ils attendaient qu'on leur demande"
+    ]
+   },
+   "es": {
+    "titre": "5. preguntar a mis abuelos",
+    "paragraphes": [
+     "Pregunta a tus abuelos o a una vecina mayor cómo era el mundo a tu edad, y luego haz una pregunta más.",
+     "Es historia que no está en ningún libro, y llevaban tiempo esperando que alguien preguntara"
+    ]
+   },
+   "es-419": {
+    "titre": "5. preguntarle a mis abuelos",
+    "paragraphes": [
+     "Pregúntale a tus abuelos o a una vecina mayor cómo era el mundo a tu edad, y luego haz una pregunta más.",
+     "Es historia que no está en ningún libro, y estaban esperando que alguien preguntara"
+    ]
+   },
+   "it": {
+    "titre": "5. chiedere ai miei nonni",
+    "paragraphes": [
+     "Chiedi ai tuoi nonni o a una vicina anziana com'era il mondo alla tua età, poi fai un'altra domanda.",
+     "È storia che nessun libro ha, e aspettavano che qualcuno glielo chiedesse"
+    ]
+   },
+   "tr": {
+    "titre": "5. büyüklerime sormak",
+    "paragraphes": [
+     "Büyükanne ve büyükbabana ya da yaşlı bir komşuna senin yaşındayken dünyanın nasıl olduğunu sor, sonra bir soru daha sor.",
+     "Bu hiçbir ders kitabında olmayan bir tarih, ve biri sorsun diye bekliyorlardı"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. perguntar pros meus avós",
+    "paragraphes": [
+     "Pergunta pros seus avós ou pra uma vizinha mais velha como era o mundo na sua idade, e depois faz mais uma pergunta.",
+     "É uma história que nenhum livro tem, e eles estavam esperando alguém perguntar"
+    ]
+   },
+   "sl": {
+    "titre": "5. vprašati babico in dedka",
+    "paragraphes": [
+     "Vprašaj babico in dedka ali starejšo sosedo, kakšen je bil svet pri tvojih letih, nato pa vprašaj še eno vprašanje.",
+     "To je zgodovina, ki je ni v nobenem učbeniku, in čakali so, da jih kdo vpraša"
+    ]
+   },
+   "de": {
+    "titre": "5. meine großeltern fragen",
+    "paragraphes": [
+     "Frag deine großeltern oder eine ältere nachbarin, wie die welt in deinem alter war, und stell dann noch eine frage.",
+     "Das ist geschichte, die in keinem schulbuch steht, und sie haben darauf gewartet, dass jemand fragt"
+    ]
+   },
+   "sk": {
+    "titre": "5. pýtať sa starých rodičov",
+    "paragraphes": [
+     "Opýtaj sa starých rodičov alebo staršej susedy, aký bol svet v tvojom veku, a potom polož ešte jednu otázku.",
+     "Je to história, ktorú nemá žiadna učebnica, a čakali, kým sa ich niekto opýta"
+    ]
+   },
+   "sv": {
+    "titre": "5. fråga mina morföräldrar",
+    "paragraphes": [
+     "Fråga dina mor- eller farföräldrar eller en äldre granne hur världen var när de var i din ålder, och ställ sedan en fråga till.",
+     "Det är historia som ingen lärobok har, och de har väntat på att någon ska fråga"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

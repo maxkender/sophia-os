@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o397",
+ "type_bleo": "full_test",
+ "titre": "How to plan the perfect picnic #men #picnic #outdoors #weekend #friends",
+ "musique_titre": "the sopranos audio",
+ "musique_url": "https://www.tiktok.com/music/the-sopranos-audio-7454354398911744814",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Full test du jour (2 sur 7, jauge : 7 sur 26). Accroche jamais faite chez nous : aucun « picnic » dans donnees/label.json. reference_url : post source de am-o117, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3d1c81fe",
+   "texte_overlay": "How to plan the perfect picnic",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "930252f9",
+   "texte_overlay": "1. A real blanket, not a towel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2555af14",
+   "texte_overlay": "2. Food that's good cold",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "cec42389",
+   "texte_overlay": "3. Bring a few good stories\n\nOr a fun fact or two.",
+   "texte_sophia": "3. Bring a few good stories\n\nI get mine on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a60150dd",
+   "texte_overlay": "4. Leave nothing behind",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d1dd623b",
+   "texte_overlay": "5. Stay for the sunset",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  }
+ ]
+}

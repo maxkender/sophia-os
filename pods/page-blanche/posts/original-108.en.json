@@ -1,0 +1,325 @@
+{
+ "post_id": "original-108",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "dangerously successful"
+     ],
+     "fr": "10/10 habitudes pour réussir à un niveau flippant",
+     "texte": "10/10 habits of people who [[always have a story]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "alignement": "droite",
+     "texte": "(steal these)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00459fb6.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "they say [[yes]] first"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "a friend of a friend's party?\nfries at 11pm?\nthe class nobody signed up for?"
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "most of their best stories started with a plan they [[almost said no to]]"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "nobody has a story about [[the night they stayed in]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_05b78355.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening to something"
+     ],
+     "fr": "arrête d'[[écouter un truc non-stop]]",
+     "texte": "they get [[older people]] talking"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, youtube, something constantly playing in",
+      "the background means your brain never gets to rest"
+     ],
+     "fr": "musique, podcasts, youtube : si y'a toujours un truc en fond, [[ton cerveau se repose jamais]]",
+     "texte": "grandparents, the neighbour, the man who has run the corner shop for 30 years"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T5": {
+     "en": [
+      "leave parts of",
+      "your day",
+      "completely quiet",
+      "so your brain can",
+      "actually think",
+      "and come up with",
+      "its own ideas"
+     ],
+     "fr": "garde des moments de vrai silence dans ta journée, ton cerveau pourra enfin réfléchir et [[avoir ses idées à lui]]",
+     "texte": "one question about \"back then\" and you get a first love, a war, a city that doesn't exist anymore"
+    },
+    "T6": {
+     "en": [
+      "you don't need music every time you go outside"
+     ],
+     "fr": "[[t'as pas besoin de musique dès que tu sors]]",
+     "texte": "[[the best stories are often borrowed]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_2de2e4cf.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[qui servent à rien]]",
+     "texte": "they write down [[the weird stuff]]"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
+     "texte": "a line overheard on the bus, a strange shop sign, what the taxi driver said"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[pas besoin de rentabiliser chaque heure]]",
+     "texte": "[[a quick note, every single time]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "plus t'as de culture, plus ton cerveau a d'idées à relier le jour où tu dois vraiment régler un problème",
+     "texte": "memory keeps the feeling and loses the details, and the details are what make a story land"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis, [[la culture, c'est trop cool !!]]",
+     "texte": "that's why they never say [[\"you had to be there\"]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_9340ebca.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]",
+     "texte": "they learn [[one new thing a day]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content destroys your attention span"
+     ],
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "a myth, a battle, why a city looks the way it does"
+    },
+    "T3": {
+     "en": [
+      "books force you to stay with",
+      "one idea, remember what",
+      "came before, and actually",
+      "think"
+     ],
+     "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
+     "texte": "today mine was [[why the renaissance started in italy]], and it came up at dinner that same night"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "doomscrolling too much"
+     ],
+     "fr": "[[avant, je doomscrollais]] beaucoup trop",
+     "texte": "[[i used to doomscroll]] every free minute"
+    },
+    "T5": {
+     "en": [
+      "until i found this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "now when i'm on my phone anyway i do [[a 5 min lesson on the Sophia app]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "they go out [[without a plan]]"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24 h entre quatre murs et tu finis par végéter",
+     "texte": "a free evening, no booking, no itinerary"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20 à 30 minutes]], idéalement en plein jour",
+     "texte": "they pick a bus, a street or a bar [[they've never tried]]"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, prendre le soleil, juste changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "a plan gives you the night you expected. no plan gives you the one you'll still be telling people about in ten years"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[scroller, c'est PAS se reposer !!]]",
+     "texte": "[[tag the friend who always has a story]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_5b33862d.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  }
+ }
+}

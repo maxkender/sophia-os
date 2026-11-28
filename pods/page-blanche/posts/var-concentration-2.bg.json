@@ -1,0 +1,278 @@
+{
+ "post_id": "var-concentration-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 niche traits of highly",
+      "successful people"
+     ],
+     "texte": "нишовите навици, които убиват концентрацията ти"
+    },
+    "T2": {
+     "en": [
+      "(science-backed)"
+     ],
+     "alignement": "droite",
+     "texte": "(никой не говори за това)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_070d9d6c.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they make decisions fast"
+     ],
+     "texte": "да учиш [[от леглото]]"
+    },
+    "T2": {
+     "en": [
+      "successful people don’t procrastinate. they don’t",
+      "ask for permission, but instead act and ask for",
+      "forgiveness"
+     ],
+     "texte": "лаптопът на коленете, завивката отгоре, възглавница зад гърба. уютно, но за мозъка ти [[легло = почивка]]"
+    },
+    "T3": {
+     "en": [
+      "they don’t spend 3",
+      "weeks thinking",
+      "about a reversible",
+      "choice"
+     ],
+     "texte": "затова щом се разположиш, [[концентрацията ти се стопява]]"
+    },
+    "T4": {
+     "en": [
+      "if the downside is small, they decide, act, and",
+      "adjust. speed matters most when decisions can",
+      "be changed later"
+     ],
+     "texte": "и важи и обратното: ако работиш там дълго, [[спиш по-зле]]. леглото е за сън"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_04cfe1cc.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they get comfortable looking",
+      "stupid"
+     ],
+     "texte": "да учиш с часове [[при затворен прозорец]]"
+    },
+    "T2": {
+     "en": [
+      "they ask basic questions, try things before they feel",
+      "ready, and admit when they don’t know"
+     ],
+     "texte": "врата и прозорец затворени, въздухът натежава и главата ти е като в памук, без да знаеш защо"
+    },
+    "T3": {
+     "en": [
+      "protecting your",
+      "ego feels safe,",
+      "but it slows",
+      "learning down",
+      "massively"
+     ],
+     "texte": "проучване от харвард го показа: задушен въздух = [[по-бавен мозък]]"
+    },
+    "T4": {
+     "en": [
+      "growth feels uncomfortable, but",
+      "nothing changes if nothing changes"
+     ],
+     "texte": "отваряй прозореца [[за 10 мин на всеки час]] и главата ти се прояснява"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_6e8628e4.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they read classic books written",
+      "by the greats"
+     ],
+     "texte": "да запълваш [[всяко малко чакане]] с телефона"
+    },
+    "T2a": {
+     "en": [
+      "they know endless tiktok scrolling rots their",
+      "attention"
+     ],
+     "texte": "опашката, автобусът, микровълновата, асансьорът: хоп, телефонът е в ръката"
+    },
+    "T2b": {
+     "en": [
+      "instead, they read ideas that",
+      "survived decades or",
+      "centuries"
+     ],
+     "texte": "мозъкът ти [[никога няма празна минута]] да си поеме дъх"
+    },
+    "T3": {
+     "en": [
+      "from people who thought",
+      "deeply about psychology,",
+      "power, business, and human",
+      "nature"
+     ],
+     "texte": "затова щом работата забави, той [[търси нещо друго]] по рефлекс, всеки път"
+    },
+    "T4": {
+     "en": [
+      "if you’re stuck on tiktok, you",
+      "can try readup which blocks",
+      "your apps until you read"
+     ],
+     "texte": "преди скролвах по цял ден, сега научавам нещо ново за 5 мин в [[приложението Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "scissions": {
+    "T2": 2
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they tolerate long periods with",
+      "no reward"
+     ],
+     "texte": "[[много сладка закуска]] преди час"
+    },
+    "T2": {
+     "en": [
+      "they can keep working when",
+      "nobody is watching, nothing",
+      "is going viral, and the results",
+      "still look unimpressive"
+     ],
+     "texte": "зърнена закуска, кроасани, сладко кафе. един час си на макс, после кръвната захар пада и [[концентрацията с нея]]"
+    },
+    "T3": {
+     "en": [
+      "most people need constant",
+      "proof that something is",
+      "working"
+     ],
+     "texte": "спадът в 10 не е мързел, [[а сривът на захарта]]"
+    },
+    "T4": {
+     "en": [
+      "successful people can stay",
+      "consistent long enough for the",
+      "payoff to arrive."
+     ],
+     "texte": "добави протеин: яйца, кисело мляко, овесени ядки. [[издържаш до обяд]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_07cf7fda.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they obsess over leverage"
+     ],
+     "texte": "записки [[в 5 цвята]]"
+    },
+    "T2": {
+     "en": [
+      "they constantly look for",
+      "ways to make one hour of",
+      "work create more than",
+      "one hour of value"
+     ],
+     "texte": "пет маркера, перфектни заглавия, преписана страница, защото една дума е грозна"
+    },
+    "T3": {
+     "en": [
+      "software, systems,",
+      "content, capital,",
+      "automation, teams"
+     ],
+     "texte": "ръцете ти са заети, докато [[мозъкът ти изключва]]"
+    },
+    "T4": {
+     "en": [
+      "they’re not just trying to",
+      "work harder, they’re trying"
+     ],
+     "texte": "пиши грозно, после [[провери се]] без записките"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_008c05fe.jpg",
+      "boite": [
+       0,
+       880,
+       1504,
+       1904
+      ]
+     }
+    }
+   }
+  }
+ }
+}

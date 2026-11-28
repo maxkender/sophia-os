@@ -41,12 +41,12 @@
     },
     "I2": {
      "remplacer": {
-      "source": "sources/os_63f757c1.jpg",
+      "source": "sources/os_680b3659.jpg",
       "boite": [
        0,
        0,
-       2208,
-       1888
+       1760,
+       2368
       ]
      }
     }

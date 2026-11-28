@@ -1,0 +1,325 @@
+{
+ "post_id": "original-108",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "dangerously successful"
+     ],
+     "fr": "10/10 habitudes pour réussir à un niveau flippant",
+     "texte": "10/10 hábitos de la gente que [[siempre tiene una historia]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "alignement": "droite",
+     "texte": "(róbalos)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_eab4781b.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "dicen [[que sí]] primero"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "¿la fiesta del amigo de un amigo?\n¿un paseo a las 11 de la noche?\n¿la clase a la que nadie se apuntó?"
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "sus mejores historias empezaron con un plan [[que casi rechazan]]"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "nadie tiene una historia de [[la noche que se quedó en casa]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_05b78355.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening to something"
+     ],
+     "fr": "arrête d'[[écouter un truc non-stop]]",
+     "texte": "hacen hablar [[a los mayores]]"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, youtube, something constantly playing in",
+      "the background means your brain never gets to rest"
+     ],
+     "fr": "musique, podcasts, youtube : si y'a toujours un truc en fond, [[ton cerveau se repose jamais]]",
+     "texte": "los abuelos, la vecina, el señor que lleva 30 años con la tienda de la esquina"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T5": {
+     "en": [
+      "leave parts of",
+      "your day",
+      "completely quiet",
+      "so your brain can",
+      "actually think",
+      "and come up with",
+      "its own ideas"
+     ],
+     "fr": "garde des moments de vrai silence dans ta journée, ton cerveau pourra enfin réfléchir et [[avoir ses idées à lui]]",
+     "texte": "una pregunta sobre «antes» y te sale un primer amor, una guerra, una ciudad que ya no existe"
+    },
+    "T6": {
+     "en": [
+      "you don't need music every time you go outside"
+     ],
+     "fr": "[[t'as pas besoin de musique dès que tu sors]]",
+     "texte": "[[las mejores historias suelen ser prestadas]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_2de2e4cf.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[qui servent à rien]]",
+     "texte": "apuntan [[lo raro]]"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
+     "texte": "una frase oída en el bus, un cartel extraño, lo que dijo el taxista"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[pas besoin de rentabiliser chaque heure]]",
+     "texte": "[[una nota rápida, cada vez]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "plus t'as de culture, plus ton cerveau a d'idées à relier le jour où tu dois vraiment régler un problème",
+     "texte": "la memoria guarda la emoción y pierde los detalles, y son los detalles los que hacen buena una historia"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis, [[la culture, c'est trop cool !!]]",
+     "texte": "por eso nunca dicen [[«tenías que estar ahí»]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_9340ebca.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]",
+     "texte": "aprenden [[una cosa nueva al día]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content destroys your attention span"
+     ],
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "un mito, una batalla, por qué una ciudad es como es"
+    },
+    "T3": {
+     "en": [
+      "books force you to stay with",
+      "one idea, remember what",
+      "came before, and actually",
+      "think"
+     ],
+     "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
+     "texte": "hoy me tocó [[por qué el cielo es azul]], y salió en la cena esa misma noche"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "doomscrolling too much"
+     ],
+     "fr": "[[avant, je doomscrollais]] beaucoup trop",
+     "texte": "[[antes hacía doomscroll]] en cada rato libre"
+    },
+    "T5": {
+     "en": [
+      "until i found this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "ahora, si igual estoy con el teléfono, hago [[una lección de 5 min en la app Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "salen [[sin plan]]"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24 h entre quatre murs et tu finis par végéter",
+     "texte": "una noche libre, sin reserva, sin itinerario"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20 à 30 minutes]], idéalement en plein jour",
+     "texte": "eligen un bus, una calle o un bar [[que no conocen]]"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, prendre le soleil, juste changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "con plan tienes la noche que esperabas. sin plan tienes la que vas a seguir contando dentro de diez años"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[scroller, c'est PAS se reposer !!]]",
+     "texte": "[[etiqueta a quien siempre tiene una historia]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_5b33862d.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  }
+ }
+}

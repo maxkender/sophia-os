@@ -10,12 +10,22 @@
  "titre": {
   "en": "5 math problems that are genuinely f*cking difficult",
   "pt-BR": "5 problemas de matemática difíceis pra c*ralho",
-  "tr": "gerçekten çok zor 5 matematik problemi"
+  "tr": "gerçekten çok zor 5 matematik problemi",
+  "de": "5 matheprobleme, die verdammt schwer sind",
+  "hu": "5 matekprobléma, ami tényleg k*rva nehéz",
+  "it": "5 problemi di matematica difficili da c*zzo",
+  "nl": "5 wiskundeproblemen die echt verdomd moeilijk zijn",
+  "sv": "5 matteproblem som är sjukt jävla svåra"
  },
  "legendes": {
   "en": "#niche #math #smarttok #lockedin",
   "pt-BR": "#matemática #nicho #conhecimento #estudos",
-  "tr": "#matematik #niş #bilgi #öğrenmek"
+  "tr": "#matematik #niş #bilgi #öğrenmek",
+  "de": "#mathe #wissenschaft #wissen #lernen",
+  "hu": "#matek #tudomány #tudás #tanulás",
+  "it": "#matematica #scienza #curiosità #nicchia",
+  "nl": "#wiskunde #wetenschap #weetjes #leren",
+  "sv": "#matte #vetenskap #kunskap #lärande"
  },
  "musique": {
   "titre": "original sound - splexedits",
@@ -39,6 +49,31 @@
     "titre": "gerçekten çok zor 5 matematik problemi",
     "image": "images/cerveau-11.jpg",
     "legende": "(hâlâ çözülemedi)"
+   },
+   "de": {
+    "titre": "5 matheprobleme, die verdammt schwer sind",
+    "image": "images/cerveau-12.jpg",
+    "legende": "(immer noch ungelöst)"
+   },
+   "hu": {
+    "titre": "5 matekprobléma, ami tényleg k*rva nehéz",
+    "image": "images/cerveau-14.jpg",
+    "legende": "(máig megoldatlan)"
+   },
+   "it": {
+    "titre": "5 problemi di matematica difficili da c*zzo",
+    "image": "images/cerveau-16.jpg",
+    "legende": "(ancora irrisolti)"
+   },
+   "nl": {
+    "titre": "5 wiskundeproblemen die echt verdomd moeilijk zijn",
+    "image": "images/cerveau-18.jpg",
+    "legende": "(nog steeds onopgelost)"
+   },
+   "sv": {
+    "titre": "5 matteproblem som är sjukt jävla svåra",
+    "image": "images/cerveau-20.jpg",
+    "legende": "(fortfarande olösta)"
    }
   },
   {
@@ -60,6 +95,36 @@
     "difficulte": "41/50",
     "texte": "2'den büyük her çift sayı iki asal sayının toplamıdır. 10 = 3 + 7. bilgisayarla 4 × 10¹⁸'e kadar doğrulandı, 1742'den beri kanıtlanamadı",
     "image": "images/homme-chapeau.jpg"
+   },
+   "de": {
+    "titre": "Die goldbachsche vermutung",
+    "difficulte": "41/50",
+    "texte": "jede gerade zahl über 2 ist die summe zweier primzahlen. 10 = 3 + 7. per computer bis 4 × 10¹⁸ geprüft, seit 1742 nie bewiesen",
+    "image": "images/homme-chapeau.jpg"
+   },
+   "hu": {
+    "titre": "A Goldbach-sejtés",
+    "difficulte": "41/50",
+    "texte": "minden 2-nél nagyobb páros szám két prímszám összege. 10 = 3 + 7. számítógéppel 4 × 10¹⁸-ig ellenőrizték, 1742 óta senki nem bizonyította",
+    "image": "images/homme-chapeau.jpg"
+   },
+   "it": {
+    "titre": "La congettura di Goldbach",
+    "difficulte": "41/50",
+    "texte": "ogni numero pari maggiore di 2 è la somma di due primi. 10 = 3 + 7. verificata al computer fino a 4 × 10¹⁸, mai dimostrata dal 1742",
+    "image": "images/homme-chapeau.jpg"
+   },
+   "nl": {
+    "titre": "Het vermoeden van Goldbach",
+    "difficulte": "41/50",
+    "texte": "elk even getal groter dan 2 is de som van twee priemgetallen. 10 = 3 + 7. met de computer gecontroleerd tot 4 × 10¹⁸, sinds 1742 nooit bewezen",
+    "image": "images/homme-chapeau.jpg"
+   },
+   "sv": {
+    "titre": "Goldbachs förmodan",
+    "difficulte": "41/50",
+    "texte": "varje jämnt tal större än 2 är summan av två primtal. 10 = 3 + 7. kontrollerat med dator upp till 4 × 10¹⁸, aldrig bevisat sedan 1742",
+    "image": "images/homme-chapeau.jpg"
    }
   },
   {
@@ -80,6 +145,36 @@
     "titre": "Collatz sanısı",
     "difficulte": "44/50",
     "texte": "herhangi bir sayı al. çiftse ikiye böl. tekse üçle çarp ve 1 ekle. tekrarla. hep 1'e varıyor gibi. kimse kanıtlayamıyor. bir çocuk bile anlar",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "de": {
+    "titre": "Die collatz-vermutung",
+    "difficulte": "44/50",
+    "texte": "nimm eine zahl. gerade: halbieren. ungerade: mal drei plus 1. wiederholen. du landest scheinbar immer bei 1. keiner kann es beweisen. ein kind versteht es",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "hu": {
+    "titre": "A Collatz-sejtés",
+    "difficulte": "44/50",
+    "texte": "vegyél egy számot. ha páros: felezd. ha páratlan: szorozd hárommal, és adj hozzá 1-et. ismételd. úgy tűnik, mindig 1-hez jutsz. senki nem tudja bizonyítani. egy gyerek is megérti",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "it": {
+    "titre": "La congettura di Collatz",
+    "difficulte": "44/50",
+    "texte": "prendi un numero. se è pari: dividi per due. se è dispari: triplica e aggiungi 1. ripeti. sembra che arrivi sempre a 1. nessuno sa dimostrarlo. lo capisce un bambino",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "nl": {
+    "titre": "Het vermoeden van Collatz",
+    "difficulte": "44/50",
+    "texte": "neem een getal. even: halveren. oneven: keer drie plus 1. herhaal. je lijkt altijd bij 1 uit te komen. niemand kan het bewijzen. een kind snapt het",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "sv": {
+    "titre": "Collatz förmodan",
+    "difficulte": "44/50",
+    "texte": "ta ett tal. jämnt: halvera. udda: gånger tre plus 1. upprepa. du verkar alltid hamna på 1. ingen kan bevisa det. ett barn förstår det",
     "image": "images/tete-philosophe.jpg"
    }
   },
@@ -103,6 +198,36 @@
     "difficulte": "5/50",
     "texte": "kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. matematik ve bilim de var",
     "telephone": "quiz"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "difficulte": "5/50",
+    "texte": "was ich statt scrollen öffne: eine lektion, ein quiz, fertig. mathe und wissenschaft gehören dazu",
+    "telephone": "quiz"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "difficulte": "5/50",
+    "texte": "amit görgetés helyett megnyitok: egy lecke, egy kvíz, kész. a matek és a tudomány is benne van",
+    "telephone": "quiz"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "difficulte": "5/50",
+    "texte": "quello che apro invece di scrollare: una lezione, un quiz, fine. ci sono anche matematica e scienza",
+    "telephone": "quiz"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "difficulte": "5/50",
+    "texte": "wat ik open in plaats van scrollen: één les, één quiz, klaar. wiskunde en wetenschap horen erbij",
+    "telephone": "quiz"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "difficulte": "5/50",
+    "texte": "det jag öppnar i stället för att scrolla: en lektion, ett quiz, klart. matte och vetenskap ingår",
+    "telephone": "quiz"
    }
   },
   {
@@ -123,6 +248,36 @@
     "titre": "İkiz asallar",
     "difficulte": "46/50",
     "texte": "aralarında 2 fark olan asallar, 11 ve 13 gibi. sonsuz sayıda var mı? 2013'te yitang zhang aralığı 70 milyonun altında kalan sonsuz çift olduğunu kanıtladı. rekor şu an 246",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "de": {
+    "titre": "Primzahlzwillinge",
+    "difficulte": "46/50",
+    "texte": "primzahlpaare mit abstand zwei, wie 11 und 13. gibt es unendlich viele? 2013 bewies yitang zhang, dass es unendlich viele paare mit weniger als 70 millionen abstand gibt. der rekord liegt jetzt bei 246",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "hu": {
+    "titre": "Ikerprímek",
+    "difficulte": "46/50",
+    "texte": "kettő különbségű prímpárok, mint a 11 és a 13. végtelen sok van belőlük? 2013-ban yitang zhang bebizonyította, hogy végtelen sok olyan pár van, amelyek távolsága 70 milliónál kisebb. a rekord ma 246",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "it": {
+    "titre": "I primi gemelli",
+    "difficulte": "46/50",
+    "texte": "coppie di primi che distano due, come 11 e 13. sono infinite? nel 2013 yitang zhang dimostrò che esistono infinite coppie a distanza inferiore a 70 milioni. il record ora è 246",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "nl": {
+    "titre": "Priemtweelingen",
+    "difficulte": "46/50",
+    "texte": "paren priemgetallen die twee uit elkaar liggen, zoals 11 en 13. zijn er oneindig veel? in 2013 bewees yitang zhang dat er oneindig veel paren zijn met minder dan 70 miljoen ertussen. het record is nu 246",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "sv": {
+    "titre": "Primtalstvillingar",
+    "difficulte": "46/50",
+    "texte": "primtalspar med avståndet två, som 11 och 13. finns det oändligt många? 2013 bevisade yitang zhang att det finns oändligt många par med mindre än 70 miljoner emellan. rekordet är nu 246",
     "image": "images/vieil-homme-livre.jpg"
    }
   },
@@ -145,6 +300,36 @@
     "difficulte": "49/50",
     "texte": "riemann 1859'da ortaya attı. asal sayıların nasıl dağıldığını anlatır. kanıtla, clay enstitüsü sana 1 milyon dolar ödesin",
     "image": "images/heraclite-sphere.jpg"
+   },
+   "de": {
+    "titre": "Die riemannsche vermutung",
+    "difficulte": "49/50",
+    "texte": "riemann stellte sie 1859 auf. sie beschreibt, wie die primzahlen verteilt sind. beweis sie und das clay institute zahlt dir 1 million dollar",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "hu": {
+    "titre": "A Riemann-sejtés",
+    "difficulte": "49/50",
+    "texte": "riemann 1859-ben vetette fel. azt írja le, hogyan oszlanak el a prímszámok. bizonyítsd be, és a clay intézet 1 millió dollárt fizet",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "it": {
+    "titre": "L'ipotesi di Riemann",
+    "difficulte": "49/50",
+    "texte": "riemann la propose nel 1859. descrive come sono distribuiti i numeri primi. dimostrala e il clay institute ti paga 1 milione di dollari",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "nl": {
+    "titre": "De riemannhypothese",
+    "difficulte": "49/50",
+    "texte": "riemann stelde haar op in 1859. ze beschrijft hoe de priemgetallen verdeeld zijn. bewijs haar en het clay institute betaalt je 1 miljoen dollar",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "sv": {
+    "titre": "Riemannhypotesen",
+    "difficulte": "49/50",
+    "texte": "riemann föreslog den 1859. den beskriver hur primtalen är fördelade. bevisa den så betalar clay-institutet dig 1 miljon dollar",
+    "image": "images/heraclite-sphere.jpg"
    }
   },
   {
@@ -165,6 +350,36 @@
     "titre": "P - NP problemi",
     "difficulte": "50/50",
     "texte": "bir çözümü kontrol etmek kolaysa, bulmak da her zaman kolay mı? bir 1 milyon dolarlık ödül daha. cevap evetse modern şifrelemenin büyük kısmı çökebilir",
+    "image": "images/portrait-raeburn.jpg"
+   },
+   "de": {
+    "titre": "P vs NP",
+    "difficulte": "50/50",
+    "texte": "wenn eine lösung schnell zu prüfen ist, ist sie dann auch immer schnell zu finden? noch ein preis von 1 million dollar. lautet die antwort ja, könnte viel moderne verschlüsselung brechen",
+    "image": "images/portrait-raeburn.jpg"
+   },
+   "hu": {
+    "titre": "P vs NP",
+    "difficulte": "50/50",
+    "texte": "ha egy megoldást gyorsan lehet ellenőrizni, mindig gyorsan meg is lehet találni? újabb 1 millió dolláros díj. ha a válasz igen, a modern titkosítás nagy része feltörhetővé válhat",
+    "image": "images/portrait-raeburn.jpg"
+   },
+   "it": {
+    "titre": "P vs NP",
+    "difficulte": "50/50",
+    "texte": "se una soluzione si verifica in fretta, si trova sempre anche in fretta? un altro premio da 1 milione di dollari. se la risposta è sì, molta della crittografia moderna potrebbe saltare",
+    "image": "images/portrait-raeburn.jpg"
+   },
+   "nl": {
+    "titre": "P vs NP",
+    "difficulte": "50/50",
+    "texte": "als een oplossing snel te controleren is, is ze dan ook altijd snel te vinden? nog een prijs van 1 miljoen dollar. is het antwoord ja, dan kan veel moderne versleuteling kraken",
+    "image": "images/portrait-raeburn.jpg"
+   },
+   "sv": {
+    "titre": "P vs NP",
+    "difficulte": "50/50",
+    "texte": "om en lösning går snabbt att kontrollera, går den då alltid snabbt att hitta? ännu ett pris på 1 miljon dollar. är svaret ja kan mycket av dagens kryptering knäckas",
     "image": "images/portrait-raeburn.jpg"
    }
   }

@@ -1,0 +1,866 @@
+{
+  "id": "rt-017",
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "places on earth u'll want to look up immediately",
+    "fr": "lieux sur terre que tu vas vouloir chercher tout de suite",
+    "sv": "platser på jorden du kommer vilja googla direkt",
+    "it": "luoghi al mondo che vorrai cercare subito",
+    "ro": "locuri de pe pământ pe care o să le cauți imediat",
+    "de": "orte auf der welt, die du sofort googeln willst",
+    "tr": "dünyada hemen araştırmak isteyeceğin yerler",
+    "hu": "helyek, amikre azonnal rá akarsz keresni"
+  },
+  "legendes": {
+    "en": "the world is so much weirder than the map in ur classroom.\n\nborders that make no sense, the most extreme places people live, lands that disappeared under the sea, maps that lied, and islands almost nobody visits.\n\npick one, look it up, and try not to fall into the next one.\n\nsave this for ur next bored afternoon.\n\n#geography #learning #curiosity #studytok #selfimprovement",
+    "fr": "le monde est tellement plus bizarre que la carte de ta salle de classe.\n\ndes frontières qui ont aucun sens, les endroits les plus extrêmes où des gens vivent, des terres disparues sous la mer, des cartes qui ont menti, et des îles que presque personne visite.\n\nchoisis-en un, cherche-le, et essaie de pas tomber dans le suivant.\n\nenregistre ça pour ton prochain après-midi d'ennui.\n\n#geographie #culturegenerale #apprendresurtiktok #studytok #learning",
+    "sv": "världen är så mycket konstigare än kartan i ditt klassrum.\n\ngränser som inte är logiska, de mest extrema platserna där folk bor, land som försvann under havet, kartor som ljög och öar som nästan ingen besöker.\n\nvälj en, googla den och försök att inte ramla ner i nästa.\n\nspara det här till nästa tråkiga eftermiddag.\n\n#geografi #learning #studytok #allmänbildning #fördig",
+    "it": "il mondo è molto più strano della cartina appesa in classe.\n\nconfini che non hanno senso, i posti più estremi dove vive la gente, terre finite sotto il mare, mappe che mentivano e isole che quasi nessuno visita.\n\nscegline uno, cercalo e prova a non cadere nel successivo.\n\nsalvalo per il tuo prossimo pomeriggio noioso.\n\n#geography #learning #curiosity #studytok #selfimprovement #geografia #imparaconte #perte",
+    "ro": "lumea e mult mai ciudată decât harta din clasa ta.\n\ngranițe fără nicio logică, cele mai extreme locuri în care trăiesc oameni, ținuturi dispărute sub mare, hărți care au mințit și insule pe care nu le vizitează aproape nimeni.\n\nalege unul, caută-l și încearcă să nu cazi în următorul.\n\nsalvează asta pt următoarea după-amiază plictisitoare.\n\n#studytok #learning #geografie #curiozitati #romania",
+    "de": "die welt ist so viel seltsamer als die karte in deinem klassenzimmer.\n\ngrenzen, die keinen sinn ergeben, die extremsten orte, an denen menschen leben, länder, die im meer verschwunden sind, karten, die gelogen haben, und inseln, die fast niemand besucht.\n\nsuch dir einen aus, googel ihn und versuch, nicht direkt in den nächsten zu fallen.\n\nspeicher dir das für deinen nächsten langweiligen nachmittag.\n\n#studytok #learning #erdkunde #allgemeinwissen #reisen",
+    "tr": "dünya, sınıfındaki haritadan çok daha tuhaf.\n\nhiç mantıklı olmayan sınırlar, insanların yaşadığı en uç yerler, denizin altında kaybolan topraklar, yalan söyleyen haritalar ve neredeyse kimsenin gitmediği adalar.\n\nbirini seç, araştır ve bir sonrakine düşmemeye çalış.\n\nbir dahaki sıkıcı öğleden sonra için kaydet.\n\n#studytok #learning #coğrafya #keşfet #merak",
+    "hu": "a világ sokkal furább, mint a térkép az osztálytermedben.\n\nhatárok, amiknek semmi értelme, a legszélsőségesebb helyek, ahol emberek élnek, földek, amik a tenger alá süllyedtek, térképek, amik hazudtak, és szigetek, ahová szinte senki nem jut el.\n\nválassz egyet, nézz utána, és próbálj nem beleesni a következőbe.\n\nmentsd el a következő unalmas délutánra.\n\n#földrajz #tanulás #magyartiktok #studytok #learning"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/carte-ancienne.jpg": "c1aa57f6-69b2-47ed-81a0-94717282f68a",
+    "images/banque/main-globe.jpg": "67c65287-781e-4234-8729-b719ffc8bb10"
+  },
+  "notes": "Full test, sans post source : format et famille de @raretheory_ (« topic to research when u're bored », 652,5 k et 151,1 k), même gabarit, même musique. Accroche neuve. Lieux et notions réels, vérifiés ; aucune frontière disputée ni conflit (Bir Tawil est une terre non revendiquée). Slide Sophia (4, « 03 — before i look things up ») : son LOGO, jamais une capture ; cta B. Photos : carte ancienne des Caraïbes (c1aa57f6, cartouches vides), main posée sur un globe dans un portrait ancien (67c65287, sans visage).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/carte-ancienne.jpg",
+          "cadrage": {
+            "y": 0.45
+          }
+        },
+        {
+          "image": "images/banque/main-globe.jpg",
+          "cadrage": {
+            "x": 0.6,
+            "y": 0.6
+          }
+        }
+      ],
+      "en": {
+        "titre": "places on earth u'll\nwant to look up",
+        "sous_titre": "immediately"
+      },
+      "fr": {
+        "titre": "lieux sur terre que tu\nvas vouloir chercher",
+        "sous_titre": "tout de suite"
+      },
+      "sv": {
+        "titre": "platser på jorden du\nkommer vilja googla",
+        "sous_titre": "direkt"
+      },
+      "it": {
+        "titre": "luoghi al mondo che\nvorrai cercare",
+        "sous_titre": "subito"
+      },
+      "ro": {
+        "titre": "locuri de pe pământ\npe care o să le cauți",
+        "sous_titre": "imediat"
+      },
+      "de": {
+        "titre": "orte auf der welt, die\ndu googeln willst",
+        "sous_titre": "sofort"
+      },
+      "tr": {
+        "titre": "dünyada araştırmak\nisteyeceğin yerler",
+        "sous_titre": "hem de hemen"
+      },
+      "hu": {
+        "titre": "helyek, amikre rá\nakarsz keresni",
+        "sous_titre": "azonnal"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Borders That Make No Sense",
+        "sujets": [
+          "Baarle-Hertog and Baarle-Nassau",
+          "Point Roberts",
+          "Llívia",
+          "Märket Island",
+          "Pheasant Island",
+          "The Diomede Islands",
+          "Four Corners",
+          "Jungholz",
+          "Büsingen am Hochrhein",
+          "Campione d'Italia",
+          "Bir Tawil",
+          "Treriksröset"
+        ]
+      },
+      "fr": {
+        "titre": "Frontières qui n'ont aucun sens",
+        "sujets": [
+          "Baarle-Hertog et Baarle-Nassau",
+          "Point Roberts",
+          "Llívia",
+          "Märket",
+          "Île des Faisans",
+          "Îles Diomède",
+          "Four Corners",
+          "Jungholz",
+          "Büsingen am Hochrhein",
+          "Campione d'Italia",
+          "Bir Tawil",
+          "Treriksröset"
+        ]
+      },
+      "sv": {
+        "titre": "Gränser utan logik",
+        "sujets": [
+          "Baarle-Hertog och Baarle-Nassau",
+          "Point Roberts",
+          "Llívia",
+          "Märket",
+          "Fasanön",
+          "Diomedeöarna",
+          "Four Corners",
+          "Jungholz",
+          "Büsingen am Hochrhein",
+          "Campione d'Italia",
+          "Bir Tawil",
+          "Treriksröset"
+        ]
+      },
+      "it": {
+        "titre": "Confini senza senso",
+        "sujets": [
+          "Baarle-Hertog e Baarle-Nassau",
+          "Point Roberts",
+          "Llívia",
+          "Märket",
+          "L'isola dei Fagiani",
+          "Le isole Diomede",
+          "Four Corners",
+          "Jungholz",
+          "Büsingen am Hochrhein",
+          "Campione d'Italia",
+          "Bir Tawil",
+          "Treriksröset"
+        ]
+      },
+      "ro": {
+        "titre": "Granițe fără logică",
+        "sujets": [
+          "Baarle-Hertog și Baarle-Nassau",
+          "Point Roberts",
+          "Llívia",
+          "Insula Märket",
+          "Insula Fazanilor",
+          "Insulele Diomede",
+          "Four Corners",
+          "Jungholz",
+          "Büsingen am Hochrhein",
+          "Campione d'Italia",
+          "Bir Tawil",
+          "Treriksröset"
+        ]
+      },
+      "de": {
+        "titre": "Grenzen ohne Sinn",
+        "sujets": [
+          "Baarle-Hertog und Baarle-Nassau",
+          "Point Roberts",
+          "Llívia",
+          "Märket",
+          "Die Fasaneninsel",
+          "Die Diomedes-Inseln",
+          "Four Corners",
+          "Jungholz",
+          "Büsingen am Hochrhein",
+          "Campione d'Italia",
+          "Bir Tawil",
+          "Treriksröset"
+        ]
+      },
+      "tr": {
+        "titre": "Hiç mantıklı olmayan sınırlar",
+        "sujets": [
+          "Baarle-Hertog ve Baarle-Nassau",
+          "Point Roberts",
+          "Llívia",
+          "Märket Adası",
+          "Sülün Adası",
+          "Diomede Adaları",
+          "Four Corners",
+          "Jungholz",
+          "Büsingen am Hochrhein",
+          "Campione d'Italia",
+          "Bir Tavil",
+          "Treriksröset"
+        ]
+      },
+      "hu": {
+        "titre": "Határok, amiknek semmi értelme",
+        "sujets": [
+          "Baarle-Hertog és Baarle-Nassau",
+          "Point Roberts",
+          "Llívia",
+          "Märket",
+          "A Fácán-sziget",
+          "A Diomede-szigetek",
+          "Four Corners",
+          "Jungholz",
+          "Büsingen am Hochrhein",
+          "Campione d'Italia",
+          "Bir Tavíl",
+          "Treriksröset"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Extreme Places",
+        "sujets": [
+          "Oymyakon",
+          "The Atacama Desert",
+          "Mawsynram",
+          "The Dead Sea",
+          "Mount Chimborazo",
+          "Point Nemo",
+          "La Rinconada",
+          "Longyearbyen",
+          "Tristan da Cunha",
+          "Lake Vostok",
+          "The Lut Desert",
+          "Thor Peak"
+        ]
+      },
+      "fr": {
+        "titre": "Lieux extrêmes",
+        "sujets": [
+          "Oïmiakon",
+          "Désert d'Atacama",
+          "Mawsynram",
+          "Mer Morte",
+          "Chimborazo",
+          "Point Nemo",
+          "La Rinconada",
+          "Longyearbyen",
+          "Tristan da Cunha",
+          "Lac Vostok",
+          "Désert de Lout",
+          "Mont Thor"
+        ]
+      },
+      "sv": {
+        "titre": "Extrema platser",
+        "sujets": [
+          "Ojmjakon",
+          "Atacamaöknen",
+          "Mawsynram",
+          "Döda havet",
+          "Chimborazo",
+          "Point Nemo",
+          "La Rinconada",
+          "Longyearbyen",
+          "Tristan da Cunha",
+          "Vostoksjön",
+          "Lutöknen",
+          "Mount Thor"
+        ]
+      },
+      "it": {
+        "titre": "Luoghi estremi",
+        "sujets": [
+          "Ojmjakon",
+          "Il deserto di Atacama",
+          "Mawsynram",
+          "Il Mar Morto",
+          "Il Chimborazo",
+          "Il punto Nemo",
+          "La Rinconada",
+          "Longyearbyen",
+          "Tristan da Cunha",
+          "Il lago Vostok",
+          "Il deserto del Lut",
+          "Il monte Thor"
+        ]
+      },
+      "ro": {
+        "titre": "Locuri extreme",
+        "sujets": [
+          "Oimiakon",
+          "Deșertul Atacama",
+          "Mawsynram",
+          "Marea Moartă",
+          "Vulcanul Chimborazo",
+          "Punctul Nemo",
+          "La Rinconada",
+          "Longyearbyen",
+          "Tristan da Cunha",
+          "Lacul Vostok",
+          "Deșertul Lut",
+          "Vârful Thor"
+        ]
+      },
+      "de": {
+        "titre": "Extreme Orte",
+        "sujets": [
+          "Oimjakon",
+          "Die Atacama-Wüste",
+          "Mawsynram",
+          "Das Tote Meer",
+          "Der Chimborazo",
+          "Point Nemo",
+          "La Rinconada",
+          "Longyearbyen",
+          "Tristan da Cunha",
+          "Der Wostoksee",
+          "Die Wüste Lut",
+          "Der Thor Peak"
+        ]
+      },
+      "tr": {
+        "titre": "Uç noktalar",
+        "sujets": [
+          "Oymyakon",
+          "Atakama Çölü",
+          "Mawsynram",
+          "Lut Gölü",
+          "Chimborazo Dağı",
+          "Nemo Noktası",
+          "La Rinconada",
+          "Longyearbyen",
+          "Tristan da Cunha",
+          "Vostok Gölü",
+          "Lut Çölü",
+          "Thor Dağı"
+        ]
+      },
+      "hu": {
+        "titre": "Szélsőséges helyek",
+        "sujets": [
+          "Ojmjakon",
+          "Az Atacama-sivatag",
+          "Mawsynram",
+          "A Holt-tenger",
+          "A Chimborazo",
+          "A Nemo-pont",
+          "La Rinconada",
+          "Longyearbyen",
+          "Tristan da Cunha",
+          "A Vosztok-tó",
+          "A Lut-sivatag",
+          "A Thor-csúcs"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "before i look things up",
+        "paragraphes": [
+          "before i go down a rabbit hole, i do the 10-minute lesson on Sophia. one short lesson a day: history, philosophy, science, geopolitics, literature, economics.",
+          "each one is written by actual professors and ends with a little quiz. geography was never my thing. now it's the part i look forward to."
+        ]
+      },
+      "fr": {
+        "titre": "avant de chercher",
+        "paragraphes": [
+          "avant de tomber dans un rabbit hole, je fais la leçon de 10 minutes sur Sophia. une courte leçon par jour: histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "chacune est écrite par de vrais profs et finit par un petit quiz. la géo, c'était pas mon truc. maintenant c'est la partie que j'attends."
+        ]
+      },
+      "sv": {
+        "titre": "innan jag kollar upp",
+        "paragraphes": [
+          "innan jag går ner i ett kaninhål gör jag 10-minuterslektionen på Sophia. en kort lektion om dagen: historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
+          "varje lektion är skriven av riktiga professorer och slutar med ett litet quiz. geografi var aldrig min grej. nu är det den delen jag ser fram emot."
+        ]
+      },
+      "it": {
+        "titre": "prima delle ricerche",
+        "paragraphes": [
+          "prima di perdermi in un rabbit hole, faccio la lezione da 10 minuti su Sophia. una lezione breve al giorno: storia, filosofia, scienze, geopolitica, letteratura, economia.",
+          "ognuna è scritta da veri professori e finisce con un piccolo quiz. la geografia non è mai stata il mio forte. ora è la parte che aspetto di più."
+        ]
+      },
+      "ro": {
+        "titre": "înainte să caut",
+        "paragraphes": [
+          "înainte să intru într-un rabbit hole, fac lecția de 10 minute pe Sophia. o lecție scurtă pe zi: istorie, filozofie, științe, geopolitică, literatură, economie.",
+          "fiecare e scrisă de profesori adevărați și se termină cu un mic quiz. geografia n-a fost niciodată chestia mea. acum e partea de care mă bucur cel mai mult."
+        ]
+      },
+      "de": {
+        "titre": "bevor ich was googel",
+        "paragraphes": [
+          "bevor ich in ein rabbit hole abtauche, mache ich die 10-minuten-lektion bei Sophia. eine kurze lektion am tag: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "jede ist von echten professoren geschrieben und endet mit einem kleinen quiz. erdkunde war nie mein ding. jetzt freu ich mich genau darauf."
+        ]
+      },
+      "tr": {
+        "titre": "araştırmadan önce",
+        "paragraphes": [
+          "bir tavşan deliğine dalmadan önce Sophia'da 10 dakikalık dersimi yapıyorum. günde kısa bir ders: tarih, felsefe, bilim, jeopolitik, edebiyat, ekonomi.",
+          "her birini gerçek profesörler yazıyor ve sonunda küçük bir quiz var. coğrafya hiç bana göre değildi. şimdi en çok beklediğim kısım o."
+        ]
+      },
+      "hu": {
+        "titre": "mielőtt utánanézek",
+        "paragraphes": [
+          "mielőtt lemegyek egy nyúlüregbe, megcsinálom a 10 perces leckét a Sophia appban. napi egy rövid lecke: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "mindegyiket igazi professzorok írják, és a végén van egy kis kvíz. a földrajz sosem volt az én világom. most ezt a részt várom a legjobban."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Lost Worlds",
+        "sujets": [
+          "Doggerland",
+          "Zealandia",
+          "Beringia",
+          "The Green Sahara",
+          "Lake Agassiz",
+          "Pangaea",
+          "Gondwana",
+          "The Messinian Salinity Crisis",
+          "The Zanclean Flood",
+          "Sundaland",
+          "The Missoula Floods",
+          "Lake Bonneville"
+        ]
+      },
+      "fr": {
+        "titre": "Mondes disparus",
+        "sujets": [
+          "Doggerland",
+          "Zealandia",
+          "Béringie",
+          "Sahara vert",
+          "Lac Agassiz",
+          "Pangée",
+          "Gondwana",
+          "Crise de salinité messinienne",
+          "Inondation zancléenne",
+          "Sundaland",
+          "Crues de Missoula",
+          "Lac Bonneville"
+        ]
+      },
+      "sv": {
+        "titre": "Försvunna världar",
+        "sujets": [
+          "Doggerland",
+          "Zealandia",
+          "Beringia",
+          "Gröna Sahara",
+          "Agassizsjön",
+          "Pangea",
+          "Gondwana",
+          "Messinska salinitetskrisen",
+          "Zancleanska översvämningen",
+          "Sundaland",
+          "Missoulaöversvämningarna",
+          "Bonnevillesjön"
+        ]
+      },
+      "it": {
+        "titre": "Mondi perduti",
+        "sujets": [
+          "Doggerland",
+          "Zelandia",
+          "Beringia",
+          "Il Sahara verde",
+          "Il lago Agassiz",
+          "Pangea",
+          "Gondwana",
+          "La crisi di salinità del Messiniano",
+          "Il diluvio zancleano",
+          "Sundaland",
+          "Le inondazioni di Missoula",
+          "Il lago Bonneville"
+        ]
+      },
+      "ro": {
+        "titre": "Lumi pierdute",
+        "sujets": [
+          "Doggerland",
+          "Zealandia",
+          "Beringia",
+          "Sahara verde",
+          "Lacul Agassiz",
+          "Pangeea",
+          "Gondwana",
+          "Criza de salinitate messiniană",
+          "Inundația zancleană",
+          "Sundaland",
+          "Inundațiile de la Missoula",
+          "Lacul Bonneville"
+        ]
+      },
+      "de": {
+        "titre": "Verlorene Welten",
+        "sujets": [
+          "Doggerland",
+          "Zealandia",
+          "Beringia",
+          "Die Grüne Sahara",
+          "Der Agassizsee",
+          "Pangaea",
+          "Gondwana",
+          "Die Messinische Salinitätskrise",
+          "Die Zancleanische Flut",
+          "Sundaland",
+          "Die Missoula-Fluten",
+          "Der Bonneville-See"
+        ]
+      },
+      "tr": {
+        "titre": "Kayıp dünyalar",
+        "sujets": [
+          "Doggerland",
+          "Zelandiya",
+          "Beringia",
+          "Yeşil Sahra",
+          "Agassiz Gölü",
+          "Pangea",
+          "Gondvana",
+          "Messiniyen tuzluluk krizi",
+          "Zankliyen tufanı",
+          "Sunda Sahanlığı",
+          "Missoula selleri",
+          "Bonneville Gölü"
+        ]
+      },
+      "hu": {
+        "titre": "Elveszett világok",
+        "sujets": [
+          "Doggerland",
+          "Zélandia",
+          "Beringia",
+          "A zöld Szahara",
+          "Az Agassiz-tó",
+          "Pangea",
+          "Gondwana",
+          "A messinai sókrízis",
+          "A zanclei özönvíz",
+          "Szundaföld",
+          "A missoulai áradások",
+          "A Bonneville-tó"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Maps & Mapmaking",
+        "sujets": [
+          "The Gall-Peters Projection",
+          "Null Island",
+          "Phantom Islands",
+          "Sandy Island",
+          "Trap Streets",
+          "Agloe, New York",
+          "The Dymaxion Map",
+          "Hy-Brasil",
+          "Terra Australis",
+          "California as an Island",
+          "The Tabula Rogeriana",
+          "The Hereford Mappa Mundi"
+        ]
+      },
+      "fr": {
+        "titre": "Cartes et cartographie",
+        "sujets": [
+          "Projection de Gall-Peters",
+          "Null Island",
+          "Îles fantômes",
+          "Île de Sable",
+          "Rues pièges",
+          "Agloe (New York)",
+          "Carte Dymaxion",
+          "Hy-Brasil",
+          "Terra australis",
+          "Île de Californie",
+          "Tabula Rogeriana",
+          "Mappemonde de Hereford"
+        ]
+      },
+      "sv": {
+        "titre": "Kartor och kartritning",
+        "sujets": [
+          "Gall–Peters-projektionen",
+          "Null Island",
+          "Fantomöar",
+          "Sandy Island",
+          "Fällgator",
+          "Agloe, New York",
+          "Dymaxionkartan",
+          "Hy-Brasil",
+          "Terra Australis",
+          "Kalifornien som ö",
+          "Tabula Rogeriana",
+          "Herefordkartan"
+        ]
+      },
+      "it": {
+        "titre": "Mappe e cartografia",
+        "sujets": [
+          "La proiezione di Gall-Peters",
+          "Null Island",
+          "Le isole fantasma",
+          "Sandy Island",
+          "Le strade trappola",
+          "Agloe, New York",
+          "La mappa Dymaxion",
+          "Hy-Brasil",
+          "La Terra Australis",
+          "La California come isola",
+          "La Tabula Rogeriana",
+          "La Mappa mundi di Hereford"
+        ]
+      },
+      "ro": {
+        "titre": "Hărți și cartografie",
+        "sujets": [
+          "Proiecția Gall-Peters",
+          "Null Island",
+          "Insulele-fantomă",
+          "Insula Sandy",
+          "Străzile-capcană",
+          "Agloe, New York",
+          "Harta Dymaxion",
+          "Hy-Brasil",
+          "Terra Australis",
+          "California ca insulă",
+          "Tabula Rogeriana",
+          "Mappa Mundi de la Hereford"
+        ]
+      },
+      "de": {
+        "titre": "Karten & Kartografie",
+        "sujets": [
+          "Die Gall-Peters-Projektion",
+          "Null Island",
+          "Phantominseln",
+          "Sandy Island",
+          "Erfundene Straßen auf Karten",
+          "Agloe, New York",
+          "Die Dymaxion-Karte",
+          "Hy-Brasil",
+          "Terra Australis",
+          "Kalifornien als Insel",
+          "Die Tabula Rogeriana",
+          "Die Hereford-Karte"
+        ]
+      },
+      "tr": {
+        "titre": "Haritalar ve haritacılık",
+        "sujets": [
+          "Gall-Peters projeksiyonu",
+          "Null Adası",
+          "Hayalet adalar",
+          "Sandy Adası",
+          "Tuzak sokaklar",
+          "Agloe, New York",
+          "Dymaxion haritası",
+          "Hy-Brasil",
+          "Terra Australis",
+          "Ada olarak Kaliforniya",
+          "Tabula Rogeriana",
+          "Hereford Mappa Mundi"
+        ]
+      },
+      "hu": {
+        "titre": "Térképek és térképészet",
+        "sujets": [
+          "A Gall–Peters-vetület",
+          "Null-sziget",
+          "Fantomszigetek",
+          "A Sandy-sziget",
+          "Csapdautcák",
+          "Agloe, New York",
+          "A Dymaxion-térkép",
+          "Hy-Brasil",
+          "Terra Australis",
+          "Kalifornia mint sziget",
+          "A Tabula Rogeriana",
+          "A herefordi Mappa Mundi"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Islands Almost Nobody Visits",
+        "sujets": [
+          "Surtsey",
+          "The Pitcairn Islands",
+          "Svalbard",
+          "Bouvet Island",
+          "Lake Hillier",
+          "The Faroe Islands",
+          "The Kerguelen Islands",
+          "Palmyra Atoll",
+          "Lord Howe Island",
+          "Ball's Pyramid",
+          "The Galápagos Islands"
+        ]
+      },
+      "fr": {
+        "titre": "Îles que presque personne ne visite",
+        "sujets": [
+          "Surtsey",
+          "Îles Pitcairn",
+          "Svalbard",
+          "Île Bouvet",
+          "Lac Hillier",
+          "Îles Féroé",
+          "Îles Kerguelen",
+          "Atoll Palmyra",
+          "Île Lord Howe",
+          "Pyramide de Ball",
+          "Îles Galápagos"
+        ]
+      },
+      "sv": {
+        "titre": "Öar som nästan ingen besöker",
+        "sujets": [
+          "Surtsey",
+          "Pitcairnöarna",
+          "Svalbard",
+          "Bouvetön",
+          "Hilliersjön",
+          "Färöarna",
+          "Kerguelenöarna",
+          "Palmyraatollen",
+          "Lord Howe-ön",
+          "Ball's Pyramid",
+          "Galápagosöarna"
+        ]
+      },
+      "it": {
+        "titre": "Isole che quasi nessuno visita",
+        "sujets": [
+          "Surtsey",
+          "Le isole Pitcairn",
+          "Le Svalbard",
+          "L'isola Bouvet",
+          "Il lago Hillier",
+          "Le isole Fær Øer",
+          "Le isole Kerguelen",
+          "L'atollo di Palmyra",
+          "L'isola di Lord Howe",
+          "La piramide di Ball",
+          "Le isole Galápagos"
+        ]
+      },
+      "ro": {
+        "titre": "Insule pe care nu le vizitează aproape nimeni",
+        "sujets": [
+          "Surtsey",
+          "Insulele Pitcairn",
+          "Svalbard",
+          "Insula Bouvet",
+          "Lacul Hillier",
+          "Insulele Feroe",
+          "Insulele Kerguelen",
+          "Atolul Palmyra",
+          "Insula Lord Howe",
+          "Piramida lui Ball",
+          "Insulele Galápagos"
+        ]
+      },
+      "de": {
+        "titre": "Inseln, die fast niemand besucht",
+        "sujets": [
+          "Surtsey",
+          "Die Pitcairninseln",
+          "Spitzbergen",
+          "Die Bouvetinsel",
+          "Der Hillier-See",
+          "Die Färöer",
+          "Die Kerguelen",
+          "Das Palmyra-Atoll",
+          "Die Lord-Howe-Insel",
+          "Ball's Pyramid",
+          "Die Galápagos-Inseln"
+        ]
+      },
+      "tr": {
+        "titre": "Neredeyse kimsenin gitmediği adalar",
+        "sujets": [
+          "Surtsey",
+          "Pitcairn Adaları",
+          "Svalbard",
+          "Bouvet Adası",
+          "Hillier Gölü",
+          "Faroe Adaları",
+          "Kerguelen Adaları",
+          "Palmyra Atolü",
+          "Lord Howe Adası",
+          "Ball Piramidi",
+          "Galápagos Adaları"
+        ]
+      },
+      "hu": {
+        "titre": "Szigetek, ahová szinte senki nem jut el",
+        "sujets": [
+          "Surtsey",
+          "A Pitcairn-szigetek",
+          "A Spitzbergák",
+          "A Bouvet-sziget",
+          "A Hillier-tó",
+          "A Feröer",
+          "A Kerguelen-szigetek",
+          "A Palmyra-atoll",
+          "A Lord Howe-sziget",
+          "Ball's Pyramid",
+          "A Galápagos-szigetek"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this and look up one place tonight. find it on a map, read its story, then pick the next one.",
+        "gras": "OR.. keep thinking the world is boring."
+      },
+      "fr": {
+        "texte": "enregistre ça et cherche un lieu ce soir. trouve-le sur une carte, lis son histoire, puis passe au lieu suivant.",
+        "gras": "OU.. continue à trouver le monde nul."
+      },
+      "sv": {
+        "texte": "spara det här och kolla upp en plats i kväll. hitta den på en karta, läs dess historia och välj sen nästa.",
+        "gras": "ELLER.. fortsätt tro att världen är tråkig."
+      },
+      "it": {
+        "texte": "salvalo e cerca un posto stasera. trovalo su una mappa, leggi la sua storia, poi passa al prossimo.",
+        "gras": "O.. continua a pensare che il mondo sia noioso."
+      },
+      "ro": {
+        "texte": "salvează asta și caută un loc diseară. găsește-l pe hartă, citește-i povestea, apoi alege-l pe următorul.",
+        "gras": "SAU.. crede în continuare că lumea e plictisitoare."
+      },
+      "de": {
+        "texte": "speicher dir das und schau dir heute abend einen ort an. such ihn auf der karte, lies seine geschichte und dann kommt der nächste.",
+        "gras": "ODER.. glaub weiter, die welt ist langweilig."
+      },
+      "tr": {
+        "texte": "bunu kaydet ve bu gece bir yeri araştır. haritada yerini bul, hikâyesini oku, sonra sıradakini seç.",
+        "gras": "YA DA.. dünyanın sıkıcı olduğunu sanmaya devam et."
+      },
+      "hu": {
+        "texte": "mentsd el, és nézz utána ma este egy helynek. keresd meg a térképen, olvasd el a történetét, aztán jöhet a következő.",
+        "gras": "VAGY.. továbbra is azt hiszed, hogy unalmas a világ."
+      }
+    }
+  ]
+}

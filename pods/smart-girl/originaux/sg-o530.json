@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o530",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2f3248a3-2916-4a9a-bf42-6b19dafe4b83",
+ "titre": "5 things every woman should spend money on #investinyourself #women #selfcare #smartgirl #money",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "2f3248a3-2916-4a9a-bf42-6b19dafe4b83"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 17 de la boîte (parent 2f3248a3, langue source en) : accroche du parent mot pour mot. Idées du parent (un abonnement de sport qu'on utilise, un thérapeute ou un coach, un parfum signature, sa curiosité quotidienne) et une neuve (un bon matelas). Sophia en 5 comme chez le parent (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4dd3cbdd",
+   "texte_overlay": "5 things every woman should\nspend money on",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662681568518901012/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1c717b96",
+   "texte_overlay": "1. a gym membership you\nactually use\n\nnot as punishment.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662681568518901012/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c205916c",
+   "texte_overlay": "2. a therapist or a coach",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662681568518901012/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bbb21a7f",
+   "texte_overlay": "3. a signature perfume",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662681568518901012/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8b00420d",
+   "texte_overlay": "4. a good mattress",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662681568518901012/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a7dbeb46",
+   "texte_overlay": "5. your daily curiosity\n\nnot hours of scrolling.",
+   "texte_sophia": "5. your daily curiosity\n\nfive minutes a day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662681568518901012/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6e6b8994",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662681568518901012/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,432 @@
+{
+ "id": "sm-033",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "Juna",
+  "url": "https://www.tiktok.com/music/juna-7359782220351440912"
+ },
+ "notes": "Full test du 28/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, papier vert, stickers, bulle) : « apps for a cozy study weekend ». Sophia en 2e carte (slide 3, cta C), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Pomocat (pomodoro avec un chat), Nonogram.com (logique sans langue), Headspace (méditations). Toutes sur l'App Store des 10 pays (lookup iTunes du 20/11) ; Pomocat en iOS seul. Musique : la sienne de « the formula to ace every class » (311 k).",
+ "titre": {
+  "en": "apps for a cozy study weekend",
+  "fr": "les applis pour un week-end de révisions cosy",
+  "es": "apps para un fin de semana de estudio cozy",
+  "es-419": "apps para un fin de semana de estudio cozy",
+  "it": "app per un weekend di studio cozy",
+  "tr": "cozy bir ders hafta sonu için uygulamalar",
+  "pt-BR": "apps pra um fim de semana de estudo aconchegante",
+  "de": "gemütliche apps fürs lernen am wochenende",
+  "sl": "aplikacije za prijeten učni vikend",
+  "hu": "appok egy cozy tanulós hétvégéhez"
+ },
+ "legendes": {
+  "en": "blanket, matcha, slow saturday 🍵🧸 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "plaid, matcha et samedi tranquille 🍵🧸 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "mantita, matcha y sábado tranquilo 🍵🧸 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "cobija, matcha y sábado tranquilo 🍵🧸 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "coperta, matcha e sabato lento 🍵🧸 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "battaniye, matcha, yavaş cumartesi 🍵🧸 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "coberta, matcha e sábado tranquilo 🍵🧸 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "decke, matcha, langsamer samstag 🍵🧸 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "odeja, matcha, počasna sobota 🍵🧸 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "pléd, matcha, lassú szombat 🍵🧸 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 40,
+     "y": 150,
+     "l": 220,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 830,
+     "y": 150,
+     "l": 170,
+     "rotation": 12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 40,
+     "y": 730,
+     "l": 240,
+     "rotation": -5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 790,
+     "y": 710,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps for a\ncozy study\nweekend",
+    "sous": "slow saturday\nedition"
+   },
+   "fr": {
+    "titre": "les applis\npour un\nweek-end cosy",
+    "sous": "spécial\nsamedi tranquille"
+   },
+   "es": {
+    "titre": "apps para\nun finde\nde estudio",
+    "sous": "edición\nsábado tranqui"
+   },
+   "es-419": {
+    "titre": "apps para\nun finde\nde estudio",
+    "sous": "edición\nsábado tranqui"
+   },
+   "it": {
+    "titre": "app per un\nweekend di\nstudio cozy",
+    "sous": "edizione\nsabato lento"
+   },
+   "tr": {
+    "titre": "cozy bir ders\nhafta sonu için\nuygulamalar",
+    "sous": "yavaş\ncumartesi"
+   },
+   "pt-BR": {
+    "titre": "apps pra um\nfim de semana\nde estudo",
+    "sous": "edição sábado\ntranquilo"
+   },
+   "de": {
+    "titre": "gemütliche\napps fürs\nlernen am\nwochenende",
+    "sous": "slow-saturday-\nedition"
+   },
+   "sl": {
+    "titre": "aplikacije za\nprijeten\nučni vikend",
+    "sous": "izdaja\npočasna sobota"
+   },
+   "hu": {
+    "titre": "appok egy\ncozy tanulós\nhétvégéhez",
+    "sous": "lassú szombat\nkiadás"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/pomocat/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/ecouteurs.png",
+     "x": 50,
+     "y": 740,
+     "l": 270,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 790,
+     "y": 710,
+     "l": 230,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "two or three pomodoros with a sleepy cat and soft white noise. weekend studying, but make it gentle."
+   },
+   "fr": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "deux ou trois pomodoros avec un chat endormi et un bruit blanc tout doux. réviser le week-end, mais en douceur."
+   },
+   "es": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "dos o tres pomodoros con un gato dormilón y ruido blanco suave. estudiar el finde, pero con calma."
+   },
+   "es-419": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "dos o tres pomodoros con un gato dormilón y ruido blanco suave. estudiar el finde, pero con calma."
+   },
+   "it": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "due o tre pomodori con un gatto assonnato e un rumore bianco leggero. studiare nel weekend, ma con dolcezza."
+   },
+   "tr": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "uykulu bir kedi ve yumuşak beyaz gürültüyle iki üç pomodoro. hafta sonu ders, ama nazikçe."
+   },
+   "pt-BR": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "dois ou três pomodoros com um gatinho sonolento e ruído branco suave. estudar no fim de semana, mas com calma."
+   },
+   "de": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "zwei, drei pomodoros mit einer verschlafenen katze und sanftem white noise. am wochenende lernen, aber sanft."
+   },
+   "sl": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "dva ali trije pomodori z zaspano mačko in nežnim belim šumom. učenje med vikendom, ampak nežno."
+   },
+   "hu": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "két-három pomodoro egy álmos cicával és halk fehér zajjal. hétvégi tanulás, de szelíden."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bibliotheque.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/matcha.png",
+     "x": 860,
+     "y": 90,
+     "l": 160,
+     "rotation": 10
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks!",
+    "bulle": "my weekend lesson in bed!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir !",
+    "bulle": "ma leçon du week-end au lit !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡mi lección del finde en la cama!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡mi lección del finde en la cama!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta!",
+    "bulle": "la mia lezione del weekend a letto!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test!",
+    "bulle": "yatakta hafta sonu dersim!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "você aprende uma coisa nova por dia, tipo por que a gente sonha, com um quiz rapidinho depois pra fixar!",
+    "bulle": "minha aula de fim de semana na cama!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "du lernst jeden tag etwas neues, zum beispiel warum wir träumen, mit einem kleinen quiz danach, damit es hängen bleibt!",
+    "bulle": "meine wochenendlektion im bett!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan se naučiš nekaj novega, na primer zakaj sanjamo, potem pa kratek kviz, da ti ostane v glavi!",
+    "bulle": "moja vikend lekcija v postelji!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "minden nap tanulsz valami újat, például hogy miért álmodunk, utána egy kis kvíz, hogy megmaradjon!",
+    "bulle": "hétvégi leckém az ágyban!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/nonogram/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/puzzle.png",
+     "x": 70,
+     "y": 730,
+     "l": 220,
+     "rotation": -12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "a picture puzzle between study blocks. solving the grid feels like a little treat for my brain."
+   },
+   "fr": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "un casse-tête en image entre deux sessions. remplir la grille, c'est comme une petite douceur pour le cerveau."
+   },
+   "es": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "un puzle con dibujo entre bloques de estudio. completar la cuadrícula es como un premio para el cerebro."
+   },
+   "es-419": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "un acertijo con dibujo entre bloques de estudio. completar la cuadrícula es como un premio para el cerebro."
+   },
+   "it": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "un puzzle con disegno tra un blocco di studio e l'altro. completare la griglia è un piccolo premio per il cervello."
+   },
+   "tr": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "çalışma blokları arasında resimli bir bulmaca. tabloyu doldurmak beynime küçük bir ödül gibi."
+   },
+   "pt-BR": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "um quebra-cabeça com desenho entre os blocos de estudo. completar a grade é um mimo pro cérebro."
+   },
+   "de": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "ein bilderrätsel zwischen den lernblöcken. das raster zu lösen ist wie eine kleine belohnung fürs gehirn."
+   },
+   "sl": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "slikovna uganka med učnimi bloki. reševanje mreže je kot mala nagrada za možgane."
+   },
+   "hu": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "képes rejtvény a tanulási blokkok között. a rács kitöltése olyan, mint egy kis jutalom az agynak."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/headspace/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 70,
+     "y": 740,
+     "l": 200,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 730,
+     "l": 200,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "a 10-minute meditation to end the weekend, so sunday night feels calm instead of stressful."
+   },
+   "fr": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "10 minutes de méditation pour finir le week-end, pour que le dimanche soir soit calme et pas stressant."
+   },
+   "es": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "10 minutos de meditación para cerrar el finde, para que el domingo por la noche sea tranquilo."
+   },
+   "es-419": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "10 minutos de meditación para cerrar el finde, para que el domingo en la noche sea tranquilo."
+   },
+   "it": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "10 minuti di meditazione per chiudere il weekend, così la domenica sera è calma e non stressante."
+   },
+   "tr": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "hafta sonunu bitirmek için 10 dakikalık meditasyon, pazar akşamı stresli değil sakin geçsin."
+   },
+   "pt-BR": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "10 minutos de meditação pra fechar o fim de semana, pro domingo à noite ser calmo e não estressante."
+   },
+   "de": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "10 minuten meditation zum wochenendende, damit der sonntagabend ruhig statt stressig ist."
+   },
+   "sl": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "10 minut meditacije za konec vikenda, da je nedeljski večer miren in ne stresen."
+   },
+   "hu": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "10 perc meditáció a hétvége végén, hogy a vasárnap este nyugodt legyen, ne stresszes."
+   }
+  }
+ ]
+}

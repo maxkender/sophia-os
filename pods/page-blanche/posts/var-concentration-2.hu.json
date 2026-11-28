@@ -1,0 +1,278 @@
+{
+ "post_id": "var-concentration-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 niche traits of highly",
+      "successful people"
+     ],
+     "texte": "apró szokások, amik kinyírják a fókuszod"
+    },
+    "T2": {
+     "en": [
+      "(science-backed)"
+     ],
+     "alignement": "droite",
+     "texte": "(senki nem beszél róla)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0b0770fb.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they make decisions fast"
+     ],
+     "texte": "tanulás [[az ágyból]]"
+    },
+    "T2": {
+     "en": [
+      "successful people don’t procrastinate. they don’t",
+      "ask for permission, but instead act and ask for",
+      "forgiveness"
+     ],
+     "texte": "laptop a térdeden, rajtad a paplan, párna a hátad mögött. kényelmes, de az agyadnak [[ágy = pihenés]]"
+    },
+    "T3": {
+     "en": [
+      "they don’t spend 3",
+      "weeks thinking",
+      "about a reversible",
+      "choice"
+     ],
+     "texte": "így amint befészkeled magad, [[elolvad a fókuszod]]"
+    },
+    "T4": {
+     "en": [
+      "if the downside is small, they decide, act, and",
+      "adjust. speed matters most when decisions can",
+      "be changed later"
+     ],
+     "texte": "és fordítva is működik: ha sokat dolgozol ott, [[rosszabbul alszol]]. az ágy alvásra való"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_04cfe1cc.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they get comfortable looking",
+      "stupid"
+     ],
+     "texte": "órákig tanulni [[csukott ablaknál]]"
+    },
+    "T2": {
+     "en": [
+      "they ask basic questions, try things before they feel",
+      "ready, and admit when they don’t know"
+     ],
+     "texte": "ajtó és ablak zárva, a levegő nehéz lesz, és a fejed mintha vattával lenne tele"
+    },
+    "T3": {
+     "en": [
+      "protecting your",
+      "ego feels safe,",
+      "but it slows",
+      "learning down",
+      "massively"
+     ],
+     "texte": "egy harvardi kutatás kimutatta: áporodott levegő = [[lassabb agy]]"
+    },
+    "T4": {
+     "en": [
+      "growth feels uncomfortable, but",
+      "nothing changes if nothing changes"
+     ],
+     "texte": "nyiss ablakot [[óránként 10 percre]], és kitisztul a fejed"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_6e8628e4.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they read classic books written",
+      "by the greats"
+     ],
+     "texte": "[[minden kis várakozást]] telefonnal kitölteni"
+    },
+    "T2a": {
+     "en": [
+      "they know endless tiktok scrolling rots their",
+      "attention"
+     ],
+     "texte": "sor, busz, mikró, lift: hopp, előkerül a telefon"
+    },
+    "T2b": {
+     "en": [
+      "instead, they read ideas that",
+      "survived decades or",
+      "centuries"
+     ],
+     "texte": "az agyad [[egy üres percet sem kap]], hogy kifújja magát"
+    },
+    "T3": {
+     "en": [
+      "from people who thought",
+      "deeply about psychology,",
+      "power, business, and human",
+      "nature"
+     ],
+     "texte": "így amint lelassul a munka, [[valami mást keres]] reflexből, minden egyes alkalommal"
+    },
+    "T4": {
+     "en": [
+      "if you’re stuck on tiktok, you",
+      "can try readup which blocks",
+      "your apps until you read"
+     ],
+     "texte": "régen folyton görgettem, most 5 perc alatt tanulok valami újat [[a Sophia appban]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "scissions": {
+    "T2": 2
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they tolerate long periods with",
+      "no reward"
+     ],
+     "texte": "[[szupercukros reggeli]] suli előtt"
+    },
+    "T2": {
+     "en": [
+      "they can keep working when",
+      "nobody is watching, nothing",
+      "is going viral, and the results",
+      "still look unimpressive"
+     ],
+     "texte": "gabonapehely, péksüti, cukros kávé. egy órán át pörögsz, aztán leesik a vércukrod, és [[vele a fókuszod is]]"
+    },
+    "T3": {
+     "en": [
+      "most people need constant",
+      "proof that something is",
+      "working"
+     ],
+     "texte": "a 10 órás mélypont nem lustaság, [[hanem a zuhanás]]"
+    },
+    "T4": {
+     "en": [
+      "successful people can stay",
+      "consistent long enough for the",
+      "payoff to arrive."
+     ],
+     "texte": "egyél mellé fehérjét: tojás, joghurt, zabpehely. [[kibírod ebédig]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_07cf7fda.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they obsess over leverage"
+     ],
+     "texte": "jegyzetek [[5 színben]]"
+    },
+    "T2": {
+     "en": [
+      "they constantly look for",
+      "ways to make one hour of",
+      "work create more than",
+      "one hour of value"
+     ],
+     "texte": "öt szövegkiemelő, tökéletes címek, egy újraírt oldal, mert egy szó csúnya lett"
+    },
+    "T3": {
+     "en": [
+      "software, systems,",
+      "content, capital,",
+      "automation, teams"
+     ],
+     "texte": "a kezed dolgozik, miközben [[az agyad kikapcsol]]"
+    },
+    "T4": {
+     "en": [
+      "they’re not just trying to",
+      "work harder, they’re trying"
+     ],
+     "texte": "írj csúnyán, aztán [[kérdezd ki magad]] jegyzet nélkül"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_008c05fe.jpg",
+      "boite": [
+       0,
+       880,
+       1504,
+       1904
+      ]
+     }
+    }
+   }
+  }
+ }
+}

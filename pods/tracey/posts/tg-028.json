@@ -1,0 +1,538 @@
+{
+ "id": "tg-028",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies for adhd brains that love learning",
+  "bg": "10/10 хобита за адхд мозъци, които обичат да учат",
+  "de": "10/10 hobbys für adhs-köpfe, die gern lernen",
+  "el": "10/10 χόμπι για μυαλά με ΔΕΠΥ που αγαπούν να μαθαίνουν",
+  "es-419": "10/10 hobbies para cerebros con tdah que aman aprender",
+  "fr": "10/10 loisirs pour les tdah qui adorent apprendre",
+  "hu": "10/10 hobbi adhd-s agyaknak, amik imádnak tanulni",
+  "it": "10/10 hobby per cervelli adhd che amano imparare",
+  "pt-BR": "10/10 hobbies para cérebros com tdah que amam aprender",
+  "sr": "10/10 hobija za adhd mozak koji voli da uči"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #learning #focus #brain",
+  "bg": "#адхд #хобита #учене #фокус #мозък",
+  "de": "#adhs #hobbys #lernen #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #μάθηση #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #aprender #enfoque #cerebro",
+  "fr": "#tdah #loisirs #apprendre #concentration #cerveau",
+  "hu": "#adhd #hobbi #tanulás #fókusz #agy",
+  "it": "#adhd #hobby #imparare #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #aprender #foco #cerebro",
+  "sr": "#adhd #hobi #učenje #fokus #mozak"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies for adhd brains that love learning », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Couverture : une IRM neuve, propre à ce post (irm-028). Slide Atala sur une photo de course de la banque (4c79cc50), slide Artura sur un tableau ou un musée de la banque (5f54b7a9), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/a-chevalet.jpg": "5f54b7a9-13ac-4449-8dce-41e9c8ad602d",
+  "images/banque/c-piste-vide.jpg": "4c79cc50-e436-4f43-a007-d8bed23cc6de"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/irm-028.jpg",
+   "en": {
+    "titre": "10/10 hobbies for adhd brains\nthat love learning",
+    "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 хобита за адхд мозъци,\nкоито обичат да учат",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 hobbys für adhs-köpfe,\ndie gern lernen",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι για μυαλά με\nΔΕΠΥ που αγαπούν τη μάθηση",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies para cerebros\ncon tdah que aman aprender",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs pour les tdah\nqui adorent apprendre",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 hobbi adhd-s agyaknak,\namik imádnak tanulni",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby per cervelli\nadhd che amano imparare",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies para cérebros\ncom tdah que amam aprender",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 hobija za adhd mozak\nkoji voli da uči",
+    "note": "(potvrđeno neuronaukom)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/jonglage.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "juggling",
+    "accroche": "you get _a little better_ every _single day_",
+    "colonne": [
+     "catching one more ball than yesterday is a clear win, and your hands keep your mind busy"
+    ],
+    "chute": "start with two balls, then three"
+   },
+   "bg": {
+    "nom": "жонглиране",
+    "accroche": "ставаш _малко по-добър_ _всеки ден_",
+    "colonne": [
+     "да хванеш една топка повече от вчера е ясна победа, а ръцете държат ума ти зает"
+    ],
+    "chute": "започни с две топки, после три"
+   },
+   "de": {
+    "nom": "jonglieren",
+    "accroche": "du wirst _jeden tag_ ein _bisschen besser_",
+    "colonne": [
+     "einen ball mehr zu fangen als gestern ist ein klarer sieg, und deine hände halten den kopf beschäftigt"
+    ],
+    "chute": "fang mit zwei bällen an, dann drei"
+   },
+   "el": {
+    "nom": "ζογκλέρ",
+    "accroche": "γίνεσαι _λίγο καλύτερος_ κάθε _μέρα_",
+    "colonne": [
+     "να πιάνεις μια μπάλα παραπάνω από χθες είναι καθαρή νίκη, και τα χέρια κρατάνε το μυαλό απασχολημένο"
+    ],
+    "chute": "ξεκίνα με δύο μπάλες, μετά τρεις"
+   },
+   "es-419": {
+    "nom": "malabares",
+    "accroche": "mejoras _un poquito_ cada _día_",
+    "colonne": [
+     "atrapar una pelota más que ayer es una victoria clara, y tus manos mantienen la mente ocupada"
+    ],
+    "chute": "empieza con dos pelotas, luego tres"
+   },
+   "fr": {
+    "nom": "la jonglerie",
+    "accroche": "tu progresses _un peu_ chaque _jour_",
+    "colonne": [
+     "rattraper une balle de plus qu'hier est une victoire claire, et tes mains occupent ton esprit"
+    ],
+    "chute": "commence avec deux balles, puis trois"
+   },
+   "hu": {
+    "nom": "zsonglőrködés",
+    "accroche": "_minden nap_ egy _kicsit jobb_ leszel",
+    "colonne": [
+     "eggyel több labdát elkapni, mint tegnap, egyértelmű győzelem, és a kezed leköti a figyelmed"
+    ],
+    "chute": "kezdd két labdával, aztán hárommal"
+   },
+   "it": {
+    "nom": "giocoleria",
+    "accroche": "migliori _un pochino_ ogni _giorno_",
+    "colonne": [
+     "prendere una palla in più di ieri è una vittoria chiara, e le mani tengono la mente occupata"
+    ],
+    "chute": "inizia con due palline, poi tre"
+   },
+   "pt-BR": {
+    "nom": "malabarismo",
+    "accroche": "você fica _um pouco melhor_ a _cada dia_",
+    "colonne": [
+     "pegar uma bola a mais que ontem é uma vitória clara, e as mãos mantêm sua cabeça ocupada"
+    ],
+    "chute": "comece com duas bolas, depois três"
+   },
+   "sr": {
+    "nom": "žongliranje",
+    "accroche": "svakog dana si _malo bolji_",
+    "colonne": [
+     "uhvatiti jednu lopticu više nego juče je jasna pobeda, a ruke ti drže um zauzetim"
+    ],
+    "chute": "počni sa dve loptice, pa tri"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-chevalet.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "nom": "copying a painting",
+    "accroche": "you learn how a painter _thinks_",
+    "colonne": [
+     "trying to copy one painting shows you every choice the painter made: color, light, brushstrokes",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "pick one small painting and copy one corner"
+   },
+   "bg": {
+    "nom": "да копираш картина",
+    "accroche": "учиш как _мисли_ художникът",
+    "colonne": [
+     "опитът да копираш картина ти показва всеки избор на художника: цвят, светлина, мазки",
+     "_съвет_: artura ми дава по една картина на ден и историята зад нея, за няколко минути"
+    ],
+    "chute": "избери малка картина и копирай един ъгъл"
+   },
+   "de": {
+    "nom": "ein gemälde abmalen",
+    "accroche": "du lernst, wie ein maler _denkt_",
+    "colonne": [
+     "ein gemälde nachzumalen zeigt dir jede entscheidung des malers: farbe, licht, pinselstriche",
+     "_pro tipp_: artura zeigt mir jeden tag ein gemälde und die geschichte dahinter, in ein paar minuten"
+    ],
+    "chute": "nimm ein kleines gemälde und mal eine ecke ab"
+   },
+   "el": {
+    "nom": "αντιγράφω έναν πίνακα",
+    "accroche": "μαθαίνεις πώς _σκέφτεται_ ένας ζωγράφος",
+    "colonne": [
+     "η αντιγραφή ενός πίνακα σου δείχνει κάθε επιλογή του ζωγράφου: χρώμα, φως, πινελιές",
+     "_μικρό tip_: το artura μου δίνει έναν πίνακα τη μέρα και την ιστορία του, σε λίγα λεπτά"
+    ],
+    "chute": "διάλεξε έναν μικρό πίνακα και αντέγραψε μια γωνία"
+   },
+   "es-419": {
+    "nom": "copiar una pintura",
+    "accroche": "aprendes cómo _piensa_ un pintor",
+    "colonne": [
+     "copiar una pintura te muestra cada decisión del pintor: color, luz, pinceladas",
+     "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
+    ],
+    "chute": "elige una pintura pequeña y copia una esquina"
+   },
+   "fr": {
+    "nom": "copier un tableau",
+    "accroche": "tu apprends comment _pense_ un peintre",
+    "colonne": [
+     "copier un tableau te montre chaque choix du peintre : couleur, lumière, coups de pinceau",
+     "_petite astuce_: artura me donne un tableau par jour et son histoire, en quelques minutes"
+    ],
+    "chute": "choisis un petit tableau et copie un coin"
+   },
+   "hu": {
+    "nom": "egy festmény lemásolása",
+    "accroche": "megtanulod, hogyan _gondolkodik_ egy festő",
+    "colonne": [
+     "egy festmény lemásolása megmutatja a festő minden döntését: színt, fényt, ecsetvonást",
+     "_pro tip_: az artura minden nap ad egy festményt és a mögötte lévő történetet, pár perc alatt"
+    ],
+    "chute": "válassz egy kis festményt, és másold le egy sarkát"
+   },
+   "it": {
+    "nom": "copiare un dipinto",
+    "accroche": "impari come _pensa_ un pittore",
+    "colonne": [
+     "copiare un dipinto ti mostra ogni scelta del pittore: colore, luce, pennellate",
+     "_piccolo consiglio_: artura mi dà un dipinto al giorno e la sua storia, in pochi minuti"
+    ],
+    "chute": "scegli un piccolo dipinto e copiane un angolo"
+   },
+   "pt-BR": {
+    "nom": "copiar uma pintura",
+    "accroche": "você aprende como um pintor _pensa_",
+    "colonne": [
+     "tentar copiar uma pintura mostra cada escolha do pintor: cor, luz, pinceladas",
+     "_dica_: o artura me dá uma pintura por dia e a história por trás dela, em poucos minutos"
+    ],
+    "chute": "escolha uma pintura pequena e copie um canto"
+   },
+   "sr": {
+    "nom": "kopiranje slike",
+    "accroche": "naučiš kako slikar _razmišlja_",
+    "colonne": [
+     "kopiranje jedne slike pokaže ti svaki slikarev izbor: boju, svetlo, poteze četkom",
+     "_pro tip_: artura mi daje jednu sliku dnevno i priču iza nje, za par minuta"
+    ],
+    "chute": "izaberi malu sliku i kopiraj jedan ugao"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/cueillette.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "guided foraging walks",
+    "accroche": "every walk teaches you _a new plant_",
+    "colonne": [
+     "the woods turn into a puzzle you learn to read, and a guide keeps it safe"
+    ],
+    "chute": "join a guided walk, never pick alone"
+   },
+   "bg": {
+    "nom": "разходки за билки с водач",
+    "accroche": "всяка разходка те учи на _ново растение_",
+    "colonne": [
+     "гората се превръща в загадка, която се учиш да четеш, а водачът пази всичко безопасно"
+    ],
+    "chute": "ходи с водач, никога не бери сам"
+   },
+   "de": {
+    "nom": "geführte sammelspaziergänge",
+    "accroche": "jeder spaziergang lehrt dich _eine neue pflanze_",
+    "colonne": [
+     "der wald wird zu einem rätsel, das du lesen lernst, und ein guide sorgt für sicherheit"
+    ],
+    "chute": "geh mit einem guide, sammle nie allein"
+   },
+   "el": {
+    "nom": "βόλτες συλλογής με οδηγό",
+    "accroche": "κάθε βόλτα σου μαθαίνει _ένα νέο φυτό_",
+    "colonne": [
+     "το δάσος γίνεται γρίφος που μαθαίνεις να διαβάζεις, και ο οδηγός το κρατάει ασφαλές"
+    ],
+    "chute": "μπες σε βόλτα με οδηγό, ποτέ μόνος"
+   },
+   "es-419": {
+    "nom": "paseos guiados para recolectar",
+    "accroche": "cada paseo te enseña _una planta nueva_",
+    "colonne": [
+     "el bosque se vuelve un acertijo que aprendes a leer, y un guía lo mantiene seguro"
+    ],
+    "chute": "únete a un paseo guiado, nunca recolectes solo"
+   },
+   "fr": {
+    "nom": "les balades cueillette guidées",
+    "accroche": "chaque balade t'apprend _une nouvelle plante_",
+    "colonne": [
+     "la forêt devient une énigme que tu apprends à lire, et un guide rend ça sûr"
+    ],
+    "chute": "rejoins une balade guidée, ne cueille jamais seul"
+   },
+   "hu": {
+    "nom": "vezetett gombász séták",
+    "accroche": "minden séta tanít _egy új növényt_",
+    "colonne": [
+     "az erdő rejtvénnyé válik, amit megtanulsz olvasni, a vezető pedig vigyáz a biztonságra"
+    ],
+    "chute": "csatlakozz egy vezetett sétához, egyedül sose szedj"
+   },
+   "it": {
+    "nom": "passeggiate guidate nel bosco",
+    "accroche": "ogni passeggiata ti insegna _una pianta nuova_",
+    "colonne": [
+     "il bosco diventa un enigma che impari a leggere, e una guida lo rende sicuro"
+    ],
+    "chute": "partecipa a una passeggiata guidata, mai da solo"
+   },
+   "pt-BR": {
+    "nom": "passeios guiados de coleta",
+    "accroche": "cada passeio ensina _uma planta nova_",
+    "colonne": [
+     "a mata vira um quebra-cabeça que você aprende a ler, e um guia deixa tudo seguro"
+    ],
+    "chute": "vá com um guia, nunca colha sozinho"
+   },
+   "sr": {
+    "nom": "šetnje sa vodičem po šumi",
+    "accroche": "svaka šetnja te nauči _novu biljku_",
+    "colonne": [
+     "šuma postaje zagonetka koju učiš da čitaš, a vodič brine o bezbednosti"
+    ],
+    "chute": "pridruži se šetnji sa vodičem, nikad ne beri sam"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-piste-vide.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning to run properly",
+    "accroche": "pace, _breathing_ and a _real plan_",
+    "colonne": [
+     "learning how to train turns running into a skill you can measure, week after week",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "start slower than you think you should"
+   },
+   "bg": {
+    "nom": "да се научиш да бягаш правилно",
+    "accroche": "темпо, _дишане_ и _истински план_",
+    "colonne": [
+     "като научиш как да тренираш, бягането става умение, което измерваш седмица след седмица",
+     "_съвет_: atala нагласява бяганията ми около целта ми и ги променя всяка седмица"
+    ],
+    "chute": "започни по-бавно, отколкото мислиш"
+   },
+   "de": {
+    "nom": "richtig laufen lernen",
+    "accroche": "tempo, _atmung_ und ein _echter plan_",
+    "colonne": [
+     "zu lernen, wie man trainiert, macht laufen zu einer fähigkeit, die du woche für woche misst",
+     "_pro tipp_: atala baut meine läufe um mein ziel herum und passt sie jede woche an"
+    ],
+    "chute": "fang langsamer an, als du denkst"
+   },
+   "el": {
+    "nom": "μαθαίνω να τρέχω σωστά",
+    "accroche": "ρυθμός, _αναπνοή_ και ένα _πραγματικό πλάνο_",
+    "colonne": [
+     "όταν μαθαίνεις να προπονείσαι, το τρέξιμο γίνεται δεξιότητα που μετράς εβδομάδα με εβδομάδα",
+     "_μικρό tip_: το atala χτίζει τα τρεξίματά μου γύρω από τον στόχο μου και τα προσαρμόζει κάθε εβδομάδα"
+    ],
+    "chute": "ξεκίνα πιο αργά απ' όσο νομίζεις"
+   },
+   "es-419": {
+    "nom": "aprender a correr bien",
+    "accroche": "ritmo, _respiración_ y un _plan real_",
+    "colonne": [
+     "aprender a entrenar convierte correr en una habilidad que mides semana a semana",
+     "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
+    ],
+    "chute": "empieza más lento de lo que crees"
+   },
+   "fr": {
+    "nom": "apprendre à bien courir",
+    "accroche": "allure, _respiration_ et un _vrai plan_",
+    "colonne": [
+     "apprendre à t'entraîner fait de la course un savoir-faire que tu mesures semaine après semaine",
+     "_petite astuce_: atala construit mes sorties autour de mon objectif et les ajuste chaque semaine"
+    ],
+    "chute": "commence plus lentement que tu ne crois"
+   },
+   "hu": {
+    "nom": "megtanulni rendesen futni",
+    "accroche": "tempó, _légzés_ és _valódi terv_",
+    "colonne": [
+     "ha megtanulod, hogyan kell edzeni, a futás mérhető készséggé válik, hétről hétre",
+     "_pro tip_: az atala a célomhoz igazítja a futásaimat, és minden héten finomít rajtuk"
+    ],
+    "chute": "kezdd lassabban, mint gondolnád"
+   },
+   "it": {
+    "nom": "imparare a correre bene",
+    "accroche": "ritmo, _respiro_ e un _vero piano_",
+    "colonne": [
+     "imparare ad allenarti trasforma la corsa in un'abilità che misuri settimana dopo settimana",
+     "_piccolo consiglio_: atala costruisce le mie corse intorno al mio obiettivo e le adatta ogni settimana"
+    ],
+    "chute": "parti più piano di quanto pensi"
+   },
+   "pt-BR": {
+    "nom": "aprender a correr direito",
+    "accroche": "ritmo, _respiração_ e um _plano de verdade_",
+    "colonne": [
+     "aprender a treinar transforma a corrida numa habilidade que você mede semana após semana",
+     "_dica_: o atala monta minhas corridas em torno do meu objetivo e ajusta toda semana"
+    ],
+    "chute": "comece mais devagar do que acha que deveria"
+   },
+   "sr": {
+    "nom": "naučiti da trčiš kako treba",
+    "accroche": "tempo, _disanje_ i _pravi plan_",
+    "colonne": [
+     "kad naučiš kako da treniraš, trčanje postaje veština koju meriš iz nedelje u nedelju",
+     "_pro tip_: atala pravi moja trčanja prema mom cilju i prilagođava ih svake nedelje"
+    ],
+    "chute": "počni sporije nego što misliš"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/arbres.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning tree names",
+    "accroche": "every street becomes a _quiz_",
+    "colonne": [
+     "once you can name five trees, every walk gives your brain something to _recognize_"
+    ],
+    "chute": "learn one new tree a week"
+   },
+   "bg": {
+    "nom": "да учиш имена на дървета",
+    "accroche": "всяка улица става _куиз_",
+    "colonne": [
+     "щом можеш да назовеш пет дървета, всяка разходка дава на мозъка нещо за _разпознаване_"
+    ],
+    "chute": "учи по едно ново дърво на седмица"
+   },
+   "de": {
+    "nom": "baumnamen lernen",
+    "accroche": "jede straße wird zum _quiz_",
+    "colonne": [
+     "sobald du fünf bäume benennen kannst, gibt jeder spaziergang deinem gehirn etwas zum _erkennen_"
+    ],
+    "chute": "lern jede woche einen neuen baum"
+   },
+   "el": {
+    "nom": "μαθαίνω ονόματα δέντρων",
+    "accroche": "κάθε δρόμος γίνεται _κουίζ_",
+    "colonne": [
+     "όταν ξέρεις πέντε δέντρα, κάθε βόλτα δίνει στο μυαλό κάτι να _αναγνωρίσει_"
+    ],
+    "chute": "μάθε ένα νέο δέντρο την εβδομάδα"
+   },
+   "es-419": {
+    "nom": "aprender nombres de árboles",
+    "accroche": "cada calle se vuelve un _quiz_",
+    "colonne": [
+     "cuando puedes nombrar cinco árboles, cada paseo le da a tu cerebro algo que _reconocer_"
+    ],
+    "chute": "aprende un árbol nuevo por semana"
+   },
+   "fr": {
+    "nom": "apprendre le nom des arbres",
+    "accroche": "chaque rue devient un _quiz_",
+    "colonne": [
+     "quand tu sais nommer cinq arbres, chaque balade donne à ton cerveau quelque chose à _reconnaître_"
+    ],
+    "chute": "apprends un nouvel arbre par semaine"
+   },
+   "hu": {
+    "nom": "fák nevének tanulása",
+    "accroche": "minden utca egy _kvíz_",
+    "colonne": [
+     "ha öt fát meg tudsz nevezni, minden séta ad valamit, amit az agyad _felismer_"
+    ],
+    "chute": "tanulj meg hetente egy új fát"
+   },
+   "it": {
+    "nom": "imparare i nomi degli alberi",
+    "accroche": "ogni strada diventa un _quiz_",
+    "colonne": [
+     "quando sai nominare cinque alberi, ogni passeggiata dà al cervello qualcosa da _riconoscere_"
+    ],
+    "chute": "impara un albero nuovo a settimana"
+   },
+   "pt-BR": {
+    "nom": "aprender nomes de árvores",
+    "accroche": "cada rua vira um _quiz_",
+    "colonne": [
+     "quando você sabe o nome de cinco árvores, cada caminhada dá ao cérebro algo para _reconhecer_"
+    ],
+    "chute": "aprenda uma árvore nova por semana"
+   },
+   "sr": {
+    "nom": "učenje imena drveća",
+    "accroche": "svaka ulica postaje _kviz_",
+    "colonne": [
+     "kad znaš da imenuješ pet stabala, svaka šetnja daje mozgu nešto da _prepozna_"
+    ],
+    "chute": "nauči jedno novo drvo nedeljno"
+   }
+  }
+ ]
+}

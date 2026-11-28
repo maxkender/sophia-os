@@ -1,0 +1,343 @@
+{
+ "id": "bn-023",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7708351504448556306",
+  "vues": 49300,
+  "publie_le": "2026-11-15",
+  "accroche": "5 HABITS EVERY MAN SHOULD HAVE"
+ },
+ "titre": {
+  "en": "5 habits every man should have",
+  "de": "5 gewohnheiten, die jeder mann haben sollte",
+  "es-419": "5 hábitos que todo hombre debería tener",
+  "it": "5 abitudini che ogni uomo dovrebbe avere",
+  "pl": "5 nawyków, które powinien mieć każdy facet",
+  "tr": "her erkeğin sahip olması gereken 5 alışkanlık",
+  "hu": "5 szokás, ami minden férfinak kellene",
+  "el": "5 συνήθειες που πρέπει να έχει κάθε άντρας",
+  "ro": "5 obiceiuri pe care ar trebui să le aibă orice bărbat",
+  "sr": "5 navika koje svaki muškarac treba da ima"
+ },
+ "legendes": {
+  "en": "small habits, big difference #habits #selfimprovement #tipsformen #running #discipline",
+  "de": "kleine gewohnheiten, großer unterschied #habits #selfimprovement #tipsformen #running #discipline",
+  "es-419": "hábitos chicos, gran diferencia #habits #selfimprovement #tipsformen #running #discipline",
+  "it": "piccole abitudini, grande differenza #habits #selfimprovement #tipsformen #running #discipline",
+  "pl": "małe nawyki, duża różnica #habits #selfimprovement #tipsformen #running #discipline",
+  "tr": "küçük alışkanlıklar, büyük fark #habits #selfimprovement #tipsformen #running #discipline",
+  "hu": "kis szokások, nagy különbség #habits #selfimprovement #tipsformen #running #discipline",
+  "el": "μικρές συνήθειες, μεγάλη διαφορά #habits #selfimprovement #tipsformen #running #discipline",
+  "ro": "obiceiuri mici, diferență mare #habits #selfimprovement #tipsformen #running #discipline",
+  "sr": "male navike, velika razlika #habits #selfimprovement #tipsformen #running #discipline"
+ },
+ "musique": {
+  "titre": "Grope in the Dark",
+  "url": "https://www.tiktok.com/music/grope-in-the-dark-7652952126876321793"
+ },
+ "notes": "Full test (boîte vide). Famille « 5 HABITS EVERY MAN SHOULD HAVE » de @built.not.born61 (49.3 k vues, 2026-11-15), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : ed4a80d2, aucune marque lisible, pas ceux de la veille) et le logo d'Atala. placement_atala : voix TOUCHE PERSO (hook de 6 mots), argument « dosage : la distance du jour ». En 10 langues, traduites à la main. Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-dos.png": "ed4a80d2-e48e-451b-b4ea-66cc7c130b6f"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-23.png",
+   "en": {
+    "titre": "5 HABITS EVERY\nMAN SHOULD\nHAVE."
+   },
+   "de": {
+    "titre": "5 GEWOHNHEITEN,\nDIE JEDER MANN\nHABEN SOLLTE."
+   },
+   "es-419": {
+    "titre": "5 HÁBITOS QUE\nTODO HOMBRE\nDEBERÍA TENER."
+   },
+   "it": {
+    "titre": "5 ABITUDINI\nCHE OGNI UOMO\nDOVREBBE AVERE."
+   },
+   "pl": {
+    "titre": "5 NAWYKÓW,\nKTÓRE POWINIEN MIEĆ\nKAŻDY FACET."
+   },
+   "tr": {
+    "titre": "HER ERKEĞİN\nSAHİP OLMASI\nGEREKEN\n5 ALIŞKANLIK."
+   },
+   "hu": {
+    "titre": "5 SZOKÁS,\nAMI MINDEN FÉRFINAK\nKELLENE."
+   },
+   "el": {
+    "titre": "5 ΣΥΝΗΘΕΙΕΣ\nΠΟΥ ΠΡΕΠΕΙ ΝΑ ΕΧΕΙ\nΚΑΘΕ ΑΝΤΡΑΣ."
+   },
+   "ro": {
+    "titre": "5 OBICEIURI\nPE CARE ORICE\nBĂRBAT AR TREBUI\nSĂ LE AIBĂ."
+   },
+   "sr": {
+    "titre": "5 NAVIKA\nKOJE SVAKI MUŠKARAC\nTREBA DA IMA."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/lit.png",
+   "mode": "objet",
+   "taille": 480,
+   "en": {
+    "titre": "1. Make your bed",
+    "texte": "It takes one minute and starts your day with a small win."
+   },
+   "de": {
+    "titre": "1. Mach dein Bett",
+    "texte": "Es dauert eine Minute und startet deinen Tag mit einem kleinen Erfolg."
+   },
+   "es-419": {
+    "titre": "1. Tiende tu cama",
+    "texte": "Toma un minuto y empiezas el día con un pequeño logro."
+   },
+   "it": {
+    "titre": "1. Rifai il letto",
+    "texte": "Ci vuole un minuto e inizi la giornata con una piccola vittoria."
+   },
+   "pl": {
+    "titre": "1. Ścieląj łóżko",
+    "texte": "Zajmuje minutę, a dzień zaczynasz od małego sukcesu."
+   },
+   "tr": {
+    "titre": "1. Yatağını topla",
+    "texte": "Bir dakika sürer ve güne küçük bir zaferle başlarsın."
+   },
+   "hu": {
+    "titre": "1. Vesd be az ágyad",
+    "texte": "Egy perc, és egy kis győzelemmel indul a napod."
+   },
+   "el": {
+    "titre": "1. Στρώσε το κρεβάτι",
+    "texte": "Παίρνει ένα λεπτό και ξεκινάς τη μέρα με μια μικρή νίκη."
+   },
+   "ro": {
+    "titre": "1. Fă-ți patul",
+    "texte": "Durează un minut și îți începi ziua cu o mică victorie."
+   },
+   "sr": {
+    "titre": "1. Namesti krevet",
+    "texte": "Traje minut, a dan počinješ malom pobedom."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/poele.png",
+   "mode": "objet",
+   "taille": 460,
+   "en": {
+    "titre": "2. Cook your own meals",
+    "texte": "Cooking at home saves money, and you know exactly what's on your plate."
+   },
+   "de": {
+    "titre": "2. Koch selbst",
+    "texte": "Zu Hause kochen spart Geld, und du weißt genau, was auf deinem Teller ist."
+   },
+   "es-419": {
+    "titre": "2. Cocina tu comida",
+    "texte": "Cocinar en casa ahorra dinero y sabes exactamente qué hay en tu plato."
+   },
+   "it": {
+    "titre": "2. Cucina da solo",
+    "texte": "Cucinare a casa fa risparmiare e sai esattamente cosa c'è nel piatto."
+   },
+   "pl": {
+    "titre": "2. Gotuj sam",
+    "texte": "Gotowanie w domu oszczędza pieniądze, a wiesz dokładnie, co masz na talerzu."
+   },
+   "tr": {
+    "titre": "2. Kendi yemeğini yap",
+    "texte": "Evde yemek yapmak para kazandırır ve tabağında ne olduğunu tam bilirsin."
+   },
+   "hu": {
+    "titre": "2. Főzz magadnak",
+    "texte": "Az otthoni főzés pénzt spórol, és pontosan tudod, mi van a tányérodon."
+   },
+   "el": {
+    "titre": "2. Μαγείρευε μόνος",
+    "texte": "Το μαγείρεμα στο σπίτι γλιτώνει λεφτά και ξέρεις τι έχεις στο πιάτο σου."
+   },
+   "ro": {
+    "titre": "2. Gătește singur",
+    "texte": "Să gătești acasă te scutește de bani și știi exact ce ai în farfurie."
+   },
+   "sr": {
+    "titre": "2. Kuvaj sam",
+    "texte": "Kuvanje kod kuće štedi novac, a tačno znaš šta ti je na tanjiru."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-dos.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Run before work",
+    "texte": "A morning run wakes you up and clears your head. Personally, a running coach app like Atala tells me how far to go each day."
+   },
+   "de": {
+    "titre": "3. Lauf vor der Arbeit",
+    "texte": "Ein Lauf am Morgen macht wach und den Kopf frei. Mir sagt eine Lauf-App mit Coach wie Atala, wie weit ich jeden Tag laufe."
+   },
+   "es-419": {
+    "titre": "3. Corre antes del trabajo",
+    "texte": "Correr en la mañana te despierta y te despeja. En lo personal, una app de running con entrenador como Atala me dice cuánto correr cada día."
+   },
+   "it": {
+    "titre": "3. Corri prima del lavoro",
+    "texte": "Una corsa al mattino ti sveglia e ti libera la testa. Io personalmente so quanto correre ogni giorno grazie a un'app con coach per la corsa come Atala."
+   },
+   "pl": {
+    "titre": "3. Biegaj przed pracą",
+    "texte": "Poranny bieg budzi i oczyszcza głowę. Mnie osobiście aplikacja z trenerem biegania, taka jak Atala, mówi, ile biec każdego dnia."
+   },
+   "tr": {
+    "titre": "3. İşten önce koş",
+    "texte": "Sabah koşusu seni uyandırır ve kafanı boşaltır. Kişisel olarak her gün ne kadar koşacağımı Atala gibi bir koşu koçu uygulaması söylüyor."
+   },
+   "hu": {
+    "titre": "3. Fuss munka előtt",
+    "texte": "Egy reggeli futás felébreszt és kitisztítja a fejed. Nekem személy szerint egy futóedzős app, mint az Atala, mondja meg, mennyit fussak naponta."
+   },
+   "el": {
+    "titre": "3. Τρέχα πριν τη δουλειά",
+    "texte": "Ένα πρωινό τρέξιμο σε ξυπνά και καθαρίζει το μυαλό. Προσωπικά, μια εφαρμογή προπονητή τρεξίματος όπως το Atala μου λέει πόσο να τρέξω."
+   },
+   "ro": {
+    "titre": "3. Aleargă înainte de muncă",
+    "texte": "O alergare dimineața te trezește și îți limpezește mintea. Mie personal o aplicație cu antrenor de alergare, ca Atala, îmi spune cât să alerg."
+   },
+   "sr": {
+    "titre": "3. Trči pre posla",
+    "texte": "Jutarnje trčanje te razbudi i razbistri glavu. Meni lično aplikacija sa trenerom za trčanje, kao što je Atala, kaže koliko da trčim."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/baskets.png",
+   "mode": "objet",
+   "taille": 520,
+   "en": {
+    "titre": "4. Keep your shoes clean",
+    "texte": "Clean sneakers make a whole outfit look sharper. Wipe them once a week."
+   },
+   "de": {
+    "titre": "4. Halt deine Schuhe sauber",
+    "texte": "Saubere Sneaker lassen das ganze Outfit schärfer wirken. Wisch sie einmal pro Woche ab."
+   },
+   "es-419": {
+    "titre": "4. Tenis siempre limpios",
+    "texte": "Unos tenis limpios hacen que todo el outfit se vea mejor. Límpialos una vez por semana."
+   },
+   "it": {
+    "titre": "4. Scarpe sempre pulite",
+    "texte": "Sneakers pulite rendono più curato tutto l'outfit. Puliscile una volta a settimana."
+   },
+   "pl": {
+    "titre": "4. Dbaj o czyste buty",
+    "texte": "Czyste sneakersy poprawiają cały strój. Przecieraj je raz w tygodniu."
+   },
+   "tr": {
+    "titre": "4. Ayakkabıların temiz olsun",
+    "texte": "Temiz spor ayakkabılar tüm kombini daha şık gösterir. Haftada bir sil."
+   },
+   "hu": {
+    "titre": "4. Tiszta cipő",
+    "texte": "A tiszta sneaker az egész szettet élesebbé teszi. Hetente egyszer töröld át."
+   },
+   "el": {
+    "titre": "4. Καθαρά παπούτσια",
+    "texte": "Τα καθαρά αθλητικά κάνουν όλο το ντύσιμο πιο προσεγμένο. Σκούπισέ τα μία φορά τη βδομάδα."
+   },
+   "ro": {
+    "titre": "4. Pantofi mereu curați",
+    "texte": "Sneakerșii curați fac toată ținuta mai îngrijită. Șterge-i o dată pe săptămână."
+   },
+   "sr": {
+    "titre": "4. Čiste patike",
+    "texte": "Čiste patike čine ceo outfit oštrijim. Obriši ih jednom nedeljno."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/tasse.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "5. No coffee after 2 p.m.",
+    "texte": "Caffeine late in the day can hurt your sleep. Have your last cup early."
+   },
+   "de": {
+    "titre": "5. Kein Kaffee nach 14 Uhr",
+    "texte": "Koffein am späten Tag kann deinen Schlaf stören. Trink die letzte Tasse früh."
+   },
+   "es-419": {
+    "titre": "5. Nada de café tras las 2",
+    "texte": "La cafeína en la tarde puede afectar tu sueño. Toma tu última taza temprano."
+   },
+   "it": {
+    "titre": "5. Niente caffè dopo le 14",
+    "texte": "La caffeina nel pomeriggio può disturbare il sonno. Bevi l'ultima tazza presto."
+   },
+   "pl": {
+    "titre": "5. Bez kawy po 14:00",
+    "texte": "Kofeina późnym popołudniem może psuć sen. Ostatnią kawę pij wcześnie."
+   },
+   "tr": {
+    "titre": "5. 14.00'ten sonra kahve yok",
+    "texte": "Günün geç saatinde kafein uykunu bozabilir. Son fincanı erken iç."
+   },
+   "hu": {
+    "titre": "5. 14 óra után nincs kávé",
+    "texte": "A késő délutáni koffein ronthatja az alvásod. Az utolsó csészét idd meg korán."
+   },
+   "el": {
+    "titre": "5. Όχι καφές μετά τις 2",
+    "texte": "Η καφεΐνη αργά τη μέρα μπορεί να χαλάσει τον ύπνο σου. Πιες το τελευταίο φλιτζάνι νωρίς."
+   },
+   "ro": {
+    "titre": "5. Fără cafea după ora 14",
+    "texte": "Cofeina târziu în zi îți poate strica somnul. Bea ultima ceașcă devreme."
+   },
+   "sr": {
+    "titre": "5. Bez kafe posle 14h",
+    "texte": "Kofein kasno u toku dana može da ti pokvari san. Poslednju šoljicu popij rano."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-3.png",
+   "en": {
+    "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
+   }
+  }
+ ]
+}

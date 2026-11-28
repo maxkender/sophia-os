@@ -1,0 +1,343 @@
+{
+ "id": "bn-020",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7706497431722151175",
+  "vues": 101400,
+  "publie_le": "2026-11-10",
+  "accroche": "How To Become Extremely Attractive."
+ },
+ "titre": {
+  "en": "how to become extremely attractive",
+  "de": "wie du extrem attraktiv wirst",
+  "es-419": "cómo volverte extremadamente atractivo",
+  "it": "come diventare estremamente attraente",
+  "pl": "jak stać się ekstremalnie atrakcyjnym",
+  "tr": "nasıl aşırı çekici olunur",
+  "hu": "hogyan legyél rendkívül vonzó",
+  "el": "πώς να γίνεις αφάνταστα ελκυστικός",
+  "ro": "cum să devii extrem de atrăgător",
+  "sr": "kako da postaneš izuzetno privlačan"
+ },
+ "legendes": {
+  "en": "small things add up #glowup #tipsformen #selfimprovement #running #attractive",
+  "de": "kleine dinge machen den unterschied #glowup #tipsformen #selfimprovement #running #attractive",
+  "es-419": "los detalles suman #glowup #tipsformen #selfimprovement #running #attractive",
+  "it": "i dettagli fanno la differenza #glowup #tipsformen #selfimprovement #running #attractive",
+  "pl": "małe rzeczy się sumują #glowup #tipsformen #selfimprovement #running #attractive",
+  "tr": "küçük şeyler birikir #glowup #tipsformen #selfimprovement #running #attractive",
+  "hu": "az apróságok összeadódnak #glowup #tipsformen #selfimprovement #running #attractive",
+  "el": "τα μικρά κάνουν τη διαφορά #glowup #tipsformen #selfimprovement #running #attractive",
+  "ro": "detaliile se adună #glowup #tipsformen #selfimprovement #running #attractive",
+  "sr": "sitnice se sabiraju #glowup #tipsformen #selfimprovement #running #attractive"
+ },
+ "musique": {
+  "titre": "Originalton",
+  "url": "https://www.tiktok.com/music/originalton-7204936507338001158"
+ },
+ "notes": "Full test (boîte vide). Famille « How To Become Extremely Attractive. » de @built.not.born61 (101.4 k vues, 2026-11-10), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : 8378e69b, aucune marque lisible, pas ceux de la veille) et le logo d'Atala. placement_atala : voix NEUTRE (hook de 5 mots), argument « s'adapter : un plan au niveau de chacun ». En 10 langues, traduites à la main. Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-colline.png": "8378e69b-3ec0-4691-af1c-29cc81e6b64e"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-20.png",
+   "en": {
+    "titre": "HOW TO BECOME\nEXTREMELY\nATTRACTIVE."
+   },
+   "de": {
+    "titre": "WIE DU\nEXTREM ATTRAKTIV\nWIRST."
+   },
+   "es-419": {
+    "titre": "CÓMO VOLVERTE\nEXTREMADAMENTE\nATRACTIVO."
+   },
+   "it": {
+    "titre": "COME DIVENTARE\nESTREMAMENTE\nATTRAENTE."
+   },
+   "pl": {
+    "titre": "JAK STAĆ SIĘ\nEKSTREMALNIE\nATRAKCYJNYM."
+   },
+   "tr": {
+    "titre": "NASIL AŞIRI\nÇEKİCİ\nOLUNUR."
+   },
+   "hu": {
+    "titre": "HOGYAN LEGYÉL\nRENDKÍVÜL\nVONZÓ."
+   },
+   "el": {
+    "titre": "ΠΩΣ ΝΑ ΓΙΝΕΙΣ\nΑΦΑΝΤΑΣΤΑ\nΕΛΚΥΣΤΙΚΟΣ."
+   },
+   "ro": {
+    "titre": "CUM SĂ DEVII\nEXTREM DE\nATRĂGĂTOR."
+   },
+   "sr": {
+    "titre": "KAKO DA POSTANEŠ\nIZUZETNO\nPRIVLAČAN."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/posture.png",
+   "mode": "bas",
+   "taille": 440,
+   "en": {
+    "titre": "1. Fix your posture",
+    "texte": "Shoulders back, chin level. Standing tall makes you look more sure of yourself."
+   },
+   "de": {
+    "titre": "1. Richte deine Haltung",
+    "texte": "Schultern zurück, Kinn gerade. Aufrecht wirkst du sicherer."
+   },
+   "es-419": {
+    "titre": "1. Corrige tu postura",
+    "texte": "Hombros atrás, barbilla recta. Pararte derecho te hace ver más seguro."
+   },
+   "it": {
+    "titre": "1. Sistema la postura",
+    "texte": "Spalle indietro, mento dritto. Stare dritto ti fa sembrare più sicuro."
+   },
+   "pl": {
+    "titre": "1. Popraw postawę",
+    "texte": "Barki do tyłu, broda prosto. Wyprostowany wyglądasz pewniej."
+   },
+   "tr": {
+    "titre": "1. Duruşunu düzelt",
+    "texte": "Omuzlar geride, çene düz. Dik durmak seni daha emin gösterir."
+   },
+   "hu": {
+    "titre": "1. Javíts a tartásodon",
+    "texte": "Váll hátra, áll egyenesen. Egyenes tartással magabiztosabbnak tűnsz."
+   },
+   "el": {
+    "titre": "1. Φτιάξε τη στάση σου",
+    "texte": "Ώμοι πίσω, πηγούνι ίσιο. Όρθιος δείχνεις πιο σίγουρος."
+   },
+   "ro": {
+    "titre": "1. Corectează-ți postura",
+    "texte": "Umerii pe spate, bărbia dreaptă. Drept pari mai sigur pe tine."
+   },
+   "sr": {
+    "titre": "1. Popravi držanje",
+    "texte": "Ramena nazad, brada pravo. Uspravan izgledaš sigurnije."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/parfum.png",
+   "mode": "objet",
+   "taille": 380,
+   "en": {
+    "titre": "2. Smell good, not strong",
+    "texte": "Two sprays of a fresh scent is enough. People should notice it only up close."
+   },
+   "de": {
+    "titre": "2. Riech gut, nicht stark",
+    "texte": "Zwei Sprühstöße eines frischen Dufts reichen. Man soll ihn nur aus der Nähe bemerken."
+   },
+   "es-419": {
+    "titre": "2. Huele bien, no fuerte",
+    "texte": "Dos atomizaciones de un aroma fresco bastan. Que lo noten solo de cerca."
+   },
+   "it": {
+    "titre": "2. Profuma, senza esagerare",
+    "texte": "Due spruzzi di un profumo fresco bastano. Si deve sentire solo da vicino."
+   },
+   "pl": {
+    "titre": "2. Pachnij, nie przesadzaj",
+    "texte": "Dwa psiknięcia świeżego zapachu wystarczą. Ma być czuć go tylko z bliska."
+   },
+   "tr": {
+    "titre": "2. Güzel kok, ağır değil",
+    "texte": "Ferah bir kokudan iki fıs yeter. Sadece yakından fark edilmeli."
+   },
+   "hu": {
+    "titre": "2. Legyen jó illatod",
+    "texte": "Két fújás egy friss illatból elég. Csak közelről érezzék."
+   },
+   "el": {
+    "titre": "2. Μύρισε ωραία, όχι βαριά",
+    "texte": "Δύο ψεκασμοί από ένα φρέσκο άρωμα φτάνουν. Να το νιώθουν μόνο από κοντά."
+   },
+   "ro": {
+    "titre": "2. Miroasă bine, nu tare",
+    "texte": "Două pufuri dintr-un parfum proaspăt ajung. Să se simtă doar de aproape."
+   },
+   "sr": {
+    "titre": "2. Mirisi lepo, ne jako",
+    "texte": "Dva pšika svežeg mirisa su dovoljna. Neka se oseti samo izbliza."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-colline.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Run three times a week",
+    "texte": "Regular runs build stamina and a leaner frame. Running coach apps like Atala adjust the plan to your level."
+   },
+   "de": {
+    "titre": "3. Lauf dreimal pro Woche",
+    "texte": "Regelmäßiges Laufen baut Ausdauer und eine schlankere Figur auf. Lauf-Apps mit Coach wie Atala passen den Plan an dein Niveau an."
+   },
+   "es-419": {
+    "titre": "3. Corre tres veces por semana",
+    "texte": "Correr seguido construye resistencia y un cuerpo más delgado. Las apps de running con entrenador como Atala ajustan el plan a tu nivel."
+   },
+   "it": {
+    "titre": "3. Corri tre volte a settimana",
+    "texte": "Correre con costanza costruisce fiato e un fisico più asciutto. Le app con coach per la corsa come Atala adattano il piano al tuo livello."
+   },
+   "pl": {
+    "titre": "3. Biegaj trzy razy w tygodniu",
+    "texte": "Regularne bieganie buduje kondycję i szczuplejszą sylwetkę. Aplikacje z trenerem biegania, takie jak Atala, dopasowują plan do twojego poziomu."
+   },
+   "tr": {
+    "titre": "3. Haftada üç kez koş",
+    "texte": "Düzenli koşu dayanıklılık ve daha fit bir vücut kazandırır. Atala gibi koşu koçu uygulamaları planı seviyene göre ayarlar."
+   },
+   "hu": {
+    "titre": "3. Fuss hetente háromszor",
+    "texte": "A rendszeres futás állóképességet és szálkásabb alkatot épít. Az olyan futóedzős appok, mint az Atala, a szintedhez igazítják a tervet."
+   },
+   "el": {
+    "titre": "3. Τρέχα τρεις φορές",
+    "texte": "Το τακτικό τρέξιμο χτίζει αντοχή και πιο λεπτό σώμα. Οι εφαρμογές προπονητή τρεξίματος όπως το Atala προσαρμόζουν το πλάνο στο επίπεδό σου."
+   },
+   "ro": {
+    "titre": "3. Aleargă de trei ori pe săptămână",
+    "texte": "Alergarea regulată construiește rezistență și un corp mai suplu. Aplicațiile cu antrenor de alergare, ca Atala, adaptează planul la nivelul tău."
+   },
+   "sr": {
+    "titre": "3. Trči tri puta nedeljno",
+    "texte": "Redovno trčanje gradi izdržljivost i vitkije telo. Aplikacije sa trenerom za trčanje, kao što je Atala, prilagođavaju plan tvom nivou."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/regard.png",
+   "mode": "bas",
+   "taille": 520,
+   "en": {
+    "titre": "4. Hold eye contact",
+    "texte": "Look at people when they talk. Looking away all the time reads as nervous."
+   },
+   "de": {
+    "titre": "4. Halte Blickkontakt",
+    "texte": "Schau Menschen an, wenn sie reden. Ständig wegschauen wirkt nervös."
+   },
+   "es-419": {
+    "titre": "4. Sostén la mirada",
+    "texte": "Mira a la gente cuando te habla. Desviar la vista todo el tiempo se ve nervioso."
+   },
+   "it": {
+    "titre": "4. Guarda negli occhi",
+    "texte": "Guarda le persone quando parlano. Distogliere sempre lo sguardo sembra nervosismo."
+   },
+   "pl": {
+    "titre": "4. Patrz w oczy",
+    "texte": "Patrz na ludzi, kiedy mówią. Ciągłe uciekanie wzrokiem wygląda nerwowo."
+   },
+   "tr": {
+    "titre": "4. Göz teması kur",
+    "texte": "İnsanlar konuşurken onlara bak. Sürekli başka yere bakmak gergin görünür."
+   },
+   "hu": {
+    "titre": "4. Tartsd a szemkontaktust",
+    "texte": "Nézz az emberekre, amikor beszélnek. Ha mindig félrenézel, idegesnek tűnsz."
+   },
+   "el": {
+    "titre": "4. Κράτα βλεμματική επαφή",
+    "texte": "Κοίτα τους άλλους όταν μιλάνε. Όταν κοιτάς συνέχεια αλλού, δείχνεις άγχος."
+   },
+   "ro": {
+    "titre": "4. Privește în ochi",
+    "texte": "Uită-te la oameni când vorbesc. Să te uiți mereu în altă parte pare nervos."
+   },
+   "sr": {
+    "titre": "4. Gledaj u oči",
+    "texte": "Gledaj ljude dok pričaju. Stalno skretanje pogleda izgleda nervozno."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/coupe-ongles.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "5. Keep your nails short",
+    "texte": "Clean, short nails. People notice your hands more than you think."
+   },
+   "de": {
+    "titre": "5. Halte die Nägel kurz",
+    "texte": "Saubere, kurze Nägel. Deine Hände fallen mehr auf, als du denkst."
+   },
+   "es-419": {
+    "titre": "5. Uñas cortas",
+    "texte": "Uñas limpias y cortas. La gente se fija en tus manos más de lo que crees."
+   },
+   "it": {
+    "titre": "5. Unghie corte",
+    "texte": "Unghie pulite e corte. Le tue mani si notano più di quanto pensi."
+   },
+   "pl": {
+    "titre": "5. Krótkie paznokcie",
+    "texte": "Czyste, krótkie paznokcie. Ludzie patrzą na twoje dłonie częściej, niż myślisz."
+   },
+   "tr": {
+    "titre": "5. Tırnakların kısa olsun",
+    "texte": "Temiz, kısa tırnaklar. İnsanlar ellerini sandığından çok fark eder."
+   },
+   "hu": {
+    "titre": "5. Rövid köröm",
+    "texte": "Tiszta, rövid köröm. A kezedet többen nézik, mint gondolnád."
+   },
+   "el": {
+    "titre": "5. Κοντά νύχια",
+    "texte": "Καθαρά, κοντά νύχια. Τα χέρια σου τα προσέχουν περισσότερο απ' όσο νομίζεις."
+   },
+   "ro": {
+    "titre": "5. Unghii scurte",
+    "texte": "Unghii curate și scurte. Oamenii îți observă mâinile mai mult decât crezi."
+   },
+   "sr": {
+    "titre": "5. Kratki nokti",
+    "texte": "Čisti, kratki nokti. Ljudi primećuju tvoje ruke više nego što misliš."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-6.png",
+   "en": {
+    "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
+   }
+  }
+ ]
+}

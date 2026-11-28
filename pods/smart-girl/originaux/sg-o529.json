@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o529",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "efdfb6d0-4c3d-4853-9efa-dbc5d4cf1e75",
+ "titre": "hobbies that will make you unbelievably intelligent #hobbies #smartgirl #intelligence #learning #curiosity",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "efdfb6d0-4c3d-4853-9efa-dbc5d4cf1e75"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 16 de la boîte (parent efdfb6d0, langue source en) : accroche du parent mot pour mot. Hobbies du parent (un poème par semaine, sudoku, conférences, podcasts au lieu du fil, comprendre comment marchent les choses, piano). Sophia comme chez le parent (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b6bf7f91",
+   "texte_overlay": "hobbies that will make you\nunbelievably intelligent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676630168017947925/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a5659001",
+   "texte_overlay": "reading one new poem a week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676630168017947925/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1e1b80c5",
+   "texte_overlay": "sudoku",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676630168017947925/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d950671d",
+   "texte_overlay": "watching lectures",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676630168017947925/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "21fdd46f",
+   "texte_overlay": "podcasts instead of the feed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676630168017947925/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "abaf2f42",
+   "texte_overlay": "learning how things work\n\ni read one short lesson\nevery morning.",
+   "texte_sophia": "learning how things work\n\ni read one short lesson a day on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676630168017947925/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2e1f8d9a",
+   "texte_overlay": "playing the piano",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676630168017947925/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "685722d0",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676630168017947925/7.jpg"
+  }
+ ]
+}

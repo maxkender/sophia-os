@@ -18,7 +18,10 @@
   "ro": "10 abilități de 10/10 de învățat în loc să dai scroll",
   "cs": "10 dovedností na 10/10, které se naučíš místo scrollování",
   "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja",
-  "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni"
+  "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni",
+  "es-419": "10 habilidades 10/10 para aprender en lugar de hacer scroll",
+  "sk": "10 zručností na 10/10, ktoré sa naučíš namiesto scrollovania",
+  "lv": "10 prasmes 10/10, ko apgūt ritināšanas vietā"
  },
  "legendes": {
   "fr": "10 compétences 10/10 à apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -30,13 +33,16 @@
   "ro": "10 abilități de 10/10 de învățat în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "10 dovedností na 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
   "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja #učinatiktoku #samorazvoj #veštine",
-  "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni #tanuljtiktokon #önfejlesztés #készségek"
+  "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni #tanuljtiktokon #önfejlesztés #készségek",
+  "es-419": "10 habilidades 10/10 para aprender en lugar de hacer scroll #aprendeentiktok #desarrollopersonal #habilidades",
+  "sk": "10 zručností na 10/10, ktoré sa naučíš namiesto scrollovania #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "lv": "10 prasmes 10/10, ko apgūt ritināšanas vietā #mācītiestiktokā #pašattīstība #prasmes"
  },
  "musique": {
   "titre": "original sound - m - m",
   "url": "https://www.tiktok.com/music/original-sound-m-7638549822647159565"
  },
- "notes": "Déclinaison G1 de sg-002 (boîte du 20/11) : son titre et sa couverture mot pour mot dans les 8 langues, 5 autres compétences « au lieu de scroller » (belles photos au téléphone, pompes, crêpes, jongler avec un ballon, toucher ses pieds), d'autres vraies vidéos natives. Sophia en étape 4 sur 7 (cta C : « SE COUCHER / MOINS BÊTE », ce que j'ouvre au lieu de scroller). Deck sr (rattrapage du 25/11) : « jongler avec un ballon » devient « ŽONGLIRATI SA 3 LOPTICE » (jongler avec 3 balles, DakiMC), faute de tuto serbe de jonglage au football.",
+ "notes": "Déclinaison G1 de sg-002 (boîte du 20/11) : son titre et sa couverture mot pour mot dans les 8 langues, 5 autres compétences « au lieu de scroller » (belles photos au téléphone, pompes, crêpes, jongler avec un ballon, toucher ses pieds), d'autres vraies vidéos natives. Sophia en étape 4 sur 7 (cta C : « SE COUCHER / MOINS BÊTE », ce que j'ouvre au lieu de scroller). Deck sr (rattrapage du 25/11) : « jongler avec un ballon » devient « ŽONGLIRATI SA 3 LOPTICE » (jongler avec 3 balles, DakiMC), faute de tuto serbe de jonglage au football. Decks es-419, sk et lv (rattrapage du 28/11) : vraies vidéos natives ; en sk et lv, « jongler avec un ballon » devient « sauter à la corde » (pas de tuto natif sérieux sans enfant) ; en lv, « toucher ses pieds » devient « être plus souple » (yoga du matin).",
  "slides": [
   {
    "type": "couverture",
@@ -257,6 +263,72 @@
       "t": "HELYETT",
       "couleur": "brun",
       "cap": 188
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "cap": 138,
+      "t": "HABILIDADES"
+     },
+     {
+      "couleur": "brun",
+      "cap": 150,
+      "t": "PARA APRENDER"
+     },
+     {
+      "cap": 149,
+      "t": "EN LUGAR DE"
+     },
+     {
+      "couleur": "brun",
+      "cap": 188,
+      "t": "HACER SCROLL"
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "cap": 138,
+      "t": "ZRUČNOSTI"
+     },
+     {
+      "couleur": "brun",
+      "cap": 150,
+      "t": "NA NAUČENIE"
+     },
+     {
+      "cap": 149,
+      "t": "NAMIESTO"
+     },
+     {
+      "couleur": "brun",
+      "cap": 188,
+      "t": "SCROLLOVANIA"
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "cap": 138,
+      "t": "PRASMES,"
+     },
+     {
+      "couleur": "brun",
+      "cap": 150,
+      "t": "KO APGŪT"
+     },
+     {
+      "cap": 149,
+      "t": "RITINĀŠANAS"
+     },
+     {
+      "couleur": "brun",
+      "cap": 188,
+      "t": "VIETĀ"
      }
     ]
    }
@@ -492,6 +564,75 @@
     "sous": [
      "30 perc a tanuláshoz"
     ]
+   },
+   "es-419": {
+    "titre": [
+     "TOMAR",
+     [
+      {
+       "t": "BUENAS FOTOS",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NJGyj_5iWi4",
+     "titre": "TIPS para tomar MEJORES FOTOS con tu celular",
+     "chaine": "Isa Marcial",
+     "vues": "618 k vistas",
+     "date": "hace 3 años",
+     "duree": "7:46",
+     "avatar": "https://yt3.ggpht.com/dn7tkO9bZ9HIUmuRYB-7wAELOffehjiog6_4QxH_THtuwIs1QR53ddGof8rh9DTyd9rHOHKEpHs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "FOTIŤ",
+     [
+      {
+       "t": "AKO PROFÍK",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "q9cuaCNKBpg",
+     "titre": "5 tipov ako fotiť mobilom lepšie fotky",
+     "chaine": "Patrik Paulinyi",
+     "vues": "38 tis. zhliadnutí",
+     "date": "pred 7 rokmi",
+     "duree": "3:42",
+     "avatar": "https://yt3.ggpht.com/y-gJuuvETVBnhf45hUM0B_Ra_cf6DbPrTjB6YPVUcTM99id3XrORcqNE7HZhhfdLtCqGmcN6fUg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "FOTOGRAFĒT",
+     [
+      {
+       "t": "KĀ PROFS",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "S9htBaIVFEY",
+     "titre": "Kā fotografēt ar telefonu?",
+     "chaine": "Gundega Deģe photography",
+     "vues": "613 skatījumu",
+     "date": "pirms 6 gadiem",
+     "duree": "21:05",
+     "avatar": "https://yt3.ggpht.com/5P4hHNxf9JLi6Pc9H8GN0wC0UmN88BPFWMmiRArH9-j4KQPiNkWojfcihfJ4hHDoShyHpirCuH0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min mācību"
+    ]
    }
   },
   {
@@ -725,6 +866,75 @@
     "sous": [
      "több hetes gyakorlás"
     ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER",
+     [
+      {
+       "t": "LAGARTIJAS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nGhNAmRpPNY",
+     "titre": "CÓMO HACER UNA LAGARTIJA CORRECTAMENTE",
+     "chaine": "ENERGYM LV Entrenamiento Funcional",
+     "vues": "145 k vistas",
+     "date": "hace 6 años",
+     "duree": "1:31",
+     "avatar": "https://yt3.ggpht.com/6n5ylDUSTbEgG0eOdlbODkl83xUFkQklrQs7eTG-OKwQuSMI9tc4Y3UUCOqmozepyxf-JmUvZKo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "entrenamiento de varias semanas"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ROBIŤ",
+     [
+      {
+       "t": "KĽUKY",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hh33Rc481OE",
+     "titre": "Cvičíš to správne ? #4 Kľuky | Ako na techniku kľukov",
+     "chaine": "InstaGYM",
+     "vues": "226 zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "2:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mDjiUSKBCHHezNO4TTqDJuNmoEVHUeekhLUs64OviF8cg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "tréning niekoľko týždňov"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "PAREIZI",
+     [
+      {
+       "t": "ATSPIESTIES",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lu4N9FsYpuE",
+     "titre": "Atspiešanās balstā guļus (variācijas)",
+     "chaine": "Krav Maga Riga",
+     "vues": "182 skatījumi",
+     "date": "pirms 5 gadiem",
+     "duree": "2:52",
+     "avatar": "https://yt3.ggpht.com/aLa5fiw4tHXKt8uhqUn54k_JJ9FPvm29Oj54sbxupGPJu9xtkoguRvvG2bDITp-5NR_3ePguDw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "vairāku nedēļu treniņš"
+    ]
    }
   },
   {
@@ -938,6 +1148,69 @@
     },
     "sous": [
      "napi 5 perc"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "ACOSTARTE",
+     [
+      {
+       "t": "MÁS LISTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de hacer scroll."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ÍSŤ SPAŤ",
+     [
+      {
+       "t": "MÚDREJŠÍ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "toto otváram",
+      "namiesto scrollovania."
+     ]
+    },
+    "sous": [
+     "5 min denne"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "IET GULĒT",
+     [
+      {
+       "t": "GUDRĀKAM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "to es atveru",
+      "ritināšanas vietā."
+     ]
+    },
+    "sous": [
+     "5 min dienā"
     ]
    }
   },
@@ -1172,6 +1445,75 @@
     "sous": [
      "20 perc a tanuláshoz"
     ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER",
+     [
+      {
+       "t": "CREPAS",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MEEMYqHu8gg",
+     "titre": "Receta perfecta de Crepas Dulces 😋 | Hasta la Cocina con Lucía Mena",
+     "chaine": "Cocina Delirante",
+     "vues": "1.4 M de vistas",
+     "date": "hace 7 años",
+     "duree": "6:40",
+     "avatar": "https://yt3.ggpht.com/NZOs4bFoUwyA74cjGFftJA5qFN7-Ij49-33ZW7WPBMJ2XfTrQ06ZZxE2l4D9QeC921nqj_dj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min para aprender"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "UPIECŤ",
+     [
+      {
+       "t": "PALACINKY",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iSbfovC6aGo",
+     "titre": "Palacinky - ako urobiť tenké a jemné palacinky? Môj tajný recept na super tenké palacinky",
+     "chaine": "BAKLAZAN TV",
+     "vues": "63 tis. zhliadnutí",
+     "date": "pred 4 rokmi",
+     "duree": "1:16",
+     "avatar": "https://yt3.ggpht.com/5FtypOIGiNpOD_v4Qf3i8uc5FrEfOWT4aUux8YYwr4ydxH9YVYoHWegATBOmezZ2GB9M7niFfw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min na naučenie"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "CEPT",
+     [
+      {
+       "t": "PANKŪKAS",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DatjjsBosk8",
+     "titre": "Kā vienkārši pagatavot plānās pankūkas",
+     "chaine": "Samanta Mitrofanova",
+     "vues": "14 tūkst. skatījumu",
+     "date": "pirms 4 gadiem",
+     "duree": "2:24",
+     "avatar": "https://yt3.ggpht.com/bkimRvHxl0_VDcf36RnYn3ebXsS_gR699apI6PYYxoI3NN-9t8iUW7AVHPy3uXZLD5SVU4U3GA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min mācību"
+    ]
    }
   },
   {
@@ -1404,6 +1746,75 @@
     },
     "sous": [
      "több napos gyakorlás"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     [
+      {
+       "t": "DOMINAR",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "EL BALÓN"
+    ],
+    "video": {
+     "id": "_HN1zSuxOAw",
+     "titre": "CONTROLA EL BALÓN COMO CRACK FÁCIL Y RÁPIDO | Aprende a dominar el balón NIVEL DIOS 😱🔝⚽️",
+     "chaine": "Tiitanes Futbol - Tips - Regates - Jugadas",
+     "vues": "2 M de vistas",
+     "date": "hace 5 años",
+     "duree": "8:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kN1AUrWT6k-iI7dtGh4bi1lqN5Nmzg0Bvtm2PPX_QmM3c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "entrenamiento de varios días"
+    ]
+   },
+   "sk": {
+    "titre": [
+     [
+      {
+       "t": "SKÁKAŤ",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "CEZ ŠVIHADLO"
+    ],
+    "video": {
+     "id": "m0MbBEwwBBM",
+     "titre": "🔥 Švihadlo pre začiatočníkov – 10-minútový tréning na spaľovanie tukov!",
+     "chaine": "Gabriel94",
+     "vues": "1 tis. zhliadnutí",
+     "date": "pred 1 rokom",
+     "duree": "10:01",
+     "avatar": "https://yt3.ggpht.com/UWks-aLbBSArTMzS0UJuCrskZfHlD6Bc6k1hRzaNoPAaI71JM_KiURFLLHKLgSDUm6RXgfJB=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "tréning niekoľko dní"
+    ]
+   },
+   "lv": {
+    "titre": [
+     [
+      {
+       "t": "LĒKT",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "AR LECAMAUKLU"
+    ],
+    "video": {
+     "id": "OAjROpdozYM",
+     "titre": "Lekšana ar lecamauklu. Boxer's Shuffle",
+     "chaine": "Krav Maga Riga",
+     "vues": "114 skatījumu",
+     "date": "pirms 5 gadiem",
+     "duree": "2:26",
+     "avatar": "https://yt3.ggpht.com/aLa5fiw4tHXKt8uhqUn54k_JJ9FPvm29Oj54sbxupGPJu9xtkoguRvvG2bDITp-5NR_3ePguDw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "vairāku dienu treniņš"
     ]
    }
   },
@@ -1647,6 +2058,78 @@
     "sous": [
      "napi 10 perc",
      "1 hónapig"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "TOCARTE",
+     [
+      {
+       "t": "LOS PIES",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l0HRTN7_pMU",
+     "titre": "Cómo lograr tocarme la punta de los pies",
+     "chaine": "Verónica Ospina",
+     "vues": "37 k vistas",
+     "date": "hace 6 años",
+     "duree": "4:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m2_i-8YjsE_9_-K3uYIQOpZqnDrdNghQfoNztNT4FLYtQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min al día",
+     "durante 1 mes"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "BYŤ",
+     [
+      {
+       "t": "OHYBNEJŠÍ",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wK0AkXLMa-c",
+     "titre": "Predklon v stoji (utanasana) - cvičenie jogy doma - návod ako na to",
+     "chaine": "Ásana - akadémia vzdelávania a jogy",
+     "vues": "898 zhliadnutí",
+     "date": "pred 7 rokmi",
+     "duree": "3:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mubBovZg9EnFBX1ogQ-ULDHUHpFSXr2ejujJ4Mlo1DGA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min denne",
+     "počas 1 mesiaca"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "KĻŪT",
+     [
+      {
+       "t": "LOKANĀKAM",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UQb4U46mISU",
+     "titre": "RĪTA JOGA. Visām ķermeņa locītavām (17 min)",
+     "chaine": "ATMA YOGA Latvia",
+     "vues": "14 tūkst. skatījumu",
+     "date": "pirms 5 gadiem",
+     "duree": "16:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nZz2ilOqstfPeiEVZW8wXatWlPUHrueb7jpkoGHcH4NWI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min dienā",
+     "1 mēnesi"
     ]
    }
   }

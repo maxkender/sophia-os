@@ -1,0 +1,319 @@
+{
+ "post_id": "var-concentration-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things destroying your",
+      "attention span"
+     ],
+     "fr": "10/10 trucs qui te volent ta concentration",
+     "texte": "10/10 trucs qui te volent ta concentration"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T4": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition très niche)",
+     "texte": "(édition très niche)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_089955dd.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    },
+    "I2": {
+     "remplacer": {
+      "source": "sources/os_8a185a78.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "bosser [[dans le noir]]",
+     "texte": "bosser [[dans le noir]]"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "juste ton écran allumé dans une pièce sombre, et à 16h t'as les yeux qui piquent",
+     "texte": "juste ton écran allumé dans une pièce sombre, et à 16h t'as les yeux qui piquent"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "dans le noir, ton cerveau [[se prépare à dormir]]",
+     "texte": "dans le noir, ton cerveau [[se prépare à dormir]]"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "ouvre grand les rideaux ou allume une vraie lampe. la lumière vive aide ton cerveau [[à rester alerte]], surtout les jours gris d'hiver",
+     "texte": "ouvre grand les rideaux ou allume une vraie lampe. la lumière vive aide ton cerveau [[à rester alerte]], surtout les jours gris d'hiver"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_014dd2cc.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to multitask"
+     ],
+     "fr": "tous les [[« t'as 2 sec ? »]]",
+     "texte": "tous les [[« t'as 2 sec ? »]]"
+    },
+    "T2": {
+     "en": [
+      "texting, watching youtube, and doing homework",
+      "isn't doing 3 things at once"
+     ],
+     "fr": "ta coloc passe la tête, ta mère t'appelle de la cuisine, un pote s'assoit « 2 min »",
+     "texte": "ta coloc passe la tête, ta mère t'appelle de la cuisine, un pote s'assoit « 2 min »"
+    },
+    "T3": {
+     "en": [
+      "a stanford study",
+      "found heavy",
+      "multitaskers get",
+      "worse at",
+      "ignoring",
+      "distractions"
+     ],
+     "fr": "chaque petite discussion dure une minute, mais retrouver ton rythme [[prend bien plus]]",
+     "texte": "chaque petite discussion dure une minute, mais retrouver ton rythme [[prend bien plus]]"
+    },
+    "T4": {
+     "en": [
+      "pick one thing and finish it before",
+      "you start the next"
+     ],
+     "fr": "réponds [[« après 17h, promis »]] et ferme ta porte",
+     "texte": "réponds [[« après 17h, promis »]] et ferme ta porte"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_25b2d3c6.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop opening the comments",
+      "during a video"
+     ],
+     "fr": "changer de tâche [[dès que ça coince]]",
+     "texte": "changer de tâche [[dès que ça coince]]"
+    },
+    "T2": {
+     "en": [
+      "a tiktok is already a large dose of artificial dopamine,",
+      "but it's not enough"
+     ],
+     "fr": "un exo un peu chaud et hop, t'es déjà sur une autre matière, ton tel ou dans le frigo",
+     "texte": "un exo un peu chaud et hop, t'es déjà sur une autre matière, ton tel ou dans le frigo"
+    },
+    "T3": {
+     "en": [
+      "so you open the",
+      "comments instead",
+      "of watching a 20",
+      "second clip"
+     ],
+     "fr": "ton cerveau apprend que chaque galère [[a une porte de sortie]]",
+     "texte": "ton cerveau apprend que chaque galère [[a une porte de sortie]]"
+    },
+    "T4": {
+     "en": [
+      "your brain skips the hard part, and you just",
+      "copy the top comment"
+     ],
+     "fr": "reste 10 min de plus dessus. l'envie de lâcher [[finit souvent par passer]]",
+     "texte": "reste 10 min de plus dessus. l'envie de lâcher [[finit souvent par passer]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_248a7660.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "[[aucun rituel fixe]]",
+     "texte": "[[aucun rituel fixe]]"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "jamais le même endroit ni la même heure, alors tu repars de zéro à chaque fois",
+     "texte": "jamais le même endroit ni la même heure, alors tu repars de zéro à chaque fois"
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "avec les mêmes repères, ton cerveau capte [[que c'est l'heure de bosser]] et s'y met plus vite",
+     "texte": "avec les mêmes repères, ton cerveau capte [[que c'est l'heure de bosser]] et s'y met plus vite"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "même bureau, même thé, même playlist. [[ça devient ton bouton on]]",
+     "texte": "même bureau, même thé, même playlist. [[ça devient ton bouton on]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_2983297b.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       2208
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never stop scrolling"
+     ],
+     "fr": "[[scroller, puis réviser]]",
+     "texte": "[[scroller, puis réviser]]"
+    },
+    "T2": {
+     "en": [
+      "maybe the next tiktok will finally",
+      "solve your problems"
+     ],
+     "fr": "30 min de reels, puis ton cours, la tête encore dans le feed",
+     "texte": "30 min de reels, puis ton cours, la tête encore dans le feed"
+    },
+    "T3": {
+     "en": [
+      "don’t limit your screen time,",
+      "don’t start reading, don’t give",
+      "your brain a chance to get",
+      "bored"
+     ],
+     "fr": "une partie de ton attention reste coincée sur ce que tu faisais avant, c'est le [[résidu d'attention]]",
+     "texte": "une partie de ton attention reste coincée sur ce que tu faisais avant, c'est le [[résidu d'attention]]"
+    },
+    "T4": {
+     "en": [
+      "just keep feeding the algorithm",
+      "until it knows what you want",
+      "better than you do"
+     ],
+     "fr": "ce qui remplace mon scroll avant de bosser : de l'eau, un étirement et le mythe de sisyphe",
+     "texte": "ce qui remplace mon scroll avant de bosser : de l'eau, un étirement et le mythe de sisyphe"
+    },
+    "T5": {
+     "en": [
+      "keep giving them your data,",
+      "they deserve it!"
+     ],
+     "fr": "en une leçon de 5 min sur [[l'appli Sophia]]",
+     "texte": "en une leçon de 5 min sur [[l'appli Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  }
+ }
+}

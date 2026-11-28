@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o349",
+  "type_bleo": "full_test",
+  "titre": "comment je regarde un film pour mieux le comprendre #cinema #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Fait vérifié le 9/11 sur https://en.wikipedia.org/wiki/La_Dolce_Vita : Palme d'or 1960. Routine du 28/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 et 16 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12 à 15 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1266315d",
+      "texte_overlay": "comment je regarde un film\npour mieux le comprendre",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "610f2fbe",
+      "texte_overlay": "1. je regarde sans téléphone\n\nun film demande\ntoute l'attention.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "bfdcb4a2",
+      "texte_overlay": "2. je fais attention aux couleurs\n\nelles changent avec l'humeur\ndes personnages.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "71ea5933",
+      "texte_overlay": "3. je cherche le contexte\n\nce matin, j'ai appris que la dolce vita a reçu la palme d'or en 1960.\nje l'ai regardé avec d'autres yeux.",
+      "texte_sophia": "3. je cherche le contexte\n\nce matin, l'appli Sophia m'a appris que la dolce vita a reçu la palme d'or en 1960.\nje l'ai regardé avec d'autres yeux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "e9b51b86",
+      "texte_overlay": "4. j'écoute la musique\n\nelle dit souvent\nce que les personnages taisent.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "2523a9de",
+      "texte_overlay": "5. j'en parle après\n\nchacun a vu un film différent.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "eb69c217",
+      "texte_overlay": "c'est quoi le dernier film que tu as vu ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

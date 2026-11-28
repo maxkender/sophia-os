@@ -1,0 +1,343 @@
+{
+ "id": "bn-024",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7707980369747823880",
+  "vues": 494600,
+  "publie_le": "2026-11-14",
+  "accroche": "GLOW UP HACKS FOR MEN."
+ },
+ "titre": {
+  "en": "glow up tips for men under 20",
+  "de": "glow-up-tipps für männer unter 20",
+  "es-419": "tips de glow up para hombres menores de 20",
+  "it": "consigli glow up per uomini sotto i 20",
+  "pl": "triki glow up dla facetów poniżej 20",
+  "tr": "20 yaş altı erkekler için glow up tüyoları",
+  "hu": "glow up tippek 20 alatti férfiaknak",
+  "el": "glow up tips για άντρες κάτω των 20",
+  "ro": "sfaturi de glow up pentru bărbații sub 20 de ani",
+  "sr": "glow up saveti za muškarce mlađe od 20"
+ },
+ "legendes": {
+  "en": "start early #glowup #glowupformen #tipsformen #selfimprovement #running",
+  "de": "fang früh an #glowup #glowupformen #tipsformen #selfimprovement #running",
+  "es-419": "empieza temprano #glowup #glowupformen #tipsformen #selfimprovement #running",
+  "it": "inizia presto #glowup #glowupformen #tipsformen #selfimprovement #running",
+  "pl": "zacznij wcześnie #glowup #glowupformen #tipsformen #selfimprovement #running",
+  "tr": "erken başla #glowup #glowupformen #tipsformen #selfimprovement #running",
+  "hu": "kezdd korán #glowup #glowupformen #tipsformen #selfimprovement #running",
+  "el": "ξεκίνα νωρίς #glowup #glowupformen #tipsformen #selfimprovement #running",
+  "ro": "începe devreme #glowup #glowupformen #tipsformen #selfimprovement #running",
+  "sr": "počni rano #glowup #glowupformen #tipsformen #selfimprovement #running"
+ },
+ "musique": {
+  "titre": "FUNDO DE VIDEO",
+  "url": "https://www.tiktok.com/music/fundo-de-video-7517337106206656513"
+ },
+ "notes": "Full test (boîte vide). Famille « GLOW UP HACKS FOR MEN. » de @built.not.born61 (494.6 k vues, 2026-11-14), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : dfb645a3, aucune marque lisible, pas ceux de la veille) et le logo d'Atala. placement_atala : voix TU (hook de 7 mots), argument « débuter : un plan qui part de sorties courtes ». En 10 langues, traduites à la main. Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-pluie.png": "dfb645a3-052b-4998-8a88-b67092f1b321"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-24.png",
+   "en": {
+    "titre": "GLOW UP TIPS\nFOR MEN\nUNDER 20."
+   },
+   "de": {
+    "titre": "GLOW-UP-TIPPS\nFÜR MÄNNER\nUNTER 20."
+   },
+   "es-419": {
+    "titre": "TIPS DE GLOW UP\nPARA HOMBRES\nMENORES DE 20."
+   },
+   "it": {
+    "titre": "CONSIGLI GLOW UP\nPER UOMINI\nSOTTO I 20."
+   },
+   "pl": {
+    "titre": "TRIKI GLOW UP\nDLA FACETÓW\nPONIŻEJ 20."
+   },
+   "tr": {
+    "titre": "20 YAŞ ALTI\nERKEKLER İÇİN\nGLOW UP TÜYOLARI."
+   },
+   "hu": {
+    "titre": "GLOW UP TIPPEK\n20 ALATTI\nFÉRFIAKNAK."
+   },
+   "el": {
+    "titre": "GLOW UP TIPS\nΓΙΑ ΑΝΤΡΕΣ\nΚΑΤΩ ΤΩΝ 20."
+   },
+   "ro": {
+    "titre": "SFATURI DE GLOW UP\nPENTRU BĂRBAȚII\nSUB 20 DE ANI."
+   },
+   "sr": {
+    "titre": "GLOW UP SAVETI\nZA MUŠKARCE\nMLAĐE OD 20."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/deodorant.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "1. Wear deodorant daily",
+    "texte": "Put it on every morning after you shower. It works best on clean, dry skin."
+   },
+   "de": {
+    "titre": "1. Täglich Deo",
+    "texte": "Trag es jeden Morgen nach dem Duschen auf. Auf sauberer, trockener Haut wirkt es am besten."
+   },
+   "es-419": {
+    "titre": "1. Desodorante diario",
+    "texte": "Póntelo cada mañana después de bañarte. Funciona mejor en la piel limpia y seca."
+   },
+   "it": {
+    "titre": "1. Deodorante ogni giorno",
+    "texte": "Mettilo ogni mattina dopo la doccia. Funziona meglio sulla pelle pulita e asciutta."
+   },
+   "pl": {
+    "titre": "1. Dezodorant codziennie",
+    "texte": "Nakładaj go każdego ranka po prysznicu. Najlepiej działa na czystej, suchej skórze."
+   },
+   "tr": {
+    "titre": "1. Her gün deodorant",
+    "texte": "Her sabah duştan sonra sür. Temiz ve kuru ciltte en iyi işe yarar."
+   },
+   "hu": {
+    "titre": "1. Dezodor minden nap",
+    "texte": "Tedd fel minden reggel zuhany után. Tiszta, száraz bőrön működik a legjobban."
+   },
+   "el": {
+    "titre": "1. Αποσμητικό κάθε μέρα",
+    "texte": "Βάλ' το κάθε πρωί μετά το μπάνιο. Δουλεύει καλύτερα σε καθαρό, στεγνό δέρμα."
+   },
+   "ro": {
+    "titre": "1. Deodorant zilnic",
+    "texte": "Pune-l în fiecare dimineață după duș. Merge cel mai bine pe pielea curată și uscată."
+   },
+   "sr": {
+    "titre": "1. Dezodorans svaki dan",
+    "texte": "Stavi ga svako jutro posle tuširanja. Najbolje radi na čistoj, suvoj koži."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/ceinture.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "2. Wear a simple belt",
+    "texte": "A plain belt that matches your shoes finishes any outfit."
+   },
+   "de": {
+    "titre": "2. Trag einen schlichten Gürtel",
+    "texte": "Ein einfacher Gürtel, der zu deinen Schuhen passt, rundet jedes Outfit ab."
+   },
+   "es-419": {
+    "titre": "2. Usa un cinturón sencillo",
+    "texte": "Un cinturón simple que combine con tus zapatos completa cualquier outfit."
+   },
+   "it": {
+    "titre": "2. Una cintura semplice",
+    "texte": "Una cintura semplice abbinata alle scarpe completa qualsiasi outfit."
+   },
+   "pl": {
+    "titre": "2. Prosty pasek",
+    "texte": "Prosty pasek pasujący do butów dopełnia każdy strój."
+   },
+   "tr": {
+    "titre": "2. Sade bir kemer tak",
+    "texte": "Ayakkabına uyan sade bir kemer her kombini tamamlar."
+   },
+   "hu": {
+    "titre": "2. Viselj egyszerű övet",
+    "texte": "Egy egyszerű, a cipődhöz illő öv minden szettet befejez."
+   },
+   "el": {
+    "titre": "2. Μια απλή ζώνη",
+    "texte": "Μια απλή ζώνη που ταιριάζει με τα παπούτσια ολοκληρώνει κάθε ντύσιμο."
+   },
+   "ro": {
+    "titre": "2. O curea simplă",
+    "texte": "O curea simplă, asortată cu pantofii, completează orice ținută."
+   },
+   "sr": {
+    "titre": "2. Nosi jednostavan kaiš",
+    "texte": "Jednostavan kaiš koji se slaže sa cipelama upotpunjuje svaki outfit."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-pluie.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Start running now",
+    "texte": "Starting young builds a habit that lasts. A running coach app like Atala builds your plan from short, easy runs."
+   },
+   "de": {
+    "titre": "3. Fang jetzt mit Laufen an",
+    "texte": "Wer jung anfängt, baut eine Gewohnheit, die bleibt. Eine Lauf-App mit Coach wie Atala baut deinen Plan aus kurzen, lockeren Läufen auf."
+   },
+   "es-419": {
+    "titre": "3. Empieza a correr ya",
+    "texte": "Empezar joven crea un hábito que dura. Una app de running con entrenador como Atala arma tu plan con salidas cortas y suaves."
+   },
+   "it": {
+    "titre": "3. Inizia a correre ora",
+    "texte": "Iniziare da giovane crea un'abitudine che dura. Un'app con coach per la corsa come Atala costruisce il piano partendo da uscite brevi e facili."
+   },
+   "pl": {
+    "titre": "3. Zacznij biegać teraz",
+    "texte": "Kto zaczyna młodo, buduje nawyk na lata. Aplikacja z trenerem biegania, taka jak Atala, układa plan od krótkich, spokojnych biegów."
+   },
+   "tr": {
+    "titre": "3. Koşmaya şimdi başla",
+    "texte": "Genç başlamak kalıcı bir alışkanlık kazandırır. Atala gibi bir koşu koçu uygulaması planını kısa ve rahat koşulardan kurar."
+   },
+   "hu": {
+    "titre": "3. Kezdj el futni most",
+    "texte": "Aki fiatalon kezd, tartós szokást épít. Egy futóedzős app, mint az Atala, rövid, könnyű futásokból építi fel a terved."
+   },
+   "el": {
+    "titre": "3. Ξεκίνα τρέξιμο τώρα",
+    "texte": "Όποιος ξεκινά νέος χτίζει μια συνήθεια που μένει. Μια εφαρμογή προπονητή τρεξίματος όπως το Atala χτίζει το πλάνο σου από μικρά, εύκολα τρεξίματα."
+   },
+   "ro": {
+    "titre": "3. Începe să alergi acum",
+    "texte": "Când începi de tânăr, obiceiul rămâne. O aplicație cu antrenor de alergare, ca Atala, îți construiește planul din alergări scurte și ușoare."
+   },
+   "sr": {
+    "titre": "3. Počni da trčiš sada",
+    "texte": "Ko počne mlad, stiče naviku koja ostaje. Aplikacija sa trenerom za trčanje, kao što je Atala, slaže ti plan od kratkih, laganih trčanja."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/fer.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "4. Iron your shirts",
+    "texte": "Wrinkled clothes look careless. Five minutes with an iron fixes it."
+   },
+   "de": {
+    "titre": "4. Bügel deine Hemden",
+    "texte": "Zerknitterte Kleidung wirkt nachlässig. Fünf Minuten mit dem Bügeleisen reichen."
+   },
+   "es-419": {
+    "titre": "4. Plancha tus camisas",
+    "texte": "La ropa arrugada se ve descuidada. Cinco minutos con la plancha lo arreglan."
+   },
+   "it": {
+    "titre": "4. Stira le camicie",
+    "texte": "I vestiti stropicciati sembrano trascurati. Bastano cinque minuti col ferro."
+   },
+   "pl": {
+    "titre": "4. Prasuj koszule",
+    "texte": "Pognieciona koszula wygląda niechlujnie. Pięć minut z żelazkiem to naprawia."
+   },
+   "tr": {
+    "titre": "4. Gömleklerini ütüle",
+    "texte": "Buruşuk kıyafetler özensiz görünür. Ütüyle beş dakika yeter."
+   },
+   "hu": {
+    "titre": "4. Vasald ki az inged",
+    "texte": "A gyűrött ruha hanyagnak tűnik. Öt perc vasalás megoldja."
+   },
+   "el": {
+    "titre": "4. Σιδέρωνε τα πουκάμισα",
+    "texte": "Τα τσαλακωμένα ρούχα δείχνουν αμέλεια. Πέντε λεπτά σίδερο φτάνουν."
+   },
+   "ro": {
+    "titre": "4. Calcă-ți cămășile",
+    "texte": "Hainele șifonate par neglijente. Cinci minute cu fierul de călcat rezolvă asta."
+   },
+   "sr": {
+    "titre": "4. Peglaj košulje",
+    "texte": "Izgužvana odeća izgleda nemarno. Pet minuta peglanja to rešava."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/bottines.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "5. Get one pair of boots",
+    "texte": "Clean leather boots go with jeans, chinos and almost everything else."
+   },
+   "de": {
+    "titre": "5. Ein Paar Boots",
+    "texte": "Saubere Lederboots passen zu Jeans, Chinos und fast allem anderen."
+   },
+   "es-419": {
+    "titre": "5. Unas botas",
+    "texte": "Unas botas de piel limpias van con jeans, chinos y casi todo lo demás."
+   },
+   "it": {
+    "titre": "5. Un paio di stivaletti",
+    "texte": "Stivaletti in pelle puliti stanno bene con jeans, chino e quasi tutto il resto."
+   },
+   "pl": {
+    "titre": "5. Jedna para butów za kostkę",
+    "texte": "Czyste skórzane botki pasują do jeansów, chinosów i prawie wszystkiego."
+   },
+   "tr": {
+    "titre": "5. Bir çift bot al",
+    "texte": "Temiz deri botlar kot, chino ve neredeyse her şeyle uyar."
+   },
+   "hu": {
+    "titre": "5. Egy pár bakancs",
+    "texte": "Egy tiszta bőrbakancs farmerhez, chinóhoz és szinte mindenhez illik."
+   },
+   "el": {
+    "titre": "5. Ένα ζευγάρι μποτάκια",
+    "texte": "Καθαρά δερμάτινα μποτάκια ταιριάζουν με τζιν, chino και σχεδόν με όλα."
+   },
+   "ro": {
+    "titre": "5. O pereche de ghete",
+    "texte": "Ghetele curate din piele merg cu blugi, chino și aproape orice altceva."
+   },
+   "sr": {
+    "titre": "5. Jedan par čizama",
+    "texte": "Čiste kožne čizme idu uz farmerke, čino pantalone i skoro sve ostalo."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-5.png",
+   "en": {
+    "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
+   }
+  }
+ ]
+}

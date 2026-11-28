@@ -1,0 +1,58 @@
+{
+  "source_id": "cs-o229",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "78016068-9115-4e84-b8dc-6af5d898f025",
+  "titre": "comment réussir son 2ème trimestre #studytok #lycée #révisions",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [
+    "78016068-9115-4e84-b8dc-6af5d898f025"
+  ],
+  "notes": "Déclinaison G1 de 78016068 (notre cs-o113), ligne 7 de la boîte, 2e déclinaison de la famille. Langue source du parent : français ; accroche du parent mot pour mot. Texte de base et slide Sophia en français. Conseils neufs, aucun du parent ni de cs-o113. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6b010b43",
+      "texte_overlay": "COMMENT RÉUSSIR SON\n2ÈME TRIMESTRE",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2f160592",
+      "texte_overlay": "1. FAIS LE BILAN DU 1ER TRIMESTRE\ntrois colonnes : ce qui a marché, ce qui n'a pas marché, ce que je change.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "26840f2b",
+      "texte_overlay": "2. UN PLANNING DE LA SEMAINE\nchaque dimanche, 10 minutes pour placer devoirs et révisions.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "a3f37034",
+      "texte_overlay": "3. RÉVISE TES CONTRÔLES RATÉS\nrefais-les en entier. les mêmes notions reviennent souvent.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c0e41530",
+      "texte_overlay": "4. NOURRIS TA CULTURE GÉNÉRALE\nelle donne des exemples à tes copies.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "4. NOURRIS TA CULTURE GÉNÉRALE\nune leçon par jour sur une appli de micro-learning\ncomme l'appli Sophia. elle donne des exemples à tes copies."
+    },
+    {
+      "position": 6,
+      "media_id": "b2c9e662",
+      "texte_overlay": "5. GARDE DES VRAIES PAUSES\nun soir par semaine sans aucun cours. tu reviens plus fort.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "e3a6aedc",
+      "texte_overlay": "bon courage pour ce trimestre ☆",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ],
+  "langue_source": "fr"
+}

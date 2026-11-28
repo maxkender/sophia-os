@@ -1,0 +1,343 @@
+{
+ "id": "bn-017",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7706497431722151175",
+  "vues": 101400,
+  "publie_le": "2026-11-10",
+  "accroche": "How To Become Extremely Attractive."
+ },
+ "titre": {
+  "en": "how to instantly look more confident",
+  "de": "wie du sofort selbstbewusster wirkst",
+  "es-419": "cómo verte más seguro al instante",
+  "it": "come sembrare subito più sicuro di te",
+  "pl": "jak od razu wyglądać pewniej",
+  "tr": "anında daha özgüvenli görünmenin yolları",
+  "hu": "hogyan tűnj azonnal magabiztosabbnak",
+  "el": "πώς να δείχνεις αμέσως πιο σίγουρος",
+  "ro": "cum să pari instant mai sigur pe tine",
+  "sr": "kako da odmah izgledaš samouverenije"
+ },
+ "legendes": {
+  "en": "confidence is mostly body language #confidence #selfimprovement #tipsformen #running #attractive",
+  "de": "selbstvertrauen ist vor allem körpersprache #confidence #selfimprovement #tipsformen #running #attractive",
+  "es-419": "la seguridad es casi todo lenguaje corporal #confidence #selfimprovement #tipsformen #running #attractive",
+  "it": "la sicurezza è quasi tutta linguaggio del corpo #confidence #selfimprovement #tipsformen #running #attractive",
+  "pl": "pewność siebie to głównie mowa ciała #confidence #selfimprovement #tipsformen #running #attractive",
+  "tr": "özgüven çoğunlukla beden dilidir #confidence #selfimprovement #tipsformen #running #attractive",
+  "hu": "a magabiztosság főleg testbeszéd #confidence #selfimprovement #tipsformen #running #attractive",
+  "el": "η αυτοπεποίθηση είναι κυρίως γλώσσα του σώματος #confidence #selfimprovement #tipsformen #running #attractive",
+  "ro": "încrederea e mai ales limbaj corporal #confidence #selfimprovement #tipsformen #running #attractive",
+  "sr": "samopouzdanje je uglavnom govor tela #confidence #selfimprovement #tipsformen #running #attractive"
+ },
+ "musique": {
+  "titre": "Originalton",
+  "url": "https://www.tiktok.com/music/originalton-7204936507338001158"
+ },
+ "notes": "Full test (boîte vide). Famille « How To Become Extremely Attractive. » de @built.not.born61 (101.4 k vues, 2026-11-10), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : dc56b403, aucune marque lisible, pas celui de la veille) et le logo d'Atala. placement_atala : voix TOUCHE PERSO (hook de 6 mots), argument « la paix : se vider la tête, la séance est déjà prévue ». En 10 langues, traduites à la main. Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-torse.png": "dc56b403-7e11-4dda-8b58-9831de4dcbe4"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-17.png",
+   "en": {
+    "titre": "HOW TO INSTANTLY\nLOOK MORE\nCONFIDENT."
+   },
+   "de": {
+    "titre": "WIE DU SOFORT\nSELBSTBEWUSSTER\nWIRKST."
+   },
+   "es-419": {
+    "titre": "CÓMO VERTE\nMÁS SEGURO\nAL INSTANTE."
+   },
+   "it": {
+    "titre": "COME SEMBRARE\nSUBITO PIÙ\nSICURO DI TE."
+   },
+   "pl": {
+    "titre": "JAK OD RAZU\nWYGLĄDAĆ\nPEWNIEJ."
+   },
+   "tr": {
+    "titre": "ANINDA DAHA\nÖZGÜVENLİ\nGÖRÜNMENİN YOLLARI."
+   },
+   "hu": {
+    "titre": "HOGYAN TŰNJ\nAZONNAL\nMAGABIZTOSABBNAK."
+   },
+   "el": {
+    "titre": "ΠΩΣ ΝΑ ΔΕΙΧΝΕΙΣ\nΑΜΕΣΩΣ ΠΙΟ\nΣΙΓΟΥΡΟΣ."
+   },
+   "ro": {
+    "titre": "CUM SĂ PARI\nINSTANT MAI\nSIGUR PE TINE."
+   },
+   "sr": {
+    "titre": "KAKO DA ODMAH\nIZGLEDAŠ\nSAMOUVERENIJE."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/posture.png",
+   "mode": "bas",
+   "taille": 440,
+   "en": {
+    "titre": "1. Stand your ground",
+    "texte": "Feet shoulder-width, weight even, hands out of your pockets. You take up space without trying."
+   },
+   "de": {
+    "titre": "1. Steh fest",
+    "texte": "Füße schulterbreit, Gewicht gleich verteilt, Hände aus den Taschen. Du nimmst Raum ein, ohne es zu versuchen."
+   },
+   "es-419": {
+    "titre": "1. Párate firme",
+    "texte": "Pies a la altura de los hombros, peso parejo, manos fuera de los bolsillos. Ocupas espacio sin esforzarte."
+   },
+   "it": {
+    "titre": "1. Stai ben piantato",
+    "texte": "Piedi alla larghezza delle spalle, peso distribuito, mani fuori dalle tasche. Occupi spazio senza sforzo."
+   },
+   "pl": {
+    "titre": "1. Stój pewnie",
+    "texte": "Stopy na szerokość barków, ciężar równo, ręce poza kieszeniami. Zajmujesz przestrzeń bez wysiłku."
+   },
+   "tr": {
+    "titre": "1. Sağlam dur",
+    "texte": "Ayaklar omuz genişliğinde, ağırlık eşit, eller cepten çıkmış. Uğraşmadan yer kaplarsın."
+   },
+   "hu": {
+    "titre": "1. Állj stabilan",
+    "texte": "Láb vállszélességben, súly egyenletesen, kéz a zsebeden kívül. Erőlködés nélkül foglalsz helyet."
+   },
+   "el": {
+    "titre": "1. Στάσου σταθερά",
+    "texte": "Πόδια στο άνοιγμα των ώμων, βάρος ισομοιρασμένο, χέρια έξω από τις τσέπες. Πιάνεις χώρο χωρίς προσπάθεια."
+   },
+   "ro": {
+    "titre": "1. Stai ferm",
+    "texte": "Picioarele la lățimea umerilor, greutatea egal, mâinile din buzunare. Ocupi spațiu fără efort."
+   },
+   "sr": {
+    "titre": "1. Stoj čvrsto",
+    "texte": "Stopala u širini ramena, težina ravnomerno, ruke van džepova. Zauzimaš prostor bez truda."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/mocassins.png",
+   "mode": "objet",
+   "taille": 460,
+   "en": {
+    "titre": "2. Walk a little slower",
+    "texte": "Rushed steps look nervous. Walk slightly slower than everyone around you."
+   },
+   "de": {
+    "titre": "2. Geh etwas langsamer",
+    "texte": "Hastige Schritte wirken nervös. Geh ein bisschen langsamer als alle um dich herum."
+   },
+   "es-419": {
+    "titre": "2. Camina un poco más lento",
+    "texte": "Los pasos apurados se ven nerviosos. Camina un poco más lento que los demás."
+   },
+   "it": {
+    "titre": "2. Cammina più piano",
+    "texte": "I passi di fretta sembrano nervosi. Cammina un po' più piano di chi ti sta intorno."
+   },
+   "pl": {
+    "titre": "2. Chodź trochę wolniej",
+    "texte": "Pośpieszne kroki wyglądają nerwowo. Chodź trochę wolniej niż wszyscy wokół."
+   },
+   "tr": {
+    "titre": "2. Biraz daha yavaş yürü",
+    "texte": "Aceleci adımlar gergin görünür. Etrafındakilerden biraz daha yavaş yürü."
+   },
+   "hu": {
+    "titre": "2. Járj kicsit lassabban",
+    "texte": "A kapkodó léptek idegesnek hatnak. Járj kicsit lassabban, mint a körülötted lévők."
+   },
+   "el": {
+    "titre": "2. Περπάτα λίγο πιο αργά",
+    "texte": "Τα βιαστικά βήματα δείχνουν άγχος. Περπάτα λίγο πιο αργά από όλους γύρω σου."
+   },
+   "ro": {
+    "titre": "2. Mergi puțin mai încet",
+    "texte": "Pașii grăbiți par nervoși. Mergi puțin mai încet decât cei din jur."
+   },
+   "sr": {
+    "titre": "2. Hodaj malo sporije",
+    "texte": "Užurbani koraci izgledaju nervozno. Hodaj malo sporije od svih oko sebe."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-torse.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Run before big days",
+    "texte": "A run is the fastest way to clear your head before a big day. Personally, a running coach app like Atala has my session ready."
+   },
+   "de": {
+    "titre": "3. Lauf vor großen Tagen",
+    "texte": "Ein Lauf macht den Kopf vor einem großen Tag am schnellsten frei. Bei mir hat eine Lauf-App mit Coach wie Atala die Einheit schon fertig."
+   },
+   "es-419": {
+    "titre": "3. Corre antes de los días grandes",
+    "texte": "Correr es la forma más rápida de despejarte antes de un día importante. En lo personal, una app de running con entrenador como Atala tiene mi sesión lista."
+   },
+   "it": {
+    "titre": "3. Corri prima dei giorni importanti",
+    "texte": "Una corsa è il modo più veloce per svuotare la testa prima di un giorno importante. Io personalmente trovo la sessione già pronta su un'app con coach per la corsa come Atala."
+   },
+   "pl": {
+    "titre": "3. Biegaj przed ważnymi dniami",
+    "texte": "Bieg to najszybszy sposób, żeby oczyścić głowę przed ważnym dniem. Mnie osobiście trening przygotowuje aplikacja z trenerem biegania, taka jak Atala."
+   },
+   "tr": {
+    "titre": "3. Önemli günlerden önce koş",
+    "texte": "Bir koşu, önemli bir günden önce kafanı boşaltmanın en hızlı yoludur. Kişisel olarak benim antrenmanımı Atala gibi bir koşu koçu uygulaması hazır tutuyor."
+   },
+   "hu": {
+    "titre": "3. Fuss a nagy napok előtt",
+    "texte": "Egy futás a leggyorsabb módja, hogy kitisztuljon a fejed egy nagy nap előtt. Nekem személy szerint egy futóedzős app, mint az Atala, készen tartja az edzést."
+   },
+   "el": {
+    "titre": "3. Τρέξε πριν τα μεγάλα",
+    "texte": "Το τρέξιμο καθαρίζει το μυαλό πριν από μια μεγάλη μέρα. Προσωπικά, μια εφαρμογή προπονητή τρεξίματος όπως το Atala έχει έτοιμη την προπόνησή μου."
+   },
+   "ro": {
+    "titre": "3. Aleargă înainte de zilele mari",
+    "texte": "O alergare e cel mai rapid mod să-ți limpezești mintea înaintea unei zile importante. Mie personal o aplicație cu antrenor de alergare, ca Atala, îmi are antrenamentul gata."
+   },
+   "sr": {
+    "titre": "3. Trči pre velikih dana",
+    "texte": "Trčanje je najbrži način da razbistriš glavu pre važnog dana. Meni lično aplikacija sa trenerom za trčanje, kao što je Atala, drži trening spremnim."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/telephone.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "4. Put the phone away",
+    "texte": "Checking your phone in a quiet moment looks anxious. Let the silence sit."
+   },
+   "de": {
+    "titre": "4. Leg das Handy weg",
+    "texte": "Wer in einem stillen Moment aufs Handy schaut, wirkt unsicher. Lass die Stille stehen."
+   },
+   "es-419": {
+    "titre": "4. Guarda el celular",
+    "texte": "Revisar el celular en un momento de silencio se ve ansioso. Deja que el silencio pase."
+   },
+   "it": {
+    "titre": "4. Metti via il telefono",
+    "texte": "Guardare il telefono in un momento di silenzio sembra ansia. Lascia che il silenzio resti."
+   },
+   "pl": {
+    "titre": "4. Odłóż telefon",
+    "texte": "Sprawdzanie telefonu w chwili ciszy wygląda nerwowo. Pozwól ciszy trwać."
+   },
+   "tr": {
+    "titre": "4. Telefonu bırak",
+    "texte": "Sessiz bir anda telefona bakmak endişeli görünür. Sessizliğin kalmasına izin ver."
+   },
+   "hu": {
+    "titre": "4. Tedd el a telefont",
+    "texte": "Ha csendben a telefonod nézed, idegesnek tűnsz. Hagyd, hogy a csend megmaradjon."
+   },
+   "el": {
+    "titre": "4. Άσε κάτω το κινητό",
+    "texte": "Το να κοιτάς το κινητό σε μια στιγμή σιωπής δείχνει άγχος. Άφησε τη σιωπή να μείνει."
+   },
+   "ro": {
+    "titre": "4. Lasă telefonul deoparte",
+    "texte": "Să te uiți în telefon într-un moment de liniște pare anxios. Lasă liniștea să rămână."
+   },
+   "sr": {
+    "titre": "4. Skloni telefon",
+    "texte": "Gledanje u telefon u trenutku tišine izgleda nervozno. Pusti tišinu da potraje."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/blazer.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "5. Wear a jacket that fits",
+    "texte": "A fitted jacket changes your posture and how people read you."
+   },
+   "de": {
+    "titre": "5. Trag eine Jacke, die sitzt",
+    "texte": "Eine gut sitzende Jacke verändert deine Haltung und wie andere dich sehen."
+   },
+   "es-419": {
+    "titre": "5. Usa una chamarra a tu medida",
+    "texte": "Una chamarra que te queda bien cambia tu postura y cómo te ven los demás."
+   },
+   "it": {
+    "titre": "5. Una giacca della tua misura",
+    "texte": "Una giacca che veste bene cambia la tua postura e come gli altri ti vedono."
+   },
+   "pl": {
+    "titre": "5. Noś dopasowaną kurtkę",
+    "texte": "Dobrze leżąca kurtka zmienia twoją postawę i to, jak cię odbierają."
+   },
+   "tr": {
+    "titre": "5. Üstüne oturan ceket giy",
+    "texte": "Üstüne oturan bir ceket duruşunu ve insanların seni nasıl gördüğünü değiştirir."
+   },
+   "hu": {
+    "titre": "5. Jól álló kabát",
+    "texte": "Egy jól álló kabát megváltoztatja a tartásod és azt, ahogy látnak."
+   },
+   "el": {
+    "titre": "5. Σακάκι που σου κάθεται",
+    "texte": "Ένα σακάκι που σου κάθεται αλλάζει τη στάση σου και το πώς σε βλέπουν."
+   },
+   "ro": {
+    "titre": "5. Poartă o geacă pe măsură",
+    "texte": "O geacă ce îți vine bine îți schimbă postura și felul în care te văd ceilalți."
+   },
+   "sr": {
+    "titre": "5. Nosi jaknu koja ti stoji",
+    "texte": "Jakna koja ti dobro stoji menja tvoje držanje i kako te ljudi vide."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-3.png",
+   "en": {
+    "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
+   }
+  }
+ ]
+}

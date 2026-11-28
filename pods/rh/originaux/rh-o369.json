@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o369",
+ "type_bleo": "full_test",
+ "titre": "ce que je fais maintenant quand je n'ai pas eu le poste #rechercheemploi #refus #entretien #emploi #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 28/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (après un refus). Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "14c334e7",
+   "texte_overlay": "ce que je fais maintenant\nquand je n'ai pas eu\nle poste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3fab71b2",
+   "texte_overlay": "je réponds au mail de refus\n« merci, je serais ravie d'être recontactée »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "22e1058a",
+   "texte_overlay": "je demande un retour\nune question, polie. on me répond 1 fois sur 3",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "87cf707f",
+   "texte_overlay": "je note ce que j'aurais pu mieux faire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "76e17a8e",
+   "texte_overlay": "je me laisse une soirée pour être déçue\npas plus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c4a66a5e",
+   "texte_overlay": "je comble ce qui m'a manqué\n5 minutes par jour sur le sujet. au prochain entretien, je l'ai",
+   "texte_sophia": "je comble ce qui m'a manqué\n5 minutes par jour sur l'appli Sophia. au prochain entretien, je l'ai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2f644d6b",
+   "texte_overlay": "t'as eu un refus récemment ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

@@ -23,7 +23,8 @@
   "pl": "10/10 umiejętności do nauczenia w tydzień",
   "ro": "10/10 abilități pe care le înveți într-o săptămână",
   "sv": "10/10 färdigheter du kan lära dig på en vecka",
-  "tr": "Bir haftada öğrenebileceğin 10/10 beceri"
+  "tr": "Bir haftada öğrenebileceğin 10/10 beceri",
+  "sr": "10/10 veština koje možeš naučiti za nedelju dana"
  },
  "legendes": {
   "en": "10/10 Skills You Can Learn In A Week #skills #learnontiktok #selfmastery",
@@ -43,13 +44,14 @@
   "pl": "10/10 umiejętności do nauczenia w tydzień #umiejętności #rozwójosobisty #nauka",
   "ro": "10/10 abilități pe care le înveți într-o săptămână #abilități #dezvoltarepersonală #învățare",
   "sv": "10/10 färdigheter du kan lära dig på en vecka #färdigheter #självutveckling #lärande",
-  "tr": "Bir haftada öğrenebileceğin 10/10 beceri #beceriler #kişiselgelişim #öğrenme"
+  "tr": "Bir haftada öğrenebileceğin 10/10 beceri #beceriler #kişiselgelişim #öğrenme",
+  "sr": "10/10 veština koje možeš naučiti za nedelju dana #veštine #ličnirazvoj #učenje"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7636068211729599264"
  },
- "notes": "cta B. Variante de l'accroche de fa-009 (une seule reprise sur 7 jours) : étapes nouvelles (dactylographie, palais de mémoire, calcul mental), autre CTA. Six langues (en, de, pt du Portugal, pt-BR, it, es-419), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "notes": "cta B. Variante de l'accroche de fa-009 (une seule reprise sur 7 jours) : étapes nouvelles (dactylographie, palais de mémoire, calcul mental), autre CTA. Six langues (en, de, pt du Portugal, pt-BR, it, es-419), vidéos natives par langue, miniatures vérifiées (pas de visage tiers). 28/11 : ajouté en sr.",
  "slides": [
   {
    "type": "couverture",
@@ -369,6 +371,24 @@
       }
      ]
     ]
+   },
+   "sr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VEŠTINA KOJE",
+     "MOŽEŠ NAUČITI",
+     [
+      {
+       "t": "ZA NEDELJU DANA",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -641,6 +661,21 @@
      "date": "6 yıl önce",
      "duree": "12:20",
      "avatar": "https://yt3.ggpht.com/ifekyx6NyK6B0siwBwS0gLnh7JTgu7WY8980ljAwvtq8R5bjevtsc5pkWjsX7aDxot0_ebnO_A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "KUCAJ",
+     "NASLEPO"
+    ],
+    "video": {
+     "id": "g22GVcELZi4",
+     "titre": "Kako brzo (slepo) kucati na tastaturi",
+     "chaine": "Jovana Miljkovic",
+     "vues": "14 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "2.47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kGifdOfl9HqTICEk5Em2ZjjJ9xcjFabbDF2UCuB14WOR8=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -915,6 +950,21 @@
      "duree": "3:49",
      "avatar": "https://yt3.ggpht.com/e18eawTJglhdRd0A1N8pBfBmkSS7b6LaYFgLKbHiGDeVOoKx7qB1oXZmLXl_Yj51XGN4-nLhSQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "sr": {
+    "titre": [
+     "TRENIRAJ",
+     "PAMĆENJE"
+    ],
+    "video": {
+     "id": "EMDRPZjSxlA",
+     "titre": "Kako Sam Poboljšao Pamćenje Fajnmenovom Tehnikom",
+     "chaine": "Online Lekcije",
+     "vues": "120 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "3.42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kndmnvomlEwE9V4uQhJdiJ6yHE9seAWqySGtawHQV--e0=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1151,6 +1201,19 @@
      "texte": [
       "günde 5 dakika,",
       "her şeyden biraz bilmek için."
+     ]
+    }
+   },
+   "sr": {
+    "titre": [
+     "ZNAJ PONEŠTO",
+     "O SVEMU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuta dnevno",
+      "da znaš ponešto o svemu."
      ]
     }
    }
@@ -1425,6 +1488,21 @@
      "date": "1 ay önce",
      "duree": "8:58",
      "avatar": "https://yt3.ggpht.com/gSCyvKIg29AcMEcmVBZBlAfffmtjT3mSgYo3FV-cPjjDHWPHDHChEWDDVs_jj0DUuOe76myeC8o=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "RAČUNAJ",
+     "BEZ KALKULATORA"
+    ],
+    "video": {
+     "id": "zSuDGzlD57s",
+     "titre": "Množenje uz pomoć magičnih prstića (brojevi 6, 7, 8 i 9)",
+     "chaine": "Matemagičar",
+     "vues": "32 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "0.57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kAsjW8dWy4Qwf_T2ynTWnlP2HK32YSBQtrhtNhp4pv6g=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

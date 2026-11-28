@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o544",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6cfee0b9-8e6b-4329-800c-85ab8952859d",
+ "titre": "things that are quietly making you look less confident than you are #confidence #selfimprovement #elegance #smartgirl #glowup",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "6cfee0b9-8e6b-4329-800c-85ab8952859d"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 33 de la boîte (parent 6cfee0b9, langue source en) : accroche du parent mot pour mot. Idées du parent (commencer par « désolée mais », regarder son téléphone quand on est gênée, changer d'avis dès qu'on nous contredit, scroller au lieu de lire, se rabaisser pour rire). Sophia sur la lecture comme chez le parent (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6cf900c1",
+   "texte_overlay": "things that are quietly making you\nlook less confident than you are",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615280468644154637/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d3a10c13",
+   "texte_overlay": "starting with \"sorry, but\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615280468644154637/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "959a0a02",
+   "texte_overlay": "checking your phone when\nyou feel awkward",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615280468644154637/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "87417532",
+   "texte_overlay": "changing your opinion the second\nsomeone disagrees",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615280468644154637/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "170df1ba",
+   "texte_overlay": "scrolling instead of reading\nsomething that builds you\n\ni swapped mine for five minutes\nof learning.",
+   "texte_sophia": "scrolling instead of reading something that\nbuilds you\n\ni swapped mine for an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615280468644154637/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "73dbae5d",
+   "texte_overlay": "joking that you're dumb",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615280468644154637/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4852446d",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615280468644154637/6.jpg"
+  }
+ ]
+}

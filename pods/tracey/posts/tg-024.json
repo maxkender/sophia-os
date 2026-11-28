@@ -1,0 +1,106 @@
+{
+ "id": "tg-024",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies to do after work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #afterwork #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies to do after work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Couverture : une IRM neuve, propre à ce post (irm-024). Slide Atala sur une photo de course de la banque (86004eae), slide Artura sur un tableau ou un musée de la banque (05053822), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/a-salon.jpg": "05053822-02ab-473a-a17e-72474206fce6",
+  "images/banque/c-pov-soir2.jpg": "86004eae-277c-4e5d-acf8-1a5e97dbe55b"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/irm-024.jpg",
+   "en": {
+    "titre": "10/10 hobbies to do after\nwork if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/bois.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "woodworking",
+    "accroche": "you _make something real_ with your _hands_",
+    "colonne": [
+     "sanding, cutting and gluing pull your mind away from the screen you stared at all day"
+    ],
+    "chute": "look for an evening class at a local workshop"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-salon.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "nom": "one painting before dinner",
+    "accroche": "a _quiet break_ between _work_ and _home_",
+    "colonne": [
+     "a painting and its story gives a tired brain something new that isn't a screen or an email",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "five minutes on the couch, phone away"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/flechettes.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "darts",
+    "accroche": "one target, _three darts_, _no thinking_",
+    "colonne": [
+     "aiming takes all your attention for a second, and you see the score right away"
+    ],
+    "chute": "most pubs have a board, ask at the bar"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-pov-soir2.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "an evening run",
+    "accroche": "leave the _workday_ on the _road_",
+    "colonne": [
+     "a run after work burns off the restless energy from sitting all day, and a plan keeps it going",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "run before you sit down at home"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/pickleball.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "pickleball",
+    "accroche": "short rallies, _fast points_, _lots of laughs_",
+    "colonne": [
+     "the ball comes back quickly and games are short, so a tired brain still wants _one more_"
+    ],
+    "chute": "most cities have free courts and drop-in nights"
+   }
+  }
+ ]
+}

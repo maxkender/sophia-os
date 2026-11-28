@@ -1,0 +1,106 @@
+{
+ "id": "tg-023",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies that feel like a game if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #focus #brain #selfimprovement"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies that feel like a game if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Couverture : une IRM neuve, propre à ce post (irm-023). Slide Atala sur une photo de course de la banque (7b1467d6), slide Artura sur un tableau ou un musée de la banque (236f4d0f), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-pov-champ.jpg": "7b1467d6-1fb0-4bfa-a8a7-1944956fe263",
+  "images/banque/a-quatre.jpg": "236f4d0f-1cde-423b-b985-ed39db95d915"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/irm-023.jpg",
+   "en": {
+    "titre": "10/10 hobbies that feel like a\ngame if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/bowling.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "nom": "bowling",
+    "accroche": "every throw gets a _score_, _right away_",
+    "colonne": [
+     "you see the pins fall in seconds, so your brain gets a reward ten times a game and _never drifts_"
+    ],
+    "chute": "most alleys have cheap games on weeknights"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-pov-champ.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "running with a plan",
+    "accroche": "every run is a _level_ you _unlock_",
+    "colonne": [
+     "a plan turns running into a game with clear steps, and finishing a week feels like a _small win_",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "pick a 5k three months from now"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/minigolf.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "mini golf",
+    "accroche": "18 holes, 18 _tiny_ puzzles",
+    "colonne": [
+     "each hole has its own trick, so a brain that bores fast always has a _new problem_ to solve"
+    ],
+    "chute": "go on a quiet weekday evening"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-quatre.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "spot the hidden detail",
+    "accroche": "every painting hides _one thing_ you _missed_",
+    "colonne": [
+     "looking for the small symbol or strange detail turns a painting into a treasure hunt",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "look for one hidden object per painting"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/quiz.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "trivia nights",
+    "accroche": "points, _a team_ and a _scoreboard_",
+    "colonne": [
+     "each question is quick, your team counts on you, and the score keeps everyone _locked in_"
+    ],
+    "chute": "most pubs run a free quiz every week"
+   }
+  }
+ ]
+}

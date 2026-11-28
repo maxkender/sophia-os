@@ -1,0 +1,106 @@
+{
+ "id": "tg-026",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 night hobbies that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #nightroutine #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 night hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Couverture : une IRM neuve, propre à ce post (irm-026). Slide Atala sur une photo de course de la banque (231396d9, déjà en tg-008), slide Artura sur un tableau ou un musée de la banque (0e8cca18), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/a-cascade.jpg": "0e8cca18-c32a-44e6-a4bf-33f7c5ca1ccd",
+  "images/banque/c-couchant.jpg": "231396d9-2ed5-458a-89e8-1480ab6be172"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/irm-026.jpg",
+   "en": {
+    "titre": "10/10 night hobbies that\nactually work if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/guitare.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning guitar",
+    "accroche": "three chords and you can _play a song_",
+    "colonne": [
+     "your fingers have to focus on one shape at a time, and you hear right away when it's _right_"
+    ],
+    "chute": "one song, fifteen minutes a night"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-couchant.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a late run",
+    "accroche": "the city is _quiet_ and so is your _head_",
+    "colonne": [
+     "an evening run burns off the day's energy, so a busy brain is calmer by bedtime",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "pick a lit route and keep it easy"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/marchenuit.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "night walks",
+    "accroche": "no screens, _no noise_, _just walking_",
+    "colonne": [
+     "a slow walk after dark gives a racing mind a simple rhythm to follow"
+    ],
+    "chute": "twenty minutes, same loop every night"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-cascade.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "one painting before bed",
+    "accroche": "swap _the feed_ for _one picture_",
+    "colonne": [
+     "one painting and its story is calm, new and short, a better last thing than a scroll",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "then put the phone in another room"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/ecriture.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "writing a short story",
+    "accroche": "one _small scene_ per _night_",
+    "colonne": [
+     "writing gives a busy mind somewhere to put its ideas, and one scene a night is enough"
+    ],
+    "chute": "start with one paragraph, no rules"
+   }
+  }
+ ]
+}

@@ -1,0 +1,106 @@
+{
+ "id": "tg-025",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 social hobbies that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #friends #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 social hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Couverture : une IRM neuve, propre à ce post (irm-025). Slide Atala sur une photo de course de la banque (0957e148), slide Artura sur un tableau ou un musée de la banque (501b051b), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-parc-pov.jpg": "0957e148-6465-453b-a38a-71181e659cfc",
+  "images/banque/a-hall.jpg": "501b051b-7275-42b4-9034-1ddd440b0908"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/irm-025.jpg",
+   "en": {
+    "titre": "10/10 social hobbies that\nactually work if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/clublivre.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a book club",
+    "accroche": "a _deadline_ and _people_ waiting for you",
+    "colonne": [
+     "knowing you'll talk about it on thursday makes it easier to actually _finish_ the book"
+    ],
+    "chute": "pick a short book and invite three friends"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-parc-pov.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "running with friends",
+    "accroche": "you show up because _they're_ _waiting_",
+    "colonne": [
+     "a weekly run with friends gives your week structure, and a shared goal keeps everyone _going_",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "same day, same place, every week"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/foot.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "pickup soccer",
+    "accroche": "the ball is _everywhere_, so _you are too_",
+    "colonne": [
+     "fast passes and a team around you keep your attention on the game for the whole hour"
+    ],
+    "chute": "most parks have a casual game on sundays"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-hall.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a museum with a friend",
+    "accroche": "two people see _two different_ paintings",
+    "colonne": [
+     "comparing what you each noticed turns a quiet visit into a conversation",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "each pick one piece to show the other"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/diner.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a supper club",
+    "accroche": "everyone cooks _one dish_, everyone _eats_",
+    "colonne": [
+     "it's social, hands-on and done in one evening, and you leave with new recipes and new friends"
+    ],
+    "chute": "start with four people and one theme"
+   }
+  }
+ ]
+}

@@ -1,0 +1,106 @@
+{
+ "id": "tg-028",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies for adhd brains that love learning"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #learning #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies for adhd brains that love learning », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Couverture : une IRM neuve, propre à ce post (irm-028). Slide Atala sur une photo de course de la banque (4c79cc50), slide Artura sur un tableau ou un musée de la banque (5f54b7a9), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/a-chevalet.jpg": "5f54b7a9-13ac-4449-8dce-41e9c8ad602d",
+  "images/banque/c-piste-vide.jpg": "4c79cc50-e436-4f43-a007-d8bed23cc6de"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/irm-028.jpg",
+   "en": {
+    "titre": "10/10 hobbies for adhd brains\nthat love learning",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/jonglage.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "juggling",
+    "accroche": "you get _a little better_ every _single day_",
+    "colonne": [
+     "catching one more ball than yesterday is a clear win, and your hands keep your mind busy"
+    ],
+    "chute": "start with two balls, then three"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-chevalet.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "nom": "copying a painting",
+    "accroche": "you learn how a painter _thinks_",
+    "colonne": [
+     "trying to copy one painting shows you every choice the painter made: color, light, brushstrokes",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "pick one small painting and copy one corner"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/cueillette.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "guided foraging walks",
+    "accroche": "every walk teaches you _a new plant_",
+    "colonne": [
+     "the woods turn into a puzzle you learn to read, and a guide keeps it safe"
+    ],
+    "chute": "join a guided walk, never pick alone"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-piste-vide.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning to run properly",
+    "accroche": "pace, _breathing_ and a _real plan_",
+    "colonne": [
+     "learning how to train turns running into a skill you can measure, week after week",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "start slower than you think you should"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/arbres.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning tree names",
+    "accroche": "every street becomes a _quiz_",
+    "colonne": [
+     "once you can name five trees, every walk gives your brain something to _recognize_"
+    ],
+    "chute": "learn one new tree a week"
+   }
+  }
+ ]
+}

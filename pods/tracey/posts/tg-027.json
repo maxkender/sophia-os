@@ -1,0 +1,106 @@
+{
+ "id": "tg-027",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies that give adhd brains a dopamine hit"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #dopamine #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies that give adhd brains a dopamine hit », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Couverture : une IRM neuve, propre à ce post (irm-027). Slide Atala sur une photo de course de la banque (96aaa6f8), slide Artura sur un tableau ou un musée de la banque (ebb0314a), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-piste-pov.jpg": "96aaa6f8-afd3-4c7f-b17c-ff83874489e3",
+  "images/banque/a-atelier.jpg": "ebb0314a-7e95-4a44-8211-42fcd12c2d47"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/irm-027.jpg",
+   "en": {
+    "titre": "10/10 hobbies that give adhd\nbrains a dopamine hit",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/trampoline.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "trampoline parks",
+    "accroche": "you _jump_, you _fly_, you _laugh_",
+    "colonne": [
+     "fast movement and a bit of thrill give your brain the rush it was looking for in your phone"
+    ],
+    "chute": "most parks have cheap weekday sessions"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-piste-pov.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "nom": "sprints",
+    "accroche": "ten seconds _all out_, then _breathe_",
+    "colonne": [
+     "a few short sprints feel amazing after, and a plan stops you from doing too much too soon",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "6 sprints, walk back between each one"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/karaoke.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "karaoke",
+    "accroche": "one song, _three minutes_, _all eyes_",
+    "colonne": [
+     "singing loud with friends is short, silly and a huge rush, no talent needed"
+    ],
+    "chute": "book a small room with friends"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-atelier.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "nom": "finding a painting you love",
+    "accroche": "that _wow_ when one picture _gets you_",
+    "colonne": [
+     "walking around until one painting stops you is a rush you can repeat every week",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "visit a small gallery and pick a favorite"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/karting.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "go-karting",
+    "accroche": "speed, _corners_ and a _lap time_",
+    "colonne": [
+     "the track needs all your attention, and beating your last lap is an instant reward"
+    ],
+    "chute": "most tracks do a 10 minute beginner race"
+   }
+  }
+ ]
+}

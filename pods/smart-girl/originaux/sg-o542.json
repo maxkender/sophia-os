@@ -1,0 +1,69 @@
+{
+  "source_id": "sg-o542",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "6a80056d-4830-4c82-9d6f-37a5c0fcce76",
+  "titre": "rich girl hobbies: not about money, about the art of being interested in life #hobbies #oldmoney #elegance #smartgirl #curiosity",
+  "musique_titre": "The Spins",
+  "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+  "inspirations": [
+    "6a80056d-4830-4c82-9d6f-37a5c0fcce76"
+  ],
+  "notes": "cta B. Déclinaison G1 de la ligne 31 de la boîte (parent 6a80056d, langue source en) : accroche du parent mot pour mot. Hobbies du parent (équitation, collectionner de petites œuvres, tennis ou escrime, échecs, piano ou violoncelle, calligraphie, voile, salons littéraires, curiosité quotidienne). Sophia comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "7011911f",
+      "texte_overlay": "rich girl hobbies\n\nnot about money, about the art\nof being interested in life",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650095098423741717/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "07e8adf9",
+      "texte_overlay": "horse riding",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650095098423741717/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d9e115c2",
+      "texte_overlay": "collecting small art pieces\n\nstart with student artists.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650095098423741717/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d23efd0a",
+      "texte_overlay": "tennis or fencing",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650095098423741717/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "481e4f47",
+      "texte_overlay": "chess",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650095098423741717/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1fbd312c",
+      "texte_overlay": "daily intellectual curiosity\n\nfive minutes of art history\nor philosophy.",
+      "texte_sophia": "daily intellectual curiosity\n\nfive minutes a day on an app like Sophia.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650095098423741717/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "15f5f8b7",
+      "texte_overlay": "calligraphy",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650095098423741717/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "bf455018",
+      "texte_overlay": "hosting a book club",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650095098423741717/8.jpg"
+    },
+    {
+      "position": 9,
+      "media_id": "fa4cab3d",
+      "texte_overlay": "follow for more",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650095098423741717/9.jpg"
+    }
+  ]
+}

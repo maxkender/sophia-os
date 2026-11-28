@@ -1,0 +1,264 @@
+{
+ "post_id": "original-106",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to reset your",
+      "dopamine"
+     ],
+     "texte": "history facts that sound fake but [[are 100% true]]"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "texte": "(sources checked, twice)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0688d134.jpg",
+      "boite": [
+       0,
+       250,
+       1760,
+       1350
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take cold showers"
+     ],
+     "texte": "oxford is older than [[the aztecs]]"
+    },
+    "T2": {
+     "en": [
+      "I KNOW everyone says this, but cold water raises",
+      "your dopamine for hours after you get out"
+     ],
+     "texte": "teaching at oxford was already going on by [[1096]], says the university itself"
+    },
+    "T3": {
+     "en": [
+      "it's the opposite of",
+      "scrolling, the",
+      "discomfort comes",
+      "first and the reward",
+      "comes after"
+     ],
+     "texte": "the aztecs only founded their capital, tenochtitlan, in [[1325]], over 200 years later"
+    },
+    "T4": {
+     "en": [
+      "that's how you reset your dopamine, your brain gets",
+      "used to doing the hard thing first"
+     ],
+     "texte": "so students were taking classes there [[before the aztec empire even existed]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0576788d.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "texte": "collect [[weird history]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling gives you a tiny hit",
+      "of dopamine every few",
+      "seconds, so anything slower",
+      "feels boring"
+     ],
+     "texte": "the strangest true facts are hiding in the [[history lessons]] most of us slept through at school"
+    },
+    "T3": {
+     "en": [
+      "i used to scroll all day until i",
+      "found this which blocks my",
+      "apps until i read for 20",
+      "minutes"
+     ],
+     "texte": "what replaced my scrolling: a book on the nightstand, podcasts on walks, and [[the Sophia app]] when i grab my phone anyway"
+    },
+    "T4": {
+     "en": [
+      "books do the opposite, they",
+      "train your brain to focus and",
+      "wait for the payoff"
+     ],
+     "texte": "my last lesson was why the renaissance [[started in italy]]. history is wild"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop stacking your dopamine"
+     ],
+     "texte": "mammoths vs [[the pyramids]]"
+    },
+    "T2": {
+     "en": [
+      "music at the gym, a snack while you study, a show",
+      "while you eat, your phone during everything"
+     ],
+     "texte": "the last woolly mammoths lived on wrangel island, off siberia, until [[about 4,000 years ago]]"
+    },
+    "T3": {
+     "en": [
+      "when every activity",
+      "comes with a bonus",
+      "hit, the activity itself",
+      "starts feeling boring"
+     ],
+     "texte": "the great pyramid of giza was finished [[around 2560 BC]], about 4,500 years ago"
+    },
+    "T4": {
+     "en": [
+      "do one thing on its own",
+      "and let it be enough,",
+      "that's how normal",
+      "things start feeling",
+      "good again"
+     ],
+     "texte": "so pyramids were going up in egypt while [[mammoths were still alive]] on a tiny arctic island"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_34e761de.jpg",
+      "boite": [
+       0,
+       900,
+       1888,
+       1300
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start lifting weights"
+     ],
+     "texte": "france used the guillotine [[in 1977]]"
+    },
+    "T2": {
+     "en": [
+      "you can actually see yourself getting better, a little",
+      "more weight every week"
+     ],
+     "texte": "the last execution by guillotine in france happened in [[september 1977]]"
+    },
+    "T3": {
+     "en": [
+      "your brain gets",
+      "dopamine from real",
+      "progress"
+     ],
+     "texte": "the death penalty only ended [[in 1981]]"
+    },
+    "T4": {
+     "en": [
+      "instead of from likes",
+      "and views that",
+      "disappear in a second"
+     ],
+     "texte": "that's the same year the first [[home computers]] went on sale"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_65a40ede.jpg",
+      "boite": [
+       0,
+       1050,
+       1504,
+       1650
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get sunlight first thing in the",
+      "morning"
+     ],
+     "texte": "the fax machine is [[older than the telephone]]"
+    },
+    "T2": {
+     "en": [
+      "your brain is made to wake up with daylight, not",
+      "with a screen"
+     ],
+     "texte": "a scottish inventor, alexander bain, patented the idea [[in 1843]]"
+    },
+    "T3": {
+     "en": [
+      "go outside for 10",
+      "minutes before you",
+      "check your phone,",
+      "even if it's cloudy"
+     ],
+     "texte": "the telephone was only patented [[in 1876]], 33 years later"
+    },
+    "T4": {
+     "en": [
+      "you start the day with natural dopamine instead of",
+      "getting it from your feed"
+     ],
+     "texte": "so sending pictures down a wire came [[before anyone heard a voice down a line]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0918f920.jpg",
+      "boite": [
+       0,
+       80,
+       832,
+       620
+      ]
+     }
+    }
+   }
+  }
+ }
+}

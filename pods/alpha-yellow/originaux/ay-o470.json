@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o470",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "14b04681-6d92-4da6-9245-3173e6ced157",
+ "titre": "How to look extremely niche this summer #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "14b04681-6d92-4da6-9245-3173e6ced157"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 8 de la boîte (14b04681, @celonstudio) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (marques, tennis, montre, jeans). Format adapté : un conseil de style ou d'activité par slide, aucune marque citée. Les lignes 9 et 10 (« niche ») sont sautées, accroches voisines de la ligne 8 le même jour..",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bb3bf0f8-a51b-4200-90dd-1a804e0a67b8",
+   "texte_overlay": "How to look extremely\nniche this summer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652781448931314977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Wear linen in neutral colours. A loose white or beige shirt, rolled sleeves, light trousers. Effortless and perfect for hot days.",
+   "media_id": "f5774685-f006-4f06-905b-7c2aed534e04"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Carry a paperback everywhere. A classic novel in your pocket at the beach or the café looks better than any accessory.",
+   "media_id": "f58d4e51-7337-450c-bbc2-572e4387e46e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Learn to sail or paddleboard. A summer skill on the water feels adventurous and gets you outdoors every weekend.",
+   "media_id": "f6098503-bd0e-4ca8-84f0-fe551d7e8a13"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Wear simple leather sandals or clean canvas shoes. Comfortable, classic and better than heavy sneakers in the heat.",
+   "media_id": "f60d4b61-6a88-474f-bd4a-10e6036f3ce3"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Know the history of the places you visit. I do five minutes a day of history, art or science, and every summer trip feels richer.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Every summer trip feels richer.",
+   "media_id": "09ced615-a901-44e4-ab6a-6eb45e2400f7"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Take film photos. A small camera and a few rolls. Waiting to see your pictures makes the memories feel special.",
+   "media_id": "f61f49dc-79c4-491f-a2a4-363bae230d1e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Get a light tan the healthy way. Shade at midday, sunscreen always. Looking fresh beats looking burnt. Enjoy the sun wisely.",
+   "media_id": "f62d0748-0e07-4bd0-ac8a-d026bfc198f1"
+  }
+ ]
+}

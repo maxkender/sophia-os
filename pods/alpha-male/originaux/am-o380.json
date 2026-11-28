@@ -1,0 +1,63 @@
+{
+ "source_id": "am-o380",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f709685a-2d0d-4d89-87fa-cc3819fab0ce",
+ "titre": "Tiny weird routines that make life better #routines #men #lifehacks #discipline #selfimprovement",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7548607095471049478",
+ "inspirations": [
+  "f709685a-2d0d-4d89-87fa-cc3819fab0ce"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 27/11. Déclinaison G2 de la ligne 3 de la boîte (parent f709685a = notre am-o214 ; 3e déclinaison après am-o326 et am-o353). Promesse reformulée. Format : « N. routine » + une ligne. Items neufs, ni de am-o214 ni de am-o326 et am-o353. reference_url de am-o214 (1 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bb560f90",
+   "texte_overlay": "Tiny weird routines that make\nlife better",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "636ff2aa",
+   "texte_overlay": "1. Sit on the edge of the bed\nfor 10 breaths",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "382b41a6",
+   "texte_overlay": "2. A bowl by the door for keys",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ccb7ca37",
+   "texte_overlay": "3. Walk while you call",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "49459027",
+   "texte_overlay": "4. Cook double, freeze half",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ebd9cb29",
+   "texte_overlay": "5. Read one page of something\nnew before your phone",
+   "texte_sophia": "5. One lesson on the Sophia app\nbefore your phone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a0461168",
+   "texte_overlay": "6. Write one sentence\nabout your day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "6149fa6e",
+   "texte_overlay": "7. Lights dim at 9 p.m.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/8.jpg"
+  }
+ ]
+}

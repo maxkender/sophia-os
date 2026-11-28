@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o473",
+ "type_bleo": "full_test",
+ "titre": "How to eat better without going on a diet #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to eat better without going on a diet » (retenue), « Healthy eating for lazy men » (écartée : ton moqueur), « Stop dieting, start eating » (écartée : slogan). Conseils généraux, sans promesse santé.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0289de00-d3cc-418e-8b02-38d8169d33b6",
+   "texte_overlay": "How to eat better\nwithout going on a diet",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Add before you remove. Put vegetables and protein on your plate first. When half the plate is good food, there's less room for the rest.",
+   "media_id": "034ecea6-f4b4-4560-8259-1da82c5c98a6"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Cook a few simple meals each week. Rice, eggs, chicken, vegetables, pasta. Home cooking is healthier and cheaper than any takeaway.",
+   "media_id": "0860f8ef-4dc5-493b-bcad-b5fa3695900a"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Keep good snacks visible. Fruit on the table, nuts in the drawer. You eat what you see first, so make the easy choice the good one.",
+   "media_id": "08d6c085-cf91-484c-b5c7-b39e5a078fc0"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Drink water with every meal. Many cravings are just thirst. A glass before you eat helps you eat calmly and stop when you're full.",
+   "media_id": "0bcf13a8-b21f-4a50-91bb-c32697bb69fb"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: my evenings were snacks and screens. After: five minutes a day of history, art or science, and I snack much less out of boredom.",
+   "texte_sophia": "Before: my evenings were snacks and screens. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I snack much less out of boredom.",
+   "media_id": "02a7a3b8-b704-48ff-811c-a46419b73140"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Eat slowly and without your phone. Your body needs time to feel full. Slower meals mean you enjoy food more and eat less.",
+   "media_id": "0c638189-8eb5-47e8-92bb-ebba657b6942"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Allow yourself treats. Pizza with friends, cake on birthdays. Eating well is about most days, not every single bite.",
+   "media_id": "0dced136-575f-48eb-9b84-c3d9b000ea9b"
+  }
+ ]
+}

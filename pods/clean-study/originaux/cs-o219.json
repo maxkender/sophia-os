@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o219",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "fd571b5d-69b7-4e83-b0bd-84e402deca5d",
+  "titre": "what i do in the 10 minutes before a test starts #studytok #studytips #exams",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [
+    "fd571b5d-69b7-4e83-b0bd-84e402deca5d"
+  ],
+  "notes": "Déclinaison G1 de fd571b5d, ligne 9 de la boîte, 3e et dernière déclinaison de la famille. Accroche du parent mot pour mot. Gestes neufs, aucun du parent, de cs-o190 ni de cs-o206. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "457f05d2",
+      "texte_overlay": "what i do in the 10 minutes\nbefore a test starts",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3489994f",
+      "texte_overlay": "a few sips of water.\nnot a whole bottle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "6ab6624f",
+      "texte_overlay": "i roll my shoulders and unclench my jaw.\ni hadn't noticed how tense i was.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "eda9ae40",
+      "texte_overlay": "i lay out my pens and calculator.\neverything i need, nothing else.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1de3236c",
+      "texte_overlay": "i read something short and unrelated.\na fun fact about space or a painting.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "i read something short and unrelated\non a micro-learning app like the Sophia app.\na fun fact about space or a painting."
+    },
+    {
+      "position": 6,
+      "media_id": "b696960e",
+      "texte_overlay": "i stop listening to \"did you revise chapter 4?\".\ntoo late to change anything.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "12db29ed",
+      "texte_overlay": "first look at the paper: i find one question i know.\nconfidence first.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

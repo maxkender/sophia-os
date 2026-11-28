@@ -1,0 +1,617 @@
+{
+ "id": "pt-021",
+ "titre": {
+  "en": "things to put in your week so you always have something new to talk about",
+  "fr": "quoi mettre dans ta semaine pour toujours avoir un sujet de conversation",
+  "es": "cosas para meter en tu semana y tener siempre algo nuevo de qué hablar",
+  "es-419": "cosas para poner en tu semana y siempre tener algo nuevo de qué hablar",
+  "it": "cose da mettere nella settimana per avere sempre qualcosa da dire",
+  "tr": "hep konuşacak yeni bir şeyin olsun diye haftana ekleyeceklerin",
+  "pt-BR": "coisas pra colocar na sua semana e sempre ter assunto novo",
+  "sl": "kaj dodati v teden, da imaš vedno kaj novega za povedati",
+  "de": "was in deine woche gehört, damit du immer etwas neues zu erzählen hast",
+  "sk": "čo pridať do týždňa, aby si mala vždy o čom rozprávať",
+  "sv": "saker att lägga in i veckan så att du alltid har något nytt att prata om"
+ },
+ "legendes": {
+  "en": "seven small things, one week, endless conversations. save the week <3 #girlblogger #selfimprovement #learning #studytok #thatgirl",
+  "fr": "une petite chose par jour, et tu n'es jamais à court de sujets. enregistre la semaine <3 #girlblogger #developpementpersonnel #apprendre #studytok #thatgirl",
+  "es": "una cosita al día y nunca te quedas sin tema. guarda la semana <3 #girlblogger #desarrollopersonal #aprender #studytok #thatgirl",
+  "es-419": "una cosita al día y nunca te quedas sin tema. guarda la semana <3 #girlblogger #desarrollopersonal #aprender #studytok #thatgirl",
+  "it": "una piccola cosa al giorno e non resti mai senza argomenti. salva la settimana <3 #girlblogger #crescitapersonale #imparare #studytok #thatgirl",
+  "tr": "günde küçük bir şey ve asla konu sıkıntısı çekmezsin. haftayı kaydet <3 #girlblogger #kişiselgelişim #öğrenmek #studytok #thatgirl",
+  "pt-BR": "uma coisinha por dia e você nunca fica sem assunto. salva a semana <3 #girlblogger #autodesenvolvimento #aprender #studytok #thatgirl",
+  "sl": "ena majhna stvar na dan in nikoli ti ne zmanjka tem. shrani teden <3 #girlblogger #osebnirazvoj #učenje #studytok #thatgirl",
+  "de": "eine kleine sache am tag und dir gehen nie die themen aus. speicher dir die woche <3 #girlblogger #selbstverbesserung #lernen #studytok #thatgirl",
+  "sk": "jedna malá vec denne a nikdy ti nedôjdu témy. ulož si týždeň <3 #girlblogger #osobnyrozvoj #ucenie #studytok #thatgirl",
+  "sv": "en liten sak om dagen och du står aldrig utan samtalsämne. spara veckan <3 #girlblogger #självutveckling #lärande #studytok #thatgirl"
+ },
+ "musique": {
+  "titre": "life is moving",
+  "url": "https://www.tiktok.com/music/life-is-moving-7537780321103005713"
+ },
+ "notes": "Déclinaison G1 (BLEO, 26/11) de pt-007 « things to put in your week so you always have something new to talk about » (famille gagnante : es 2,8 k ; en 2,5 k vues r 3,12 ; it 1,1 k), titre du parent mot pour mot. Tout le reste change : autres jours (une ville le lundi : kyoto ; un poème le mardi ; Sophia le mercredi ; une scientifique le jeudi : marie curie, première personne à recevoir deux prix nobel dans deux sciences différentes, physique 1903 et chimie 1911 ; l'histoire d'une chanson le vendredi), autres photos (neuves), cta C (pt-007 avait cta A).",
+ "banque": {
+  "images/banque/couv-escalier-spirale.jpg": "53f99a6f-125d-4b11-982c-0c6ffc3e7828",
+  "images/banque/couv-tasse-carnet-fleuri.jpg": "3b1fcedf-c6b6-4a5c-99a5-23e42c384a36",
+  "images/banque/rue-japonaise.jpg": "06498a14-b2aa-4519-908e-1f2d98078b5e",
+  "images/banque/rue-brouillard.jpg": "c1b955b4-841c-40c7-9a75-fb41f4bf2e9e",
+  "images/banque/carnet-ecriture-tasse.jpg": "42ae23ca-ac35-46fb-a732-7df4af3c785d",
+  "images/banque/bougie-verre-notes.jpg": "3dd0cc95-5d63-4ffc-ab1a-82fe68266ca5",
+  "images/banque/fleur-ciel-bleu.jpg": "9d1fc205-98ce-4da1-81ea-763950467c61",
+  "images/banque/etoiles-vertes.jpg": "8f1eb7ea-84db-4108-ac8e-218879d0697d",
+  "images/banque/pyramide-lune.jpg": "230e5f0b-8a12-4943-87a9-69ee38004b5b",
+  "images/banque/cafe-baladeur.jpg": "0dcc1958-20bc-4669-9b1d-eeac4282ce8b",
+  "images/banque/cafe-journal-ecouteurs.jpg": "8680b02f-7041-4bc5-b02d-17afb0f69b6a"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-escalier-spirale.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-tasse-carnet-fleuri.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "things to put in your\nweek so you always\nhave something new\nto talk about"
+   },
+   "fr": {
+    "titre": "quoi mettre dans ta\nsemaine pour avoir\ntoujours un sujet\nde conversation"
+   },
+   "es": {
+    "titre": "cosas para meter en\ntu semana y tener\nsiempre algo nuevo\nde qué hablar"
+   },
+   "es-419": {
+    "titre": "cosas para poner en\ntu semana y siempre\ntener algo nuevo\nde qué hablar"
+   },
+   "it": {
+    "titre": "cose da mettere\nnella settimana per\navere sempre\nqualcosa da dire"
+   },
+   "tr": {
+    "titre": "hep konuşacak yeni\nbir şeyin olsun diye\nhaftana\nekleyeceklerin"
+   },
+   "pt-BR": {
+    "titre": "coisas pra colocar\nna sua semana e\nsempre ter\nassunto novo"
+   },
+   "sl": {
+    "titre": "kaj dodati v teden,\nda imaš vedno kaj\nnovega povedati"
+   },
+   "de": {
+    "titre": "was in deine woche\ngehört, damit du\nimmer etwas neues\nzu erzählen hast"
+   },
+   "sk": {
+    "titre": "čo pridať do týždňa,\naby si mala vždy\no čom rozprávať"
+   },
+   "sv": {
+    "titre": "saker att lägga in i\nveckan så att du\nalltid har något nytt\natt prata om"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/rue-japonaise.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/rue-brouillard.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. monday: one city",
+    "paragraphes": [
+     "Pick one city you'll probably never visit and read about it for ten minutes. kyoto has more than a thousand temples.",
+     "It's the kind of fact that starts a whole conversation about travel"
+    ]
+   },
+   "fr": {
+    "titre": "1. lundi : une ville",
+    "paragraphes": [
+     "Choisis une ville où tu n'iras sans doute jamais et lis sur elle pendant dix minutes. kyoto compte plus de mille temples.",
+     "C'est le genre de fait qui lance toute une conversation sur les voyages"
+    ]
+   },
+   "es": {
+    "titre": "1. lunes: una ciudad",
+    "paragraphes": [
+     "Elige una ciudad que probablemente nunca visitarás y lee sobre ella diez minutos. kioto tiene más de mil templos.",
+     "Es el tipo de dato que abre toda una conversación sobre viajes"
+    ]
+   },
+   "es-419": {
+    "titre": "1. lunes: una ciudad",
+    "paragraphes": [
+     "Elige una ciudad que probablemente nunca vas a visitar y lee sobre ella diez minutos. kioto tiene más de mil templos.",
+     "Es el tipo de dato que abre toda una plática sobre viajes"
+    ]
+   },
+   "it": {
+    "titre": "1. lunedì: una città",
+    "paragraphes": [
+     "Scegli una città che probabilmente non visiterai mai e leggi di lei per dieci minuti. kyoto ha più di mille templi.",
+     "È il tipo di fatto che apre un'intera conversazione sui viaggi"
+    ]
+   },
+   "tr": {
+    "titre": "1. pazartesi: bir şehir",
+    "paragraphes": [
+     "Muhtemelen hiç gitmeyeceğin bir şehir seç ve on dakika onu oku. kyoto'da binden fazla tapınak var.",
+     "Seyahat üzerine koca bir sohbet başlatan türden bir bilgi"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. segunda: uma cidade",
+    "paragraphes": [
+     "Escolhe uma cidade que você provavelmente nunca vai visitar e lê sobre ela por dez minutos. kyoto tem mais de mil templos.",
+     "É o tipo de fato que puxa uma conversa inteira sobre viagem"
+    ]
+   },
+   "sl": {
+    "titre": "1. ponedeljek: eno mesto",
+    "paragraphes": [
+     "Izberi mesto, ki ga verjetno nikoli ne boš obiskala, in deset minut beri o njem. kjoto ima več kot tisoč templjev.",
+     "To je dejstvo, ki sproži cel pogovor o potovanjih"
+    ]
+   },
+   "de": {
+    "titre": "1. montag: eine stadt",
+    "paragraphes": [
+     "Such dir eine stadt aus, in die du wahrscheinlich nie reist, und lies zehn minuten über sie. kyoto hat mehr als tausend tempel.",
+     "Genau so ein fakt startet ein ganzes gespräch übers reisen"
+    ]
+   },
+   "sk": {
+    "titre": "1. pondelok: jedno mesto",
+    "paragraphes": [
+     "Vyber si mesto, ktoré pravdepodobne nikdy nenavštíviš, a desať minút o ňom čítaj. kjóto má viac ako tisíc chrámov.",
+     "Presne taký fakt rozbehne celý rozhovor o cestovaní"
+    ]
+   },
+   "sv": {
+    "titre": "1. måndag: en stad",
+    "paragraphes": [
+     "Välj en stad du förmodligen aldrig kommer att besöka och läs om den i tio minuter. kyoto har över tusen tempel.",
+     "Det är den sortens fakta som startar ett helt samtal om resor"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/carnet-ecriture-tasse.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/bougie-verre-notes.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. tuesday: one poem",
+    "paragraphes": [
+     "Read one short poem and copy your favourite line into your notes. learn who wrote it and when.",
+     "One line ready for any moment, and it always sounds better than a quote from the feed"
+    ]
+   },
+   "fr": {
+    "titre": "2. mardi : un poème",
+    "paragraphes": [
+     "Lis un court poème et recopie ton vers préféré dans tes notes. cherche qui l'a écrit et quand.",
+     "Un vers prêt pour chaque moment, et ça sonne toujours mieux qu'une citation du feed"
+    ]
+   },
+   "es": {
+    "titre": "2. martes: un poema",
+    "paragraphes": [
+     "Lee un poema corto y copia tu verso favorito en tus notas. busca quién lo escribió y cuándo.",
+     "Un verso listo para cualquier momento, y siempre suena mejor que una frase del feed"
+    ]
+   },
+   "es-419": {
+    "titre": "2. martes: un poema",
+    "paragraphes": [
+     "Lee un poema corto y copia tu verso favorito en tus notas. busca quién lo escribió y cuándo.",
+     "Un verso listo para cualquier momento, y siempre suena mejor que una frase del feed"
+    ]
+   },
+   "it": {
+    "titre": "2. martedì: una poesia",
+    "paragraphes": [
+     "Leggi una breve poesia e copia il tuo verso preferito nelle note. cerca chi l'ha scritta e quando.",
+     "Un verso pronto per ogni momento, e suona sempre meglio di una frase del feed"
+    ]
+   },
+   "tr": {
+    "titre": "2. salı: bir şiir",
+    "paragraphes": [
+     "Kısa bir şiir oku ve en sevdiğin dizeyi notlarına yaz. kimin, ne zaman yazdığına bak.",
+     "Her an için hazır bir dize, ve her zaman akıştaki bir alıntıdan daha güzel durur"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. terça: um poema",
+    "paragraphes": [
+     "Lê um poema curto e copia seu verso favorito nas notas. pesquisa quem escreveu e quando.",
+     "Um verso pronto pra qualquer momento, e sempre soa melhor que uma frase do feed"
+    ]
+   },
+   "sl": {
+    "titre": "2. torek: ena pesem",
+    "paragraphes": [
+     "Preberi kratko pesem in svoj najljubši verz prepiši v zapiske. poišči, kdo jo je napisal in kdaj.",
+     "Verz, pripravljen za vsak trenutek, in vedno zveni bolje kot citat s feeda"
+    ]
+   },
+   "de": {
+    "titre": "2. dienstag: ein gedicht",
+    "paragraphes": [
+     "Lies ein kurzes gedicht und schreib deine lieblingszeile in deine notizen. schau nach, wer es wann geschrieben hat.",
+     "Eine zeile für jeden moment, und sie klingt immer besser als ein spruch aus dem feed"
+    ]
+   },
+   "sk": {
+    "titre": "2. utorok: jedna báseň",
+    "paragraphes": [
+     "Prečítaj si krátku báseň a obľúbený verš si prepíš do poznámok. zisti, kto ju napísal a kedy.",
+     "Verš pripravený na každú chvíľu, a vždy znie lepšie ako citát z feedu"
+    ]
+   },
+   "sv": {
+    "titre": "2. tisdag: en dikt",
+    "paragraphes": [
+     "Läs en kort dikt och skriv av din favoritrad i anteckningarna. ta reda på vem som skrev den och när.",
+     "En rad redo för varje stund, och den låter alltid bättre än ett citat från flödet"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/fleur-ciel-bleu.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. wednesday: one lesson",
+    "paragraphes": [
+     "One lesson a day on Sophia, like why we dream, with a little quiz after. wednesday's is the one I always bring up on thursday.",
+     "Ten minutes, and the middle of the week suddenly has a story"
+    ]
+   },
+   "fr": {
+    "titre": "3. mercredi : une leçon",
+    "paragraphes": [
+     "Une leçon par jour sur Sophia, genre pourquoi on rêve, avec un petit quiz après. celle du mercredi, je la ressors toujours le jeudi.",
+     "Dix minutes, et le milieu de la semaine a soudain une histoire"
+    ]
+   },
+   "es": {
+    "titre": "3. miércoles: una lección",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. la del miércoles siempre la saco el jueves.",
+     "Diez minutos, y la mitad de la semana de repente tiene una historia"
+    ]
+   },
+   "es-419": {
+    "titre": "3. miércoles: una lección",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. la del miércoles siempre la saco el jueves.",
+     "Diez minutos, y la mitad de la semana de pronto tiene una historia"
+    ]
+   },
+   "it": {
+    "titre": "3. mercoledì: una lezione",
+    "paragraphes": [
+     "Una lezione al giorno su Sophia, tipo perché sogniamo, con un piccolo quiz alla fine. quella del mercoledì la tiro sempre fuori il giovedì.",
+     "Dieci minuti, e la metà della settimana ha all'improvviso una storia"
+    ]
+   },
+   "tr": {
+    "titre": "3. çarşamba: bir ders",
+    "paragraphes": [
+     "Her gün Sophia'da bir ders, mesela neden rüya görürüz, sonunda da küçük bir test. çarşambanınkini hep perşembe anlatıyorum.",
+     "On dakika, ve haftanın ortası birden bir hikâyeye kavuşuyor"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. quarta: uma aula",
+    "paragraphes": [
+     "Uma aula por dia no Sophia, tipo por que a gente sonha, com um quiz no final. a de quarta eu sempre conto na quinta.",
+     "Dez minutos, e o meio da semana de repente tem uma história"
+    ]
+   },
+   "sl": {
+    "titre": "3. sreda: ena lekcija",
+    "paragraphes": [
+     "Ena lekcija na dan v aplikaciji Sophia, recimo zakaj sanjamo, na koncu pa kratek kviz. sredino vedno povem v četrtek.",
+     "Deset minut, in sredina tedna ima naenkrat zgodbo"
+    ]
+   },
+   "de": {
+    "titre": "3. mittwoch: eine lektion",
+    "paragraphes": [
+     "Eine lektion am tag auf Sophia, zum beispiel warum wir träumen, mit einem kleinen quiz. die vom mittwoch erzähle ich immer am donnerstag.",
+     "Zehn minuten, und die wochenmitte hat plötzlich eine geschichte"
+    ]
+   },
+   "sk": {
+    "titre": "3. streda: jedna lekcia",
+    "paragraphes": [
+     "Jedna lekcia denne v aplikácii Sophia, napríklad prečo snívame, a na konci malý kvíz. tú stredajšiu vždy vyrozprávam vo štvrtok.",
+     "Desať minút a stred týždňa má zrazu príbeh"
+    ]
+   },
+   "sv": {
+    "titre": "3. onsdag: en lektion",
+    "paragraphes": [
+     "En lektion om dagen på Sophia, som varför vi drömmer, med ett litet quiz efteråt. onsdagens tar jag alltid upp på torsdagen.",
+     "Tio minuter, och mitten av veckan får plötsligt en historia"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/etoiles-vertes.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/pyramide-lune.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. thursday: one scientist",
+    "paragraphes": [
+     "Read the life of one scientist. marie curie was the first person to win nobel prizes in two different sciences.",
+     "Real lives are better than any series, and everyone wants to hear them"
+    ]
+   },
+   "fr": {
+    "titre": "4. jeudi : une scientifique",
+    "paragraphes": [
+     "Lis la vie d'une scientifique. marie curie a été la première personne à recevoir des prix nobel dans deux sciences différentes.",
+     "Les vraies vies valent mieux que n'importe quelle série, et tout le monde veut les entendre"
+    ]
+   },
+   "es": {
+    "titre": "4. jueves: una científica",
+    "paragraphes": [
+     "Lee la vida de una científica. marie curie fue la primera persona en ganar premios nobel en dos ciencias distintas.",
+     "Las vidas reales son mejores que cualquier serie, y todo el mundo quiere oírlas"
+    ]
+   },
+   "es-419": {
+    "titre": "4. jueves: una científica",
+    "paragraphes": [
+     "Lee la vida de una científica. marie curie fue la primera persona en ganar premios nobel en dos ciencias distintas.",
+     "Las vidas reales son mejores que cualquier serie, y todos quieren escucharlas"
+    ]
+   },
+   "it": {
+    "titre": "4. giovedì: una scienziata",
+    "paragraphes": [
+     "Leggi la vita di una scienziata. marie curie è stata la prima persona a vincere premi nobel in due scienze diverse.",
+     "Le vite vere sono meglio di qualsiasi serie, e tutti vogliono sentirle"
+    ]
+   },
+   "tr": {
+    "titre": "4. perşembe: bir bilim insanı",
+    "paragraphes": [
+     "Bir bilim kadınının hayatını oku. marie curie, iki farklı bilim dalında nobel ödülü alan ilk kişiydi.",
+     "Gerçek hayatlar her diziden iyidir, ve herkes dinlemek ister"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. quinta: uma cientista",
+    "paragraphes": [
+     "Lê a vida de uma cientista. marie curie foi a primeira pessoa a ganhar prêmios nobel em duas ciências diferentes.",
+     "Vidas reais são melhores que qualquer série, e todo mundo quer ouvir"
+    ]
+   },
+   "sl": {
+    "titre": "4. četrtek: ena znanstvenica",
+    "paragraphes": [
+     "Preberi življenje ene znanstvenice. marie curie je bila prva oseba z nobelovima nagradama iz dveh različnih ved.",
+     "Resnična življenja so boljša od vsake serije, in vsi jih želijo slišati"
+    ]
+   },
+   "de": {
+    "titre": "4. donnerstag: eine forscherin",
+    "paragraphes": [
+     "Lies das leben einer wissenschaftlerin. marie curie war der erste mensch mit nobelpreisen in zwei verschiedenen wissenschaften.",
+     "Echte leben sind besser als jede serie, und alle wollen sie hören"
+    ]
+   },
+   "sk": {
+    "titre": "4. štvrtok: jedna vedkyňa",
+    "paragraphes": [
+     "Prečítaj si život jednej vedkyne. marie curie bola prvým človekom s nobelovými cenami z dvoch rôznych vied.",
+     "Skutočné životy sú lepšie ako akýkoľvek seriál, a každý ich chce počuť"
+    ]
+   },
+   "sv": {
+    "titre": "4. torsdag: en forskare",
+    "paragraphes": [
+     "Läs om en forskares liv. marie curie var den första personen som fick nobelpris i två olika vetenskaper.",
+     "Riktiga liv är bättre än vilken serie som helst, och alla vill höra dem"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/cafe-baladeur.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/cafe-journal-ecouteurs.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. friday: one song's story",
+    "paragraphes": [
+     "Pick one old song you love and look up the story behind it: who wrote it, for whom, in which year.",
+     "You'll never hear it the same way again, and neither will your friends"
+    ]
+   },
+   "fr": {
+    "titre": "5. vendredi : une chanson",
+    "paragraphes": [
+     "Choisis une vieille chanson que tu aimes et cherche son histoire : qui l'a écrite, pour qui, en quelle année.",
+     "Tu ne l'entendras plus jamais pareil, et tes amis non plus"
+    ]
+   },
+   "es": {
+    "titre": "5. viernes: la historia de una canción",
+    "paragraphes": [
+     "Elige una canción antigua que te encante y busca su historia: quién la escribió, para quién, en qué año.",
+     "Nunca volverás a escucharla igual, y tus amigos tampoco"
+    ]
+   },
+   "es-419": {
+    "titre": "5. viernes: la historia de una canción",
+    "paragraphes": [
+     "Elige una canción vieja que te encante y busca su historia: quién la escribió, para quién, en qué año.",
+     "Nunca la vas a volver a escuchar igual, y tus amigos tampoco"
+    ]
+   },
+   "it": {
+    "titre": "5. venerdì: la storia di una canzone",
+    "paragraphes": [
+     "Scegli una vecchia canzone che ami e cerca la sua storia: chi l'ha scritta, per chi, in che anno.",
+     "Non la sentirai mai più allo stesso modo, e nemmeno i tuoi amici"
+    ]
+   },
+   "tr": {
+    "titre": "5. cuma: bir şarkının hikâyesi",
+    "paragraphes": [
+     "Sevdiğin eski bir şarkı seç ve hikâyesine bak: kim yazdı, kimin için, hangi yıl.",
+     "Onu bir daha asla aynı dinlemezsin, arkadaşların da"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. sexta: a história de uma música",
+    "paragraphes": [
+     "Escolhe uma música antiga que você ama e pesquisa a história dela: quem escreveu, pra quem, em que ano.",
+     "Você nunca mais vai ouvir do mesmo jeito, e seus amigos também não"
+    ]
+   },
+   "sl": {
+    "titre": "5. petek: zgodba ene pesmi",
+    "paragraphes": [
+     "Izberi staro pesem, ki jo imaš rada, in poišči njeno zgodbo: kdo jo je napisal, za koga, katerega leta.",
+     "Nikoli je ne boš več slišala enako, in tudi tvoji prijatelji ne"
+    ]
+   },
+   "de": {
+    "titre": "5. freitag: ein lied",
+    "paragraphes": [
+     "Nimm ein altes lied, das du liebst, und schau dir seine geschichte an: wer hat es geschrieben, für wen, in welchem jahr.",
+     "Du hörst es nie wieder gleich, und deine freunde auch nicht"
+    ]
+   },
+   "sk": {
+    "titre": "5. piatok: príbeh jednej piesne",
+    "paragraphes": [
+     "Vyber si starú pieseň, ktorú máš rada, a zisti jej príbeh: kto ju napísal, pre koho, v ktorom roku.",
+     "Už ju nikdy nebudeš počuť rovnako, a ani tvoji kamaráti"
+    ]
+   },
+   "sv": {
+    "titre": "5. fredag: en låts historia",
+    "paragraphes": [
+     "Välj en gammal låt du älskar och ta reda på dess historia: vem skrev den, för vem, vilket år.",
+     "Du kommer aldrig att höra den likadant igen, och inte dina vänner heller"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c9240f9d-3723-4c91-8dcd-449ab3bc558b"
+}

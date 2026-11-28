@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o368",
+ "type_bleo": "full_test",
+ "titre": "comment j'ai survécu à un changement de manager #manager #travail #carriere #changement #jobtips",
+ "musique_titre": "Gods creation",
+ "musique_url": "https://www.tiktok.com/music/gods-creation-7122459821244155906",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 28/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (changement de manager). Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "40566aa2",
+   "texte_overlay": "comment j'ai survécu\nà un changement\nde manager",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8f98af16",
+   "texte_overlay": "j'ai demandé un point dès la première semaine\n« comment tu aimes travailler ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8b95cdb9",
+   "texte_overlay": "j'ai présenté mes dossiers en 1 page",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8302d1a3",
+   "texte_overlay": "j'ai oublié « avant, on faisait comme ça »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "727ade85",
+   "texte_overlay": "j'ai demandé ses priorités\net je les ai mises en premier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "29773e9c",
+   "texte_overlay": "j'ai appris son domaine\nmes 3 sources : ses posts, ses présentations, 5 minutes par jour",
+   "texte_sophia": "j'ai appris son domaine\nmes 3 sources : ses posts, ses présentations, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f096047e",
+   "texte_overlay": "t'as changé de manager récemment ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

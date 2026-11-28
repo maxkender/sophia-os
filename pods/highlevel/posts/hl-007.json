@@ -1,0 +1,495 @@
+{
+  "id": "hl-007",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7687701353061387522",
+    "vues": 3800000,
+    "publie_le": "2026-09-20",
+    "accroche": "HOW TO TEXT LIKE A MAN NOT A BOY."
+  },
+  "musique": {
+    "titre": "M83 Solitude",
+    "url": "https://www.tiktok.com/music/M83-Solitude-7116098620134394625"
+  },
+  "notes": "Preuve de format : « HOW TO TEXT LIKE A MAN NOT A BOY. » (3,8 M), gabarit « Instead of: / Say: ». Accroche neuve « TEXTS THAT MAKE HER SMILE. ». Carte Artura (4) : « Send her something beautiful. », Seurat, Circus Sideshow (The Met 437654), LOGO d'Artura ; cta A. Fait vérifié : une scène de nuit peinte en petits points de couleur (pointillisme, fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es + sr (latin) le 27/11.",
+  "oeuvres": {
+    "images/oeuvres/seurat-parade.jpg": {
+      "musee": "The Met",
+      "id": "437654",
+      "titre": "Circus Sideshow (Parade de cirque)",
+      "artiste": "Georges Seurat",
+      "date": "1887–88",
+      "url": "https://www.metmuseum.org/art/collection/search/437654"
+    }
+  },
+  "titre": {
+    "en": "Texts that make her smile.",
+    "el": "Μηνύματα που θα την κάνουν να χαμογελάσει.",
+    "es-419": "Mensajes que la hacen sonreír.",
+    "it": "Messaggi che la fanno sorridere.",
+    "hu": "Üzenetek, amiktől mosolyogni fog.",
+    "pt-BR": "Mensagens que fazem ela sorrir.",
+    "es": "Mensajes que la hacen sonreír.",
+    "sr": "Poruke zbog kojih će se nasmejati."
+  },
+  "legendes": {
+    "en": "#textingadvice #datingtips #tipsformen ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar ",
+    "sr": "#savetizamuškarce #veze #zavođenje "
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "en": {
+        "titre": "TEXTS THAT\nMAKE HER SMILE."
+      },
+      "el": {
+        "titre": "ΜΗΝΥΜΑΤΑ ΠΟΥ\nΘΑ ΤΗΝ ΚΑΝΟΥΝ\nΝΑ ΧΑΜΟΓΕΛΑΣΕΙ."
+      },
+      "es-419": {
+        "titre": "MENSAJES QUE\nLA HACEN SONREÍR."
+      },
+      "it": {
+        "titre": "MESSAGGI CHE\nLA FANNO\nSORRIDERE."
+      },
+      "hu": {
+        "titre": "ÜZENETEK,\nAMIKTŐL\nMOSOLYOGNI FOG."
+      },
+      "pt-BR": {
+        "titre": "MENSAGENS QUE\nFAZEM ELA SORRIR."
+      },
+      "es": {
+        "titre": "MENSAJES QUE\nLA HACEN SONREÍR."
+      },
+      "sr": {
+        "titre": "PORUKE ZBOG\nKOJIH ĆE SE\nNASMEJATI."
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Good morning.",
+        "paragraphes": [
+          "**Instead of:**\n“gm”",
+          "**Say:**\n“Morning. Go win today.”"
+        ]
+      },
+      "el": {
+        "titre": "Καλημέρα.",
+        "paragraphes": [
+          "**Αντί για:**\n«κμ»",
+          "**Πες:**\n«Καλημέρα. Σήμερα θα τα σκίσεις.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Buenos días.",
+        "paragraphes": [
+          "**En vez de:**\n“bd”",
+          "**Dile:**\n“Buenos días. Hoy vas a arrasar.”"
+        ]
+      },
+      "it": {
+        "titre": "Buongiorno.",
+        "paragraphes": [
+          "**Invece di:**\n“bgiorno”",
+          "**Scrivi:**\n“Buongiorno. Oggi spacchi tutto.”"
+        ]
+      },
+      "hu": {
+        "titre": "Jó reggelt.",
+        "paragraphes": [
+          "**Ne ezt:**\n„jr”",
+          "**Hanem ezt:**\n„Jó reggelt. Ma mindenkit lenyűgözöl.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Bom dia.",
+        "paragraphes": [
+          "**Em vez de:**\n“bd”",
+          "**Mande:**\n“Bom dia. Hoje você arrasa.”"
+        ]
+      },
+      "es": {
+        "titre": "Buenos días.",
+        "paragraphes": [
+          "**En vez de:**\n“bd”",
+          "**Dile:**\n“Buenos días. Hoy vas a arrasar.”"
+        ]
+      },
+      "sr": {
+        "titre": "Dobro jutro.",
+        "paragraphes": [
+          "**Umesto:**\n„jt”",
+          "**Napiši:**\n„Dobro jutro. Danas ćeš ih sve oduvati.”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "When she has a big day.",
+        "paragraphes": [
+          "**Instead of:**\n“good luck”",
+          "**Say:**\n“You've prepared for this.\nCall me after, I want details.”"
+        ]
+      },
+      "el": {
+        "titre": "Όταν έχει μια σημαντική μέρα.",
+        "paragraphes": [
+          "**Αντί για:**\n«καλή επιτυχία»",
+          "**Πες:**\n«Έχεις προετοιμαστεί. Πάρε με μετά, θέλω λεπτομέρειες.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Cuando tiene un día importante.",
+        "paragraphes": [
+          "**En vez de:**\n“suerte”",
+          "**Dile:**\n“Te preparaste para esto. Llámame después, quiero detalles.”"
+        ]
+      },
+      "it": {
+        "titre": "Quando ha una giornata importante.",
+        "paragraphes": [
+          "**Invece di:**\n“in bocca al lupo”",
+          "**Scrivi:**\n“Ti sei preparata. Chiamami dopo, voglio i dettagli.”"
+        ]
+      },
+      "hu": {
+        "titre": "Ha fontos napja van.",
+        "paragraphes": [
+          "**Ne ezt:**\n„sok sikert”",
+          "**Hanem ezt:**\n„Felkészültél rá. Hívj utána, kíváncsi vagyok mindenre.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Quando ela tem um dia importante.",
+        "paragraphes": [
+          "**Em vez de:**\n“boa sorte”",
+          "**Mande:**\n“Você se preparou. Me liga depois, quero detalhes.”"
+        ]
+      },
+      "es": {
+        "titre": "Cuando tiene un día importante.",
+        "paragraphes": [
+          "**En vez de:**\n“suerte”",
+          "**Dile:**\n“Te has preparado para esto. Llámame después, quiero detalles.”"
+        ]
+      },
+      "sr": {
+        "titre": "Kad ima važan dan.",
+        "paragraphes": [
+          "**Umesto:**\n„srećno”",
+          "**Napiši:**\n„Spremila si se za ovo. Pozovi me posle, hoću detalje.”"
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/seurat-parade.jpg",
+      "en": {
+        "titre": "Send her something beautiful.",
+        "avant": [
+          "**Instead of:** “lol”",
+          "**Say:** “Seurat painted this night\nwith tiny dots of color.\nMade me think of you.”"
+        ],
+        "apres": [
+          "I learn one painting a day on Artura,\nso I always have a story ready."
+        ]
+      },
+      "el": {
+        "titre": "Στείλε της κάτι όμορφο.",
+        "avant": [
+          "**Αντί για:** «χαχα»",
+          "**Πες:** «Ο Σερά ζωγράφισε αυτή τη νύχτα με μικρές τελείες χρώματος. Σε σκέφτηκα.»"
+        ],
+        "apres": [
+          "Μαθαίνω έναν πίνακα τη μέρα στο Artura, οπότε έχω πάντα μια ιστορία έτοιμη."
+        ]
+      },
+      "es-419": {
+        "titre": "Mándale algo bonito.",
+        "avant": [
+          "**En vez de:** “jaja”",
+          "**Dile:** “Seurat pintó esta noche con puntitos de color. Me acordé de ti.”"
+        ],
+        "apres": [
+          "Aprendo un cuadro al día en Artura, así que siempre tengo una historia lista."
+        ]
+      },
+      "it": {
+        "titre": "Mandale qualcosa di bello.",
+        "avant": [
+          "**Invece di:** “ahah”",
+          "**Scrivi:** “Seurat ha dipinto questa sera con piccoli punti di colore. Ho pensato a te.”"
+        ],
+        "apres": [
+          "Imparo un quadro al giorno su Artura, così ho sempre una storia pronta."
+        ]
+      },
+      "hu": {
+        "titre": "Küldj neki valami szépet.",
+        "avant": [
+          "**Ne ezt:** „haha”",
+          "**Hanem ezt:** „Seurat apró színes pöttyökből festette ezt az estét. Rád gondoltam.”"
+        ],
+        "apres": [
+          "Naponta egy festményt tanulok az Artura appban, így mindig van egy kész történetem."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Mande algo bonito para ela.",
+        "avant": [
+          "**Em vez de:** “kkk”",
+          "**Mande:** “Seurat pintou esta noite com pontinhos de cor. Lembrei de você.”"
+        ],
+        "apres": [
+          "Aprendo um quadro por dia no Artura, então sempre tenho uma história pronta."
+        ]
+      },
+      "es": {
+        "titre": "Mándale algo bonito.",
+        "avant": [
+          "**En vez de:** “jaja”",
+          "**Dile:** “Seurat pintó esta noche con puntitos de color. Me he acordado de ti.”"
+        ],
+        "apres": [
+          "Aprendo un cuadro al día en Artura, así que siempre tengo una historia lista."
+        ]
+      },
+      "sr": {
+        "titre": "Pošalji joj nešto lepo.",
+        "avant": [
+          "**Umesto:** „haha”",
+          "**Napiši:** „Sera je naslikao ovo veče sitnim tačkicama boje. Setio sam se tebe.”"
+        ],
+        "apres": [
+          "Učim jednu sliku dnevno u aplikaciji Artura, pa uvek imam spremnu priču."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "When she's had a bad day.",
+        "paragraphes": [
+          "**Instead of:**\n“that sucks”",
+          "**Say:**\n“Want to vent or want to be\ndistracted? I'm good at both.”"
+        ]
+      },
+      "el": {
+        "titre": "Όταν είχε άσχημη μέρα.",
+        "paragraphes": [
+          "**Αντί για:**\n«κρίμα»",
+          "**Πες:**\n«Θες να ξεσπάσεις ή να ξεχαστείς; Είμαι καλός και στα δύο.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Cuando tuvo un mal día.",
+        "paragraphes": [
+          "**En vez de:**\n“qué mal”",
+          "**Dile:**\n“¿Quieres desahogarte o distraerte? Soy bueno en las dos.”"
+        ]
+      },
+      "it": {
+        "titre": "Dopo una brutta giornata.",
+        "paragraphes": [
+          "**Invece di:**\n“che peccato”",
+          "**Scrivi:**\n“Vuoi sfogarti o distrarti? Sono bravo in tutte e due.”"
+        ]
+      },
+      "hu": {
+        "titre": "Ha rossz napja volt.",
+        "paragraphes": [
+          "**Ne ezt:**\n„sajnálom”",
+          "**Hanem ezt:**\n„Ki akarod önteni a lelked, vagy eltereljem a figyelmed? Mindkettőben jó vagyok.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Quando ela teve um dia ruim.",
+        "paragraphes": [
+          "**Em vez de:**\n“que chato”",
+          "**Mande:**\n“Quer desabafar ou se distrair? Sou bom nos dois.”"
+        ]
+      },
+      "es": {
+        "titre": "Cuando ha tenido un mal día.",
+        "paragraphes": [
+          "**En vez de:**\n“qué mal”",
+          "**Dile:**\n“¿Quieres desahogarte o distraerte? Soy bueno en las dos.”"
+        ]
+      },
+      "sr": {
+        "titre": "Kad je imala loš dan.",
+        "paragraphes": [
+          "**Umesto:**\n„baš bez veze”",
+          "**Napiši:**\n„Hoćeš da se izduvaš ili da te razonodim? Dobar sam u oba.”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Before you sleep.",
+        "paragraphes": [
+          "**Instead of:**\n“gn”",
+          "**Say:**\n“Goodnight. Same time tomorrow?”"
+        ]
+      },
+      "el": {
+        "titre": "Πριν κοιμηθείς.",
+        "paragraphes": [
+          "**Αντί για:**\n«καλ»",
+          "**Πες:**\n«Καληνύχτα. Αύριο, ίδια ώρα;»"
+        ]
+      },
+      "es-419": {
+        "titre": "Antes de dormir.",
+        "paragraphes": [
+          "**En vez de:**\n“bn”",
+          "**Dile:**\n“Buenas noches. ¿Mañana a la misma hora?”"
+        ]
+      },
+      "it": {
+        "titre": "Prima di dormire.",
+        "paragraphes": [
+          "**Invece di:**\n“notte”",
+          "**Scrivi:**\n“Buonanotte. Domani stessa ora?”"
+        ]
+      },
+      "hu": {
+        "titre": "Lefekvés előtt.",
+        "paragraphes": [
+          "**Ne ezt:**\n„jóéjt”",
+          "**Hanem ezt:**\n„Jó éjt. Holnap ugyanekkor?”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Antes de dormir.",
+        "paragraphes": [
+          "**Em vez de:**\n“bn”",
+          "**Mande:**\n“Boa noite. Amanhã, mesma hora?”"
+        ]
+      },
+      "es": {
+        "titre": "Antes de dormir.",
+        "paragraphes": [
+          "**En vez de:**\n“bn”",
+          "**Dile:**\n“Buenas noches. ¿Mañana a la misma hora?”"
+        ]
+      },
+      "sr": {
+        "titre": "Pre spavanja.",
+        "paragraphes": [
+          "**Umesto:**\n„lp”",
+          "**Napiši:**\n„Laku noć. Sutra u isto vreme?”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "Short is fine. Lazy is not.",
+          "**A boy sends words.**\n**A man sends a feeling.**"
+        ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Το σύντομο είναι εντάξει. Το βαριεστημένο όχι.",
+          "**Το αγόρι στέλνει λέξεις.**\n**Ο άντρας στέλνει συναίσθημα.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Corto está bien. Flojo, no.",
+          "**Un niño manda palabras.**\n**Un hombre manda emociones.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "Breve va bene. Pigro no.",
+          "**Un ragazzino manda parole.**\n**Un uomo manda emozioni.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "A rövid rendben van. A lusta nem.",
+          "**A kisfiú szavakat küld.**\n**A férfi érzést küld.**"
+        ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Curto, tudo bem. Preguiçoso, não.",
+          "**O garoto manda palavras.**\n**O homem manda sentimento.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Corto está bien. Vago, no.",
+          "**Un niño manda palabras.**\n**Un hombre manda emociones.**"
+        ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Kratko je u redu. Lenjo nije.",
+          "**Dečak šalje reči.**\n**Muškarac šalje osećaj.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
+      }
+    }
+  ]
+}

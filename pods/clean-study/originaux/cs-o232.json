@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o232",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "a07505e9-f7b3-45eb-aa09-9fff7aab1fe5",
+  "titre": "how i take notes when the teacher talks way too fast #studytok #studytips #notetaking",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [
+    "a07505e9-f7b3-45eb-aa09-9fff7aab1fe5"
+  ],
+  "notes": "Déclinaison G1 de a07505e9 (notre cs-o114), ligne 10 de la boîte, 2e déclinaison de la famille. Accroche du parent mot pour mot. Gestes neufs, aucun du parent ni de cs-o114. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b699add0",
+      "texte_overlay": "how i take notes when the teacher\ntalks way too fast",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e8c7780f",
+      "texte_overlay": "i read the chapter before class.\nhalf of it i already know.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "1d4f131f",
+      "texte_overlay": "i listen for signal words.\n\"important\", \"remember\", \"first\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "bdc42156",
+      "texte_overlay": "numbers, names and dates: always.\nexplanations: in my own words, later.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "f56153fc",
+      "texte_overlay": "i draw small boxes around definitions.\neasy to find when revising.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "d841d2b4",
+      "texte_overlay": "i look up the names i didn't know.\nwho they were, when they lived.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "i look up the names i didn't know\non a micro-learning app like the Sophia app.\nwho they were, when they lived."
+    },
+    {
+      "position": 7,
+      "media_id": "1e0ec38c",
+      "texte_overlay": "that evening, i turn my notes into 5 questions.\nmy future quiz.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,538 @@
+{
+ "id": "tg-010",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 solo hobbies that actually work if you have adhd",
+  "bg": "10/10 соло хобита, които наистина работят, ако имаш адхд",
+  "de": "10/10 solo-hobbys, die bei adhs wirklich funktionieren",
+  "el": "10/10 χόμπι για μόνους που δουλεύουν αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies en solitario que sí funcionan si tienes tdah",
+  "fr": "10/10 loisirs en solo qui marchent quand on a un tdah",
+  "hu": "10/10 egyedül űzhető hobbi, ami tényleg működik, ha adhd-s vagy",
+  "it": "10/10 hobby da fare da soli che funzionano se hai l'adhd",
+  "pt-BR": "10/10 hobbies solo que funcionam de verdade se você tem tdah",
+  "sr": "10/10 hobija za sebe koji stvarno pomažu ako imaš adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #solo #focus #brain",
+  "bg": "#адхд #хобита #сама #фокус #мозък",
+  "de": "#adhs #hobbys #allein #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #μόνος #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #solo #enfoque #cerebro",
+  "fr": "#tdah #loisirs #solo #concentration #cerveau",
+  "hu": "#adhd #hobbi #egyedül #fókusz #agy",
+  "it": "#adhd #hobby #dasoli #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #sozinha #foco #cerebro",
+  "sr": "#adhd #hobi #sam #fokus #mozak"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 solo hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (09863ee8), slide Artura sur un tableau ou un musée de la banque (0c839a5a), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-colline.jpg": "09863ee8-3a96-4232-8d2c-eb8528ef2e27",
+  "images/banque/a-galerie2.jpg": "0c839a5a-827d-4442-82c1-6e774a3fd4bd"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 solo hobbies that actually\nwork if you have adhd",
+    "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 соло хобита, които\nнаистина работят при адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 solo-hobbys, die bei\nadhs wirklich funktionieren",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι για μόνους που\nδουλεύουν αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies en solitario que\nsí funcionan si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs en solo qui\nmarchent quand on a un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 egyéni hobbi, ami\ntényleg működik, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby da fare da soli\nche funzionano se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies solo que\nfuncionam de verdade com tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 hobija za sebe koji\nstvarno pomažu ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/argentique.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "film photography",
+    "accroche": "only _36 shots_, so you _choose_",
+    "colonne": [
+     "a limited roll makes you notice light and stop before you shoot, and waiting for the photos is a _small thrill_"
+    ],
+    "chute": "a cheap secondhand camera and one roll"
+   },
+   "bg": {
+    "nom": "лентова фотография",
+    "accroche": "само _36 кадъра_, затова _избираш_",
+    "colonne": [
+     "ограничената лента те кара да забелязваш светлината, а чакането на снимките е _малка тръпка_"
+    ],
+    "chute": "евтин стар фотоапарат и една лента"
+   },
+   "de": {
+    "nom": "analogfotografie",
+    "accroche": "nur _36 bilder_, also _wählst du_",
+    "colonne": [
+     "ein begrenzter film lässt dich auf licht achten, bevor du abdrückst, und das warten auf die bilder ist ein _kleiner kick_"
+    ],
+    "chute": "eine günstige gebrauchte kamera und ein film"
+   },
+   "el": {
+    "nom": "φωτογραφία με φιλμ",
+    "accroche": "μόνο _36 λήψεις_, άρα _διαλέγεις_",
+    "colonne": [
+     "το φιλμ σε κάνει να προσέχεις το φως πριν τραβήξεις, και η αναμονή είναι μια _μικρή συγκίνηση_"
+    ],
+    "chute": "μια φθηνή μεταχειρισμένη μηχανή και ένα φιλμ"
+   },
+   "es-419": {
+    "nom": "fotografía de rollo",
+    "accroche": "solo _36 fotos_, así que _eliges_",
+    "colonne": [
+     "un rollo limitado te hace fijarte en la luz antes de disparar, y esperar las fotos es una _pequeña emoción_"
+    ],
+    "chute": "una cámara usada barata y un rollo"
+   },
+   "fr": {
+    "nom": "la photo argentique",
+    "accroche": "seulement _36 photos_, alors tu _choisis_",
+    "colonne": [
+     "une pellicule limitée t'apprend à regarder la lumière avant de déclencher, et attendre les tirages est un _petit frisson_"
+    ],
+    "chute": "un appareil d'occasion pas cher et une pellicule"
+   },
+   "hu": {
+    "nom": "analóg fotózás",
+    "accroche": "csak _36 kocka_, ezért _választasz_",
+    "colonne": [
+     "a korlátozott tekercs miatt figyelsz a fényre és megállsz exponálás előtt, a képekre várni pedig _kis izgalom_"
+    ],
+    "chute": "egy olcsó használt gép és egy tekercs"
+   },
+   "it": {
+    "nom": "la fotografia a pellicola",
+    "accroche": "solo _36 scatti_, quindi _scegli_",
+    "colonne": [
+     "un rullino limitato ti fa notare la luce prima di scattare, e aspettare le foto è un _piccolo brivido_"
+    ],
+    "chute": "una macchina usata economica e un rullino"
+   },
+   "pt-BR": {
+    "nom": "fotografia analógica",
+    "accroche": "só _36 fotos_, então você _escolhe_",
+    "colonne": [
+     "um filme limitado faz você notar a luz e parar antes de clicar, e esperar a revelação é uma _pequena emoção_"
+    ],
+    "chute": "uma câmera usada barata e um filme"
+   },
+   "sr": {
+    "nom": "analogna fotografija",
+    "accroche": "samo _36 snimaka_, pa _biraš_",
+    "colonne": [
+     "ograničen film te tera da primetiš svetlo i staneš pre okidanja, a čekanje na slike je _malo uzbuđenje_"
+    ],
+    "chute": "jeftin polovan aparat i jedan film"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-colline.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "nom": "running alone",
+    "accroche": "just you, a _playlist_ and a _plan_",
+    "colonne": [
+     "a solo run lets a busy brain sort its thoughts, and a weekly plan gives it a _clear next step_",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "same time, three days a week"
+   },
+   "bg": {
+    "nom": "бягане сама",
+    "accroche": "само ти, _плейлист_ и _план_",
+    "colonne": [
+     "самостоятелното бягане подрежда пълната глава, а планът дава _следваща стъпка_",
+     "_съвет_: atala нагласява бяганията ми около целта ми и ги променя всяка седмица"
+    ],
+    "chute": "същия час, три пъти седмично"
+   },
+   "de": {
+    "nom": "allein laufen",
+    "accroche": "nur du, eine _playlist_ und ein _plan_",
+    "colonne": [
+     "allein zu laufen sortiert einen vollen kopf, und ein plan gibt den _nächsten schritt_",
+     "_pro tipp_: atala baut meine läufe um mein ziel herum und passt sie jede woche an"
+    ],
+    "chute": "gleiche uhrzeit, dreimal pro woche"
+   },
+   "el": {
+    "nom": "τρέξιμο μόνος",
+    "accroche": "μόνο εσύ, μια _playlist_ και ένα _πλάνο_",
+    "colonne": [
+     "το τρέξιμο βάζει σε τάξη ένα γεμάτο μυαλό, και το πλάνο δίνει το _επόμενο βήμα_",
+     "_μικρό tip_: το atala χτίζει τα τρεξίματά μου γύρω από τον στόχο μου και τα προσαρμόζει κάθε εβδομάδα"
+    ],
+    "chute": "ίδια ώρα, τρεις μέρες τη βδομάδα"
+   },
+   "es-419": {
+    "nom": "correr a solas",
+    "accroche": "solo tú, una _playlist_ y un _plan_",
+    "colonne": [
+     "correr a solas ayuda a un cerebro lleno a ordenar sus ideas, y un plan semanal le da el _siguiente paso_",
+     "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
+    ],
+    "chute": "misma hora, tres días por semana"
+   },
+   "fr": {
+    "nom": "courir seul",
+    "accroche": "juste toi, une _playlist_ et un _plan_",
+    "colonne": [
+     "courir seul aide un cerveau chargé à trier ses pensées, et un plan lui donne une _prochaine étape_",
+     "_petite astuce_: atala construit mes sorties autour de mon objectif et les ajuste chaque semaine"
+    ],
+    "chute": "même heure, trois jours par semaine"
+   },
+   "hu": {
+    "nom": "egyedül futni",
+    "accroche": "csak te, egy _lejátszási lista_ és egy _terv_",
+    "colonne": [
+     "egy egyéni futás alatt a zsúfolt agy rendezi a gondolatait, a heti terv pedig _világos következő lépést_ ad",
+     "_pro tip_: az atala a célomhoz igazítja a futásaimat, és minden héten finomít rajtuk"
+    ],
+    "chute": "ugyanakkor, heti három nap"
+   },
+   "it": {
+    "nom": "correre da soli",
+    "accroche": "solo tu, una _playlist_ e un _piano_",
+    "colonne": [
+     "correre da soli aiuta un cervello pieno a mettere ordine, e un piano settimanale gli dà il _prossimo passo_",
+     "_piccolo consiglio_: atala costruisce le mie corse intorno al mio obiettivo e le adatta ogni settimana"
+    ],
+    "chute": "stessa ora, tre giorni a settimana"
+   },
+   "pt-BR": {
+    "nom": "correr sozinha",
+    "accroche": "só você, uma _playlist_ e um _plano_",
+    "colonne": [
+     "correr sozinha deixa a cabeça cheia se organizar, e um plano dá o _próximo passo_",
+     "_dica_: o atala monta minhas corridas em torno do meu objetivo e ajusta toda semana"
+    ],
+    "chute": "mesmo horário, três vezes por semana"
+   },
+   "sr": {
+    "nom": "trčanje solo",
+    "accroche": "samo ti, _plejlista_ i _plan_",
+    "colonne": [
+     "solo trčanje pomaže prenatrpanom mozgu da složi misli, a nedeljni plan mu daje _jasan sledeći korak_",
+     "_pro tip_: atala pravi moja trčanja prema mom cilju i prilagođava ih svake nedelje"
+    ],
+    "chute": "isto vreme, tri dana nedeljno"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/cuisine.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "cooking one new recipe",
+    "accroche": "a _clear list_ of steps and a _reward_ at the end",
+    "colonne": [
+     "chopping and timing keep your hands busy, and dinner is proof you _finished_ something"
+    ],
+    "chute": "one new recipe every sunday"
+   },
+   "bg": {
+    "nom": "нова рецепта",
+    "accroche": "_ясен списък_ стъпки и _награда_ накрая",
+    "colonne": [
+     "рязането и времето заемат ръцете, а вечерята е доказателство, че си _завършила_ нещо"
+    ],
+    "chute": "по една нова рецепта всяка неделя"
+   },
+   "de": {
+    "nom": "ein neues rezept kochen",
+    "accroche": "eine _klare liste_ und eine _belohnung_ am ende",
+    "colonne": [
+     "schneiden und timing beschäftigen die hände, und das essen ist der beweis, dass du etwas _fertig_ gemacht hast"
+    ],
+    "chute": "jeden sonntag ein neues rezept"
+   },
+   "el": {
+    "nom": "μια καινούργια συνταγή",
+    "accroche": "μια _καθαρή λίστα_ και μια _ανταμοιβή_ στο τέλος",
+    "colonne": [
+     "το κόψιμο και ο χρόνος απασχολούν τα χέρια, και το φαγητό αποδεικνύει ότι _τελείωσες_ κάτι"
+    ],
+    "chute": "μια νέα συνταγή κάθε κυριακή"
+   },
+   "es-419": {
+    "nom": "cocinar una receta nueva",
+    "accroche": "una _lista clara_ y un _premio_ al final",
+    "colonne": [
+     "picar y medir tiempos ocupa tus manos, y la cena es la prueba de que _terminaste_ algo"
+    ],
+    "chute": "una receta nueva cada domingo"
+   },
+   "fr": {
+    "nom": "cuisiner une nouvelle recette",
+    "accroche": "une _liste claire_ et une _récompense_ à la fin",
+    "colonne": [
+     "couper et surveiller occupe tes mains, et le dîner prouve que tu as _fini_ quelque chose"
+    ],
+    "chute": "une nouvelle recette chaque dimanche"
+   },
+   "hu": {
+    "nom": "egy új recept",
+    "accroche": "_tiszta lépések_ és _jutalom_ a végén",
+    "colonne": [
+     "a vágás és az időzítés lefoglalja a kezed, a vacsora pedig bizonyíték, hogy _befejeztél_ valamit"
+    ],
+    "chute": "minden vasárnap egy új recept"
+   },
+   "it": {
+    "nom": "cucinare una ricetta nuova",
+    "accroche": "una _lista chiara_ e un _premio_ alla fine",
+    "colonne": [
+     "tagliare e cronometrare tiene occupate le mani, e la cena è la prova che hai _finito_ qualcosa"
+    ],
+    "chute": "una ricetta nuova ogni domenica"
+   },
+   "pt-BR": {
+    "nom": "cozinhar uma receita nova",
+    "accroche": "uma _lista clara_ de passos e um _prêmio_ no fim",
+    "colonne": [
+     "cortar e cronometrar ocupam as mãos, e o jantar é a prova de que você _terminou_ algo"
+    ],
+    "chute": "uma receita nova todo domingo"
+   },
+   "sr": {
+    "nom": "jedan novi recept",
+    "accroche": "_jasni koraci_ i _nagrada_ na kraju",
+    "colonne": [
+     "seckanje i tajming drže ruke zauzetim, a večera je dokaz da si nešto _završio_"
+    ],
+    "chute": "jedan novi recept svake nedelje"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-galerie2.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "going to a museum alone",
+    "accroche": "no one to follow, _your own pace_",
+    "colonne": [
+     "you skip what bores you and stay as long as you want in front of one painting",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "pick one room, one hour, then leave"
+   },
+   "bg": {
+    "nom": "музей сама",
+    "accroche": "никой за следване, _твоето темпо_",
+    "colonne": [
+     "прескачаш скучното и стоиш колкото искаш пред една картина",
+     "_съвет_: artura ми дава по една картина на ден и историята зад нея, за няколко минути"
+    ],
+    "chute": "една зала, един час, после си тръгваш"
+   },
+   "de": {
+    "nom": "allein ins museum",
+    "accroche": "niemand, dem du folgst, _dein tempo_",
+    "colonne": [
+     "du überspringst, was dich langweilt, und bleibst so lange vor einem gemälde, wie du willst",
+     "_pro tipp_: artura zeigt mir jeden tag ein gemälde und die geschichte dahinter, in ein paar minuten"
+    ],
+    "chute": "ein raum, eine stunde, dann gehst du"
+   },
+   "el": {
+    "nom": "μουσείο μόνος",
+    "accroche": "κανείς να ακολουθείς, _δικός σου ρυθμός_",
+    "colonne": [
+     "προσπερνάς ό,τι σε βαριέται και μένεις όσο θες μπροστά σε έναν πίνακα",
+     "_μικρό tip_: το artura μου δίνει έναν πίνακα τη μέρα και την ιστορία του, σε λίγα λεπτά"
+    ],
+    "chute": "μία αίθουσα, μία ώρα, και φεύγεις"
+   },
+   "es-419": {
+    "nom": "ir solo al museo",
+    "accroche": "nadie a quien seguir, _tu propio ritmo_",
+    "colonne": [
+     "te saltas lo que te aburre y te quedas lo que quieras frente a una pintura",
+     "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
+    ],
+    "chute": "una sala, una hora, y te vas"
+   },
+   "fr": {
+    "nom": "aller au musée tout seul",
+    "accroche": "personne à suivre, _ton propre rythme_",
+    "colonne": [
+     "tu sautes ce qui t'ennuie et tu restes aussi longtemps que tu veux devant un tableau",
+     "_petite astuce_: artura me donne un tableau par jour et son histoire, en quelques minutes"
+    ],
+    "chute": "une salle, une heure, puis tu pars"
+   },
+   "hu": {
+    "nom": "egyedül múzeumba menni",
+    "accroche": "senkit sem kell követni, _a saját tempód_",
+    "colonne": [
+     "átugrod, ami untat, és annyit állsz egy festmény előtt, amennyit csak akarsz",
+     "_pro tip_: az artura minden nap ad egy festményt és a mögötte lévő történetet, pár perc alatt"
+    ],
+    "chute": "egy terem, egy óra, aztán indulsz"
+   },
+   "it": {
+    "nom": "andare al museo da soli",
+    "accroche": "nessuno da seguire, _il tuo ritmo_",
+    "colonne": [
+     "salti quello che ti annoia e resti quanto vuoi davanti a un dipinto",
+     "_piccolo consiglio_: artura mi dà un dipinto al giorno e la sua storia, in pochi minuti"
+    ],
+    "chute": "una sala, un'ora, poi esci"
+   },
+   "pt-BR": {
+    "nom": "ir ao museu sozinha",
+    "accroche": "ninguém pra seguir, _no seu ritmo_",
+    "colonne": [
+     "você pula o que entedia e fica o quanto quiser na frente de uma pintura",
+     "_dica_: o artura me dá uma pintura por dia e a história por trás dela, em poucos minutos"
+    ],
+    "chute": "uma sala, uma hora, e pronto"
+   },
+   "sr": {
+    "nom": "sam u muzej",
+    "accroche": "ne pratiš nikoga, _svojim tempom_",
+    "colonne": [
+     "preskočiš ono što ti je dosadno i stojiš ispred jedne slike koliko god želiš",
+     "_pro tip_: artura mi daje jednu sliku dnevno i priču iza nje, za par minuta"
+    ],
+    "chute": "jedna sala, jedan sat, pa izlaziš"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/journal.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "journaling",
+    "accroche": "your thoughts _out of your head_ and _onto paper_",
+    "colonne": [
+     "writing slows a racing mind down to the speed of your hand, and the page _doesn't judge_"
+    ],
+    "chute": "three lines before bed is enough"
+   },
+   "bg": {
+    "nom": "дневник",
+    "accroche": "мислите _извън главата_ и _на хартия_",
+    "colonne": [
+     "писането забавя препускащия ум до скоростта на ръката, а страницата _не съди_"
+    ],
+    "chute": "три реда преди лягане стигат"
+   },
+   "de": {
+    "nom": "tagebuch schreiben",
+    "accroche": "gedanken _raus aus dem kopf_, _aufs papier_",
+    "colonne": [
+     "schreiben bremst einen rasenden kopf auf das tempo deiner hand, und die seite _urteilt nicht_"
+    ],
+    "chute": "drei zeilen vor dem schlafen reichen"
+   },
+   "el": {
+    "nom": "ημερολόγιο",
+    "accroche": "οι σκέψεις _έξω από το κεφάλι_ και _στο χαρτί_",
+    "colonne": [
+     "το γράψιμο φέρνει ένα μυαλό που τρέχει στην ταχύτητα του χεριού, και η σελίδα _δεν κρίνει_"
+    ],
+    "chute": "τρεις γραμμές πριν τον ύπνο αρκούν"
+   },
+   "es-419": {
+    "nom": "escribir un diario",
+    "accroche": "tus ideas _fuera de tu cabeza_ y _en papel_",
+    "colonne": [
+     "escribir baja una mente acelerada a la velocidad de tu mano, y la hoja _no te juzga_"
+    ],
+    "chute": "tres líneas antes de dormir son suficientes"
+   },
+   "fr": {
+    "nom": "tenir un journal",
+    "accroche": "tes pensées _hors de ta tête_, _sur le papier_",
+    "colonne": [
+     "écrire ralentit un esprit qui s'emballe à la vitesse de ta main, et la page _ne juge pas_"
+    ],
+    "chute": "trois lignes avant de dormir suffisent"
+   },
+   "hu": {
+    "nom": "naplóírás",
+    "accroche": "a gondolataid _a fejedből_ _a papírra_",
+    "colonne": [
+     "az írás a kezed tempójára lassítja a száguldó gondolatokat, és a lap _nem ítélkezik_"
+    ],
+    "chute": "lefekvés előtt három sor is elég"
+   },
+   "it": {
+    "nom": "tenere un diario",
+    "accroche": "i pensieri _fuori dalla testa_ e _sulla carta_",
+    "colonne": [
+     "scrivere rallenta una mente che corre alla velocità della mano, e la pagina _non giudica_"
+    ],
+    "chute": "tre righe prima di dormire bastano"
+   },
+   "pt-BR": {
+    "nom": "escrever um diário",
+    "accroche": "os pensamentos _fora da cabeça_ e _no papel_",
+    "colonne": [
+     "escrever desacelera a mente acelerada até a velocidade da mão, e a página _não julga_"
+    ],
+    "chute": "três linhas antes de dormir já bastam"
+   },
+   "sr": {
+    "nom": "pisanje dnevnika",
+    "accroche": "misli _iz glave_ _na papir_",
+    "colonne": [
+     "pisanje usporava trkački um na brzinu tvoje ruke, a papir _ne osuđuje_"
+    ],
+    "chute": "tri reda pred spavanje su dovoljna"
+   }
+  }
+ ]
+}

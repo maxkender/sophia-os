@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o333",
+ "type_bleo": "full_test",
+ "titre": "signs you're quietly more ambitious than most #ambition #goals #discipline #mindset #signs",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "3bd02f3a-f092-4cb5-b051-5035c3f9f16a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 3bd02f3a). full test BLEO : accroche jamais faite (format « signs you're quietly more X than most »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "abdd5fe5-1370-4401-b2c0-9b468338f805",
+   "texte_overlay": "signs you're quietly\nmore ambitious than most",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c7a1dbba-461c-410b-8f6b-3974dad74b33",
+   "texte_overlay": "you don't announce your plans\n\nyou work on your goals quietly instead of talking about them. you'd rather show people results one day than spend your energy explaining what you might do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "06a480f4-58f6-4c1c-8a10-e218981fde5f",
+   "texte_overlay": "you enjoy boring progress\n\nyou're happy to do the same small task every day, because you know that's how big things are actually built. consistency excites you more than quick wins do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "28451042-87e6-41df-94ac-c94e093ac57e",
+   "texte_overlay": "you get restless when you stop growing\n\na few weeks without learning or improving makes you uneasy. that quiet itch to keep moving forward is a strong and honest sign of real, lasting ambition.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "43a2573b-2615-495e-8a58-a3e5f4eb2a81",
+   "texte_overlay": "you learn outside your field\n\nambitious people stay curious about everything, and they collect knowledge a little every day. knowledge from other fields gives them ideas nobody around them has.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/5.jpg",
+   "texte_sophia": "you learn outside your field\n\nambitious people stay curious about everything. the Sophia app turns it into one short lesson a day, history or science, and 5 minutes outside your field gives you a real edge."
+  },
+  {
+   "position": 6,
+   "media_id": "16f05bc1-01a2-4237-ae97-0c95c9c3b3cf",
+   "texte_overlay": "you protect your time\n\nyou say no to plans and distractions that pull you away from what matters. guarding your hours is how quiet ambition slowly turns into something people finally notice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/6.jpg"
+  }
+ ]
+}

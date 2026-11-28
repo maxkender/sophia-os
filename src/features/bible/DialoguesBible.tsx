@@ -15,9 +15,11 @@ import { cn } from "@/lib/utils";
 
 import { resoudreLiens } from "./api";
 import {
-  ajouterComptes, type CarteLabel, carteDuLabel, carteValidable, type CompteBible, creerCarte, detacherCarte, fusionnerCartes, handlesDuTexte, type LabelOs, labelsSansBloc, LIBELLE_BADGE, marquerPodz, modifierCarte,
+  ajouterComptes, type CarteLabel, type GenreLabel, carteDuLabel, carteValidable, type CompteBible, creerCarte, detacherCarte, fusionnerCartes, handlesDuTexte, type LabelOs, labelsSansBloc, LIBELLE_BADGE, marquerPodz, modifierCarte,
   nomCarte, PREFIXE_LABEL, rafraichirMiniatures, rattacherCarte, REMARQUE_UGC, type Section, SECTIONS, sectionsApps, validerCarte,
 } from "./moodboard";
+import { genreDuLabel } from "@/features/moteur/themeLabel";
+
 import { lienCompte, nomLabelValide } from "./parse";
 
 const CHAMP = "h-9 w-full rounded-lg border border-stone-200 bg-white px-3 text-sm dark:border-stone-700 dark:bg-stone-900";
@@ -54,8 +56,26 @@ function ChoixCarte({ cartes, valeur, onChange, sections: filtre, labelsLibres =
   );
 }
 
-function NouveauLabel({ section, onSection, nom, onNom, description, onDescription, creer, onCreer }: {
+/** Le genre choisi, sinon celui que le nom dit clairement (`male_gym`, `asia_girl`, `looksmaxxing_man`), sinon rien. */
+function genreDe(choisi: GenreLabel | null, nom: string): GenreLabel | null {
+  return choisi ?? genreDuLabel(nom);
+}
+
+/** Le choix du genre des comptes d'un label (prénom, bio, photo de profil). */
+function ChoixGenre({ genre, onGenre }: { genre: GenreLabel | null; onGenre: (g: GenreLabel) => void }) {
+  return (
+    <select className={cn(CHAMP, !genre && "text-stone-400")} value={genre ?? ""} onChange={(e) => onGenre(e.target.value as GenreLabel)} aria-label="Genre des comptes">
+      <option value="" disabled>Genre des comptes…</option>
+      <option value="femme">Comptes femme</option>
+      <option value="homme">Comptes homme</option>
+    </select>
+  );
+}
+
+function NouveauLabel({ section, onSection, nom, onNom, description, onDescription, genre, onGenre, creer, onCreer }: {
   section: Section; onSection: (s: Section) => void; nom: string; onNom: (s: string) => void; description: string; onDescription: (s: string) => void;
+  /** Le genre des comptes du label : obligatoire. */
+  genre: GenreLabel | null; onGenre: (g: GenreLabel) => void;
   /** Créer le label dans l'OS tout de suite, au lieu de le laisser en proposition (absent : pas d'option). */
   creer?: boolean; onCreer?: (b: boolean) => void;
 }) {
@@ -68,6 +88,7 @@ function NouveauLabel({ section, onSection, nom, onNom, description, onDescripti
         </select>
       </div>
       <input className={CHAMP} placeholder="La DA en une ligne (photos, texte, couleur, vibe)" value={description} onChange={(e) => onDescription(e.target.value)} />
+      <ChoixGenre genre={genre} onGenre={onGenre} />
       {nom && !nomLabelValide(nom) && <p className="text-xs text-destructive">Le nom : minuscules, chiffres et _ (ex. study_notes).</p>}
       {onCreer && section !== "idees" ? (
         <label className="flex items-start gap-2 text-xs text-stone-600 dark:text-stone-300">
@@ -96,18 +117,20 @@ export function DialogueChoixLabel({ cible, titre, bouton, sansLabel = false, ai
   const [nom, setNom] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [creer, setCreer] = React.useState(false);
+  const [genreChoisi, setGenreChoisi] = React.useState<GenreLabel | null>(null);
+  const genre = genreDe(genreChoisi, nom);
   const [erreur, setErreur] = React.useState<string | null>(null);
   const [occupe, setOccupe] = React.useState(false);
   const handle = cible?.handle;
   const initiale = cible?.valeur;
-  React.useEffect(() => { setValeur(initiale ?? ""); setErreur(null); setNom(""); setDescription(""); setCreer(false); }, [handle, initiale]);
+  React.useEffect(() => { setValeur(initiale ?? ""); setErreur(null); setNom(""); setDescription(""); setCreer(false); setGenreChoisi(null); }, [handle, initiale]);
   const valider = async () => {
     setOccupe(true);
     setErreur(null);
     try {
       let carte: CarteLabel | null;
       if (valeur === NOUVEAU) {
-        carte = await creerCarte({ nom, section, description });
+        carte = await creerCarte({ nom, section, description, genre });
         // « Créer tout de suite » : la proposition devient un vrai label de l'OS, le bloc passe à « existe ».
         if (creer && carteValidable(carte)) carte = { ...carte, label_id: await validerCarte(carte.id), badge: "existe", statut: "valide" };
       } else {
@@ -131,13 +154,13 @@ export function DialogueChoixLabel({ cible, titre, bouton, sansLabel = false, ai
         <DialogPanel className="space-y-3 pb-5">
           <ChoixCarte cartes={cartes} valeur={valeur} onChange={setValeur} labelsLibres={labelsSansBloc(labels, cartes)} />
           {valeur === NOUVEAU && (
-            <NouveauLabel section={section} onSection={setSection} nom={nom} onNom={setNom} description={description} onDescription={setDescription} creer={creer} onCreer={setCreer} />
+            <NouveauLabel section={section} onSection={setSection} nom={nom} onNom={setNom} description={description} onDescription={setDescription} genre={genre} onGenre={setGenreChoisi} creer={creer} onCreer={setCreer} />
           )}
           {aide && <p className="text-[11px] text-stone-500">{aide}</p>}
           {erreur && <p className="text-sm text-destructive">{erreur}</p>}
           <div className="flex justify-end gap-2">
             <Button variant="outline" onClick={onFermer}>Annuler</Button>
-            <Button onClick={valider} disabled={occupe || (!valeur && !sansLabel) || (valeur === NOUVEAU && !nomLabelValide(nom))}>{bouton}</Button>
+            <Button onClick={valider} disabled={occupe || (!valeur && !sansLabel) || (valeur === NOUVEAU && (!nomLabelValide(nom) || !genre))}>{bouton}</Button>
           </div>
         </DialogPanel>
       </DialogPopup>
@@ -183,11 +206,14 @@ export function DialogueCarte({ carte, labels, cartes, nbComptes, sectionDe, onF
   const [nom, setNom] = React.useState("");
   const [section, setSection] = React.useState<Section>("sophia");
   const [description, setDescription] = React.useState("");
+  const [genreChoisi, setGenreChoisi] = React.useState<GenreLabel | null>(null);
+  const genre = genreDe(genreChoisi, nom);
   const [erreur, setErreur] = React.useState<string | null>(null);
   const [occupe, setOccupe] = React.useState(false);
   React.useEffect(() => {
     setLabelId(""); setErreur(null);
     setNom(carte?.nom ?? ""); setSection(carte?.section ?? "sophia"); setDescription(carte?.description_da ?? "");
+    setGenreChoisi(carte?.genre ?? null);
   }, [carte]);
   const faire = async (f: () => Promise<{ message: string; annuler?: () => Promise<string> }>) => {
     setOccupe(true);
@@ -231,7 +257,7 @@ export function DialogueCarte({ carte, labels, cartes, nbComptes, sectionDe, onF
     });
   };
   const enregistrer = () => faire(async () => {
-    await modifierCarte(carte!.id, { nom, section, description });
+    await modifierCarte(carte!.id, { nom, section, description, genre });
     return { message: `Le label proposé s'appelle ${nom}.` };
   });
   return (
@@ -269,9 +295,10 @@ export function DialogueCarte({ carte, labels, cartes, nbComptes, sectionDe, onF
               </select>
             </div>
             <input className={CHAMP} aria-label="DA du label" placeholder="La DA en une ligne (photos, texte, couleur, vibe)" value={description} onChange={(e) => setDescription(e.target.value)} />
+            <ChoixGenre genre={genre} onGenre={setGenreChoisi} />
             {nom && !nomLabelValide(nom) && <p className="text-xs text-destructive">Le nom : minuscules, chiffres et _ (ex. study_notes).</p>}
             <div className="flex justify-end">
-              <Button variant="outline" onClick={enregistrer} disabled={occupe || !nomLabelValide(nom)}>Enregistrer</Button>
+              <Button variant="outline" onClick={enregistrer} disabled={occupe || !nomLabelValide(nom) || !genre}>Enregistrer</Button>
             </div>
           </div>
           {erreur && <p className="text-sm text-destructive">{erreur}</p>}
@@ -366,6 +393,8 @@ export function DialogueAjout({ ouvert, cartes, labels = [], onFermer, onFini }:
   const [valeur, setValeur] = React.useState("");
   const [nom, setNom] = React.useState("");
   const [description, setDescription] = React.useState("");
+  const [genreChoisi, setGenreChoisi] = React.useState<GenreLabel | null>(null);
+  const genre = genreDe(genreChoisi, nom);
   const [podzer, setPodzer] = React.useState(false);
   const [remarques, setRemarques] = React.useState<Record<string, string>>({});
   const [bilan, setBilan] = React.useState<string | null>(null);
@@ -385,7 +414,7 @@ export function DialogueAjout({ ouvert, cartes, labels = [], onFermer, onFini }:
         if (h && !handles.includes(h)) { handles.push(h); if (remarques[u]) rem[h] = remarques[u]!; }
       }
       if (!handles.length) throw new Error("Aucun lien TikTok reconnu.");
-      const carte = valeur === NOUVEAU ? await creerCarte({ nom, section: apps[0] ?? "sophia", description }) : await carteChoisie(valeur, cartes);
+      const carte = valeur === NOUVEAU ? await creerCarte({ nom, section: apps[0] ?? "sophia", description, genre }) : await carteChoisie(valeur, cartes);
       const sections = apps.length ? apps : carte && carte.section !== "idees" ? [carte.section] : [];
       const r = await ajouterComptes(handles, carte, sections, { remarques: rem });
       // « À podzer » se marque sur le label choisi (0786), plus sur chaque compte.
@@ -443,7 +472,7 @@ export function DialogueAjout({ ouvert, cartes, labels = [], onFermer, onFini }:
               Label à podzer
             </label>
           </div>
-          {valeur === NOUVEAU && <NouveauLabel section={apps[0] ?? "sophia"} onSection={(s) => setApps([s])} nom={nom} onNom={setNom} description={description} onDescription={setDescription} />}
+          {valeur === NOUVEAU && <NouveauLabel section={apps[0] ?? "sophia"} onSection={(s) => setApps([s])} nom={nom} onNom={setNom} description={description} onDescription={setDescription} genre={genre} onGenre={setGenreChoisi} />}
 
           {comptes.length > 0 && (
             <div className="space-y-1.5">
@@ -484,7 +513,7 @@ export function DialogueAjout({ ouvert, cartes, labels = [], onFermer, onFini }:
           {bilan && <p className="rounded-lg bg-stone-100 px-3 py-2 text-sm dark:bg-stone-800">{bilan}</p>}
           <div className="flex justify-end gap-2">
             <Button variant="outline" onClick={onFermer}>Fermer</Button>
-            <Button onClick={ajouter} disabled={occupe || !comptes.length || (valeur === NOUVEAU && !nomLabelValide(nom))}>
+            <Button onClick={ajouter} disabled={occupe || !comptes.length || (valeur === NOUVEAU && (!nomLabelValide(nom) || !genre))}>
               {occupe ? "Ajout…" : "Ajouter"}
             </Button>
           </div>

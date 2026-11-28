@@ -1,0 +1,430 @@
+{
+ "id": "at-027",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@katrina.run/photo/7703693124438117663",
+  "vues": 55500,
+  "publie_le": "2026-11-02",
+  "accroche": "fall runs / do and don’ts"
+ },
+ "titre": {
+  "en": "first trail run do and don’ts",
+  "fr": "premier trail : les do & don’ts",
+  "de": "erster trail: die do & don’ts",
+  "it": "primo trail: i do & don’ts",
+  "es-419": "primer trail: los do & don’ts",
+  "hu": "első terepfutás: a do & don’ts",
+  "ro": "primul trail: do & don’ts",
+  "tr": "ilk trail: do & don’ts",
+  "el": "πρώτο trail: τα do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #trailrunning #runningtips #girlswhorun #trail",
+  "fr": "#courseapied #trail #running #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
+ },
+ "musique": {
+  "titre": "Dracula (with JENNIE)",
+  "url": "https://www.tiktok.com/music/dracula-with-jennie-7603221525400455169"
+ },
+ "notes": "Preuve : « fall runs / do and don’ts » de @katrina.run (56 k vues, 02/11) ; même gabarit (objets), un sujet voisin (le premier trail). Aucun objet neuf ; couverture : coureuse-neige. Logo d'Atala au milieu des « Do » de la slide 2 : l'allure (deck trail : jamais de plan trail, cf. placement_atala). Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec le mot pour « appli », jamais « AI »). Aucune page d'appli. Livré dans les 9 langues du label.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-neige.png",
+   "en": {
+    "titre": "first trail run\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "premier trail :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "erster trail:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "primo trail:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "primer trail:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "első terepfutás:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "primul trail:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "ilk trail:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "πρώτο trail:\nτα do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/chaussures-trail.png",
+    "atala",
+    "images/objets/telephone.png"
+   ],
+   "dont": [
+    "images/objets/boite-chaussures.png",
+    "images/objets/chrono.png"
+   ],
+   "en": {
+    "titre": "before",
+    "do": [
+     "trail shoes\nwith grip",
+     "pacing from an\napp like atala",
+     "the route\non your phone"
+    ],
+    "dont": [
+     "new shoes",
+     "a pace goal"
+    ]
+   },
+   "fr": {
+    "titre": "avant",
+    "do": [
+     "des baskets\nqui accrochent",
+     "appli coach\ncomme atala",
+     "le parcours\nsur ton tel"
+    ],
+    "dont": [
+     "baskets neuves",
+     "un objectif\nde chrono"
+    ]
+   },
+   "de": {
+    "titre": "vorher",
+    "do": [
+     "trailschuhe\nmit grip",
+     "coach-app\nwie atala",
+     "route auf\ndem handy"
+    ],
+    "dont": [
+     "neue schuhe",
+     "ein zeitziel"
+    ]
+   },
+   "it": {
+    "titre": "prima",
+    "do": [
+     "scarpe che\nfanno presa",
+     "app coach\ncome atala",
+     "il percorso\nsul telefono"
+    ],
+    "dont": [
+     "scarpe nuove",
+     "un tempo\nda battere"
+    ]
+   },
+   "es-419": {
+    "titre": "antes",
+    "do": [
+     "tenis con\nbuen agarre",
+     "app con coach\ncomo atala",
+     "la ruta\nen tu celular"
+    ],
+    "dont": [
+     "tenis nuevos",
+     "una meta\nde tiempo"
+    ]
+   },
+   "hu": {
+    "titre": "előtte",
+    "do": [
+     "terepcipő\njó tapadással",
+     "edzős app,\nmint az atala",
+     "útvonal\na telefonon"
+    ],
+    "dont": [
+     "új cipő",
+     "időcél"
+    ]
+   },
+   "ro": {
+    "titre": "înainte",
+    "do": [
+     "încălțări\ncu aderență",
+     "aplicație de\ncoach ca atala",
+     "traseul\npe telefon"
+    ],
+    "dont": [
+     "pantofi noi",
+     "țintă de timp"
+    ]
+   },
+   "tr": {
+    "titre": "önce",
+    "do": [
+     "iyi tutan\ntrail ayakkabı",
+     "atala gibi\nkoç uygulaması",
+     "telefonda\nkayıtlı rota"
+    ],
+    "dont": [
+     "yeni ayakkabı",
+     "süre hedefi"
+    ]
+   },
+   "el": {
+    "titre": "πριν",
+    "do": [
+     "παπούτσια\nμε πρόσφυση",
+     "εφαρμογή coach\nσαν το atala",
+     "η διαδρομή\nστο κινητό"
+    ],
+    "dont": [
+     "νέα παπούτσια",
+     "στόχος χρόνου"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/montre.png",
+    "images/objets/gourde.png",
+    "images/objets/lunettes.png"
+   ],
+   "dont": [
+    "images/objets/ecouteurs.png",
+    "images/objets/cone.png"
+   ],
+   "en": {
+    "titre": "on the trail",
+    "do": [
+     "walking up\nsteep bits",
+     "water with you",
+     "eyes on\nthe ground"
+    ],
+    "dont": [
+     "both\nearbuds in",
+     "going off\nthe path"
+    ]
+   },
+   "fr": {
+    "titre": "sur le sentier",
+    "do": [
+     "marcher\nen côte",
+     "de l’eau\navec toi",
+     "les yeux\nsur le sol"
+    ],
+    "dont": [
+     "deux écouteurs",
+     "sortir\ndu sentier"
+    ]
+   },
+   "de": {
+    "titre": "auf dem trail",
+    "do": [
+     "bergauf\nruhig gehen",
+     "wasser dabei",
+     "blick auf\nden boden"
+    ],
+    "dont": [
+     "beide\nkopfhörer drin",
+     "abseits\nvom weg"
+    ]
+   },
+   "it": {
+    "titre": "sul sentiero",
+    "do": [
+     "cammina\nin salita",
+     "acqua con te",
+     "occhi\nsul terreno"
+    ],
+    "dont": [
+     "entrambi\ngli auricolari",
+     "uscire\ndal sentiero"
+    ]
+   },
+   "es-419": {
+    "titre": "en el sendero",
+    "do": [
+     "camina\nen las subidas",
+     "agua contigo",
+     "ojos\nen el suelo"
+    ],
+    "dont": [
+     "audífonos\nen ambos oídos",
+     "salirte\ndel sendero"
+    ]
+   },
+   "hu": {
+    "titre": "a terepen",
+    "do": [
+     "sétálj\na meredeken",
+     "víz nálad",
+     "szem\na talajon"
+    ],
+    "dont": [
+     "fülhallgató\nmindkét fülben",
+     "letérni\naz ösvényről"
+    ]
+   },
+   "ro": {
+    "titre": "pe potecă",
+    "do": [
+     "mers pe\nurcări abrupte",
+     "apă la tine",
+     "ochii\npe teren"
+    ],
+    "dont": [
+     "ambele căști",
+     "ieșit\nde pe potecă"
+    ]
+   },
+   "tr": {
+    "titre": "patikada",
+    "do": [
+     "dikte yürü",
+     "yanında su",
+     "göz zeminde"
+    ],
+    "dont": [
+     "çift kulaklık",
+     "patika dışı"
+    ]
+   },
+   "el": {
+    "titre": "στο μονοπάτι",
+    "do": [
+     "περπάτα\nστις ανηφόρες",
+     "νερό μαζί σου",
+     "μάτια\nστο έδαφος"
+    ],
+    "dont": [
+     "δύο ακουστικά",
+     "βγαίνεις\nεκτός πορείας"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/banane.png",
+    "images/objets/the.png",
+    "images/objets/rouleau.png"
+   ],
+   "dont": [
+    "images/objets/seche-cheveux.png",
+    "images/objets/halteres.png"
+   ],
+   "en": {
+    "titre": "after",
+    "do": [
+     "a banana",
+     "a hot tea",
+     "a foam roller"
+    ],
+    "dont": [
+     "hair dryer\non your shoes",
+     "heavy squats"
+    ]
+   },
+   "fr": {
+    "titre": "après",
+    "do": [
+     "une banane",
+     "un thé chaud",
+     "ton rouleau"
+    ],
+    "dont": [
+     "sèche-cheveux\nsur baskets",
+     "squats lourds"
+    ]
+   },
+   "de": {
+    "titre": "danach",
+    "do": [
+     "eine banane",
+     "heißer tee",
+     "faszienrolle"
+    ],
+    "dont": [
+     "föhn auf\nden schuhen",
+     "schwere squats"
+    ]
+   },
+   "it": {
+    "titre": "dopo",
+    "do": [
+     "una banana",
+     "un tè caldo",
+     "un foam roller"
+    ],
+    "dont": [
+     "il phon\nsulle scarpe",
+     "squat pesanti"
+    ]
+   },
+   "es-419": {
+    "titre": "después",
+    "do": [
+     "un plátano",
+     "un té caliente",
+     "un rodillo"
+    ],
+    "dont": [
+     "secadora en\nlos tenis",
+     "mucha pierna\nen el gym"
+    ]
+   },
+   "hu": {
+    "titre": "utána",
+    "do": [
+     "egy banán",
+     "forró tea",
+     "masszázshenger"
+    ],
+    "dont": [
+     "hajszárító\na cipőn",
+     "nehéz guggolás"
+    ]
+   },
+   "ro": {
+    "titre": "după",
+    "do": [
+     "o banană",
+     "ceai fierbinte",
+     "rola de masaj"
+    ],
+    "dont": [
+     "uscător de păr\npe pantofi",
+     "genuflexiuni"
+    ]
+   },
+   "tr": {
+    "titre": "sonra",
+    "do": [
+     "bir muz",
+     "sıcak çay",
+     "köpük rulo"
+    ],
+    "dont": [
+     "ayakkabıya fön",
+     "ağır squat"
+    ]
+   },
+   "el": {
+    "titre": "μετά",
+    "do": [
+     "μια μπανάνα",
+     "ζεστό τσάι",
+     "ρολό μασάζ"
+    ],
+    "dont": [
+     "πιστολάκι\nστα παπούτσια",
+     "βαριά squats"
+    ]
+   }
+  }
+ ]
+}

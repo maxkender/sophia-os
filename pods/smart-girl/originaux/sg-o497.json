@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o497",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4e2929f0-ead0-4741-b441-0641760fe64f",
+ "titre": "how to get your attention span back #brainrot #focus #digitaldetox #smartgirl #attention",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 8 de la boîte (parent 4e2929f0, langue source en) : accroche reformulée (« how to get your attention span back »), différente des déclinaisons précédentes ; idées neuves. Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ff66f0d5",
+   "texte_overlay": "how to get your attention\nspan back",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "253a86fb",
+   "texte_overlay": "watch one film without\nyour phone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ee0f869e",
+   "texte_overlay": "read on paper",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2a774af2",
+   "texte_overlay": "one task at a time",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f6fe4ad3",
+   "texte_overlay": "walk without headphones",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e9282e1d",
+   "texte_overlay": "turn off every notification",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f126cb48",
+   "texte_overlay": "swap the morning scroll for\nfive minutes of learning",
+   "texte_sophia": "swap the morning scroll for five minutes on\nan app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "fb216c86",
+   "texte_overlay": "start today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

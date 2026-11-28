@@ -1,0 +1,945 @@
+{
+  "id": "rt-005",
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "things to learn about when u're bored",
+    "de": "dinge zum lernen bei langeweile",
+    "it": "cose da imparare se ti annoi",
+    "sv": "saker att lära dig om när du har tråkigt",
+    "fr": "des trucs à apprendre quand tu t'ennuies",
+    "tr": "canın sıkılınca bu konuları öğren",
+    "ro": "ce poți învăța când te plictisești",
+    "hu": "mit tanulj meg, ha unatkozol"
+  },
+  "legendes": {
+    "en": "being bored is honestly the best time to learn something random.\n\nwhere ur food came from, how secret codes were cracked, why the sky does what it does, how the stuff in ur room works, and the strange history of colors.\n\npick one and fall into it for a bit.\n\nsave this for ur next boring afternoon.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok",
+    "de": "langeweile ist ehrlich gesagt die beste zeit, um irgendwas random zu lernen.\n\nwo dein essen herkommt, wie geheimcodes geknackt wurden, warum der himmel macht, was er macht, wie das zeug in deinem zimmer funktioniert und die seltsame geschichte der farben.\n\nsuch dir eins aus und versink ein bisschen darin.\n\nspeicher dir das für deinen nächsten langweiligen nachmittag.\n\n#studytok #learning #lernen #allgemeinwissen #wissen",
+    "it": "annoiarsi è onestamente il momento migliore per imparare qualcosa a caso.\n\nda dove viene il tuo cibo, come sono stati decifrati i codici segreti, perché il cielo fa quello che fa, come funzionano le cose nella tua stanza e la strana storia dei colori.\n\nscegline uno e perditici un po'.\n\nsalvalo per il tuo prossimo pomeriggio noioso.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok #imparaconte #cultura #perte",
+    "sv": "att ha tråkigt är ärligt talat det bästa läget för att lära sig något random.\n\nvar din mat kommer ifrån, hur hemliga koder knäcktes, varför himlen gör som den gör, hur prylarna i ditt rum funkar och färgernas konstiga historia.\n\nvälj en och fastna i den en stund.\n\nspara det här till nästa tråkiga eftermiddag.\n\n#learning #studytok #plugga #allmänbildning #fördig",
+    "fr": "s'ennuyer, c'est honnêtement le meilleur moment pour apprendre un truc random.\n\nd'où vient ta bouffe, comment on a cassé des codes secrets, pourquoi le ciel fait ce qu'il fait, comment marchent les trucs dans ta chambre, et l'histoire bizarre des couleurs.\n\nchoisis-en un et plonge dedans un moment.\n\nenregistre ça pour ton prochain après-midi d'ennui.\n\n#culturegenerale #apprendresurtiktok #curiosite #studytok #learning",
+    "tr": "sıkılmak açıkçası rastgele bir şey öğrenmek için en iyi zaman.\n\nyemeğinin nereden geldiği, gizli şifrelerin nasıl kırıldığı, gökyüzünün neden öyle davrandığı, odandaki şeylerin nasıl çalıştığı ve renklerin garip tarihi.\n\nbirini seç ve biraz içine dal.\n\nbir dahaki sıkıcı öğleden sonran için kaydet.\n\n#studytok #learning #keşfet #bilgi #merak",
+    "ro": "plictiseala e sincer cel mai bun moment să înveți ceva random.\n\nde unde vine mâncarea ta, cum au fost sparte codurile secrete, de ce cerul face ce face, cum funcționează lucrurile din camera ta și istoria ciudată a culorilor.\n\nalege unul și pierde-te puțin în el.\n\nsalvează asta pt următoarea după-amiază plictisitoare.\n\n#studytok #learning #invatare #curiozitati #romania",
+    "hu": "az unalom őszintén a legjobb idő arra, hogy valami random dolgot tanulj.\n\nhonnan jön az étel, amit eszel, hogyan törték fel a titkos kódokat, miért csinálja azt az ég, amit csinál, hogyan működnek a dolgok a szobádban, és a színek fura története.\n\nválassz egyet, és merülj el benne egy kicsit.\n\nmentsd el a következő unalmas délutánra.\n\n#tanulás #önfejlesztés #magyartiktok #studytok #learning"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/bibliotheque-fenetre.jpg": "fd625fcd-2d7b-414b-b6eb-be8f070eb6c4",
+    "images/banque/main-carnet.jpg": "04454a82-1527-4b47-a7f3-2b6476689df7"
+  },
+  "notes": "Full test, sans post source : famille d'accroche de @raretheory_ (« topic to research when u're bored », 652,5 k et 151,1 k), même gabarit et même musique. Catégories neuves ; sujets réels, vérifiés, rien de violent, médical ou politique. Slide Sophia (4, « 03 — the 10-minute lesson ») : son LOGO, jamais une capture ; cta B. Photos : rayonnages et grande fenêtre de bibliothèque (fd625fcd, personne au loin sans visage) et main qui écrit dans un carnet sur un lit (04454a82).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/bibliotheque-fenetre.jpg",
+          "cadrage": {
+            "y": 0.4
+          }
+        },
+        {
+          "image": "images/banque/main-carnet.jpg",
+          "cadrage": {
+            "y": 0.55
+          }
+        }
+      ],
+      "en": {
+        "titre": "things to learn about\nwhen u're bored",
+        "sous_titre": "instead of doomscrolling"
+      },
+      "de": {
+        "titre": "dinge zum lernen\nbei langeweile",
+        "sous_titre": "statt doomscrolling"
+      },
+      "it": {
+        "titre": "cose da imparare se\nti annoi",
+        "sous_titre": "invece di fare doomscrolling"
+      },
+      "sv": {
+        "titre": "saker att lära dig om\nnär du har tråkigt",
+        "sous_titre": "i stället för att doomscrolla"
+      },
+      "fr": {
+        "titre": "trucs à apprendre\nquand tu t'ennuies",
+        "sous_titre": "au lieu de doomscroller"
+      },
+      "tr": {
+        "titre": "canın sıkılınca bu\nkonuları öğren",
+        "sous_titre": "sonsuz scroll yerine"
+      },
+      "ro": {
+        "titre": "ce poți învăța când\nte plictisești",
+        "sous_titre": "în loc de scroll la nesfârșit"
+      },
+      "hu": {
+        "titre": "mit tanulj meg, ha\nunatkozol",
+        "sous_titre": "doomscrollozás helyett"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Food Science & History",
+        "sujets": [
+          "The Spice Trade",
+          "The Columbian Exchange",
+          "The History of Chocolate",
+          "How Coffee Spread",
+          "The Japanese Tea Ceremony",
+          "Fermentation",
+          "Sourdough Starters",
+          "The Maillard Reaction",
+          "Umami",
+          "The History of Salt",
+          "Cheese Making",
+          "The Origins of Pasta",
+          "Why Onions Make You Cry",
+          "Molecular Gastronomy"
+        ]
+      },
+      "de": {
+        "titre": "Essen: Wissenschaft & Geschichte",
+        "sujets": [
+          "Der Gewürzhandel",
+          "Der Kolumbische Austausch",
+          "Die Geschichte der Schokolade",
+          "Wie sich Kaffee verbreitete",
+          "Die japanische Teezeremonie",
+          "Fermentation",
+          "Sauerteig",
+          "Die Maillard-Reaktion",
+          "Umami",
+          "Die Geschichte des Salzes",
+          "Käseherstellung",
+          "Die Ursprünge der Pasta",
+          "Warum Zwiebeln zum Weinen bringen",
+          "Molekularküche"
+        ]
+      },
+      "it": {
+        "titre": "Scienza e storia del cibo",
+        "sujets": [
+          "Il commercio delle spezie",
+          "Lo scambio colombiano",
+          "La storia del cioccolato",
+          "Come si è diffuso il caffè",
+          "La cerimonia del tè giapponese",
+          "La fermentazione",
+          "Il lievito madre",
+          "La reazione di Maillard",
+          "L'umami",
+          "La storia del sale",
+          "Come si fa il formaggio",
+          "Le origini della pasta",
+          "Perché la cipolla fa piangere",
+          "La gastronomia molecolare"
+        ]
+      },
+      "sv": {
+        "titre": "Matens vetenskap och historia",
+        "sujets": [
+          "Kryddhandeln",
+          "Columbianska utbytet",
+          "Chokladens historia",
+          "Hur kaffet spreds",
+          "Japansk teceremoni",
+          "Fermentering",
+          "Surdeg",
+          "Maillardreaktionen",
+          "Umami",
+          "Saltets historia",
+          "Osttillverkning",
+          "Pastans ursprung",
+          "Varför lök får dig att gråta",
+          "Molekylär gastronomi"
+        ]
+      },
+      "fr": {
+        "titre": "Cuisine : science et histoire",
+        "sujets": [
+          "Commerce des épices",
+          "Échange colombien",
+          "Histoire du chocolat",
+          "Histoire du café",
+          "Cérémonie du thé japonaise",
+          "Fermentation",
+          "Levain",
+          "Réaction de Maillard",
+          "Umami",
+          "Histoire du sel",
+          "Fabrication du fromage",
+          "Origines des pâtes",
+          "Pourquoi l'oignon fait pleurer",
+          "Gastronomie moléculaire"
+        ]
+      },
+      "tr": {
+        "titre": "Yemek bilimi ve tarihi",
+        "sujets": [
+          "Baharat ticareti",
+          "Kolomb değişimi",
+          "Çikolatanın tarihi",
+          "Kahvenin yayılışı",
+          "Japon çay seremonisi",
+          "Fermantasyon",
+          "Ekşi maya",
+          "Maillard reaksiyonu",
+          "Umami",
+          "Tuzun tarihi",
+          "Peynir yapımı",
+          "Makarnanın kökeni",
+          "Soğan neden ağlatır",
+          "Moleküler gastronomi"
+        ]
+      },
+      "ro": {
+        "titre": "Știința și istoria mâncării",
+        "sujets": [
+          "Comerțul cu mirodenii",
+          "Schimbul columbian",
+          "Istoria ciocolatei",
+          "Cum s-a răspândit cafeaua",
+          "Ceremonia japoneză a ceaiului",
+          "Fermentația",
+          "Maiaua pentru pâine",
+          "Reacția Maillard",
+          "Umami",
+          "Istoria sării",
+          "Cum se face brânza",
+          "Originile pastelor",
+          "De ce plângi când tai ceapă",
+          "Gastronomia moleculară"
+        ]
+      },
+      "hu": {
+        "titre": "Ételtudomány és -történelem",
+        "sujets": [
+          "A fűszerkereskedelem",
+          "A kolumbuszi csere",
+          "A csokoládé története",
+          "Hogyan terjedt el a kávé",
+          "A japán teaszertartás",
+          "Erjedés",
+          "A kovász",
+          "A Maillard-reakció",
+          "Umami",
+          "A só története",
+          "Sajtkészítés",
+          "A tészta eredete",
+          "Miért könnyezünk a hagymától",
+          "Molekuláris gasztronómia"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Codes & Ciphers",
+        "sujets": [
+          "The Caesar Cipher",
+          "The Vigenère Cipher",
+          "Frequency Analysis",
+          "Morse Code",
+          "Semaphore",
+          "Steganography",
+          "The Enigma Machine",
+          "Bletchley Park",
+          "Alan Turing",
+          "The Navajo Code Talkers",
+          "The Zimmermann Telegram",
+          "Public-Key Cryptography",
+          "Hash Functions"
+        ]
+      },
+      "de": {
+        "titre": "Codes & Chiffren",
+        "sujets": [
+          "Die Caesar-Verschlüsselung",
+          "Die Vigenère-Chiffre",
+          "Die Häufigkeitsanalyse",
+          "Das Morsealphabet",
+          "Das Winkeralphabet",
+          "Steganographie",
+          "Die Enigma",
+          "Bletchley Park",
+          "Alan Turing",
+          "Die Navajo-Code-Talker",
+          "Die Zimmermann-Depesche",
+          "Public-Key-Kryptographie",
+          "Hashfunktionen"
+        ]
+      },
+      "it": {
+        "titre": "Codici e cifrari",
+        "sujets": [
+          "Il cifrario di Cesare",
+          "Il cifrario di Vigenère",
+          "L'analisi delle frequenze",
+          "Il codice Morse",
+          "L'alfabeto semaforico",
+          "La steganografia",
+          "La macchina Enigma",
+          "Bletchley Park",
+          "Alan Turing",
+          "I code talker navajo",
+          "Il telegramma Zimmermann",
+          "La crittografia a chiave pubblica",
+          "Le funzioni di hash"
+        ]
+      },
+      "sv": {
+        "titre": "Koder och chiffer",
+        "sujets": [
+          "Caesarchiffret",
+          "Vigenèrechiffret",
+          "Frekvensanalys",
+          "Morsekod",
+          "Semafor",
+          "Steganografi",
+          "Enigma",
+          "Bletchley Park",
+          "Alan Turing",
+          "Navajos kodtalare",
+          "Zimmermanntelegrammet",
+          "Asymmetrisk kryptering",
+          "Hashfunktioner"
+        ]
+      },
+      "fr": {
+        "titre": "Codes et chiffrements",
+        "sujets": [
+          "Chiffre de César",
+          "Chiffre de Vigenère",
+          "Analyse fréquentielle",
+          "Code Morse",
+          "Sémaphore",
+          "Stéganographie",
+          "Machine Enigma",
+          "Bletchley Park",
+          "Alan Turing",
+          "Code talkers navajos",
+          "Télégramme Zimmermann",
+          "Cryptographie asymétrique",
+          "Fonctions de hachage"
+        ]
+      },
+      "tr": {
+        "titre": "Şifreler ve kodlar",
+        "sujets": [
+          "Sezar şifresi",
+          "Vigenère şifresi",
+          "Frekans analizi",
+          "Mors alfabesi",
+          "Semafor",
+          "Steganografi",
+          "Enigma makinesi",
+          "Bletchley Park",
+          "Alan Turing",
+          "Navajo şifre konuşmacıları",
+          "Zimmermann telgrafı",
+          "Açık anahtarlı şifreleme",
+          "Özet fonksiyonları"
+        ]
+      },
+      "ro": {
+        "titre": "Coduri și cifruri",
+        "sujets": [
+          "Cifrul lui Cezar",
+          "Cifrul Vigenère",
+          "Analiza frecvențelor",
+          "Codul Morse",
+          "Semaforul cu fanioane",
+          "Steganografia",
+          "Mașina Enigma",
+          "Bletchley Park",
+          "Alan Turing",
+          "Vorbitorii de cod navajo",
+          "Telegrama Zimmermann",
+          "Criptografia cu cheie publică",
+          "Funcțiile hash"
+        ]
+      },
+      "hu": {
+        "titre": "Kódok és rejtjelek",
+        "sujets": [
+          "A Caesar-rejtjel",
+          "A Vigenère-rejtjel",
+          "Gyakoriságelemzés",
+          "A morzekód",
+          "Szemafor",
+          "Szteganográfia",
+          "Az Enigma",
+          "Bletchley Park",
+          "Alan Turing",
+          "A navahó kódbeszélők",
+          "A Zimmermann-távirat",
+          "Nyilvános kulcsú titkosítás",
+          "Hash-függvények"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "the 10-minute lesson",
+        "paragraphes": [
+          "before i go down a rabbit hole, i do the 10-minute lesson on Sophia. one short lesson a day: history, philosophy, science, geopolitics, literature, economics.",
+          "each one is written by actual professors and ends with a little quiz, so it actually stays in my head after."
+        ]
+      },
+      "de": {
+        "titre": "die 10-minuten-lektion",
+        "paragraphes": [
+          "bevor ich in ein rabbit hole abtauche, mache ich die 10-minuten-lektion bei Sophia. eine kurze lektion am tag: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "jede ist von echten professoren geschrieben und endet mit einem kleinen quiz, also bleibt sie danach wirklich im kopf."
+        ]
+      },
+      "it": {
+        "titre": "la lezione da 10 minuti",
+        "paragraphes": [
+          "prima di perdermi in un rabbit hole, faccio la lezione da 10 minuti su Sophia. una lezione breve al giorno: storia, filosofia, scienze, geopolitica, letteratura, economia.",
+          "ognuna è scritta da veri professori e finisce con un piccolo quiz, così poi mi resta davvero in testa."
+        ]
+      },
+      "sv": {
+        "titre": "10-minuterslektionen",
+        "paragraphes": [
+          "innan jag går ner i ett kaninhål gör jag 10-minuterslektionen på Sophia. en kort lektion om dagen: historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
+          "varje lektion är skriven av riktiga professorer och slutar med ett litet quiz, så den sitter faktiskt kvar i huvudet efteråt."
+        ]
+      },
+      "fr": {
+        "titre": "la leçon de 10 minutes",
+        "paragraphes": [
+          "avant de tomber dans un rabbit hole, je fais la leçon de 10 minutes sur Sophia. une courte leçon par jour: histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "chacune est écrite par de vrais profs et finit par un petit quiz, donc ça me reste vraiment en tête après."
+        ]
+      },
+      "tr": {
+        "titre": "10 dakikalık ders",
+        "paragraphes": [
+          "bir tavşan deliğine dalmadan önce Sophia'da 10 dakikalık dersimi yapıyorum. günde kısa bir ders: tarih, felsefe, bilim, jeopolitik, edebiyat, ekonomi.",
+          "her birini gerçek profesörler yazıyor ve sonunda küçük bir quiz var, o yüzden sonrasında gerçekten aklımda kalıyor."
+        ]
+      },
+      "ro": {
+        "titre": "lecția de 10 minute",
+        "paragraphes": [
+          "înainte să intru într-un rabbit hole, fac lecția de 10 minute pe Sophia. o lecție scurtă pe zi: istorie, filozofie, științe, geopolitică, literatură, economie.",
+          "fiecare e scrisă de profesori adevărați și se termină cu un mic quiz, așa că chiar îmi rămâne în cap după."
+        ]
+      },
+      "hu": {
+        "titre": "a 10 perces lecke",
+        "paragraphes": [
+          "mielőtt lemegyek egy nyúlüregbe, megcsinálom a 10 perces leckét a Sophia appban. napi egy rövid lecke: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "mindegyiket igazi professzorok írják, és a végén van egy kis kvíz, így utána tényleg a fejemben marad."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Weather & the Sky",
+        "sujets": [
+          "Why the Sky Is Blue",
+          "How Rainbows Form",
+          "Auroras",
+          "Lightning",
+          "Ball Lightning",
+          "Halos & Sun Dogs",
+          "Cloud Types",
+          "How Snowflakes Form",
+          "Fog",
+          "The Jet Stream",
+          "The Coriolis Effect",
+          "El Niño",
+          "Monsoons",
+          "How Tornadoes Form"
+        ]
+      },
+      "de": {
+        "titre": "Wetter & Himmel",
+        "sujets": [
+          "Warum der Himmel blau ist",
+          "Wie Regenbögen entstehen",
+          "Polarlichter",
+          "Blitze",
+          "Kugelblitze",
+          "Halos & Nebensonnen",
+          "Wolkenarten",
+          "Wie Schneeflocken entstehen",
+          "Nebel",
+          "Der Jetstream",
+          "Die Corioliskraft",
+          "El Niño",
+          "Monsune",
+          "Wie Tornados entstehen"
+        ]
+      },
+      "it": {
+        "titre": "Il meteo e il cielo",
+        "sujets": [
+          "Perché il cielo è blu",
+          "Come si forma l'arcobaleno",
+          "Le aurore polari",
+          "I fulmini",
+          "Il fulmine globulare",
+          "Aloni e pareli",
+          "I tipi di nuvole",
+          "Come si formano i fiocchi di neve",
+          "La nebbia",
+          "La corrente a getto",
+          "L'effetto Coriolis",
+          "El Niño",
+          "I monsoni",
+          "Come si formano i tornado"
+        ]
+      },
+      "sv": {
+        "titre": "Väder och himmel",
+        "sujets": [
+          "Varför himlen är blå",
+          "Hur regnbågar bildas",
+          "Polarsken",
+          "Blixtar",
+          "Klotblixtar",
+          "Halo och vädersolar",
+          "Molntyper",
+          "Hur snöflingor bildas",
+          "Dimma",
+          "Jetströmmen",
+          "Corioliseffekten",
+          "El Niño",
+          "Monsuner",
+          "Hur tornador bildas"
+        ]
+      },
+      "fr": {
+        "titre": "La météo et le ciel",
+        "sujets": [
+          "Pourquoi le ciel est bleu",
+          "Formation des arcs-en-ciel",
+          "Aurores polaires",
+          "Foudre",
+          "Foudre en boule",
+          "Halos et parhélies",
+          "Types de nuages",
+          "Formation des flocons",
+          "Brouillard",
+          "Courant-jet",
+          "Force de Coriolis",
+          "El Niño",
+          "Moussons",
+          "Formation des tornades"
+        ]
+      },
+      "tr": {
+        "titre": "Hava ve gökyüzü",
+        "sujets": [
+          "Gökyüzü neden mavi",
+          "Gökkuşağı nasıl oluşur",
+          "Kutup ışıkları",
+          "Yıldırım",
+          "Yumak yıldırım",
+          "Haleler ve yalancı güneşler",
+          "Bulut türleri",
+          "Kar taneleri nasıl oluşur",
+          "Sis",
+          "Jet akımı",
+          "Coriolis etkisi",
+          "El Niño",
+          "Musonlar",
+          "Hortumlar nasıl oluşur"
+        ]
+      },
+      "ro": {
+        "titre": "Vremea și cerul",
+        "sujets": [
+          "De ce e cerul albastru",
+          "Cum se formează curcubeul",
+          "Aurorele polare",
+          "Fulgerele",
+          "Fulgerul globular",
+          "Halourile și parheliile",
+          "Tipurile de nori",
+          "Cum se formează fulgii de nea",
+          "Ceața",
+          "Curentul jet",
+          "Efectul Coriolis",
+          "El Niño",
+          "Musonii",
+          "Cum se formează tornadele"
+        ]
+      },
+      "hu": {
+        "titre": "Időjárás és az ég",
+        "sujets": [
+          "Miért kék az ég",
+          "Hogyan keletkezik a szivárvány",
+          "Sarki fény",
+          "Villámlás",
+          "Gömbvillám",
+          "Haló és melléknapok",
+          "Felhőtípusok",
+          "Hogyan keletkeznek a hópelyhek",
+          "Köd",
+          "A futóáramlás",
+          "A Coriolis-erő",
+          "El Niño",
+          "Monszun",
+          "Hogyan alakulnak ki a tornádók"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "How Everyday Things Work",
+        "sujets": [
+          "Airplane Lift",
+          "Microwave Ovens",
+          "Batteries",
+          "Touchscreens",
+          "Noise Cancelling",
+          "Barcodes",
+          "Wi-Fi",
+          "Solar Panels",
+          "3D Printing",
+          "Elevators",
+          "Zippers",
+          "Mirrors",
+          "Quartz Clocks",
+          "Locks & Keys"
+        ]
+      },
+      "de": {
+        "titre": "Wie Alltagsdinge funktionieren",
+        "sujets": [
+          "Der Auftrieb am Flugzeug",
+          "Mikrowellen",
+          "Batterien",
+          "Touchscreens",
+          "Noise-Cancelling",
+          "Strichcodes",
+          "WLAN",
+          "Solarzellen",
+          "3D-Druck",
+          "Aufzüge",
+          "Reißverschlüsse",
+          "Spiegel",
+          "Quarzuhren",
+          "Schlösser & Schlüssel"
+        ]
+      },
+      "it": {
+        "titre": "Come funzionano le cose di ogni giorno",
+        "sujets": [
+          "La portanza degli aerei",
+          "Il forno a microonde",
+          "Le batterie",
+          "I touchscreen",
+          "La cancellazione del rumore",
+          "I codici a barre",
+          "Il Wi-Fi",
+          "I pannelli solari",
+          "La stampa 3D",
+          "Gli ascensori",
+          "Le cerniere lampo",
+          "Gli specchi",
+          "Gli orologi al quarzo",
+          "Serrature e chiavi"
+        ]
+      },
+      "sv": {
+        "titre": "Hur vardagssaker funkar",
+        "sujets": [
+          "Flygplanets lyftkraft",
+          "Mikrovågsugnen",
+          "Batterier",
+          "Pekskärmar",
+          "Brusreducering",
+          "Streckkoder",
+          "Wi-Fi",
+          "Solpaneler",
+          "3D-utskrift",
+          "Hissar",
+          "Blixtlås",
+          "Speglar",
+          "Kvartsur",
+          "Lås och nycklar"
+        ]
+      },
+      "fr": {
+        "titre": "Objets du quotidien",
+        "sujets": [
+          "Portance des avions",
+          "Four à micro-ondes",
+          "Batteries",
+          "Écrans tactiles",
+          "Réduction de bruit",
+          "Codes-barres",
+          "Wi-Fi",
+          "Panneaux solaires",
+          "Impression 3D",
+          "Ascenseurs",
+          "Fermetures éclair",
+          "Miroirs",
+          "Montres à quartz",
+          "Serrures et clés"
+        ]
+      },
+      "tr": {
+        "titre": "Gündelik şeyler nasıl çalışır",
+        "sujets": [
+          "Uçağın kaldırma kuvveti",
+          "Mikrodalga fırınlar",
+          "Piller",
+          "Dokunmatik ekranlar",
+          "Gürültü engelleme",
+          "Barkodlar",
+          "Wi-Fi",
+          "Güneş panelleri",
+          "3B baskı",
+          "Asansörler",
+          "Fermuarlar",
+          "Aynalar",
+          "Kuvars saatler",
+          "Kilitler ve anahtarlar"
+        ]
+      },
+      "ro": {
+        "titre": "Cum funcționează lucrurile de zi cu zi",
+        "sujets": [
+          "Portanța avionului",
+          "Cuptorul cu microunde",
+          "Bateriile",
+          "Ecranele tactile",
+          "Anularea zgomotului",
+          "Codurile de bare",
+          "Wi-Fi-ul",
+          "Panourile solare",
+          "Imprimarea 3D",
+          "Liftul",
+          "Fermoarul",
+          "Oglinzile",
+          "Ceasurile cu quartz",
+          "Încuietorile și cheile"
+        ]
+      },
+      "hu": {
+        "titre": "Hogyan működnek a hétköznapi dolgok",
+        "sujets": [
+          "A repülőgép felhajtóereje",
+          "A mikrohullámú sütő",
+          "Az elemek",
+          "Az érintőképernyő",
+          "A zajszűrés",
+          "A vonalkód",
+          "A wifi",
+          "A napelem",
+          "A 3D-nyomtatás",
+          "A lift",
+          "A cipzár",
+          "A tükör",
+          "A kvarcóra",
+          "Zárak és kulcsok"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "The History of Colors",
+        "sujets": [
+          "Ochre",
+          "Tyrian Purple",
+          "Indigo Dye",
+          "Cochineal Red",
+          "Lapis Lazuli",
+          "Ultramarine",
+          "Prussian Blue",
+          "Scheele's Green",
+          "Mauveine",
+          "Yves Klein Blue",
+          "Vantablack",
+          "Why Blue Is Rare in Nature",
+          "Color Theory",
+          "Synesthesia"
+        ]
+      },
+      "de": {
+        "titre": "Die Geschichte der Farben",
+        "sujets": [
+          "Ocker",
+          "Tyrischer Purpur",
+          "Indigo",
+          "Karmin aus Cochenille",
+          "Lapislazuli",
+          "Ultramarin",
+          "Preußisch Blau",
+          "Scheeles Grün",
+          "Mauvein",
+          "Yves-Klein-Blau",
+          "Vantablack",
+          "Warum Blau in der Natur selten ist",
+          "Farbenlehre",
+          "Synästhesie"
+        ]
+      },
+      "it": {
+        "titre": "La storia dei colori",
+        "sujets": [
+          "L'ocra",
+          "La porpora di Tiro",
+          "L'indaco",
+          "Il rosso cocciniglia",
+          "Il lapislazzuli",
+          "Il blu oltremare",
+          "Il blu di Prussia",
+          "Il verde di Scheele",
+          "La malveina",
+          "Il blu Klein",
+          "Il Vantablack",
+          "Perché il blu è raro in natura",
+          "La teoria del colore",
+          "La sinestesia"
+        ]
+      },
+      "sv": {
+        "titre": "Färgernas historia",
+        "sujets": [
+          "Ockra",
+          "Tyrisk purpur",
+          "Indigo",
+          "Koschenillrött",
+          "Lapis lazuli",
+          "Ultramarin",
+          "Berlinerblått",
+          "Scheeles grönt",
+          "Mauvein",
+          "Yves Klein-blått",
+          "Vantablack",
+          "Varför blått är ovanligt i naturen",
+          "Färglära",
+          "Synestesi"
+        ]
+      },
+      "fr": {
+        "titre": "Histoire des couleurs",
+        "sujets": [
+          "Ocre",
+          "Pourpre de Tyr",
+          "Indigo",
+          "Rouge de cochenille",
+          "Lapis-lazuli",
+          "Bleu outremer",
+          "Bleu de Prusse",
+          "Vert de Scheele",
+          "Mauvéine",
+          "Bleu Klein",
+          "Vantablack",
+          "Le bleu, rare dans la nature",
+          "Théorie des couleurs",
+          "Synesthésie"
+        ]
+      },
+      "tr": {
+        "titre": "Renklerin tarihi",
+        "sujets": [
+          "Okr",
+          "Tyros moru",
+          "Çivit boyası",
+          "Koşnil kırmızısı",
+          "Lapis lazuli",
+          "Ultramarin",
+          "Prusya mavisi",
+          "Scheele yeşili",
+          "Movein",
+          "Yves Klein mavisi",
+          "Vantablack",
+          "Doğada mavi neden nadir",
+          "Renk teorisi",
+          "Sinestezi"
+        ]
+      },
+      "ro": {
+        "titre": "Istoria culorilor",
+        "sujets": [
+          "Ocrul",
+          "Purpura de Tir",
+          "Indigoul",
+          "Roșul de coșenilă",
+          "Lapis lazuli",
+          "Ultramarinul",
+          "Albastrul de Prusia",
+          "Verdele lui Scheele",
+          "Mauveina",
+          "Albastrul lui Yves Klein",
+          "Vantablack",
+          "De ce albastrul e rar în natură",
+          "Teoria culorilor",
+          "Sinestezia"
+        ]
+      },
+      "hu": {
+        "titre": "A színek története",
+        "sujets": [
+          "Okker",
+          "Tíruszi bíbor",
+          "Indigó festék",
+          "Kosenillvörös",
+          "Lazurit",
+          "Ultramarin",
+          "Berlini kék",
+          "Scheele-zöld",
+          "Mauvein",
+          "Yves Klein-kék",
+          "Vantablack",
+          "Miért ritka a kék a természetben",
+          "Színelmélet",
+          "Szinesztézia"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this for ur next boring afternoon. pick one topic, learn it well enough to explain it to a friend, then pick the next one.",
+        "gras": "OR.. u'll be bored again tomorrow."
+      },
+      "de": {
+        "texte": "speicher dir das für so einen öden nachmittag. such dir ein thema, lern es gut genug, um es einer freundin zu erklären, und nimm dann das nächste.",
+        "gras": "ODER.. morgen ist dir wieder langweilig."
+      },
+      "it": {
+        "texte": "salvalo per il tuo prossimo pomeriggio noioso. scegli un argomento e imparalo bene quanto basta per spiegarlo a un'amica, poi passa a quello dopo.",
+        "gras": "O.. domani ti annoierai di nuovo."
+      },
+      "sv": {
+        "texte": "spara det här till nästa tråkiga eftermiddag. välj ett ämne, lär dig det så bra att du kan förklara det för en kompis och välj sen nästa.",
+        "gras": "ELLER.. du har tråkigt igen i morgon."
+      },
+      "fr": {
+        "texte": "enregistre ça pour ton prochain après-midi d'ennui. choisis un sujet, apprends-le assez bien pour l'expliquer à un pote, puis passe au suivant.",
+        "gras": "OU.. tu vas encore t'ennuyer demain."
+      },
+      "tr": {
+        "texte": "bir dahaki sıkıcı öğleden sonra için bunu kaydet. bir konu seç, bir arkadaşına anlatacak kadar iyi öğren, sonra sıradakine geç.",
+        "gras": "YA DA.. yarın yine sıkılırsın."
+      },
+      "ro": {
+        "texte": "salvează asta pt următoarea după-amiază plictisitoare. alege un subiect, învață-l destul de bine cât să-l explici unei prietene, apoi treci la următorul.",
+        "gras": "SAU.. mâine o să te plictisești iar."
+      },
+      "hu": {
+        "texte": "mentsd el a következő unalmas délutánra. válassz egy témát, tanuld meg annyira, hogy egy barátodnak is el tudd mondani, aztán jöhet a következő.",
+        "gras": "VAGY.. holnap is unatkozni fogsz."
+      }
+    }
+  ]
+}

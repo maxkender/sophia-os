@@ -147,11 +147,13 @@ function LigneLabel({
         <td className={TD} onClick={arreter}>
           <select
             className="h-7 rounded border border-input bg-background px-1 text-xs"
-            value={label.genre === "homme" ? "homme" : "femme"}
+            value={label.genre === "homme" || label.genre === "femme" ? label.genre : ""}
             disabled={changerGenre.isPending}
             aria-label={t("labels.genre")}
             onChange={(e) => changerGenre.mutate(e.target.value as LabelGenre)}
           >
+            {/* 26/11 : un label sans genre s'affichait « Femme » (looksmaxxing_man) ; ses comptes prenaient le genre par défaut. */}
+            {label.genre !== "homme" && label.genre !== "femme" && <option value="" disabled>{t("labels.genreAChoisir")}</option>}
             <option value="femme">{t("labels.genreFemme")}</option>
             <option value="homme">{t("labels.genreHomme")}</option>
           </select>

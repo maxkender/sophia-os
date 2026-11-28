@@ -1,0 +1,51 @@
+{
+ "source_id": "sg-o506",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "05f1213a-943b-4694-b6ba-667e39ac9650",
+ "titre": "low calories high protein meals #highprotein #healthyrecipes #mealideas #smartgirl #thatgirl",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "05f1213a-943b-4694-b6ba-667e39ac9650"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 19 de la boîte (parent 05f1213a, langue source en) : accroche du parent mot pour mot. Repas neufs avec valeurs approximatives (estimations courantes), et la slide « esprit actif » du parent. Sophia en dernier comme chez le parent (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "15f66d37",
+   "texte_overlay": "low calories\nhigh protein meals",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676855222412561696/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "92159b45",
+   "texte_overlay": "greek yoghurt, berries\nand oats\n\n≈ 350 kcal · ≈ 25 g protein",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676855222412561696/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "fe5b057e",
+   "texte_overlay": "chicken, rice and\ngreen beans\n\n≈ 450 kcal · ≈ 40 g protein",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676855222412561696/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c7ab595b",
+   "texte_overlay": "omelette with spinach\nand feta\n\n≈ 320 kcal · ≈ 24 g protein",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676855222412561696/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4bc2c71f",
+   "texte_overlay": "tuna salad with chickpeas\n\n≈ 400 kcal · ≈ 35 g protein",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676855222412561696/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ea8659ea",
+   "texte_overlay": "and a snack for your mind\n\nfive minutes of learning instead\nof scrolling.",
+   "texte_sophia": "and a snack for your mind\n\nfive minutes on an app like Sophia instead\nof scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676855222412561696/4.jpg"
+  }
+ ]
+}

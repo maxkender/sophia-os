@@ -1,0 +1,430 @@
+{
+ "id": "at-028",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@katrina.run/photo/7700731258476727583",
+  "vues": 156700,
+  "publie_le": "2026-10-25",
+  "accroche": "how to be the / 6am *running girl*"
+ },
+ "titre": {
+  "en": "busy week runs do and don’ts",
+  "fr": "semaine chargée : les do & don’ts",
+  "de": "volle woche: die do & don’ts",
+  "it": "settimana piena: i do & don’ts",
+  "es-419": "semana pesada: los do & don’ts",
+  "hu": "zsúfolt hét: a do & don’ts",
+  "ro": "săptămână plină: do & don’ts",
+  "tr": "yoğun hafta: do & don’ts",
+  "el": "γεμάτη εβδομάδα: τα do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #busyweek #runningtips #girlswhorun #runningroutine",
+  "fr": "#courseapied #routine #running #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
+ },
+ "musique": {
+  "titre": "Run Boy Run - Instrumental",
+  "url": "https://www.tiktok.com/music/run-boy-run-instrumental-6929219807355078657"
+ },
+ "notes": "Preuve : « how to be the / 6am running girl » de @katrina.run (157 k vues, 25/10) : leur sujet (caler la course dans la vie) au format do & don'ts de leur tube, style `objets`. Aucun objet neuf ; couverture : coureuse-profil-2. Logo d'Atala au milieu des « Do » de la slide 2 (il sait quoi courir sur les jours choisis). Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec le mot pour « appli », jamais « AI »). Aucune page d'appli. Livré dans les 9 langues du label.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-profil-2.png",
+   "en": {
+    "titre": "busy week runs\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "semaine chargée :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "volle woche:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "settimana piena:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "semana pesada:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "zsúfolt hét:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "săptămână plină:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "yoğun hafta:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "γεμάτη εβδομάδα:\nτα do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/reveil.png",
+    "atala",
+    "images/objets/tenue.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/halteres.png"
+   ],
+   "en": {
+    "titre": "sunday",
+    "do": [
+     "runs in\nyour calendar",
+     "a plan from an\napp like atala",
+     "kits ready\nfor the week"
+    ],
+    "dont": [
+     "all or nothing",
+     "a plan you\ncan’t keep"
+    ]
+   },
+   "fr": {
+    "titre": "le dimanche",
+    "do": [
+     "tes sorties\ndans l’agenda",
+     "appli de coach\ncomme atala",
+     "les tenues\nde la semaine"
+    ],
+    "dont": [
+     "tout ou rien",
+     "un plan\ntrop ambitieux"
+    ]
+   },
+   "de": {
+    "titre": "am sonntag",
+    "do": [
+     "läufe in\nden kalender",
+     "coach-app\nwie atala",
+     "sachen für\ndie woche"
+    ],
+    "dont": [
+     "alles\noder nichts",
+     "ein plan,\nder nie klappt"
+    ]
+   },
+   "it": {
+    "titre": "la domenica",
+    "do": [
+     "le uscite\nin agenda",
+     "app coach\ncome atala",
+     "kit pronti"
+    ],
+    "dont": [
+     "tutto o niente",
+     "piani assurdi"
+    ]
+   },
+   "es-419": {
+    "titre": "el domingo",
+    "do": [
+     "salidas\nen tu agenda",
+     "app con coach\ncomo atala",
+     "ropa lista\npara la semana"
+    ],
+    "dont": [
+     "todo o nada",
+     "plan imposible"
+    ]
+   },
+   "hu": {
+    "titre": "vasárnap",
+    "do": [
+     "futások\na naptárban",
+     "edzős app,\nmint az atala",
+     "ruhák\negész hétre"
+    ],
+    "dont": [
+     "minden\nvagy semmi",
+     "túl nagy terv"
+    ]
+   },
+   "ro": {
+    "titre": "duminica",
+    "do": [
+     "ieșirile\nîn calendar",
+     "aplicație de\ncoach ca atala",
+     "ținute gata"
+    ],
+    "dont": [
+     "tot sau nimic",
+     "plan imposibil"
+    ]
+   },
+   "tr": {
+    "titre": "pazar",
+    "do": [
+     "takvime koşu",
+     "atala gibi\nkoç uygulaması",
+     "hazır kıyafet"
+    ],
+    "dont": [
+     "ya hep ya hiç",
+     "imkânsız plan"
+    ]
+   },
+   "el": {
+    "titre": "την κυριακή",
+    "do": [
+     "έξοδοι\nστο ημερολόγιο",
+     "εφαρμογή coach\nσαν το atala",
+     "ρούχα έτοιμα\nγια τη βδομάδα"
+    ],
+    "dont": [
+     "όλα ή τίποτα",
+     "αδύνατο πλάνο"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/montre.png",
+    "images/objets/sac-sport.png",
+    "images/objets/chaussures.png"
+   ],
+   "dont": [
+    "images/objets/telephone.png",
+    "images/objets/cafes.png"
+   ],
+   "en": {
+    "titre": "the week",
+    "do": [
+     "30 min\ncounts too",
+     "your bag\nby the door",
+     "a lunch run"
+    ],
+    "dont": [
+     "“tomorrow,\ni promise”",
+     "coffee instead\nof sleep"
+    ]
+   },
+   "fr": {
+    "titre": "la semaine",
+    "do": [
+     "30 min,\nça compte",
+     "ton sac\nprêt à partir",
+     "courir le midi"
+    ],
+    "dont": [
+     "« j’irai\ndemain »",
+     "café au lieu\nde dormir"
+    ]
+   },
+   "de": {
+    "titre": "die woche",
+    "do": [
+     "30 min\nzählen auch",
+     "tasche\nan der tür",
+     "lauf\nin der pause"
+    ],
+    "dont": [
+     "„morgen\ngeh ich“",
+     "kaffee\nstatt schlaf"
+    ]
+   },
+   "it": {
+    "titre": "la settimana",
+    "do": [
+     "30 min\nvanno bene",
+     "borsa pronta\nalla porta",
+     "corsa\na pranzo"
+    ],
+    "dont": [
+     "«domani»",
+     "caffè al posto\ndel sonno"
+    ]
+   },
+   "es-419": {
+    "titre": "la semana",
+    "do": [
+     "30 min\nsí cuentan",
+     "maleta lista\nen la puerta",
+     "correr\nal mediodía"
+    ],
+    "dont": [
+     "«mañana voy»",
+     "café en vez\nde dormir"
+    ]
+   },
+   "hu": {
+    "titre": "a hét",
+    "do": [
+     "30 perc\nis számít",
+     "táska\naz ajtónál",
+     "futás ebédkor"
+    ],
+    "dont": [
+     "„majd holnap”",
+     "kávé\nalvás helyett"
+    ]
+   },
+   "ro": {
+    "titre": "săptămâna",
+    "do": [
+     "30 min\nsunt de ajuns",
+     "geanta\nlângă ușă",
+     "alergat\nla prânz"
+    ],
+    "dont": [
+     "„merg mâine”",
+     "cafea\nîn loc de somn"
+    ]
+   },
+   "tr": {
+    "titre": "hafta içi",
+    "do": [
+     "30 dakika\nda sayılır",
+     "kapıda\nhazır çanta",
+     "öğlen koşusu"
+    ],
+    "dont": [
+     "“yarın”",
+     "uykusuz kahve"
+    ]
+   },
+   "el": {
+    "titre": "η εβδομάδα",
+    "do": [
+     "30 λεπτά\nείναι αρκετά",
+     "τσάντα\nστην πόρτα",
+     "τρέξιμο\nτο μεσημέρι"
+    ],
+    "dont": [
+     "«αύριο»",
+     "καφές\nαντί για ύπνο"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/gourde.png",
+    "images/objets/masque.png",
+    "images/objets/the.png"
+   ],
+   "dont": [
+    "images/objets/vin.png",
+    "images/objets/chrono.png"
+   ],
+   "en": {
+    "titre": "the weekend",
+    "do": [
+     "a longer\neasy run",
+     "a lie-in",
+     "a hot tea"
+    ],
+    "dont": [
+     "a big night\nout first",
+     "racing to\ncatch up"
+    ]
+   },
+   "fr": {
+    "titre": "le week-end",
+    "do": [
+     "une sortie\nplus longue",
+     "dormir tard",
+     "un thé chaud"
+    ],
+    "dont": [
+     "une grosse\nsoirée avant",
+     "rattraper\nà fond"
+    ]
+   },
+   "de": {
+    "titre": "das wochenende",
+    "do": [
+     "ein längerer\nlockerer lauf",
+     "ausschlafen",
+     "heißer tee"
+    ],
+    "dont": [
+     "party\nam vorabend",
+     "nachholen\nmit vollgas"
+    ]
+   },
+   "it": {
+    "titre": "il weekend",
+    "do": [
+     "lungo lento",
+     "dormire tardi",
+     "un tè caldo"
+    ],
+    "dont": [
+     "festa\nla sera prima",
+     "recuperare\ntutto di corsa"
+    ]
+   },
+   "es-419": {
+    "titre": "el fin de semana",
+    "do": [
+     "fondo suave",
+     "dormir tarde",
+     "un té caliente"
+    ],
+    "dont": [
+     "fiesta\nla noche antes",
+     "recuperar\ntodo a tope"
+    ]
+   },
+   "hu": {
+    "titre": "a hétvége",
+    "do": [
+     "hosszabb\nlaza futás",
+     "lustálkodás",
+     "forró tea"
+    ],
+    "dont": [
+     "előtte\nnagy buli",
+     "pótlás\nteljes erővel"
+    ]
+   },
+   "ro": {
+    "titre": "weekendul",
+    "do": [
+     "o ieșire\nmai lungă",
+     "somn lung",
+     "ceai fierbinte"
+    ],
+    "dont": [
+     "noapte\nde petrecere",
+     "recuperat\ntotul la maxim"
+    ]
+   },
+   "tr": {
+    "titre": "hafta sonu",
+    "do": [
+     "daha uzun\nrahat koşu",
+     "geç kalkmak",
+     "sıcak çay"
+    ],
+    "dont": [
+     "parti\nönceki gece",
+     "telafi için\nson hız"
+    ]
+   },
+   "el": {
+    "titre": "το σαββατοκύριακο",
+    "do": [
+     "μεγαλύτερη\nχαλαρή έξοδος",
+     "ξύπνημα αργά",
+     "ζεστό τσάι"
+    ],
+    "dont": [
+     "πάρτι\nτην παραμονή",
+     "αναπλήρωση\nστο φουλ"
+    ]
+   }
+  }
+ ]
+}

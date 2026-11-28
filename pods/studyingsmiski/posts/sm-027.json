@@ -1,0 +1,432 @@
+{
+ "id": "sm-027",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "Cute Circus",
+  "url": "https://www.tiktok.com/music/cute-circus-7015613917703440386"
+ },
+ "notes": "Full test du 27/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, son ciel, stickers, bulle) : « 4 apps that make me look forward to studying ». Sophia en 3e carte (cta C), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Study Time With Rain (pomodoro avec un petit fantôme), Habitica (tâches en jeu de rôle), Goodnotes (notes manuscrites). Toutes sur l'App Store des 10 pays (lookup iTunes du 20/11) ; Study Time With Rain en iOS seul. Musique : la sienne de « reprogram your brain » (210 k).",
+ "titre": {
+  "en": "4 apps that make me look forward to studying",
+  "fr": "4 applis qui me donnent envie de réviser",
+  "es": "4 apps que me dan ganas de estudiar",
+  "es-419": "4 apps que me dan ganas de estudiar",
+  "it": "4 app che mi fanno venire voglia di studiare",
+  "tr": "bana ders çalışma isteği veren 4 uygulama",
+  "pt-BR": "4 apps que me dão vontade de estudar",
+  "de": "4 apps, durch die ich mich aufs lernen freue",
+  "sl": "4 aplikacije, zaradi katerih se veselim učenja",
+  "hu": "4 app, amitől kedvem lesz tanulni"
+ },
+ "legendes": {
+  "en": "studying, but make it something you want to do 📚💗 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "réviser, mais avec envie 📚💗 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "estudiar, pero con ganas 📚💗 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "estudiar, pero con ganas 📚💗 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "studiare, ma con voglia 📚💗 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "ders çalışmak, ama isteyerek 📚💗 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "estudar, mas com vontade 📚💗 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "lernen, aber mit lust 📚💗 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "učenje, ampak z veseljem 📚💗 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "tanulás, de kedvvel 📚💗 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 70,
+     "y": 160,
+     "l": 180,
+     "rotation": -12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tablette.png",
+     "x": 800,
+     "y": 140,
+     "l": 220,
+     "rotation": 10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 810,
+     "y": 750,
+     "l": 210,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "4 apps that\nmake studying\nfun again",
+    "sous": "trust me,\nbestie"
+   },
+   "fr": {
+    "titre": "4 applis qui\nrendent les\nrévisions fun",
+    "sous": "fais-moi\nconfiance"
+   },
+   "es": {
+    "titre": "4 apps que me\ndan ganas de\nestudiar",
+    "sous": "confía\nen mí"
+   },
+   "es-419": {
+    "titre": "4 apps que me\ndan ganas de\nestudiar",
+    "sous": "confía\nen mí"
+   },
+   "it": {
+    "titre": "4 app che mi\nfanno venire\nvoglia di\nstudiare",
+    "sous": "fidati\ndi me"
+   },
+   "tr": {
+    "titre": "bana ders\nçalışma isteği\nveren 4\nuygulama",
+    "sous": "bana\ngüven"
+   },
+   "pt-BR": {
+    "titre": "4 apps que\nme dão\nvontade de\nestudar",
+    "sous": "confia\nem mim"
+   },
+   "de": {
+    "titre": "4 apps, durch\ndie lernen\nspaß macht",
+    "sous": "vertrau\nmir"
+   },
+   "sl": {
+    "titre": "4 aplikacije,\nzaradi katerih\nse rada učim",
+    "sous": "zaupaj\nmi"
+   },
+   "hu": {
+    "titre": "4 app, amitől\nkedvem lesz\ntanulni",
+    "sous": "bízz\nbennem"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/study-time-rain/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 40,
+     "y": 730,
+     "l": 300,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "a little ghost studies next to me while it rains, and my study stats grow every day. it makes sitting down feel cozy."
+   },
+   "fr": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un petit fantôme bosse à côté de moi sous la pluie, et mes stats d'étude grimpent chaque jour. s'asseoir pour réviser devient cosy."
+   },
+   "es": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un fantasmita estudia a mi lado mientras llueve y mis estadísticas crecen cada día. sentarme a estudiar se vuelve cozy."
+   },
+   "es-419": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un fantasmita estudia a mi lado mientras llueve y mis estadísticas crecen cada día. sentarme a estudiar se vuelve cozy."
+   },
+   "it": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un fantasmino studia accanto a me mentre piove e le mie statistiche crescono ogni giorno. sedersi a studiare diventa cozy."
+   },
+   "tr": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "yağmur yağarken küçük bir hayalet yanımda çalışıyor, istatistiklerim her gün artıyor. masaya oturmak cozy oluyor."
+   },
+   "pt-BR": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "um fantasminha estuda do meu lado enquanto chove e minhas estatísticas crescem todo dia. sentar pra estudar fica aconchegante."
+   },
+   "de": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "ein kleiner geist lernt neben mir, während es regnet, und meine lernstatistik wächst jeden tag. hinsetzen wird gemütlich."
+   },
+   "sl": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "mali duhec se uči ob meni, medtem ko dežuje, moja statistika pa raste vsak dan. sesti k učenju postane prijetno."
+   },
+   "hu": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "egy kis szellem tanul mellettem, miközben esik, és minden nap nőnek a statisztikáim. leülni tanulni hangulatos lesz."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/habitica/icone.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/epee.png",
+     "x": 70,
+     "y": 700,
+     "l": 300,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 220,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "my to-dos turn into quests: finish one, earn gold, level up. i actually race to clear my list now."
+   },
+   "fr": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "mes to-do deviennent des quêtes : une tâche finie, de l'or, un niveau en plus. je fais la course pour vider ma liste."
+   },
+   "es": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "mis tareas se vuelven misiones: termino una, gano oro, subo de nivel. ahora compito por vaciar mi lista."
+   },
+   "es-419": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "mis pendientes se vuelven misiones: termino uno, gano oro, subo de nivel. ahora compito por vaciar mi lista."
+   },
+   "it": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "i miei to-do diventano missioni: ne finisco uno, guadagno oro, salgo di livello. ora faccio a gara per svuotare la lista."
+   },
+   "tr": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "yapılacaklarım göreve dönüşüyor: birini bitir, altın kazan, seviye atla. artık listemi bitirmek için yarışıyorum."
+   },
+   "pt-BR": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "minhas tarefas viram missões: termino uma, ganho ouro, subo de nível. agora eu corro pra zerar a lista."
+   },
+   "de": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "meine to-dos werden zu quests: eine erledigt, gold, level up. jetzt wette ich mit mir, wer die liste zuerst leert."
+   },
+   "sl": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "moja opravila postanejo naloge: eno končam, dobim zlato, napredujem. zdaj tekmujem, da izpraznim seznam."
+   },
+   "hu": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "a teendőim küldetésekké válnak: egy kész, arany, szintlépés. most versenyzek, hogy kiürítsem a listát."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bureau.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/puzzle.png",
+     "x": 840,
+     "y": 110,
+     "l": 180,
+     "rotation": 12
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks!",
+    "bulle": "the quiz is honestly so fun!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir !",
+    "bulle": "le quiz est trop fun, honnêtement !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡el quiz es súper divertido!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡el quiz está buenísimo!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta!",
+    "bulle": "il quiz è davvero divertente!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test!",
+    "bulle": "test gerçekten çok eğlenceli!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "você aprende uma coisa nova por dia, tipo por que a gente sonha, com um quiz rapidinho depois pra fixar!",
+    "bulle": "o quiz é muito divertido!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "du lernst jeden tag etwas neues, zum beispiel warum wir träumen, mit einem kleinen quiz danach, damit es hängen bleibt!",
+    "bulle": "das quiz macht echt spaß!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan se naučiš nekaj novega, na primer zakaj sanjamo, potem pa kratek kviz, da ti ostane v glavi!",
+    "bulle": "kviz je res zabaven!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "minden nap tanulsz valami újat, például hogy miért álmodunk, utána egy kis kvíz, hogy megmaradjon!",
+    "bulle": "a kvíz tényleg szuper!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/goodnotes/icone.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/crayon.png",
+     "x": 60,
+     "y": 770,
+     "l": 290,
+     "rotation": -20
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tablette.png",
+     "x": 740,
+     "y": 670,
+     "l": 300,
+     "rotation": -8
+    }
+   ],
+   "en": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "handwriting notes on my tablet in pretty colors. it's the part of studying i look forward to the most."
+   },
+   "fr": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "écrire mes notes à la main sur ma tablette en jolies couleurs. c'est le moment des révisions que je préfère."
+   },
+   "es": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "tomar apuntes a mano en la tablet con colores bonitos. es la parte de estudiar que más espero."
+   },
+   "es-419": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "tomar apuntes a mano en la tablet con colores bonitos. es la parte de estudiar que más espero."
+   },
+   "it": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "scrivere appunti a mano sul tablet con bei colori. è la parte dello studio che aspetto di più."
+   },
+   "tr": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "tabletimde güzel renklerle elle not almak. ders çalışmanın en sevdiğim kısmı."
+   },
+   "pt-BR": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "anotar à mão no tablet com cores lindas. é a parte do estudo que eu mais espero."
+   },
+   "de": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "notizen von hand auf dem tablet in schönen farben. der teil vom lernen, auf den ich mich am meisten freue."
+   },
+   "sl": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "ročni zapiski na tablici v lepih barvah. del učenja, ki se ga najbolj veselim."
+   },
+   "hu": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "kézzel jegyzetelni a tableten szép színekkel. a tanulás része, amit a legjobban várok."
+   }
+  }
+ ]
+}

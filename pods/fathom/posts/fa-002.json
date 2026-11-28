@@ -22,7 +22,8 @@
   "pl": "10/10 umiejętności do nauczenia w jeden dzień!",
   "ro": "10/10 abilități pe care le înveți într-o zi!",
   "sv": "10/10 färdigheter du kan lära dig på en dag!",
-  "tr": "Bir günde öğrenebileceğin 10/10 beceri!"
+  "tr": "Bir günde öğrenebileceğin 10/10 beceri!",
+  "sr": "10/10 veština koje možeš naučiti za jedan dan!"
  },
  "legendes": {
   "en": "10/10 Skills You Can Learn In A Day! #selfimprovement #learnontiktok #selfmastery",
@@ -40,13 +41,14 @@
   "pl": "10/10 umiejętności do nauczenia w jeden dzień! #umiejętności #rozwójosobisty #nauka",
   "ro": "10/10 abilități pe care le înveți într-o zi! #abilități #dezvoltarepersonală #învățare",
   "sv": "10/10 färdigheter du kan lära dig på en dag! #färdigheter #självutveckling #lärande",
-  "tr": "Bir günde öğrenebileceğin 10/10 beceri! #beceriler #kişiselgelişim #öğrenme"
+  "tr": "Bir günde öğrenebileceğin 10/10 beceri! #beceriler #kişiselgelişim #öğrenme",
+  "sr": "10/10 veština koje možeš naučiti za jedan dan! #veštine #ličnirazvoj #učenje"
  },
  "musique": {
   "titre": "sonido original",
   "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
  },
- "notes": "Sophia en carte d'appli à l'étape 3 « ANSWER RANDOM QUESTIONS », au milieu de la liste comme une compétence (leur post n'avait pas de slide d'appli). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Ses titres en affiche (une taille par ligne, le mot-clé en couleur) ; quatre compétences à nous, chacune avec une vraie vidéo sans grand visage. 18/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr ; faute de vidéo native, « jour de la semaine » devient la lecture rapide en cs, sk, hr, sl, hu, ro et sv, et les nuages deviennent le langage corporel en sk.",
+ "notes": "Sophia en carte d'appli à l'étape 3 « ANSWER RANDOM QUESTIONS », au milieu de la liste comme une compétence (leur post n'avait pas de slide d'appli). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Ses titres en affiche (une taille par ligne, le mot-clé en couleur) ; quatre compétences à nous, chacune avec une vraie vidéo sans grand visage. 18/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr ; faute de vidéo native, « jour de la semaine » devient la lecture rapide en cs, sk, hr, sl, hu, ro et sv, et les nuages deviennent le langage corporel en sk. 27/11 : ajouté en sr ; faute de vidéo native, « jour de la semaine » devient la lecture rapide.",
  "slides": [
   {
    "type": "couverture",
@@ -241,6 +243,18 @@
      ],
      "BİR GÜNDE",
      "ÖĞRENEBİLECEĞİN BECERİ"
+    ]
+   },
+   "sr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VEŠTINA KOJE MOŽEŠ",
+     "NAUČITI ZA JEDAN DAN"
     ]
    }
   },
@@ -659,6 +673,30 @@
     "sous": [
      "Öğrenmesi 1–2 saat."
     ]
+   },
+   "sr": {
+    "titre": [
+     "PREPOZNAJ SVAKU",
+     [
+      {
+       "t": "VRSTU OBLAKA",
+       "couleur": "#0231c5"
+      }
+     ],
+     "SAMO POGLEDOM"
+    ],
+    "sous": [
+     "1–2 sata za učenje."
+    ],
+    "video": {
+     "id": "Gr8NWweYTFo",
+     "titre": "TIPOVI OBLAKA  (Types of Clouds)  | MAGIČNA UČIONICA",
+     "chaine": "MAGIČNA UČIONICA",
+     "vues": "3,7 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "2.54",
+     "avatar": "https://yt3.ggpht.com/tvgwPQ8Cr5K-W2328IdQCHjWTKpMMq_BhV6UWRZKMuHE66tccSLpDGZRprjSyp3BAj2N61EMsA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1076,6 +1114,30 @@
     "sous": [
      "Öğrenmesi 2–3 saat."
     ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČI DA ČITAŠ",
+     [
+      {
+       "t": "DVA PUTA",
+       "couleur": "#e3161d"
+      }
+     ],
+     "BRŽE"
+    ],
+    "sous": [
+     "2–3 sata za učenje."
+    ],
+    "video": {
+     "id": "OkRIPo18l_M",
+     "titre": "Brzo Citanje - 3 NAJEFIKASNIJE Tehnike Brzog Citanja",
+     "chaine": "Jovana Miljkovic",
+     "vues": "80 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "4.26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kGifdOfl9HqTICEk5Em2ZjjJ9xcjFabbDF2UCuB14WOR8=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1412,6 +1474,25 @@
      "texte": [
       "her gün yeni bir şey öğren,",
       "5 dakikada."
+     ]
+    }
+   },
+   "sr": {
+    "titre": [
+     "ODGOVORI NA",
+     [
+      {
+       "t": "SVAKO",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "PITANJE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo svaki dan,",
+      "za 5 minuta."
      ]
     }
    }
@@ -1831,6 +1912,30 @@
     "sous": [
      "Öğrenmesi 3–5 saat."
     ]
+   },
+   "sr": {
+    "titre": [
+     "SLOŽI",
+     [
+      {
+       "t": "RUBIKOVU",
+       "couleur": "#4913cd"
+      }
+     ],
+     "KOCKU"
+    ],
+    "sous": [
+     "3–5 sati za učenje."
+    ],
+    "video": {
+     "id": "r2JEev05mpk",
+     "titre": "Kako složiti Rubikovu kocku? (početnička metoda)",
+     "chaine": "Maja Zavišić",
+     "vues": "115 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "11.20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kxh3w-x1vh8bcy7j3XWNKRlUEl6FaR89HsNSyUww8=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -2248,6 +2353,30 @@
     "sous": [
      "Öğrenmesi 2–3 saat."
     ]
+   },
+   "sr": {
+    "titre": [
+     "CRTAJ U",
+     [
+      {
+       "t": "PERSPEKTIVI",
+       "couleur": "#3256a0"
+      }
+     ],
+     "SAMO OLOVKOM"
+    ],
+    "sous": [
+     "2–3 sata za učenje."
+    ],
+    "video": {
+     "id": "iu_KyC3sQRc",
+     "titre": "LINEARNA PERSPEKTIVA- prostoručno, idealna soba/Draw a room single point perspective freehand art123",
+     "chaine": "Duško Rupčić",
+     "vues": "32 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "10.17",
+     "avatar": "https://yt3.ggpht.com/zvRzp6jrJKtETuwCwmlVwdr3xxPtXIamg6YtRH8dRx0uH9FOWELNuPjbA0fKeD0gjrwfjWbd3w=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   }
  ]

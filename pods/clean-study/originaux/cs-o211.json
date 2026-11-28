@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o211",
+  "type_bleo": "full_test",
+  "titre": "how i get back into studying after a long holiday #studytok #studytips #backtoschool",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 27/11 : 6 full tests sur 13, plus 1 car la boîte n'a que 6 lignes utilisables). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Santé générale : se recoucher à heure fixe quelques jours avant. Gestes vrais : relire ses notes, une petite séance le premier jour, ranger son bureau, une habitude de curiosité (slide Sophia, 5), pas de rattrapage de tout d'un coup. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "94bd4b99",
+      "texte_overlay": "how i get back into studying\nafter a long holiday",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "29a37791",
+      "texte_overlay": "3 days before: back to my school bedtime.\nnot the night before.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "77070b10",
+      "texte_overlay": "i reread my notes from the last chapter.\njust reading, no pressure.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "587a743f",
+      "texte_overlay": "day one: a 20-minute session.\nsmall on purpose.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "9bb77620",
+      "texte_overlay": "i restart a small daily habit first.\n5 minutes of learning something new each morning.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "i restart a small daily habit first.\n5 minutes of learning something new each morning\non a micro-learning app like the Sophia app."
+    },
+    {
+      "position": 6,
+      "media_id": "c771f70d",
+      "texte_overlay": "i clear my desk.\nnew term, clean space.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "5c244246",
+      "texte_overlay": "i don't try to catch up on everything in a day.\none subject at a time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

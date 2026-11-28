@@ -35,13 +35,27 @@ export function lienFrais(l: { url: string; cree_at: string; env: string } | nul
   return !!l?.url && l.env === env && maintenant - Date.parse(l.cree_at) < FRAIS_MS;
 }
 
+/** Ruul refuse l'email : il appartient déjà à un compte business (409 `email_not_a_contractor`, 27/11). Pure. */
+export function estEmailRefuse(r: { http: number; code: string | null }): boolean {
+  return r.http === 409 && r.code === "email_not_a_contractor";
+}
+
 /** Appelle POST /connect pour ce posteur et garde le lien. Ne lève jamais. */
 export async function connecter(
   supabase: Supabase,
   env: EnvRuul,
   p: { poster_id: string; email: string; prenom: string; nom: string },
-): Promise<{ url: string | null; statut: string | null; erreur: string | null }> {
+): Promise<{ url: string | null; statut: string | null; erreur: string | null; emailRefuse?: boolean }> {
   const r = await appelRuul<ReponseConnect>(env, "POST", "/connect", { corps: { email: p.email, firstName: p.prenom, lastName: p.nom } });
+  // 27/11 (Ruul) : l'email a déjà un compte BUSINESS chez Ruul, il ne peut pas être un contractor. Le noter
+  // (plus aucun essai sur cet email ; un nouvel email Ruul relance l'invitation), et le dire à l'appelant.
+  if (estEmailRefuse(r)) {
+    if (env === "prod") {
+      const { error } = await supabase.rpc("ruul_email_refuse", { p_poster: p.poster_id, p_email: p.email });
+      if (error) return { url: null, statut: null, erreur: `email refusé par Ruul, non noté : ${error.message}`, emailRefuse: true };
+    }
+    return { url: null, statut: null, erreur: "email déjà lié à un compte business Ruul (email_not_a_contractor)", emailRefuse: true };
+  }
   if (!r.ok || !r.data?.onboardUrl) return { url: null, statut: null, erreur: r.erreur ?? "lien absent de la réponse" };
   const d = r.data;
   const { error } = await supabase.rpc("ruul_lien_noter", {

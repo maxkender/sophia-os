@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o512",
+ "type_bleo": "full_test",
+ "titre": "the real women behind famous portraits #arthistory #art #womeninhistory #smartgirl #museum",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 1/10 (la jauge en demande 10 sur 33) : accroche jamais faite chez nous (« portrait » absent des accroches du label et de nos originaux). Accroches écrites : « the real women behind famous portraits » (retenue : art + histoires de femmes), « famous paintings explained » (écartée : trop proche des « secret stories behind famous paintings » gagnants), « who was the mona lisa » (écartée : un seul tableau). Faits vérifiés : Lisa Gherardini (la Joconde), Elizabeth Siddal (Ophélie de Millais, posée dans une baignoire), Victorine Meurent (Olympia de Manet, elle-même peintre exposée au Salon), Dora Maar (La Femme qui pleure de Picasso, photographe), Adele Bloch-Bauer (Klimt, 1907), Simonetta Vespucci (souvent dite modèle de la Vénus de Botticelli, attribution discutée). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c33b4e9b",
+   "texte_overlay": "the real women behind\nfamous portraits",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "316730b2",
+   "texte_overlay": "the mona lisa\n\nlisa gherardini, the wife of\na florentine silk merchant.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "87941af5",
+   "texte_overlay": "ophelia, by millais\n\nelizabeth siddal posed for hours\nin a bathtub of water.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0966c717",
+   "texte_overlay": "olympia, by manet\n\nvictorine meurent, who later\nexhibited her own paintings.",
+   "texte_sophia": "olympia: victorine meurent, later a painter\nherself. i learned it on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "dd3f7bf2",
+   "texte_overlay": "the weeping woman, by picasso\n\ndora maar, a photographer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e305628e",
+   "texte_overlay": "the woman in gold, by klimt\n\nadele bloch-bauer, 1907.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "39a9cf8c",
+   "texte_overlay": "the birth of venus, by botticelli\n\noften said to be simonetta vespucci.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ccdc3a5b",
+   "texte_overlay": "which story surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

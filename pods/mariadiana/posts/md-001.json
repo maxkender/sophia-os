@@ -68,11 +68,11 @@
       "url": "https://www.metmuseum.org/art/collection/search/436105"
     }
   },
-  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit (couverture sombre, une foule de dos au musée devant un tableau éclairé, le titre blanc ; puis un tableau par slide sur fond blanc cassé, le titre de l'œuvre, le tableau à gauche, un paragraphe qui continue le titre, l'artiste dessous), même accroche, même musique. Œuvres à nous (les siennes : The Kiss, Water Lilies, The Accolade, Starry Night Over the Rhône), toutes du domaine public au Met (Open Access, CC0). Faits vérifiés : Madame X, Salon de 1884, la bretelle tombée repeinte après le scandale, vendue au Met en 1916, Sargent à Londres en 1886 ; Pygmalion et Galatée d'après Ovide, le haut du corps déjà chair, les jambes encore marbre ; Wheat Field with Cypresses peint à l'été 1889 pendant le séjour à l'asile de Saint-Rémy, lettre à Théo du 25 juin 1889 (« beautiful as an Egyptian obelisk ») ; La Mort de Socrate, 1787, la ciguë. Slide Artura (4) : la version `cta A` (« on Artura, one artwork a day with its story »), son logo sous le paragraphe, jamais une capture. Couverture : Seedream (une foule de dos, le tableau du fond n'est qu'une tache de lumière).",
+  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit (couverture sombre, une foule de dos au musée devant un tableau éclairé, le titre blanc ; puis un tableau par slide sur fond blanc cassé, le titre de l'œuvre, le tableau à gauche, un paragraphe qui continue le titre, l'artiste dessous), même accroche, même musique. Œuvres à nous (les siennes : The Kiss, Water Lilies, The Accolade, Starry Night Over the Rhône), toutes du domaine public au Met (Open Access, CC0). Faits vérifiés : Madame X, Salon de 1884, la bretelle tombée repeinte après le scandale, vendue au Met en 1916, Sargent à Londres en 1886 ; Pygmalion et Galatée d'après Ovide, le haut du corps déjà chair, les jambes encore marbre ; Wheat Field with Cypresses peint à l'été 1889 pendant le séjour à l'asile de Saint-Rémy, lettre à Théo du 25 juin 1889 (« beautiful as an Egyptian obelisk ») ; La Mort de Socrate, 1787, la ciguë. Slide Artura (4) : la version `cta A` (« on Artura, one artwork a day with its story »), son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA (refaite le 27/11).",
   "slides": [
     {
       "type": "couverture",
-      "image": "images/photos/musee-foule.jpg",
+      "image": "images/banque/b-pompei.jpg",
       "en": {
         "titre": "Paintings That Devour My Soul"
       },
@@ -320,5 +320,8 @@
         "artiste": "Jacques-Louis David"
       }
     }
-  ]
+  ],
+  "banque": {
+    "images/banque/b-pompei.jpg": "3e388adc-a2e2-4c62-8134-9d61eeee4592"
+  }
 }

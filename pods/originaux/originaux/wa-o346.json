@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o346",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "39a50cf3-da59-4535-a9d6-b66c411fbbce",
+ "titre": "rare traits that make people impossible to forget #charisma #personality #psychology #kindness #selfimprovement",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "d44988d2-cdb3-45fa-86f0-7f140e11af99"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, d44988d2). déclinaison G1 de « rare traits that make people impossible to forget » (parent 39a50cf3). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ab34e96a-06c5-4aa6-81f8-78f9fd37f59c",
+   "texte_overlay": "rare traits that make people\nimpossible to forget",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a7e2ce92-c6fd-4406-8f2f-f29d088c9aa7",
+   "texte_overlay": "genuine warmth\n\nthey make everyone feel welcome, from the waiter to the boss. people forget your words, but they always remember how warm and wanted you made them feel.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b46eb4a2-fd2a-45af-a7d8-6157d108ed96",
+   "texte_overlay": "quiet confidence\n\nthey don't need to be loud to be noticed. a calm voice, steady eyes and an easy smile leave a far deeper mark than trying hard to impress anyone ever could.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9405dd9a-e570-49dd-8982-1fbe55800435",
+   "texte_overlay": "endless curiosity\n\ni was the forgettable one in every group, until i started learning something fascinating each day. curious people always have a story, and stories are what people remember.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/4.jpg",
+   "texte_sophia": "endless curiosity\n\ni was the forgettable one in every group. now i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, and people remember the stories i tell for weeks."
+  },
+  {
+   "position": 5,
+   "media_id": "ce7b5864-057e-4239-ae1e-30ef3b80dcf9",
+   "texte_overlay": "a memory for people\n\nthey remember your name, your dog and the exam you were nervous about. feeling remembered is so rare that people never forget the person who did it for them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b5390515-966a-402f-8bd2-7d75ffb621ae",
+   "texte_overlay": "kind honesty\n\nthey tell the truth gently, even when it's hard to hear. people trust and remember those who manage to be honest and kind at exactly the same time, every single time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/6.jpg"
+  }
+ ]
+}

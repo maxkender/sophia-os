@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o460",
+ "type_bleo": "full_test",
+ "titre": "Why a short nap can change your whole afternoon #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Why a short nap can change your whole afternoon » (retenue), « The power nap guide » (écartée : jargon), « Nap like a pro » (écartée : ton blague). Conseils généraux.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "50a4e1a0-eb57-4fd4-b9b2-82d5a9417080",
+   "texte_overlay": "Why a short nap can\nchange your whole afternoon",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Keep it short. Fifteen to twenty minutes is enough. Longer naps send you into deep sleep and leave you groggy.",
+   "media_id": "a75b8832-14cb-4b2f-b1a0-0086c1105b25"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Time it right. Early afternoon, around the natural dip after lunch. Napping late in the day can ruin your night.",
+   "media_id": "ab412801-4694-4198-824e-b1d8cdee6acd"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Set an alarm. Knowing you'll wake up helps you relax and fall asleep faster. Twenty minutes, then up, even if you feel like staying.",
+   "media_id": "ad7f5028-3fc0-4c70-ac5b-cfb6252f3f96"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Make it dark and quiet. A sleep mask, earplugs or a quiet corner. Even a short rest in a calm place helps. Find your spot.",
+   "media_id": "bcd44952-b863-48c7-977a-08e360fbc3ce"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: afternoons felt slow and foggy. After: a short rest and five minutes a day of history, art or science, and my head feels clearer.",
+   "texte_sophia": "Before: afternoons felt slow and foggy. After: a short rest and I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. My head feels clearer.",
+   "media_id": "5bd9baa8-a367-4e94-ada4-527fb9df07c3"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Try a coffee nap. Drink a coffee, then nap for fifteen minutes. You wake up just as the caffeine starts working.",
+   "media_id": "bdf15e02-cc82-4f97-ac21-e40d81dfd4c5"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Don't use naps to replace sleep. A good night is still the base. Naps are a bonus, not a fix. Sleep well at night first.",
+   "media_id": "c33370a3-535a-46c4-8c3c-045f051483d6"
+  }
+ ]
+}

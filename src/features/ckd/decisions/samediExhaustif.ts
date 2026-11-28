@@ -29,21 +29,52 @@ export interface Couverture {
   absents: { poster_id: string; nom: string | null; raison: string }[];
   /** Les posteurs actifs sans aucun compte actif (pas comptés dans N). */
   sansCompte: number;
+  /**
+   * 26/11 (Max) : les posteurs en set-up (pas prêts : aucun compte dont la 1re semaine de posts a commencé). Ils
+   * restent dans la liste (onglet des recrues, Keep), mais ne sont pas comptés dans N ni dans « montrés ».
+   */
+  enSetup: number;
 }
 
-/** « n sur N posteurs actifs (M comptes) » et la liste « Not in the list ». */
-export function calculerCouverture(lignes: LigneCouverture[], posteursListe: Set<string>): Couverture {
+/**
+ * « n sur N posteurs actifs (M comptes) » et la liste « Not in the list ». `enSetup` : les posteurs pas encore
+ * prêts (cohorte à venir), comptés à part.
+ */
+export function calculerCouverture(
+  lignes: LigneCouverture[],
+  posteursListe: Set<string>,
+  enSetup: ReadonlySet<string> = new Set(),
+): Couverture {
   const avecCompte = lignes.filter((l) => l.comptes > 0);
+  const actifs = avecCompte.filter((l) => !enSetup.has(l.poster_id));
   return {
-    montres: avecCompte.filter((l) => posteursListe.has(l.poster_id)).length,
-    posteurs: avecCompte.length,
-    comptes: avecCompte.reduce((n, l) => n + l.comptes, 0),
-    absents: avecCompte
+    montres: actifs.filter((l) => posteursListe.has(l.poster_id)).length,
+    posteurs: actifs.length,
+    comptes: actifs.reduce((n, l) => n + l.comptes, 0),
+    absents: actifs
       .filter((l) => !posteursListe.has(l.poster_id))
       .map((l) => ({ poster_id: l.poster_id, nom: l.nom, raison: l.raison ?? "inconnue" }))
       .sort((a, b) => a.raison.localeCompare(b.raison) || (a.nom ?? "").localeCompare(b.nom ?? "")),
     sansCompte: lignes.filter((l) => l.comptes === 0).length,
+    enSetup: avecCompte.length - actifs.length,
   };
+}
+
+/**
+ * 26/11 : les posteurs en set-up pour le samedi du lundi `lundi` : tous leurs comptes de la liste sont dans une
+ * cohorte qui n'a pas commencé (onglet des recrues). Un posteur qui a un compte déjà lancé n'en fait pas partie.
+ */
+export function posteursEnSetup(
+  comptes: readonly { poster_id: string; cohorte_lundi: string | null }[],
+  lundi: string,
+): Set<string> {
+  const lances = new Set<string>();
+  const avenir = new Set<string>();
+  for (const c of comptes) {
+    if (c.cohorte_lundi && c.cohorte_lundi > lundi) avenir.add(c.poster_id);
+    else lances.add(c.poster_id);
+  }
+  return new Set([...avenir].filter((p) => !lances.has(p)));
 }
 
 export type RaisonForce = "demande_arret" | "reporte_2" | "kill_jeudi" | "sans_canal";

@@ -1,0 +1,538 @@
+{
+ "id": "tg-016",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 cozy hobbies that actually work if you have adhd",
+  "bg": "10/10 уютни хобита, които наистина работят при адхд",
+  "de": "10/10 gemütliche hobbys, die bei adhs wirklich funktionieren",
+  "el": "10/10 cozy χόμπι που πραγματικά δουλεύουν αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies cozy que sí funcionan si tienes tdah",
+  "fr": "10/10 loisirs cosy qui marchent vraiment quand on a un tdah",
+  "hu": "10/10 hangulatos hobbi, ami tényleg működik, ha adhd-s vagy",
+  "it": "10/10 hobby cozy che funzionano davvero se hai l'adhd",
+  "pt-BR": "10/10 hobbies aconchegantes que funcionam se você tem tdah",
+  "sr": "10/10 ušuškanih hobija koji stvarno pomažu ako imaš adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #cozy #focus #brain",
+  "bg": "#адхд #хобита #уют #фокус #мозък",
+  "de": "#adhs #hobbys #gemütlich #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #cozy #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #cozy #enfoque #cerebro",
+  "fr": "#tdah #loisirs #cosy #concentration #cerveau",
+  "hu": "#adhd #hobbi #cozy #fókusz #agy",
+  "it": "#adhd #hobby #cozy #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #aconchego #foco #cerebro",
+  "sr": "#adhd #hobi #cozy #fokus #mozak"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 cozy hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (2a632527), slide Artura sur un tableau ou un musée de la banque (c016f9f7), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/a-ange.jpg": "c016f9f7-515e-40ba-b89c-415be28d9683",
+  "images/banque/c-automne.jpg": "2a632527-6d52-4617-8854-645308a94ebb"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 cozy hobbies that actually\nwork if you have adhd",
+    "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 уютни хобита, които\nнаистина работят при адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 gemütliche hobbys, die\nbei adhs wirklich helfen",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 cozy χόμπι που δουλεύουν\nαν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies cozy que sí\nfuncionan si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs cosy qui marchent\nvraiment quand on a un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 hangulatos hobbi, ami\ntényleg működik, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby cozy che\nfunzionano davvero se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies aconchegantes\nque funcionam com tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 ušuškanih hobija koji\nstvarno pomažu ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/cookies.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "nom": "baking cookies",
+    "accroche": "warm kitchen, _clear steps_, _quick reward_",
+    "colonne": [
+     "measuring and mixing keep your hands busy, and in 12 minutes you have something to _show for it_"
+    ],
+    "chute": "one easy recipe, saved on paper"
+   },
+   "bg": {
+    "nom": "печене на бисквитки",
+    "accroche": "топла кухня, _ясни стъпки_, _бърза награда_",
+    "colonne": [
+     "мерене и бъркане държат ръцете заети, а след 12 минути имаш какво да _покажеш_"
+    ],
+    "chute": "една лесна рецепта, записана на хартия"
+   },
+   "de": {
+    "nom": "kekse backen",
+    "accroche": "warme küche, _klare schritte_, _schnelle belohnung_",
+    "colonne": [
+     "abmessen und rühren halten die hände beschäftigt, und nach 12 minuten hast du etwas _vorzuzeigen_"
+    ],
+    "chute": "ein einfaches rezept, auf papier"
+   },
+   "el": {
+    "nom": "ψήνω μπισκότα",
+    "accroche": "ζεστή κουζίνα, _σαφή βήματα_, _γρήγορη ανταμοιβή_",
+    "colonne": [
+     "ζύγισμα και ανάμειξη κρατούν τα χέρια απασχολημένα, και σε 12 λεπτά έχεις κάτι να _δείξεις_"
+    ],
+    "chute": "μια εύκολη συνταγή, γραμμένη σε χαρτί"
+   },
+   "es-419": {
+    "nom": "hornear galletas",
+    "accroche": "cocina cálida, _pasos claros_, _premio rápido_",
+    "colonne": [
+     "medir y mezclar te ocupan las manos, y en 12 minutos tienes algo que _mostrar_"
+    ],
+    "chute": "una receta fácil, anotada en papel"
+   },
+   "fr": {
+    "nom": "faire des cookies",
+    "accroche": "cuisine chaude, _étapes claires_, _vite récompensé_",
+    "colonne": [
+     "peser et mélanger occupent tes mains, et en 12 minutes tu as quelque chose à _montrer_"
+    ],
+    "chute": "une recette facile, notée sur papier"
+   },
+   "hu": {
+    "nom": "kekszsütés",
+    "accroche": "meleg konyha, _világos lépések_, _gyors jutalom_",
+    "colonne": [
+     "a mérés és keverés leköti a kezed, és 12 perc múlva van _mit felmutatnod_"
+    ],
+    "chute": "egy könnyű recept, papírra írva"
+   },
+   "it": {
+    "nom": "fare i biscotti",
+    "accroche": "cucina calda, _passi chiari_, _premio veloce_",
+    "colonne": [
+     "pesare e mescolare tengono occupate le mani, e in 12 minuti hai qualcosa da _mostrare_"
+    ],
+    "chute": "una ricetta facile, scritta su carta"
+   },
+   "pt-BR": {
+    "nom": "fazer cookies",
+    "accroche": "cozinha quente, _passos claros_, _recompensa rápida_",
+    "colonne": [
+     "medir e misturar ocupam as mãos, e em 12 minutos você tem algo pra _mostrar_"
+    ],
+    "chute": "uma receita fácil, anotada no papel"
+   },
+   "sr": {
+    "nom": "pečenje keksa",
+    "accroche": "topla kuhinja, _jasni koraci_, _brza nagrada_",
+    "colonne": [
+     "merenje i mešanje zaokupe ruke, a za 12 minuta imaš nešto _da pokažeš_"
+    ],
+    "chute": "jedan lak recept, zapisan na papiru"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/lecture.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "reading by the window",
+    "accroche": "rain outside, _one book_, _no phone_",
+    "colonne": [
+     "a cozy spot with nothing else to do helps a scattered brain stay on the same page for _longer_"
+    ],
+    "chute": "start with 10 pages, not a whole chapter"
+   },
+   "bg": {
+    "nom": "четене до прозореца",
+    "accroche": "навън вали, _една книга_, _без телефон_",
+    "colonne": [
+     "уютно място без нищо друго помага на разсеяния мозък да остане на същата страница _по-дълго_"
+    ],
+    "chute": "започни с 10 страници, не с цяла глава"
+   },
+   "de": {
+    "nom": "lesen am fenster",
+    "accroche": "draußen regen, _ein buch_, _kein handy_",
+    "colonne": [
+     "ein gemütlicher platz ohne ablenkung hilft einem zerstreuten kopf, _länger_ auf derselben seite zu bleiben"
+    ],
+    "chute": "fang mit 10 seiten an, nicht mit einem kapitel"
+   },
+   "el": {
+    "nom": "διάβασμα στο παράθυρο",
+    "accroche": "βροχή έξω, _ένα βιβλίο_, _χωρίς κινητό_",
+    "colonne": [
+     "μια ζεστή γωνιά χωρίς τίποτα άλλο βοηθά το μυαλό να μείνει στην ίδια σελίδα _περισσότερο_"
+    ],
+    "chute": "ξεκίνα με 10 σελίδες, όχι ένα κεφάλαιο"
+   },
+   "es-419": {
+    "nom": "leer junto a la ventana",
+    "accroche": "lluvia afuera, _un libro_, _sin celular_",
+    "colonne": [
+     "un rincón cómodo sin nada más que hacer ayuda a un cerebro disperso a quedarse en la misma página _más tiempo_"
+    ],
+    "chute": "empieza con 10 páginas, no un capítulo"
+   },
+   "fr": {
+    "nom": "lire près de la fenêtre",
+    "accroche": "la pluie dehors, _un livre_, _pas de téléphone_",
+    "colonne": [
+     "un coin douillet sans rien d'autre à faire aide un cerveau dispersé à rester sur la même page _plus longtemps_"
+    ],
+    "chute": "commence par 10 pages, pas un chapitre"
+   },
+   "hu": {
+    "nom": "olvasás az ablaknál",
+    "accroche": "kint eső, _egy könyv_, _nincs telefon_",
+    "colonne": [
+     "egy kényelmes zug, ahol nincs más dolgod, segít a szétszórt agynak _tovább_ egy oldalon maradni"
+    ],
+    "chute": "kezdd 10 oldallal, ne egy egész fejezettel"
+   },
+   "it": {
+    "nom": "leggere alla finestra",
+    "accroche": "pioggia fuori, _un libro_, _niente telefono_",
+    "colonne": [
+     "un angolo comodo senza altro da fare aiuta un cervello sparso a restare sulla stessa pagina _più a lungo_"
+    ],
+    "chute": "inizia con 10 pagine, non un capitolo"
+   },
+   "pt-BR": {
+    "nom": "ler na janela",
+    "accroche": "chuva lá fora, _um livro_, _sem celular_",
+    "colonne": [
+     "um cantinho sem mais nada pra fazer ajuda um cérebro disperso a ficar na mesma página por _mais tempo_"
+    ],
+    "chute": "comece com 10 páginas, não um capítulo inteiro"
+   },
+   "sr": {
+    "nom": "čitanje kraj prozora",
+    "accroche": "napolju kiša, _jedna knjiga_, _bez telefona_",
+    "colonne": [
+     "udobno mesto bez ičeg drugog pomaže rasutom mozgu da _duže_ ostane na istoj strani"
+    ],
+    "chute": "počni sa 10 strana, ne celim poglavljem"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-ange.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "a quiet museum evening",
+    "accroche": "soft light, _no crowd_, _one statue_",
+    "colonne": [
+     "late openings are calm, and standing in front of one piece slows a busy mind right down",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "check which museum opens late this week"
+   },
+   "bg": {
+    "nom": "тиха вечер в музея",
+    "accroche": "мека светлина, _без тълпа_, _една статуя_",
+    "colonne": [
+     "вечерните часове са спокойни, а да стоиш пред една творба забавя заетия ум",
+     "_съвет_: artura ми дава по една картина на ден и историята зад нея, за няколко минути"
+    ],
+    "chute": "виж кой музей работи до късно тази седмица"
+   },
+   "de": {
+    "nom": "ein ruhiger museumsabend",
+    "accroche": "weiches licht, _keine menge_, _eine statue_",
+    "colonne": [
+     "abends ist es ruhig, und vor einem einzigen werk zu stehen bremst einen vollen kopf",
+     "_pro tipp_: artura zeigt mir jeden tag ein gemälde und die geschichte dahinter, in ein paar minuten"
+    ],
+    "chute": "schau, welches museum diese woche spät offen hat"
+   },
+   "el": {
+    "nom": "ήσυχο βράδυ στο μουσείο",
+    "accroche": "απαλό φως, _χωρίς κόσμο_, _ένα άγαλμα_",
+    "colonne": [
+     "τα βραδινά ωράρια είναι ήρεμα, και μπροστά σε ένα έργο το μυαλό χαλαρώνει",
+     "_μικρό tip_: το artura μου δίνει έναν πίνακα τη μέρα και την ιστορία του, σε λίγα λεπτά"
+    ],
+    "chute": "δες ποιο μουσείο ανοίγει αργά αυτή τη βδομάδα"
+   },
+   "es-419": {
+    "nom": "una noche tranquila en el museo",
+    "accroche": "luz suave, _sin gente_, _una estatua_",
+    "colonne": [
+     "las aperturas nocturnas son tranquilas, y quedarte frente a una obra calma una mente agitada",
+     "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
+    ],
+    "chute": "busca qué museo abre tarde esta semana"
+   },
+   "fr": {
+    "nom": "une soirée calme au musée",
+    "accroche": "lumière douce, _pas de foule_, _une statue_",
+    "colonne": [
+     "les nocturnes sont calmes, et rester devant une seule œuvre ralentit un esprit agité",
+     "_petite astuce_: artura me donne un tableau par jour et son histoire, en quelques minutes"
+    ],
+    "chute": "regarde quel musée ouvre tard cette semaine"
+   },
+   "hu": {
+    "nom": "egy csendes múzeumi este",
+    "accroche": "lágy fény, _nincs tömeg_, _egy szobor_",
+    "colonne": [
+     "a késő esti nyitva tartás nyugodt, és egy mű előtt állva lelassul a pörgő elme",
+     "_pro tip_: az artura minden nap ad egy festményt és a mögötte lévő történetet, pár perc alatt"
+    ],
+    "chute": "nézd meg, melyik múzeum van nyitva késő este a héten"
+   },
+   "it": {
+    "nom": "una sera tranquilla al museo",
+    "accroche": "luce soffusa, _niente folla_, _una statua_",
+    "colonne": [
+     "le aperture serali sono calme, e fermarsi davanti a un'opera rallenta una mente agitata",
+     "_piccolo consiglio_: artura mi dà un dipinto al giorno e la sua storia, in pochi minuti"
+    ],
+    "chute": "guarda quale museo apre tardi questa settimana"
+   },
+   "pt-BR": {
+    "nom": "uma noite tranquila no museu",
+    "accroche": "luz suave, _sem multidão_, _uma estátua_",
+    "colonne": [
+     "os horários noturnos são calmos, e parar diante de uma obra desacelera uma mente agitada",
+     "_dica_: o artura me dá uma pintura por dia e a história por trás dela, em poucos minutos"
+    ],
+    "chute": "veja qual museu abre à noite esta semana"
+   },
+   "sr": {
+    "nom": "mirno veče u muzeju",
+    "accroche": "meko svetlo, _bez gužve_, _jedna statua_",
+    "colonne": [
+     "kasno radno vreme je mirno, a stajanje ispred jednog dela usporava užurban um",
+     "_pro tip_: artura mi daje jednu sliku dnevno i priču iza nje, za par minuta"
+    ],
+    "chute": "proveri koji muzej radi do kasno ove nedelje"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/fleurs.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "pressing flowers",
+    "accroche": "you pick them today and _open the book_ next _week_",
+    "colonne": [
+     "it's slow, gentle and hands-on, and the wait makes the result feel like a small _surprise_"
+    ],
+    "chute": "one heavy book and flowers from a walk"
+   },
+   "bg": {
+    "nom": "пресоване на цветя",
+    "accroche": "береш днес и _отваряш книгата_ след _седмица_",
+    "colonne": [
+     "бавно е, нежно и с ръце, а чакането прави резултата малка _изненада_"
+    ],
+    "chute": "една тежка книга и цветя от разходка"
+   },
+   "de": {
+    "nom": "blumen pressen",
+    "accroche": "heute pflücken, _nächste woche_ das _buch öffnen_",
+    "colonne": [
+     "es ist langsam, sanft und handwerklich, und das warten macht das ergebnis zu einer kleinen _überraschung_"
+    ],
+    "chute": "ein schweres buch und blumen vom spaziergang"
+   },
+   "el": {
+    "nom": "πιέζω λουλούδια",
+    "accroche": "σήμερα τα μαζεύεις, σε _μια βδομάδα_ τα _βλέπεις_",
+    "colonne": [
+     "είναι αργό, απαλό και χειροποίητο, και η αναμονή κάνει το αποτέλεσμα μικρή _έκπληξη_"
+    ],
+    "chute": "ένα βαρύ βιβλίο και λουλούδια από μια βόλτα"
+   },
+   "es-419": {
+    "nom": "prensar flores",
+    "accroche": "las juntas hoy y _abres el libro_ la otra _semana_",
+    "colonne": [
+     "es lento, suave y manual, y la espera hace que el resultado sea una pequeña _sorpresa_"
+    ],
+    "chute": "un libro pesado y flores de una caminata"
+   },
+   "fr": {
+    "nom": "faire sécher des fleurs",
+    "accroche": "cueillies aujourd'hui, _ouvertes_ dans _une semaine_",
+    "colonne": [
+     "c'est lent, doux et manuel, et l'attente rend le résultat comme une petite _surprise_"
+    ],
+    "chute": "un gros livre et des fleurs d'une balade"
+   },
+   "hu": {
+    "nom": "virágpréselés",
+    "accroche": "ma szeded, _jövő héten_ _nyitod ki_",
+    "colonne": [
+     "lassú, gyengéd és kézzel fogható, a várakozástól pedig az eredmény kis _meglepetés_ lesz"
+    ],
+    "chute": "egy nehéz könyv és virágok egy sétáról"
+   },
+   "it": {
+    "nom": "pressare i fiori",
+    "accroche": "raccolti oggi, _riaperti_ tra _una settimana_",
+    "colonne": [
+     "è lento, delicato e manuale, e l'attesa rende il risultato una piccola _sorpresa_"
+    ],
+    "chute": "un libro pesante e fiori raccolti in una passeggiata"
+   },
+   "pt-BR": {
+    "nom": "prensar flores",
+    "accroche": "você colhe hoje e _abre o livro_ na _semana_ que vem",
+    "colonne": [
+     "é lento, delicado e manual, e a espera faz o resultado parecer uma pequena _surpresa_"
+    ],
+    "chute": "um livro pesado e flores de uma caminhada"
+   },
+   "sr": {
+    "nom": "presovanje cveća",
+    "accroche": "danas ih bereš, _sledeće nedelje_ _otvaraš knjigu_",
+    "colonne": [
+     "sporo je, nežno i rukama, a čekanje čini rezultat malim _iznenađenjem_"
+    ],
+    "chute": "jedna teška knjiga i cveće sa šetnje"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-automne.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a slow autumn run",
+    "accroche": "leaves, _cold air_ and _no rush_",
+    "colonne": [
+     "an easy run gives a restless body somewhere to go, and a weekly plan keeps it _gentle_",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "go slow enough to talk"
+   },
+   "bg": {
+    "nom": "бавно есенно бягане",
+    "accroche": "листа, _студен въздух_ и _без бързане_",
+    "colonne": [
+     "леко бягане дава на неспокойното тяло накъде да тръгне, а седмичен план го пази _леко_",
+     "_съвет_: atala нагласява бяганията ми около целта ми и ги променя всяка седмица"
+    ],
+    "chute": "тичай толкова бавно, че да можеш да говориш"
+   },
+   "de": {
+    "nom": "ein langsamer herbstlauf",
+    "accroche": "laub, _kalte luft_ und _keine eile_",
+    "colonne": [
+     "ein lockerer lauf gibt einem unruhigen körper ein ziel, und ein wochenplan hält es _sanft_",
+     "_pro tipp_: atala baut meine läufe um mein ziel herum und passt sie jede woche an"
+    ],
+    "chute": "lauf so langsam, dass du reden kannst"
+   },
+   "el": {
+    "nom": "αργό φθινοπωρινό τρέξιμο",
+    "accroche": "φύλλα, _κρύος αέρας_ και _καμία βιασύνη_",
+    "colonne": [
+     "ένα εύκολο τρέξιμο δίνει διέξοδο στο ανήσυχο σώμα, και ένα πλάνο το κρατά _ήπιο_",
+     "_μικρό tip_: το atala χτίζει τα τρεξίματά μου γύρω από τον στόχο μου και τα προσαρμόζει κάθε εβδομάδα"
+    ],
+    "chute": "τρέξε τόσο αργά που να μπορείς να μιλάς"
+   },
+   "es-419": {
+    "nom": "una carrera lenta de otoño",
+    "accroche": "hojas, _aire frío_ y _sin prisa_",
+    "colonne": [
+     "una carrera fácil le da al cuerpo inquieto a dónde ir, y un plan semanal la mantiene _suave_",
+     "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
+    ],
+    "chute": "ve tan lento que puedas platicar"
+   },
+   "fr": {
+    "nom": "une course d'automne tranquille",
+    "accroche": "des feuilles, _l'air frais_ et _rien qui presse_",
+    "colonne": [
+     "une course facile donne au corps agité un endroit où aller, et un plan la garde _douce_",
+     "_petite astuce_: atala construit mes sorties autour de mon objectif et les ajuste chaque semaine"
+    ],
+    "chute": "cours assez lentement pour parler"
+   },
+   "hu": {
+    "nom": "lassú őszi futás",
+    "accroche": "levelek, _hideg levegő_, _semmi sietség_",
+    "colonne": [
+     "egy könnyű futás helyet ad a nyugtalan testnek, a heti terv pedig _kíméletes_ tempóban tartja",
+     "_pro tip_: az atala a célomhoz igazítja a futásaimat, és minden héten finomít rajtuk"
+    ],
+    "chute": "fuss olyan lassan, hogy közben beszélni tudj"
+   },
+   "it": {
+    "nom": "una corsa lenta d'autunno",
+    "accroche": "foglie, _aria fresca_ e _nessuna fretta_",
+    "colonne": [
+     "una corsa facile dà al corpo inquieto un posto dove andare, e un piano settimanale la tiene _leggera_",
+     "_piccolo consiglio_: atala costruisce le mie corse intorno al mio obiettivo e le adatta ogni settimana"
+    ],
+    "chute": "corri abbastanza piano da poter parlare"
+   },
+   "pt-BR": {
+    "nom": "uma corrida lenta de outono",
+    "accroche": "folhas, _ar frio_ e _sem pressa_",
+    "colonne": [
+     "uma corrida leve dá ao corpo inquieto pra onde ir, e um plano semanal mantém tudo _leve_",
+     "_dica_: o atala monta minhas corridas em torno do meu objetivo e ajusta toda semana"
+    ],
+    "chute": "vá devagar o bastante pra conversar"
+   },
+   "sr": {
+    "nom": "lagano jesenje trčanje",
+    "accroche": "lišće, _hladan vazduh_ i _bez žurbe_",
+    "colonne": [
+     "lagano trčanje daje nemirnom telu kuda da ide, a nedeljni plan ga drži _nežnim_",
+     "_pro tip_: atala pravi moja trčanja prema mom cilju i prilagođava ih svake nedelje"
+    ],
+    "chute": "trči dovoljno sporo da možeš da pričaš"
+   }
+  }
+ ]
+}

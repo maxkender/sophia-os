@@ -1,0 +1,538 @@
+{
+ "id": "tg-022",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 calm hobbies that actually work if you have adhd",
+  "bg": "10/10 спокойни хобита, които наистина работят при адхд",
+  "de": "10/10 ruhige hobbys, die bei adhs wirklich funktionieren",
+  "el": "10/10 ήρεμα χόμπι που πραγματικά δουλεύουν αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies tranquilos que sí funcionan si tienes tdah",
+  "fr": "10/10 loisirs calmes qui marchent vraiment quand on a un tdah",
+  "hu": "10/10 nyugodt hobbi, ami tényleg működik, ha adhd-s vagy",
+  "it": "10/10 hobby tranquilli che funzionano davvero se hai l'adhd",
+  "pt-BR": "10/10 hobbies calmos que funcionam se você tem tdah",
+  "sr": "10/10 mirnih hobija koji stvarno pomažu ako imaš adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #calm #focus #brain",
+  "bg": "#адхд #хобита #спокойствие #фокус #мозък",
+  "de": "#adhs #hobbys #ruhe #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #ηρεμία #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #calma #enfoque #cerebro",
+  "fr": "#tdah #loisirs #calme #concentration #cerveau",
+  "hu": "#adhd #hobbi #nyugalom #fókusz #agy",
+  "it": "#adhd #hobby #calma #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #calma #foco #cerebro",
+  "sr": "#adhd #hobi #mir #fokus #mozak"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 calm hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (5087dd73), slide Artura sur un tableau ou un musée de la banque (77488f24), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/a-sculptures2.jpg": "77488f24-8b01-4677-86e7-65b6aaa627f7",
+  "images/banque/c-pov-soir.jpg": "5087dd73-6256-4fd2-8264-f3068ac7f01e"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 calm hobbies that actually\nwork if you have adhd",
+    "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 спокойни хобита, които\nнаистина работят при адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 ruhige hobbys, die bei\nadhs wirklich funktionieren",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 ήρεμα χόμπι που\nδουλεύουν αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies tranquilos que\nsí funcionan si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs calmes qui\nmarchent vraiment avec un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 nyugodt hobbi, ami\ntényleg működik, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby tranquilli che\nfunzionano davvero con l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies calmos que\nfuncionam se você tem tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 mirnih hobija koji\nstvarno pomažu ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/yoga.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "slow stretching",
+    "accroche": "your _body_ moves, your _mind_ follows",
+    "colonne": [
+     "holding a stretch gives a busy brain one thing to feel, and ten minutes is enough to _reset_"
+    ],
+    "chute": "one short video, then do it without the screen"
+   },
+   "bg": {
+    "nom": "бавно разтягане",
+    "accroche": "_тялото_ се движи, _умът_ следва",
+    "colonne": [
+     "задържането на разтягане дава на заетия мозък едно нещо за усещане, а десет минути стигат за _рестарт_"
+    ],
+    "chute": "едно кратко видео, после без екран"
+   },
+   "de": {
+    "nom": "langsames dehnen",
+    "accroche": "dein _körper_ bewegt sich, dein _kopf_ folgt",
+    "colonne": [
+     "eine dehnung zu halten gibt einem vollen kopf eine einzige sache zu spüren, und zehn minuten reichen für einen _reset_"
+    ],
+    "chute": "ein kurzes video, dann ohne bildschirm"
+   },
+   "el": {
+    "nom": "αργές διατάσεις",
+    "accroche": "το _σώμα_ κινείται, το _μυαλό_ ακολουθεί",
+    "colonne": [
+     "κρατώντας μια διάταση το μυαλό νιώθει ένα μόνο πράγμα, και δέκα λεπτά φτάνουν για _επανεκκίνηση_"
+    ],
+    "chute": "ένα σύντομο βίντεο, μετά χωρίς οθόνη"
+   },
+   "es-419": {
+    "nom": "estiramientos lentos",
+    "accroche": "tu _cuerpo_ se mueve, tu _mente_ lo sigue",
+    "colonne": [
+     "sostener un estiramiento le da al cerebro una sola cosa que sentir, y diez minutos bastan para _resetear_"
+    ],
+    "chute": "un video corto, luego hazlo sin pantalla"
+   },
+   "fr": {
+    "nom": "les étirements lents",
+    "accroche": "ton _corps_ bouge, ton _esprit_ suit",
+    "colonne": [
+     "tenir un étirement donne au cerveau une seule chose à sentir, et dix minutes suffisent pour _souffler_"
+    ],
+    "chute": "une courte vidéo, puis refais-le sans écran"
+   },
+   "hu": {
+    "nom": "lassú nyújtás",
+    "accroche": "a _tested_ mozog, az _elméd_ követi",
+    "colonne": [
+     "egy nyújtás kitartása egyetlen dolgot ad az agynak, amit érezhet, és tíz perc elég a _újrainduláshoz_"
+    ],
+    "chute": "egy rövid videó, aztán csináld képernyő nélkül"
+   },
+   "it": {
+    "nom": "stretching lento",
+    "accroche": "il _corpo_ si muove, la _mente_ segue",
+    "colonne": [
+     "tenere un allungamento dà al cervello una sola cosa da sentire, e dieci minuti bastano per _resettare_"
+    ],
+    "chute": "un video breve, poi rifallo senza schermo"
+   },
+   "pt-BR": {
+    "nom": "alongamento lento",
+    "accroche": "seu _corpo_ se move, sua _mente_ acompanha",
+    "colonne": [
+     "segurar um alongamento dá ao cérebro agitado uma coisa só pra sentir, e dez minutos bastam pra _resetar_"
+    ],
+    "chute": "um vídeo curto, depois faça sem a tela"
+   },
+   "sr": {
+    "nom": "lagano istezanje",
+    "accroche": "_telo_ se kreće, _um_ prati",
+    "colonne": [
+     "zadržavanje istezanja daje užurbanom mozgu jednu stvar da oseti, a deset minuta je dovoljno za _reset_"
+    ],
+    "chute": "jedan kratak video, pa onda bez ekrana"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-sculptures2.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a slow museum visit",
+    "accroche": "no plan, _no rush_, _just looking_",
+    "colonne": [
+     "walking slowly between statues lets your mind settle on one shape, one face, one detail",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "go alone and leave when you feel calm"
+   },
+   "bg": {
+    "nom": "бавно посещение на музей",
+    "accroche": "без план, _без бързане_, _само гледане_",
+    "colonne": [
+     "бавното ходене между статуите оставя ума да спре на една форма, едно лице, един детайл",
+     "_съвет_: artura ми дава по една картина на ден и историята зад нея, за няколко минути"
+    ],
+    "chute": "иди сам и си тръгни, когато се успокоиш"
+   },
+   "de": {
+    "nom": "ein langsamer museumsbesuch",
+    "accroche": "kein plan, _keine eile_, _nur schauen_",
+    "colonne": [
+     "langsam zwischen statuen zu gehen lässt den kopf bei einer form, einem gesicht, einem detail ankommen",
+     "_pro tipp_: artura zeigt mir jeden tag ein gemälde und die geschichte dahinter, in ein paar minuten"
+    ],
+    "chute": "geh allein und geh, wenn du ruhig bist"
+   },
+   "el": {
+    "nom": "αργή επίσκεψη σε μουσείο",
+    "accroche": "χωρίς πλάνο, _χωρίς βιασύνη_, _μόνο βλέμμα_",
+    "colonne": [
+     "περπατώντας αργά ανάμεσα στα αγάλματα το μυαλό σταματά σε ένα σχήμα, ένα πρόσωπο, μια λεπτομέρεια",
+     "_μικρό tip_: το artura μου δίνει έναν πίνακα τη μέρα και την ιστορία του, σε λίγα λεπτά"
+    ],
+    "chute": "πήγαινε μόνος και φύγε όταν ηρεμήσεις"
+   },
+   "es-419": {
+    "nom": "una visita lenta al museo",
+    "accroche": "sin plan, _sin prisa_, _solo mirar_",
+    "colonne": [
+     "caminar despacio entre estatuas deja que tu mente se pose en una forma, una cara, un detalle",
+     "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
+    ],
+    "chute": "ve solo y vete cuando te sientas tranquilo"
+   },
+   "fr": {
+    "nom": "une visite lente au musée",
+    "accroche": "pas de plan, _pas de hâte_, _juste regarder_",
+    "colonne": [
+     "marcher lentement entre les statues laisse ton esprit se poser sur une forme, un visage, un détail",
+     "_petite astuce_: artura me donne un tableau par jour et son histoire, en quelques minutes"
+    ],
+    "chute": "vas-y seul et pars quand tu te sens calme"
+   },
+   "hu": {
+    "nom": "lassú múzeumlátogatás",
+    "accroche": "nincs terv, _nincs sietség_, _csak nézés_",
+    "colonne": [
+     "ha lassan sétálsz a szobrok között, az elméd megpihen egy formán, egy arcon, egy részleten",
+     "_pro tip_: az artura minden nap ad egy festményt és a mögötte lévő történetet, pár perc alatt"
+    ],
+    "chute": "menj egyedül, és indulj, amikor megnyugodtál"
+   },
+   "it": {
+    "nom": "una visita lenta al museo",
+    "accroche": "niente piani, _niente fretta_, _solo guardare_",
+    "colonne": [
+     "camminare piano tra le statue lascia la mente posarsi su una forma, un volto, un dettaglio",
+     "_piccolo consiglio_: artura mi dà un dipinto al giorno e la sua storia, in pochi minuti"
+    ],
+    "chute": "vai da solo e vattene quando ti senti calmo"
+   },
+   "pt-BR": {
+    "nom": "uma visita lenta ao museu",
+    "accroche": "sem plano, _sem pressa_, _só olhando_",
+    "colonne": [
+     "andar devagar entre estátuas deixa a mente pousar numa forma, num rosto, num detalhe",
+     "_dica_: o artura me dá uma pintura por dia e a história por trás dela, em poucos minutos"
+    ],
+    "chute": "vá sozinho e saia quando se sentir calmo"
+   },
+   "sr": {
+    "nom": "spora poseta muzeju",
+    "accroche": "bez plana, _bez žurbe_, _samo gledanje_",
+    "colonne": [
+     "spora šetnja između statua pušta um da se smiri na jednom obliku, jednom licu, jednom detalju",
+     "_pro tip_: artura mi daje jednu sliku dnevno i priču iza nje, za par minuta"
+    ],
+    "chute": "idi sam i izađi kad se smiriš"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/bonsai.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "bonsai",
+    "accroche": "tiny cuts, _tiny tree_, _total focus_",
+    "colonne": [
+     "every snip matters, so your attention narrows to one branch, and the tree changes _slowly_"
+    ],
+    "chute": "start with one cheap juniper"
+   },
+   "bg": {
+    "nom": "бонсай",
+    "accroche": "малки разрези, _малко дърво_, _пълен фокус_",
+    "colonne": [
+     "всеки разрез има значение, вниманието се свива до един клон, а дървото се променя _бавно_"
+    ],
+    "chute": "започни с евтин хвойнов бонсай"
+   },
+   "de": {
+    "nom": "bonsai",
+    "accroche": "kleine schnitte, _kleiner baum_, _voller fokus_",
+    "colonne": [
+     "jeder schnitt zählt, also wird deine aufmerksamkeit eng wie ein ast, und der baum verändert sich _langsam_"
+    ],
+    "chute": "fang mit einem günstigen wacholder an"
+   },
+   "el": {
+    "nom": "μπονσάι",
+    "accroche": "μικρά κοψίματα, _μικρό δέντρο_, _πλήρης προσοχή_",
+    "colonne": [
+     "κάθε κόψιμο μετράει, η προσοχή στενεύει σε ένα κλαδί, και το δέντρο αλλάζει _αργά_"
+    ],
+    "chute": "ξεκίνα με ένα φτηνό κέδρο"
+   },
+   "es-419": {
+    "nom": "bonsái",
+    "accroche": "cortes chiquitos, _árbol chiquito_, _enfoque total_",
+    "colonne": [
+     "cada corte importa, tu atención se reduce a una rama, y el árbol cambia _despacio_"
+    ],
+    "chute": "empieza con un enebro barato"
+   },
+   "fr": {
+    "nom": "le bonsaï",
+    "accroche": "petites coupes, _petit arbre_, _focus total_",
+    "colonne": [
+     "chaque coup de ciseaux compte, ton attention se réduit à une branche, et l'arbre change _lentement_"
+    ],
+    "chute": "commence avec un genévrier pas cher"
+   },
+   "hu": {
+    "nom": "bonszai",
+    "accroche": "apró vágások, _apró fa_, _teljes fókusz_",
+    "colonne": [
+     "minden vágás számít, így a figyelmed egy ágra szűkül, a fa pedig _lassan_ változik"
+    ],
+    "chute": "kezdd egy olcsó borókával"
+   },
+   "it": {
+    "nom": "bonsai",
+    "accroche": "tagli piccoli, _albero piccolo_, _focus totale_",
+    "colonne": [
+     "ogni taglio conta, l'attenzione si stringe su un ramo, e l'albero cambia _lentamente_"
+    ],
+    "chute": "inizia con un ginepro economico"
+   },
+   "pt-BR": {
+    "nom": "bonsai",
+    "accroche": "cortes pequenos, _árvore pequena_, _foco total_",
+    "colonne": [
+     "cada corte importa, então a atenção se fecha num galho, e a árvore muda _devagar_"
+    ],
+    "chute": "comece com um junípero barato"
+   },
+   "sr": {
+    "nom": "bonsai",
+    "accroche": "sitni rezovi, _malo drvo_, _pun fokus_",
+    "colonne": [
+     "svaki rez je bitan, pa se pažnja suzi na jednu granu, a drvo se menja _polako_"
+    ],
+    "chute": "počni sa jednom jeftinom klekom"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-pov-soir.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "an easy evening run",
+    "accroche": "slow pace, _sunset_ and _your own thoughts_",
+    "colonne": [
+     "an easy run lets a racing mind slow down to the rhythm of your feet",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "run slow enough to breathe through your nose"
+   },
+   "bg": {
+    "nom": "леко вечерно бягане",
+    "accroche": "бавно темпо, _залез_ и _твоите мисли_",
+    "colonne": [
+     "лекото бягане позволява на препускащия ум да забави до ритъма на краката ти",
+     "_съвет_: atala нагласява бяганията ми около целта ми и ги променя всяка седмица"
+    ],
+    "chute": "тичай толкова бавно, че да дишаш през носа"
+   },
+   "de": {
+    "nom": "ein lockerer abendlauf",
+    "accroche": "langsames tempo, _sonnenuntergang_ und _deine gedanken_",
+    "colonne": [
+     "ein lockerer lauf lässt einen rasenden kopf auf das tempo deiner füße runterfahren",
+     "_pro tipp_: atala baut meine läufe um mein ziel herum und passt sie jede woche an"
+    ],
+    "chute": "lauf so langsam, dass du durch die nase atmest"
+   },
+   "el": {
+    "nom": "ήπιο βραδινό τρέξιμο",
+    "accroche": "αργός ρυθμός, _ηλιοβασίλεμα_ και _οι σκέψεις σου_",
+    "colonne": [
+     "ένα εύκολο τρέξιμο φέρνει το βιαστικό μυαλό στον ρυθμό των βημάτων σου",
+     "_μικρό tip_: το atala χτίζει τα τρεξίματά μου γύρω από τον στόχο μου και τα προσαρμόζει κάθε εβδομάδα"
+    ],
+    "chute": "τρέξε τόσο αργά που να αναπνέεις από τη μύτη"
+   },
+   "es-419": {
+    "nom": "una carrera tranquila al atardecer",
+    "accroche": "paso lento, _atardecer_ y _tus pensamientos_",
+    "colonne": [
+     "una carrera fácil baja una mente acelerada al ritmo de tus pies",
+     "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
+    ],
+    "chute": "corre tan lento que respires por la nariz"
+   },
+   "fr": {
+    "nom": "une course tranquille le soir",
+    "accroche": "rythme lent, _coucher de soleil_ et _tes pensées_",
+    "colonne": [
+     "une course facile ralentit un esprit qui s'emballe au rythme de tes pas",
+     "_petite astuce_: atala construit mes sorties autour de mon objectif et les ajuste chaque semaine"
+    ],
+    "chute": "cours assez lentement pour respirer par le nez"
+   },
+   "hu": {
+    "nom": "könnyű esti futás",
+    "accroche": "lassú tempó, _naplemente_ és _a saját gondolataid_",
+    "colonne": [
+     "egy könnyű futás a lépteid ritmusára lassítja a pörgő elmét",
+     "_pro tip_: az atala a célomhoz igazítja a futásaimat, és minden héten finomít rajtuk"
+    ],
+    "chute": "fuss olyan lassan, hogy orron át lélegezz"
+   },
+   "it": {
+    "nom": "una corsa tranquilla la sera",
+    "accroche": "passo lento, _tramonto_ e _i tuoi pensieri_",
+    "colonne": [
+     "una corsa facile rallenta una mente che corre al ritmo dei tuoi passi",
+     "_piccolo consiglio_: atala costruisce le mie corse intorno al mio obiettivo e le adatta ogni settimana"
+    ],
+    "chute": "corri abbastanza piano da respirare col naso"
+   },
+   "pt-BR": {
+    "nom": "uma corrida leve no fim do dia",
+    "accroche": "ritmo lento, _pôr do sol_ e _seus pensamentos_",
+    "colonne": [
+     "uma corrida leve deixa a mente acelerada desacelerar no ritmo dos seus pés",
+     "_dica_: o atala monta minhas corridas em torno do meu objetivo e ajusta toda semana"
+    ],
+    "chute": "corra devagar o bastante pra respirar pelo nariz"
+   },
+   "sr": {
+    "nom": "lagano večernje trčanje",
+    "accroche": "spor tempo, _zalazak sunca_ i _tvoje misli_",
+    "colonne": [
+     "lagano trčanje usporava užurban um do ritma tvojih koraka",
+     "_pro tip_: atala pravi moja trčanja prema mom cilju i prilagođava ih svake nedelje"
+    ],
+    "chute": "trči dovoljno sporo da dišeš na nos"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/the.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "brewing tea",
+    "accroche": "wait, pour, _sip_, _nothing else_",
+    "colonne": [
+     "the steps are small and slow, and the wait teaches a restless brain that _nothing is urgent_"
+    ],
+    "chute": "one good loose tea and a small pot"
+   },
+   "bg": {
+    "nom": "запарване на чай",
+    "accroche": "чакаш, наливаш, _отпиваш_, _нищо друго_",
+    "colonne": [
+     "стъпките са малки и бавни, а чакането учи неспокойния мозък, че _нищо не е спешно_"
+    ],
+    "chute": "един хубав чай на листа и малък чайник"
+   },
+   "de": {
+    "nom": "tee aufbrühen",
+    "accroche": "warten, gießen, _trinken_, _sonst nichts_",
+    "colonne": [
+     "die schritte sind klein und langsam, und das warten zeigt einem unruhigen kopf, dass _nichts eilt_"
+    ],
+    "chute": "ein guter loser tee und eine kleine kanne"
+   },
+   "el": {
+    "nom": "φτιάχνω τσάι",
+    "accroche": "περιμένεις, σερβίρεις, _πίνεις_, _τίποτα άλλο_",
+    "colonne": [
+     "τα βήματα είναι μικρά και αργά, και η αναμονή μαθαίνει στο ανήσυχο μυαλό ότι _τίποτα δεν βιάζεται_"
+    ],
+    "chute": "ένα καλό χύμα τσάι και μια μικρή τσαγιέρα"
+   },
+   "es-419": {
+    "nom": "preparar té",
+    "accroche": "espera, sirve, _toma_, _nada más_",
+    "colonne": [
+     "los pasos son pequeños y lentos, y la espera le enseña a un cerebro inquieto que _nada es urgente_"
+    ],
+    "chute": "un buen té a granel y una tetera chica"
+   },
+   "fr": {
+    "nom": "préparer du thé",
+    "accroche": "attendre, verser, _siroter_, _rien d'autre_",
+    "colonne": [
+     "les étapes sont petites et lentes, et l'attente apprend au cerveau agité que _rien ne presse_"
+    ],
+    "chute": "un bon thé en vrac et une petite théière"
+   },
+   "hu": {
+    "nom": "teafőzés",
+    "accroche": "várj, önts, _kortyolj_, _semmi más_",
+    "colonne": [
+     "a lépések kicsik és lassúak, a várakozás pedig megtanítja a nyugtalan agynak, hogy _semmi sem sürgős_"
+    ],
+    "chute": "egy jó szálas tea és egy kis kanna"
+   },
+   "it": {
+    "nom": "preparare il tè",
+    "accroche": "aspetta, versa, _sorseggia_, _nient'altro_",
+    "colonne": [
+     "i passi sono piccoli e lenti, e l'attesa insegna a un cervello inquieto che _niente è urgente_"
+    ],
+    "chute": "un buon tè sfuso e una piccola teiera"
+   },
+   "pt-BR": {
+    "nom": "preparar chá",
+    "accroche": "espera, serve, _bebe_, _mais nada_",
+    "colonne": [
+     "os passos são pequenos e lentos, e a espera ensina a um cérebro inquieto que _nada é urgente_"
+    ],
+    "chute": "um bom chá a granel e um bule pequeno"
+   },
+   "sr": {
+    "nom": "kuvanje čaja",
+    "accroche": "čekaj, sipaj, _srkni_, _ništa više_",
+    "colonne": [
+     "koraci su mali i spori, a čekanje uči nemirni mozak da _ništa nije hitno_"
+    ],
+    "chute": "jedan dobar čaj u listu i mali čajnik"
+   }
+  }
+ ]
+}

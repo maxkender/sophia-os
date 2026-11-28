@@ -1,0 +1,538 @@
+{
+ "id": "tg-014",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 creative hobbies that actually work if you have adhd",
+  "bg": "10/10 творчески хобита, които наистина работят, ако имаш адхд",
+  "de": "10/10 kreative hobbys, die bei adhs wirklich funktionieren",
+  "el": "10/10 δημιουργικά χόμπι που δουλεύουν αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies creativos que sí funcionan si tienes tdah",
+  "fr": "10/10 loisirs créatifs qui marchent quand on a un tdah",
+  "hu": "10/10 kreatív hobbi, ami tényleg működik, ha adhd-s vagy",
+  "it": "10/10 hobby creativi che funzionano se hai l'adhd",
+  "pt-BR": "10/10 hobbies criativos que funcionam de verdade se você tem tdah",
+  "sr": "10/10 kreativnih hobija koji stvarno pomažu ako imaš adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #creative #focus #brain",
+  "bg": "#адхд #хобита #творчество #фокус #мозък",
+  "de": "#adhs #hobbys #kreativ #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #δημιουργικότητα #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #creatividad #enfoque #cerebro",
+  "fr": "#tdah #loisirs #creatif #concentration #cerveau",
+  "hu": "#adhd #hobbi #kreatív #fókusz #agy",
+  "it": "#adhd #hobby #creativita #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #criatividade #foco #cerebro",
+  "sr": "#adhd #hobi #kreativno #fokus #mozak"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 creative hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (1e3b506a), slide Artura sur un tableau ou un musée de la banque (26052f73), cta B pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-allee2.jpg": "1e3b506a-5255-4084-8359-0548d95753fc",
+  "images/banque/a-visiteurs.jpg": "26052f73-9031-4e18-b96a-aafb200650c6"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 creative hobbies that\nactually work if you have adhd",
+    "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 творчески хобита, които\nнаистина работят при адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 kreative hobbys, die bei\nadhs wirklich funktionieren",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 δημιουργικά χόμπι που\nδουλεύουν αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies creativos que\nsí funcionan si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs créatifs qui\nmarchent quand on a un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 kreatív hobbi, ami\ntényleg működik, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby creativi che\nfunzionano se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies criativos que\nfuncionam de verdade com tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 kreativnih hobija koji\nstvarno pomažu ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/broderie.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "embroidery",
+    "accroche": "one _small flower_ at a time",
+    "colonne": [
+     "each stitch is tiny and you see the picture grow, so a scattered brain always knows _what's next_"
+    ],
+    "chute": "a hoop, a needle and a cheap pattern"
+   },
+   "bg": {
+    "nom": "бродерия",
+    "accroche": "по едно _малко цвете_",
+    "colonne": [
+     "всеки бод е мъничък и виждаш как картината расте, така че разсеяният ум винаги знае _какво следва_"
+    ],
+    "chute": "гергеф, игла и евтина схема"
+   },
+   "de": {
+    "nom": "sticken",
+    "accroche": "eine _kleine blume_ nach der anderen",
+    "colonne": [
+     "jeder stich ist winzig und du siehst das bild wachsen, also weiß ein zerstreuter kopf immer, _was als nächstes_ kommt"
+    ],
+    "chute": "ein rahmen, eine nadel und eine günstige vorlage"
+   },
+   "el": {
+    "nom": "κέντημα",
+    "accroche": "ένα _μικρό λουλούδι_ τη φορά",
+    "colonne": [
+     "κάθε βελονιά είναι μικρή και βλέπεις το σχέδιο να μεγαλώνει, έτσι ξέρεις πάντα _τι ακολουθεί_"
+    ],
+    "chute": "ένα τελάρο, μια βελόνα και ένα φθηνό σχέδιο"
+   },
+   "es-419": {
+    "nom": "bordado",
+    "accroche": "una _florecita_ a la vez",
+    "colonne": [
+     "cada puntada es pequeña y ves crecer el dibujo, así que un cerebro disperso siempre sabe _qué sigue_"
+    ],
+    "chute": "un bastidor, una aguja y un patrón barato"
+   },
+   "fr": {
+    "nom": "la broderie",
+    "accroche": "une _petite fleur_ à la fois",
+    "colonne": [
+     "chaque point est minuscule et tu vois le dessin grandir, donc un cerveau dispersé sait toujours _quoi faire_"
+    ],
+    "chute": "un tambour, une aiguille et un modèle pas cher"
+   },
+   "hu": {
+    "nom": "hímzés",
+    "accroche": "egyszerre csak _egy kis virág_",
+    "colonne": [
+     "minden öltés apró, és látod, ahogy nő a kép, így a szétszórt agy mindig tudja, _mi jön most_"
+    ],
+    "chute": "egy ráma, egy tű és egy olcsó minta"
+   },
+   "it": {
+    "nom": "il ricamo",
+    "accroche": "un _piccolo fiore_ alla volta",
+    "colonne": [
+     "ogni punto è minuscolo e vedi il disegno crescere, così un cervello disperso sa sempre _cosa fare_"
+    ],
+    "chute": "un telaio, un ago e uno schema economico"
+   },
+   "pt-BR": {
+    "nom": "bordado",
+    "accroche": "uma _florzinha_ de cada vez",
+    "colonne": [
+     "cada ponto é pequeno e você vê o desenho crescer, então um cérebro disperso sempre sabe _o que vem_"
+    ],
+    "chute": "um bastidor, uma agulha e um molde barato"
+   },
+   "sr": {
+    "nom": "vez",
+    "accroche": "_jedan mali cvet_ u jednom trenutku",
+    "colonne": [
+     "svaki bod je sitan i gledaš kako slika raste, pa rasut mozak uvek zna _šta je sledeće_"
+    ],
+    "chute": "đerđef, igla i jeftina šema"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-visiteurs.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning to look at art",
+    "accroche": "steal ideas from the _old masters_",
+    "colonne": [
+     "looking closely at how a painter used light and color gives your own projects _new ideas_",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "pick one painting and copy one detail"
+   },
+   "bg": {
+    "nom": "да се научиш да гледаш изкуство",
+    "accroche": "крадни идеи от _старите майстори_",
+    "colonne": [
+     "да гледаш отблизо как художник ползва светлина и цвят дава _нови идеи_ за твоите проекти",
+     "_съвет_: artura ми дава по една картина на ден и историята зад нея, за няколко минути"
+    ],
+    "chute": "избери картина и копирай един детайл"
+   },
+   "de": {
+    "nom": "kunst sehen lernen",
+    "accroche": "klau ideen von den _alten meistern_",
+    "colonne": [
+     "genau hinzuschauen, wie ein maler licht und farbe nutzt, gibt deinen projekten _neue ideen_",
+     "_pro tipp_: artura zeigt mir jeden tag ein gemälde und die geschichte dahinter, in ein paar minuten"
+    ],
+    "chute": "nimm ein gemälde und kopier ein detail"
+   },
+   "el": {
+    "nom": "μαθαίνω να κοιτάζω τέχνη",
+    "accroche": "κλέψε ιδέες από τους _μεγάλους δασκάλους_",
+    "colonne": [
+     "το πώς ένας ζωγράφος χρησιμοποιεί φως και χρώμα δίνει _νέες ιδέες_ στα δικά σου",
+     "_μικρό tip_: το artura μου δίνει έναν πίνακα τη μέρα και την ιστορία του, σε λίγα λεπτά"
+    ],
+    "chute": "διάλεξε έναν πίνακα και αντέγραψε μια λεπτομέρεια"
+   },
+   "es-419": {
+    "nom": "aprender a mirar arte",
+    "accroche": "róbales ideas a los _grandes maestros_",
+    "colonne": [
+     "fijarte en cómo un pintor usó la luz y el color le da _ideas nuevas_ a tus proyectos",
+     "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
+    ],
+    "chute": "elige una pintura y copia un solo detalle"
+   },
+   "fr": {
+    "nom": "apprendre à regarder l'art",
+    "accroche": "pique des idées aux _grands maîtres_",
+    "colonne": [
+     "regarder comment un peintre utilise la lumière et la couleur donne de _nouvelles idées_ à tes projets",
+     "_petite astuce_: artura me donne un tableau par jour et son histoire, en quelques minutes"
+    ],
+    "chute": "choisis un tableau et copie un seul détail"
+   },
+   "hu": {
+    "nom": "megtanulni nézni a művészetet",
+    "accroche": "lopj ötletet a _régi mesterektől_",
+    "colonne": [
+     "ha közelről megnézed, hogyan bánt a festő a fénnyel és a színnel, _új ötleteket_ kapsz a saját munkáidhoz",
+     "_pro tip_: az artura minden nap ad egy festményt és a mögötte lévő történetet, pár perc alatt"
+    ],
+    "chute": "válassz egy festményt, és másolj le egy részletet"
+   },
+   "it": {
+    "nom": "imparare a guardare l'arte",
+    "accroche": "ruba idee ai _grandi maestri_",
+    "colonne": [
+     "guardare come un pittore usa luce e colore dà _idee nuove_ ai tuoi progetti",
+     "_piccolo consiglio_: artura mi dà un dipinto al giorno e la sua storia, in pochi minuti"
+    ],
+    "chute": "scegli un dipinto e copia un solo dettaglio"
+   },
+   "pt-BR": {
+    "nom": "aprender a olhar arte",
+    "accroche": "roube ideias dos _grandes mestres_",
+    "colonne": [
+     "olhar de perto como um pintor usou luz e cor dá _ideias novas_ pros seus projetos",
+     "_dica_: o artura me dá uma pintura por dia e a história por trás dela, em poucos minutos"
+    ],
+    "chute": "escolha uma pintura e copie um detalhe"
+   },
+   "sr": {
+    "nom": "učiti da gledaš umetnost",
+    "accroche": "ukradi ideje od _starih majstora_",
+    "colonne": [
+     "kad pažljivo gledaš kako je slikar koristio svetlo i boju, dobiješ _nove ideje_ za svoje radove",
+     "_pro tip_: artura mi daje jednu sliku dnevno i priču iza nje, za par minuta"
+    ],
+    "chute": "izaberi jednu sliku i precrtaj jedan detalj"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/origami.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "origami",
+    "accroche": "one sheet of paper, _no glue_, _no mess_",
+    "colonne": [
+     "every fold is a clear step, and in ten minutes you're holding something you _made_"
+    ],
+    "chute": "start with a paper crane"
+   },
+   "bg": {
+    "nom": "оригами",
+    "accroche": "един лист, _без лепило_, _без бъркотия_",
+    "colonne": [
+     "всяко сгъване е ясна стъпка, и след десет минути държиш нещо, което си _направила_"
+    ],
+    "chute": "започни с хартиен жерав"
+   },
+   "de": {
+    "nom": "origami",
+    "accroche": "ein blatt, _kein kleber_, _kein chaos_",
+    "colonne": [
+     "jede faltung ist ein klarer schritt, und nach zehn minuten hältst du etwas in der hand, das du _gemacht_ hast"
+    ],
+    "chute": "fang mit einem papierkranich an"
+   },
+   "el": {
+    "nom": "οριγκάμι",
+    "accroche": "ένα φύλλο, _χωρίς κόλλα_, _χωρίς χάος_",
+    "colonne": [
+     "κάθε δίπλωμα είναι ένα σαφές βήμα, και σε δέκα λεπτά κρατάς κάτι που _έφτιαξες_"
+    ],
+    "chute": "ξεκίνα με έναν χάρτινο γερανό"
+   },
+   "es-419": {
+    "nom": "origami",
+    "accroche": "una hoja, _sin pegamento_, _sin desorden_",
+    "colonne": [
+     "cada doblez es un paso claro, y en diez minutos tienes algo que _hiciste tú_"
+    ],
+    "chute": "empieza con una grulla de papel"
+   },
+   "fr": {
+    "nom": "l'origami",
+    "accroche": "une feuille, _pas de colle_, _pas de bazar_",
+    "colonne": [
+     "chaque pli est une étape claire, et en dix minutes tu tiens un objet que tu as _fait_"
+    ],
+    "chute": "commence par une grue en papier"
+   },
+   "hu": {
+    "nom": "origami",
+    "accroche": "egy lap papír, _se ragasztó_, _se kosz_",
+    "colonne": [
+     "minden hajtás egy világos lépés, és tíz perc múlva valamit a kezedben tartasz, amit _te készítettél_"
+    ],
+    "chute": "kezdd egy papírdaruval"
+   },
+   "it": {
+    "nom": "l'origami",
+    "accroche": "un foglio, _niente colla_, _niente disordine_",
+    "colonne": [
+     "ogni piega è un passo chiaro, e in dieci minuti hai in mano qualcosa che hai _fatto tu_"
+    ],
+    "chute": "inizia con una gru di carta"
+   },
+   "pt-BR": {
+    "nom": "origami",
+    "accroche": "uma folha, _sem cola_, _sem bagunça_",
+    "colonne": [
+     "cada dobra é um passo claro, e em dez minutos você tem nas mãos algo que você _fez_"
+    ],
+    "chute": "comece com um tsuru de papel"
+   },
+   "sr": {
+    "nom": "origami",
+    "accroche": "jedan list papira, _bez lepka_, _bez nereda_",
+    "colonne": [
+     "svaki pregib je jasan korak, a za deset minuta držiš nešto što si _napravio_"
+    ],
+    "chute": "počni sa papirnim ždralom"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-allee2.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "nom": "running",
+    "accroche": "your best ideas show up _halfway_ through a _run_",
+    "colonne": [
+     "a steady run lets your mind wander in a good way, and a weekly plan keeps the habit _going_",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "leave the music off once a week"
+   },
+   "bg": {
+    "nom": "бягане",
+    "accroche": "най-добрите идеи идват _по средата_ на _бягането_",
+    "colonne": [
+     "спокойното бягане оставя ума да се рее по добрия начин, а седмичният план държи _навика_",
+     "_съвет_: atala нагласява бяганията ми около целта ми и ги променя всяка седмица"
+    ],
+    "chute": "веднъж седмично тичай без музика"
+   },
+   "de": {
+    "nom": "laufen",
+    "accroche": "die besten ideen kommen _mitten_ im _lauf_",
+    "colonne": [
+     "ein ruhiger lauf lässt den kopf auf gute art wandern, und ein plan hält die _gewohnheit_",
+     "_pro tipp_: atala baut meine läufe um mein ziel herum und passt sie jede woche an"
+    ],
+    "chute": "lauf einmal pro woche ohne musik"
+   },
+   "el": {
+    "nom": "τρέξιμο",
+    "accroche": "οι καλύτερες ιδέες έρχονται _στη μέση_ του _τρεξίματος_",
+    "colonne": [
+     "το σταθερό τρέξιμο αφήνει το μυαλό να ταξιδέψει, και το πλάνο κρατά τη _συνήθεια_",
+     "_μικρό tip_: το atala χτίζει τα τρεξίματά μου γύρω από τον στόχο μου και τα προσαρμόζει κάθε εβδομάδα"
+    ],
+    "chute": "κλείσε τη μουσική μία φορά τη βδομάδα"
+   },
+   "es-419": {
+    "nom": "correr",
+    "accroche": "tus mejores ideas llegan a la _mitad_ de una _carrera_",
+    "colonne": [
+     "una carrera constante deja que tu mente divague bien, y un plan semanal mantiene el hábito _en marcha_",
+     "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
+    ],
+    "chute": "apaga la música una vez por semana"
+   },
+   "fr": {
+    "nom": "courir",
+    "accroche": "tes meilleures idées arrivent _au milieu_ d'une _course_",
+    "colonne": [
+     "une course régulière laisse ton esprit vagabonder dans le bon sens, et un plan garde l'habitude _en route_",
+     "_petite astuce_: atala construit mes sorties autour de mon objectif et les ajuste chaque semaine"
+    ],
+    "chute": "coupe la musique une fois par semaine"
+   },
+   "hu": {
+    "nom": "futás",
+    "accroche": "a legjobb ötleteid a futás _felénél_ _jönnek_",
+    "colonne": [
+     "egy kitartó futás alatt jó értelemben elkalandozik a fejed, a heti terv pedig _fenntartja_ a szokást",
+     "_pro tip_: az atala a célomhoz igazítja a futásaimat, és minden héten finomít rajtuk"
+    ],
+    "chute": "hetente egyszer hagyd ki a zenét"
+   },
+   "it": {
+    "nom": "correre",
+    "accroche": "le idee migliori arrivano _a metà_ di una _corsa_",
+    "colonne": [
+     "una corsa regolare lascia vagare la mente nel modo giusto, e un piano tiene viva l'_abitudine_",
+     "_piccolo consiglio_: atala costruisce le mie corse intorno al mio obiettivo e le adatta ogni settimana"
+    ],
+    "chute": "spegni la musica una volta a settimana"
+   },
+   "pt-BR": {
+    "nom": "correr",
+    "accroche": "as melhores ideias aparecem _no meio_ da _corrida_",
+    "colonne": [
+     "uma corrida tranquila deixa a mente vagar do jeito bom, e um plano semanal mantém o _hábito_",
+     "_dica_: o atala monta minhas corridas em torno do meu objetivo e ajusta toda semana"
+    ],
+    "chute": "uma vez por semana, corra sem música"
+   },
+   "sr": {
+    "nom": "trčanje",
+    "accroche": "najbolje ideje dođu _na pola_ _trčanja_",
+    "colonne": [
+     "ujednačeno trčanje pusti um da luta na dobar način, a nedeljni plan _održava_ naviku",
+     "_pro tip_: atala pravi moja trčanja prema mom cilju i prilagođava ih svake nedelje"
+    ],
+    "chute": "jednom nedeljno trči bez muzike"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/bougie.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "candle making",
+    "accroche": "melt, pour, wait, _done_",
+    "colonne": [
+     "it's short, hands-on and smells good, and you get something you can _actually use_ the next day"
+    ],
+    "chute": "a kit with wax, wicks and jars is enough"
+   },
+   "bg": {
+    "nom": "свещи",
+    "accroche": "разтопи, налей, изчакай, _готово_",
+    "colonne": [
+     "кратко е, с ръце е и ухае хубаво, а на другия ден имаш нещо, което _наистина ползваш_"
+    ],
+    "chute": "комплект с восък, фитили и бурканчета стига"
+   },
+   "de": {
+    "nom": "kerzen gießen",
+    "accroche": "schmelzen, gießen, warten, _fertig_",
+    "colonne": [
+     "es ist kurz, handfest und riecht gut, und am nächsten tag hast du etwas, das du _wirklich nutzt_"
+    ],
+    "chute": "ein set mit wachs, dochten und gläsern reicht"
+   },
+   "el": {
+    "nom": "κεριά",
+    "accroche": "λιώσε, ρίξε, περίμενε, _έτοιμο_",
+    "colonne": [
+     "είναι σύντομο, χειροποίητο και μυρίζει ωραία, και φτιάχνεις κάτι που _χρησιμοποιείς_ την επομένη"
+    ],
+    "chute": "αρκεί ένα κιτ με κερί, φιτίλια και βάζα"
+   },
+   "es-419": {
+    "nom": "hacer velas",
+    "accroche": "derrite, vierte, espera, _listo_",
+    "colonne": [
+     "es corto, manual y huele rico, y te queda algo que _de verdad usas_ al día siguiente"
+    ],
+    "chute": "basta un kit con cera, mechas y frascos"
+   },
+   "fr": {
+    "nom": "faire des bougies",
+    "accroche": "fondre, verser, attendre, _fini_",
+    "colonne": [
+     "c'est court, manuel et ça sent bon, et tu as un objet que tu peux _vraiment utiliser_ le lendemain"
+    ],
+    "chute": "un kit avec cire, mèches et pots suffit"
+   },
+   "hu": {
+    "nom": "gyertyaöntés",
+    "accroche": "olvaszt, önt, vár, _kész_",
+    "colonne": [
+     "rövid, kézzelfogható és jó illatú, és olyat kapsz, amit másnap _tényleg használsz_"
+    ],
+    "chute": "egy készlet viasszal, kanóccal és üvegekkel elég"
+   },
+   "it": {
+    "nom": "fare candele",
+    "accroche": "sciogli, versa, aspetta, _fatto_",
+    "colonne": [
+     "è breve, manuale e profuma, e ottieni qualcosa che puoi _usare davvero_ il giorno dopo"
+    ],
+    "chute": "basta un kit con cera, stoppini e barattoli"
+   },
+   "pt-BR": {
+    "nom": "fazer velas",
+    "accroche": "derreter, despejar, esperar, _pronto_",
+    "colonne": [
+     "é rápido, manual e cheiroso, e no dia seguinte você tem algo que _dá pra usar_"
+    ],
+    "chute": "um kit com cera, pavios e potes basta"
+   },
+   "sr": {
+    "nom": "pravljenje sveća",
+    "accroche": "otopi, sipaj, sačekaj, _gotovo_",
+    "colonne": [
+     "kratko je, radiš rukama, lepo miriše i dobiješ nešto što _stvarno koristiš_ sutradan"
+    ],
+    "chute": "komplet sa voskom, fitiljima i teglama je dovoljan"
+   }
+  }
+ ]
+}

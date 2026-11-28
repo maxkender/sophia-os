@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o500",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1b57c0f3-012f-42ed-bb1c-801ec819fec0",
+ "titre": "how to rebrand yourself #rebrand #glowup #selfimprovement #smartgirl #newme",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "1b57c0f3-012f-42ed-bb1c-801ec819fec0"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 12 de la boîte (parent 1b57c0f3, langue source en) : accroche du parent mot pour mot. Étapes du parent (nouvelle identité, habitudes, style, réseaux nettoyés, espace, état d'esprit, nourrir son esprit). Sophia sur « nourris ton esprit » comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "afd22939",
+   "texte_overlay": "how to rebrand yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674646206676520225/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d19f3a12",
+   "texte_overlay": "decide who you want to be",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674646206676520225/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "30b31689",
+   "texte_overlay": "change your habits\n\nroutines that fit your\nnew identity.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674646206676520225/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "677ab7d4",
+   "texte_overlay": "refresh your look",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674646206676520225/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f780122c",
+   "texte_overlay": "clean your social media",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674646206676520225/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7939fed4",
+   "texte_overlay": "change your space",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674646206676520225/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e75aef61",
+   "texte_overlay": "feed your mind",
+   "texte_sophia": "feed your mind\n\nshort lessons on an app like Sophia, so you\nhave something to say about everything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674646206676520225/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a3e51d92",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7674646206676520225/8.jpg"
+  }
+ ]
+}

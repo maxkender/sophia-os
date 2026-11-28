@@ -1,0 +1,465 @@
+{
+ "id": "bm-012",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@thebiomechanic/photo/7699181996311923990",
+  "vues": 130300,
+  "publie_le": "2026-10-21",
+  "accroche": "Recovery Tierlist For Optimal Health (Science based)"
+ },
+ "titre": {
+  "en": "stress tierlist for optimal health",
+  "it": "tierlist dello stress per una salute ottimale",
+  "hu": "stressz tierlist az optimális egészségért",
+  "sr": "tierlista stresa za optimalno zdravlje"
+ },
+ "legendes": {
+  "en": "what actually calms you down 🧠 #stress #health #biohacking #running #mentalhealth",
+  "it": "cosa ti calma davvero 🧠 #stress #salute #benessere #corsa #biohacking",
+  "hu": "mi nyugtat meg igazán 🧠 #stressz #egészség #biohacking #futás #lelkiegészség",
+  "sr": "šta te zaista smiruje 🧠 #stres #zdravlje #biohacking #trčanje #mentalnozdravlje"
+ },
+ "musique": {
+  "titre": "Becha (Sped Up)",
+  "url": "https://www.tiktok.com/music/Becha-Sped-Up-7680166793501575185"
+ },
+ "banque": {
+  "images/banque/st-scroll.jpg": "b0bdb47a-c599-4ba5-b671-7f631727202d",
+  "images/banque/st-travail.jpg": "45028002-889e-4ced-8a1f-f7cffd71b64b",
+  "images/banque/st-cafe.jpg": "342a0813-d625-46b9-b139-c66484ce25ea",
+  "images/banque/st-immobile.jpg": "380170b2-01cc-41b5-9773-17c38dc018e6",
+  "images/banque/st-journal.jpg": "d7002977-940b-42e9-bb74-ed5bac9a78dc",
+  "images/banque/st-musique.jpg": "6747bf28-ad8e-4954-8143-b16b1d756c8a",
+  "images/banque/st-amis.jpg": "a7447a3c-5a14-40b9-a436-930eb67c05ee",
+  "images/banque/st-nature.jpg": "43df1553-b6d9-4794-bdd3-3697ad238114",
+  "images/banque/st-course.jpg": "594bc63a-47d4-4537-8ce3-b6a703311cb2",
+  "images/banque/st-groupe.jpg": "38cb0552-f32a-4a61-b7e6-644abaea7e76"
+ },
+ "notes": "Full test du 26/11 : « Stress Tierlist For Optimal Health (Science based) », sujet de vie quotidienne au format de ses tier lists (Recovery 130 k, Morning 718 k) ; la jauge CORTISOL de sa couverture colle au sujet. Source gardée pour mémoire. En, it, hu, sr (traduits à la main). Croquis neuf (stress.jpg, Seedream). Slide Atala (10) : le premier S tier « Easy Runs », des coureuses de la banque et le logo d'Atala. Texte selon placement_atala : hook de 5 mots → NEUTRE, ligne « il lâche / la paix » : la semaine déjà prévue, il n'a qu'à y aller ; version « cta L' ». Faits : écrans et lumière le soir (Chang et al. 2015) ; écriture expressive et rumination (Pennebaker ; Scullin et al., J Exp Psychol Gen 2018, liste écrite avant le coucher) ; soutien social et stress (Holt-Lunstad 2010) ; nature et stress (Hunter et al., Front Psychol 2019, 20 min dehors) ; activité physique, humeur et anxiété (revues Cochrane et méta-analyses, Singh et al., Br J Sports Med 2023) ; caféine et nervosité. Rien de médical : aucun traitement, aucun conseil d'anxiété clinique.",
+ "slides": [
+  {
+   "type": "couverture",
+   "icone": "images/dessins/tete.png",
+   "dessin": "images/dessins/stress.jpg",
+   "en": {
+    "lignes": [
+     "Stress Tierlist",
+     "For *Optimal* Health"
+    ],
+    "note": "(Science based)"
+   },
+   "it": {
+    "lignes": [
+     "Tierlist dello Stress",
+     "Salute *Ottimale*"
+    ],
+    "note": "(Basata sulla scienza)"
+   },
+   "hu": {
+    "lignes": [
+     "Stressz Tierlist",
+     "*Optimális* Egészség"
+    ],
+    "note": "(Tudományosan megalapozva)"
+   },
+   "sr": {
+    "lignes": [
+     "Tierlista Stresa",
+     "*Optimalno* Zdravlje"
+    ],
+    "note": "(Naučno zasnovano)"
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/st-scroll.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Scrolling At 2 AM",
+    "paragraphes": [
+     "Bad news, bright light and no sleep. Your brain stays on alert right when it should be switching off.",
+     "You wake up more tired and more on edge."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Scrollare alle 2 di Notte",
+    "paragraphes": [
+     "Brutte notizie, luce forte e niente sonno. Il cervello resta in allerta proprio quando dovrebbe spegnersi.",
+     "Ti svegli più stanco e più teso di prima."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Görgetés Hajnali 2-kor",
+    "paragraphes": [
+     "Rossz hírek, erős fény és alvás nélkül. Az agyad riadókészültségben marad, pont amikor ki kellene kapcsolnia.",
+     "Fáradtabban és feszültebben ébredsz, mint előtte."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Skrolovanje u 2 Ujutru",
+    "paragraphes": [
+     "Loše vesti, jako svetlo i bez sna. Mozak ostaje u pripravnosti baš kad bi trebalo da se isključi.",
+     "Budiš se umorniji i napetiji nego pre."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/st-travail.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Working Through Every Break",
+    "paragraphes": [
+     "No lunch away from the desk, no walk, no pause. Stress builds all day with nowhere to go.",
+     "Ten minutes outside resets more than you think."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Lavorare Senza Pause",
+    "paragraphes": [
+     "Niente pranzo lontano dalla scrivania, niente camminata. Lo stress si accumula tutto il giorno.",
+     "Dieci minuti fuori resettano più di quanto pensi."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Munka Szünet Nélkül",
+    "paragraphes": [
+     "Nincs ebéd az asztaltól távol, nincs séta. A stressz egész nap gyűlik.",
+     "Tíz perc kint többet állít helyre, mint gondolnád."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Rad Bez Ikakve Pauze",
+    "paragraphes": [
+     "Bez ručka daleko od stola, bez šetnje. Stres se gomila ceo dan.",
+     "Deset minuta napolju resetuje više nego što misliš."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/st-cafe.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Coffee To Push Through",
+    "paragraphes": [
+     "When you're already wired, more caffeine adds to the jittery feeling instead of fixing it.",
+     "One coffee is fine. The fourth one isn't helping."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Caffè per Tirare Avanti",
+    "paragraphes": [
+     "Quando sei già agitato, altra caffeina aumenta il nervosismo invece di risolverlo.",
+     "Un caffè va bene. Il quarto non aiuta."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Kávé a Kitartáshoz",
+    "paragraphes": [
+     "Ha már pörögsz, a több koffein csak fokozza a remegést, ahelyett hogy segítene.",
+     "Egy kávé rendben van. A negyedik nem segít."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Kafa da Izguraš Dan",
+    "paragraphes": [
+     "Kad si već napet, još kofeina pojačava nervozu umesto da pomogne.",
+     "Jedna kafa je u redu. Četvrta ne pomaže."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/st-immobile.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Lying Still All Day",
+    "paragraphes": [
+     "Doing nothing feels like rest, but stress hormones need movement to come back down.",
+     "Rest is good. Total stillness rarely calms you."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Fermo Tutto il Giorno",
+    "paragraphes": [
+     "Non fare niente sembra riposo, ma gli ormoni dello stress hanno bisogno di movimento per scendere.",
+     "Riposare è giusto. L'immobilità totale calma di rado."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Egész Nap Mozdulatlanul",
+    "paragraphes": [
+     "A semmittevés pihenésnek tűnik, de a stresszhormonoknak mozgás kell, hogy lecsengjenek.",
+     "A pihenés jó. A teljes mozdulatlanság ritkán nyugtat."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Nepokretno Ceo Dan",
+    "paragraphes": [
+     "Ne raditi ništa deluje kao odmor, ali hormonima stresa treba kretanje da bi pali.",
+     "Odmor je dobar. Potpuno mirovanje retko smiruje."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/st-journal.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Writing It Down",
+    "paragraphes": [
+     "Putting worries on paper helps your brain stop going round in circles, especially before bed.",
+     "Cheap and useful, but it's a pause, not a reset."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Scrivere i Pensieri",
+    "paragraphes": [
+     "Mettere le preoccupazioni su carta aiuta il cervello a smettere di girare a vuoto, soprattutto la sera.",
+     "Utile ed economico, ma è una pausa, non un reset."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Leírni a Gondolatokat",
+    "paragraphes": [
+     "Ha papírra veted az aggodalmaidat, az agyad abbahagyja a körbe-körbe járást, főleg este.",
+     "Olcsó és hasznos, de ez szünet, nem újraindítás."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Zapisivanje Misli",
+    "paragraphes": [
+     "Kad brige staviš na papir, mozak prestane da se vrti u krug, posebno uveče.",
+     "Jeftino i korisno, ali to je pauza, ne reset."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/st-musique.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "A Walk With Music",
+    "paragraphes": [
+     "Music you love and a slow walk outside can lift your mood in minutes.",
+     "It stays in C because your body barely works."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Camminare con la Musica",
+    "paragraphes": [
+     "La musica che ami e una camminata lenta all'aperto possono alzare l'umore in pochi minuti.",
+     "Resta in C perché il corpo lavora poco."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Séta Zenével",
+    "paragraphes": [
+     "A kedvenc zenéd és egy lassú séta kint percek alatt javíthat a hangulatodon.",
+     "Azért C, mert a tested alig dolgozik."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Šetnja uz Muziku",
+    "paragraphes": [
+     "Muzika koju voliš i spora šetnja napolju mogu da podignu raspoloženje za par minuta.",
+     "U C je jer telo jedva radi."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/st-amis.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Time With Friends",
+    "paragraphes": [
+     "Talking with people you trust is one of the strongest buffers against stress we know.",
+     "It misses A tier because it doesn't move your body."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Tempo con gli Amici",
+    "paragraphes": [
+     "Parlare con persone di fiducia è una delle protezioni più forti contro lo stress che conosciamo.",
+     "Manca la A perché non muove il corpo."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Idő a Barátokkal",
+    "paragraphes": [
+     "Megbízható emberekkel beszélgetni az egyik legerősebb védelem a stressz ellen, amit ismerünk.",
+     "Azért nem A, mert nem mozgatja meg a tested."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Vreme sa Prijateljima",
+    "paragraphes": [
+     "Razgovor sa ljudima kojima veruješ jedna je od najjačih zaštita od stresa koju znamo.",
+     "Nije A jer ne pokreće telo."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/st-nature.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Time In Nature",
+    "paragraphes": [
+     "Even a short time among trees and open space is linked to lower stress and a calmer mind.",
+     "Great on its own, even better when you move."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Tempo nella Natura",
+    "paragraphes": [
+     "Anche poco tempo tra alberi e spazi aperti è legato a meno stress e a una mente più calma.",
+     "Ottimo da solo, ancora meglio se ti muovi."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Idő a Természetben",
+    "paragraphes": [
+     "Már rövid idő fák között és nyílt térben is kevesebb stresszel és nyugodtabb fejjel jár.",
+     "Remek egymagában, és még jobb, ha mozogsz."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Vreme u Prirodi",
+    "paragraphes": [
+     "I kratko vreme među drvećem i na otvorenom povezano je sa manje stresa i mirnijim umom.",
+     "Odlično samo po sebi, još bolje uz kretanje."
+    ]
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/st-course.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "format": "carre",
+   "en": {
+    "tier": "S",
+    "nom": "Easy Runs",
+    "paragraphes": [
+     "Regular running lowers stress, improves mood and helps you sleep deeper, even at an easy pace.",
+     "You don't need to decide anything. A running coach app like Atala has your week planned, you just go."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Corse Facili",
+    "paragraphes": [
+     "Correre con regolarità abbassa lo stress, migliora l'umore e aiuta a dormire più profondo, anche a ritmo facile.",
+     "Non devi decidere niente. Un'app con coach per la corsa come Atala ha già pronta la tua settimana, tu vai."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Könnyű Futás",
+    "paragraphes": [
+     "A rendszeres futás csökkenti a stresszt, javítja a hangulatot és mélyebb alvást segít, könnyű tempóban is.",
+     "Nem kell semmit eldöntened. Egy futóedző app, mint az Atala, már megtervezte a heted, neked csak menned kell."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Lagano Trčanje",
+    "paragraphes": [
+     "Redovno trčanje smanjuje stres, popravlja raspoloženje i pomaže dubljem snu, čak i laganim tempom.",
+     "Ne moraš ništa da odlučuješ. Aplikacija sa trenerom za trčanje kao što je Atala već je isplanirala tvoju nedelju, ti samo kreneš."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/st-groupe.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Running With Friends",
+    "paragraphes": [
+     "Movement, fresh air and people you like, all in one hour. Your stress has nowhere to hide.",
+     "The best reset on this list, and the easiest to keep."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Correre con gli Amici",
+    "paragraphes": [
+     "Movimento, aria aperta e persone che ti piacciono, tutto in un'ora. Lo stress non ha dove nascondersi.",
+     "Il miglior reset della lista, e il più facile da tenere."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Futás Barátokkal",
+    "paragraphes": [
+     "Mozgás, friss levegő és kedves emberek egyetlen órában. A stressznek nincs hova bújnia.",
+     "A lista legjobb újraindítása, és a legkönnyebb megtartani."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Trčanje sa Prijateljima",
+    "paragraphes": [
+     "Kretanje, svež vazduh i ljudi koje voliš, sve u jednom satu. Stres nema gde da se sakrije.",
+     "Najbolji reset na listi, i najlakši za održati."
+    ]
+   }
+  }
+ ]
+}

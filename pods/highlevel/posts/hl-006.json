@@ -1,0 +1,487 @@
+{
+  "id": "hl-006",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7686199268775939350",
+    "vues": 1400000,
+    "publie_le": "2026-09-16",
+    "accroche": "HOW TO GIVE A GIRL BUTTERFLIES."
+  },
+  "musique": {
+    "titre": "Les (Instrumental Slowed)",
+    "url": "https://www.tiktok.com/music/Les-Instrumental-Slowed-7601037808778708993"
+  },
+  "notes": "Preuve de format : « HOW TO GIVE A GIRL BUTTERFLIES. » (1,4 M), famille « HOW TO … », conseils titrés. Accroche neuve « HOW TO MAKE HER MISS YOU. ». Carte Artura (4) : « Show her a painting. », Van Gogh, Irises (The Met 436528), LOGO d'Artura ; cta C. Fait vérifié : le fond, rose à l'origine, a blanchi (laque rouge qui s'est effacée, fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es + sr (latin) le 27/11.",
+  "oeuvres": {
+    "images/oeuvres/vangogh-iris.jpg": {
+      "musee": "The Met",
+      "id": "436528",
+      "titre": "Irises",
+      "artiste": "Vincent van Gogh",
+      "date": "1890",
+      "url": "https://www.metmuseum.org/art/collection/search/436528"
+    }
+  },
+  "titre": {
+    "en": "How to make her miss you.",
+    "el": "Πώς να της λείψεις.",
+    "es-419": "Cómo hacer que te extrañe.",
+    "it": "Come farti mancare da lei.",
+    "hu": "Hogyan hiányozz neki.",
+    "pt-BR": "Como fazer ela sentir sua falta.",
+    "es": "Cómo hacer que te eche de menos.",
+    "sr": "Kako da joj nedostaješ."
+  },
+  "legendes": {
+    "en": "#datingadvice #tipsformen #attraction ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar ",
+    "sr": "#savetizamuškarce #veze #zavođenje "
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "en": {
+        "titre": "HOW TO MAKE\nHER MISS YOU."
+      },
+      "el": {
+        "titre": "ΠΩΣ ΝΑ ΤΗΣ\nΛΕΙΨΕΙΣ."
+      },
+      "es-419": {
+        "titre": "CÓMO HACER\nQUE TE EXTRAÑE."
+      },
+      "it": {
+        "titre": "COME FARTI\nMANCARE\nDA LEI."
+      },
+      "hu": {
+        "titre": "HOGYAN\nHIÁNYOZZ NEKI."
+      },
+      "pt-BR": {
+        "titre": "COMO FAZER\nELA SENTIR\nSUA FALTA."
+      },
+      "es": {
+        "titre": "CÓMO HACER\nQUE TE ECHE\nDE MENOS."
+      },
+      "sr": {
+        "titre": "KAKO DA\nJOJ NEDOSTAJEŠ."
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Don't be always available.",
+        "paragraphes": [
+          "Answering in ten seconds, every time,\nsays you have nothing else going on.",
+          "Live your day. Reply when you can."
+        ]
+      },
+      "el": {
+        "titre": "Μην είσαι πάντα διαθέσιμος.",
+        "paragraphes": [
+          "Αν απαντάς σε δέκα δευτερόλεπτα κάθε φορά, δείχνεις ότι δεν έχεις τίποτα άλλο.",
+          "Ζήσε τη μέρα σου. Απάντα όταν μπορείς."
+        ]
+      },
+      "es-419": {
+        "titre": "No estés siempre disponible.",
+        "paragraphes": [
+          "Responder en diez segundos, siempre, dice que no tienes nada más.",
+          "Vive tu día. Responde cuando puedas."
+        ]
+      },
+      "it": {
+        "titre": "Non essere sempre disponibile.",
+        "paragraphes": [
+          "Rispondere in dieci secondi, ogni volta, dice che non hai altro da fare.",
+          "Vivi la tua giornata. Rispondi quando puoi."
+        ]
+      },
+      "hu": {
+        "titre": "Ne légy mindig elérhető.",
+        "paragraphes": [
+          "Ha mindig tíz másodperc alatt válaszolsz, az azt üzeni, hogy nincs más dolgod.",
+          "Éld a napod. Akkor válaszolj, amikor tudsz."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Não esteja sempre disponível.",
+        "paragraphes": [
+          "Responder em dez segundos, toda vez, mostra que você não tem mais nada.",
+          "Viva o seu dia. Responda quando puder."
+        ]
+      },
+      "es": {
+        "titre": "No estés siempre disponible.",
+        "paragraphes": [
+          "Responder en diez segundos, siempre, dice que no tienes nada más.",
+          "Vive tu día. Responde cuando puedas."
+        ]
+      },
+      "sr": {
+        "titre": "Ne budi uvek dostupan.",
+        "paragraphes": [
+          "Ako uvek odgovoriš za deset sekundi, poručuješ da nemaš ništa drugo da radiš.",
+          "Živi svoj dan. Odgovori kad stigneš."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Leave something behind.",
+        "paragraphes": [
+          "A song you showed her.\nA place you took her.",
+          "Give her things that\nremind her of you."
+        ]
+      },
+      "el": {
+        "titre": "Άφησε κάτι πίσω σου.",
+        "paragraphes": [
+          "Ένα τραγούδι που της έδειξες. Ένα μέρος που την πήγες.",
+          "Δώσ' της πράγματα που θα της θυμίζουν εσένα."
+        ]
+      },
+      "es-419": {
+        "titre": "Deja algo atrás.",
+        "paragraphes": [
+          "Una canción que le mostraste. Un lugar al que la llevaste.",
+          "Dale cosas que le recuerden a ti."
+        ]
+      },
+      "it": {
+        "titre": "Lascia qualcosa di te.",
+        "paragraphes": [
+          "Una canzone che le hai fatto sentire. Un posto dove l'hai portata.",
+          "Dalle cose che le ricordino te."
+        ]
+      },
+      "hu": {
+        "titre": "Hagyj magad után valamit.",
+        "paragraphes": [
+          "Egy dalt, amit megmutattál neki. Egy helyet, ahová elvitted.",
+          "Adj neki olyat, ami rád emlékezteti."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Deixe algo para trás.",
+        "paragraphes": [
+          "Uma música que você mostrou. Um lugar aonde você levou ela.",
+          "Dê a ela coisas que lembrem você."
+        ]
+      },
+      "es": {
+        "titre": "Deja algo atrás.",
+        "paragraphes": [
+          "Una canción que le enseñaste. Un lugar al que la llevaste.",
+          "Dale cosas que le recuerden a ti."
+        ]
+      },
+      "sr": {
+        "titre": "Ostavi nešto iza sebe.",
+        "paragraphes": [
+          "Pesmu koju si joj pokazao. Mesto na koje si je odveo.",
+          "Daj joj stvari koje je podsećaju na tebe."
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/vangogh-iris.jpg",
+      "en": {
+        "titre": "Show her a painting.",
+        "avant": [
+          "Van Gogh's Irises once had\na pink background.",
+          "It faded to white. Tell her that,\nand she'll never see it the same way."
+        ],
+        "apres": [
+          "I didn't know anything about art.\nArtura fixed that, one painting a day."
+        ]
+      },
+      "el": {
+        "titre": "Δείξε της έναν πίνακα.",
+        "avant": [
+          "Οι Ίριδες του Βαν Γκογκ είχαν ροζ φόντο. Με τα χρόνια έγινε λευκό.",
+          "Πες της το. Δεν θα τον ξαναδεί ίδια."
+        ],
+        "apres": [
+          "Δεν ήξερα τίποτα για την τέχνη. Το Artura το έφτιαξε αυτό, έναν πίνακα τη μέρα."
+        ]
+      },
+      "es-419": {
+        "titre": "Muéstrale un cuadro.",
+        "avant": [
+          "Los Lirios de Van Gogh tenían un fondo rosa. Con el tiempo se volvió blanco.",
+          "Cuéntaselo. Nunca lo verá igual."
+        ],
+        "apres": [
+          "No sabía nada de arte. Artura lo arregló, un cuadro al día."
+        ]
+      },
+      "it": {
+        "titre": "Mostrale un quadro.",
+        "avant": [
+          "Gli Iris di Van Gogh avevano lo sfondo rosa. Col tempo è diventato bianco.",
+          "Raccontaglielo. Non lo vedrà più allo stesso modo."
+        ],
+        "apres": [
+          "Non sapevo niente di arte. Artura ha sistemato tutto, un quadro al giorno."
+        ]
+      },
+      "hu": {
+        "titre": "Mutass neki egy festményt.",
+        "avant": [
+          "Van Gogh Íriszeinek rózsaszín háttere volt. Idővel kifehéredett.",
+          "Mondd el neki. Soha többé nem látja ugyanúgy."
+        ],
+        "apres": [
+          "Semmit sem tudtam a művészetről. Az Artura ezt megoldotta, napi egy festménnyel."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Mostre um quadro a ela.",
+        "avant": [
+          "Os Íris de Van Gogh tinham fundo rosa. Com o tempo, ele ficou branco.",
+          "Conte isso. Ela nunca mais vai ver igual."
+        ],
+        "apres": [
+          "Eu não sabia nada de arte. O Artura resolveu isso, um quadro por dia."
+        ]
+      },
+      "es": {
+        "titre": "Muéstrale un cuadro.",
+        "avant": [
+          "Los Lirios de Van Gogh tenían un fondo rosa. Con el tiempo se volvió blanco.",
+          "Cuéntaselo. Nunca lo verá igual."
+        ],
+        "apres": [
+          "No sabía nada de arte. Artura lo arregló, un cuadro al día."
+        ]
+      },
+      "sr": {
+        "titre": "Pokaži joj sliku.",
+        "avant": [
+          "Van Gogove Perunike imale su ružičastu pozadinu. Vremenom je izbledela u belu.",
+          "Reci joj. Nikad je više neće gledati isto."
+        ],
+        "apres": [
+          "Nisam znao ništa o umetnosti. Artura je to rešila, jedna slika dnevno."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "End the call first.",
+        "paragraphes": [
+          "Not cold. Warm, then gone:\n“I have to go. This was good.”",
+          "Let the silence do the rest."
+        ]
+      },
+      "el": {
+        "titre": "Κλείσε εσύ πρώτος.",
+        "paragraphes": [
+          "Όχι ψυχρά. Ζεστά, και μετά φεύγεις: «Πρέπει να κλείσω. Ήταν ωραία.»",
+          "Άσε τη σιωπή να κάνει τα υπόλοιπα."
+        ]
+      },
+      "es-419": {
+        "titre": "Cuelga tú primero.",
+        "paragraphes": [
+          "Sin frialdad. Cálido, y te vas: “Tengo que irme. Esto estuvo bien.”",
+          "Deja que el silencio haga el resto."
+        ]
+      },
+      "it": {
+        "titre": "Chiudi tu la chiamata.",
+        "paragraphes": [
+          "Non freddo. Caldo, e poi vai: “Devo andare. È stato bello.”",
+          "Lascia che il silenzio faccia il resto."
+        ]
+      },
+      "hu": {
+        "titre": "Te tedd le először.",
+        "paragraphes": [
+          "Nem hidegen. Kedvesen, aztán vége: „Mennem kell. Jó volt.”",
+          "A csend elvégzi a többit."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Desligue primeiro.",
+        "paragraphes": [
+          "Sem frieza. Com carinho, e tchau: “Preciso ir. Foi bom.”",
+          "Deixe o silêncio fazer o resto."
+        ]
+      },
+      "es": {
+        "titre": "Cuelga tú primero.",
+        "paragraphes": [
+          "Sin frialdad. Cálido, y te vas: “Tengo que irme. Ha estado bien.”",
+          "Deja que el silencio haga el resto."
+        ]
+      },
+      "sr": {
+        "titre": "Ti prvi završi razgovor.",
+        "paragraphes": [
+          "Ne hladno. Toplo, pa odlaziš: „Moram da idem. Bilo je lepo.”",
+          "Pusti da tišina uradi ostalo."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Have your own plans.",
+        "paragraphes": [
+          "When she asks about Friday,\nsometimes the answer is:\n“I'm busy. Sunday?”"
+        ]
+      },
+      "el": {
+        "titre": "Έχε τα δικά σου σχέδια.",
+        "paragraphes": [
+          "Όταν ρωτάει για την Παρασκευή, μερικές φορές η απάντηση είναι: «Έχω κανονίσει. Κυριακή;»"
+        ]
+      },
+      "es-419": {
+        "titre": "Ten tus propios planes.",
+        "paragraphes": [
+          "Cuando pregunte por el viernes, a veces la respuesta es: “Tengo planes. ¿El domingo?”"
+        ]
+      },
+      "it": {
+        "titre": "Abbi i tuoi piani.",
+        "paragraphes": [
+          "Quando ti chiede di venerdì, a volte la risposta è: “Sono impegnato. Domenica?”"
+        ]
+      },
+      "hu": {
+        "titre": "Legyenek saját terveid.",
+        "paragraphes": [
+          "Ha a péntekről kérdez, néha az a válasz: „Foglalt vagyok. Vasárnap?”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Tenha seus próprios planos.",
+        "paragraphes": [
+          "Quando ela perguntar da sexta, às vezes a resposta é: “Tenho compromisso. Domingo?”"
+        ]
+      },
+      "es": {
+        "titre": "Ten tus propios planes.",
+        "paragraphes": [
+          "Cuando pregunte por el viernes, a veces la respuesta es: “Tengo planes. ¿El domingo?”"
+        ]
+      },
+      "sr": {
+        "titre": "Imaj svoje planove.",
+        "paragraphes": [
+          "Kad pita za petak, ponekad je odgovor: „Zauzet sam. Nedelja?”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "She can't miss someone\nwho never leaves.",
+          "**A boy is always there.**\n**A man is worth waiting for.**"
+        ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Δεν μπορεί να της λείψει κάποιος που δεν φεύγει ποτέ.",
+          "**Το αγόρι είναι πάντα εκεί.**\n**Ο άντρας αξίζει την αναμονή.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "No puede extrañar a alguien que nunca se va.",
+          "**Un niño siempre está ahí.**\n**Un hombre vale la espera.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "Non può mancarle chi non se ne va mai.",
+          "**Un ragazzino c'è sempre.**\n**Un uomo vale l'attesa.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "Nem hiányozhat, aki sosem megy el.",
+          "**A kisfiú mindig ott van.**\n**A férfiért érdemes várni.**"
+        ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Ela não sente falta de quem nunca vai embora.",
+          "**O garoto está sempre lá.**\n**O homem vale a espera.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "No puede echar de menos a alguien que nunca se va.",
+          "**Un niño siempre está ahí.**\n**Un hombre vale la espera.**"
+        ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Ne može da joj nedostaje neko ko nikad ne ode.",
+          "**Dečak je uvek tu.**\n**Muškarac vredi čekanja.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
+      }
+    }
+  ]
+}

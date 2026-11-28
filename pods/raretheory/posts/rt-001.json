@@ -7,10 +7,24 @@
     "accroche": "topic to research when u're bored pt.2"
   },
   "titre": {
-    "en": "topics to research when u're bored"
+    "en": "topics to research when u're bored",
+    "de": "googel das, wenn dir langweilig ist",
+    "it": "cose da cercare se ti annoi",
+    "sv": "ämnen att researcha när du har tråkigt",
+    "fr": "des sujets à creuser quand tu t'ennuies",
+    "tr": "canın sıkılınca bu konuları araştır",
+    "ro": "subiecte de cercetat când te plictisești",
+    "hu": "minek nézz utána, ha unatkozol"
   },
   "legendes": {
-    "en": "there's a whole world of things worth understanding outside ur usual interests.\n\nphilosophy explains how we think, art shows how people saw their world, space makes ur problems look tiny, and old myths explain why we still tell the same stories.\n\nsave this as ur research guide. pick one topic and go down the rabbit hole.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok"
+    "en": "there's a whole world of things worth understanding outside ur usual interests.\n\nphilosophy explains how we think, art shows how people saw their world, space makes ur problems look tiny, and old myths explain why we still tell the same stories.\n\nsave this as ur research guide. pick one topic and go down the rabbit hole.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok",
+    "de": "es gibt eine ganze welt voller dinge, die es wert sind, verstanden zu werden, auch außerhalb deiner üblichen interessen.\n\nphilosophie erklärt, wie wir denken, kunst zeigt, wie menschen ihre welt gesehen haben, das weltall lässt deine probleme winzig wirken und alte mythen erklären, warum wir immer noch dieselben geschichten erzählen.\n\nspeicher dir das als recherche-guide. such dir ein thema aus und ab ins rabbit hole.\n\n#studytok #learning #lernen #allgemeinwissen #wissen",
+    "it": "c'è un mondo intero di cose che vale la pena capire, fuori dai tuoi soliti interessi.\n\nla filosofia spiega come pensiamo, l'arte mostra come le persone vedevano il loro mondo, lo spazio fa sembrare minuscoli i tuoi problemi e i miti antichi spiegano perché raccontiamo ancora le stesse storie.\n\nsalvalo come guida per le tue ricerche. scegli un argomento e buttati nel rabbit hole.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok #imparaconte #cultura #perte",
+    "sv": "det finns en hel värld av saker som är värda att förstå utanför dina vanliga intressen.\n\nfilosofi förklarar hur vi tänker, konst visar hur folk såg sin värld, rymden får dina problem att kännas pyttesmå och gamla myter förklarar varför vi fortfarande berättar samma historier.\n\nspara det här som din research-guide. välj ett ämne och gå ner i kaninhålet.\n\n#learning #studytok #plugga #allmänbildning #fördig",
+    "fr": "il y a tout un monde de trucs à comprendre en dehors de tes centres d'intérêt habituels.\n\nla philo explique comment on pense, l'art montre comment les gens voyaient leur monde, l'espace rend tes problèmes minuscules, et les vieux mythes expliquent pourquoi on raconte encore les mêmes histoires.\n\nenregistre ça comme ton guide de recherche. choisis un sujet et plonge dans le rabbit hole.\n\n#culturegenerale #apprendresurtiktok #curiosite #studytok #learning",
+    "tr": "alışık olduğun ilgi alanlarının dışında anlamaya değer koca bir dünya var.\n\nfelsefe nasıl düşündüğümüzü anlatıyor, sanat insanların kendi dünyalarını nasıl gördüğünü gösteriyor, uzay dertlerini minicik gösteriyor, eski mitler de neden hâlâ aynı hikâyeleri anlattığımızı açıklıyor.\n\nbunu araştırma rehberin olarak kaydet. bi konu seç ve tavşan deliğine dal.\n\n#studytok #learning #keşfet #bilgi #kendinigeliştir",
+    "ro": "există o lume întreagă de lucruri care merită înțelese, dincolo de ce te interesează de obicei.\n\nfilozofia explică cum gândim, arta arată cum își vedeau oamenii lumea, spațiul îți face problemele să pară mici, iar miturile vechi explică de ce spunem și azi aceleași povești.\n\nsalvează asta ca ghid de cercetare. alege un subiect și sapă cât de adânc poți.\n\n#studytok #learning #invatare #curiozitati #romania",
+    "hu": "rengeteg dolog van, amit megéri megérteni a szokásos érdeklődési köreiden kívül.\n\na filozófia megmutatja, hogyan gondolkodunk, a művészet azt, hogyan látták az emberek a saját világukat, az űr mellett a problémáid apróságnak tűnnek, a régi mítoszok pedig elmagyarázzák, miért meséljük még mindig ugyanazokat a történeteket.\n\nmentsd el kutatási útmutatónak. válassz egy témát, és áss bele mélyen.\n\n#tanulás #önfejlesztés #magyartiktok #studytok #learning"
   },
   "musique": {
     "titre": "original sound - starxedittt",
@@ -25,12 +39,50 @@
     {
       "type": "couverture",
       "photos": [
-        { "image": "images/banque/lampe-livres.jpg", "cadrage": { "y": 0.45 } },
-        { "image": "images/banque/librairie-dos.jpg", "cadrage": { "x": 0.55 } }
+        {
+          "image": "images/banque/lampe-livres.jpg",
+          "cadrage": {
+            "y": 0.45
+          }
+        },
+        {
+          "image": "images/banque/librairie-dos.jpg",
+          "cadrage": {
+            "x": 0.55
+          }
+        }
       ],
       "en": {
         "titre": "topics to research\nwhen u're bored",
         "sous_titre": "and get a little smarter day by day"
+      },
+      "de": {
+        "titre": "googel das, wenn\ndir langweilig ist",
+        "sous_titre": "tag für tag etwas schlauer"
+      },
+      "it": {
+        "titre": "cose da cercare se\nti annoi",
+        "sous_titre": "e imparare qualcosa in più ogni giorno"
+      },
+      "sv": {
+        "titre": "ämnen att researcha\nnär du har tråkigt",
+        "sous_titre": "bli lite smartare för varje dag"
+      },
+      "fr": {
+        "titre": "des sujets à creuser\nquand tu t'ennuies",
+        "sous_titre": "et te cultiver un peu plus chaque jour"
+      },
+      "tr": {
+        "titre": "canın sıkılınca bu\nkonuları araştır",
+        "sous_titre": "ve her gün biraz akıllan"
+      },
+      "ro": {
+        "titre": "subiecte de cercetat\ncând te plictisești",
+        "sous_titre": "și te deștepți puțin zi de zi"
+      },
+      "hu": {
+        "titre": "minek nézz utána,\nha unatkozol",
+        "sous_titre": "és minden nappal egy kicsit okosabb leszel"
       }
     },
     {
@@ -52,6 +104,139 @@
           "Occam's Razor",
           "Moral Relativism",
           "The Veil of Ignorance"
+        ]
+      },
+      "de": {
+        "titre": "Philosophie & große Fragen",
+        "sujets": [
+          "Das Trolley-Problem",
+          "Stoizismus",
+          "Existenzialismus",
+          "Platons Höhlengleichnis",
+          "Das Schiff des Theseus",
+          "Freier Wille vs. Determinismus",
+          "Utilitarismus",
+          "Absurdismus",
+          "Der Gesellschaftsvertrag",
+          "„Ich denke, also bin ich“",
+          "Die Pascalsche Wette",
+          "Ockhams Rasiermesser",
+          "Moralischer Relativismus",
+          "Der Schleier des Nichtwissens"
+        ]
+      },
+      "it": {
+        "titre": "Filosofia e grandi domande",
+        "sujets": [
+          "Il dilemma del carrello",
+          "Stoicismo",
+          "Esistenzialismo",
+          "Il mito della caverna",
+          "La nave di Teseo",
+          "Libero arbitrio e determinismo",
+          "Utilitarismo",
+          "Assurdismo",
+          "Il contratto sociale",
+          "\"Penso, dunque sono\"",
+          "La scommessa di Pascal",
+          "Il rasoio di Occam",
+          "Relativismo morale",
+          "Il velo d'ignoranza"
+        ]
+      },
+      "sv": {
+        "titre": "Filosofi och stora frågor",
+        "sujets": [
+          "Spårvagnsproblemet",
+          "Stoicism",
+          "Existentialism",
+          "Platons grottliknelse",
+          "Theseus skepp",
+          "Fri vilja vs determinism",
+          "Utilitarism",
+          "Absurdism",
+          "Samhällskontraktet",
+          "\"Jag tänker, alltså är jag\"",
+          "Pascals vad",
+          "Ockhams rakkniv",
+          "Moralisk relativism",
+          "Okunnighetens slöja"
+        ]
+      },
+      "fr": {
+        "titre": "Philosophie et grandes questions",
+        "sujets": [
+          "Dilemme du tramway",
+          "Stoïcisme",
+          "Existentialisme",
+          "Allégorie de la caverne",
+          "Bateau de Thésée",
+          "Libre arbitre et déterminisme",
+          "Utilitarisme",
+          "Absurdisme",
+          "Contrat social",
+          "« Je pense, donc je suis »",
+          "Pari de Pascal",
+          "Rasoir d'Ockham",
+          "Relativisme moral",
+          "Voile d'ignorance"
+        ]
+      },
+      "tr": {
+        "titre": "Felsefe ve büyük sorular",
+        "sujets": [
+          "Tramvay problemi",
+          "Stoacılık",
+          "Varoluşçuluk",
+          "Platon'un mağara alegorisi",
+          "Theseus'un gemisi",
+          "Özgür irade ve determinizm",
+          "Faydacılık",
+          "Absürdizm",
+          "Toplum sözleşmesi",
+          "\"Düşünüyorum, öyleyse varım\"",
+          "Pascal'ın bahsi",
+          "Ockham'ın usturası",
+          "Ahlaki görecelik",
+          "Cehalet peçesi"
+        ]
+      },
+      "ro": {
+        "titre": "Filozofie și marile întrebări",
+        "sujets": [
+          "Dilema tramvaiului",
+          "Stoicism",
+          "Existențialism",
+          "Alegoria peșterii lui Platon",
+          "Corabia lui Tezeu",
+          "Liberul arbitru vs determinismul",
+          "Utilitarism",
+          "Absurdism",
+          "Contractul social",
+          "„Cuget, deci exist”",
+          "Pariul lui Pascal",
+          "Briciul lui Occam",
+          "Relativismul moral",
+          "Vălul ignoranței"
+        ]
+      },
+      "hu": {
+        "titre": "Filozófia és nagy kérdések",
+        "sujets": [
+          "A villamosprobléma",
+          "Sztoicizmus",
+          "Egzisztencializmus",
+          "Platón barlanghasonlata",
+          "Thészeusz hajója",
+          "Szabad akarat vs. determinizmus",
+          "Utilitarizmus",
+          "Abszurdizmus",
+          "A társadalmi szerződés",
+          "„Gondolkodom, tehát vagyok”",
+          "Pascal fogadása",
+          "Occam borotvája",
+          "Erkölcsi relativizmus",
+          "A tudatlanság fátyla"
         ]
       }
     },
@@ -75,6 +260,139 @@
           "Byzantine Mosaics",
           "Street Art"
         ]
+      },
+      "de": {
+        "titre": "Kunst & Architektur",
+        "sujets": [
+          "Die Renaissance",
+          "Barockmalerei",
+          "Impressionismus",
+          "Kubismus",
+          "Surrealismus",
+          "Pop-Art",
+          "Gotische Kathedralen",
+          "Das Bauhaus",
+          "Jugendstil",
+          "Brutalismus",
+          "Japanische Ukiyo-e",
+          "Die Decke der Sixtinischen Kapelle",
+          "Byzantinische Mosaiken",
+          "Street-Art"
+        ]
+      },
+      "it": {
+        "titre": "Arte e architettura",
+        "sujets": [
+          "Il Rinascimento",
+          "Arte barocca",
+          "Impressionismo",
+          "Cubismo",
+          "Surrealismo",
+          "Pop art",
+          "Le cattedrali gotiche",
+          "Il Bauhaus",
+          "Art Nouveau",
+          "Brutalismo",
+          "Ukiyo-e giapponese",
+          "La volta della Cappella Sistina",
+          "I mosaici bizantini",
+          "Street art"
+        ]
+      },
+      "sv": {
+        "titre": "Konst och arkitektur",
+        "sujets": [
+          "Renässansen",
+          "Barockkonst",
+          "Impressionism",
+          "Kubism",
+          "Surrealism",
+          "Popkonst",
+          "Gotiska katedraler",
+          "Bauhaus",
+          "Jugendstil",
+          "Brutalism",
+          "Japansk ukiyo-e",
+          "Sixtinska kapellets tak",
+          "Bysantinska mosaiker",
+          "Gatukonst"
+        ]
+      },
+      "fr": {
+        "titre": "Art et architecture",
+        "sujets": [
+          "Renaissance",
+          "Art baroque",
+          "Impressionnisme",
+          "Cubisme",
+          "Surréalisme",
+          "Pop art",
+          "Cathédrales gothiques",
+          "Bauhaus",
+          "Art nouveau",
+          "Brutalisme",
+          "Ukiyo-e",
+          "Plafond de la chapelle Sixtine",
+          "Mosaïques byzantines",
+          "Art urbain"
+        ]
+      },
+      "tr": {
+        "titre": "Sanat ve mimari",
+        "sujets": [
+          "Rönesans",
+          "Barok sanat",
+          "İzlenimcilik",
+          "Kübizm",
+          "Gerçeküstücülük",
+          "Pop art",
+          "Gotik katedraller",
+          "Bauhaus",
+          "Art nouveau",
+          "Brütalist mimari",
+          "Japon ukiyo-e baskıları",
+          "Sistina Şapeli tavanı",
+          "Bizans mozaikleri",
+          "Sokak sanatı"
+        ]
+      },
+      "ro": {
+        "titre": "Artă și arhitectură",
+        "sujets": [
+          "Renașterea",
+          "Arta barocă",
+          "Impresionism",
+          "Cubism",
+          "Suprarealism",
+          "Pop art",
+          "Catedralele gotice",
+          "Bauhaus",
+          "Art Nouveau",
+          "Brutalism",
+          "Stampele japoneze ukiyo-e",
+          "Plafonul Capelei Sixtine",
+          "Mozaicurile bizantine",
+          "Arta stradală"
+        ]
+      },
+      "hu": {
+        "titre": "Művészet és építészet",
+        "sujets": [
+          "A reneszánsz",
+          "Barokk művészet",
+          "Impresszionizmus",
+          "Kubizmus",
+          "Szürrealizmus",
+          "Pop-art",
+          "Gótikus katedrálisok",
+          "A Bauhaus",
+          "Szecesszió",
+          "Brutalizmus",
+          "Japán ukijo-e",
+          "A Sixtus-kápolna mennyezete",
+          "Bizánci mozaikok",
+          "Utcai művészet"
+        ]
       }
     },
     {
@@ -96,6 +414,139 @@
           "The Space Race",
           "The Apollo Missions",
           "The Search for Life on Mars"
+        ]
+      },
+      "de": {
+        "titre": "Weltall & Astronomie",
+        "sujets": [
+          "Schwarze Löcher",
+          "Der Urknall",
+          "Dunkle Materie",
+          "Dunkle Energie",
+          "Exoplaneten",
+          "Der Lebenszyklus der Sterne",
+          "Neutronensterne",
+          "Das Fermi-Paradoxon",
+          "Die Drake-Gleichung",
+          "Zeitdilatation",
+          "Der Kuipergürtel",
+          "Der Wettlauf ins All",
+          "Das Apollo-Programm",
+          "Die Suche nach Leben auf dem Mars"
+        ]
+      },
+      "it": {
+        "titre": "Spazio e astronomia",
+        "sujets": [
+          "Buchi neri",
+          "Il Big Bang",
+          "Materia oscura",
+          "Energia oscura",
+          "Esopianeti",
+          "L'evoluzione stellare",
+          "Stelle di neutroni",
+          "Il paradosso di Fermi",
+          "L'equazione di Drake",
+          "La dilatazione del tempo",
+          "La fascia di Kuiper",
+          "La corsa allo spazio",
+          "Le missioni Apollo",
+          "La ricerca della vita su Marte"
+        ]
+      },
+      "sv": {
+        "titre": "Rymden och astronomi",
+        "sujets": [
+          "Svarta hål",
+          "Big bang",
+          "Mörk materia",
+          "Mörk energi",
+          "Exoplaneter",
+          "Stjärnornas livscykel",
+          "Neutronstjärnor",
+          "Fermis paradox",
+          "Drakes ekvation",
+          "Tidsdilatation",
+          "Kuiperbältet",
+          "Rymdkapplöpningen",
+          "Apolloprogrammet",
+          "Jakten på liv på Mars"
+        ]
+      },
+      "fr": {
+        "titre": "Espace et astronomie",
+        "sujets": [
+          "Trous noirs",
+          "Big Bang",
+          "Matière noire",
+          "Énergie noire",
+          "Exoplanètes",
+          "Évolution stellaire",
+          "Étoiles à neutrons",
+          "Paradoxe de Fermi",
+          "Équation de Drake",
+          "Dilatation du temps",
+          "Ceinture de Kuiper",
+          "Course à l'espace",
+          "Programme Apollo",
+          "Vie sur Mars"
+        ]
+      },
+      "tr": {
+        "titre": "Uzay ve astronomi",
+        "sujets": [
+          "Kara delikler",
+          "Büyük Patlama",
+          "Karanlık madde",
+          "Karanlık enerji",
+          "Ötegezegenler",
+          "Yıldızların yaşam döngüsü",
+          "Nötron yıldızları",
+          "Fermi paradoksu",
+          "Drake denklemi",
+          "Zaman genişlemesi",
+          "Kuiper kuşağı",
+          "Uzay yarışı",
+          "Apollo görevleri",
+          "Mars'ta yaşam arayışı"
+        ]
+      },
+      "ro": {
+        "titre": "Spațiu și astronomie",
+        "sujets": [
+          "Găurile negre",
+          "Big Bang",
+          "Materia întunecată",
+          "Energia întunecată",
+          "Exoplanetele",
+          "Evoluția stelelor",
+          "Stelele neutronice",
+          "Paradoxul lui Fermi",
+          "Ecuația lui Drake",
+          "Dilatarea timpului",
+          "Centura Kuiper",
+          "Cursa spațială",
+          "Misiunile Apollo",
+          "Căutarea vieții pe Marte"
+        ]
+      },
+      "hu": {
+        "titre": "Űr és csillagászat",
+        "sujets": [
+          "Fekete lyukak",
+          "Az ősrobbanás",
+          "Sötét anyag",
+          "Sötét energia",
+          "Exobolygók",
+          "A csillagok életciklusa",
+          "Neutroncsillagok",
+          "A Fermi-paradoxon",
+          "A Drake-egyenlet",
+          "Idődilatáció",
+          "A Kuiper-öv",
+          "Az űrverseny",
+          "Az Apollo-program",
+          "Élet keresése a Marson"
         ]
       }
     },
@@ -119,6 +570,139 @@
           "Slavic Folklore",
           "Chinese Mythology"
         ]
+      },
+      "de": {
+        "titre": "Mythologie & alte Sagen",
+        "sujets": [
+          "Griechische Mythologie",
+          "Nordische Mythologie",
+          "Ägyptische Mythologie",
+          "Das Gilgamesch-Epos",
+          "Der Trojanische Krieg",
+          "Die Odyssee",
+          "Das Ramayana",
+          "Aztekische Mythologie",
+          "Keltische Mythologie",
+          "Japanische Folklore (Yōkai)",
+          "Die Artussage",
+          "Das Orakel von Delphi",
+          "Slawische Folklore",
+          "Chinesische Mythologie"
+        ]
+      },
+      "it": {
+        "titre": "Mitologia e racconti antichi",
+        "sujets": [
+          "Mitologia greca",
+          "Mitologia norrena",
+          "Mitologia egizia",
+          "L'epopea di Gilgamesh",
+          "La guerra di Troia",
+          "L'Odissea",
+          "Il Ramayana",
+          "Mitologia azteca",
+          "Mitologia celtica",
+          "Folklore giapponese (yōkai)",
+          "Il ciclo arturiano",
+          "L'oracolo di Delfi",
+          "Folklore slavo",
+          "Mitologia cinese"
+        ]
+      },
+      "sv": {
+        "titre": "Myter och uråldriga berättelser",
+        "sujets": [
+          "Grekisk mytologi",
+          "Nordisk mytologi",
+          "Egyptisk mytologi",
+          "Gilgamesheposet",
+          "Trojanska kriget",
+          "Odysséen",
+          "Ramayana",
+          "Aztekisk mytologi",
+          "Keltisk mytologi",
+          "Japansk folktro (yōkai)",
+          "Arthurlegenden",
+          "Oraklet i Delfi",
+          "Slavisk folktro",
+          "Kinesisk mytologi"
+        ]
+      },
+      "fr": {
+        "titre": "Mythes et récits anciens",
+        "sujets": [
+          "Mythologie grecque",
+          "Mythologie nordique",
+          "Mythologie égyptienne",
+          "Épopée de Gilgamesh",
+          "Guerre de Troie",
+          "Odyssée",
+          "Rāmāyana",
+          "Mythologie aztèque",
+          "Mythologie celtique",
+          "Folklore japonais (yōkai)",
+          "Légende arthurienne",
+          "Oracle de Delphes",
+          "Mythologie slave",
+          "Mythologie chinoise"
+        ]
+      },
+      "tr": {
+        "titre": "Mitoloji ve kadim hikâyeler",
+        "sujets": [
+          "Yunan mitolojisi",
+          "İskandinav mitolojisi",
+          "Mısır mitolojisi",
+          "Gılgamış Destanı",
+          "Truva Savaşı",
+          "Odysseia",
+          "Ramayana",
+          "Aztek mitolojisi",
+          "Kelt mitolojisi",
+          "Japon folkloru (yōkai)",
+          "Kral Arthur efsaneleri",
+          "Delfi kâhini",
+          "Slav folkloru",
+          "Çin mitolojisi"
+        ]
+      },
+      "ro": {
+        "titre": "Mitologie și povești antice",
+        "sujets": [
+          "Mitologia greacă",
+          "Mitologia nordică",
+          "Mitologia egipteană",
+          "Epopeea lui Ghilgameș",
+          "Războiul troian",
+          "Odiseea",
+          "Ramayana",
+          "Mitologia aztecă",
+          "Mitologia celtică",
+          "Folclorul japonez (yōkai)",
+          "Legendele arthuriene",
+          "Oracolul din Delfi",
+          "Folclorul slav",
+          "Mitologia chineză"
+        ]
+      },
+      "hu": {
+        "titre": "Mitológia és ősi történetek",
+        "sujets": [
+          "Görög mitológia",
+          "Skandináv mitológia",
+          "Egyiptomi mitológia",
+          "A Gilgames-eposz",
+          "A trójai háború",
+          "Az Odüsszeia",
+          "A Rámájana",
+          "Azték mitológia",
+          "Kelta mitológia",
+          "Japán folklór (jókai)",
+          "Az Artúr-mondakör",
+          "A delphoi jósda",
+          "Szláv folklór",
+          "Kínai mitológia"
+        ]
       }
     },
     {
@@ -128,6 +712,55 @@
         "paragraphes": [
           "i don't research all of this from scratch. every night i do one short lesson on Sophia: history, philosophy, science, geopolitics, literature, economics.",
           "each lesson is written by actual professors and ends with a little quiz, so it actually sticks. 10 minutes, then i pick one topic from this list and go deeper."
+        ]
+      },
+      "de": {
+        "titre": "eine lektion am tag",
+        "paragraphes": [
+          "ich recherchiere das alles nicht von null auf. jeden abend mache ich eine kurze lektion bei Sophia: geschichte, philosophie, wissenschaft, geopolitik, literatur, wirtschaft.",
+          "jede lektion ist von echten professoren geschrieben und endet mit einem kleinen quiz, damit es wirklich hängen bleibt. 10 minuten, dann such ich mir ein thema aus dieser liste aus und geh tiefer rein."
+        ]
+      },
+      "it": {
+        "titre": "una lezione al giorno",
+        "paragraphes": [
+          "non faccio ricerche su tutto partendo da zero. ogni sera faccio una lezione breve su Sophia: storia, filosofia, scienze, geopolitica, letteratura, economia.",
+          "ogni lezione è scritta da veri professori e finisce con un piccolo quiz, così mi resta davvero in testa. 10 minuti, poi scelgo un argomento di questa lista e vado più a fondo."
+        ]
+      },
+      "sv": {
+        "titre": "en lektion om dagen",
+        "paragraphes": [
+          "jag researchar inte allt det här från noll. varje kväll gör jag en kort lektion på Sophia: historia, filosofi, naturvetenskap, geopolitik, litteratur, ekonomi.",
+          "varje lektion är skriven av riktiga professorer och slutar med ett litet quiz, så det fastnar på riktigt. 10 minuter, sen väljer jag ett ämne från listan och gräver djupare."
+        ]
+      },
+      "fr": {
+        "titre": "une leçon par jour",
+        "paragraphes": [
+          "je fais pas toutes ces recherches de zéro. chaque soir je fais une courte leçon sur Sophia: histoire, philosophie, sciences, géopolitique, littérature, économie.",
+          "chaque leçon est écrite par de vrais profs et finit par un petit quiz, donc ça reste vraiment. 10 minutes, puis je choisis un sujet de cette liste et je creuse."
+        ]
+      },
+      "tr": {
+        "titre": "günde bir ders",
+        "paragraphes": [
+          "bunların hepsini sıfırdan araştırmıyorum. her gece Sophia'da kısa bir ders yapıyorum: tarih, felsefe, bilim, jeopolitik, edebiyat, ekonomi.",
+          "her dersi gerçek profesörler yazıyor ve sonunda küçük bir quiz var, o yüzden gerçekten akılda kalıyor. 10 dakika, sonra bu listeden bir konu seçip daha derine iniyorum."
+        ]
+      },
+      "ro": {
+        "titre": "o lecție pe zi",
+        "paragraphes": [
+          "nu caut toate astea de la zero. în fiecare seară fac o lecție scurtă pe Sophia: istorie, filozofie, științe, geopolitică, literatură, economie.",
+          "fiecare lecție e scrisă de profesori adevărați și se termină cu un mic quiz, așa că chiar îmi rămâne în cap. 10 minute, apoi aleg un subiect din lista asta și sap mai adânc."
+        ]
+      },
+      "hu": {
+        "titre": "napi egy lecke",
+        "paragraphes": [
+          "nem mindennek a nulláról nézek utána. minden este csinálok egy rövid leckét a Sophia appban: történelem, filozófia, tudomány, geopolitika, irodalom, közgazdaságtan.",
+          "minden leckét igazi professzorok írnak, és a végén van egy kis kvíz, így tényleg megmarad. 10 perc, aztán kiválasztok egy témát erről a listáról, és jobban beleásom magam."
         ]
       }
     },
@@ -151,6 +784,139 @@
           "Rhetoric & Persuasion",
           "The Origins of the Alphabet"
         ]
+      },
+      "de": {
+        "titre": "Wörter & Sprachen",
+        "sujets": [
+          "Etymologie",
+          "Urindogermanisch",
+          "Die Große Vokalverschiebung",
+          "Lateinische & griechische Wurzeln",
+          "Tote Sprachen",
+          "Schriftsysteme",
+          "Der Stein von Rosette",
+          "Gebärdensprachen",
+          "Plansprachen",
+          "Lehnwörter",
+          "Dialekt vs. Sprache",
+          "Bedrohte Sprachen",
+          "Rhetorik & Überzeugung",
+          "Die Entstehung des Alphabets"
+        ]
+      },
+      "it": {
+        "titre": "Parole e lingue",
+        "sujets": [
+          "Etimologia",
+          "Il protoindoeuropeo",
+          "Il grande spostamento vocalico",
+          "Radici latine e greche",
+          "Lingue morte",
+          "Sistemi di scrittura",
+          "La stele di Rosetta",
+          "Lingue dei segni",
+          "Lingue artificiali",
+          "Prestiti linguistici",
+          "Lingua o dialetto?",
+          "Lingue in via di estinzione",
+          "Retorica e persuasione",
+          "Le origini dell'alfabeto"
+        ]
+      },
+      "sv": {
+        "titre": "Ord och språk",
+        "sujets": [
+          "Etymologi",
+          "Urindoeuropeiska",
+          "Stora vokalskiftet",
+          "Latinska och grekiska rötter",
+          "Döda språk",
+          "Skriftsystem",
+          "Rosettestenen",
+          "Teckenspråk",
+          "Konstruerade språk",
+          "Lånord",
+          "Dialekt vs språk",
+          "Utrotningshotade språk",
+          "Retorik och övertalning",
+          "Alfabetets ursprung"
+        ]
+      },
+      "fr": {
+        "titre": "Mots et langues",
+        "sujets": [
+          "Étymologie",
+          "Proto-indo-européen",
+          "Grand changement vocalique",
+          "Racines latines et grecques",
+          "Langues mortes",
+          "Systèmes d'écriture",
+          "Pierre de Rosette",
+          "Langues des signes",
+          "Langues construites",
+          "Emprunts lexicaux",
+          "Dialecte ou langue",
+          "Langues en danger",
+          "Rhétorique et persuasion",
+          "Origines de l'alphabet"
+        ]
+      },
+      "tr": {
+        "titre": "Kelimeler ve diller",
+        "sujets": [
+          "Etimoloji",
+          "Ana Hint-Avrupa dili",
+          "Büyük Ünlü Kayması",
+          "Latince ve Yunanca kökler",
+          "Ölü diller",
+          "Yazı sistemleri",
+          "Rosetta Taşı",
+          "İşaret dilleri",
+          "Yapay diller",
+          "Alıntı kelimeler",
+          "Lehçe ve dil farkı",
+          "Tehlike altındaki diller",
+          "Retorik ve ikna",
+          "Alfabenin kökeni"
+        ]
+      },
+      "ro": {
+        "titre": "Cuvinte și limbi",
+        "sujets": [
+          "Etimologie",
+          "Limba proto-indo-europeană",
+          "Marea schimbare a vocalelor",
+          "Rădăcini latine și grecești",
+          "Limbi moarte",
+          "Sisteme de scriere",
+          "Piatra de la Rosetta",
+          "Limbajul semnelor",
+          "Limbi artificiale",
+          "Împrumuturi lingvistice",
+          "Dialect vs limbă",
+          "Limbi pe cale de dispariție",
+          "Retorică și persuasiune",
+          "Originile alfabetului"
+        ]
+      },
+      "hu": {
+        "titre": "Szavak és nyelvek",
+        "sujets": [
+          "Etimológia",
+          "Az indoeurópai alapnyelv",
+          "A nagy magánhangzó-eltolódás",
+          "Latin és görög szótövek",
+          "Holt nyelvek",
+          "Írásrendszerek",
+          "A rosette-i kő",
+          "Jelnyelvek",
+          "Mesterséges nyelvek",
+          "Jövevényszavak",
+          "Nyelvjárás vs. nyelv",
+          "Veszélyeztetett nyelvek",
+          "Retorika és meggyőzés",
+          "Az ábécé eredete"
+        ]
       }
     },
     {
@@ -173,6 +939,139 @@
           "GPS",
           "The Smartphone"
         ]
+      },
+      "de": {
+        "titre": "Erfindungen, die alles veränderten",
+        "sujets": [
+          "Der Buchdruck",
+          "Der Kompass",
+          "Papiergeld",
+          "Schießpulver",
+          "Die Dampfmaschine",
+          "Der Telegraf",
+          "Die Glühbirne",
+          "Das Flugzeug",
+          "Penicillin",
+          "Der Transistor",
+          "Die Kältetechnik",
+          "Das Internet",
+          "GPS",
+          "Das Smartphone"
+        ]
+      },
+      "it": {
+        "titre": "Invenzioni che hanno cambiato tutto",
+        "sujets": [
+          "La stampa a caratteri mobili",
+          "La bussola",
+          "La cartamoneta",
+          "La polvere da sparo",
+          "La macchina a vapore",
+          "Il telegrafo",
+          "La lampadina",
+          "L'aeroplano",
+          "La penicillina",
+          "Il transistor",
+          "La refrigerazione",
+          "Internet",
+          "Il GPS",
+          "Lo smartphone"
+        ]
+      },
+      "sv": {
+        "titre": "Uppfinningar som ändrade allt",
+        "sujets": [
+          "Boktryckarkonsten",
+          "Kompassen",
+          "Sedlar",
+          "Krutet",
+          "Ångmaskinen",
+          "Telegrafen",
+          "Glödlampan",
+          "Flygplanet",
+          "Penicillin",
+          "Transistorn",
+          "Kylskåpet",
+          "Internet",
+          "GPS",
+          "Smarttelefonen"
+        ]
+      },
+      "fr": {
+        "titre": "Inventions qui ont tout changé",
+        "sujets": [
+          "Imprimerie",
+          "Boussole",
+          "Papier-monnaie",
+          "Poudre noire",
+          "Machine à vapeur",
+          "Télégraphe",
+          "Ampoule électrique",
+          "Avion",
+          "Pénicilline",
+          "Transistor",
+          "Réfrigération",
+          "Internet",
+          "GPS",
+          "Smartphone"
+        ]
+      },
+      "tr": {
+        "titre": "Her şeyi değiştiren icatlar",
+        "sujets": [
+          "Matbaa",
+          "Pusula",
+          "Kâğıt para",
+          "Barut",
+          "Buhar makinesi",
+          "Telgraf",
+          "Ampul",
+          "Uçak",
+          "Penisilin",
+          "Transistör",
+          "Soğutma",
+          "İnternet",
+          "GPS",
+          "Akıllı telefon"
+        ]
+      },
+      "ro": {
+        "titre": "Invenții care au schimbat totul",
+        "sujets": [
+          "Tiparul",
+          "Busola",
+          "Banii de hârtie",
+          "Praful de pușcă",
+          "Motorul cu abur",
+          "Telegraful",
+          "Becul",
+          "Avionul",
+          "Penicilina",
+          "Tranzistorul",
+          "Refrigerarea",
+          "Internetul",
+          "GPS-ul",
+          "Smartphone-ul"
+        ]
+      },
+      "hu": {
+        "titre": "Találmányok, amik mindent megváltoztattak",
+        "sujets": [
+          "A könyvnyomtatás",
+          "Az iránytű",
+          "A papírpénz",
+          "A puskapor",
+          "A gőzgép",
+          "A távíró",
+          "Az izzólámpa",
+          "A repülőgép",
+          "A penicillin",
+          "A tranzisztor",
+          "A hűtéstechnika",
+          "Az internet",
+          "A GPS",
+          "Az okostelefon"
+        ]
       }
     },
     {
@@ -180,6 +1079,34 @@
       "en": {
         "texte": "save this as ur research guide. pick one topic tonight, follow the rabbit hole, and come back for pt.2.",
         "gras": "OR.. u'll forget it by tomorrow."
+      },
+      "de": {
+        "texte": "speicher dir das als guide für deine recherche. such dir heute abend ein thema aus, folg dem rabbit hole und komm für teil 2 zurück.",
+        "gras": "ODER.. morgen hast du es schon vergessen."
+      },
+      "it": {
+        "texte": "salvalo come guida per le tue ricerche. scegli un argomento stasera, segui il rabbit hole fino in fondo e torna per la pt.2.",
+        "gras": "O.. domani te lo sarai già dimenticato."
+      },
+      "sv": {
+        "texte": "spara det här som din research-guide. välj ett ämne i kväll, följ kaninhålet och kom tillbaka för del 2.",
+        "gras": "ELLER.. du har glömt det i morgon."
+      },
+      "fr": {
+        "texte": "enregistre ça comme ton guide de recherche. choisis un sujet ce soir, suis le rabbit hole, et reviens pour la pt.2.",
+        "gras": "OU.. tu l'auras oublié demain."
+      },
+      "tr": {
+        "texte": "bunu araştırma rehberin olarak kaydet. bu akşam bir konu seç, tavşan deliğinin peşinden git ve 2. bölüm için geri gel.",
+        "gras": "YA DA.. yarına unutmuş olursun."
+      },
+      "ro": {
+        "texte": "salvează asta ca ghid de cercetare. alege un subiect diseară, urmează firul cât de departe merge și revino pt partea 2.",
+        "gras": "SAU.. până mâine o să uiți tot."
+      },
+      "hu": {
+        "texte": "mentsd el, ez a kutatási listád. ma este válassz egy témát, menj le a nyúlüregbe, és gyere vissza a 2. részért.",
+        "gras": "VAGY.. holnapra elfelejted."
       }
     }
   ]

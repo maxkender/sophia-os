@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o361",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1b9efcc9-1a0f-4c6d-842c-f75a9993168b",
+ "titre": "on m'a proposé de monter, j'ai dit non (et je recommencerais) #travail #promotion #carriere #emploi #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 27/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G2 de la ligne #1 (parent 1b9efcc9), 2e : même promesse, autres mots, autre histoire (inventée, aucune vraie entreprise). Inspirations reprises de rh-o309. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0e53bde4",
+   "texte_overlay": "on m'a proposé de monter,\nj'ai dit non\n(et je recommencerais)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b8dd95af",
+   "texte_overlay": "la promotion tombait pendant mon master du soir\nimpossible de faire les deux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2983297b",
+   "texte_overlay": "j'ai expliqué mes raisons\nsans m'excuser",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "84501399",
+   "texte_overlay": "j'ai demandé qu'on en reparle dans un an\net je l'ai écrit dans mon entretien annuel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2ce3c5b8",
+   "texte_overlay": "j'ai fini mon master\nen apprenant un peu chaque jour",
+   "texte_sophia": "j'ai fini mon master\nen apprenant un peu chaque jour. 5 minutes sur l'appli Sophia en plus, pour garder la tête ouverte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "04272416",
+   "texte_overlay": "un an plus tard, on m'a proposé mieux\navec un diplôme en plus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f1cd1ce8",
+   "texte_overlay": "dire non, c'est parfois dire « pas maintenant »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "fa92c7f4",
+   "texte_overlay": "t'as déjà dit « pas maintenant » ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

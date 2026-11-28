@@ -1,0 +1,495 @@
+{
+  "id": "hl-010",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7687701353061387522",
+    "vues": 3800000,
+    "publie_le": "2026-09-20",
+    "accroche": "HOW TO TEXT LIKE A MAN NOT A BOY."
+  },
+  "musique": {
+    "titre": "M83 Solitude",
+    "url": "https://www.tiktok.com/music/M83-Solitude-7116098620134394625"
+  },
+  "notes": "Preuve de format : « HOW TO TEXT LIKE A MAN NOT A BOY. » (3,8 M), gabarit « Instead of: / Say: ». Accroche neuve « HOW TO REPLY WHEN SHE LEAVES YOU ON READ. », sans jamais insister ni presser. Carte Artura (4) : « Send something worth answering. », Klimt, Mäda Primavesi (The Met 436819), LOGO d'Artura ; cta A. Fait vérifié : Mäda Primavesi (1903-2000) avait neuf ans quand Klimt l'a peinte en 1912 (fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es + sr (latin) le 27/11.",
+  "oeuvres": {
+    "images/oeuvres/klimt-mada.jpg": {
+      "musee": "The Met",
+      "id": "436819",
+      "titre": "Mäda Primavesi (1903–2000)",
+      "artiste": "Gustav Klimt",
+      "date": "1912–13",
+      "url": "https://www.metmuseum.org/art/collection/search/436819"
+    }
+  },
+  "titre": {
+    "en": "How to reply when she leaves you on read.",
+    "el": "Τι να κάνεις όταν σε αφήνει στο seen.",
+    "es-419": "Qué hacer cuando te deja en visto.",
+    "it": "Cosa fare quando ti lascia in visualizzato.",
+    "hu": "Mit tegyél, ha látta, de nem válaszol.",
+    "pt-BR": "O que fazer quando ela te deixa no vácuo.",
+    "es": "Qué hacer cuando te deja en visto.",
+    "sr": "Šta da radiš kad te ostavi na seen."
+  },
+  "legendes": {
+    "en": "#textingadvice #datingtips #tipsformen ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar ",
+    "sr": "#savetizamuškarce #veze #zavođenje "
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "en": {
+        "titre": "HOW TO REPLY\nWHEN SHE LEAVES\nYOU ON READ."
+      },
+      "el": {
+        "titre": "ΤΙ ΝΑ ΚΑΝΕΙΣ\nΟΤΑΝ ΣΕ ΑΦΗΝΕΙ\nΣΤΟ SEEN."
+      },
+      "es-419": {
+        "titre": "QUÉ HACER\nCUANDO TE DEJA\nEN VISTO."
+      },
+      "it": {
+        "titre": "COSA FARE\nQUANDO TI LASCIA\nIN VISUALIZZATO."
+      },
+      "hu": {
+        "titre": "MIT TEGYÉL,\nHA LÁTTA,\nDE NEM VÁLASZOL."
+      },
+      "pt-BR": {
+        "titre": "O QUE FAZER\nQUANDO ELA\nTE DEIXA\nNO VÁCUO."
+      },
+      "es": {
+        "titre": "QUÉ HACER\nCUANDO TE DEJA\nEN VISTO."
+      },
+      "sr": {
+        "titre": "ŠTA DA RADIŠ\nKAD TE OSTAVI\nNA SEEN."
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The first hour.",
+        "paragraphes": [
+          "**Instead of:**\n“??”",
+          "**Say:**\nNothing. She's living her life.\nSo should you."
+        ]
+      },
+      "el": {
+        "titre": "Την πρώτη ώρα.",
+        "paragraphes": [
+          "**Αντί για:**\n«;;»",
+          "**Πες:**\nΤίποτα. Ζει τη ζωή της. Το ίδιο κι εσύ."
+        ]
+      },
+      "es-419": {
+        "titre": "La primera hora.",
+        "paragraphes": [
+          "**En vez de:**\n“??”",
+          "**Dile:**\nNada. Ella está viviendo su vida. Tú también."
+        ]
+      },
+      "it": {
+        "titre": "La prima ora.",
+        "paragraphes": [
+          "**Invece di:**\n“??”",
+          "**Scrivi:**\nNiente. Lei vive la sua vita. Fallo anche tu."
+        ]
+      },
+      "hu": {
+        "titre": "Az első órában.",
+        "paragraphes": [
+          "**Ne ezt:**\n„??”",
+          "**Hanem ezt:**\nSemmit. Éli az életét. Te is éld a tiédet."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Na primeira hora.",
+        "paragraphes": [
+          "**Em vez de:**\n“??”",
+          "**Mande:**\nNada. Ela está vivendo a vida dela. Viva a sua."
+        ]
+      },
+      "es": {
+        "titre": "La primera hora.",
+        "paragraphes": [
+          "**En vez de:**\n“??”",
+          "**Dile:**\nNada. Ella está viviendo su vida. Tú también."
+        ]
+      },
+      "sr": {
+        "titre": "Prvi sat.",
+        "paragraphes": [
+          "**Umesto:**\n„??”",
+          "**Napiši:**\nNišta. Ona živi svoj život. Živi i ti svoj."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The next day.",
+        "paragraphes": [
+          "**Instead of:**\n“Did I say something wrong?”",
+          "**Say:**\nSomething new:\n“Found the best tacos in town.\nYou'd approve.”"
+        ]
+      },
+      "el": {
+        "titre": "Την επόμενη μέρα.",
+        "paragraphes": [
+          "**Αντί για:**\n«Είπα κάτι λάθος;»",
+          "**Πες:**\nΚάτι καινούργιο: «Βρήκα τα καλύτερα σουβλάκια της πόλης. Θα τα ενέκρινες.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Al día siguiente.",
+        "paragraphes": [
+          "**En vez de:**\n“¿Dije algo malo?”",
+          "**Dile:**\nAlgo nuevo: “Encontré los mejores tacos de la ciudad. Los aprobarías.”"
+        ]
+      },
+      "it": {
+        "titre": "Il giorno dopo.",
+        "paragraphes": [
+          "**Invece di:**\n“Ho detto qualcosa di sbagliato?”",
+          "**Scrivi:**\nQualcosa di nuovo: “Ho trovato la pizza migliore della città. Approveresti.”"
+        ]
+      },
+      "hu": {
+        "titre": "Másnap.",
+        "paragraphes": [
+          "**Ne ezt:**\n„Rosszat mondtam?”",
+          "**Hanem ezt:**\nValami újat: „Megtaláltam a város legjobb lángosát. Te is jóváhagynád.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "No dia seguinte.",
+        "paragraphes": [
+          "**Em vez de:**\n“Falei algo errado?”",
+          "**Mande:**\nAlgo novo: “Achei o melhor hambúrguer da cidade. Você ia aprovar.”"
+        ]
+      },
+      "es": {
+        "titre": "Al día siguiente.",
+        "paragraphes": [
+          "**En vez de:**\n“¿He dicho algo malo?”",
+          "**Dile:**\nAlgo nuevo: “He encontrado los mejores tacos de la ciudad. Los aprobarías.”"
+        ]
+      },
+      "sr": {
+        "titre": "Sutradan.",
+        "paragraphes": [
+          "**Umesto:**\n„Jesam li rekao nešto pogrešno?”",
+          "**Napiši:**\nNešto novo: „Našao sam najbolje ćevape u gradu. Odobrila bi.”"
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/klimt-mada.jpg",
+      "en": {
+        "titre": "Send something worth answering.",
+        "avant": [
+          "**Instead of:** “hello??”",
+          "**Say:** “Klimt painted this girl\nwhen she was nine.\nShe lived to see the year 2000.”"
+        ],
+        "apres": [
+          "I learn one painting a day on Artura,\nso I always have a story ready."
+        ]
+      },
+      "el": {
+        "titre": "Στείλε κάτι που αξίζει απάντηση.",
+        "avant": [
+          "**Αντί για:** «έλα;;»",
+          "**Πες:** «Ο Κλιμτ ζωγράφισε αυτό το κορίτσι στα εννιά της. Έζησε μέχρι το 2000.»"
+        ],
+        "apres": [
+          "Μαθαίνω έναν πίνακα τη μέρα στο Artura, οπότε έχω πάντα μια ιστορία έτοιμη."
+        ]
+      },
+      "es-419": {
+        "titre": "Mándale algo que valga la pena.",
+        "avant": [
+          "**En vez de:** “¿hola??”",
+          "**Dile:** “Klimt pintó a esta niña a los nueve años. Vivió hasta el año 2000.”"
+        ],
+        "apres": [
+          "Aprendo un cuadro al día en Artura, así que siempre tengo una historia lista."
+        ]
+      },
+      "it": {
+        "titre": "Mandale qualcosa di interessante.",
+        "avant": [
+          "**Invece di:** “ehi??”",
+          "**Scrivi:** “Klimt ha dipinto questa bambina a nove anni. È vissuta fino al 2000.”"
+        ],
+        "apres": [
+          "Imparo un quadro al giorno su Artura, così ho sempre una storia pronta."
+        ]
+      },
+      "hu": {
+        "titre": "Küldj valami érdekeset.",
+        "avant": [
+          "**Ne ezt:** „haló??”",
+          "**Hanem ezt:** „Klimt kilencévesen festette le ezt a lányt. 2000-ig élt.”"
+        ],
+        "apres": [
+          "Naponta egy festményt tanulok az Artura appban, így mindig van egy kész történetem."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Mande algo que mereça resposta.",
+        "avant": [
+          "**Em vez de:** “oi??”",
+          "**Mande:** “Klimt pintou esta menina aos nove anos. Ela viveu até o ano 2000.”"
+        ],
+        "apres": [
+          "Aprendo um quadro por dia no Artura, então sempre tenho uma história pronta."
+        ]
+      },
+      "es": {
+        "titre": "Mándale algo que valga la pena.",
+        "avant": [
+          "**En vez de:** “¿hola??”",
+          "**Dile:** “Klimt pintó a esta niña a los nueve años. Vivió hasta el año 2000.”"
+        ],
+        "apres": [
+          "Aprendo un cuadro al día en Artura, así que siempre tengo una historia lista."
+        ]
+      },
+      "sr": {
+        "titre": "Pošalji nešto vredno odgovora.",
+        "avant": [
+          "**Umesto:** „halo??”",
+          "**Napiši:** „Klimt je naslikao ovu devojčicu kad je imala devet godina. Doživela je 2000.”"
+        ],
+        "apres": [
+          "Učim jednu sliku dnevno u aplikaciji Artura, pa uvek imam spremnu priču."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "If she replies late.",
+        "paragraphes": [
+          "**Instead of:**\n“Wow, finally.”",
+          "**Say:**\n“There she is. How was your week?”"
+        ]
+      },
+      "el": {
+        "titre": "Αν απαντήσει αργά.",
+        "paragraphes": [
+          "**Αντί για:**\n«Επιτέλους.»",
+          "**Πες:**\n«Να 'σαι. Πώς πήγε η εβδομάδα σου;»"
+        ]
+      },
+      "es-419": {
+        "titre": "Si responde tarde.",
+        "paragraphes": [
+          "**En vez de:**\n“Vaya, por fin.”",
+          "**Dile:**\n“Ahí estás. ¿Cómo va tu semana?”"
+        ]
+      },
+      "it": {
+        "titre": "Se risponde tardi.",
+        "paragraphes": [
+          "**Invece di:**\n“Wow, finalmente.”",
+          "**Scrivi:**\n“Eccoti. Com'è andata la settimana?”"
+        ]
+      },
+      "hu": {
+        "titre": "Ha későn válaszol.",
+        "paragraphes": [
+          "**Ne ezt:**\n„Na végre.”",
+          "**Hanem ezt:**\n„Hát itt vagy. Milyen heted volt?”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Se ela responder tarde.",
+        "paragraphes": [
+          "**Em vez de:**\n“Nossa, finalmente.”",
+          "**Mande:**\n“Olha ela aí. Como foi a semana?”"
+        ]
+      },
+      "es": {
+        "titre": "Si responde tarde.",
+        "paragraphes": [
+          "**En vez de:**\n“Vaya, por fin.”",
+          "**Dile:**\n“Ahí estás. ¿Cómo va tu semana?”"
+        ]
+      },
+      "sr": {
+        "titre": "Ako odgovori kasno.",
+        "paragraphes": [
+          "**Umesto:**\n„Pa, konačno.”",
+          "**Napiši:**\n„Evo je. Kakva ti je bila nedelja?”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "If she never replies.",
+        "paragraphes": [
+          "**Instead of:**\nA paragraph about how you feel.",
+          "**Say:**\nNothing. Silence is an answer too."
+        ]
+      },
+      "el": {
+        "titre": "Αν δεν απαντήσει ποτέ.",
+        "paragraphes": [
+          "**Αντί για:**\nΜια παράγραφο για το πώς νιώθεις.",
+          "**Πες:**\nΤίποτα. Και η σιωπή είναι απάντηση."
+        ]
+      },
+      "es-419": {
+        "titre": "Si nunca responde.",
+        "paragraphes": [
+          "**En vez de:**\nUn párrafo sobre cómo te sientes.",
+          "**Dile:**\nNada. El silencio también es una respuesta."
+        ]
+      },
+      "it": {
+        "titre": "Se non risponde mai.",
+        "paragraphes": [
+          "**Invece di:**\nUn paragrafo su come ti senti.",
+          "**Scrivi:**\nNiente. Anche il silenzio è una risposta."
+        ]
+      },
+      "hu": {
+        "titre": "Ha sosem válaszol.",
+        "paragraphes": [
+          "**Ne ezt:**\nEgy hosszú bekezdést az érzéseidről.",
+          "**Hanem ezt:**\nSemmit. A csend is válasz."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Se ela nunca responder.",
+        "paragraphes": [
+          "**Em vez de:**\nUm textão sobre como você se sente.",
+          "**Mande:**\nNada. O silêncio também é resposta."
+        ]
+      },
+      "es": {
+        "titre": "Si nunca responde.",
+        "paragraphes": [
+          "**En vez de:**\nUn párrafo sobre cómo te sientes.",
+          "**Dile:**\nNada. El silencio también es una respuesta."
+        ]
+      },
+      "sr": {
+        "titre": "Ako nikad ne odgovori.",
+        "paragraphes": [
+          "**Umesto:**\nPasus o tome kako se osećaš.",
+          "**Napiši:**\nNišta. I tišina je odgovor."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "Her silence is not your emergency.",
+          "**A boy chases a reply.**\n**A man lives his life.**"
+        ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Η σιωπή της δεν είναι δικό σου επείγον.",
+          "**Το αγόρι κυνηγάει απάντηση.**\n**Ο άντρας ζει τη ζωή του.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Su silencio no es tu emergencia.",
+          "**Un niño persigue una respuesta.**\n**Un hombre vive su vida.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "Il suo silenzio non è una tua emergenza.",
+          "**Un ragazzino insegue una risposta.**\n**Un uomo vive la sua vita.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "Az ő csendje nem a te vészhelyzeted.",
+          "**A kisfiú választ hajszol.**\n**A férfi éli az életét.**"
+        ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "O silêncio dela não é uma emergência sua.",
+          "**O garoto corre atrás de resposta.**\n**O homem vive a vida dele.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Su silencio no es tu emergencia.",
+          "**Un niño persigue una respuesta.**\n**Un hombre vive su vida.**"
+        ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Njena tišina nije tvoj hitan slučaj.",
+          "**Dečak juri odgovor.**\n**Muškarac živi svoj život.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
+      }
+    }
+  ]
+}

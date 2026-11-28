@@ -113,3 +113,18 @@ export function descriptionLigne(lundi: string, posts: number, bonus: number): s
   const b = bonus > 0 ? ` + ${Math.round(bonus * 100) / 100} $ bonus` : "";
   return `Vik Studios — week of ${semaineEnAnglais(lundi)} : ${posts} post${posts === 1 ? "" : "s"}${b}`;
 }
+
+// --- Pagination de GET /workmates (27/11) ---------------------------------------------------------
+
+/** Taille d'une page de GET /workmates (Ruul : 100 au plus, 27/11). */
+export const PAGE_WORKMATES = 100;
+/** Garde-fou : 50 pages = 5 000 posteurs. */
+export const PAGES_WORKMATES_MAX = 50;
+
+/** Faut-il lire la page suivante ? Pure (testée). */
+export function pageSuivanteWorkmates(total: number | null, lus: number, cumul: number, page: number): boolean {
+  if (total === null) return false;
+  if (lus === 0 || lus < PAGE_WORKMATES) return false;
+  if (cumul >= total) return false;
+  return page < PAGES_WORKMATES_MAX;
+}

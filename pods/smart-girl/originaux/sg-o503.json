@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o503",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "635c6244-fe46-4c51-9e8e-1e9ea0166440",
+ "titre": "how to have a better hygiene as a girl #hygiene #selfcare #girltips #smartgirl #thatgirl",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "635c6244-fe46-4c51-9e8e-1e9ea0166440"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 15 de la boîte (parent 635c6244, langue source en) : accroche du parent mot pour mot. Conseils du parent (douche, visage matin et soir, déodorant, dents et fil dentaire, prendre soin de l'intérieur aussi). Sophia en dernier comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "828236b3",
+   "texte_overlay": "how to have a better hygiene\nas a girl",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663866781592767760/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9f201451",
+   "texte_overlay": "1. wash your face morning and night",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663866781592767760/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "df6c67ba",
+   "texte_overlay": "2. change your pillowcase\nevery week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663866781592767760/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6b346620",
+   "texte_overlay": "3. floss, not just brush",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663866781592767760/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f227c194",
+   "texte_overlay": "4. clean your makeup brushes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663866781592767760/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "09ce5997",
+   "texte_overlay": "5. take care of the inside too",
+   "texte_sophia": "5. take care of the inside too\n\na general knowledge app like Sophia\nkeeps your mind fresh.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663866781592767760/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "fddc4290",
+   "texte_overlay": "6. wash your hands after\nyour phone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663866781592767760/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ccf0b37d",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663866781592767760/6.jpg"
+  }
+ ]
+}

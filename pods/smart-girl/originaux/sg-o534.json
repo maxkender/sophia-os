@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o534",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "480cd358-1978-4fef-8fe7-1dcb3b9f6566",
+ "titre": "girl to girl: never be cheap when it comes to yourself #selfworth #quality #selfcare #smartgirl #invest",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "480cd358-1978-4fef-8fe7-1dcb3b9f6566"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 22 de la boîte (parent 480cd358, langue source en) : accroche du parent mot pour mot. Liste « quality » du parent regroupée, et « investis dans ton esprit ». Sophia comme chez le parent (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "46994546",
+   "texte_overlay": "girl to girl: never be cheap\nwhen it comes to yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626685294359694613/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "95c51e4c",
+   "texte_overlay": "quality food",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626685294359694613/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0df9e691",
+   "texte_overlay": "quality sleep",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626685294359694613/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f6483e4e",
+   "texte_overlay": "quality friends",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626685294359694613/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "544704b3",
+   "texte_overlay": "quality books",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626685294359694613/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7a4f3386",
+   "texte_overlay": "quality home",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626685294359694613/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5a5a216b",
+   "texte_overlay": "invest in your mind",
+   "texte_sophia": "invest in your mind: five minutes a day on\nan app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626685294359694613/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "475fc76d",
+   "texte_overlay": "quality > more stuff",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626685294359694613/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "b0295418",
+   "texte_overlay": "follow for more",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626685294359694613/9.jpg"
+  }
+ ]
+}

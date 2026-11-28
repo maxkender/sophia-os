@@ -12,7 +12,14 @@
   "ro": "Abilități 10/10 pe care școala nu te învață",
   "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí",
   "sr": "Veštine 10/10 koje te škola neće naučiti",
-  "hu": "10/10-es készségek, amikre az iskola nem tanít meg"
+  "hu": "10/10-es készségek, amikre az iskola nem tanít meg",
+  "es": "Habilidades 10/10 que el colegio no te enseña",
+  "es-419": "Habilidades 10/10 que la escuela no te enseña",
+  "pl": "Umiejętności 10/10, których szkoła cię nie nauczy",
+  "sk": "Zručnosti 10/10, ktoré ťa škola nikdy nenaučí",
+  "hr": "Vještine 10/10 koje te škola neće naučiti",
+  "sv": "10/10-färdigheter som skolan aldrig lär dig",
+  "lv": "10/10 prasmes, ko skola tev nekad nemācīs"
  },
  "legendes": {
   "fr": "Compétences 10/10 que l'école ne t'apprend pas #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -24,13 +31,20 @@
   "ro": "Abilități 10/10 pe care școala nu te învață #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí #učímesenatiktoku #osobnírozvoj #dovednosti",
   "sr": "Veštine 10/10 koje te škola neće naučiti #učinatiktoku #samorazvoj #veštine",
-  "hu": "10/10-es készségek, amikre az iskola nem tanít meg #tanuljtiktokon #önfejlesztés #készségek"
+  "hu": "10/10-es készségek, amikre az iskola nem tanít meg #tanuljtiktokon #önfejlesztés #készségek",
+  "es": "Habilidades 10/10 que el colegio no te enseña #aprendeentiktok #desarrollopersonal #habilidades",
+  "es-419": "Habilidades 10/10 que la escuela no te enseña #aprendeentiktok #desarrollopersonal #habilidades",
+  "pl": "Umiejętności 10/10, których szkoła cię nie nauczy #uczsięnatiktoku #rozwójosobisty #umiejętności",
+  "sk": "Zručnosti 10/10, ktoré ťa škola nikdy nenaučí #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "hr": "Vještine 10/10 koje te škola neće naučiti #učinatiktoku #osobnirazvoj #vještine",
+  "sv": "10/10-färdigheter som skolan aldrig lär dig #lärdigpåtiktok #självutveckling #färdigheter",
+  "lv": "10/10 prasmes, ko skola tev nekad nemācīs #mācītiestiktokā #pašattīstība #prasmes"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
   "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
  },
- "notes": "Déclinaison G1 de sg-008 (22/11) : titre, légende, couverture et musique de sg-008 mot pour mot ; 5 autres compétences que l'école n'apprend pas (écrire un CV, faire son budget, laver son linge, gérer un conflit, écouter vraiment), d'autres vraies vidéos natives ; Sophia en étape 4, cta A « APPRENDRE / POUR DE VRAI ». Deck sr ajouté le 25/11 (rattrapage).",
+ "notes": "Déclinaison G1 de sg-008 (22/11) : titre, légende, couverture et musique de sg-008 mot pour mot ; 5 autres compétences que l'école n'apprend pas (écrire un CV, faire son budget, laver son linge, gérer un conflit, écouter vraiment), d'autres vraies vidéos natives ; Sophia en étape 4, cta A « APPRENDRE / POUR DE VRAI ». Deck sr ajouté le 25/11 (rattrapage). Decks es, es-419, pl, sk, hr, sv, lv ajoutés le 27/11 (ouverture des 7 langues), vidéos natives, cta A.",
  "slides": [
   {
    "type": "couverture",
@@ -246,6 +260,160 @@
       "t": "MEG",
       "cap": 283,
       "couleur": "brun"
+     }
+    ]
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 111
+     },
+     {
+      "couleur": "brun",
+      "t": "QUE EL COLEGIO",
+      "cap": 150
+     },
+     {
+      "t": "NO TE",
+      "cap": 120
+     },
+     {
+      "couleur": "brun",
+      "t": "ENSEÑA",
+      "cap": 220
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 111
+     },
+     {
+      "couleur": "brun",
+      "t": "QUE LA ESCUELA",
+      "cap": 150
+     },
+     {
+      "t": "NO TE",
+      "cap": 120
+     },
+     {
+      "couleur": "brun",
+      "t": "ENSEÑA",
+      "cap": 220
+     }
+    ]
+   },
+   "pl": {
+    "lignes": [
+     {
+      "t": "UMIEJĘTNOŚCI,",
+      "cap": 111
+     },
+     {
+      "couleur": "brun",
+      "t": "KTÓRYCH SZKOŁA",
+      "cap": 140
+     },
+     {
+      "t": "CIĘ NIE",
+      "cap": 130
+     },
+     {
+      "couleur": "brun",
+      "t": "NAUCZY",
+      "cap": 220
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "t": "ZRUČNOSTI,",
+      "cap": 111
+     },
+     {
+      "couleur": "brun",
+      "t": "KTORÉ ŤA ŠKOLA",
+      "cap": 130
+     },
+     {
+      "t": "NIKDY",
+      "cap": 150
+     },
+     {
+      "couleur": "brun",
+      "t": "NENAUČÍ",
+      "cap": 220
+     }
+    ]
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "VJEŠTINE",
+      "cap": 111
+     },
+     {
+      "couleur": "brun",
+      "t": "KOJE TE ŠKOLA",
+      "cap": 150
+     },
+     {
+      "t": "NEĆE",
+      "cap": 150
+     },
+     {
+      "couleur": "brun",
+      "t": "NAUČITI",
+      "cap": 220
+     }
+    ]
+   },
+   "sv": {
+    "lignes": [
+     {
+      "t": "FÄRDIGHETER",
+      "cap": 111
+     },
+     {
+      "couleur": "brun",
+      "t": "SOM SKOLAN",
+      "cap": 160
+     },
+     {
+      "t": "ALDRIG",
+      "cap": 150
+     },
+     {
+      "couleur": "brun",
+      "t": "LÄR DIG",
+      "cap": 220
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "t": "PRASMES,",
+      "cap": 111
+     },
+     {
+      "couleur": "brun",
+      "t": "KO SKOLA TEV",
+      "cap": 150
+     },
+     {
+      "t": "NEKAD",
+      "cap": 150
+     },
+     {
+      "couleur": "brun",
+      "t": "NEMĀCĪS",
+      "cap": 220
      }
     ]
    }
@@ -481,6 +649,167 @@
     "sous": [
      "1 óra a tanuláshoz"
     ]
+   },
+   "es": {
+    "titre": [
+     "ESCRIBIR",
+     [
+      {
+       "t": "UN BUEN CV",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "sous": [
+     "1 hora para aprender"
+    ],
+    "video": {
+     "id": "Rl7a8LWM0L4",
+     "titre": "Cómo hacer un buen Curriculum Vitae en 5 minutos | 2026 | Plantillas gratis",
+     "chaine": "Eva Porto RRHH",
+     "vues": "511 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "4:54",
+     "avatar": "https://yt3.ggpht.com/FjIqYTpTeyfHp2Vjag73IAwvPRPaEAH_4ovYOlk6-TEE9HgBhSkUjj2Ym3qOjXK9wLAOV51hSXU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "ESCRIBIR",
+     [
+      {
+       "t": "UN BUEN CV",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "sous": [
+     "1 hora para aprender"
+    ],
+    "video": {
+     "id": "WZW0B1y6b0g",
+     "titre": "Cómo Hacer un CURRICULUM ATRACTIVO en Word (Paso a Paso)",
+     "chaine": "EduProgramas",
+     "vues": "320 k vistas",
+     "date": "hace 3 años",
+     "duree": "11:23",
+     "avatar": "https://yt3.ggpht.com/k-5jGkgiCFz0nElAKO1UECibsP9ok5prNv2cX7tF2_VbYRvDdvvWoJsyS0EklQ3Tu9Dn0p373Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "NAPISAĆ",
+     [
+      {
+       "t": "DOBRE CV",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "sous": [
+     "1 godzina nauki"
+    ],
+    "video": {
+     "id": "yu2k9NzP-hk",
+     "titre": "7 BŁĘDÓW w CV - tego UNIKAJ! Jak napisać dobre CV?",
+     "chaine": "Agnieszka Bełz",
+     "vues": "78 tys. wyświetleń",
+     "date": "3 lata temu",
+     "duree": "6:23",
+     "avatar": "https://yt3.ggpht.com/VJhZ2skkJE3m7BnvbDbUP14zd2PXnhUIhtrAJXVg7Exleq_1JrqBpiyyLBseit-9AjA9d6ruVw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "NAPÍSAŤ",
+     [
+      {
+       "t": "DOBRÝ ŽIVOTOPIS",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "sous": [
+     "1 hodina učenia"
+    ],
+    "video": {
+     "id": "MUG6t-Eqy6E",
+     "titre": "Ako napísať životopis, ktorý ťa predá? 🤑",
+     "chaine": "Zmudri G",
+     "vues": "30 tis. zhliadnutí",
+     "date": "pred 7 rokmi",
+     "duree": "9:08",
+     "avatar": "https://yt3.ggpht.com/p_CIV9QJWk3BYDivKbVfPd49CclbB9Z30XmJDq_PLh-1VI3Y9Y2J4Htld_2oE2Y1yB5cjMjlNFQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "NAPISATI",
+     [
+      {
+       "t": "DOBAR ŽIVOTOPIS",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "sous": [
+     "1 sat učenja"
+    ],
+    "video": {
+     "id": "boClvA28kxo",
+     "titre": "Molba i životopis",
+     "chaine": "HZZ - Hrvatski zavod za zapošljavanje",
+     "vues": "42 tis. pregleda",
+     "date": "prije 8 godina",
+     "duree": "2:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nK4tyEeuO7uKa8DO8WFxMjqXvLIAnMWT2rY9NrDbsBhKM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "SKRIVA",
+     [
+      {
+       "t": "ETT BRA CV",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "sous": [
+     "1 timme att lära sig"
+    ],
+    "video": {
+     "id": "puoHhnCUMtE",
+     "titre": "Tips när du skriver ett CV  | KORTFATTAT",
+     "chaine": "Hej Sverige",
+     "vues": "17 tn visningar",
+     "date": "för 4 år sedan",
+     "duree": "4:23",
+     "avatar": "https://yt3.ggpht.com/7GM0vod2XLyj67FQGzNhN7SJ6eOd-sCZAy39bZ3-3AKngT3t-7CkhVj6raBnZrMXWYKoXBne=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lv": {
+    "titre": [
+     "UZRAKSTĪT",
+     [
+      {
+       "t": "LABU CV",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "sous": [
+     "1 stunda, lai iemācītos"
+    ],
+    "video": {
+     "id": "2cQ3wNxK9ik",
+     "titre": "Padomi un ieteikumi CV veidošanā",
+     "chaine": "Liepājas Jauniešu Māja",
+     "vues": "584 skatījumi",
+     "date": "pirms 5 gadiem",
+     "duree": "3:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kudUtC4OYi2F0YKNeRLwu9gug117ejkm3Ujstnun1KiWg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -714,6 +1043,167 @@
     "sous": [
      "1 óra a tanuláshoz"
     ]
+   },
+   "es": {
+    "titre": [
+     "HACER",
+     [
+      {
+       "t": "TU PRESUPUESTO",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "sous": [
+     "1 hora para aprender"
+    ],
+    "video": {
+     "id": "HTeJUNJtThI",
+     "titre": "Cómo hacer el Presupuesto Personal MUY FÁCIL | Guía para Principiantes",
+     "chaine": "Mis Propias Finanzas",
+     "vues": "82 K visualizaciones",
+     "date": "hace 2 años",
+     "duree": "11:14",
+     "avatar": "https://yt3.ggpht.com/yXdr9exmJw1qaEoMemgl8dEdueItQVYn2CDkRN91IftxOs7pG_966fUxvCZ1UEFeK3CmuSaw5Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "HACER",
+     [
+      {
+       "t": "TU PRESUPUESTO",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "sous": [
+     "1 hora para aprender"
+    ],
+    "video": {
+     "id": "Rir3GoHwgVs",
+     "titre": "Cómo organizo mi dinero 💰 | Ingresos, gastos, presupuesto | Finanzas personales",
+     "chaine": "Finanzas con Ross",
+     "vues": "623 k vistas",
+     "date": "hace 2 años",
+     "duree": "12:00",
+     "avatar": "https://yt3.ggpht.com/1YX1hbYKNFFEs-urMF0QCOzAVjJb_IrYS4e2_l8fB7n0YwsfOp2uvgCAIxe29cIbSlLYmG1sOg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "ZROBIĆ",
+     [
+      {
+       "t": "BUDŻET",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "sous": [
+     "1 godzina nauki"
+    ],
+    "video": {
+     "id": "cfAdE13USHQ",
+     "titre": "Jak mądrze zaplanować wydatki? #wtorekzfinansami",
+     "chaine": "Marcin Iwuć",
+     "vues": "83 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "19:24",
+     "avatar": "https://yt3.ggpht.com/V_X6UN18NyRj4vNvL42SrCsKzK28yoAfTZjTxQo1yLavAiDY5UGq-ecffzq6CAeTMnmVCXMb_Zg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "UROBIŤ SI",
+     [
+      {
+       "t": "ROZPOČET",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "sous": [
+     "1 hodina učenia"
+    ],
+    "video": {
+     "id": "du0gTWD19gc",
+     "titre": "Ako urobiť jednoduchý rozpočet v 3 krokoch (animované)",
+     "chaine": "Peniaze_lepšie",
+     "vues": "510 zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "3:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nxX5yACPUhNvLLGT9X6ZE3ssrW6rTcDO9MKWi4JzlV8g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "NAPRAVITI",
+     [
+      {
+       "t": "BUDŽET",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "sous": [
+     "1 sat učenja"
+    ],
+    "video": {
+     "id": "w1q52QjWfzw",
+     "titre": "Kako i zašto izraditi osobni budžet",
+     "chaine": "Osobne Financije",
+     "vues": "1,2 tis. pregleda",
+     "date": "prije 5 godina",
+     "duree": "21:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l79Tgzk6U1VVkYNG9qRFhqeseSqwlmFJnMdYo60zFrXA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "GÖRA",
+     [
+      {
+       "t": "EN BUDGET",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "sous": [
+     "1 timme att lära sig"
+    ],
+    "video": {
+     "id": "TdJATn6NVkg",
+     "titre": "Så här gör du en budget",
+     "chaine": "Shoppa Lagom",
+     "vues": "31 tn visningar",
+     "date": "för 6 år sedan",
+     "duree": "4:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lXQ45Wnt_ocNI5bt64iYmh8BqCuqb5FNCDwrgLfqYvSw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lv": {
+    "titre": [
+     "SASTĀDĪT",
+     [
+      {
+       "t": "BUDŽETU",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "sous": [
+     "1 stunda, lai iemācītos"
+    ],
+    "video": {
+     "id": "-PYqa64BFjs",
+     "titre": "Kā plānot savu budžetu?",
+     "chaine": "LatvijasBanka",
+     "vues": "1,1 tūkst. skatījumu",
+     "date": "pirms 1 gada",
+     "duree": "27:32",
+     "avatar": "https://yt3.ggpht.com/l45YpxXSaXaW7UURPnQdJ02-mT_4k8KlR_94VLs-cUsJ0XZybHAjG3T56LvNFhcfCvhlpBjI=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -928,6 +1418,153 @@
     "sous": [
      "napi 5 perc"
     ]
+   },
+   "es": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "EN SERIO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min al día"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "cursos cortos escritos",
+      "por profesores de verdad."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "EN SERIO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min al día"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "clases cortas escritas",
+      "por profesores de verdad."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "UCZYĆ SIĘ",
+     [
+      {
+       "t": "NA SERIO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min dziennie"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krótkie lekcje od",
+      "prawdziwych nauczycieli."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "UČIŤ SA",
+     [
+      {
+       "t": "PORIADNE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min denne"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátke lekcie od",
+      "skutočných učiteľov."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "UČITI",
+     [
+      {
+       "t": "OZBILJNO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min dnevno"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÄRA DIG",
+     [
+      {
+       "t": "PÅ RIKTIGT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min om dagen"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "korta lektioner skrivna",
+      "av riktiga lärare."
+     ]
+    }
+   },
+   "lv": {
+    "titre": [
+     "MĀCĪTIES",
+     [
+      {
+       "t": "PA ĪSTAM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min dienā"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "īsas nodarbības, ko raksta",
+      "īsti skolotāji."
+     ]
+    }
    }
   },
   {
@@ -1161,6 +1798,167 @@
     "sous": [
      "30 perc a tanuláshoz"
     ]
+   },
+   "es": {
+    "titre": [
+     "LAVAR",
+     [
+      {
+       "t": "TU ROPA",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min para aprender"
+    ],
+    "video": {
+     "id": "T5SYNCrZwKg",
+     "titre": "Evita estos 9 Errores cuando Laves tu Ropa y conoce los Trucos para qué la ropa dure más tiempo.",
+     "chaine": "Vestir Bien",
+     "vues": "270 K visualizaciones",
+     "date": "hace 4 años",
+     "duree": "9:02",
+     "avatar": "https://yt3.ggpht.com/1C7uVdK7teneiYrh8uebMYqdTDYUInT-awunlBo_9mc-IEBnQDrA7QmN50WVy4frX9oGxPMNcg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "LAVAR",
+     [
+      {
+       "t": "TU ROPA",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min para aprender"
+    ],
+    "video": {
+     "id": "Kc8oUKtZ1qE",
+     "titre": "COMO LAVAR MEJOR TU ROPA! | Tips de Experta en Limpieza y Organización!",
+     "chaine": "Marcela Barraza",
+     "vues": "1.8 M de vistas",
+     "date": "hace 4 años",
+     "duree": "17:14",
+     "avatar": "https://yt3.ggpht.com/IM7yrztrWb4F9g4fNb51goj9BFWObQCqQJ-wQzsTOfARF40eR37aVlbHFkeqq--Agm6RpZ0SwO4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "PRAĆ",
+     [
+      {
+       "t": "UBRANIA",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min nauki"
+    ],
+    "video": {
+     "id": "2OcLljliyoE",
+     "titre": "Dom dla początkujących: jak zrobić pranie? | Ula Pedantula #102",
+     "chaine": "Ula Pedantula",
+     "vues": "368 tys. wyświetleń",
+     "date": "9 lat temu",
+     "duree": "7:27",
+     "avatar": "https://yt3.ggpht.com/ttih9JnLAn59lcaSTi1vtA6zINT_wX1vPU3VcXJh6tdvCmjwq1qxdh0tpB9X9HP7ARWZD_-LcQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "PRAŤ",
+     [
+      {
+       "t": "OBLEČENIE",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min učenia"
+    ],
+    "video": {
+     "id": "Sspbt9rFyJc",
+     "titre": "TOP Trik na Voňavé Prádlo 🧺 | Ako Použiť Esenciálny Olej pri Praní",
+     "chaine": "Môj život s dážďovkami",
+     "vues": "370 zhliadnutí",
+     "date": "pred 2 rokmi",
+     "duree": "4:36",
+     "avatar": "https://yt3.ggpht.com/aQRCfQlzDg8cuapnnESw7c_7HydvpGqPpJyzHCS-PkIHkmLm6dBHQ2CFHBiFoZn8jqHVb8Luvw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "PRATI",
+     [
+      {
+       "t": "RUBLJE",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min učenja"
+    ],
+    "video": {
+     "id": "moscdwhKYXI",
+     "titre": "LAUNDRY ROUTINE- KAKO PRATI I ODRZAVATI RUBLJE- savjeti i trikovi",
+     "chaine": "just.katebake",
+     "vues": "126 tis. pregleda",
+     "date": "prije 8 godina",
+     "duree": "20:39",
+     "avatar": "https://yt3.ggpht.com/KTsYK9uYmSLnQrZbNq3pSsRRtjLVIzOULf9IRe7gAGJZZpNxI6yOxhlORTikWFgGAoeCC0xdoQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "TVÄTTA",
+     [
+      {
+       "t": "KLÄDER",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min att lära sig"
+    ],
+    "video": {
+     "id": "ZoQEf5mz8eU",
+     "titre": "Såhär tvättar du kläder (Enkel guide)",
+     "chaine": "Ungmartha",
+     "vues": "20 tn visningar",
+     "date": "för 8 år sedan",
+     "duree": "2:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nUZrscmT3PWvxpW21Ky1qMTcuSWpD6BTtBEameh5JsA9Y=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lv": {
+    "titre": [
+     "MAZGĀT",
+     [
+      {
+       "t": "VEĻU",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min, lai iemācītos"
+    ],
+    "video": {
+     "id": "3hoolMKYNNk",
+     "titre": "Kā lietot veļasmašīnu?",
+     "chaine": "Herbis vēl te",
+     "vues": "4,4 tūkst. skatījumu",
+     "date": "pirms 7 gadiem",
+     "duree": "6:18",
+     "avatar": "https://yt3.ggpht.com/_oUJfCKuPojUNXY6XsKb6SXlvpKtmuCyhOdMwnYXYhtzYG-ANS-d1a6mM-ObeT1_uV_ioV0F=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1394,6 +2192,167 @@
     "sous": [
      "több hetes gyakorlás"
     ]
+   },
+   "es": {
+    "titre": [
+     "GESTIONAR",
+     [
+      {
+       "t": "UN CONFLICTO",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "sous": [
+     "Práctica durante varias semanas"
+    ],
+    "video": {
+     "id": "ubB1pemB5j4",
+     "titre": "5 estrategias infalibles para la resolución de conflictos",
+     "chaine": "Psicoactiva",
+     "vues": "175 K visualizaciones",
+     "date": "hace 4 años",
+     "duree": "7:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kdwjz0zrvnH4U0t8RktEAAeQc9Ke8zdTpOWZiO-pPG_3Y=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "MANEJAR",
+     [
+      {
+       "t": "UN CONFLICTO",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "sous": [
+     "Práctica durante varias semanas"
+    ],
+    "video": {
+     "id": "xCGAbLga8Ac",
+     "titre": "Conflictos: ¿Cómo resolverlos?",
+     "chaine": "Supérate con Psicología",
+     "vues": "138 k vistas",
+     "date": "hace 5 años",
+     "duree": "4:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mXrZCbUKsJI9fuaeJ0-gHeSchVz0iq8wHHGC4YwNYWWA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "ROZWIĄZAĆ",
+     [
+      {
+       "t": "KONFLIKT",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "sous": [
+     "Trening przez kilka tygodni"
+    ],
+    "video": {
+     "id": "vyzv3pStjc4",
+     "titre": "Jak Rozwiązywać Konflikty - UCIEKAJ z Trójkąta Dramatycznego !",
+     "chaine": "Nieprzeciętne Życie",
+     "vues": "41 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "6:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mCXIBRNek0fJpw899DDhvS7LSw-1uIHzAIbdDYvewSdfI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "RIEŠIŤ",
+     [
+      {
+       "t": "KONFLIKT",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "sous": [
+     "Tréning počas niekoľkých týždňov"
+    ],
+    "video": {
+     "id": "MWsTtZqRXCw",
+     "titre": "Riešenie konfliktov",
+     "chaine": "Asociácia lektorov a kariérnych poradcov",
+     "vues": "9,8 tis. zhliadnutí",
+     "date": "pred 8 rokmi",
+     "duree": "2:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mpZAj0Mw1b35APk1gOyY_kN7FwYjCJSW2-ejfbRD8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "RIJEŠITI",
+     [
+      {
+       "t": "SUKOB",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "sous": [
+     "Vježba kroz nekoliko tjedana"
+    ],
+    "video": {
+     "id": "VDqSiNbJRi4",
+     "titre": "Kako efikasno riješiti konflikt?",
+     "chaine": "Tihana Fulir",
+     "vues": "427 pregleda",
+     "date": "prije 7 godina",
+     "duree": "5:32",
+     "avatar": "https://yt3.ggpht.com/HIvnx2mP5PXO0StoeNAgkOfW-f2ZzTHLwZ31MxNunj8IhS9vWP9mYicDSNz5lMfD6Q1VCVAc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "HANTERA",
+     [
+      {
+       "t": "EN KONFLIKT",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "sous": [
+     "Träning i flera veckor"
+    ],
+    "video": {
+     "id": "ML1kjZzcSkI",
+     "titre": "Fem sätt att lösa konflikter - Konflikthanteringsstilar",
+     "chaine": "Medlingscentrum",
+     "vues": "69 tn visningar",
+     "date": "för 7 år sedan",
+     "duree": "4:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kIB5X9n-vuosUGQy3E9S666xSqBSqezOhR4SkqdzMNKw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lv": {
+    "titre": [
+     "RISINĀT",
+     [
+      {
+       "t": "KONFLIKTU",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "sous": [
+     "Treniņš vairāku nedēļu garumā"
+    ],
+    "video": {
+     "id": "hUhYCN-sybA",
+     "titre": "Konfliktu risināšanas algoritms",
+     "chaine": "atbalstslulv",
+     "vues": "13 tūkst. skatījumu",
+     "date": "pirms 12 gadiem",
+     "duree": "3:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mHjT2U2ftSDcqZZB-AiQsitvWDwJUOr9tvflIiZqb8Lw=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1627,6 +2586,167 @@
     "sous": [
      "több napos gyakorlás"
     ]
+   },
+   "es": {
+    "titre": [
+     "ESCUCHAR",
+     [
+      {
+       "t": "DE VERDAD",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "sous": [
+     "Práctica durante varios días"
+    ],
+    "video": {
+     "id": "VcIW9uUDx0c",
+     "titre": "Escucha Activa: 12 Técnicas (Imprescindibles)",
+     "chaine": "Fernando Miralles",
+     "vues": "314 K visualizaciones",
+     "date": "hace 2 años",
+     "duree": "18:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kKRxIBJIfdJogx8ZfaWord-96w2CQvJiv1Z_At6ZN3iS4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "ESCUCHAR",
+     [
+      {
+       "t": "DE VERDAD",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "sous": [
+     "Práctica durante varios días"
+    ],
+    "video": {
+     "id": "JLi7dLJAEuU",
+     "titre": "El poder de la escucha activa | Sana Mente",
+     "chaine": "CNN Chile",
+     "vues": "137 k vistas",
+     "date": "hace 3 años",
+     "duree": "1:07",
+     "avatar": "https://yt3.ggpht.com/_Yzud1GJYQIzqUk1FldZZF6fURyye1Mq1M-DdH3TSlhyKTFhaZMq8KrUWZwcXobj4opImtBfGQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "SŁUCHAĆ",
+     [
+      {
+       "t": "NAPRAWDĘ",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "sous": [
+     "Trening przez kilka dni"
+    ],
+    "video": {
+     "id": "uts_Z1ZouQM",
+     "titre": "Jak ćwiczyć aktywne słuchanie?",
+     "chaine": "Karolina Gorczyca - Barszczewska",
+     "vues": "20 tys. wyświetleń",
+     "date": "3 lata temu",
+     "duree": "11:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mZKv_ca_9SeMzi81Xlw9605jFFOtwhIYtO4rBDgvnIK8cU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "POČÚVAŤ",
+     [
+      {
+       "t": "NAOZAJ",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "sous": [
+     "Tréning počas niekoľkých dní"
+    ],
+    "video": {
+     "id": "at-9ZDOF4ac",
+     "titre": "3 Najlepšie spôsoby | Ako zlepšiť komunikáciu a mať väčší vplyv",
+     "chaine": "Tomáš Vepi",
+     "vues": "32 tis. zhliadnutí",
+     "date": "pred 2 rokmi",
+     "duree": "19:10",
+     "avatar": "https://yt3.ggpht.com/Gll-rBV43edXEesNUFwJx4WgfpKOEMyRMY6rsQwfpJZ9LTWNEGID_VRskor7ffEuksDDYibN=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "SLUŠATI",
+     [
+      {
+       "t": "ISTINSKI",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "sous": [
+     "Vježba kroz nekoliko dana"
+    ],
+    "video": {
+     "id": "7PIjy1CfAms",
+     "titre": "Važnost slušanja u komunikaciji",
+     "chaine": "Maja Stancetic",
+     "vues": "405 pregleda",
+     "date": "prije 7 godina",
+     "duree": "1:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nWdAoSGV_ELwj3ZFbafy2mek6bp5xWiAAmnU3SJXsOuA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LYSSNA",
+     [
+      {
+       "t": "ORDENTLIGT",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "sous": [
+     "Träning i flera dagar"
+    ],
+    "video": {
+     "id": "AhroJT9Acn0",
+     "titre": "Aktivt lyssnande, förklaring och övning",
+     "chaine": "Mentorcoach Jenny",
+     "vues": "15 tn visningar",
+     "date": "för 13 år sedan",
+     "duree": "6:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mp_UJ_dFeSfwUD-LyN8s4sSgv5DVr5OkmejUbpMLZ7Xq0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lv": {
+    "titre": [
+     "KLAUSĪTIES",
+     [
+      {
+       "t": "UZMANĪGI",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "sous": [
+     "Treniņš vairāku dienu garumā"
+    ],
+    "video": {
+     "id": "ScMeGcYdiDE",
+     "titre": "Aktīvā klausīšanās. Lielisks  komunikācijas instruments.",
+     "chaine": "Nauris Svika Archive",
+     "vues": "289 skatījumi",
+     "date": "pirms 6 gadiem",
+     "duree": "1:49",
+     "avatar": "https://yt3.ggpht.com/-fhRjPxLLjk_FjIWvXalQD2mOa70p8uIIV85IZOJZoGTcU8SHj1SCtj2kRXOfKrI283L0p8tGcE=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   }
  ]

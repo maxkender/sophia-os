@@ -1,0 +1,329 @@
+{
+ "post_id": "var-retrouver-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "extremely productive"
+     ],
+     "fr": "10/10 habitudes pour exploser ta productivité",
+     "texte": "10/10 habitudes pour récupérer un cerveau qui marche"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(validé par les études)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0b886b8c.jpg",
+      "boite": [
+       0,
+       1100,
+       1504,
+       1139
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop building the perfect plan"
+     ],
+     "fr": "arrête de peaufiner [[le plan parfait]]",
+     "texte": "protège ton [[sommeil]]"
+    },
+    "T2": {
+     "en": [
+      "colour-coded calendars, notion templates, a 5am routine",
+      "you've never actually done"
+     ],
+     "fr": "agendas en couleurs, templates stylés, une routine à 5h que t'as jamais faite",
+     "texte": "te coucher tard pour en faire plus, c'est le pire deal à passer avec ton cerveau"
+    },
+    "T3": {
+     "en": [
+      "but your brain gets a",
+      "hit of dopamine from",
+      "planning, so it stops",
+      "pushing you to do the",
+      "actual work"
+     ],
+     "fr": "sauf que planifier te file [[un shot de dopamine]], du coup ton cerveau te pousse plus à [[bosser pour de vrai]]",
+     "texte": "une étude de 2013 sur des souris montre que le sommeil aide le cerveau à [[évacuer ses déchets]]"
+    },
+    "T4": {
+     "en": [
+      "a plain list is enough"
+     ],
+     "fr": "une simple liste suffit",
+     "texte": "vise [[7 à 9 heures]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_8d21ae9a.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       1987
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "use the 2 minute rule"
+     ],
+     "fr": "applique [[la règle des 2 minutes]]",
+     "texte": "prends tes notes [[à la main]]"
+    },
+    "T2": {
+     "en": [
+      "if something takes less",
+      "than 2 minutes, do it right",
+      "now instead of adding it",
+      "to your list"
+     ],
+     "fr": "si un truc prend [[moins de 2 minutes]], fais-le direct, ne l'ajoute pas à ta liste",
+     "texte": "au clavier, tu recopies tout mot pour mot sans vraiment réfléchir"
+    },
+    "T3": {
+     "en": [
+      "replying to that",
+      "message, putting the",
+      "dishes away, booking",
+      "the appointment"
+     ],
+     "fr": "répondre à ce message, ranger la vaisselle, prendre ce rendez-vous",
+     "texte": "étude de 2014 : notes sur ordi, [[cours moins bien compris]]"
+    },
+    "T4": {
+     "en": [
+      "small tasks stop piling up into one big thing you avoid"
+     ],
+     "fr": "les petits trucs s'empilent plus en [[un gros truc que tu fuis]]",
+     "texte": "écrire plus lentement t'oblige à [[trier l'essentiel]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_045f1f7b.jpg",
+      "boite": [
+       133,
+       0,
+       2235,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "work out in the morning"
+     ],
+     "fr": "fais du sport [[le matin]]",
+     "texte": "laisse ton tel [[dans une autre pièce]]"
+    },
+    "T2": {
+     "en": [
+      "your cortisol is at its peak in the morning, so it's the",
+      "easiest time to do something hard"
+     ],
+     "fr": "ton cortisol est [[au max le matin]], c'est le meilleur moment pour faire un truc dur",
+     "texte": "une étude de 2017 : juste avoir son tel sur le bureau [[fait baisser les scores]] aux tests de mémoire"
+    },
+    "T3": {
+     "en": [
+      "once the hardest thing is",
+      "done, work feels easy in",
+      "comparison"
+     ],
+     "fr": "une fois le plus dur fait, [[le boulot paraît facile]] à côté",
+     "texte": "même face cachée et en silencieux, une partie de ton cerveau [[le surveille]]"
+    },
+    "T4": {
+     "en": [
+      "and how you start your",
+      "day sets the mood for",
+      "the rest of it"
+     ],
+     "fr": "et comment tu commences ta journée [[conditionne tout le reste]]",
+     "texte": "si tu le vois pas, [[t'y penses pas]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0531b483.jpg",
+      "boite": [
+       172,
+       0,
+       2023,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read classic books"
+     ],
+     "fr": "lis [[des classiques]]",
+     "texte": "[[explique]] ce que t'apprends"
+    },
+    "T2": {
+     "en": [
+      "do you remember what tiktok you saw",
+      "5 scrolls ago?"
+     ],
+     "fr": "tu te souviens du tiktok que t'as vu [[il y a 5 scrolls]] ?",
+     "texte": "savoir que tu vas l'expliquer change ta façon d'apprendre"
+    },
+    "T3": {
+     "en": [
+      "exactly. short form content",
+      "is frying your attention span"
+     ],
+     "fr": "[[exactement]]. les vidéos courtes [[te grillent l'attention]]",
+     "texte": "étude de 2014 : ceux qui pensaient devoir enseigner [[retenaient plus]]"
+    },
+    "T4": {
+     "en": [
+      "books force your brain to",
+      "focus on one thing for",
+      "longer"
+     ],
+     "fr": "un livre apprend à ton cerveau à [[tenir sur une seule chose]]",
+     "texte": "raconte à un pote un truc appris aujourd'hui, [[avec tes mots]]"
+    },
+    "T5": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]]. mes 5 min du jour sur [[l'appli Sophia]] : Camus et le mythe de Sisyphe",
+     "texte": "avant je scrollais H24, maintenant quand je prends mon tel j'apprends un truc en 5 min sur [[l'appli Sophia]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "work before you communicate"
+     ],
+     "fr": "bosse [[avant]] de répondre",
+     "texte": "[[médite]] 13 minutes"
+    },
+    "T2": {
+     "en": [
+      "give yourself 60–90 minutes",
+      "of uninterrupted creation",
+      "before becoming available",
+      "to everyone else"
+     ],
+     "fr": "accorde-toi [[60 à 90 minutes de création sans interruption]] avant d'être dispo pour les autres",
+     "texte": "en 2019, 13 min de méditation par jour pendant 8 semaines ont [[boosté l'attention et la mémoire]] de débutants"
+    },
+    "T3": {
+     "en": [
+      "your priorities should enter",
+      "your head before theirs do"
+     ],
+     "fr": "[[tes priorités]] doivent entrer dans ta tête avant les leurs",
+     "texte": "assieds-toi, respire, et [[reviens]] chaque fois que ton esprit s'égare"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0ed17eab.jpg",
+      "boite": [
+       199,
+       0,
+       1597,
+       1664
+      ]
+     }
+    }
+   }
+  }
+ }
+}

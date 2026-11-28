@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o415",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8666c620-3206-45c0-a120-560359ea8d43",
+ "titre": "The 5 Most Famous Laws In The World #laws #psychology #productivity #men #knowledge",
+ "musique_titre": "alkuperäinen ääni",
+ "musique_url": "https://www.tiktok.com/music/alkuperainen-aani-7438536346848742177",
+ "inspirations": [
+  "8666c620-3206-45c0-a120-560359ea8d43"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 28/11. Déclinaison G1 de la ligne 65 de la boîte (parent 8666c620, @selfsculpt_, langue source en). Accroche du parent mot pour mot. Format du parent : « N. Nom Law » puis l'explication. Lois réelles et neuves (Parkinson, Pareto, Hofstadter, Goodhart, Hanlon), aucune du parent. Items neufs, aucun du parent. reference_url du parent (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "68c48cf4",
+   "texte_overlay": "The 5 Most Famous Laws\nIn The World:",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606721766601313558/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b32443f7",
+   "texte_overlay": "1. Parkinson's Law\n\nWork expands to fill the time\nyou give it. Set short deadlines.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606721766601313558/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8686822b",
+   "texte_overlay": "2. Pareto's Law\n\n20% of your actions bring\n80% of your results.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606721766601313558/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0a2fc873",
+   "texte_overlay": "3. Hofstadter's Law\n\nIt always takes longer than you\nexpect, even when you expect that.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606721766601313558/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f41d3dd0",
+   "texte_overlay": "4. Goodhart's Law\n\nWhen a number becomes the goal,\nit stops measuring what matters.",
+   "texte_sophia": "4. Goodhart's Law\n\nWhen a number becomes the goal,\nit stops measuring what matters.\nI learned it on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606721766601313558/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3fca0572",
+   "texte_overlay": "5. Hanlon's Razor\n\nDon't assume malice when\na mistake explains it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606721766601313558/6.jpg"
+  }
+ ]
+}

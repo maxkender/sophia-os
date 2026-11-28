@@ -1,0 +1,616 @@
+{
+ "id": "pt-022",
+ "titre": {
+  "en": "small luxuries for a curious mind",
+  "fr": "petits luxes pour un esprit curieux",
+  "es": "pequeños lujos para una mente curiosa",
+  "es-419": "pequeños lujos para una mente curiosa",
+  "it": "piccoli lussi per una mente curiosa",
+  "tr": "meraklı bir zihin için küçük lüksler",
+  "pt-BR": "pequenos luxos pra uma mente curiosa",
+  "sl": "majhni luksusi za radoveden um",
+  "de": "kleiner luxus für einen neugierigen kopf",
+  "sk": "malé luxusy pre zvedavú myseľ",
+  "sv": "små lyxer för ett nyfiket sinne"
+ },
+ "legendes": {
+  "en": "none of them cost much, all of them make you richer. save it <3 #girlblogger #selfimprovement #learning #thatgirl #booktok",
+  "fr": "aucun ne coûte cher, tous te rendent plus riche. enregistre-le <3 #girlblogger #developpementpersonnel #apprendre #thatgirl #booktokfrance",
+  "es": "ninguno cuesta mucho, todos te hacen más rica. guárdalo <3 #girlblogger #desarrollopersonal #aprender #thatgirl #booktokespaña",
+  "es-419": "ninguno cuesta mucho, todos te hacen más rica. guárdalo <3 #girlblogger #desarrollopersonal #aprender #thatgirl #booktoklatam",
+  "it": "nessuno costa molto, tutti ti rendono più ricca. salvalo <3 #girlblogger #crescitapersonale #imparare #thatgirl #booktokitalia",
+  "tr": "hiçbiri pahalı değil, hepsi seni zenginleştiriyor. kaydet <3 #girlblogger #kişiselgelişim #öğrenmek #thatgirl #booktoktürkiye",
+  "pt-BR": "nenhum custa caro, todos te deixam mais rica. salva <3 #girlblogger #autodesenvolvimento #aprender #thatgirl #booktokbrasil",
+  "sl": "nobeden ni drag, vsi te obogatijo. shrani <3 #girlblogger #osebnirazvoj #učenje #thatgirl #booktok",
+  "de": "nichts davon kostet viel, alles macht dich reicher. speicher es dir <3 #girlblogger #selbstverbesserung #lernen #thatgirl #booktokdeutschland",
+  "sk": "žiadny nestojí veľa, všetky ťa obohatia. ulož si to <3 #girlblogger #osobnyrozvoj #ucenie #thatgirl #booktok",
+  "sv": "ingen kostar mycket, alla gör dig rikare. spara den <3 #girlblogger #självutveckling #lärande #thatgirl #booktoksverige"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7428338324530285358"
+ },
+ "notes": "Full test (BLEO, 26/11) : accroche neuve chez nous, au gabarit de son tube. Éléments à nous : un carnet qu'on aime, une carte de bibliothèque, Sophia, une carte de musée, une heure sans téléphone. Slide Sophia (4) : « 3. ten minutes of real learning », cta A (reformulé). Aucune ressource nommée. Photos neuves de la banque.",
+ "banque": {
+  "images/banque/couv-bibliotheque-fenetre.jpg": "fd625fcd-2d7b-414b-b6eb-be8f070eb6c4",
+  "images/banque/couv-bureau-livres-tasse.jpg": "07dc9327-fd59-4573-8626-09e862473d10",
+  "images/banque/main-carnet.jpg": "68d62276-66c7-4825-8828-2759e3288c2b",
+  "images/banque/bibliotheque-tablette.jpg": "d23ba6e7-a0c5-4c0c-8155-c223d0d0935d",
+  "images/banque/bibliotheque-ordi.jpg": "73e760d2-5403-4db7-95f9-f4c2cd8f0064",
+  "images/banque/soleil-mur-bureau.jpg": "4a527a77-080d-4aad-8ee0-3f699e09ce3a",
+  "images/banque/musee-sculptures.jpg": "77488f24-8b01-4677-86e7-65b6aaa627f7",
+  "images/banque/arche-blanche.jpg": "1770aaa7-d264-49be-97c7-7ae0c71bd56c",
+  "images/banque/colline-banc.jpg": "74f1a8b5-e832-4e28-b275-88197018d510",
+  "images/banque/ville-couchant.jpg": "54a6984d-efaf-45b5-bdb9-c736f194e6e1",
+  "images/banque/carnet-tasse-fleurie.jpg": "42c6cbf3-216d-4fa7-9bb5-05266476060a"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-bibliotheque-fenetre.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-bureau-livres-tasse.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "small luxuries\nfor a curious\nmind"
+   },
+   "fr": {
+    "titre": "petits luxes pour\nun esprit curieux"
+   },
+   "es": {
+    "titre": "pequeños lujos para\nuna mente curiosa"
+   },
+   "es-419": {
+    "titre": "pequeños lujos para\nuna mente curiosa"
+   },
+   "it": {
+    "titre": "piccoli lussi per\nuna mente curiosa"
+   },
+   "tr": {
+    "titre": "meraklı bir zihin\niçin küçük lüksler"
+   },
+   "pt-BR": {
+    "titre": "pequenos luxos pra\numa mente curiosa"
+   },
+   "sl": {
+    "titre": "majhni luksusi za\nradoveden um"
+   },
+   "de": {
+    "titre": "kleiner luxus für\neinen neugierigen\nkopf"
+   },
+   "sk": {
+    "titre": "malé luxusy pre\nzvedavú myseľ"
+   },
+   "sv": {
+    "titre": "små lyxer för ett\nnyfiket sinne"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/main-carnet.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/carnet-tasse-fleurie.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. a notebook you love",
+    "paragraphes": [
+     "One beautiful notebook, only for things you learn. not lists, not plans, just what surprised you today.",
+     "It becomes the book you'll love rereading most, written by you"
+    ]
+   },
+   "fr": {
+    "titre": "1. un carnet que tu aimes",
+    "paragraphes": [
+     "Un beau carnet, rien que pour ce que tu apprends. pas de listes, pas de plans, juste ce qui t'a surprise aujourd'hui.",
+     "Il devient le livre que tu aimeras le plus relire, écrit par toi"
+    ]
+   },
+   "es": {
+    "titre": "1. una libreta que te encante",
+    "paragraphes": [
+     "Una libreta bonita, solo para lo que aprendes. ni listas ni planes, solo lo que te sorprendió hoy.",
+     "Se convierte en el libro que más te gustará releer, escrito por ti"
+    ]
+   },
+   "es-419": {
+    "titre": "1. un cuaderno que te encante",
+    "paragraphes": [
+     "Un cuaderno bonito, solo para lo que aprendes. ni listas ni planes, solo lo que te sorprendió hoy.",
+     "Se vuelve el libro que más vas a disfrutar releer, escrito por ti"
+    ]
+   },
+   "it": {
+    "titre": "1. un quaderno che ami",
+    "paragraphes": [
+     "Un bel quaderno, solo per le cose che impari. niente liste, niente piani, solo quello che ti ha sorpresa oggi.",
+     "Diventa il libro che amerai di più rileggere, scritto da te"
+    ]
+   },
+   "tr": {
+    "titre": "1. sevdiğin bir defter",
+    "paragraphes": [
+     "Güzel bir defter, sadece öğrendiklerin için. liste yok, plan yok, sadece bugün seni şaşırtan şeyler.",
+     "En sevdiğin, tekrar tekrar okuduğun kitap olur, hem de senin yazdığın"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. um caderno que você ama",
+    "paragraphes": [
+     "Um caderno bonito, só pro que você aprende. nada de listas, nada de planos, só o que te surpreendeu hoje.",
+     "Ele vira o livro que você mais vai gostar de reler, escrito por você"
+    ]
+   },
+   "sl": {
+    "titre": "1. zvezek, ki ga imaš rada",
+    "paragraphes": [
+     "En lep zvezek, samo za stvari, ki se jih naučiš. brez seznamov, brez načrtov, samo to, kar te je danes presenetilo.",
+     "Postane knjiga, ki jo boš najraje znova brala, in napisala si jo ti"
+    ]
+   },
+   "de": {
+    "titre": "1. ein heft, das du liebst",
+    "paragraphes": [
+     "Ein schönes heft, nur für dinge, die du lernst. keine listen, keine pläne, nur was dich heute überrascht hat.",
+     "Es wird das buch, das du am liebsten wieder liest, geschrieben von dir"
+    ]
+   },
+   "sk": {
+    "titre": "1. zošit, ktorý miluješ",
+    "paragraphes": [
+     "Jeden krásny zošit, len na veci, ktoré sa naučíš. žiadne zoznamy, žiadne plány, len to, čo ťa dnes prekvapilo.",
+     "Stane sa knihou, ktorú budeš najradšej čítať znova, a napísala si ju ty"
+    ]
+   },
+   "sv": {
+    "titre": "1. en anteckningsbok du älskar",
+    "paragraphes": [
+     "En vacker anteckningsbok, bara för det du lär dig. inga listor, inga planer, bara det som överraskade dig i dag.",
+     "Den blir boken du helst läser om, skriven av dig"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/bibliotheque-tablette.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/bibliotheque-ordi.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. a library card",
+    "paragraphes": [
+     "It's free, and it opens thousands of books, quiet rooms and sometimes free classes. go once a week, even just to sit.",
+     "The best luxury in any city, and almost nobody uses it"
+    ]
+   },
+   "fr": {
+    "titre": "2. une carte de bibliothèque",
+    "paragraphes": [
+     "Elle est gratuite et elle ouvre des milliers de livres, des salles calmes et parfois des cours gratuits. vas-y une fois par semaine, même juste pour t'asseoir.",
+     "Le meilleur luxe de la ville, et presque personne ne s'en sert"
+    ]
+   },
+   "es": {
+    "titre": "2. el carné de la biblioteca",
+    "paragraphes": [
+     "Es gratis y te abre miles de libros, salas tranquilas y a veces cursos gratis. ve una vez a la semana, aunque sea solo a sentarte.",
+     "El mejor lujo de cualquier ciudad, y casi nadie lo usa"
+    ]
+   },
+   "es-419": {
+    "titre": "2. la credencial de la biblioteca",
+    "paragraphes": [
+     "Es gratis y te abre miles de libros, salas tranquilas y a veces cursos gratis. ve una vez por semana, aunque sea solo a sentarte.",
+     "El mejor lujo de cualquier ciudad, y casi nadie lo usa"
+    ]
+   },
+   "it": {
+    "titre": "2. la tessera della biblioteca",
+    "paragraphes": [
+     "È gratis e apre migliaia di libri, sale silenziose e a volte corsi gratuiti. vacci una volta a settimana, anche solo per sederti.",
+     "Il lusso migliore di qualsiasi città, e quasi nessuno lo usa"
+    ]
+   },
+   "tr": {
+    "titre": "2. bir kütüphane kartı",
+    "paragraphes": [
+     "Ücretsiz, ve sana binlerce kitap, sessiz salonlar, bazen ücretsiz kurslar açıyor. haftada bir git, sadece oturmak için bile.",
+     "Her şehrin en güzel lüksü, ve neredeyse kimse kullanmıyor"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. a carteirinha da biblioteca",
+    "paragraphes": [
+     "É de graça e abre milhares de livros, salas silenciosas e às vezes cursos gratuitos. vai uma vez por semana, nem que seja só pra sentar.",
+     "O melhor luxo de qualquer cidade, e quase ninguém usa"
+    ]
+   },
+   "sl": {
+    "titre": "2. izkaznica knjižnice",
+    "paragraphes": [
+     "Je brezplačna in ti odpre tisoče knjig, tihe čitalnice in včasih brezplačne tečaje. pojdi enkrat na teden, pa čeprav samo sedet.",
+     "Najboljši luksus vsakega mesta, in skoraj nihče ga ne uporablja"
+    ]
+   },
+   "de": {
+    "titre": "2. ein bibliotheksausweis",
+    "paragraphes": [
+     "Er kostet fast nichts und öffnet tausende bücher, ruhige räume und manchmal kostenlose kurse. geh einmal pro woche hin, auch nur zum sitzen.",
+     "Der beste luxus jeder stadt, und kaum jemand nutzt ihn"
+    ]
+   },
+   "sk": {
+    "titre": "2. preukaz do knižnice",
+    "paragraphes": [
+     "Stojí takmer nič a otvorí ti tisíce kníh, tiché čitárne a niekedy aj kurzy zadarmo. choď tam raz týždenne, aj keď len posedieť.",
+     "Najlepší luxus každého mesta, a takmer nikto ho nevyužíva"
+    ]
+   },
+   "sv": {
+    "titre": "2. ett lånekort",
+    "paragraphes": [
+     "Det är gratis och öppnar tusentals böcker, tysta rum och ibland gratiskurser. gå dit en gång i veckan, även bara för att sitta.",
+     "Den bästa lyxen i varje stad, och nästan ingen använder den"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/soleil-mur-bureau.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. ten minutes of real learning",
+    "paragraphes": [
+     "Every night I do one short lesson on Sophia instead of scrolling. history, philosophy or science, written by actual professors, with a little quiz after.",
+     "It feels like a treat, not homework, and it's the best ten minutes of my day"
+    ]
+   },
+   "fr": {
+    "titre": "3. dix minutes pour apprendre",
+    "paragraphes": [
+     "Chaque soir, je fais une petite leçon sur Sophia au lieu de scroller. histoire, philosophie ou sciences, écrite par de vrais profs, avec un petit quiz après.",
+     "Ça ressemble à un plaisir, pas à des devoirs, et ce sont les dix meilleures minutes de ma journée"
+    ]
+   },
+   "es": {
+    "titre": "3. diez minutos de aprender de verdad",
+    "paragraphes": [
+     "Cada noche hago una lección corta en Sophia en vez de hacer scroll. historia, filosofía o ciencia, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "Se siente como un capricho, no como deberes, y son los mejores diez minutos de mi día"
+    ]
+   },
+   "es-419": {
+    "titre": "3. diez minutos de aprender de verdad",
+    "paragraphes": [
+     "Cada noche tomo una lección corta en Sophia en lugar de hacer scroll. historia, filosofía o ciencia, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "Se siente como un gustito, no como tarea, y son los mejores diez minutos de mi día"
+    ]
+   },
+   "it": {
+    "titre": "3. dieci minuti di vero studio",
+    "paragraphes": [
+     "Ogni sera faccio una breve lezione su Sophia invece di scrollare. storia, filosofia o scienze, scritta da veri professori, con un piccolo quiz alla fine.",
+     "Sembra una coccola, non un compito, ed è il momento migliore della mia giornata"
+    ]
+   },
+   "tr": {
+    "titre": "3. on dakikalık bir ders",
+    "paragraphes": [
+     "Her gece scroll yapmak yerine Sophia'da kısa bir ders yapıyorum. tarih, felsefe ya da bilim; gerçek profesörler yazıyor, sonunda da küçük bir test var.",
+     "Ödev gibi değil, bir ödül gibi hissettiriyor, ve günümün en güzel on dakikası"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. dez minutos de aprender de verdade",
+    "paragraphes": [
+     "Toda noite eu faço uma aula curtinha no Sophia em vez de ficar rolando o feed. história, filosofia ou ciência, escrita por professores de verdade, com um quiz no final.",
+     "Parece um mimo, não lição de casa, e são os melhores dez minutos do meu dia"
+    ]
+   },
+   "sl": {
+    "titre": "3. deset minut pravega učenja",
+    "paragraphes": [
+     "Vsak večer namesto skrolanja naredim eno kratko lekcijo v aplikaciji Sophia. zgodovina, filozofija ali znanost, napisali so jo pravi profesorji, na koncu pa kratek kviz.",
+     "Zdi se kot razvajanje, ne kot domača naloga, in to je najboljših deset minut mojega dne"
+    ]
+   },
+   "de": {
+    "titre": "3. zehn minuten echtes lernen",
+    "paragraphes": [
+     "Jeden abend mache ich eine kurze lektion auf Sophia, statt zu scrollen. geschichte, philosophie oder wissenschaft, von echten professoren, mit einem kleinen quiz.",
+     "Es fühlt sich an wie ein genuss, nicht wie hausaufgaben, und es sind die besten zehn minuten meines tages"
+    ]
+   },
+   "sk": {
+    "titre": "3. desať minút skutočného učenia",
+    "paragraphes": [
+     "Každý večer si namiesto scrollovania dám jednu krátku lekciu v aplikácii Sophia. dejiny, filozofia alebo veda, napísané skutočnými profesormi, a na konci malý kvíz.",
+     "Pôsobí to ako odmena, nie ako úloha, a je to najlepších desať minút môjho dňa"
+    ]
+   },
+   "sv": {
+    "titre": "3. tio minuter av riktigt lärande",
+    "paragraphes": [
+     "Varje kväll gör jag en kort lektion på Sophia i stället för att scrolla. historia, filosofi eller naturvetenskap, skriven av riktiga professorer, med ett litet quiz efteråt.",
+     "Det känns som en belöning, inte läxor, och det är dagens bästa tio minuter"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/musee-sculptures.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/arche-blanche.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. a museum pass",
+    "paragraphes": [
+     "If your city's museum has a yearly pass, take it. then go for thirty minutes at a time, one room only.",
+     "You stop rushing through museums, and they start feeling like your living room"
+    ]
+   },
+   "fr": {
+    "titre": "4. une carte de musée",
+    "paragraphes": [
+     "Si le musée de ta ville a un pass annuel, prends-le. puis vas-y trente minutes à la fois, une seule salle.",
+     "Tu ne traverses plus les musées en courant, ils deviennent ton salon"
+    ]
+   },
+   "es": {
+    "titre": "4. un pase de museo",
+    "paragraphes": [
+     "Si el museo de tu ciudad tiene un pase anual, cógelo. luego ve treinta minutos cada vez, solo a una sala.",
+     "Dejas de recorrer los museos corriendo, y empiezan a sentirse como tu salón"
+    ]
+   },
+   "es-419": {
+    "titre": "4. un pase de museo",
+    "paragraphes": [
+     "Si el museo de tu ciudad tiene pase anual, sácalo. después ve treinta minutos cada vez, solo a una sala.",
+     "Dejas de recorrer los museos a las carreras, y empiezan a sentirse como tu sala"
+    ]
+   },
+   "it": {
+    "titre": "4. un abbonamento al museo",
+    "paragraphes": [
+     "Se il museo della tua città ha un abbonamento annuale, prendilo. poi vacci trenta minuti alla volta, una sala sola.",
+     "Smetti di correre nei musei, e iniziano a sembrare il tuo salotto"
+    ]
+   },
+   "tr": {
+    "titre": "4. bir müze kartı",
+    "paragraphes": [
+     "Şehrindeki müzenin yıllık kartı varsa al. sonra her seferinde otuz dakikalığına git, tek bir salon.",
+     "Müzelerde koşturmayı bırakırsın, ve oturma odan gibi gelmeye başlar"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. um passe de museu",
+    "paragraphes": [
+     "Se o museu da sua cidade tem passe anual, faz. depois vai trinta minutos por vez, uma sala só.",
+     "Você para de passar correndo pelos museus, e eles começam a parecer sua sala"
+    ]
+   },
+   "sl": {
+    "titre": "4. letna muzejska vstopnica",
+    "paragraphes": [
+     "Če ima muzej v tvojem mestu letno vstopnico, jo vzemi. potem pojdi vsakič za trideset minut, samo v eno sobo.",
+     "Nehaš teči skozi muzeje, in začnejo se ti zdeti kot dnevna soba"
+    ]
+   },
+   "de": {
+    "titre": "4. eine museumsjahreskarte",
+    "paragraphes": [
+     "Wenn das museum deiner stadt eine jahreskarte hat, hol sie dir. dann geh jeweils dreißig minuten hin, nur in einen saal.",
+     "Du rennst nicht mehr durch museen, und sie fühlen sich an wie dein wohnzimmer"
+    ]
+   },
+   "sk": {
+    "titre": "4. ročná vstupenka do múzea",
+    "paragraphes": [
+     "Ak má múzeum v tvojom meste ročnú vstupenku, kúp si ju. potom tam choď vždy na tridsať minút, len do jednej sály.",
+     "Prestaneš múzeami prebiehať, a začnú pôsobiť ako tvoja obývačka"
+    ]
+   },
+   "sv": {
+    "titre": "4. ett årskort till museet",
+    "paragraphes": [
+     "Om museet i din stad har årskort, skaffa det. gå sedan dit trettio minuter åt gången, bara en sal.",
+     "Du slutar springa genom museer, och de börjar kännas som ditt vardagsrum"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/colline-banc.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/ville-couchant.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. one hour with no phone",
+    "paragraphes": [
+     "Once a week, leave your phone at home and go somewhere with only a book or a notebook.",
+     "Your mind wanders, wonders and comes back with ideas you didn't know you had"
+    ]
+   },
+   "fr": {
+    "titre": "5. une heure sans téléphone",
+    "paragraphes": [
+     "Une fois par semaine, laisse ton téléphone à la maison et pars quelque part avec juste un livre ou un carnet.",
+     "Ton esprit vagabonde, s'étonne et revient avec des idées que tu ne te connaissais pas"
+    ]
+   },
+   "es": {
+    "titre": "5. una hora sin móvil",
+    "paragraphes": [
+     "Una vez a la semana, deja el móvil en casa y ve a algún sitio solo con un libro o una libreta.",
+     "Tu mente divaga, se asombra y vuelve con ideas que no sabías que tenías"
+    ]
+   },
+   "es-419": {
+    "titre": "5. una hora sin celular",
+    "paragraphes": [
+     "Una vez por semana, deja el celular en casa y ve a algún lugar solo con un libro o un cuaderno.",
+     "Tu mente divaga, se asombra y regresa con ideas que no sabías que tenías"
+    ]
+   },
+   "it": {
+    "titre": "5. un'ora senza telefono",
+    "paragraphes": [
+     "Una volta a settimana, lascia il telefono a casa e vai da qualche parte solo con un libro o un quaderno.",
+     "La mente vaga, si meraviglia e torna con idee che non sapevi di avere"
+    ]
+   },
+   "tr": {
+    "titre": "5. telefonsuz bir saat",
+    "paragraphes": [
+     "Haftada bir, telefonunu evde bırak ve sadece bir kitap ya da defterle bir yere git.",
+     "Zihnin dolaşır, merak eder ve sahip olduğunu bilmediğin fikirlerle döner"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. uma hora sem celular",
+    "paragraphes": [
+     "Uma vez por semana, deixa o celular em casa e vai a algum lugar só com um livro ou um caderno.",
+     "Sua mente passeia, se encanta e volta com ideias que você nem sabia que tinha"
+    ]
+   },
+   "sl": {
+    "titre": "5. ena ura brez telefona",
+    "paragraphes": [
+     "Enkrat na teden pusti telefon doma in pojdi nekam samo s knjigo ali zvezkom.",
+     "Misli zatavajo, se čudijo in se vrnejo z idejami, za katere nisi vedela, da jih imaš"
+    ]
+   },
+   "de": {
+    "titre": "5. eine stunde ohne handy",
+    "paragraphes": [
+     "Lass einmal pro woche dein handy zu hause und geh irgendwohin, nur mit einem buch oder einem heft.",
+     "Dein kopf schweift ab, staunt und kommt mit ideen zurück, von denen du nichts wusstest"
+    ]
+   },
+   "sk": {
+    "titre": "5. hodina bez mobilu",
+    "paragraphes": [
+     "Raz týždenne nechaj mobil doma a choď niekam len s knihou alebo zošitom.",
+     "Myseľ sa túla, žasne a vráti sa s nápadmi, o ktorých si nevedela, že ich máš"
+    ]
+   },
+   "sv": {
+    "titre": "5. en timme utan mobil",
+    "paragraphes": [
+     "En gång i veckan, lämna mobilen hemma och gå någonstans med bara en bok eller ett block.",
+     "Tankarna vandrar, förundras och kommer tillbaka med idéer du inte visste att du hade"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

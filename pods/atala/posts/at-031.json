@@ -1,0 +1,431 @@
+{
+ "id": "at-031",
+ "style": "objets",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+  "vues": 278500,
+  "publie_le": "2026-10-31",
+  "accroche": "courir l’hiver : / les do & don’ts"
+ },
+ "titre": {
+  "en": "solo runs do and don’ts",
+  "fr": "courir seule : les do & don’ts",
+  "de": "allein laufen: die do & don’ts",
+  "it": "correre da sola: i do & don’ts",
+  "es-419": "correr sola: los do & don’ts",
+  "hu": "egyedül futni: a do & don’ts",
+  "ro": "alergat singură: do & don’ts",
+  "tr": "yalnız koşu: do & don’ts",
+  "el": "τρέξιμο μόνη: τα do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #solorun #runningtips #girlswhorun #runsafe",
+  "fr": "#courseapied #seule #running #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
+ },
+ "musique": {
+  "titre": "Run Boy Run - Instrumental",
+  "url": "https://www.tiktok.com/music/run-boy-run-instrumental-6929219807355078657"
+ },
+ "notes": "Full test (accroche jamais faite chez nous), au format de leur tube (@hannah.run5, 279 k), style `objets`. Aucun objet neuf ; couverture : coureuse-profil-1. Logo d'Atala au milieu des « Do » de la slide 2. Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec le mot pour « appli », jamais « AI »). Aucune page d'appli. Livré dans les 9 langues du label.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-profil-1.png",
+   "en": {
+    "titre": "solo runs\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "courir seule :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "allein laufen:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "correre da sola:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "correr sola:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "egyedül futni:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "alergat singură:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "yalnız koşu:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "τρέξιμο μόνη:\nτα do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/telephone.png",
+    "atala",
+    "images/objets/chaussures.png"
+   ],
+   "dont": [
+    "images/objets/cone.png",
+    "images/objets/ecouteurs.png"
+   ],
+   "en": {
+    "titre": "before you go",
+    "do": [
+     "share your\nlive location",
+     "a plan on an\napp like atala",
+     "a route\nyou know"
+    ],
+    "dont": [
+     "a new trail\nat dusk",
+     "both\nearbuds in"
+    ]
+   },
+   "fr": {
+    "titre": "avant de sortir",
+    "do": [
+     "envoie ta\nposition live",
+     "appli de coach\ncomme atala",
+     "une boucle\nque tu connais"
+    ],
+    "dont": [
+     "l’inconnu\nà la nuit",
+     "deux écouteurs"
+    ]
+   },
+   "de": {
+    "titre": "vor dem lauf",
+    "do": [
+     "standort\nlive teilen",
+     "coach-app\nwie atala",
+     "bekannte runde"
+    ],
+    "dont": [
+     "neuer weg\nbei dämmerung",
+     "beide\nkopfhörer drin"
+    ]
+   },
+   "it": {
+    "titre": "prima di uscire",
+    "do": [
+     "condividi\nla posizione",
+     "app coach\ncome atala",
+     "un giro\nche conosci"
+    ],
+    "dont": [
+     "sentieri nuovi\nal tramonto",
+     "entrambi\ngli auricolari"
+    ]
+   },
+   "es-419": {
+    "titre": "antes de salir",
+    "do": [
+     "comparte\ntu ubicación",
+     "app con coach\ncomo atala",
+     "una ruta\nque conoces"
+    ],
+    "dont": [
+     "rutas nuevas\nde noche",
+     "audífonos\nen ambos oídos"
+    ]
+   },
+   "hu": {
+    "titre": "indulás előtt",
+    "do": [
+     "oszd meg\na helyed",
+     "edzős app,\nmint az atala",
+     "ismert kör"
+    ],
+    "dont": [
+     "új út sötétben",
+     "fülhallgató\nmindkét fülben"
+    ]
+   },
+   "ro": {
+    "titre": "înainte să ieși",
+    "do": [
+     "trimite\nlocația live",
+     "aplicație de\ncoach ca atala",
+     "un traseu\npe care-l știi"
+    ],
+    "dont": [
+     "poteci noi\nla apus",
+     "ambele căști"
+    ]
+   },
+   "tr": {
+    "titre": "çıkmadan önce",
+    "do": [
+     "konumunu\ncanlı paylaş",
+     "atala gibi\nkoç uygulaması",
+     "bildiğin\nbir rota"
+    ],
+    "dont": [
+     "akşam\nbilinmeyen yol",
+     "çift kulaklık"
+    ]
+   },
+   "el": {
+    "titre": "πριν βγεις",
+    "do": [
+     "στείλε\nτην τοποθεσία",
+     "εφαρμογή coach\nσαν το atala",
+     "μια διαδρομή\nπου ξέρεις"
+    ],
+    "dont": [
+     "νέο μονοπάτι\nτο σούρουπο",
+     "δύο ακουστικά"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/lunettes.png",
+    "images/objets/gilet.png",
+    "images/objets/montre.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/tenue.png"
+   ],
+   "en": {
+    "titre": "out there",
+    "do": [
+     "daylight hours",
+     "a hi-vis vest",
+     "busy paths"
+    ],
+    "dont": [
+     "the same\nhour daily",
+     "all-black kit"
+    ]
+   },
+   "fr": {
+    "titre": "dehors",
+    "do": [
+     "en plein jour",
+     "du fluo",
+     "là où il y a\ndu monde"
+    ],
+    "dont": [
+     "la même heure\nchaque jour",
+     "tout en noir"
+    ]
+   },
+   "de": {
+    "titre": "draußen",
+    "do": [
+     "bei tageslicht",
+     "warnweste",
+     "belebte wege"
+    ],
+    "dont": [
+     "immer zur\ngleichen zeit",
+     "nur schwarz"
+    ]
+   },
+   "it": {
+    "titre": "fuori",
+    "do": [
+     "di giorno",
+     "il gilet fluo",
+     "strade\ncon gente"
+    ],
+    "dont": [
+     "sempre\nla stessa ora",
+     "tutta in nero"
+    ]
+   },
+   "es-419": {
+    "titre": "afuera",
+    "do": [
+     "con luz de día",
+     "chaleco flúor",
+     "lugares\ncon gente"
+    ],
+    "dont": [
+     "siempre\nigual horario",
+     "todo de negro"
+    ]
+   },
+   "hu": {
+    "titre": "kint",
+    "do": [
+     "nappal",
+     "neon mellény",
+     "ahol mások\nis vannak"
+    ],
+    "dont": [
+     "fix időpont",
+     "csupa fekete"
+    ]
+   },
+   "ro": {
+    "titre": "afară",
+    "do": [
+     "pe lumină",
+     "vestă fluo",
+     "locuri\ncu oameni"
+    ],
+    "dont": [
+     "mereu\nla aceeași oră",
+     "totul negru"
+    ]
+   },
+   "tr": {
+    "titre": "dışarıda",
+    "do": [
+     "gün ışığında",
+     "fosforlu yelek",
+     "insanlı yollar"
+    ],
+    "dont": [
+     "hep aynı saat",
+     "tamamen siyah"
+    ]
+   },
+   "el": {
+    "titre": "έξω",
+    "do": [
+     "με φως μέρας",
+     "γιλέκο φλούο",
+     "μέρη\nμε κόσμο"
+    ],
+    "dont": [
+     "πάντα\nτην ίδια ώρα",
+     "όλα μαύρα"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/the.png",
+    "images/objets/rouleau.png",
+    "images/objets/pommeau.png"
+   ],
+   "dont": [
+    "images/objets/telephone.png",
+    "images/objets/vin.png"
+   ],
+   "en": {
+    "titre": "back home",
+    "do": [
+     "a hot tea",
+     "a foam roller",
+     "a warm shower"
+    ],
+    "dont": [
+     "posting your\nroute live",
+     "a glass\nof wine"
+    ]
+   },
+   "fr": {
+    "titre": "en rentrant",
+    "do": [
+     "un thé chaud",
+     "ton rouleau",
+     "douche chaude"
+    ],
+    "dont": [
+     "ta route\nen story",
+     "un verre\nde vin"
+    ]
+   },
+   "de": {
+    "titre": "zu hause",
+    "do": [
+     "heißer tee",
+     "faszienrolle",
+     "warm duschen"
+    ],
+    "dont": [
+     "die route\nlive posten",
+     "ein glas wein"
+    ]
+   },
+   "it": {
+    "titre": "a casa",
+    "do": [
+     "un tè caldo",
+     "un foam roller",
+     "doccia calda"
+    ],
+    "dont": [
+     "il percorso\nin diretta",
+     "un bicchiere\ndi vino"
+    ]
+   },
+   "es-419": {
+    "titre": "en casa",
+    "do": [
+     "un té caliente",
+     "un rodillo",
+     "ducha caliente"
+    ],
+    "dont": [
+     "tu ruta\nen vivo",
+     "una copa\nde vino"
+    ]
+   },
+   "hu": {
+    "titre": "otthon",
+    "do": [
+     "forró tea",
+     "masszázshenger",
+     "meleg zuhany"
+    ],
+    "dont": [
+     "élő posztolás",
+     "egy pohár bor"
+    ]
+   },
+   "ro": {
+    "titre": "acasă",
+    "do": [
+     "ceai fierbinte",
+     "rola de masaj",
+     "duș cald"
+    ],
+    "dont": [
+     "traseul\npostat live",
+     "un pahar\nde vin"
+    ]
+   },
+   "tr": {
+    "titre": "eve dönünce",
+    "do": [
+     "sıcak çay",
+     "köpük rulo",
+     "ılık duş"
+    ],
+    "dont": [
+     "konumun\nherkese açık",
+     "şarap içmek"
+    ]
+   },
+   "el": {
+    "titre": "στο σπίτι",
+    "do": [
+     "ζεστό τσάι",
+     "ρολό μασάζ",
+     "ζεστό ντους"
+    ],
+    "dont": [
+     "η διαδρομή\nσε live",
+     "ποτήρι κρασί"
+    ]
+   }
+  }
+ ]
+}

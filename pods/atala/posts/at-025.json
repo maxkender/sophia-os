@@ -1,0 +1,431 @@
+{
+ "id": "at-025",
+ "style": "objets",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+  "vues": 278500,
+  "publie_le": "2026-10-31",
+  "accroche": "courir l’hiver : / les do & don’ts"
+ },
+ "titre": {
+  "en": "stretching do and don’ts",
+  "fr": "les étirements : les do & don’ts",
+  "de": "dehnen: die do & don’ts",
+  "it": "stretching: i do & don’ts",
+  "es-419": "estiramientos: los do & don’ts",
+  "hu": "nyújtás: a do & don’ts",
+  "ro": "stretching: do & don’ts",
+  "tr": "esneme: do & don’ts",
+  "el": "διατάσεις: τα do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #stretching #runningtips #girlswhorun #recovery",
+  "fr": "#courseapied #etirements #running #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
+ },
+ "musique": {
+  "titre": "Housewife",
+  "url": "https://www.tiktok.com/music/housewife-7697010651306838068"
+ },
+ "notes": "Full test (accroche jamais faite chez nous), au format de leur tube (@hannah.run5, 279 k), style `objets`. Aucun objet neuf ; couverture : coureuse-longue. Logo d'Atala au milieu des « Do » de la slide 2 (la semaine complète : les étirements prévus dans le plan). Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec le mot pour « appli », jamais « AI »). Aucune page d'appli. Livré dans les 9 langues du label.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-longue.png",
+   "en": {
+    "titre": "stretching\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "les étirements :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "dehnen:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "stretching:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "estiramientos:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "nyújtás:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "stretching:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "esneme:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "διατάσεις:\nτα do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/chaussures.png",
+    "atala",
+    "images/objets/montre.png"
+   ],
+   "dont": [
+    "images/objets/tapis-yoga.png",
+    "images/objets/chrono.png"
+   ],
+   "en": {
+    "titre": "before a run",
+    "do": [
+     "a walk, then\nan easy jog",
+     "a plan on an\napp like atala",
+     "leg swings"
+    ],
+    "dont": [
+     "long holds\nwhen cold",
+     "skipping\nthe warm-up"
+    ]
+   },
+   "fr": {
+    "titre": "avant de courir",
+    "do": [
+     "marche, puis\nfooting lent",
+     "appli de coach\ncomme atala",
+     "balancer\nles jambes"
+    ],
+    "dont": [
+     "étirer à froid",
+     "sans échauffer"
+    ]
+   },
+   "de": {
+    "titre": "vor dem lauf",
+    "do": [
+     "gehen, dann\nlocker traben",
+     "coach-app\nwie atala",
+     "beinschwünge"
+    ],
+    "dont": [
+     "kalt dehnen",
+     "kein aufwärmen"
+    ]
+   },
+   "it": {
+    "titre": "prima di correre",
+    "do": [
+     "camminata,\npoi corsetta",
+     "app coach\ncome atala",
+     "slanci\ndelle gambe"
+    ],
+    "dont": [
+     "allungare\na freddo",
+     "non scaldarti"
+    ]
+   },
+   "es-419": {
+    "titre": "antes de correr",
+    "do": [
+     "caminar, luego\ntrote suave",
+     "app con coach\ncomo atala",
+     "balanceos\nde pierna"
+    ],
+    "dont": [
+     "estirar\nen frío",
+     "sin calentar"
+    ]
+   },
+   "hu": {
+    "titre": "futás előtt",
+    "do": [
+     "séta, aztán\nlaza kocogás",
+     "edzős app,\nmint az atala",
+     "lábemelések"
+    ],
+    "dont": [
+     "hideg nyújtás",
+     "rögtön\ngyors tempó"
+    ]
+   },
+   "ro": {
+    "titre": "înainte",
+    "do": [
+     "mers, apoi\njogging ușor",
+     "aplicație de\ncoach ca atala",
+     "balansări\nde picioare"
+    ],
+    "dont": [
+     "întinderi\nla rece",
+     "fără încălzire"
+    ]
+   },
+   "tr": {
+    "titre": "koşudan önce",
+    "do": [
+     "yürü, sonra\nhafif koşu",
+     "atala gibi\nkoç uygulaması",
+     "bacak salınımı"
+    ],
+    "dont": [
+     "soğuk esneme",
+     "ısınma yok"
+    ]
+   },
+   "el": {
+    "titre": "πριν το τρέξιμο",
+    "do": [
+     "περπάτημα,\nμετά χαλαρά",
+     "εφαρμογή coach\nσαν το atala",
+     "κουνάς\nτα πόδια"
+    ],
+    "dont": [
+     "διατάσεις\nμε κρύους μυς",
+     "χωρίς ζέσταμα"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/tapis-yoga.png",
+    "images/objets/rouleau.png",
+    "images/objets/verre-eau.png"
+   ],
+   "dont": [
+    "images/objets/halteres.png",
+    "images/objets/telephone.png"
+   ],
+   "en": {
+    "titre": "after a run",
+    "do": [
+     "10 min\nof stretching",
+     "a foam roller",
+     "a big glass\nof water"
+    ],
+    "dont": [
+     "bouncing\nin a stretch",
+     "skipping it\nfor your phone"
+    ]
+   },
+   "fr": {
+    "titre": "après la sortie",
+    "do": [
+     "s’étirer\n10 minutes",
+     "ton rouleau",
+     "un grand\nverre d’eau"
+    ],
+    "dont": [
+     "des à-coups",
+     "zapper pour\nton tel"
+    ]
+   },
+   "de": {
+    "titre": "nach dem lauf",
+    "do": [
+     "dehnen,\n10 minuten",
+     "faszienrolle",
+     "ein großes\nglas wasser"
+    ],
+    "dont": [
+     "wippen\nbeim dehnen",
+     "lieber handy\nals dehnen"
+    ]
+   },
+   "it": {
+    "titre": "dopo la corsa",
+    "do": [
+     "allungati\n10 minuti",
+     "un foam roller",
+     "tanta acqua"
+    ],
+    "dont": [
+     "allunghi\na scatti",
+     "il telefono\nal posto suo"
+    ]
+   },
+   "es-419": {
+    "titre": "después de correr",
+    "do": [
+     "estírate\n10 minutos",
+     "un rodillo",
+     "un vaso\ngrande de agua"
+    ],
+    "dont": [
+     "estirar\ncon rebotes",
+     "el celular\nen vez de eso"
+    ]
+   },
+   "hu": {
+    "titre": "futás után",
+    "do": [
+     "nyújtás\n10 percig",
+     "masszázshenger",
+     "egy nagy\npohár víz"
+    ],
+    "dont": [
+     "rugózó nyújtás",
+     "inkább\na telefon"
+    ]
+   },
+   "ro": {
+    "titre": "după alergare",
+    "do": [
+     "întinderi\n10 minute",
+     "rola de masaj",
+     "un pahar\nmare cu apă"
+    ],
+    "dont": [
+     "întinderi\ncu smucituri",
+     "telefonul\nîn locul lor"
+    ]
+   },
+   "tr": {
+    "titre": "koşudan sonra",
+    "do": [
+     "10 dk esneme",
+     "köpük rulo",
+     "büyük bir\nbardak su"
+    ],
+    "dont": [
+     "sekmeli esneme",
+     "telefonla\nvakit kaybı"
+    ]
+   },
+   "el": {
+    "titre": "μετά το τρέξιμο",
+    "do": [
+     "διατάσεις\n10 λεπτά",
+     "ρολό μασάζ",
+     "ένα μεγάλο\nποτήρι νερό"
+    ],
+    "dont": [
+     "αναπηδήσεις\nστη διάταση",
+     "κινητό\nαντί γι’ αυτό"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/tapis-yoga.png",
+    "images/objets/masque.png",
+    "images/objets/chaussures.png"
+   ],
+   "dont": [
+    "images/objets/rouleau.png",
+    "images/objets/halteres.png"
+   ],
+   "en": {
+    "titre": "rest days",
+    "do": [
+     "gentle yoga",
+     "real sleep",
+     "an easy walk"
+    ],
+    "dont": [
+     "rolling\ntoo hard",
+     "heavy leg day"
+    ]
+   },
+   "fr": {
+    "titre": "jours de repos",
+    "do": [
+     "du yoga doux",
+     "bien dormir",
+     "une balade"
+    ],
+    "dont": [
+     "rouler\ntrop fort",
+     "séance jambes"
+    ]
+   },
+   "de": {
+    "titre": "ruhetage",
+    "do": [
+     "sanftes yoga",
+     "genug schlaf",
+     "spaziergang"
+    ],
+    "dont": [
+     "rollen,\nbis es wehtut",
+     "harter beintag"
+    ]
+   },
+   "it": {
+    "titre": "giorni di riposo",
+    "do": [
+     "yoga dolce",
+     "dormire bene",
+     "camminare"
+    ],
+    "dont": [
+     "rullo\ntroppo forte",
+     "squat pesanti"
+    ]
+   },
+   "es-419": {
+    "titre": "días de descanso",
+    "do": [
+     "yoga suave",
+     "dormir bien",
+     "una caminata"
+    ],
+    "dont": [
+     "rodillo\ncon fuerza",
+     "mucha pierna\nen el gym"
+    ]
+   },
+   "hu": {
+    "titre": "pihenőnapok",
+    "do": [
+     "lágy jóga",
+     "jó alvás",
+     "egy séta"
+    ],
+    "dont": [
+     "túl kemény\na henger",
+     "nehéz lábnap"
+    ]
+   },
+   "ro": {
+    "titre": "zile de pauză",
+    "do": [
+     "yoga blândă",
+     "somn bun",
+     "o plimbare"
+    ],
+    "dont": [
+     "rola\nprea apăsat",
+     "zi grea\nde picioare"
+    ]
+   },
+   "tr": {
+    "titre": "dinlenme günleri",
+    "do": [
+     "hafif yoga",
+     "iyi uyku",
+     "bir yürüyüş"
+    ],
+    "dont": [
+     "sert rulo",
+     "ağır squat"
+    ]
+   },
+   "el": {
+    "titre": "μέρες ξεκούρασης",
+    "do": [
+     "ήπια γιόγκα",
+     "καλός ύπνος",
+     "μια βόλτα"
+    ],
+    "dont": [
+     "ρολό\nπολύ δυνατά",
+     "βαριά squats"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o509",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "dc3ad088-c219-4c9c-81b8-2ebadb97d7cf",
+ "titre": "hobbies that will make you dangerously confidence #confidence #hobbies #selfimprovement #smartgirl #glowup",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "dc3ad088-c219-4c9c-81b8-2ebadb97d7cf"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 23 de la boîte (parent dc3ad088, langue source en) : accroche du parent mot pour mot (« dangerously confidence », comme chez lui). Hobbies du parent (s'enregistrer en parlant, sortir seule, tenir ses promesses, avoir un avis sur tout) et neufs. Sophia comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5c9c4fcc",
+   "texte_overlay": "hobbies that will make you\ndangerously confidence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686675395315453205/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4f4cd436",
+   "texte_overlay": "recording yourself while\nyou talk",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686675395315453205/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "dbf7035a",
+   "texte_overlay": "going somewhere alone\nonce a week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686675395315453205/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "36929ba3",
+   "texte_overlay": "keeping every promise\nto yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686675395315453205/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "43bc0138",
+   "texte_overlay": "having an opinion on\nmany topics",
+   "texte_sophia": "having an opinion on many topics: short\nlessons on an app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686675395315453205/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "301cb197",
+   "texte_overlay": "learning a dance",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686675395315453205/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "970d063c",
+   "texte_overlay": "public speaking",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686675395315453205/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "fb58456b",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686675395315453205/5.jpg"
+  }
+ ]
+}

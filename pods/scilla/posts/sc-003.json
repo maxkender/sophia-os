@@ -1,0 +1,300 @@
+{
+ "id": "sc-003",
+ "source": {
+  "url": "https://www.tiktok.com/@scilla2047/photo/7702941157252271374",
+  "vues": 1400000,
+  "publie_le": "2026-10-31",
+  "accroche": "What you must heal from based on your coping mechanism"
+ },
+ "titre": {
+  "en": "What a painting teaches you based on where your eyes go first",
+  "de": "Was dir ein Gemälde beibringt, je nachdem, wohin dein Blick zuerst fällt",
+  "fr": "Ce qu'un tableau t'apprend selon là où tes yeux vont en premier",
+  "it": "Cosa ti insegna un quadro in base a dove vanno prima i tuoi occhi",
+  "es": "Lo que te enseña un cuadro según adónde van primero tus ojos",
+  "pt-BR": "O que uma pintura te ensina conforme para onde seus olhos vão primeiro",
+  "nl": "Wat een schilderij je leert, afhankelijk van waar je ogen eerst heen gaan",
+  "pl": "Czego uczy cię obraz w zależności od tego, gdzie najpierw patrzysz"
+ },
+ "legendes": {
+  "en": "where did your eyes go first? 👀\n#art #paintings #arthistory #seeing #slowliving",
+  "de": "wohin ist dein Blick zuerst gegangen? 👀\n#kunst #gemälde #kunstgeschichte #sehen #slowliving",
+  "fr": "tes yeux sont allés où en premier ? 👀\n#art #peinture #histoiredelart #regarder #slowliving",
+  "it": "dove sono andati prima i tuoi occhi? 👀\n#arte #pittura #storiadellarte #guardare #slowliving",
+  "es": "¿adónde fueron primero tus ojos? 👀\n#arte #pintura #historiadelarte #mirar #slowliving",
+  "pt-BR": "seus olhos foram pra onde primeiro? 👀\n#arte #pintura #historiadaarte #olhar #slowliving",
+  "nl": "waar gingen jouw ogen als eerste heen? 👀\n#kunst #schilderijen #kunstgeschiedenis #kijken #slowliving",
+  "pl": "na co najpierw padł twój wzrok? 👀\n#sztuka #malarstwo #historiasztuki #patrzenie #slowliving"
+ },
+ "musique": {
+  "titre": "Much Better Off",
+  "url": "https://www.tiktok.com/music/Much-Better-Off-6928562675043534849"
+ },
+ "oeuvres": {
+  "images/oeuvres/canaletto-sant-angelo.jpg": {
+   "musee": "The Met",
+   "id": "438103",
+   "titre": "Campo Sant'Angelo, Venice",
+   "artiste": "Canaletto (Giovanni Antonio Canal)",
+   "date": "1730s",
+   "url": "https://www.metmuseum.org/art/collection/search/438103",
+   "titres": {
+    "en": "Campo Sant'Angelo, Venice",
+    "de": "Campo Sant'Angelo, Venedig",
+    "fr": "Campo Sant'Angelo, Venise",
+    "it": "Campo Sant'Angelo, Venezia",
+    "es": "Campo Sant'Angelo, Venecia",
+    "pt-BR": "Campo Sant'Angelo, Veneza",
+    "nl": "Campo Sant'Angelo, Venetië",
+    "pl": "Campo Sant'Angelo, Wenecja"
+   }
+  },
+  "images/oeuvres/cezanne-robe-rouge.jpg": {
+   "musee": "The Met",
+   "id": "435876",
+   "titre": "Madame Cézanne (Hortense Fiquet, 1850–1922) in a Red Dress",
+   "artiste": "Paul Cézanne",
+   "date": "1888–90",
+   "url": "https://www.metmuseum.org/art/collection/search/435876",
+   "titres": {
+    "en": "Madame Cézanne in a Red Dress",
+    "de": "Madame Cézanne im roten Kleid",
+    "fr": "Madame Cézanne à la robe rouge",
+    "it": "Madame Cézanne in abito rosso",
+    "es": "Madame Cézanne con vestido rojo",
+    "pt-BR": "Madame Cézanne de vestido vermelho",
+    "nl": "Madame Cézanne in een rode jurk",
+    "pl": "Pani Cézanne w czerwonej sukni"
+   }
+  },
+  "images/oeuvres/boudin-plage.jpg": {
+   "musee": "The Met",
+   "id": "438551",
+   "titre": "On the Beach, Sunset",
+   "artiste": "Eugène Boudin",
+   "date": "1865",
+   "url": "https://www.metmuseum.org/art/collection/search/438551",
+   "titres": {
+    "en": "On the Beach, Sunset",
+    "de": "Am Strand, Sonnenuntergang",
+    "fr": "Sur la plage, coucher de soleil",
+    "it": "Sulla spiaggia, tramonto",
+    "es": "En la playa, atardecer",
+    "pt-BR": "Na praia, pôr do sol",
+    "nl": "Op het strand, zonsondergang",
+    "pl": "Na plaży, zachód słońca"
+   }
+  },
+  "images/oeuvres/seurat-parade.jpg": {
+   "musee": "The Met",
+   "id": "437654",
+   "titre": "Circus Sideshow (Parade de cirque)",
+   "artiste": "Georges Seurat",
+   "date": "1887–88",
+   "url": "https://www.metmuseum.org/art/collection/search/437654",
+   "titres": {
+    "en": "Circus Sideshow",
+    "de": "Zirkusparade",
+    "fr": "Parade de cirque",
+    "it": "Parata del circo",
+    "es": "Desfile de circo",
+    "pt-BR": "Parada de circo",
+    "nl": "Circusparade",
+    "pl": "Parada cyrkowa"
+   }
+  },
+  "images/oeuvres/vangogh-iris.jpg": {
+   "musee": "The Met",
+   "id": "436528",
+   "titre": "Irises",
+   "artiste": "Vincent van Gogh",
+   "date": "1890",
+   "url": "https://www.metmuseum.org/art/collection/search/436528",
+   "titres": {
+    "en": "Irises",
+    "de": "Iris",
+    "fr": "Iris",
+    "it": "Iris",
+    "es": "Lirios",
+    "pt-BR": "Íris",
+    "nl": "Irissen",
+    "pl": "Irysy"
+   }
+  }
+ },
+ "notes": "Preuve : « What you must heal from based on your coping mechanism » de @scilla2047 (1,4 M vues, 60 k enregistrements, 31/10), la famille « What you must … based on your … » ; même post modèle que sc-001, avec une autre accroche de la famille (livrer ajoute ?variante=sc-003). Musique : Much Better Off (Smokey Robinson & The Miracles), celle de son post du 5/11 de la même famille (410 k). Titres des points en « If you … », comme ses « If authority makes you very angry ». Couverture : Canaletto, Campo Sant'Angelo (Met 438103). Faits : Hortense Fiquet, femme de Cézanne (mariés en 1886), qu'il a peinte souvent et presque toujours sans sourire (notice du Met 435876, 1888–90) ; Boudin, On the Beach, Sunset (Met 438551, 1865) : le ciel occupe la plus grande partie de la toile (bord doré du cadre rogné) ; Seurat peint Circus Sideshow en petits points de couleur, le pointillisme (Met 437654) ; Irises de Van Gogh (Met 436528, 1890) : des iris bleu-violet devant un fond pâle, sur une table verte. Slide Artura (4) : Seurat avec le logo d'Artura ; cta C. Aucune promesse de soin.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/oeuvres/canaletto-sant-angelo.jpg",
+   "en": {
+    "titre": "What a painting teaches you based on {where your eyes go first}"
+   },
+   "de": {
+    "titre": "Was dir ein Gemälde beibringt, je nachdem, {wohin dein Blick zuerst fällt}"
+   },
+   "fr": {
+    "titre": "Ce qu'un tableau t'apprend selon {là où tes yeux vont en premier}"
+   },
+   "it": {
+    "titre": "Cosa ti insegna un quadro in base a {dove vanno prima i tuoi occhi}"
+   },
+   "es": {
+    "titre": "Lo que te enseña un cuadro según {adónde van primero tus ojos}"
+   },
+   "pt-BR": {
+    "titre": "O que uma pintura te ensina conforme {para onde seus olhos vão primeiro}"
+   },
+   "nl": {
+    "titre": "Wat een schilderij je leert, afhankelijk van {waar je ogen eerst heen gaan}"
+   },
+   "pl": {
+    "titre": "Czego uczy cię obraz w zależności od tego, {gdzie najpierw patrzysz}"
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/cezanne-robe-rouge.jpg",
+   "en": {
+    "titre": "If you look at the faces first",
+    "texte": "You read people before places. Cézanne painted his wife Hortense many times, and she almost never smiles. Stay a minute and you start guessing what she's thinking."
+   },
+   "de": {
+    "titre": "Wenn du zuerst auf die Gesichter schaust",
+    "texte": "Du liest Menschen vor Orten. Cézanne malte seine Frau Hortense viele Male, und sie lächelt fast nie. Bleib eine Minute, und du fängst an zu raten, was sie denkt."
+   },
+   "fr": {
+    "titre": "Si tu regardes d'abord les visages",
+    "texte": "Tu lis les gens avant les lieux. Cézanne a peint sa femme Hortense de nombreuses fois, et elle ne sourit presque jamais. Reste une minute, et tu commences à deviner ce qu'elle pense."
+   },
+   "it": {
+    "titre": "Se guardi prima i volti",
+    "texte": "Leggi le persone prima dei luoghi. Cézanne ha ritratto sua moglie Hortense molte volte, e lei non sorride quasi mai. Resta un minuto e inizi a indovinare cosa pensa."
+   },
+   "es": {
+    "titre": "Si miras primero las caras",
+    "texte": "Lees a las personas antes que los lugares. Cézanne pintó a su esposa Hortense muchas veces, y casi nunca sonríe. Quédate un minuto y empiezas a adivinar qué piensa."
+   },
+   "pt-BR": {
+    "titre": "Se você olha primeiro para os rostos",
+    "texte": "Você lê as pessoas antes dos lugares. Cézanne pintou a esposa, Hortense, muitas vezes, e ela quase nunca sorri. Fique um minuto e você começa a adivinhar o que ela pensa."
+   },
+   "nl": {
+    "titre": "Als je eerst naar de gezichten kijkt",
+    "texte": "Je leest mensen eerder dan plekken. Cézanne schilderde zijn vrouw Hortense vaak, en ze lacht bijna nooit. Blijf een minuut en je begint te raden wat ze denkt."
+   },
+   "pl": {
+    "titre": "Jeśli najpierw patrzysz na twarze",
+    "texte": "Czytasz ludzi, zanim zobaczysz miejsca. Cézanne wiele razy malował swoją żonę Hortense, a ona prawie nigdy się nie uśmiecha. Zostań minutę, a zaczniesz zgadywać, o czym myśli."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/boudin-plage.jpg",
+   "en": {
+    "titre": "If you look at the light first",
+    "texte": "You notice moods before details. Boudin gave the sky most of this canvas and left the people a thin strip of sand. The light is the real subject."
+   },
+   "de": {
+    "titre": "Wenn du zuerst auf das Licht schaust",
+    "texte": "Du spürst Stimmungen vor Details. Boudin gab dem Himmel fast die ganze Leinwand und ließ den Menschen nur einen schmalen Streifen Sand. Das Licht ist das eigentliche Motiv."
+   },
+   "fr": {
+    "titre": "Si tu regardes d'abord la lumière",
+    "texte": "Tu sens l'ambiance avant les détails. Boudin a donné au ciel presque toute la toile et laissé aux gens une mince bande de sable. Le vrai sujet, c'est la lumière."
+   },
+   "it": {
+    "titre": "Se guardi prima la luce",
+    "texte": "Senti l'atmosfera prima dei dettagli. Boudin ha dato al cielo quasi tutta la tela e lasciato alle persone una sottile striscia di sabbia. Il vero soggetto è la luce."
+   },
+   "es": {
+    "titre": "Si miras primero la luz",
+    "texte": "Notas el ambiente antes que los detalles. Boudin le dio al cielo casi todo el lienzo y dejó a la gente una franja fina de arena. El verdadero tema es la luz."
+   },
+   "pt-BR": {
+    "titre": "Se você olha primeiro para a luz",
+    "texte": "Você sente o clima antes dos detalhes. Boudin deu ao céu quase toda a tela e deixou às pessoas uma faixa fina de areia. O verdadeiro tema é a luz."
+   },
+   "nl": {
+    "titre": "Als je eerst naar het licht kijkt",
+    "texte": "Je voelt de sfeer voor de details. Boudin gaf de lucht bijna het hele doek en liet de mensen een smalle strook zand. Het licht is het echte onderwerp."
+   },
+   "pl": {
+    "titre": "Jeśli najpierw patrzysz na światło",
+    "texte": "Najpierw czujesz nastrój, potem widzisz szczegóły. Boudin oddał niebu prawie całe płótno, a ludziom zostawił wąski pasek piasku. Prawdziwym tematem jest światło."
+   }
+  },
+  {
+   "type": "artura",
+   "image": "images/oeuvres/seurat-parade.jpg",
+   "en": {
+    "titre": "If you look at the details first",
+    "texte": "You look slower than everyone else, and that's a gift. Seurat built this whole scene out of tiny dots of color. I learned to look again one painting at a time, on Artura."
+   },
+   "de": {
+    "titre": "Wenn du zuerst auf die Details schaust",
+    "texte": "Du schaust langsamer als alle anderen, und das ist ein Geschenk. Seurat baute diese ganze Szene aus winzigen Farbpunkten. Ich habe auf Artura wieder sehen gelernt, ein Gemälde nach dem anderen."
+   },
+   "fr": {
+    "titre": "Si tu regardes d'abord les détails",
+    "texte": "Tu regardes plus lentement que les autres, et c'est un cadeau. Seurat a construit toute cette scène avec de minuscules points de couleur. J'ai réappris à regarder un tableau à la fois, sur Artura."
+   },
+   "it": {
+    "titre": "Se guardi prima i dettagli",
+    "texte": "Guardi più lentamente degli altri, ed è un dono. Seurat ha costruito tutta questa scena con minuscoli punti di colore. Ho imparato di nuovo a guardare un quadro alla volta, su Artura."
+   },
+   "es": {
+    "titre": "Si miras primero los detalles",
+    "texte": "Miras más despacio que los demás, y eso es un regalo. Seurat construyó toda esta escena con puntitos de color. Aprendí a mirar otra vez un cuadro a la vez, en Artura."
+   },
+   "pt-BR": {
+    "titre": "Se você olha primeiro para os detalhes",
+    "texte": "Você olha mais devagar que os outros, e isso é um presente. Seurat construiu essa cena inteira com pontinhos de cor. Reaprendi a olhar uma pintura de cada vez, no Artura."
+   },
+   "nl": {
+    "titre": "Als je eerst naar de details kijkt",
+    "texte": "Jij kijkt trager dan de rest, en dat is een cadeau. Seurat bouwde deze hele scène op uit piepkleine kleurpuntjes. Ik heb opnieuw leren kijken, één schilderij tegelijk, op Artura."
+   },
+   "pl": {
+    "titre": "Jeśli najpierw patrzysz na szczegóły",
+    "texte": "Patrzysz wolniej niż inni i to jest dar. Seurat zbudował całą tę scenę z maleńkich kropek koloru. Na nowo uczę się patrzeć, obraz po obrazie, w aplikacji Artura."
+   }
+  },
+  {
+   "type": "point",
+   "image": "images/oeuvres/vangogh-iris.jpg",
+   "en": {
+    "titre": "If you look at the colors first",
+    "texte": "You feel a painting before you understand it. Van Gogh set blue irises against a pale wall and a green table, so every color pushes against the next."
+   },
+   "de": {
+    "titre": "Wenn du zuerst auf die Farben schaust",
+    "texte": "Du fühlst ein Bild, bevor du es verstehst. Van Gogh setzte blaue Iris vor eine helle Wand und einen grünen Tisch, sodass jede Farbe gegen die nächste drückt."
+   },
+   "fr": {
+    "titre": "Si tu regardes d'abord les couleurs",
+    "texte": "Tu ressens un tableau avant de le comprendre. Van Gogh a posé des iris bleus devant un mur pâle et une table verte, pour que chaque couleur pousse contre la suivante."
+   },
+   "it": {
+    "titre": "Se guardi prima i colori",
+    "texte": "Senti un quadro prima di capirlo. Van Gogh ha messo iris blu davanti a un muro chiaro e a un tavolo verde, così ogni colore spinge contro l'altro."
+   },
+   "es": {
+    "titre": "Si miras primero los colores",
+    "texte": "Sientes un cuadro antes de entenderlo. Van Gogh puso lirios azules contra una pared pálida y una mesa verde, para que cada color empuje al siguiente."
+   },
+   "pt-BR": {
+    "titre": "Se você olha primeiro para as cores",
+    "texte": "Você sente uma pintura antes de entendê-la. Van Gogh pôs íris azuis contra uma parede clara e uma mesa verde, para cada cor empurrar a próxima."
+   },
+   "nl": {
+    "titre": "Als je eerst naar de kleuren kijkt",
+    "texte": "Je voelt een schilderij voordat je het begrijpt. Van Gogh zette blauwe irissen tegen een lichte muur en een groene tafel, zodat elke kleur tegen de volgende duwt."
+   },
+   "pl": {
+    "titre": "Jeśli najpierw patrzysz na kolory",
+    "texte": "Czujesz obraz, zanim go zrozumiesz. Van Gogh postawił niebieskie irysy na tle jasnej ściany i zielonego stołu, żeby każdy kolor napierał na następny."
+   }
+  }
+ ]
+}

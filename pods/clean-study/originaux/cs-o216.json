@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o216",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "1eb10ee1-5672-4baf-9de6-53cc4e586921",
+  "titre": "more toxic study motivation that works a little TOO well #studytok #studymotivation #school",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [
+    "1eb10ee1-5672-4baf-9de6-53cc4e586921"
+  ],
+  "notes": "Déclinaison G1 de 1eb10ee1, ligne 6 de la boîte, 2e déclinaison de la famille. Accroche du parent mot pour mot. « Toxic » = rivalité avec soi-même, jamais le mépris des autres. Phrases neuves, aucune de cs-o203. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "95e1a138",
+      "texte_overlay": "more toxic study motivation\nthat works a little TOO well",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "fbf4dcad",
+      "texte_overlay": "your phone has had enough attention today.\nthe book hasn't.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "59313f6a",
+      "texte_overlay": "past you left this chapter for you.\ndon't do the same to future you.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "87336fe4",
+      "texte_overlay": "you said \"after this episode\" three episodes ago.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c799fe9d",
+      "texte_overlay": "beat your last score.\nnot anyone else's. yours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "b5ce15a6",
+      "texte_overlay": "a curious mind is never bored.\nfeed it something better than the feed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "a curious mind is never bored.\nfeed it 5 minutes on a micro-learning app like the Sophia app\ninstead of the feed."
+    },
+    {
+      "position": 7,
+      "media_id": "f70298df",
+      "texte_overlay": "the exam date isn't moving.\nso you have to.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,427 @@
+{
+ "post_id": "var-grille-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits that are secretly",
+      "destroying your brain"
+     ],
+     "fr": "10/10 habitudes qui te grillent le cerveau en douce",
+     "texte": "10/10 abitudini di tutti i giorni che ti rovinano il cervello"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(la science le prouve)",
+     "texte": "(lo dicono gli studi)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_07985b7c.jpg",
+      "boite": [
+       0,
+       835,
+       1504,
+       1157
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to speak in front of people"
+     ],
+     "fr": "apprends à parler [[devant les gens]]",
+     "texte": "il navigatore [[per ogni tragitto]]"
+    },
+    "T2": {
+     "en": [
+      "most people would rather do anything than talk in",
+      "front of a room"
+     ],
+     "fr": "la plupart des gens [[préféreraient tout faire]] que parler devant une salle",
+     "texte": "segui la freccia senza mai [[guardarti intorno]], anche nel tuo quartiere"
+    },
+    "T3": {
+     "en": [
+      "every time you do it",
+      "anyway, your brain",
+      "learns that the fear",
+      "doesn't actually stop",
+      "you"
+     ],
+     "fr": "chaque fois que tu le fais quand même, ton cerveau voit que la peur [[t'arrête pas vraiment]]",
+     "texte": "l'ippocampo, la parte che costruisce le mappe mentali, [[si spegne piano piano]] se non lo usi"
+    },
+    "T4": {
+     "en": [
+      "and once you can do that, you stay calm under",
+      "pressure and almost nothing feels scary anymore"
+     ],
+     "fr": "et une fois que tu sais faire ça, tu restes [[calme sous pression]] et [[presque plus rien te fait peur]]",
+     "texte": "studio della McGill: più le persone usavano il GPS, più la loro [[memoria spaziale calava]] in 3 anni"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_031fa068.jpg",
+      "boite": [
+       0,
+       760,
+       1760,
+       1257
+      ]
+     }
+    }
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 44,
+      "y": 224,
+      "l": 862,
+      "h": 62
+     },
+     "lignes": [
+      {
+       "x": 44,
+       "y": 224,
+       "l": 862,
+       "h": 62,
+       "base": 283
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 366,
+      "l": 897,
+      "h": 82
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 366,
+       "l": 894,
+       "h": 41,
+       "base": 404
+      },
+      {
+       "x": 40,
+       "y": 414,
+       "l": 860,
+       "h": 34,
+       "base": 445
+      }
+     ],
+     "pas": 41,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 441,
+      "y": 470,
+      "l": 558,
+      "h": 377
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 36,
+      "y": 539,
+      "l": 379,
+      "h": 233
+     },
+     "lignes": [
+      {
+       "x": 39,
+       "y": 539,
+       "l": 356,
+       "h": 39,
+       "base": 569
+      },
+      {
+       "x": 39,
+       "y": 587,
+       "l": 337,
+       "h": 40,
+       "base": 617
+      },
+      {
+       "x": 40,
+       "y": 635,
+       "l": 341,
+       "h": 32,
+       "base": 666
+      },
+      {
+       "x": 36,
+       "y": 684,
+       "l": 379,
+       "h": 40,
+       "base": 721
+      },
+      {
+       "x": 37,
+       "y": 740,
+       "l": 67,
+       "h": 32,
+       "base": 769
+      }
+     ],
+     "pas": 49,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 36,
+      "y": 884,
+      "l": 892,
+      "h": 88
+     },
+     "lignes": [
+      {
+       "x": 39,
+       "y": 884,
+       "l": 848,
+       "h": 39,
+       "base": 921
+      },
+      {
+       "x": 36,
+       "y": 931,
+       "l": 892,
+       "h": 41,
+       "base": 969
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "texte": "[[3 episodi di fila]] ogni sera"
+    },
+    "T2": {
+     "en": [
+      "we are entering a LITERARY CRISIS. less people",
+      "are reading than ever before"
+     ],
+     "texte": "l'autoplay fa partire il prossimo prima ancora che tu [[decida di guardarlo]]"
+    },
+    "T3": {
+     "en": [
+      "reading builds patience,",
+      "focus, and the ability to",
+      "keep going without",
+      "constant stimulation"
+     ],
+     "texte": "studio UCL sugli over 50: oltre 3,5 ore di TV al giorno e [[la memoria cala più in fretta]]"
+    },
+    "T4": {
+     "en": [
+      "if you struggle with",
+      "doomscrolling"
+     ],
+     "texte": "prima guardavo serie fino all'1,"
+    },
+    "T5": {
+     "en": [
+      "i recommend this thing",
+      "that blocks tiktok until i",
+      "read a book for 20 minutes"
+     ],
+     "texte": "ora sono 5 min [[sull'app Sophia]]: perché la porpora era il colore dei re"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to touch type"
+     ],
+     "fr": "apprends à [[taper sans regarder]]",
+     "texte": "[[fotografare]] tutto"
+    },
+    "T2": {
+     "en": [
+      "you'll spend thousands of hours typing in your life,",
+      "and most people still look down at the keyboard"
+     ],
+     "fr": "tu vas passer [[des milliers d'heures]] à taper dans ta vie, et presque tout le monde regarde encore son clavier",
+     "texte": "un concerto, un museo, un tramonto: guardi tutto attraverso lo schermo invece che [[con i tuoi occhi]]"
+    },
+    "T3": {
+     "en": [
+      "touch typing lets you",
+      "think and type at the",
+      "same time"
+     ],
+     "fr": "taper sans regarder, c'est [[penser et écrire en même temps]]",
+     "texte": "conti sulla foto per [[ricordare tutto al posto tuo]]"
+    },
+    "T4": {
+     "en": [
+      "instead of losing your",
+      "train of thought every",
+      "time you look for a key"
+     ],
+     "fr": "au lieu de perdre le fil à chaque fois que tu cherches une touche",
+     "texte": "in uno studio del 2014 si ricordavano [[peggio]] le opere fotografate"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0a28ab50.jpg",
+      "boite": [
+       300,
+       0,
+       1760,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get your sleep in order"
+     ],
+     "texte": "cibo [[ultra-processato]]"
+    },
+    "T2": {
+     "en": [
+      "when you’re tired, the part of your brain behind",
+      "self-control is the first to slow down"
+     ],
+     "texte": "patatine, piatti pronti, bibite, biscotti: è veloce, costa poco ed è [[sempre a portata di mano]]"
+    },
+    "T3": {
+     "en": [
+      "that’s why it’s so",
+      "much harder to say",
+      "no to junk food and",
+      "scrolling after a bad",
+      "night"
+     ],
+     "texte": "su 10.000 brasiliani, chi ne mangiava di più ha avuto un [[declino mentale più veloce del 28%]]"
+    },
+    "T4": {
+     "en": [
+      "a lot of the time you’re not lazy, you’re just tired, so",
+      "fix your sleep first"
+     ],
+     "texte": "cucina più spesso cose semplici e vere, il tuo cervello [[ti ringrazierà]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00909c1a.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to write clearly"
+     ],
+     "fr": "apprends à [[écrire clairement]]",
+     "texte": "cuffiette [[al massimo]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you",
+      "try to write them down"
+     ],
+     "fr": "tes pensées ont l'air [[floues et en vrac]] tant que t'essaies pas de les écrire",
+     "texte": "musica, podcast, video, tutto il giorno, abbastanza forte da [[coprire tutto]]"
+    },
+    "T3": {
+     "en": [
+      "writing forces your",
+      "brain to put your",
+      "ideas in order and",
+      "find the parts that",
+      "don't make sense"
+     ],
+     "fr": "écrire oblige ton cerveau à [[mettre tes idées en ordre]] et à repérer ce qui tient pas debout",
+     "texte": "la perdita dell'udito è il primo fattore di rischio di demenza [[su cui puoi agire]] (Lancet)"
+    },
+    "T4": {
+     "en": [
+      "and people who can explain things clearly get",
+      "taken seriously everywhere they go"
+     ],
+     "fr": "et les gens qui expliquent clairement [[sont pris au sérieux]] partout où ils vont",
+     "texte": "per l'OMS oltre [[1 miliardo di giovani]] rischia l'udito così. tieni il volume sotto il 60%"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_36ba7992.jpg",
+      "boite": [
+       0,
+       640,
+       1080,
+       806
+      ]
+     }
+    }
+   }
+  }
+ }
+}

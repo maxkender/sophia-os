@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o499",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e4131483-5247-4d64-89c7-0e44224c1ce0",
+ "titre": "the art of being well mannered #manners #etiquette #elegance #smartgirl #oldmoney",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 10 de la boîte (parent e4131483, langue source en) : accroche reformulée (« the art of being well mannered ») ; idées du parent (5 minutes d'avance, posture, toujours avoir une histoire, se lever, pas de téléphone, ni âge ni salaire). Sophia à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "94affb1f",
+   "texte_overlay": "the art of being well mannered",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1856eb97",
+   "texte_overlay": "arrive five minutes early",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5a45067c",
+   "texte_overlay": "stand up when someone new\njoins the table",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5813b3dc",
+   "texte_overlay": "always have a nice story to tell\n\ni read one every day.",
+   "texte_sophia": "always have a nice story to tell\n\ni read one a day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a8381f3e",
+   "texte_overlay": "never look at your phone while\nsomeone is talking",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2f178059",
+   "texte_overlay": "never ask about age or salary",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "463fe051",
+   "texte_overlay": "save this and try one this week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  }
+ ]
+}

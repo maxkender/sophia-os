@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o466",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "90a9f265-c987-408c-b338-2e0933277aa3",
+ "titre": "Les règles d'argent qu'on aurait dû t'apprendre à 18 ans #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "Bad Love (Slowed)",
+ "musique_url": "https://www.tiktok.com/music/bad-love-slowed-7313738119294732290",
+ "inspirations": [
+  "90a9f265-c987-408c-b338-2e0933277aa3"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 4 de la boîte (90a9f265, notre ay-o329), 3e et dernière déclinaison après ay-o430 et ay-o447, écrite en français, la langue source du parent (§4.3). Même promesse, autres mots. Règles neuves, aucune reprise d'ay-o329, o430, o447 ni de 868887ed. Conseils généraux, aucun produit cité.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b62439cc-307b-4451-bce5-5d803e4e8148",
+   "texte_overlay": "Les règles d'argent qu'on\naurait dû t'apprendre à 18 ans",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672848309135920417/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Regarde tes comptes chaque semaine. Cinq minutes le dimanche. Savoir où tu en es évite les mauvaises surprises en fin de mois.",
+   "media_id": "ebad5957-ff8c-4530-b0cf-be0ab6bc5300"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Sépare l'argent des factures et l'argent des loisirs. Deux comptes, et tu ne dépenses plus par erreur ce qui doit payer le loyer.",
+   "media_id": "ecaabef3-71dc-46e3-b595-720bd55c5360"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Attends 48 heures avant un gros achat. Si tu en as encore envie après deux jours, alors c'est sûrement un bon achat.",
+   "media_id": "eccf1a8e-1495-4fac-9754-64cad45edd4d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Ne prête pas plus que ce que tu peux perdre. L'argent prêté aux amis revient rarement, et l'amitié peut en souffrir.",
+   "media_id": "edec0fe6-c524-4ac4-9c54-03183c348a4e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Bonus : investis dans ta tête. Je fais cinq minutes d'histoire, d'art ou de science par jour, et ça ne coûte presque rien.",
+   "texte_sophia": "Bonus : Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Ça ne coûte presque rien.",
+   "media_id": "e08e89b6-08c8-42ea-a4d9-33a8d2ea6f1c"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Fixe-toi un objectif d'épargne avec un nom. « Voyage au Japon », « Fonds d'urgence ». Un but précis motive bien plus.",
+   "media_id": "ef363294-ecce-4eef-8ef6-b39641d07c90"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Ne compare pas ton argent à celui des autres. Chacun a son parcours. Concentre-toi sur tes propres progrès. Ton rythme, ton chemin.",
+   "media_id": "ef97954e-2c42-4009-aef6-adadbc850dc2"
+  }
+ ]
+}

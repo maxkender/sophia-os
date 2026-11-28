@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o331",
+  "type_bleo": "full_test",
+  "titre": "comment je reste curieuse même quand j'ai beaucoup de travail #curiosite #routine #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Récit « je », aucun fait daté. Routine du 27/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 6 full tests et 12 déclinaisons ; seules les lignes 1 et 15 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale « how to destroy yourself »), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12, 13 et 14 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "c0b671b3",
+      "texte_overlay": "comment je reste curieuse\nmême quand j'ai beaucoup de travail",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "8866408f",
+      "texte_overlay": "1. une question par jour\n\nnotée le matin,\nrecherchée le soir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "dff091a6",
+      "texte_overlay": "2. un livre court en cours\n\ndix pages avant de dormir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "8040911f",
+      "texte_overlay": "3. un podcast dans les transports\n\nle temps perdu devient du temps gagné.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "db06f107",
+      "texte_overlay": "4. une sortie par mois\n\nun musée, un concert.\nnon négociable.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "b4bc92a2",
+      "texte_overlay": "5. un truc nouveau chaque matin\n\navant, quand j'avais trop de travail, j'arrêtais tout.\nmaintenant, j'apprends un truc sur le monde chaque matin. et ma curiosité ne s'éteint plus.",
+      "texte_sophia": "5. un truc nouveau chaque matin\n\navant, quand j'avais trop de travail, j'arrêtais tout.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et ma curiosité ne s'éteint plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "aeb008b9",
+      "texte_overlay": "tu fais comment, toi ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,503 @@
+{
+  "id": "hl-008",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7686199268775939350",
+    "vues": 1400000,
+    "publie_le": "2026-09-16",
+    "accroche": "HOW TO GIVE A GIRL BUTTERFLIES."
+  },
+  "musique": {
+    "titre": "Les (Instrumental Slowed)",
+    "url": "https://www.tiktok.com/music/Les-Instrumental-Slowed-7601037808778708993"
+  },
+  "notes": "Preuve de format : « HOW TO GIVE A GIRL BUTTERFLIES. » (1,4 M), famille « HOW TO … », conseils titrés. Accroche neuve « HOW TO BE CONFIDENT ON A FIRST DATE. ». Carte Artura (5) : « Have a story ready. », Cézanne, The Card Players (The Met 435868), LOGO d'Artura ; cta B. Fait vérifié : Cézanne a peint cinq tableaux de joueurs de cartes (1890-1895, fiche du Met). Full test (accroche jamais faite chez nous), routine du 26/11. Traduit en el, es-419, it, hu, pt-BR, es + sr (latin) le 27/11.",
+  "oeuvres": {
+    "images/oeuvres/cezanne-joueurs.jpg": {
+      "musee": "The Met",
+      "id": "435868",
+      "titre": "The Card Players",
+      "artiste": "Paul Cézanne",
+      "date": "1890–92",
+      "url": "https://www.metmuseum.org/art/collection/search/435868"
+    }
+  },
+  "titre": {
+    "en": "How to be confident on a first date.",
+    "el": "Πώς να είσαι σίγουρος στο πρώτο ραντεβού.",
+    "es-419": "Cómo tener seguridad en la primera cita.",
+    "it": "Come essere sicuro al primo appuntamento.",
+    "hu": "Hogyan légy magabiztos az első randin.",
+    "pt-BR": "Como ser confiante no primeiro encontro.",
+    "es": "Cómo tener seguridad en la primera cita.",
+    "sr": "Kako da budeš siguran na prvom sastanku."
+  },
+  "legendes": {
+    "en": "#firstdate #datingadvice #tipsformen ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar ",
+    "sr": "#savetizamuškarce #veze #zavođenje "
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "en": {
+        "titre": "HOW TO BE\nCONFIDENT ON\nA FIRST DATE."
+      },
+      "el": {
+        "titre": "ΠΩΣ ΝΑ ΕΙΣΑΙ\nΣΙΓΟΥΡΟΣ ΣΤΟ\nΠΡΩΤΟ ΡΑΝΤΕΒΟΥ."
+      },
+      "es-419": {
+        "titre": "CÓMO TENER\nSEGURIDAD EN\nLA PRIMERA CITA."
+      },
+      "it": {
+        "titre": "COME ESSERE\nSICURO AL PRIMO\nAPPUNTAMENTO."
+      },
+      "hu": {
+        "titre": "HOGYAN LÉGY\nMAGABIZTOS\nAZ ELSŐ RANDIN."
+      },
+      "pt-BR": {
+        "titre": "COMO SER\nCONFIANTE NO\nPRIMEIRO\nENCONTRO."
+      },
+      "es": {
+        "titre": "CÓMO TENER\nSEGURIDAD EN\nLA PRIMERA CITA."
+      },
+      "sr": {
+        "titre": "KAKO DA BUDEŠ\nSIGURAN NA\nPRVOM SASTANKU."
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Arrive first.",
+        "paragraphes": [
+          "Pick the table. Order her a water.",
+          "When she walks in,\nyou're already at home."
+        ]
+      },
+      "el": {
+        "titre": "Φτάσε πρώτος.",
+        "paragraphes": [
+          "Διάλεξε τραπέζι. Παράγγειλε ένα νερό για εκείνη.",
+          "Όταν μπει, εσύ είσαι ήδη σαν στο σπίτι σου."
+        ]
+      },
+      "es-419": {
+        "titre": "Llega primero.",
+        "paragraphes": [
+          "Elige la mesa. Pídele un agua.",
+          "Cuando entre, tú ya estás como en casa."
+        ]
+      },
+      "it": {
+        "titre": "Arriva per primo.",
+        "paragraphes": [
+          "Scegli il tavolo. Ordinale un'acqua.",
+          "Quando entra, tu sei già come a casa."
+        ]
+      },
+      "hu": {
+        "titre": "Érkezz elsőként.",
+        "paragraphes": [
+          "Válaszd ki az asztalt. Rendelj neki egy vizet.",
+          "Mire belép, te már otthon érzed magad."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Chegue primeiro.",
+        "paragraphes": [
+          "Escolha a mesa. Peça uma água para ela.",
+          "Quando ela chegar, você já está em casa."
+        ]
+      },
+      "es": {
+        "titre": "Llega primero.",
+        "paragraphes": [
+          "Elige la mesa. Pídele un agua.",
+          "Cuando entre, tú ya estás como en casa."
+        ]
+      },
+      "sr": {
+        "titre": "Stigni prvi.",
+        "paragraphes": [
+          "Izaberi sto. Naruči joj vodu.",
+          "Kad ona uđe, ti si već kao kod kuće."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Slow down.",
+        "paragraphes": [
+          "Talk slower. Move slower.\nPause before you answer.",
+          "Nervous men rush.\nCalm men take their time."
+        ]
+      },
+      "el": {
+        "titre": "Κόψε ταχύτητα.",
+        "paragraphes": [
+          "Μίλα πιο αργά. Κινήσου πιο αργά. Κάνε μια παύση πριν απαντήσεις.",
+          "Ο αγχωμένος βιάζεται. Ο ήρεμος παίρνει τον χρόνο του."
+        ]
+      },
+      "es-419": {
+        "titre": "Baja el ritmo.",
+        "paragraphes": [
+          "Habla más lento. Muévete más lento. Haz una pausa antes de responder.",
+          "Los nerviosos se apuran. Los tranquilos se toman su tiempo."
+        ]
+      },
+      "it": {
+        "titre": "Rallenta.",
+        "paragraphes": [
+          "Parla più piano. Muoviti più piano. Fai una pausa prima di rispondere.",
+          "Chi è nervoso ha fretta. Chi è calmo si prende il suo tempo."
+        ]
+      },
+      "hu": {
+        "titre": "Lassíts.",
+        "paragraphes": [
+          "Beszélj lassabban. Mozogj lassabban. Gondolkodj, mielőtt válaszolsz.",
+          "Az ideges férfi siet. A nyugodt ráér."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Desacelere.",
+        "paragraphes": [
+          "Fale mais devagar. Mova-se mais devagar. Faça uma pausa antes de responder.",
+          "Homem nervoso tem pressa. Homem calmo tem tempo."
+        ]
+      },
+      "es": {
+        "titre": "Baja el ritmo.",
+        "paragraphes": [
+          "Habla más despacio. Muévete más despacio. Haz una pausa antes de responder.",
+          "Los nerviosos tienen prisa. Los tranquilos se toman su tiempo."
+        ]
+      },
+      "sr": {
+        "titre": "Uspori.",
+        "paragraphes": [
+          "Pričaj sporije. Kreći se sporije. Zastani pre nego što odgovoriš.",
+          "Nervozni žure. Mirni imaju vremena."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Hold eye contact.",
+        "paragraphes": [
+          "When she talks, look at her.\nNot at the door. Not at your phone.",
+          "A second longer than feels normal."
+        ]
+      },
+      "el": {
+        "titre": "Κράτα το βλέμμα της.",
+        "paragraphes": [
+          "Όταν μιλάει, κοίτα την. Όχι την πόρτα, όχι το κινητό.",
+          "Ένα δευτερόλεπτο παραπάνω απ' ό,τι σου φαίνεται φυσικό."
+        ]
+      },
+      "es-419": {
+        "titre": "Sostén la mirada.",
+        "paragraphes": [
+          "Cuando hable, mírala. No a la puerta, no al celular.",
+          "Un segundo más de lo que te parece normal."
+        ]
+      },
+      "it": {
+        "titre": "Reggi lo sguardo.",
+        "paragraphes": [
+          "Quando parla, guardala. Non la porta, non il telefono.",
+          "Un secondo in più di quanto ti sembri normale."
+        ]
+      },
+      "hu": {
+        "titre": "Tartsd a szemkontaktust.",
+        "paragraphes": [
+          "Amikor beszél, nézz rá. Ne az ajtóra, ne a telefonodra.",
+          "Egy másodperccel tovább, mint ami természetesnek tűnik."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Sustente o olhar.",
+        "paragraphes": [
+          "Quando ela falar, olhe para ela. Não para a porta, não para o celular.",
+          "Um segundo a mais do que parece normal."
+        ]
+      },
+      "es": {
+        "titre": "Sostén la mirada.",
+        "paragraphes": [
+          "Cuando hable, mírala. No a la puerta, no al móvil.",
+          "Un segundo más de lo que te parece normal."
+        ]
+      },
+      "sr": {
+        "titre": "Drži kontakt očima.",
+        "paragraphes": [
+          "Kad priča, gledaj nju. Ne vrata, ne telefon.",
+          "Sekundu duže nego što ti deluje normalno."
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/cezanne-joueurs.jpg",
+      "en": {
+        "titre": "Have a story ready.",
+        "avant": [
+          "Cézanne painted card players five times. Look at them: nobody talks.",
+          "Ask her what they're thinking."
+        ],
+        "apres": [
+          "Artura gives me one artwork a day\nand the story behind it.",
+          "Ten minutes, and you're the most\ninteresting man in the room."
+        ]
+      },
+      "el": {
+        "titre": "Έχε μια ιστορία έτοιμη.",
+        "avant": [
+          "Ο Σεζάν ζωγράφισε χαρτοπαίκτες πέντε φορές. Κανείς τους δεν μιλάει.",
+          "Ρώτα τη τι σκέφτονται."
+        ],
+        "apres": [
+          "Το Artura μου δίνει ένα έργο τη μέρα και την ιστορία του.",
+          "Δέκα λεπτά, και είσαι ο πιο ενδιαφέρων άντρας στο δωμάτιο."
+        ]
+      },
+      "es-419": {
+        "titre": "Ten una historia lista.",
+        "avant": [
+          "Cézanne pintó jugadores de cartas cinco veces. Nadie habla.",
+          "Pregúntale qué están pensando."
+        ],
+        "apres": [
+          "Artura me da una obra al día y su historia.",
+          "Diez minutos, y eres el hombre más interesante del lugar."
+        ]
+      },
+      "it": {
+        "titre": "Abbi una storia pronta.",
+        "avant": [
+          "Cézanne dipinse i giocatori di carte cinque volte. Nessuno parla.",
+          "Chiedile a cosa pensano."
+        ],
+        "apres": [
+          "Artura mi dà un'opera al giorno e la sua storia.",
+          "Dieci minuti, e sei l'uomo più interessante della stanza."
+        ]
+      },
+      "hu": {
+        "titre": "Legyen kész egy történeted.",
+        "avant": [
+          "Cézanne ötször festette meg a kártyázókat. Senki sem beszél.",
+          "Kérdezd meg, mire gondolnak."
+        ],
+        "apres": [
+          "Az Artura naponta ad egy műalkotást és a történetét.",
+          "Tíz perc, és te vagy a legérdekesebb férfi a teremben."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Tenha uma história pronta.",
+        "avant": [
+          "Cézanne pintou jogadores de cartas cinco vezes. Ninguém fala.",
+          "Pergunte a ela o que estão pensando."
+        ],
+        "apres": [
+          "O Artura me dá uma obra por dia e a história dela.",
+          "Dez minutos, e você é o homem mais interessante da sala."
+        ]
+      },
+      "es": {
+        "titre": "Ten una historia lista.",
+        "avant": [
+          "Cézanne pintó jugadores de cartas cinco veces. Nadie habla.",
+          "Pregúntale qué están pensando."
+        ],
+        "apres": [
+          "Artura me da una obra al día y su historia.",
+          "Diez minutos, y eres el hombre más interesante del lugar."
+        ]
+      },
+      "sr": {
+        "titre": "Imaj spremnu priču.",
+        "avant": [
+          "Sezan je pet puta slikao kartaroše. Niko ne priča.",
+          "Pitaj je o čemu razmišljaju."
+        ],
+        "apres": [
+          "Artura mi daje jedno delo dnevno i njegovu priču.",
+          "Deset minuta, i ti si najzanimljiviji muškarac u sobi."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Pay, without a speech.",
+        "paragraphes": [
+          "Don't make it a moment.\nJust handle it.",
+          "If she insists,\nlet her get the next one."
+        ]
+      },
+      "el": {
+        "titre": "Πλήρωσε, χωρίς λόγια.",
+        "paragraphes": [
+          "Μην το κάνεις θέμα. Απλώς τακτοποίησέ το.",
+          "Αν επιμείνει, άφησέ τη να κεράσει την επόμενη φορά."
+        ]
+      },
+      "es-419": {
+        "titre": "Paga, sin discursos.",
+        "paragraphes": [
+          "No lo conviertas en un momento. Solo encárgate.",
+          "Si insiste, deja que invite la próxima."
+        ]
+      },
+      "it": {
+        "titre": "Paga, senza discorsi.",
+        "paragraphes": [
+          "Non farne un momento. Pensaci e basta.",
+          "Se insiste, lascia che offra lei la prossima volta."
+        ]
+      },
+      "hu": {
+        "titre": "Fizess, szó nélkül.",
+        "paragraphes": [
+          "Ne csinálj belőle nagy ügyet. Csak intézd el.",
+          "Ha ragaszkodik hozzá, a következőt fizesse ő."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Pague, sem discurso.",
+        "paragraphes": [
+          "Não faça disso um momento. Só resolva.",
+          "Se ela insistir, deixe ela pagar o próximo."
+        ]
+      },
+      "es": {
+        "titre": "Paga, sin discursos.",
+        "paragraphes": [
+          "No lo conviertas en un momento. Solo encárgate.",
+          "Si insiste, deja que invite la próxima."
+        ]
+      },
+      "sr": {
+        "titre": "Plati, bez govora.",
+        "paragraphes": [
+          "Ne pravi od toga trenutak. Samo reši.",
+          "Ako insistira, neka ona plati sledeći put."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "Confidence isn't loud.\nIt's being comfortable in silence.",
+          "**A boy tries to impress.**\n**A man is at ease.**"
+        ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Η αυτοπεποίθηση δεν κάνει φασαρία. Είναι να νιώθεις άνετα στη σιωπή.",
+          "**Το αγόρι θέλει να εντυπωσιάσει.**\n**Ο άντρας είναι χαλαρός.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "La seguridad no hace ruido. Es estar cómodo en el silencio.",
+          "**Un niño quiere impresionar.**\n**Un hombre está tranquilo.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "La sicurezza non fa rumore. È stare bene nel silenzio.",
+          "**Un ragazzino vuole stupire.**\n**Un uomo è a suo agio.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "A magabiztosság nem hangos. Azt jelenti, jól érzed magad a csendben.",
+          "**A kisfiú lenyűgözni akar.**\n**A férfi nyugodt.**"
+        ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Confiança não faz barulho. É ficar à vontade no silêncio.",
+          "**O garoto quer impressionar.**\n**O homem fica à vontade.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "La seguridad no hace ruido. Es estar cómodo en el silencio.",
+          "**Un niño quiere impresionar.**\n**Un hombre está tranquilo.**"
+        ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Samopouzdanje nije glasno. To je kad ti je prijatno u tišini.",
+          "**Dečak hoće da impresionira.**\n**Muškarac je opušten.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
+      }
+    }
+  ]
+}

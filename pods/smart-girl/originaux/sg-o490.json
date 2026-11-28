@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o490",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b8e13c80-0dce-4537-89dc-3192e9ce8927",
+ "titre": "elegant lessons from my grandmother's generation #elegance #grandmother #oldmoney #smartgirl #classy",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 1 de la boîte (parent b8e13c80, langue source en) : accroche reformulée (« elegant lessons from my grandmother's generation ») ; idées du parent (repasser, cartes de remerciement à la main, se tenir droite, avoir son avis, prendre son temps) et neuves. Sophia comme chez le parent, à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5c16521c",
+   "texte_overlay": "elegant lessons from my\ngrandmother's generation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1aab88e7",
+   "texte_overlay": "iron everything, even the sheets",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b5cbc609",
+   "texte_overlay": "write thank-you cards by hand",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "33b47cba",
+   "texte_overlay": "sit up straight",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5e58cf92",
+   "texte_overlay": "have your own opinion\n\nan elegant woman knows what she's\ntalking about. i learn a little every day.",
+   "texte_sophia": "have your own opinion\n\nan elegant woman knows what she's talking\nabout. i learn on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8cb8c1ac",
+   "texte_overlay": "take your time: cooking,\ndressing, listening",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "023f7b42",
+   "texte_overlay": "save this and call\nyour grandmother",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  }
+ ]
+}

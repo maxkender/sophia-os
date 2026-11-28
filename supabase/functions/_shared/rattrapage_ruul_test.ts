@@ -14,6 +14,9 @@ Deno.test("rattrapage : jamais connecté, tout en gras, son mot de passe unique 
   assertStringIncludes(m.html, "<b>⬜ 1. Log in to your dashboard</b>");
   assertStringIncludes(m.html, "Get a new password");
   assertStringIncludes(m.html, "create your account with <b>ana@mail.com</b>");
+  // 26/11 : Ruul n'envoie plus d'invitation : le lien personnel (email et dashboard).
+  assertStringIncludes(m.texte, "Open your personal Ruul link");
+  assert(!/invitation email from Ruul/i.test(`${m.html} ${m.texte}`));
   assertStringIncludes(m.html, "I do not wish to continue");
   assertStringIncludes(m.html, "https://os/r/stop?t=j");
   assertStringIncludes(m.html, ">Vik Studios</td>");

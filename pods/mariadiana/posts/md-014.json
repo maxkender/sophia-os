@@ -1,0 +1,328 @@
+{
+  "id": "md-014",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Feel Like Silence",
+    "fr": "Des tableaux qui ressemblent au silence",
+    "es-419": "Pinturas que se sienten como el silencio",
+    "it": "Quadri che sembrano silenzio",
+    "el": "Πίνακες που μοιάζουν με σιωπή",
+    "hu": "Festmények, amelyek olyanok, mint a csend",
+    "sr": "Slike koje deluju kao tišina",
+    "hr": "Slike koje djeluju kao tišina",
+    "lv": "Gleznas, kas ir kā klusums",
+    "ro": "Tablouri care par a fi liniște"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #vermeer #corot #museum",
+    "fr": "#histoiredelart #peinture #vermeer #corot #musee",
+    "es-419": "#historiadelarte #pintura #vermeer #corot #museo",
+    "it": "#storiadellarte #pittura #vermeer #corot #museo",
+    "el": "#ιστορίατέχνης #ζωγραφική #vermeer #corot #μουσείο",
+    "hu": "#művészettörténet #festészet #vermeer #corot #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #vermeer #corot #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #vermeer #corot #muzej",
+    "lv": "#mākslasvēsture #glezniecība #vermeer #corot #muzejs",
+    "ro": "#istoriaartei #pictura #vermeer #corot #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/ville-davray.jpg": {
+      "musee": "The Met",
+      "id": "435988",
+      "titre": "Ville-d'Avray",
+      "artiste": "Camille Corot",
+      "date": "1870",
+      "url": "https://www.metmuseum.org/art/collection/search/435988"
+    },
+    "images/oeuvres/vermeer-pichet.jpg": {
+      "musee": "The Met",
+      "id": "437881",
+      "titre": "Young Woman with a Water Pitcher",
+      "artiste": "Johannes Vermeer",
+      "date": "ca. 1662",
+      "url": "https://www.metmuseum.org/art/collection/search/437881"
+    },
+    "images/oeuvres/fleurs-fantin.jpg": {
+      "musee": "The Met",
+      "id": "438031",
+      "titre": "Summer Flowers",
+      "artiste": "Henri Fantin-Latour",
+      "date": "1880",
+      "url": "https://www.metmuseum.org/art/collection/search/438031"
+    },
+    "images/oeuvres/tuileries-hiver.jpg": {
+      "musee": "The Met",
+      "id": "437314",
+      "titre": "The Garden of the Tuileries on a Winter Afternoon",
+      "artiste": "Camille Pissarro",
+      "date": "1899",
+      "url": "https://www.metmuseum.org/art/collection/search/437314"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Corot, Ville-d'Avray (1870) : maison de campagne des parents de Corot achetée en 1817 ; il y peint jusqu'à sa mort (1875). Vermeer, Jeune femme à l'aiguière (vers 1662) : acheté par Henry G. Marquand en 1887, premier Vermeer aux États-Unis, donné au Met en 1889 ; carte des Pays-Bas au mur. Fantin-Latour, Fleurs d'été (1880) : vendues surtout en Angleterre (Edwin et Ruth Edwards) ; épouse Victoria Dubourg, peintre de fleurs. Pissarro, Le Jardin des Tuileries, après-midi d'hiver (1899) : depuis l'appartement du 204 rue de Rivoli ; infection oculaire, peinture aux fenêtres (notice du Met). Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/banque/musee-trois-tableaux.jpg",
+      "en": {
+        "titre": "Paintings That Feel Like Silence"
+      },
+      "fr": {
+        "titre": "Des tableaux qui ressemblent au silence"
+      },
+      "es-419": {
+        "titre": "Pinturas que se sienten como el silencio"
+      },
+      "it": {
+        "titre": "Quadri che sembrano silenzio"
+      },
+      "el": {
+        "titre": "Πίνακες που μοιάζουν με σιωπή"
+      },
+      "hu": {
+        "titre": "Festmények, amelyek olyanok, mint a csend"
+      },
+      "sr": {
+        "titre": "Slike koje deluju kao tišina"
+      },
+      "hr": {
+        "titre": "Slike koje djeluju kao tišina"
+      },
+      "lv": {
+        "titre": "Gleznas, kas ir kā klusums"
+      },
+      "ro": {
+        "titre": "Tablouri care par a fi liniște"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/ville-davray.jpg",
+      "en": {
+        "titre": "Ville-d'Avray",
+        "texte": "is the pond near Paris where Corot's family had a country house. He painted these grey trees and still water for almost fifty years, until it felt less like a place than a memory. This one dates from 1870.",
+        "artiste": "Camille Corot"
+      },
+      "fr": {
+        "titre": "Ville-d'Avray",
+        "texte": "est l'étang près de Paris où la famille de Corot avait une maison de campagne. Il a peint ces arbres gris et cette eau immobile pendant presque cinquante ans, jusqu'à ce que le lieu devienne un souvenir. Celui-ci date de 1870.",
+        "artiste": "Camille Corot"
+      },
+      "es-419": {
+        "titre": "Ville-d'Avray",
+        "texte": "es el estanque cerca de París donde la familia de Corot tenía una casa de campo. Pintó estos árboles grises y esta agua quieta durante casi cincuenta años, hasta que se volvió menos un lugar que un recuerdo. Esta es de 1870.",
+        "artiste": "Camille Corot"
+      },
+      "it": {
+        "titre": "Ville-d'Avray",
+        "texte": "è lo stagno vicino a Parigi dove la famiglia di Corot aveva una casa di campagna. Ha dipinto questi alberi grigi e quest'acqua immobile per quasi cinquant'anni, finché il luogo è diventato un ricordo. Questo è del 1870.",
+        "artiste": "Camille Corot"
+      },
+      "el": {
+        "titre": "Βιλ-ντ'Αβρέ",
+        "texte": "είναι η λίμνη κοντά στο Παρίσι όπου η οικογένεια του Κορό είχε εξοχικό. Ζωγράφιζε αυτά τα γκρίζα δέντρα και το ακίνητο νερό σχεδόν πενήντα χρόνια, ώσπου έγινε περισσότερο ανάμνηση παρά τόπος. Αυτός είναι του 1870.",
+        "artiste": "Καμίλ Κορό"
+      },
+      "hu": {
+        "titre": "Ville-d'Avray",
+        "texte": "a Párizs melletti tó, ahol Corot családjának vidéki háza volt. Csaknem ötven évig festette ezeket a szürke fákat és a mozdulatlan vizet, míg a hely inkább emlékké vált. Ez a kép 1870-ből való.",
+        "artiste": "Camille Corot"
+      },
+      "sr": {
+        "titre": "Vil d'Avre",
+        "texte": "je jezero blizu Pariza gde je Koroova porodica imala kuću na selu. Ova siva stabla i mirnu vodu slikao je skoro pedeset godina, dok mesto nije postalo više uspomena nego predeo. Ova slika je iz 1870.",
+        "artiste": "Kamij Koro"
+      },
+      "hr": {
+        "titre": "Ville-d'Avray",
+        "texte": "je jezerce blizu Pariza gdje je Corotova obitelj imala kuću na selu. Ova siva stabla i mirnu vodu slikao je gotovo pedeset godina, dok mjesto nije postalo više uspomena nego krajolik. Ova je slika iz 1870.",
+        "artiste": "Camille Corot"
+      },
+      "lv": {
+        "titre": "Vildavrē",
+        "texte": "ir dīķis netālu no Parīzes, kur Koro ģimenei bija lauku māja. Šos pelēkos kokus un nekustīgo ūdeni viņš gleznoja gandrīz piecdesmit gadus, līdz vieta kļuva drīzāk par atmiņu. Šī glezna ir no 1870. gada.",
+        "artiste": "Kamils Koro"
+      },
+      "ro": {
+        "titre": "Ville-d'Avray",
+        "texte": "este iazul de lângă Paris unde familia lui Corot avea o casă la țară. A pictat acești copaci cenușii și această apă nemișcată aproape cincizeci de ani, până când locul a devenit mai degrabă o amintire. Acesta este din 1870.",
+        "artiste": "Camille Corot"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/vermeer-pichet.jpg",
+      "en": {
+        "titre": "Young Woman with a Water Pitcher",
+        "texte": "is a woman opening a window, one hand on a pitcher, in a room where nothing else moves. It was the first Vermeer to reach America, in 1887. I only noticed the map glowing on the wall behind her because of Artura, which zooms into the details you'd miss.",
+        "artiste": "Johannes Vermeer"
+      },
+      "fr": {
+        "titre": "Jeune femme à l'aiguière",
+        "texte": "est une femme qui ouvre une fenêtre, une main sur l'aiguière, dans une pièce où rien d'autre ne bouge. C'est le premier Vermeer arrivé en Amérique, en 1887. Je n'avais jamais remarqué la carte qui brille au mur derrière elle avant Artura, qui zoome sur les détails qu'on rate.",
+        "artiste": "Johannes Vermeer"
+      },
+      "es-419": {
+        "titre": "Joven con una jarra de agua",
+        "texte": "es una mujer que abre una ventana, con una mano en la jarra, en un cuarto donde nada más se mueve. Fue el primer Vermeer en llegar a Estados Unidos, en 1887. Solo noté el mapa que brilla en la pared detrás de ella gracias a Artura, que hace zoom en los detalles que se te escapan.",
+        "artiste": "Johannes Vermeer"
+      },
+      "it": {
+        "titre": "Giovane donna con brocca",
+        "texte": "è una donna che apre una finestra, una mano sulla brocca, in una stanza dove nient'altro si muove. Fu il primo Vermeer ad arrivare in America, nel 1887. Ho notato la mappa che brilla sul muro dietro di lei solo grazie ad Artura, che zooma sui dettagli che ti sfuggono.",
+        "artiste": "Johannes Vermeer"
+      },
+      "el": {
+        "titre": "Νεαρή γυναίκα με κανάτα",
+        "texte": "είναι μια γυναίκα που ανοίγει ένα παράθυρο, με το χέρι στην κανάτα, σε ένα δωμάτιο όπου τίποτα άλλο δεν κινείται. Ήταν ο πρώτος Βερμέερ που έφτασε στην Αμερική, το 1887. Πρόσεξα τον χάρτη που λάμπει στον τοίχο πίσω της μόνο χάρη στην Artura, που κάνει ζουμ στις λεπτομέρειες που χάνεις.",
+        "artiste": "Γιοχάνες Βερμέερ"
+      },
+      "hu": {
+        "titre": "Fiatal nő vizeskancsóval",
+        "texte": "egy nő, aki ablakot nyit, kezét a kancsón tartja, egy szobában, ahol semmi más nem mozdul. Ez volt az első Vermeer, amely Amerikába került, 1887-ben. A falon mögötte fénylő térképet csak az Artura appnak köszönhetően vettem észre, amely ráközelít a könnyen elsikló részletekre.",
+        "artiste": "Johannes Vermeer"
+      },
+      "sr": {
+        "titre": "Mlada žena s bokalom",
+        "texte": "je žena koja otvara prozor, s rukom na bokalu, u sobi gde se ništa drugo ne pomera. Bio je to prvi Vermer koji je stigao u Ameriku, 1887. Mapu koja sija na zidu iza nje primetila sam tek zahvaljujući aplikaciji Artura, koja zumira detalje koje bi propustio.",
+        "artiste": "Johanes Vermer"
+      },
+      "hr": {
+        "titre": "Mlada žena s vrčem",
+        "texte": "je žena koja otvara prozor, s rukom na vrču, u sobi u kojoj se ništa drugo ne miče. Bio je to prvi Vermeer koji je stigao u Ameriku, 1887. Kartu koja sja na zidu iza nje primijetila sam tek zahvaljujući aplikaciji Artura, koja zumira detalje koje bi propustio.",
+        "artiste": "Johannes Vermeer"
+      },
+      "lv": {
+        "titre": "Jauna sieviete ar ūdens krūzi",
+        "texte": "ir sieviete, kas atver logu, roku uz krūzes, istabā, kur nekas cits nekustas. Tas bija pirmais Vermērs, kas nonāca Amerikā, 1887. gadā. Karti, kas mirdz pie sienas aiz viņas, pamanīju tikai pateicoties lietotnei Artura, kas pietuvina detaļas, kuras tu palaistu garām.",
+        "artiste": "Johaness Vermērs"
+      },
+      "ro": {
+        "titre": "Tânără cu o carafă",
+        "texte": "este o femeie care deschide o fereastră, cu o mână pe carafă, într-o cameră în care nimic altceva nu se mișcă. A fost primul Vermeer ajuns în America, în 1887. Am observat harta care strălucește pe perete în spatele ei doar datorită aplicației Artura, care face zoom pe detaliile pe care le-ai rata.",
+        "artiste": "Johannes Vermeer"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/fleurs-fantin.jpg",
+      "en": {
+        "titre": "Summer Flowers",
+        "texte": "was painted by Fantin-Latour in 1880. He sold most of his flower pieces in England, where collectors couldn't get enough of them. His wife, Victoria Dubourg, was a flower painter too.",
+        "artiste": "Henri Fantin-Latour"
+      },
+      "fr": {
+        "titre": "Fleurs d'été",
+        "texte": "ont été peintes par Fantin-Latour en 1880. Il vendait la plupart de ses bouquets en Angleterre, où les collectionneurs en redemandaient. Sa femme, Victoria Dubourg, peignait elle aussi des fleurs.",
+        "artiste": "Fantin-Latour"
+      },
+      "es-419": {
+        "titre": "Flores de verano",
+        "texte": "fue pintado por Fantin-Latour en 1880. Vendía casi todos sus cuadros de flores en Inglaterra, donde los coleccionistas no se cansaban de ellos. Su esposa, Victoria Dubourg, también pintaba flores.",
+        "artiste": "Fantin-Latour"
+      },
+      "it": {
+        "titre": "Fiori d'estate",
+        "texte": "è stato dipinto da Fantin-Latour nel 1880. Vendeva quasi tutti i suoi fiori in Inghilterra, dove i collezionisti non ne avevano mai abbastanza. Anche sua moglie, Victoria Dubourg, dipingeva fiori.",
+        "artiste": "Fantin-Latour"
+      },
+      "el": {
+        "titre": "Καλοκαιρινά λουλούδια",
+        "texte": "ζωγραφίστηκαν από τον Φαντέν-Λατούρ το 1880. Πουλούσε τα περισσότερα λουλούδια του στην Αγγλία, όπου οι συλλέκτες δεν τα χόρταιναν. Η γυναίκα του, η Βικτόρια Ντιμπούρ, ζωγράφιζε κι αυτή λουλούδια.",
+        "artiste": "Φαντέν-Λατούρ"
+      },
+      "hu": {
+        "titre": "Nyári virágok",
+        "texte": "Fantin-Latour festette 1880-ban. Virágcsendéleteinek nagy részét Angliában adta el, ahol a gyűjtők nem tudtak betelni velük. Felesége, Victoria Dubourg, szintén virágokat festett.",
+        "artiste": "Fantin-Latour"
+      },
+      "sr": {
+        "titre": "Letnje cveće",
+        "texte": "naslikao je Fanten-Latur 1880. Većinu svojih buketa prodavao je u Engleskoj, gde kolekcionarima nikad nije bilo dosta. I njegova žena, Viktorija Diburg, slikala je cveće.",
+        "artiste": "Fanten-Latur"
+      },
+      "hr": {
+        "titre": "Ljetno cvijeće",
+        "texte": "naslikao je Fantin-Latour 1880. Većinu svojih buketa prodavao je u Engleskoj, gdje kolekcionarima nikad nije bilo dosta. I njegova supruga, Victoria Dubourg, slikala je cvijeće.",
+        "artiste": "Fantin-Latour"
+      },
+      "lv": {
+        "titre": "Vasaras ziedi",
+        "texte": "gleznoja Fantēns-Latūrs 1880. gadā. Lielāko daļu savu ziedu gleznu viņš pārdeva Anglijā, kur kolekcionāriem tās nekad neapnika. Arī viņa sieva, Viktorija Dibūra, gleznoja ziedus.",
+        "artiste": "Fantēns-Latūrs"
+      },
+      "ro": {
+        "titre": "Flori de vară",
+        "texte": "au fost pictate de Fantin-Latour în 1880. Își vindea majoritatea buchetelor în Anglia, unde colecționarii nu se mai săturau de ele. Soția lui, Victoria Dubourg, picta și ea flori.",
+        "artiste": "Fantin-Latour"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/tuileries-hiver.jpg",
+      "en": {
+        "titre": "The Tuileries on a Winter Afternoon",
+        "texte": "was painted from an apartment window on the rue de Rivoli in 1899. An eye infection kept Pissarro from working outdoors, so he painted Paris from above. The garden is empty, and the city seems to hold its breath.",
+        "artiste": "Camille Pissarro"
+      },
+      "fr": {
+        "titre": "Le Jardin des Tuileries, après-midi d'hiver",
+        "texte": "a été peint depuis la fenêtre d'un appartement de la rue de Rivoli en 1899. Une infection aux yeux empêchait Pissarro de travailler dehors, alors il a peint Paris d'en haut. Le jardin est vide, la ville retient son souffle.",
+        "artiste": "Camille Pissarro"
+      },
+      "es-419": {
+        "titre": "Las Tullerías en una tarde de invierno",
+        "texte": "fue pintado desde la ventana de un departamento en la rue de Rivoli en 1899. Una infección en los ojos le impedía a Pissarro trabajar al aire libre, así que pintó París desde arriba. El jardín está vacío y la ciudad parece contener el aliento.",
+        "artiste": "Camille Pissarro"
+      },
+      "it": {
+        "titre": "Le Tuileries in un pomeriggio d'inverno",
+        "texte": "è stato dipinto dalla finestra di un appartamento in rue de Rivoli nel 1899. Un'infezione agli occhi impediva a Pissarro di lavorare all'aperto, così dipinse Parigi dall'alto. Il giardino è vuoto e la città sembra trattenere il respiro.",
+        "artiste": "Camille Pissarro"
+      },
+      "el": {
+        "titre": "Ο κήπος του Κεραμεικού, χειμωνιάτικο απόγευμα",
+        "texte": "ζωγραφίστηκε από το παράθυρο ενός διαμερίσματος στη rue de Rivoli το 1899. Μια μόλυνση στα μάτια εμπόδιζε τον Πισαρό να δουλεύει έξω, κι έτσι ζωγράφισε το Παρίσι από ψηλά. Ο κήπος είναι άδειος και η πόλη μοιάζει να κρατά την ανάσα της.",
+        "artiste": "Καμίλ Πισαρό"
+      },
+      "hu": {
+        "titre": "A Tuileriák egy téli délutánon",
+        "texte": "egy rue de Rivoli-i lakás ablakából készült 1899-ben. Egy szemfertőzés miatt Pissarro nem dolgozhatott a szabadban, ezért felülről festette Párizst. A kert üres, a város mintha visszatartaná a lélegzetét.",
+        "artiste": "Camille Pissarro"
+      },
+      "sr": {
+        "titre": "Tiljerije jednog zimskog popodneva",
+        "texte": "naslikane su sa prozora stana u ulici Rivoli 1899. Infekcija oka sprečavala je Pisaroa da radi napolju, pa je Pariz slikao odozgo. Vrt je prazan, a grad kao da zadržava dah.",
+        "artiste": "Kamij Pisaro"
+      },
+      "hr": {
+        "titre": "Tuileries jednog zimskog poslijepodneva",
+        "texte": "naslikan je s prozora stana u ulici Rivoli 1899. Upala oka priječila je Pissarra da radi vani, pa je Pariz slikao odozgo. Vrt je prazan, a grad kao da zadržava dah.",
+        "artiste": "Camille Pissarro"
+      },
+      "lv": {
+        "titre": "Tuileries dārzs ziemas pēcpusdienā",
+        "texte": "gleznots 1899. gadā no dzīvokļa loga Rivoli ielā. Acu infekcija neļāva Pisāro strādāt ārā, tāpēc viņš gleznoja Parīzi no augšas. Dārzs ir tukšs, un pilsēta it kā aiztur elpu.",
+        "artiste": "Kamils Pisāro"
+      },
+      "ro": {
+        "titre": "Grădina Tuileries într-o după-amiază de iarnă",
+        "texte": "a fost pictată de la fereastra unui apartament de pe rue de Rivoli, în 1899. O infecție la ochi îl împiedica pe Pissarro să lucreze afară, așa că a pictat Parisul de sus. Grădina e goală, iar orașul pare să-și țină respirația.",
+        "artiste": "Camille Pissarro"
+      }
+    }
+  ],
+  "banque": {
+    "images/banque/musee-trois-tableaux.jpg": "03059ce2-fdd8-4e1f-b9ff-981d791c2523"
+  }
+}

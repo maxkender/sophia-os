@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o377",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bbd80016-45a9-4c12-ae1c-11f11a2a8ec4",
+ "titre": "les 4 questions que je me pose avant d'accepter une nouvelle mission (partie 2) #travail #limites #organisation #carriere #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 28/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne #11 (parent bbd80016) : accroche du parent mot pour mot, autres questions. Inspirations reprises de rh-o164. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4ee7a3a4",
+   "texte_overlay": "les 4 questions que je me pose\navant d'accepter\nune nouvelle mission",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6495c9c3",
+   "texte_overlay": "1. est-ce que c'est dans mes objectifs ?\nsinon, qui l'a décidé ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f9d886c2",
+   "texte_overlay": "2. combien d'heures, vraiment ?\nje multiplie par 1,5",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0c39b6d4",
+   "texte_overlay": "3. qui peut m'aider ?\nseule, c'est plus long",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "510c0490",
+   "texte_overlay": "4. qu'est-ce que je vais apprendre ?\nsi c'est nouveau, je m'y prépare : 5 minutes par jour sur le sujet",
+   "texte_sophia": "4. qu'est-ce que je vais apprendre ?\nsi c'est nouveau, je m'y prépare : 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2be6f97b",
+   "texte_overlay": "et après seulement\nje dis oui, non, ou « oui si »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8b47b4fa",
+   "texte_overlay": "tu te poses laquelle ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  }
+ ]
+}

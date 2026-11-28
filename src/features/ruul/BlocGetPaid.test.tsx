@@ -4,7 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
 
 import { VueGetPaid } from "./BlocGetPaid";
-import { etapeBloquee, etatBloc, type MonSetupRuul, TEXTES_SETUP_EN } from "./setup";
+import { etapeBloquee, etatBloc, type MonSetupRuul, ruulPlusTard, TEXTES_SETUP_EN } from "./setup";
 
 const base: MonSetupRuul = {
   ruul: true,
@@ -40,6 +40,25 @@ describe("21/11 : bloc « Get paid » des posteurs Ruul", () => {
     expect(screen.getByTestId("etape-banque").getAttribute("data-fait")).toBe("false");
     expect(screen.getAllByRole("button")).toHaveLength(1);
     expect(screen.getByTestId("probleme-ruul").getAttribute("href")).toBe("/createur/help?ruul=banque");
+  });
+
+  it("26/11 : avant la première semaine payable (lundi de départ + 7 jours), « tu peux le faire plus tard » ; après, le texte habituel", () => {
+    const s = { ...base, cohorte_lundi: "2026-11-30" };
+    // Lundi 7/12 (Paris) = première paie : avant, « plus tard » ; ce jour-là et après, « To get paid on Monday ».
+    expect(ruulPlusTard("2026-11-30", Date.parse("2026-11-26T10:00:00Z"))).toBe(true);
+    expect(ruulPlusTard("2026-11-30", Date.parse("2026-12-06T23:30:00Z"))).toBe(false); // déjà lundi 7/12, 0 h 30 à Paris
+    expect(ruulPlusTard("2026-11-30", Date.parse("2026-12-06T12:00:00Z"))).toBe(true);
+    expect(ruulPlusTard(null)).toBe(false);
+    vue(s, Date.parse("2026-11-26T10:00:00Z"));
+    expect(screen.getByTestId("titre-get-paid").textContent).toBe(TEXTES_SETUP_EN.titre_plus_tard);
+    // Les mêmes sous-étapes et le même bouton, rien d'autre ne change.
+    expect(screen.getByTestId("etape-inscrit").getAttribute("data-fait")).toBe("false");
+    expect(screen.getByText("Ready before Sunday 23:59 (Paris) = paid on Monday.")).toBeTruthy();
+  });
+
+  it("26/11 : la première semaine payable passée (ou lundi inconnu) : « To get paid on Monday »", () => {
+    vue({ ...base, cohorte_lundi: "2026-11-16" }, Date.parse("2026-11-26T10:00:00Z"));
+    expect(screen.getByTestId("titre-get-paid").textContent).toBe("To get paid on Monday, finish your Ruul setup:");
   });
 
   it("prêt : « You're all set » 3 jours, puis plus rien ; un posteur Upwork : jamais", () => {

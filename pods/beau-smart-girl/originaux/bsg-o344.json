@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o344",
+  "type_bleo": "full_test",
+  "titre": "les mots que je confondais (et comment je les retiens maintenant) #francais #langue #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Paires de paronymes courantes, définitions usuelles. Routine du 28/11 sur BLEO (par_jour 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 et 16 de la boîte se déclinent, donc 2 déclinaisons et 16 full tests. Lignes sautées : 2 et 4 (accroches de plus de 120 caractères), 3 (accroche exigée bancale), 5 (« tinas ai »), 6 (« neurosciences »), 7 (« je notes »), 8 (« ge things »), 9, 12 à 15 (« backed by science »), 10 (« enterimarnt »), 11 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "aad4c166",
+      "texte_overlay": "les mots que je confondais\n(et comment je les retiens maintenant)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "30816247",
+      "texte_overlay": "1. conjecture et conjoncture\n\nune supposition.\nune situation.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "aac37f2f",
+      "texte_overlay": "2. éminent et imminent\n\nquelqu'un de remarquable.\nquelque chose qui va arriver.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "60aecad3",
+      "texte_overlay": "3. prodige et prodigue\n\nun enfant doué.\nquelqu'un qui dépense trop.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "bec0943e",
+      "texte_overlay": "4. perpétrer et perpétuer\n\ncommettre un crime.\nfaire durer une tradition.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "c2e8d702",
+      "texte_overlay": "5. on apprend un peu chaque jour\n\navant, je mélangeais tout sans le savoir.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'adore les nuances de la langue.",
+      "texte_sophia": "5. on apprend un peu chaque jour\n\navant, je mélangeais tout sans le savoir.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'adore les nuances de la langue.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "bf360567",
+      "texte_overlay": "tu confondais lesquels ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -41,10 +41,10 @@ SOPH_OK = ["surf", "wave", "ocean", "back to the camera", "silhouette", "swimmin
            "shelf", "vinyl", "record", "camera", "bicycle", "boat", "sail", "tree", "garden", "flower", "stairs", "sunrise"]
 SOPH_NON = ["edge of a swimming pool", "face", "portrait", "smiling", "looking at the camera", "two people", "three people",
             "group", "woman", "girl", "child", "showroom", "mercedes", "car",
-            "superman", "batman", "superhero", "spider", "cape", "costume", "actor", "celebrity", "monk", "yak", "lama", "joker", "prison", "bars", "jail", "mask", "bane", "shirtless", "walking"]
+            "superman", "batman", "superhero", "spider", "cape", "costume", "actor", "celebrity", "monk", "yak", "lama", "joker", "prison", "bars", "jail", "mask", "bane", "helmet", "villain", "vader", "star wars", "knight", "man swimming in the ocean", "shirtless", "walking"]
 
 # images vues sur un aperçu avec un visage reconnaissable : jamais sur la slide Sophia
-SOPH_EXCLUS = {"3089a52f", "4d3a1468", "4f9f0624", "683dda1a", "99d2bcf3", "a04728e0", "a71f427e", "b71971e6", "c1b128f0", "d080a54e", "d947496d", "d9a6d9f7", "fc7de629"}
+SOPH_EXCLUS = {"0ca3b0a3", "1af3af0f", "3089a52f", "4d3a1468", "4f9f0624", "683dda1a", "99d2bcf3", "a04728e0", "a71f427e", "b71971e6", "c1b128f0", "d080a54e", "d947496d", "d9a6d9f7", "f01d70fc", "fc7de629"}
 
 CACHE = "donnees/cache/empreintes.json"
 
@@ -113,8 +113,8 @@ def main():
   # secours quand les décors connus sont épuisés : image sombre dont la légende ne parle d'aucune personne ni d'aucun personnage
   PERSONNE = SOPH_NON + ["face", "portrait", "couple", "screenshot", "text", "quote", "statue", "movie", "still from", "film",
                          "knight", "scene", "his ", "her ", "woman", "man ", "men ", "person", "people", "boy", "guy", "player"]
-  soph += sorted([k for k in IM if k in FP and k not in SOPH_EXCLUS and k not in soph and lum(k) < 85
-                  and not any(w in leg(k) for w in PERSONNE)], key=lambda k: (IM[k]["used_count"], k))
+  soph += sorted([k for k in IM if k in FP and k not in SOPH_EXCLUS and k not in soph and lum(k) < 150
+                  and not any(w in leg(k) for w in PERSONNE)], key=lambda k: (lum(k) >= 85, IM[k]["used_count"], k))
   for d in D:
     if d.get("cov"): pris.append(d["cov"])
   ordre_sons = sorted(range(len(SONS)), key=lambda i: (sons20.count(SONS[i][1]), i))[:7]

@@ -1,0 +1,2918 @@
+{
+ "id": "sg-048",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "baca6cb1-490f-4425-97df-3648f8ee81e6",
+ "titre": {
+  "fr": "Compétences 10/10 plus utiles que 3 heures de TikTok",
+  "en": "10/10 skills more useful than 3 hours of TikTok",
+  "de": "10/10 Skills, die nützlicher sind als 3 Stunden TikTok",
+  "it": "Competenze 10/10 più utili di 3 ore di TikTok",
+  "pt-BR": "Habilidades 10/10 mais úteis que 3 horas de TikTok",
+  "tr": "3 saat TikTok'tan daha faydalı 10/10 beceriler",
+  "ro": "Abilități 10/10 mai utile decât 3 ore de TikTok",
+  "cs": "Dovednosti 10/10 užitečnější než 3 hodiny TikToku",
+  "hu": "10/10-es készségek, amik hasznosabbak 3 óra TikToknál",
+  "el": "Δεξιότητες 10/10 πιο χρήσιμες από 3 ώρες TikTok",
+  "sr": "Veštine 10/10 korisnije od 3 sata TikToka",
+  "es": "Habilidades 10/10 más útiles que 3 horas de TikTok",
+  "es-419": "Habilidades 10/10 más útiles que 3 horas de TikTok",
+  "pl": "Umiejętności 10/10 przydatniejsze niż 3 godziny TikToka",
+  "sk": "Zručnosti 10/10 užitočnejšie ako 3 hodiny TikToku",
+  "hr": "Vještine 10/10 korisnije od 3 sata TikToka",
+  "sv": "10/10-färdigheter som är nyttigare än 3 timmar TikTok",
+  "lv": "10/10 prasmes, kas noderīgākas par 3 stundām TikTok"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 plus utiles que 3 heures de TikTok #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills more useful than 3 hours of TikTok #learnontiktok #selfimprovement #skills",
+  "de": "10/10 Skills, die nützlicher sind als 3 Stunden TikTok #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Competenze 10/10 più utili di 3 ore di TikTok #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 mais úteis que 3 horas de TikTok #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "3 saat TikTok'tan daha faydalı 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 mai utile decât 3 ore de TikTok #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10 užitečnější než 3 hodiny TikToku #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10-es készségek, amik hasznosabbak 3 óra TikToknál #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 πιο χρήσιμες από 3 ώρες TikTok #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 korisnije od 3 sata TikToka #učinatiktoku #samorazvoj #veštine",
+  "es": "Habilidades 10/10 más útiles que 3 horas de TikTok #aprendeentiktok #desarrollopersonal #habilidades",
+  "es-419": "Habilidades 10/10 más útiles que 3 horas de TikTok #aprendeentiktok #desarrollopersonal #habilidades",
+  "pl": "Umiejętności 10/10 przydatniejsze niż 3 godziny TikToka #uczsięnatiktoku #rozwójosobisty #umiejętności",
+  "sk": "Zručnosti 10/10 užitočnejšie ako 3 hodiny TikToku #učímesanatiktoku #osobnýrozvoj #zručnosti",
+  "hr": "Vještine 10/10 korisnije od 3 sata TikToka #učinatiktoku #osobnirazvoj #vještine",
+  "sv": "10/10-färdigheter som är nyttigare än 3 timmar TikTok #lärdigpåtiktok #självutveckling #färdigheter",
+  "lv": "10/10 prasmes, kas noderīgākas par 3 stundām TikTok #mācītiestiktokā #pašattīstība #prasmes"
+ },
+ "musique": {
+  "titre": "original sound - m - m",
+  "url": "https://www.tiktok.com/music/original-sound-m-7638549822647159565"
+ },
+ "notes": "Déclinaison G2 de sg-023 (27/11) : même promesse (apprendre au lieu de scroller), autres mots (« Compétences 10/10 plus utiles que 3 heures de TikTok »), couverture neuve dans son style, musique de sg-023 ; 5 autres compétences rapides (nouer ses lacets en 2 secondes, pancakes, s'étirer le matin, bouturer une plante, œufs brouillés), vraies vidéos natives dans les 18 langues ; Sophia en étape 4, cta A « SCROLLER / UTILE ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 138
+     },
+     {
+      "t": "PLUS UTILES",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE 3 HEURES",
+      "cap": 149
+     },
+     {
+      "t": "DE TIKTOK",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 138
+     },
+     {
+      "t": "MORE USEFUL",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "THAN 3 HOURS",
+      "cap": 149
+     },
+     {
+      "t": "OF TIKTOK",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS, DIE",
+      "cap": 138
+     },
+     {
+      "t": "NÜTZLICHER SIND",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "ALS 3 STUNDEN",
+      "cap": 149
+     },
+     {
+      "t": "TIKTOK",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "COMPETENZE",
+      "cap": 138
+     },
+     {
+      "t": "PIÙ UTILI",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "DI 3 ORE",
+      "cap": 149
+     },
+     {
+      "t": "DI TIKTOK",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 138
+     },
+     {
+      "t": "MAIS ÚTEIS",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE 3 HORAS",
+      "cap": 149
+     },
+     {
+      "t": "DE TIKTOK",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "3 SAAT",
+      "cap": 138
+     },
+     {
+      "t": "TİKTOK'TAN",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "DAHA FAYDALI",
+      "cap": 149
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 138
+     },
+     {
+      "t": "MAI UTILE",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "DECÂT 3 ORE",
+      "cap": 149
+     },
+     {
+      "t": "DE TIKTOK",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 138
+     },
+     {
+      "t": "UŽITEČNĚJŠÍ",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "NEŽ 3 HODINY",
+      "cap": 149
+     },
+     {
+      "t": "TIKTOKU",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK, AMIK",
+      "cap": 138
+     },
+     {
+      "t": "HASZNOSABBAK",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "3 ÓRA",
+      "cap": 149
+     },
+     {
+      "t": "TIKTOKNÁL",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 138
+     },
+     {
+      "t": "ΠΙΟ ΧΡΗΣΙΜΕΣ",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΑΠΟ 3 ΩΡΕΣ",
+      "cap": 149
+     },
+     {
+      "t": "TIKTOK",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 138
+     },
+     {
+      "t": "KORISNIJE",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "OD 3 SATA",
+      "cap": 149
+     },
+     {
+      "t": "TIKTOKA",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 138
+     },
+     {
+      "t": "MÁS ÚTILES",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE 3 HORAS",
+      "cap": 149
+     },
+     {
+      "t": "DE TIKTOK",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 138
+     },
+     {
+      "t": "MÁS ÚTILES",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE 3 HORAS",
+      "cap": 149
+     },
+     {
+      "t": "DE TIKTOK",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pl": {
+    "lignes": [
+     {
+      "t": "UMIEJĘTNOŚCI",
+      "cap": 138
+     },
+     {
+      "t": "PRZYDATNIEJSZE",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "NIŻ 3 GODZINY",
+      "cap": 149
+     },
+     {
+      "t": "TIKTOKA",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sk": {
+    "lignes": [
+     {
+      "t": "ZRUČNOSTI",
+      "cap": 138
+     },
+     {
+      "t": "UŽITOČNEJŠIE",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "AKO 3 HODINY",
+      "cap": 149
+     },
+     {
+      "t": "TIKTOKU",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "VJEŠTINE",
+      "cap": 138
+     },
+     {
+      "t": "KORISNIJE",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "OD 3 SATA",
+      "cap": 149
+     },
+     {
+      "t": "TIKTOKA",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sv": {
+    "lignes": [
+     {
+      "t": "FÄRDIGHETER",
+      "cap": 138
+     },
+     {
+      "t": "NYTTIGARE",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "ÄN 3 TIMMAR",
+      "cap": 149
+     },
+     {
+      "t": "TIKTOK",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "lv": {
+    "lignes": [
+     {
+      "t": "PRASMES, KAS",
+      "cap": 138
+     },
+     {
+      "t": "NODERĪGĀKAS",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "PAR 3 STUNDĀM",
+      "cap": 149
+     },
+     {
+      "t": "TIKTOK",
+      "cap": 188,
+      "couleur": "brun"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "NOUER SES LACETS",
+     [
+      {
+       "t": "EN 2 SECONDES",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HccxmZrAtUo",
+     "titre": "Comment attacher ses lacets en moins de deux secondes !",
+     "chaine": "Pratiks",
+     "vues": "690 k vues",
+     "date": "il y a 12 ans",
+     "duree": "2:01",
+     "avatar": "https://yt3.ggpht.com/lkMqn-NPmbpigbinjGK47Av0hMQCtujEYl8pOGYc1yEjU0xlL_p8mGb3A4sSE1g8SBXsOwbj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "TIE YOUR SHOES",
+     [
+      {
+       "t": "IN 2 SECONDS",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_aAeI7p-Tkc",
+     "titre": "Tie a Shoelace in 2 Seconds",
+     "chaine": "Handimania",
+     "vues": "7.1M views",
+     "date": "12 years ago",
+     "duree": "0:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mgSHqS3W_VUDxyLML2W663Z7WcxqVrvXhvEh3otFErMQc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SCHUHE BINDEN",
+     [
+      {
+       "t": "IN 2 SEKUNDEN",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bM1-clb0FFg",
+     "titre": "Schuhe binden in 2 Sekunden",
+     "chaine": "Tilo Dima",
+     "vues": "1,2 Mio. Aufrufe",
+     "date": "vor 13 Jahren",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/SZPVo7-87VHGKa8f-w4NeKFzmJ-dE9bwOJKbBBqzOBV54ZxETOXvww5-FpwVDBqwObjpH4pM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ALLACCIARE LE SCARPE",
+     [
+      {
+       "t": "IN 2 SECONDI",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-vTDCJPu7hQ",
+     "titre": "Come Allacciarsi Le Scarpe In Un Secondo - [TUTORIAL] - [SAVV FABB]",
+     "chaine": "Savv Fabb",
+     "vues": "140K visualizzazioni",
+     "date": "12 anni fa",
+     "duree": "0:57",
+     "avatar": "https://yt3.ggpht.com/Gw4oh4ermtCvkw-S3Tspa2h2THN2pXxs46mmiLflNQsoSijZ90W5kJOYh_qJf8yKrMpcuGAy=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "AMARRAR O TÊNIS",
+     [
+      {
+       "t": "EM 2 SEGUNDOS",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0wEy7ymsaGQ",
+     "titre": "Como amarrar o cadarço em um segundo",
+     "chaine": "Manual do Mundo",
+     "vues": "2,3 mi visualizações",
+     "date": "há 16 anos",
+     "duree": "0:58",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "2 SANİYEDE",
+       "couleur": "#2f7fb8"
+      }
+     ],
+     "BAĞCIK BAĞLAMAK"
+    ],
+    "video": {
+     "id": "QW-biU1-Woo",
+     "titre": "Ayakkabı Bağcığı 2 Saniyede Nasıl Bağlanır",
+     "chaine": "Vay Canına",
+     "vues": "381 B görüntüleme",
+     "date": "11 yıl önce",
+     "duree": "0:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nH8T3S8EAd9BwKnv1cEtSv86qrnFDzawvofJH73gZCxH4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI LEGI ȘIRETURILE",
+     [
+      {
+       "t": "ÎN 2 SECUNDE",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fKzPtCesJWc",
+     "titre": "Poti sa-ti legi sireturile intr-o secunda?",
+     "chaine": "Originals",
+     "vues": "171 K vizionări",
+     "date": "acum 11 ani",
+     "duree": "0:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lnVtbYvGJULtu01Ht4HlEL9Sj_UubsfRESF1wQb9eu=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZAVÁZAT TKANIČKY",
+     [
+      {
+       "t": "ZA 2 VTEŘINY",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5dXGv5m1310",
+     "titre": "Tkaničky fofrem 2 - detailněji    @YouTuzka #lifehacks #howto #vychytavky #tkanicky #tkanickyfofrem",
+     "chaine": "YouTuzka",
+     "vues": "49 tis. zhlédnutí",
+     "date": "před 13 lety",
+     "duree": "1:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lF9C6AvT3oggwSAYUSZcVMTmyeb3LtHD4MfJ-jdyk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "CIPŐT KÖTNI",
+     [
+      {
+       "t": "2 MÁSODPERC ALATT",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vwg260vHfS8",
+     "titre": "Cipőfűző kötés egyszerűen",
+     "chaine": "Balázs Botzheim",
+     "vues": "48 E megtekintés",
+     "date": "11 évvel ezelőtt",
+     "duree": "0:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8bxL6wSA-gVThkPXzX1uhonZyBKzWI9q8Q0S2SF6fsPc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΔΕΝΕΙΣ ΚΟΡΔΟΝΙΑ",
+     [
+      {
+       "t": "ΣΕ 2 ΔΕΥΤΕΡΟΛΕΠΤΑ",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jbSiO05vUGc",
+     "titre": "Πως να δέσετε τα κορδόνια σας με δύο κινήσεις",
+     "chaine": "euapap",
+     "vues": "88 χιλ. προβολές",
+     "date": "πριν από 12 έτη",
+     "duree": "2:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nArlccXUthHkkYq3tpgebth9jqVUj7PmEo1ENoIM4NyA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "VEZATI PERTLE",
+     [
+      {
+       "t": "ZA 2 SEKUNDE",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "i_umsDj4lBU",
+     "titre": "Kako zavezati pertle za 2 sekunde",
+     "chaine": "eKako info",
+     "vues": "232 hilj. pregleda",
+     "date": "pre 10 godina",
+     "duree": "0:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mON8ChgGnDit-7wbKS3uKk63qtEhgbozgXp-Ycb-0PsQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "ATARTE LOS CORDONES",
+     [
+      {
+       "t": "EN 2 SEGUNDOS",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DHJY-UxpjO8",
+     "titre": "Cómo Atar Cordones Rápido [EN 1 SEGUNDO] 👟🔥",
+     "chaine": "MANW: De 0 a 1.000 Habilidades",
+     "vues": "217 K visualizaciones",
+     "date": "hace 2 años",
+     "duree": "1:34",
+     "avatar": "https://yt3.ggpht.com/wEZtln_BGpwVDCPgpX0N-Nvkn3qSnTyO1XoUWvFMQCJtPxVgz4UFnf1673rTle8P25qv-49W=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "AMARRAR LAS AGUJETAS",
+     [
+      {
+       "t": "EN 2 SEGUNDOS",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5zpyWkGckW0",
+     "titre": "Como atar las agujetas en 2 segundos",
+     "chaine": "NumberDZ",
+     "vues": "56 k vistas",
+     "date": "hace 14 años",
+     "duree": "1:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mG7PIMRTHTlDU3cgm0pL_Isp-g8nGCVWqzYyoeTNdUzKw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "ZAWIĄZAĆ BUTY",
+     [
+      {
+       "t": "W 2 SEKUNDY",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vAMN1c0Vf-I",
+     "titre": "Jak zawiązać buty w 2 sekundy ?",
+     "chaine": "Mariuszpapa",
+     "vues": "71 tys. wyświetleń",
+     "date": "13 lat temu",
+     "duree": "1:30",
+     "avatar": "https://yt3.ggpht.com/dBFMEBjD9BgOI6KwHCmIt68SmDd0eKPod7kszUDP7Gw7pEmiH6BXi3YDoVbYdfa76GNYrgVtgeg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ZAVIAZAŤ ŠNÚRKY",
+     [
+      {
+       "t": "ZA 2 SEKUNDY",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3x8ZL9rj898",
+     "titre": "Ako si zaviazať šnúrky za 2 sekundy",
+     "chaine": "TREND",
+     "vues": "88 tis. zhliadnutí",
+     "date": "pred 10 rokmi",
+     "duree": "0:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_klamfGHlWMDOmIzOA1kgfAjMIi-ee2dkvu6jSimHhfEsk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "ZAVEZATI VEZICE",
+     [
+      {
+       "t": "U 2 SEKUNDE",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Iaz4R6MnujU",
+     "titre": "Kako zavezati vezice u samo 2 sekunde?",
+     "chaine": "MojKvart",
+     "vues": "2,4 tis. pregleda",
+     "date": "prije 9 godina",
+     "duree": "0:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_naOrB9uTZYdpZCkNsi47QK-KUHpyb6YrPG7SrmVPjnRmg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "KNYTA SKORNA",
+     [
+      {
+       "t": "PÅ 2 SEKUNDER",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wGwN8KYuWeI",
+     "titre": "Snabbaste sättet att knyta skorna - Life Hack by Fyndiq",
+     "chaine": "Fyndiq",
+     "vues": "80 tn visningar",
+     "date": "för 10 år sedan",
+     "duree": "0:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mKLiLzl7XP8RYBKJlvBYMbQYnUMEPCSvbW77EqnyzRmdE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "SASIET ŠŅORES",
+     [
+      {
+       "t": "2 SEKUNDĒS",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2DVw_r2pj4k",
+     "titre": "TUTAS LIETAS | Tuta māca siet apavus | S13E09",
+     "chaine": "Ausma",
+     "vues": "254 tūkst. skatījumu",
+     "date": "pirms 2 gadiem",
+     "duree": "5:58",
+     "avatar": "https://yt3.ggpht.com/25MeTPi2wps0D-l6OUevSO0niI-jYowmTzEfNut9cZYkELoIrGb0DrHAx45tmMMkBJCInF43rWs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min, lai iemācītos"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE DES",
+     [
+      {
+       "t": "PANCAKES",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7KTnT5w-dhg",
+     "titre": "Recette facile des pancakes moelleux par Hervé Cuisine",
+     "chaine": "Hervé Cuisine",
+     "vues": "4,5 M de vues",
+     "date": "il y a 16 ans",
+     "duree": "6:04",
+     "avatar": "https://yt3.ggpht.com/CtesnWt5qUmrXYKVCnLRSjOUpPgaodkFeIzWUEGrcWRfJQb7RypdKcg7ra49BLf3iOGhnU1yrCU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE FLUFFY",
+     [
+      {
+       "t": "PANCAKES",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9zCVCL4V8JQ",
+     "titre": "FLUFFY Pancakes Recipe",
+     "chaine": "Preppy Kitchen",
+     "vues": "4.6M views",
+     "date": "6 years ago",
+     "duree": "6:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n6vpBxo5qnhD6WDG5Y8x4X_fHRP9vLfSKJ7u414X7rb9I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "FLUFFIGE",
+     [
+      {
+       "t": "PANCAKES",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7oxe09sBD88",
+     "titre": "Fluffige Pancakes | BakeClub",
+     "chaine": "BakeClub",
+     "vues": "7,5 Mio. Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "5:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l5vjc1m-K_56XmWV7U4MZGPnRJ3L8mdf5lz-PuBjAlEKw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE I",
+     [
+      {
+       "t": "PANCAKE",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "COTUmVZmBYk",
+     "titre": "FLUFFY PANCAKE - Ricetta Originale di GialloZafferano!",
+     "chaine": "GialloZafferano",
+     "vues": "1,2 Mln visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "5:28",
+     "avatar": "https://yt3.ggpht.com/DIbS5q7AH-sy9nB9K6AfT-4yhagb4h1GI2u-9UQmcQCbtY8kV85MwumcnSGWYmUOl8shxYClsSI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "PANQUECAS",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XM2KCKj43EY",
+     "titre": "PANQUECA AMERICANA SUPER FÁCIL - FOFINHA - MACIA E SUPER RÁPIDA!! - Isamara Amâncio",
+     "chaine": "Isamara Amâncio",
+     "vues": "1,6 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "7:16",
+     "avatar": "https://yt3.ggpht.com/Td4AGKqwe-aUAJlZuHMtQvw0Rd6wqnsdXUbcIr87Ad23l8Doh3qADm6lxCaIBjA5-wMDf3Q_xuQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "PANKEK",
+       "couleur": "#d9a441"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "16iwweBUPlo",
+     "titre": "PANKEK TARİFİ | NASIL YAPILIR?",
+     "chaine": "Nefis Yemek Tarifleri | Bugün Ne Pişirsem?",
+     "vues": "5,1 Mn görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "3:08",
+     "avatar": "https://yt3.ggpht.com/SlYKkIpSlt9fYd_LAEq1jWrCwR1hUmTnmw1oC7JpwiPz6K4_U-0q6rFIjYqo9occ6Zmo0fiw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "PANCAKES",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EGj1VCm7pjw",
+     "titre": "Clatite americane pufoase si moi (reteta simpla cu lapte)",
+     "chaine": "Retetele Mihaelei",
+     "vues": "1,4 mil. vizionări",
+     "date": "acum 8 ani",
+     "duree": "4:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_msrHFdweEaGTGgiVj04Z0WpbiB3d8FRhARkdsjPxzlGB4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UPÉCT",
+     [
+      {
+       "t": "LÍVANCE",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4oDn-HsxJtU",
+     "titre": "Nadýchané lívance – suflé pancakes - Roman Paulus - Kulinářská Akademie Lidlu",
+     "chaine": "Kuchyně Lidlu",
+     "vues": "65 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "3:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nnHNf9fovCFxmB1zs1daJyyEKBWmYOXRObn13YH-Q1TaE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "AMERIKAI",
+     [
+      {
+       "t": "PALACSINTA",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-8ocmWcnNeI",
+     "titre": "Gyors amerikai palacsinta recept | Nosalty",
+     "chaine": "Nosalty",
+     "vues": "297 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "0:56",
+     "avatar": "https://yt3.ggpht.com/aCM2OzrKY9tnGXJBSDpMpG_YoLpiRLSEnh7La10FkF90ds9SpObVKHwqwc8p-T2PMDHuqtxeQSU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΦΤΙΑΞΕΙΣ",
+     [
+      {
+       "t": "PANCAKES",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_Kl_JtwH6bc",
+     "titre": "Pancakes | Άκης Πετρετζίκης",
+     "chaine": "Άκης Πετρετζίκης",
+     "vues": "1,4 εκ. προβολές",
+     "date": "πριν από 10 έτη",
+     "duree": "4:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lLV72YCxwdZEQtRYjPH6t7qAVkutpH67S_o4FtjH2YOsk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "AMERIČKE",
+     [
+      {
+       "t": "PALAČINKE",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wVQHeWWN_MU",
+     "titre": "AMERIČKE PALAČINKE - Najjednostavniji recept",
+     "chaine": "Milin Kuvar",
+     "vues": "562 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "3:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mKTHDFDmaDEsVFKUUHrWQnBi4i2BbbCERuinsGuhOF7dg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "HACER",
+     [
+      {
+       "t": "TORTITAS",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GifAqcEwLqI",
+     "titre": "Tortitas Americanas Fáciles y súper Esponjosas | Pancakes | Hot Cakes",
+     "chaine": "Cocina Para Todos",
+     "vues": "1,1 M de visualizaciones",
+     "date": "hace 6 años",
+     "duree": "4:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kXYbyJs_tFFaDcfzPGk_wd45tgeozJLHNN3yyjnQyhwNc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER",
+     [
+      {
+       "t": "HOT CAKES",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pszEgBKtcYM",
+     "titre": "Cómo Hacer Hot Cakes Ligeros y Esponjados",
+     "chaine": "Jauja Cocina Mexicana",
+     "vues": "4.3 M de vistas",
+     "date": "hace 8 años",
+     "duree": "5:03",
+     "avatar": "https://yt3.ggpht.com/xhd9189-fhB72zaEyB7rOEEvQSJ0OYxGHMtggzFFr53R44wLppB-PM3672jcd5vOwYHe6o8Hcg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "USMAŻYĆ",
+     [
+      {
+       "t": "PANCAKES",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "z6D4JISmYdY",
+     "titre": "Najlepszy przepis na PANCAKES 👌 delikatne i puszyste amerykańskie naleśniki 👍 pyszne śniadanie",
+     "chaine": "Sprint Cooking",
+     "vues": "2,2 mln wyświetleń",
+     "date": "6 lat temu",
+     "duree": "4:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lIqa1VrZ4VZwZXaaCVFMHget4w9gSUQISWymUedOOCs9Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "AMERICKÉ",
+     [
+      {
+       "t": "PALACINKY",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1OqgKlF9nMo",
+     "titre": "Americké palacinky | Viktor Nagy | rýchlovečky",
+     "chaine": "Viktor Nagy",
+     "vues": "32 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "2:19",
+     "avatar": "https://yt3.ggpht.com/gO9ynpQ6mVhZ3VKO8YbJJ1Asywl3-jli9LwBBApEIZZk2z4uM4kd9kMbK15xHTwTyCM2wu5X=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "AMERIČKE",
+     [
+      {
+       "t": "PALAČINKE",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JqbNU3wHKqQ",
+     "titre": "NAJBOLJI RECEPT ZA AMERIČKE PALAČINKE💥Uvijek uspiju❗️AMERICAN PANCAKES",
+     "chaine": "Jednostavna kuhinja",
+     "vues": "96 tis. pregleda",
+     "date": "prije 1 godine",
+     "duree": "5:32",
+     "avatar": "https://yt3.ggpht.com/rX3d8EKCuXTDyfe00AG6DLyTnT8a-3lY4BHUZM9uaVHJdJbH6wrY7C32Ur2dvEpfkJabDmaxUw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "AMERIKANSKA",
+     [
+      {
+       "t": "PANNKAKOR",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wMhJ6Seuvtk",
+     "titre": "Det bästa receptet på fluffiga amerikanska pannkakor!",
+     "chaine": "ICA-köket",
+     "vues": "45 tn visningar",
+     "date": "för 5 år sedan",
+     "duree": "1:30",
+     "avatar": "https://yt3.ggpht.com/B9KHqIzLraCWhrx4FWarEdciGVLoZU0b1uEFB6RwTApUigVQpR5q1cLTYi6oLAa0KS3IGT0-YQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "AMERIKĀŅU",
+     [
+      {
+       "t": "PANKŪKAS",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NTazMaqhQ54",
+     "titre": "Amerikāņu pankūkas (Pancakes)",
+     "chaine": "Receptes Video Virtuve",
+     "vues": "21 tūkst. skatījumu",
+     "date": "pirms 10 gadiem",
+     "duree": "2:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n2HpAB5lc6Cr2ZrWfuchTrxPkUs7kfRvwaGNj_LBFFH60=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min, lai iemācītos"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "S'ÉTIRER",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "LE MATIN"
+    ],
+    "video": {
+     "id": "BNJuv209-yc",
+     "titre": "Etirements du matin: routine du matin - Exercices de #kiné",
+     "chaine": "Doctissimo",
+     "vues": "657 k vues",
+     "date": "il y a 6 ans",
+     "duree": "7:53",
+     "avatar": "https://yt3.ggpht.com/kwtE8Vn8ftjY9h_X-MOFnAfn_Y9_LJh3Z4XgDfZNYi0olO-T97DGnj4zHgiyd-myRauzOQQwXpY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "STRETCH",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "IN THE MORNING"
+    ],
+    "video": {
+     "id": "gx8Exu10Q0Q",
+     "titre": "10 min Morning Yoga Full Body Deep Stretch",
+     "chaine": "Yoga with Kassandra",
+     "vues": "1.1M views",
+     "date": "7 years ago",
+     "duree": "13:23",
+     "avatar": "https://yt3.ggpht.com/WhS9NJxvfykEmhpyPYw0d14bA3hAKBzbey_PZcKoVX9zygqmduKATnH_EL1q_W4en_XVAooomKI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "DEHNEN",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "AM MORGEN"
+    ],
+    "video": {
+     "id": "iKaYvJTEJsA",
+     "titre": "10 Minuten Morgenroutine – sanfte Yoga-Alternative",
+     "chaine": "Liebscher & Bracht | Die Schmerzspezialisten",
+     "vues": "1,6 Mio. Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "10:14",
+     "avatar": "https://yt3.ggpht.com/MOahju_wgrrre052CsVF5BZ3lJ1NOXwcg3GHQvoLIWBMq8kEL2xMh72Hld4fqUZms6Lnpcva7w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "STRETCHING",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "AL MATTINO"
+    ],
+    "video": {
+     "id": "stny7E_FsHU",
+     "titre": "⏰ ☀️ Routine di 10 min con me per rigidità e dolore mattutino 😊",
+     "chaine": "AlmaPhysio",
+     "vues": "331K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "13:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kyAccgqOOZwoFi2Nx59Lf2j4hj1TDaBtoS4K0RmOaFZA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "ALONGAR",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "DE MANHÃ"
+    ],
+    "video": {
+     "id": "GeFobZjgE_4",
+     "titre": "Desperte o corpo em 10 minutos: 21 exercícios de alongamento matinal",
+     "chaine": "TotalPass Brasil",
+     "vues": "19 mil visualizações",
+     "date": "há 6 meses",
+     "duree": "11:45",
+     "avatar": "https://yt3.ggpht.com/wyFTvpY8r4aOFdnRjxm1mkLqFicHsr4VTXraAwqQRy125JCMlPlE27r6qAPPTxhGe9OOYCjW10w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "SABAH",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "ESNEMESİ"
+    ],
+    "video": {
+     "id": "m970B6ZNL3s",
+     "titre": "Yeni Başlayanlar İçin 10 Dakikalık Sabah Yogası ☀ Güne Huzurlu Başla",
+     "chaine": "Elvin ile Yoga",
+     "vues": "2,5 Mn görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "12:13",
+     "avatar": "https://yt3.ggpht.com/Jrhobk4UnRpwJxpkX9qWUZuI8ujUYAwtgiAq0DRQ4T8SP65accux_u8lmjO-jzDfz25rnijFqg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "günde 10 dakika"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "STRETCHING",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "DIMINEAȚA"
+    ],
+    "video": {
+     "id": "SiU3eoXAqn4",
+     "titre": "10 minute de exercitii de stretching pentru acasa - VIDEO",
+     "chaine": "GymSport.ro",
+     "vues": "328 K vizionări",
+     "date": "acum 10 ani",
+     "duree": "13:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nnJZWJ_AKja26ab47elYfzUqEAlmV_u8mcojxxgpJOjg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "PROTAŽENÍ",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "PO RÁNU"
+    ],
+    "video": {
+     "id": "CeieqRzOylM",
+     "titre": "JEDNODUCHÁ RANNÍ JÓGA #1 | 10min | Nenáročné protažení pro všechny",
+     "chaine": "Jóga pod avokádem",
+     "vues": "265 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "9:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_leeDs-l_hwsG7kqctVuoL_Yc62H7eA9sN-OR3JQbYlIQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "REGGELI",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "NYÚJTÁS"
+    ],
+    "video": {
+     "id": "pH6maDTtrAU",
+     "titre": "10 PERC / NYÚJTÁS / REGGELI RUTIN / TESTÉBRESZTŐ / KOLOSZÁR ENIKŐ",
+     "chaine": "Koloszár Enikő",
+     "vues": "218 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "10:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kxglzrcoETgMZWI5JC_evm7D4n5wTuW7D1p2WCHtisow=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "napi 10 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΔΙΑΤΑΣΕΙΣ",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "ΤΟ ΠΡΩΙ"
+    ],
+    "video": {
+     "id": "8dgcQnapMS0",
+     "titre": "Πρωινές διατάσεις στο κρεβάτι - Fitness Project",
+     "chaine": "FitnessProject",
+     "vues": "48 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "7:26",
+     "avatar": "https://yt3.ggpht.com/zDUS3G_yxI2AEOiAcnpNORzUIV2vBkf7yK8xmnGHrTpghJMSrs1j8gIUf8dKLvsmZ3-ZVXPV=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "ISTEZANJE",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "UJUTRU"
+    ],
+    "video": {
+     "id": "ZdlL2s1hznw",
+     "titre": "10 Minuta Jutarnjeg Istezanja l Joga vezbe za istezanje celog tela I Samo Joga",
+     "chaine": "Samo Joga",
+     "vues": "103 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "11:18",
+     "avatar": "https://yt3.ggpht.com/pzYAY78HpRiguyFFrToJy1n4ZBEHT1hxwWS3wAsRZKuGiQ-ZCCVsKNC95wHzOnZ7U1vGG6j1nAw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min dnevno"
+    ]
+   },
+   "es": {
+    "titre": [
+     [
+      {
+       "t": "ESTIRARTE",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "POR LA MAÑANA"
+    ],
+    "video": {
+     "id": "ZUa-FT1SQrg",
+     "titre": "10 min de estiramientos por la mañana para todo el cuerpo | Yoga para despertar | Anabel Otero",
+     "chaine": "Anabel Otero",
+     "vues": "871 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "10:27",
+     "avatar": "https://yt3.ggpht.com/zkO-32K0z_w1wmprB042X4GGauQ_aMx4rf4iQey9HDemlmLiBHRqUqVrHRatBn5sQ9vrDokYd6s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min al día"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     [
+      {
+       "t": "ESTIRARTE",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "EN LA MAÑANA"
+    ],
+    "video": {
+     "id": "uGFlnRlqzM8",
+     "titre": "Rutina para Empezar el Día ☀️ de la Mejor Forma 😍 - 10 minutos",
+     "chaine": "Sientete Bien",
+     "vues": "357 k vistas",
+     "date": "hace 4 años",
+     "duree": "10:35",
+     "avatar": "https://yt3.ggpht.com/FZwInlP0jQZwVpRuo8aCJidFORxJAVI6oWH47VcwlCV8TA9DLqVsyoH7uF_-BXIeUZhOibLQqg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min al día"
+    ]
+   },
+   "pl": {
+    "titre": [
+     [
+      {
+       "t": "ROZCIĄGANIE",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "RANO"
+    ],
+    "video": {
+     "id": "M1ZlqMt-OQ4",
+     "titre": "Poranna Joga na Dzień Dobry! 10-minutowe Ćwiczenia dla Ciała i Umysłu",
+     "chaine": "Małgorzata Mostowska",
+     "vues": "908 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "10:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nR2AL_525oTEMYSKCFJGkm0dkXkJ9uj9orqmfHguTE_w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min dziennie"
+    ]
+   },
+   "sk": {
+    "titre": [
+     [
+      {
+       "t": "STREČING",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "RÁNO"
+    ],
+    "video": {
+     "id": "mCfhe4CvcRE",
+     "titre": "10 min Cvičenie na dobré ráno - Ranné rozhýbanie",
+     "chaine": "schwenkovastudio",
+     "vues": "7 tis. zhliadnutí",
+     "date": "pred 1 rokom",
+     "duree": "10:43",
+     "avatar": "https://yt3.ggpht.com/U0mpqwbC2dCNxGia2x6g1Btlmy3VdD0EMcU3Zj6Ipe5hJrYQSGILDQNLKso8snGkTKYLj9-H=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min denne"
+    ]
+   },
+   "hr": {
+    "titre": [
+     [
+      {
+       "t": "ISTEZANJE",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "UJUTRO"
+    ],
+    "video": {
+     "id": "C8eGV23KO0A",
+     "titre": "Vježbe istezanja ( Stretching exercise) - Ivica Bošković",
+     "chaine": "Ivica Bošković Fitness",
+     "vues": "526 tis. pregleda",
+     "date": "prije 11 godina",
+     "duree": "8:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lDPsg_mkPx7eSBdYgnSi_rM6rm_W7G6GlJNqX5ho80Wwo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min dnevno"
+    ]
+   },
+   "sv": {
+    "titre": [
+     [
+      {
+       "t": "STRETCHA",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "PÅ MORGONEN"
+    ],
+    "video": {
+     "id": "HvKOiLqI-SY",
+     "titre": "10 MIN MORGONSTRETCH - Enkel Rutin För Att Vakna & Må Bra",
+     "chaine": "Emma Moves",
+     "vues": "20 tn visningar",
+     "date": "för 4 år sedan",
+     "duree": "10:16",
+     "avatar": "https://yt3.ggpht.com/IrWMsQtLq6D2APSDIebKrzXHg8E2UBfgz22KWwpRvkqqr2XZbt41JLZKoKlmYFgBmc8tB_yyYg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min om dagen"
+    ]
+   },
+   "lv": {
+    "titre": [
+     [
+      {
+       "t": "STIEPŠANĀS",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "NO RĪTA"
+    ],
+    "video": {
+     "id": "VwjbuiESO1U",
+     "titre": "VINGRO AR ANNU Rīta vingrošana",
+     "chaine": "BOOM FM",
+     "vues": "136 tūkst. skatījumu",
+     "date": "pirms 11 gadiem",
+     "duree": "5:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtYZ5k2LXUfArm1CaHktQuAI5va1_NIfeo4y28he_nofw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min dienā"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "SCROLLER",
+     [
+      {
+       "t": "UTILE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SCROLL",
+     [
+      {
+       "t": "SMARTER",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SINNVOLL",
+     [
+      {
+       "t": "SCROLLEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SCROLLARE",
+     [
+      {
+       "t": "CON CERVELLO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ROLAR O FEED",
+     [
+      {
+       "t": "COM PROPÓSITO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "FAYDALI",
+     [
+      {
+       "t": "KAYDIRMAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SCROLL",
+     [
+      {
+       "t": "CU FOLOS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SCROLLOVAT",
+     [
+      {
+       "t": "S UŽITKEM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HASZNOSAN",
+     [
+      {
+       "t": "GÖRGETNI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "rövid leckék, valódi",
+      "tanárok tollából."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΣΚΡΟΛΑΡΙΣΜΑ",
+     [
+      {
+       "t": "ΜΕ ΝΟΗΜΑ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "σύντομα μαθήματα",
+      "από αληθινούς καθηγητές."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "SKROLOVATI",
+     [
+      {
+       "t": "SA SMISLOM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   },
+   "es": {
+    "titre": [
+     "HACER SCROLL",
+     [
+      {
+       "t": "CON CABEZA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "cursos cortos escritos",
+      "por profesores de verdad."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER SCROLL",
+     [
+      {
+       "t": "CON SENTIDO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "clases cortas escritas",
+      "por profesores de verdad."
+     ]
+    },
+    "sous": [
+     "5 min al día"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "SCROLLOWAĆ",
+     [
+      {
+       "t": "Z SENSEM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krótkie lekcje od",
+      "prawdziwych nauczycieli."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "SCROLLOVAŤ",
+     [
+      {
+       "t": "S ÚŽITKOM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátke lekcie od",
+      "skutočných učiteľov."
+     ]
+    },
+    "sous": [
+     "5 min denne"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "SKROLATI",
+     [
+      {
+       "t": "SA SMISLOM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "SCROLLA",
+     [
+      {
+       "t": "SMARTARE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "korta lektioner skrivna",
+      "av riktiga lärare."
+     ]
+    },
+    "sous": [
+     "5 min om dagen"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "RITINĀT",
+     [
+      {
+       "t": "AR JĒGU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "īsas nodarbības, ko raksta",
+      "īsti skolotāji."
+     ]
+    },
+    "sous": [
+     "5 min dienā"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "BOUTURER",
+     [
+      {
+       "t": "UNE PLANTE",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rAw-_MsM5x8",
+     "titre": "Comment bouturer une plante d’intérieur ? - Truffaut",
+     "chaine": "TRUFFAUT",
+     "vues": "173 k vues",
+     "date": "il y a 7 ans",
+     "duree": "5:36",
+     "avatar": "https://yt3.ggpht.com/G5wa_QDyZ9UMIHr8CaplXdO_SeFWsP8Zr7_cZ_vj5fof6guJUuNfy8dj8D4kk3mr7gPH2LOCLXk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PROPAGATE",
+     [
+      {
+       "t": "A PLANT",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WHiv1OvXGcI",
+     "titre": "How to Propagate Plants: 4 Methods to Master",
+     "chaine": "Epic Gardening",
+     "vues": "951K views",
+     "date": "4 years ago",
+     "duree": "16:14",
+     "avatar": "https://yt3.ggpht.com/-DfZ-F2f6J6_m0CPxfQrjU5mYVzDjfRYVgSgNSF4HOf9WEWNpzl7rLptonX37GSPqZU7GC_19w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "STECKLINGE",
+     [
+      {
+       "t": "ZIEHEN",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "clvUx-QITQo",
+     "titre": "EFEUTUTE: Ganz einfach Ableger machen - Anleitung + Pflegetipps",
+     "chaine": "Green Me Up",
+     "vues": "143.738 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "3:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mZm37VtbJ-XtMJfj-ByzwVqjePKU9xkr_aM4uXGjOWNA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "UNA TALEA",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LECh4JH_P_o",
+     "titre": "Fare TALEE per PIANTE INFINITE. Trucchi e consigli🌱",
+     "chaine": "Bosco di Ogigia",
+     "vues": "287K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "10:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lUPBkPF0fNNpqnQTajyV5FCN0rZjWySDK5zibDTCuMw9I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "MUDAS",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DvKOCTCnjZ0",
+     "titre": "Como fazer ESTAQUIA (CORRETAMENTE) | Reprodução por estacas | Como fazer mudas de SUNPATIENS",
+     "chaine": "Hora da Roça",
+     "vues": "68 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "13:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lDFKTfqX93bBvTH8FlYXyQsvBF0CW3TbG_Vi-6x6ZymA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ÇELİKLE",
+       "couleur": "#8a5bb5"
+      }
+     ],
+     "BİTKİ ÇOĞALTMAK"
+    ],
+    "video": {
+     "id": "BGBupXui5x4",
+     "titre": "Gül Köklendirme (Çelik ile Bitki Çoğaltma)",
+     "chaine": "Gelecek Tarımda",
+     "vues": "403 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "12:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nguyYVUseAj01zN_FHlNUaUcoF8p_nkICDSwMw6u_uhDU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "BUTAȘI",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "A8tmHs4r-zw",
+     "titre": "Înmulțirea mușcatelor prin butași | Stimularea creșterii rădăcinilor în apă cu drojdie de bere",
+     "chaine": "La Tara",
+     "vues": "218 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "4:52",
+     "avatar": "https://yt3.ggpht.com/DvzjbuMTrGAOJCIO0kUyIJICy7dNaSMpuvr7Hy3NH2lurmf7tKtT2E9-KaxQCLoM46X3H625OQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ŘÍZKOVAT",
+     [
+      {
+       "t": "ROSTLINY",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "42LCWTx3FWM",
+     "titre": "PřF UJEP uvádí: Jak množit rostliny řízkováním",
+     "chaine": "Univerzita Jana Evangelisty Purkyně v Ústí nad Labem (UJEP)",
+     "vues": "34 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "1:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kRar4GBLLAfV9ZNJTqglbH4-oJK4igIdNQU0Cz3jfNbw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "NÖVÉNYT",
+     [
+      {
+       "t": "DUGVÁNYOZNI",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5CmQkUSqbrA",
+     "titre": "Növények szaporítása - Dugványozás   Megyeri Szabolcs",
+     "chaine": "Megyeri Szabolcs kertész",
+     "vues": "177 E megtekintés",
+     "date": "12 évvel ezelőtt",
+     "duree": "3:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kopUVP71ZUib5HPZEUTmwbgN2lWFg3xAsOTKM1jjUBCZ8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΚΑΝΕΙΣ",
+     [
+      {
+       "t": "ΜΟΣΧΕΥΜΑΤΑ",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "o-TQkCq_b_Q",
+     "titre": "Πολλαπλασιασμός με μοσχεύματα",
+     "chaine": "bioprasino.gr",
+     "vues": "310 χιλ. προβολές",
+     "date": "πριν από 13 έτη",
+     "duree": "3:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kZjYoyky3zIDbjjyMHBo-4PxLlzQ6oQeed8Zmmilg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "RAZMNOŽITI",
+     [
+      {
+       "t": "BILJKU",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EzsoKCa4jjk",
+     "titre": "Kako razmnožiti lovor višnju sa reznicama",
+     "chaine": "Život na bregu",
+     "vues": "53 hilj. pregleda",
+     "date": "pre 2 godine",
+     "duree": "1:36",
+     "avatar": "https://yt3.ggpht.com/sv58o3TjlRK4hWBXlMV8WDpV2shzjr-fMG5T--xh5HX6iiAsjHs6yTxcfbVe9sL0haVApNwK=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "HACER",
+     [
+      {
+       "t": "ESQUEJES",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XQOU1KIcTxM",
+     "titre": "Cómo hacer ESQUEJES en AGUA 💧🌱 para principiantes en 3 pasos 🌿 #LdN #agriCULTURA",
+     "chaine": "Laderas del Naranco - Fruticultura & Jardinería",
+     "vues": "230 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "7:34",
+     "avatar": "https://yt3.ggpht.com/aoaU5c_YSqC0dVuCtYCVTPfnBmNgUZZeSfa-8EL94n8sfDz11uDKV9zuWXMPvjMLKmd9MHKGYw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "HACER",
+     [
+      {
+       "t": "ESQUEJES",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tLeDRA_Zo74",
+     "titre": "COMO REPRODUCIR CUALQUIER PLANTA // ESQUEJES 🌱🌱🌱",
+     "chaine": "El Guardian de la Tierra",
+     "vues": "517 k vistas",
+     "date": "hace 3 años",
+     "duree": "11:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nm-B7Ao4bDsbztQz1UTzDoygVDGFirpCTgR_tOPmWM5V8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "ROZMNAŻAĆ",
+     [
+      {
+       "t": "ROŚLINY",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "opmUqA2aB7k",
+     "titre": "Rozmnażanie roślin przez sadzonki zdrewniałe",
+     "chaine": "Zielone Pogotowie",
+     "vues": "236 tys. wyświetleń",
+     "date": "8 lat temu",
+     "duree": "7:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lZX3JDGVgJioXSrk1i33k8HHZxIA6wQEUhVYm3SmCOBw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 godzina nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ROZMNOŽIŤ",
+     [
+      {
+       "t": "RASTLINU",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SyGCvGNXLsQ",
+     "titre": "Rozmnožovanie rastlín | 4 jednoduché spôsoby ako si rozmnožiť rastlinky",
+     "chaine": "Datľová Palma",
+     "vues": "5,3 tis. zhliadnutí",
+     "date": "pred 4 rokmi",
+     "duree": "14:01",
+     "avatar": "https://yt3.ggpht.com/Y_fssXvluCNLk8vHP-2Lj7_Vz1V-hPfcuFSY6pEdkyANC81Hid8r52qusHYVqNRc8VWbEJXU3Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "RAZMNOŽITI",
+     [
+      {
+       "t": "BILJKU",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "W9n2pKa0S1o",
+     "titre": "Razmnožavanje reznicama - Vrtlarska Radionica by Pevex",
+     "chaine": "Pevex",
+     "vues": "16 tis. pregleda",
+     "date": "prije 3 godine",
+     "duree": "11:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lesWaPMxrHYeTf85AXfLoV1h75-dM4xc91bsS4k8OYE_k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "TA",
+     [
+      {
+       "t": "STICKLINGAR",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Iy-uAvxjMK8",
+     "titre": "Pelargonsticklingar. Pelargoner -sticklingar- så här tar du egna!",
+     "chaine": "OdlingsTV",
+     "vues": "81 tn visningar",
+     "date": "för 11 år sedan",
+     "duree": "4:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nwlX--yIu9xn3UyBOhRQQqiJsFmK5mnXagI-Etkg6uPDs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 timme att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "PAVAIROT",
+     [
+      {
+       "t": "AUGUS",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9tHBF4oXCg0",
+     "titre": "Tradeskancijas pavairošana - tas ir tik vienkārši!",
+     "chaine": "SAPŅU FAZENDA",
+     "vues": "32 skatījumi",
+     "date": "pirms 8 mēnešiem",
+     "duree": "0:45",
+     "avatar": "https://yt3.ggpht.com/QbhRej5gCPIroGesRFS1srcC_mfA3JcouYiR0MM_bcORU2Hkz0-BP_7nU8Ng81oUC8RWQh8iGA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 stunda, lai iemācītos"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉUSSIR SES",
+     [
+      {
+       "t": "ŒUFS BROUILLÉS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "I6D9Xkq7ELo",
+     "titre": "Oeufs Brouillés : La Recette Ultime en 3 Styles Internationaux - Cuisine Facile et Astuces de Chef!",
+     "chaine": "A table Juju",
+     "vues": "147 k vues",
+     "date": "il y a 2 ans",
+     "duree": "5:30",
+     "avatar": "https://yt3.ggpht.com/mmQgTkOMavHCzTKILgZLt0YPXvkZkb50jY8bMUP-rrHb7g75nScVqyE16QgcrbODryICy--LWQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PERFECT",
+     [
+      {
+       "t": "SCRAMBLED EGGS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yKUui_b7JO0",
+     "titre": "Perfect Scrambled Eggs | Jamie Oliver",
+     "chaine": "Jamie Oliver",
+     "vues": "372K views",
+     "date": "9 months ago",
+     "duree": "5:26",
+     "avatar": "https://yt3.ggpht.com/Lb4KeGhwQOyXb-CAVJqBEmDQk0PXQyUsDvnH6CzuEYCEHYGeJnKlwmaL9HQtpKs4mn6agKgaxVQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DAS PERFEKTE",
+     [
+      {
+       "t": "RÜHREI",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-8nCbsN8aeQ",
+     "titre": "Das perfekte Rührei machen | So einfach geht's | REWE Deine Küche",
+     "chaine": "REWE Deine Küche",
+     "vues": "1,6 Mio. Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "3:29",
+     "avatar": "https://yt3.ggpht.com/6ICLmrRXwxYi-Dtkm5yu8BPBeGYEwYsAGj5a3sP6dUOUNZir2D3Pz7EkOoG4dgxN17AT0z9k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "UOVA",
+     [
+      {
+       "t": "STRAPAZZATE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MOi989SM3jg",
+     "titre": "UOVA STRAPAZZATE PERFETTE: come averle CREMOSE in 2 minuti ✨",
+     "chaine": "Cookist",
+     "vues": "152K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "1:02",
+     "avatar": "https://yt3.ggpht.com/WPNJIVZN7XwPf0_7encqZocDjPzLB6Niz0H8JEQbIx2lFChAG1zFEqBbrzMZUo_m4rHm3KlqbJk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "OVOS",
+     [
+      {
+       "t": "MEXIDOS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DNVeRo34Efg",
+     "titre": "OVO MEXIDO DE HOTEL BEM CREMOSO E ÚMIDO | Cook'n Enjoy 1035",
+     "chaine": "Cook'n Enjoy",
+     "vues": "234 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "3:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kPQ7r_sdP2rFTkPq8x19Ixbg3PDFdfMFr6yB6Kh9aynwE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ÇIRPILMIŞ",
+       "couleur": "#c2393d"
+      }
+     ],
+     "YUMURTA"
+    ],
+    "video": {
+     "id": "y6mgdnHhrVs",
+     "titre": "Çırpılmış Yumurta'nın Sırrını Veriyorum! | Scrambled Eggs Tarifi - Arda'nın Mutfağı",
+     "chaine": "Arda'nın Mutfağı",
+     "vues": "336 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "4:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lk24AhOAPMb7_W6kAaMBVn-rJrBwpsVkgvJuIq5pR_W9s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "OUĂ",
+     [
+      {
+       "t": "JUMĂRI",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qW1YKVGBX7M",
+     "titre": "Cum se prepara Oua jumari",
+     "chaine": "GatesteUsor",
+     "vues": "25 K vizionări",
+     "date": "acum 10 ani",
+     "duree": "3:11",
+     "avatar": "https://yt3.ggpht.com/GKoD-xAAsxvFLMfUOKZunBw1GSL28BQOIci8bMXN6ROqRP_qVwt5kWyX609fCQLVTmUWC2K5=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MÍCHANÁ",
+     [
+      {
+       "t": "VAJÍČKA",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ACgGuQOiMK8",
+     "titre": "Míchaná vajíčka na tři způsoby",
+     "chaine": "Těhotnej kuchař",
+     "vues": "234 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "2:27",
+     "avatar": "https://yt3.ggpht.com/QLOVgWKTOteXiN-R5kWh5VD68bfD1-EDPnHHxAqvcoMC5UczA2qbxdEK3bh5fv8DyyD0YQA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TÖKÉLETES",
+     [
+      {
+       "t": "RÁNTOTTA",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PgGjpBgrplI",
+     "titre": "🥚RÁNTOTTA🍳 kisokos - így lesz perfekt a végeredmény!",
+     "chaine": "Street Kitchen",
+     "vues": "34 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "2:15",
+     "avatar": "https://yt3.ggpht.com/3fJMKfBUrEM8w4WhBqBI-Md-eoeRjHcnuQZ9EGOOtgDa2nRkBRrVRwop9sZ-SlvEBei7E0lT0Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΤΕΛΕΙΑ",
+     [
+      {
+       "t": "ΧΤΥΠΗΤΑ ΑΥΓΑ",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "i1IXq_1VBWs",
+     "titre": "Scrambled Eggs από τον Χριστόφορο Πέσκια | Γαστρονόμος",
+     "chaine": "Γαστρονόμος",
+     "vues": "96 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "1:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lLtQS1y2YrYEj4PApTzZtmRjwv9HdmIb4KaShek8BoIos=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "SAVRŠENA",
+     [
+      {
+       "t": "KAJGANA",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hx87b5GH9r4",
+     "titre": "Kako se pravi Kajgana - Savršen doručak",
+     "chaine": "Najbolji domaći recepti",
+     "vues": "174 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/H9NlYiNskl2FQ3-VnrKjdgEsvEE4Fn6ICNTNP7U4vi3juxGCjD4cHMW2U12SJnN1U7nyK5Gjuw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   },
+   "es": {
+    "titre": [
+     "HUEVOS",
+     [
+      {
+       "t": "REVUELTOS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6mWvl99IS7g",
+     "titre": "Cómo hacer unos huevos revueltos perfectos | EL COMIDISTA",
+     "chaine": "El Comidista en EL PAÍS",
+     "vues": "81 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "2:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l1NWWAJOSqQJRAW_MwBOy12jhQLHTLiWaaok_g2b8lqg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "HUEVOS",
+     [
+      {
+       "t": "REVUELTOS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4TyfZli-n_c",
+     "titre": "HUEVOS REVUELTOS PERFECTOS - ¡Huevo, Paulina!",
+     "chaine": "Paulina Cocina",
+     "vues": "1.3 M de vistas",
+     "date": "hace 7 años",
+     "duree": "4:51",
+     "avatar": "https://yt3.ggpht.com/P0V5-Jm1Fy52BElhuvjpUnhCWa0rUZ7s7021beosWE5WgUQlvkgl7L8Z8durFuthhGh0MxpGsw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "IDEALNA",
+     [
+      {
+       "t": "JAJECZNICA",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "B2hG7a2l3cE",
+     "titre": "Jajecznica i trzy techniki jej robienia. Którą ty wybierasz?",
+     "chaine": "Tata Rządzi W Kuchni",
+     "vues": "86 tys. wyświetleń",
+     "date": "1 rok temu",
+     "duree": "6:27",
+     "avatar": "https://yt3.ggpht.com/MoVNe83hNdI95fiHdZVIffVLfjdFqQgtMxvfRuu5Xu8UHC9_GbiNGRkT93wS4vywQrqgn0SRQw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min nauki"
+    ]
+   },
+   "sk": {
+    "titre": [
+     "DOKONALÁ",
+     [
+      {
+       "t": "PRAŽENICA",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RpE_HmZEFzk",
+     "titre": "Najlepšie miešané vajíčka | Viktor Nagy | recepty",
+     "chaine": "Viktor Nagy",
+     "vues": "14 tis. zhliadnutí",
+     "date": "pred 4 rokmi",
+     "duree": "2:31",
+     "avatar": "https://yt3.ggpht.com/gO9ynpQ6mVhZ3VKO8YbJJ1Asywl3-jli9LwBBApEIZZk2z4uM4kd9kMbK15xHTwTyCM2wu5X=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučenie"
+    ]
+   },
+   "hr": {
+    "titre": [
+     "SAVRŠENA",
+     [
+      {
+       "t": "KAJGANA",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1yp25o7HMeE",
+     "titre": "Pecena jaja, omlet, kajgana, kako ih ispeci da budi do jaja",
+     "chaine": "PhronesisHR",
+     "vues": "20 tis. pregleda",
+     "date": "prije 4 godine",
+     "duree": "2:07",
+     "avatar": "https://yt3.ggpht.com/K19ugs7wpk30xXuyYqaie5Y9SrrW8QhZBDVzgSqHNdq2AxMibC93Vh2JRB3skKqcYtBagPvA-Ow=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   },
+   "sv": {
+    "titre": [
+     "PERFEKT",
+     [
+      {
+       "t": "ÄGGRÖRA",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4w0wVJ_zsac",
+     "titre": "Äggröra | Leif Mannerström",
+     "chaine": "Leif Mannerström",
+     "vues": "115 tn visningar",
+     "date": "för 4 år sedan",
+     "duree": "7:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwg7-DZ3A46ui0_gLF_0UKErc6CrTdMlEEWMnn-BLh5A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min att lära sig"
+    ]
+   },
+   "lv": {
+    "titre": [
+     "OLU",
+     [
+      {
+       "t": "KULTENIS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SZYr3iPKmTk",
+     "titre": "Olu kultenis ar bekonu – brokastu maizīte",
+     "chaine": "Pa čīpo receptes",
+     "vues": "1 tūkst. skatījumu",
+     "date": "pirms 6 gadiem",
+     "duree": "4:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mfEi2unjzQ8XfQdHLZBNDWm7C11KHhs0Qtx8wsPEKJHA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min, lai iemācītos"
+    ]
+   }
+  }
+ ]
+}

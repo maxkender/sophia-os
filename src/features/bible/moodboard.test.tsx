@@ -373,8 +373,11 @@ describe("page Bible", () => {
     fireEvent.change(screen.getByLabelText("Label"), { target: { value: "__nouveau__" } });
     fireEvent.change(screen.getByPlaceholderText("nom_du_label"), { target: { value: "tableaux secrets" } });
     fireEvent.click(screen.getByRole("checkbox", { name: /Créer ce label dans l'OS tout de suite/ }));
+    // Le nom ne dit pas le genre des comptes : il faut le choisir (26/11), sinon on ne peut pas envoyer.
+    expect(screen.getByRole("button", { name: "Envoyer" })).toBeDisabled();
+    fireEvent.change(screen.getByLabelText("Genre des comptes"), { target: { value: "femme" } });
     fireEvent.click(screen.getByRole("button", { name: "Envoyer" }));
-    await waitFor(() => expect(api.creerCarte).toHaveBeenCalledWith({ nom: "tableaux_secrets", section: "sophia", description: "" }));
+    await waitFor(() => expect(api.creerCarte).toHaveBeenCalledWith({ nom: "tableaux_secrets", section: "sophia", description: "", genre: "femme" }));
     await waitFor(() => expect(api.validerCarte).toHaveBeenCalledWith("k8"));
     await waitFor(() => expect(prop.passerDansLaBible).toHaveBeenCalledWith("p6", "prochain_batch", expect.objectContaining({ id: "k8", label_id: "L8", badge: "existe" })));
 
@@ -490,7 +493,9 @@ describe("page Bible", () => {
     fireEvent.click(dansMenu(bloc, "Modifier ou rattacher"));
     fireEvent.change(await screen.findByLabelText("Nom du label"), { target: { value: "clean girl sophia" } });
     fireEvent.click(screen.getByRole("button", { name: "Enregistrer" }));
-    await waitFor(() => expect(api.modifierCarte).toHaveBeenCalledWith("k2", { nom: "clean_girl_sophia", section: "sophia", description: "Coureuse en photo iPhone" }));
+    // « girl » dans le nom : le genre est pré-rempli.
+    expect(screen.getByLabelText("Genre des comptes")).toHaveValue("femme");
+    await waitFor(() => expect(api.modifierCarte).toHaveBeenCalledWith("k2", { nom: "clean_girl_sophia", section: "sophia", description: "Coureuse en photo iPhone", genre: "femme" }));
   });
 
   it("rattacher à un label d'une autre app, ou qui a déjà son bloc : prévenu et confirmé avant ; les comptes versés ailleurs se rendent depuis le bloc", async () => {

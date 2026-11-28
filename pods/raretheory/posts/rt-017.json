@@ -1,0 +1,159 @@
+{
+  "id": "rt-017",
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "places on earth u'll want to look up immediately"
+  },
+  "legendes": {
+    "en": "the world is so much weirder than the map in ur classroom.\n\nborders that make no sense, the most extreme places people live, lands that disappeared under the sea, maps that lied, and islands almost nobody visits.\n\npick one, look it up, and try not to fall into the next one.\n\nsave this for ur next bored afternoon.\n\n#geography #learning #curiosity #studytok #selfimprovement"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/carte-ancienne.jpg": "c1aa57f6-69b2-47ed-81a0-94717282f68a",
+    "images/banque/main-globe.jpg": "67c65287-781e-4234-8729-b719ffc8bb10"
+  },
+  "notes": "Full test, sans post source : format et famille de @raretheory_ (« topic to research when u're bored », 652,5 k et 151,1 k), même gabarit, même musique. Accroche neuve. Lieux et notions réels, vérifiés ; aucune frontière disputée ni conflit (Bir Tawil est une terre non revendiquée). Slide Sophia (4, « 03 — before i look things up ») : son LOGO, jamais une capture ; cta B. Photos : carte ancienne des Caraïbes (c1aa57f6, cartouches vides), main posée sur un globe dans un portrait ancien (67c65287, sans visage).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/carte-ancienne.jpg",
+          "cadrage": {
+            "y": 0.45
+          }
+        },
+        {
+          "image": "images/banque/main-globe.jpg",
+          "cadrage": {
+            "x": 0.6,
+            "y": 0.6
+          }
+        }
+      ],
+      "en": {
+        "titre": "places on earth u'll\nwant to look up",
+        "sous_titre": "immediately"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Borders That Make No Sense",
+        "sujets": [
+          "Baarle-Hertog and Baarle-Nassau",
+          "Point Roberts",
+          "Llívia",
+          "Märket Island",
+          "Pheasant Island",
+          "The Diomede Islands",
+          "Four Corners",
+          "Jungholz",
+          "Büsingen am Hochrhein",
+          "Campione d'Italia",
+          "Bir Tawil",
+          "Treriksröset"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Extreme Places",
+        "sujets": [
+          "Oymyakon",
+          "The Atacama Desert",
+          "Mawsynram",
+          "The Dead Sea",
+          "Mount Chimborazo",
+          "Point Nemo",
+          "La Rinconada",
+          "Longyearbyen",
+          "Tristan da Cunha",
+          "Lake Vostok",
+          "The Lut Desert",
+          "Thor Peak"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "before i look things up",
+        "paragraphes": [
+          "before i go down a rabbit hole, i do the 10-minute lesson on Sophia. one short lesson a day: history, philosophy, science, geopolitics, literature, economics.",
+          "each one is written by actual professors and ends with a little quiz. geography was never my thing. now it's the part i look forward to."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Lost Worlds",
+        "sujets": [
+          "Doggerland",
+          "Zealandia",
+          "Beringia",
+          "The Green Sahara",
+          "Lake Agassiz",
+          "Pangaea",
+          "Gondwana",
+          "The Messinian Salinity Crisis",
+          "The Zanclean Flood",
+          "Sundaland",
+          "The Missoula Floods",
+          "Lake Bonneville"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Maps & Mapmaking",
+        "sujets": [
+          "The Gall-Peters Projection",
+          "Null Island",
+          "Phantom Islands",
+          "Sandy Island",
+          "Trap Streets",
+          "Agloe, New York",
+          "The Dymaxion Map",
+          "Hy-Brasil",
+          "Terra Australis",
+          "California as an Island",
+          "The Tabula Rogeriana",
+          "The Hereford Mappa Mundi"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Islands Almost Nobody Visits",
+        "sujets": [
+          "Surtsey",
+          "The Pitcairn Islands",
+          "Svalbard",
+          "Bouvet Island",
+          "Lake Hillier",
+          "The Faroe Islands",
+          "The Kerguelen Islands",
+          "Palmyra Atoll",
+          "Lord Howe Island",
+          "Ball's Pyramid",
+          "The Galápagos Islands"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this and look up one place tonight. find it on a map, read its story, then pick the next one.",
+        "gras": "OR.. keep thinking the world is boring."
+      }
+    }
+  ]
+}

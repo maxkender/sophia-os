@@ -1,0 +1,158 @@
+{
+  "id": "rt-016",
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "people from history u should actually know about"
+  },
+  "legendes": {
+    "en": "history class taught us the same ten names. there are so many more people worth knowing.\n\nscientists, artists, explorers, writers and builders whose stories are honestly better than most movies.\n\npick one and read their story tonight.\n\nsave this for ur next history rabbit hole.\n\n#history #learning #curiosity #studytok #selfimprovement"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/galerie-tableaux.jpg": "040ef31e-2a48-4544-801c-c9dd135108b4",
+    "images/banque/aquarelle-bougie.jpg": "0a900463-f764-4091-98bb-6f21685eb8d5"
+  },
+  "notes": "Full test, sans post source : format et famille de @raretheory_ (« topic to research when u're bored », 652,5 k et 151,1 k), même gabarit, même musique. Accroche neuve. Personnes réelles, choisies pour leur œuvre ou leurs découvertes (rien de violent ni de politique brûlant). Slide Sophia (5, « 04 — one lesson a night ») : son LOGO, jamais une capture ; cta A. Photos : salle de musée aux tableaux (040ef31e, silhouettes lointaines sans visage), aquarelle et palette à la bougie (0a900463).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/galerie-tableaux.jpg",
+          "cadrage": {
+            "y": 0.5
+          }
+        },
+        {
+          "image": "images/banque/aquarelle-bougie.jpg",
+          "cadrage": {
+            "x": 0.4,
+            "y": 0.6
+          }
+        }
+      ],
+      "en": {
+        "titre": "people from history\nu should actually\nknow about"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Scientists",
+        "sujets": [
+          "Ada Lovelace",
+          "Marie Curie",
+          "Rosalind Franklin",
+          "Nikola Tesla",
+          "Ibn al-Haytham",
+          "Emmy Noether",
+          "Srinivasa Ramanujan",
+          "Katherine Johnson",
+          "Alexander von Humboldt",
+          "Barbara McClintock",
+          "Al-Khwarizmi",
+          "Lise Meitner"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Artists",
+        "sujets": [
+          "Hokusai",
+          "Frida Kahlo",
+          "Hilma af Klint",
+          "Rembrandt",
+          "Johannes Vermeer",
+          "Georgia O'Keeffe",
+          "Henri Matisse",
+          "Sofonisba Anguissola",
+          "Gustav Klimt",
+          "Utagawa Hiroshige",
+          "Berthe Morisot",
+          "Tamara de Lempicka"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Explorers & Travelers",
+        "sujets": [
+          "Ibn Battuta",
+          "Zheng He",
+          "Marco Polo",
+          "Xuanzang",
+          "Leif Erikson",
+          "Isabella Bird",
+          "Nellie Bly",
+          "Ernest Shackleton",
+          "Roald Amundsen",
+          "Matthew Henson",
+          "Sacagawea",
+          "Jacques Cousteau"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "one lesson a night",
+        "paragraphes": [
+          "i don't research all of this from scratch. every night i do one short lesson on Sophia: history, philosophy, science, geopolitics, literature, economics.",
+          "they're written by actual professors, with a little quiz after. a lot of these names, i first heard about there."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Writers",
+        "sujets": [
+          "Murasaki Shikibu",
+          "Sappho",
+          "Christine de Pizan",
+          "Mary Shelley",
+          "Jane Austen",
+          "Leo Tolstoy",
+          "Fyodor Dostoevsky",
+          "Rabindranath Tagore",
+          "Virginia Woolf",
+          "Franz Kafka",
+          "Jorge Luis Borges",
+          "Chinua Achebe"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Inventors & Builders",
+        "sujets": [
+          "Imhotep",
+          "Archimedes",
+          "Leonardo da Vinci",
+          "Hildegard of Bingen",
+          "Avicenna",
+          "Johannes Gutenberg",
+          "Benjamin Franklin",
+          "Isambard Kingdom Brunel",
+          "Grace Hopper",
+          "Buckminster Fuller",
+          "Tim Berners-Lee"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this and pick one person a week. read their story, then tell someone about them.",
+        "gras": "OR.. forget they ever existed."
+      }
+    }
+  ]
+}

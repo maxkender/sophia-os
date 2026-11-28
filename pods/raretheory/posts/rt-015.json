@@ -1,0 +1,159 @@
+{
+  "id": "rt-015",
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "subjects that change how u see the world"
+  },
+  "legendes": {
+    "en": "some subjects don't just teach u facts. they change the way u look at everything.\n\nhow systems work, how other cultures live, why people make the choices they make, how language shapes us, and how the planet keeps itself running.\n\nlearn one and u'll start noticing it everywhere.\n\nsave this for the next time ur bored.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/atlas-ordi.jpg": "396dc9e5-beb1-433e-8467-a1e2642dfa6f",
+    "images/banque/tableau-riviere.jpg": "09180745-9f10-42a7-b420-fc6a7294aefc"
+  },
+  "notes": "Full test, sans post source : format et famille de @raretheory_ (« topic to research when u're bored », 652,5 k et 151,1 k), même gabarit, même musique. Accroche neuve. Notions réelles, vérifiées, rien de violent, médical ou politique brûlant. Slide Sophia (4, « 03 — my daily lesson ») : son LOGO, jamais une capture ; cta C. Photos : atlas ouvert sur un bureau (396dc9e5, cadré sur l'atlas, l'écran hors champ), tableau de paysage au soleil couchant (09180745, domaine public).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/atlas-ordi.jpg",
+          "cadrage": {
+            "x": 0.6,
+            "y": 0.8
+          }
+        },
+        {
+          "image": "images/banque/tableau-riviere.jpg",
+          "cadrage": {
+            "y": 0.5
+          }
+        }
+      ],
+      "en": {
+        "titre": "subjects that change\nhow u see the world",
+        "sous_titre": "one at a time"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Systems Thinking",
+        "sujets": [
+          "Feedback Loops",
+          "Emergence",
+          "The Butterfly Effect",
+          "Tipping Points",
+          "Second-Order Effects",
+          "Unintended Consequences",
+          "The Cobra Effect",
+          "Bottlenecks",
+          "Antifragility",
+          "Complex Adaptive Systems",
+          "Leverage Points"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Anthropology",
+        "sujets": [
+          "Cultural Relativism",
+          "Rites of Passage",
+          "Gift Economies",
+          "The Potlatch",
+          "Kinship Systems",
+          "Dunbar's Number",
+          "Oral Traditions",
+          "Taboos",
+          "Hunter-Gatherer Societies",
+          "The Agricultural Revolution",
+          "Material Culture",
+          "Ethnography"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "my daily lesson",
+        "paragraphes": [
+          "Sophia gives me one lesson a day, written by actual professors, with a little quiz after. history, philosophy, science, geopolitics, literature, economics.",
+          "10 minutes, and most days it gives me one new way of looking at something i see every day."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Economics of Everyday Life",
+        "sujets": [
+          "Incentives",
+          "Scarcity",
+          "Marginal Thinking",
+          "Externalities",
+          "Public Goods",
+          "Price Elasticity",
+          "The Free-Rider Problem",
+          "Moral Hazard",
+          "Signaling",
+          "Diminishing Returns",
+          "The Jevons Paradox",
+          "Planned Obsolescence"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Linguistics",
+        "sujets": [
+          "Universal Grammar",
+          "Language Acquisition",
+          "Code-Switching",
+          "Creole Languages",
+          "Pidgins",
+          "Phonemes",
+          "Tonal Languages",
+          "Language Families",
+          "Calques",
+          "Sign Language Grammar",
+          "Dialect Continua",
+          "How Slang Evolves"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "How the Planet Works",
+        "sujets": [
+          "The Water Cycle",
+          "The Carbon Cycle",
+          "Plate Tectonics",
+          "The Gulf Stream",
+          "Biomes",
+          "Keystone Species",
+          "Trophic Cascades",
+          "The Wolves of Yellowstone",
+          "Soil Formation",
+          "Pollination",
+          "Biodiversity Hotspots",
+          "Ice Ages"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this and pick one subject this week. by the end of it, u'll see the world a little differently.",
+        "gras": "OR.. keep seeing it the same way."
+      }
+    }
+  ]
+}

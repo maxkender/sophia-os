@@ -2962,28 +2962,26 @@ export async function listerComptesSousQuota(
   opts: { ignorerWarmup?: boolean } = {},
   // deno-lint-ignore no-explicit-any
 ): Promise<any[]> {
-  // Lecture non bornée, LAISSÉE TELLE QUELLE — et c'est un choix, pas un oubli.
+  // Pagination keyset sur `id` : la flotte a passé les 1000 comptes
+  // actifs le 27/11 au soir, le garde-fou de complétude a levé ici avant la
+  // boucle par compte et la flotte entière a passé le 28/11 sans post. Le
+  // commentaire qui tenait cette lecture non bornée l'annonçait.
   //
-  // La flotte compte 131 comptes actifs, très loin des 1000 lignes du plafond
-  // PostgREST : la troncature n'est pas atteignable aujourd'hui. Et la paginer
-  // coûterait ce qu'on refuse de payer ici : `lireTout` exige un `.order(ancre)`,
-  // donc l'ordre de ce tableau passerait de l'ordre de tas à l'ordre des `id` —
-  // or c'est exactement ce tableau que `assignerDrainLot` tranche en
-  // `slice(0, DRAIN_BATCH)`. On changerait l'ordre dans lequel les créateurs
-  // sont servis, c'est-à-dire de la politique, pour corriger une troncature qui
-  // n'existe pas. Ce n'est pas le chantier.
-  //
-  // POUR LE PROCHAIN QUI PASSE, parce que l'échéance est réelle : à 1000 comptes
-  // actifs, le garde-fou de complétude lèvera ici — avant la boucle par compte,
-  // hors de son try/catch — et le drain entier s'arrêtera. La bonne sortie ce
-  // jour-là n'est pas un `.limit()` (il masquerait la troncature) mais une
-  // pagination keyset sur `id`, en vérifiant d'abord que l'ordre de service du
-  // drain peut devenir déterministe. Le repère utile : à ~500 comptes, s'y mettre.
-  const { data: comptesBruts, error } = await supabase
-    .from("comptes")
-    .select("*")
-    .eq("is_active", true);
-  if (error) throw error;
+  // Effet sur la politique : `assignerDrainLot` tranche ce tableau en
+  // `slice(0, DRAIN_BATCH)`, donc les comptes sont désormais servis dans
+  // l'ordre des `id` au lieu de l'ordre de tas. Les deux sont arbitraires ;
+  // celui-ci est au moins déterministe, et la chaîne `exclus` empêche toujours
+  // quelques comptes en échec de retenir la file.
+  // deno-lint-ignore no-explicit-any
+  const comptesBruts = await lireTout<any>(
+    "Comptes actifs (sous quota)",
+    (curseur, taille) => {
+      let q = supabase.from("comptes").select("*").eq("is_active", true);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (c) => c.id as string },
+  );
 
   const maintenant = Date.now();
   // Une recrue en rouge pas encore décidée ne reçoit pas de posts (0392).
@@ -3181,13 +3179,19 @@ export async function assignerTousComptes(
 ): Promise<AssignationCompteResultat[]> {
   const o: AssignationOpts = typeof opts === "boolean" ? { forcer: opts } : (opts ?? {});
   const reglages = await chargerAssignationReglages(supabase);
-  // Non bornée, pour les mêmes raisons que dans `listerComptesSousQuota` (131
-  // comptes actifs, plafond à 1000, et paginer imposerait un ordre) — voir le
-  // commentaire là-bas, y compris le repère des ~500 comptes.
-  let query = supabase.from("comptes").select("*").eq("is_active", true);
-  if (compteId) query = query.eq("id", compteId);
-  const { data: comptesBruts, error } = await query;
-  if (error) throw error;
+  // Paginée sur `id` comme `listerComptesSousQuota` : à 1000 comptes
+  // actifs, la lecture non bornée levait ici et le run de minuit s'arrêtait.
+  // deno-lint-ignore no-explicit-any
+  const comptesBruts = await lireTout<any>(
+    compteId ? `Compte ${compteId}` : "Comptes actifs",
+    (curseur, taille) => {
+      let q = supabase.from("comptes").select("*").eq("is_active", true);
+      if (compteId) q = q.eq("id", compteId);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (c) => c.id as string },
+  );
 
   // Warmup : uniquement les comptes dont warmup_ends_at est passé (en process).
   // Mode test : on peut cibler un compte hors process (ignorerWarmup).

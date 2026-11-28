@@ -690,11 +690,16 @@ export async function snapshotVuesGlobales(
     }
   }
 
-  const { data: comptes, error } = await supabase
-    .from("comptes")
-    .select("id")
-    .eq("is_active", true);
-  if (error) throw error;
+  // Paginée sur `id` : plus de 1000 comptes actifs depuis le 27/11 au soir.
+  const comptes = await lireTout<{ id: string }>(
+    "Comptes actifs (vues du jour)",
+    (curseur, taille) => {
+      let q = supabase.from("comptes").select("id").eq("is_active", true);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (c) => c.id },
+  );
 
   let vuesTotales = 0;
   let nb = 0;
@@ -759,11 +764,16 @@ export async function backfillSnapshotVuesJour(
 ): Promise<{ jour: string; vues_totales: number; vues_delta: number | null; nb_comptes: number }> {
   const borne = parisDebutJourSuivantIso(jour);
 
-  const { data: comptes, error } = await supabase
-    .from("comptes")
-    .select("id")
-    .eq("is_active", true);
-  if (error) throw error;
+  // Paginée sur `id` : plus de 1000 comptes actifs depuis le 27/11 au soir.
+  const comptes = await lireTout<{ id: string }>(
+    "Comptes actifs (vues du jour)",
+    (curseur, taille) => {
+      let q = supabase.from("comptes").select("id").eq("is_active", true);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (c) => c.id },
+  );
 
   let vuesTotales = 0;
   let nb = 0;
@@ -1105,13 +1115,25 @@ export function eloDrainBusyStale(run: EloDernierRun | null): boolean {
 export async function listerComptesRattrapageElo(
   supabase: Supabase,
 ): Promise<Array<{ id: string; handle_tiktok: string }>> {
-  const { data, error } = await supabase
-    .from("comptes")
-    .select("id, handle_tiktok, warmup_started_at, warmup_ends_at")
-    .eq("is_active", true)
-    .not("handle_tiktok", "is", null)
-    .order("id", { ascending: true });
-  if (error) throw error;
+  // Paginée sur `id` : plus de 1000 comptes actifs depuis le 27/11 au soir.
+  const data = await lireTout<{
+    id: string;
+    handle_tiktok: string | null;
+    warmup_started_at: string | null;
+    warmup_ends_at: string | null;
+  }>(
+    "Comptes actifs (rattrapage ELO)",
+    (curseur, taille) => {
+      let q = supabase
+        .from("comptes")
+        .select("id, handle_tiktok, warmup_started_at, warmup_ends_at")
+        .eq("is_active", true)
+        .not("handle_tiktok", "is", null);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (c) => c.id },
+  );
   return (data ?? [])
     .filter((c) =>
       compteEnProcessus({

@@ -8027,6 +8027,33 @@
    },
    "statut": "banque",
    "compte": "detourdares"
+  },
+  {
+   "post_id": "var-retrouver-2",
+   "url": "https://www.tiktok.com/@amayareading/video/7683541501007252758?variante=var-retrouver-1?variante=var-retrouver-2",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#cerveau #habitudes #focus",
+   "musique": {
+    "titre": "original sound - Sean | Bangkok Photographer",
+    "auteur": "Sean | Bangkok Photographer",
+    "original": true,
+    "id": "7670141900171217672",
+    "url_tiktok": "https://www.tiktok.com/music/x-7670141900171217672"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7711113402717867286_1",
+    "2": "7711113402717867286_2",
+    "3": "7711113402717867286_3",
+    "4": "7711113402717867286_6",
+    "5": "7711113402717867286_4",
+    "6": "7711113402717867286_7"
+   },
+   "notes": "declinaison G2 de var-retrouver-1, cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "8291ee69-5b06-4021-bb60-7201aef95b64"
   }
  ]
 }

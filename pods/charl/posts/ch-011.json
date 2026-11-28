@@ -1,0 +1,478 @@
+{
+  "id": "ch-011",
+  "source": {
+    "url": "https://www.tiktok.com/@charl.focus/photo/7706621727106682144",
+    "vues": 403900,
+    "publie_le": "2026-11-10",
+    "accroche": "cómo arreglar tu DOPAMINA"
+  },
+  "titre": {
+    "es": "cómo entrenar tu cerebro (según la neurociencia)",
+    "fr": "comment entraîner ton cerveau (selon les neurosciences)",
+    "it": "come allenare il tuo cervello (secondo le neuroscienze)",
+    "pt-BR": "como treinar o seu cérebro (segundo a neurociência)",
+    "de": "so trainierst du dein gehirn (laut neurowissenschaft)",
+    "ro": "cum să-ți antrenezi creierul (după neuroștiință)",
+    "hu": "hogyan eddzd az agyadat (az idegtudomány szerint)",
+    "es-419": "cómo entrenar tu cerebro (según la neurociencia)"
+  },
+  "legendes": {
+    "es": "#cerebro #neurociencia #aprender #habitos #productividad",
+    "fr": "#cerveau #neurosciences #apprendre #habitudes #productivite",
+    "it": "#cervello #neuroscienze #imparare #abitudini #produttivita",
+    "pt-BR": "#cerebro #neurociencia #aprender #habitos #produtividade",
+    "de": "#gehirn #neurowissenschaft #lernen #gewohnheiten #produktivitaet",
+    "ro": "#creier #neurostiinta #invatat #obiceiuri #productivitate",
+    "hu": "#agy #idegtudomany #tanulas #szokasok #produktivitas",
+    "es-419": "#cerebro #neurociencia #aprender #habitos #productividad"
+  },
+  "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7635567841592331030"
+  },
+  "notes": "Preuve : « cómo arreglar tu DOPAMINA » de @charl.focus (403,9 k vues au 27/11, 10/11), sa famille, sa musique. Faits vérifiés : Maguire et al. (2000, PNAS, University College London) : l'hippocampe postérieur des chauffeurs de taxi londoniens est plus gros, et d'autant plus qu'ils ont d'années de métier ; Draganski et al. (2004, Nature) : trois mois de jonglage, la matière grise augmente dans une zone de la perception du mouvement, puis diminue à l'arrêt ; Erickson et al. (2011, PNAS) : 120 adultes âgés, marche 40 minutes trois fois par semaine pendant un an, hippocampe +2 %, il continue de diminuer dans le groupe étirements. Rien de médical. Slide Sophia (4) : LOGO, cta B. Images : toutes de @charl.focus ; la slide Sophia sans personne (un bureau).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/photos/c-7706621727106682144-1-couv4.jpg"
+        },
+        {
+          "image": "images/photos/c-7706258701463653664-1-couv4.jpg"
+        },
+        {
+          "image": "images/photos/c-7707724200571604256-3-p2.jpg"
+        },
+        {
+          "image": "images/photos/c-7707992236042079510-1-couv5.jpg"
+        },
+        {
+          "image": "images/photos/c-7711690523773291798-1-couv5.jpg"
+        },
+        {
+          "image": "images/photos/c-7709901828158229782-1-couv0.jpg"
+        }
+      ],
+      "es": {
+        "haut": "cómo entrenar tu",
+        "mot": "CEREBRO",
+        "note": "(según la neurociencia)"
+      },
+      "fr": {
+        "haut": "comment entraîner ton",
+        "mot": "CERVEAU",
+        "note": "(selon les neurosciences)"
+      },
+      "it": {
+        "haut": "come allenare il tuo",
+        "mot": "CERVELLO",
+        "note": "(secondo le neuroscienze)"
+      },
+      "pt-BR": {
+        "haut": "como treinar o seu",
+        "mot": "CÉREBRO",
+        "note": "(segundo a neurociência)"
+      },
+      "de": {
+        "haut": "so trainierst du dein",
+        "mot": "GEHIRN",
+        "note": "(laut neurowissenschaft)"
+      },
+      "ro": {
+        "haut": "cum să-ți antrenezi",
+        "mot": "CREIERUL",
+        "note": "(după neuroștiință)"
+      },
+      "hu": {
+        "haut": "hogyan eddzd az",
+        "mot": "AGYADAT",
+        "note": "(az idegtudomány szerint)"
+      },
+      "es-419": {
+        "haut": "cómo entrenar tu",
+        "mot": "CEREBRO",
+        "note": "(según la neurociencia)"
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/photos/c-7709901828158229782-2-p0.jpg"
+        },
+        {
+          "image": "images/photos/c-7708438221717294358-6-p0.jpg"
+        }
+      ],
+      "es": {
+        "titre": "tu cerebro cambia.",
+        "paragraphes": [
+          "crees que tu cerebro **viene de serie**: o eres listo, o no.",
+          "en londres, **eleanor maguire** escaneó el cerebro de taxistas: tenían **más grande el hipocampo**, la zona de la memoria espacial. y más cuantos más años llevaban.",
+          "tu cerebro **se adapta a lo que haces** cada día."
+        ]
+      },
+      "fr": {
+        "titre": "ton cerveau change.",
+        "paragraphes": [
+          "tu crois que ton cerveau est **livré tel quel**: on est intelligent, ou pas.",
+          "à londres, **eleanor maguire** a scanné le cerveau de chauffeurs de taxi: leur **hippocampe**, la zone de la mémoire de l'espace, **était plus gros**. et d'autant plus qu'ils avaient d'années de métier.",
+          "ton cerveau **s'adapte à ce que tu fais** chaque jour."
+        ]
+      },
+      "it": {
+        "titre": "il cervello cambia.",
+        "paragraphes": [
+          "pensi che il cervello **sia quello che è**: o sei intelligente, o no.",
+          "a londra, **eleanor maguire** ha fatto la scansione del cervello ai tassisti: avevano **l'ippocampo più grande**, la zona della memoria spaziale. e tanto più quanti più anni di lavoro.",
+          "il cervello **si adatta a quello che fai** ogni giorno."
+        ]
+      },
+      "pt-BR": {
+        "titre": "seu cérebro muda.",
+        "paragraphes": [
+          "você acha que o cérebro **vem de fábrica**: ou você é inteligente, ou não.",
+          "em londres, **eleanor maguire** escaneou o cérebro de taxistas: eles tinham **o hipocampo maior**, a área da memória espacial. e maior quanto mais anos de profissão.",
+          "seu cérebro **se adapta ao que você faz** todo dia."
+        ]
+      },
+      "de": {
+        "titre": "es verändert sich.",
+        "paragraphes": [
+          "du glaubst, dein gehirn ist **ab werk fertig**: entweder du bist schlau oder nicht.",
+          "in london hat **eleanor maguire** die gehirne von taxifahrern gescannt: ihr **hippocampus**, der bereich fürs räumliche gedächtnis, **war größer**. und umso größer, je länger sie fuhren.",
+          "dein gehirn **passt sich an das an, was du jeden tag tust**."
+        ]
+      },
+      "ro": {
+        "titre": "creierul se schimbă.",
+        "paragraphes": [
+          "crezi că creierul **vine gata făcut**: ori ești deștept, ori nu.",
+          "la londra, **eleanor maguire** a scanat creierul unor taximetriști: aveau **hipocampul mai mare**, zona memoriei spațiale. și cu atât mai mare, cu cât aveau mai mulți ani de meserie.",
+          "creierul tău **se adaptează la ce faci** în fiecare zi."
+        ]
+      },
+      "hu": {
+        "titre": "az agyad változik.",
+        "paragraphes": [
+          "azt hiszed, az agyad **gyárilag ilyen**: vagy okos vagy, vagy nem.",
+          "londonban **eleanor maguire** taxisofőrök agyát vizsgálta meg: **nagyobb volt a hippokampuszuk**, a térbeli memória területe. és minél több évet vezettek, annál nagyobb.",
+          "az agyad **alkalmazkodik ahhoz, amit minden nap csinálsz**."
+        ]
+      },
+      "es-419": {
+        "titre": "tu cerebro cambia.",
+        "paragraphes": [
+          "crees que tu cerebro **viene de serie**: o eres listo, o no.",
+          "en londres, **eleanor maguire** escaneó el cerebro de taxistas: tenían **más grande el hipocampo**, la zona de la memoria espacial. y más cuantos más años llevaban.",
+          "tu cerebro **se adapta a lo que haces** cada día."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/photos/c-7709901828158229782-3-p0.jpg"
+        },
+        {
+          "image": "images/photos/c-7708847243444423969-1-couv5.jpg"
+        }
+      ],
+      "es": {
+        "titre": "aprende algo nuevo",
+        "paragraphes": [
+          "en 2004, unos investigadores pidieron a unas personas que **aprendieran malabares** durante tres meses.",
+          "su materia gris **creció** en una zona que ve el movimiento. al dejarlo, **volvió a bajar**.",
+          "lo que no usas, **se pierde**. lo que practicas, se queda."
+        ]
+      },
+      "fr": {
+        "titre": "apprends un truc nouveau",
+        "paragraphes": [
+          "en 2004, des chercheurs ont demandé à des gens d'**apprendre à jongler** pendant trois mois.",
+          "leur matière grise **a grossi** dans une zone qui voit le mouvement. quand ils ont arrêté, **elle a rediminué**.",
+          "ce que tu n'utilises pas **se perd**. ce que tu pratiques reste."
+        ]
+      },
+      "it": {
+        "titre": "impara qualcosa di nuovo",
+        "paragraphes": [
+          "nel 2004 alcuni ricercatori chiesero a delle persone di **imparare a fare il giocoliere** per tre mesi.",
+          "la loro materia grigia **è cresciuta** in una zona che vede il movimento. quando hanno smesso, **è tornata a calare**.",
+          "quello che non usi **si perde**. quello che pratichi resta."
+        ]
+      },
+      "pt-BR": {
+        "titre": "aprende algo novo",
+        "paragraphes": [
+          "em 2004, pesquisadores pediram a algumas pessoas que **aprendessem malabarismo** durante três meses.",
+          "a massa cinzenta delas **cresceu** numa área que enxerga o movimento. quando pararam, **voltou a diminuir**.",
+          "o que você não usa **se perde**. o que você pratica fica."
+        ]
+      },
+      "de": {
+        "titre": "lern etwas neues",
+        "paragraphes": [
+          "2004 baten forschende menschen, drei monate lang **jonglieren zu lernen**.",
+          "ihre graue substanz **wuchs** in einem bereich, der bewegung sieht. als sie aufhörten, **ging sie wieder zurück**.",
+          "was du nicht nutzt, **geht verloren**. was du übst, bleibt."
+        ]
+      },
+      "ro": {
+        "titre": "învață ceva nou",
+        "paragraphes": [
+          "în 2004, niște cercetători au rugat câțiva oameni **să învețe jonglerie** timp de trei luni.",
+          "materia lor cenușie **a crescut** într-o zonă care vede mișcarea. când s-au oprit, **a scăzut din nou**.",
+          "ce nu folosești **se pierde**. ce exersezi rămâne."
+        ]
+      },
+      "hu": {
+        "titre": "tanulj valami újat",
+        "paragraphes": [
+          "2004-ben kutatók arra kértek embereket, hogy három hónapig **tanuljanak zsonglőrködni**.",
+          "a szürkeállományuk **megnőtt** egy olyan területen, amely a mozgást látja. amikor abbahagyták, **újra csökkent**.",
+          "amit nem használsz, **elveszik**. amit gyakorolsz, megmarad."
+        ]
+      },
+      "es-419": {
+        "titre": "aprende algo nuevo",
+        "paragraphes": [
+          "en 2004, unos investigadores pidieron a unas personas que **aprendieran malabares** durante tres meses.",
+          "su materia gris **creció** en una zona que ve el movimiento. al dejarlo, **volvió a bajar**.",
+          "lo que no usas, **se pierde**. lo que practicas, se queda."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "photos": [
+        {
+          "image": "images/photos/c-7708438221717294358-4-p0.jpg"
+        }
+      ],
+      "es": {
+        "titre": "un tema nuevo cada día",
+        "paragraphes": [
+          "tu cerebro se entrena con **cosas nuevas**, no con el mismo vídeo de siempre.",
+          "por la noche, en vez de abrir tiktok, hago **la lección del día en Sophia**: historia, filosofía, ciencia, geopolítica, economía.",
+          "**10 minutos y un quiz**. cada día, algo que ayer no sabía."
+        ]
+      },
+      "fr": {
+        "titre": "un sujet par soir",
+        "paragraphes": [
+          "ton cerveau s'entraîne avec **des choses nouvelles**, pas avec la même vidéo que d'habitude.",
+          "le soir, au lieu d'ouvrir tiktok, je fais **la leçon du jour sur Sophia**: histoire, philosophie, sciences, géopolitique, économie.",
+          "**10 minutes et un quiz**. chaque jour, un truc que je ne savais pas hier."
+        ]
+      },
+      "it": {
+        "titre": "un tema nuovo ogni sera",
+        "paragraphes": [
+          "il cervello si allena con **cose nuove**, non con il solito video.",
+          "la sera, invece di aprire tiktok, faccio **la lezione del giorno su Sophia**: storia, filosofia, scienza, geopolitica, economia.",
+          "**10 minuti e un quiz**. ogni giorno, qualcosa che ieri non sapevo."
+        ]
+      },
+      "pt-BR": {
+        "titre": "um tema novo toda noite",
+        "paragraphes": [
+          "o cérebro se treina com **coisas novas**, não com o mesmo vídeo de sempre.",
+          "à noite, em vez de abrir o tiktok, faço **a lição do dia no Sophia**: história, filosofia, ciência, geopolítica, economia.",
+          "**10 minutos e um quiz**. todo dia, algo que ontem eu não sabia."
+        ]
+      },
+      "de": {
+        "titre": "jeden tag was neues",
+        "paragraphes": [
+          "dein gehirn trainiert mit **neuem**, nicht mit dem immer gleichen video.",
+          "abends mache ich statt tiktok **die lektion des tages in Sophia**: geschichte, philosophie, wissenschaft, geopolitik, wirtschaft.",
+          "**10 minuten und ein quiz**. jeden tag etwas, das ich gestern nicht wusste."
+        ]
+      },
+      "ro": {
+        "titre": "o temă nouă pe zi",
+        "paragraphes": [
+          "creierul se antrenează cu **lucruri noi**, nu cu același video dintotdeauna.",
+          "seara, în loc să deschid tiktok, fac **lecția zilei în Sophia**: istorie, filozofie, știință, geopolitică, economie.",
+          "**10 minute și un quiz**. în fiecare zi, ceva ce ieri nu știam."
+        ]
+      },
+      "hu": {
+        "titre": "minden este egy új téma",
+        "paragraphes": [
+          "az agyad **új dolgokkal** edződik, nem ugyanazzal a videóval.",
+          "este a tiktok helyett **megcsinálom a napi leckét a Sophia appban**: történelem, filozófia, tudomány, geopolitika, közgazdaságtan.",
+          "**10 perc és egy kvíz**. minden nap valami, amit tegnap még nem tudtam."
+        ]
+      },
+      "es-419": {
+        "titre": "un tema nuevo cada día",
+        "paragraphes": [
+          "tu cerebro se entrena con **cosas nuevas**, no con el mismo vídeo de siempre.",
+          "por la noche, en vez de abrir tiktok, hago **la lección del día en Sophia**: historia, filosofía, ciencia, geopolítica, economía.",
+          "**10 minutos y un quiz**. cada día, algo que ayer no sabía."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/photos/c-7709177328357641494-3-p1.jpg"
+        },
+        {
+          "image": "images/photos/c-7707992236042079510-5-p0.jpg"
+        }
+      ],
+      "es": {
+        "titre": "muévete.",
+        "paragraphes": [
+          "en un estudio de 2011, unos adultos mayores caminaron **40 minutos, tres veces por semana**, durante un año.",
+          "su hipocampo **creció un 2%**. en el grupo que solo hizo estiramientos, siguió encogiendo.",
+          "camina, aprende y duerme: **así se entrena un cerebro**."
+        ]
+      },
+      "fr": {
+        "titre": "bouge.",
+        "paragraphes": [
+          "dans une étude de 2011, des adultes âgés ont marché **40 minutes, trois fois par semaine**, pendant un an.",
+          "leur hippocampe **a grossi de 2%**. dans le groupe qui faisait seulement des étirements, il a continué à rétrécir.",
+          "marche, apprends et dors: **c'est comme ça qu'on entraîne un cerveau**."
+        ]
+      },
+      "it": {
+        "titre": "muoviti.",
+        "paragraphes": [
+          "in uno studio del 2011, alcuni adulti anziani hanno camminato **40 minuti, tre volte a settimana**, per un anno.",
+          "il loro ippocampo **è cresciuto del 2%**. nel gruppo che faceva solo stretching ha continuato a ridursi.",
+          "cammina, impara e dormi: **così si allena un cervello**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "se mexe.",
+        "paragraphes": [
+          "num estudo de 2011, adultos mais velhos caminharam **40 minutos, três vezes por semana**, durante um ano.",
+          "o hipocampo deles **cresceu 2%**. no grupo que só fez alongamento, continuou encolhendo.",
+          "caminha, aprende e dorme: **é assim que se treina um cérebro**."
+        ]
+      },
+      "de": {
+        "titre": "beweg dich.",
+        "paragraphes": [
+          "in einer studie von 2011 gingen ältere erwachsene ein jahr lang **dreimal pro woche 40 minuten** spazieren.",
+          "ihr hippocampus **wuchs um 2%**. in der gruppe mit nur dehnübungen schrumpfte er weiter.",
+          "geh, lern und schlaf: **so trainiert man ein gehirn**."
+        ]
+      },
+      "ro": {
+        "titre": "mișcă-te.",
+        "paragraphes": [
+          "într-un studiu din 2011, niște adulți mai în vârstă au mers pe jos **40 de minute, de trei ori pe săptămână**, timp de un an.",
+          "hipocampul lor **a crescut cu 2%**. în grupul care a făcut doar stretching, a continuat să se micșoreze.",
+          "mergi, învață și dormi: **așa se antrenează un creier**."
+        ]
+      },
+      "hu": {
+        "titre": "mozogj.",
+        "paragraphes": [
+          "egy 2011-es kutatásban idősebb felnőttek egy évig **hetente háromszor 40 percet** sétáltak.",
+          "a hippokampuszuk **2%-kal megnőtt**. abban a csoportban, amely csak nyújtott, tovább zsugorodott.",
+          "sétálj, tanulj és aludj: **így edzhető az agy**."
+        ]
+      },
+      "es-419": {
+        "titre": "muévete.",
+        "paragraphes": [
+          "en un estudio de 2011, unos adultos mayores caminaron **40 minutos, tres veces por semana**, durante un año.",
+          "su hipocampo **creció un 2%**. en el grupo que solo hizo estiramientos, siguió encogiendo.",
+          "camina, aprende y duerme: **así se entrena un cerebro**."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "photos": [
+        {
+          "image": "images/photos/c-7710972158259858720-6-p0.jpg"
+        }
+      ],
+      "es": {
+        "titre": "tu cerebro no está fijo.",
+        "paragraphes": [
+          "cambia con **lo que haces cada día**.",
+          "dale cosas nuevas y **te lo devolverá**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo y **aprende algo nuevo hoy**."
+        ]
+      },
+      "fr": {
+        "titre": "ton cerveau n'est pas figé.",
+        "paragraphes": [
+          "il change avec **ce que tu fais chaque jour**.",
+          "donne-lui du nouveau et **il te le rendra**.",
+          "laquelle tu vas tester en premier? commente le numéro.",
+          "enregistre-le et **apprends un truc nouveau aujourd'hui**."
+        ]
+      },
+      "it": {
+        "titre": "il cervello non è fisso.",
+        "paragraphes": [
+          "cambia con **quello che fai ogni giorno**.",
+          "dagli cose nuove e **te le restituirà**.",
+          "quale provi per primo? scrivi il numero nei commenti.",
+          "salvalo e **impara qualcosa di nuovo oggi**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "seu cérebro não é fixo.",
+        "paragraphes": [
+          "ele muda com **o que você faz todo dia**.",
+          "dá coisas novas pra ele e **ele vai te devolver**.",
+          "qual você vai testar primeiro? comenta o número.",
+          "salva e **aprende algo novo hoje**."
+        ]
+      },
+      "de": {
+        "titre": "dein gehirn ist nicht fertig.",
+        "paragraphes": [
+          "es verändert sich mit **dem, was du jeden tag tust**.",
+          "gib ihm neues, und **es gibt es dir zurück**.",
+          "welchen probierst du zuerst? kommentier die nummer.",
+          "speicher es und **lern heute etwas neues**."
+        ]
+      },
+      "ro": {
+        "titre": "creierul tău nu e fix.",
+        "paragraphes": [
+          "se schimbă cu **ce faci în fiecare zi**.",
+          "dă-i lucruri noi și **ți le va da înapoi**.",
+          "pe care îl încerci primul? scrie numărul în comentarii.",
+          "salvează-l și **învață ceva nou azi**."
+        ]
+      },
+      "hu": {
+        "titre": "az agyad nincs kőbe vésve.",
+        "paragraphes": [
+          "azzal változik, **amit minden nap csinálsz**.",
+          "adj neki új dolgokat, és **visszaadja**.",
+          "melyiket próbálod ki először? írd meg kommentben a számot.",
+          "mentsd el, és **tanulj ma valami újat**."
+        ]
+      },
+      "es-419": {
+        "titre": "tu cerebro no está fijo.",
+        "paragraphes": [
+          "cambia con **lo que haces cada día**.",
+          "dale cosas nuevas y **te lo devolverá**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo y **aprende algo nuevo hoy**."
+        ]
+      }
+    }
+  ]
+}

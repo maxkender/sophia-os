@@ -1,0 +1,479 @@
+{
+  "id": "ch-010",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@charl.focus/photo/7706621727106682144",
+    "vues": 403900,
+    "publie_le": "2026-11-10",
+    "accroche": "cómo arreglar tu DOPAMINA"
+  },
+  "titre": {
+    "es": "cómo construir tu disciplina (de verdad)",
+    "fr": "comment construire ta discipline (pour de vrai)",
+    "it": "come costruire la tua disciplina (davvero)",
+    "pt-BR": "como construir a sua disciplina (de verdade)",
+    "de": "so baust du deine disziplin auf (wirklich)",
+    "ro": "cum să-ți construiești disciplina (pe bune)",
+    "hu": "hogyan építsd fel a fegyelmed (tényleg)",
+    "es-419": "cómo construir tu disciplina (de verdad)"
+  },
+  "legendes": {
+    "es": "#disciplina #habitos #constancia #productividad #exito",
+    "fr": "#discipline #habitudes #constance #productivite #reussite",
+    "it": "#disciplina #abitudini #costanza #produttivita #successo",
+    "pt-BR": "#disciplina #habitos #constancia #produtividade #sucesso",
+    "de": "#disziplin #gewohnheiten #dranbleiben #produktivitaet #erfolg",
+    "ro": "#disciplina #obiceiuri #consecventa #productivitate #succes",
+    "hu": "#fegyelem #szokasok #kitartas #produktivitas #siker",
+    "es-419": "#disciplina #habitos #constancia #productividad #exito"
+  },
+  "musique": {
+    "titre": "original sound - Lock-In System™",
+    "url": "https://www.tiktok.com/music/original-sound-7598651552588466967"
+  },
+  "notes": "Full test (jauge du 28/11) : accroche jamais faite chez nous, sa famille « cómo … tu / MOT CLÉ ». Faits vérifiés : Duckworth et Seligman (2005, Psychological Science, université de Pennsylvanie) : l'autodiscipline prédit les notes de collégiens mieux que le QI ; Galla et Duckworth (2015, Journal of Personality and Social Psychology) : les gens plus maîtres d'eux-mêmes ont de meilleures habitudes, qui expliquent leurs résultats ; Lally et al. (2010, European Journal of Social Psychology, University College London) : 96 participants, 66 jours en médiane pour qu'un geste devienne automatique (18 à 254), rater une occasion n'y change presque rien ; Hofmann, Baumeister, Förster et Vohs (2012, JPSP) : 205 adultes suivis une semaine, ceux qui ont le plus d'autocontrôle rapportent moins de tentations. Slide Sophia (4) : LOGO, cta A. Images : toutes de @charl.focus ; la slide Sophia sans visage (des mains et un livre).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/photos/c-7707992236042079510-1-couv1.jpg"
+        },
+        {
+          "image": "images/photos/c-7709180798422813974-1-couv4.jpg"
+        },
+        {
+          "image": "images/photos/c-7709180798422813974-1-couv1.jpg"
+        },
+        {
+          "image": "images/photos/c-7708438221717294358-1-couv2.jpg"
+        },
+        {
+          "image": "images/photos/c-7710972158259858720-1-couv3.jpg"
+        },
+        {
+          "image": "images/photos/c-7706621727106682144-7-p0.jpg"
+        }
+      ],
+      "es": {
+        "haut": "cómo construir tu",
+        "mot": "DISCIPLINA",
+        "note": "(de verdad)"
+      },
+      "fr": {
+        "haut": "comment construire ta",
+        "mot": "DISCIPLINE",
+        "note": "(pour de vrai)"
+      },
+      "it": {
+        "haut": "come costruire la tua",
+        "mot": "DISCIPLINA",
+        "note": "(davvero)"
+      },
+      "pt-BR": {
+        "haut": "como construir a sua",
+        "mot": "DISCIPLINA",
+        "note": "(de verdade)"
+      },
+      "de": {
+        "haut": "so baust du deine",
+        "mot": "DISZIPLIN",
+        "note": "auf (wirklich)"
+      },
+      "ro": {
+        "haut": "cum să-ți construiești",
+        "mot": "DISCIPLINA",
+        "note": "(pe bune)"
+      },
+      "hu": {
+        "haut": "hogyan építsd fel a",
+        "mot": "FEGYELMED",
+        "note": "(tényleg)"
+      },
+      "es-419": {
+        "haut": "cómo construir tu",
+        "mot": "DISCIPLINA",
+        "note": "(de verdad)"
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/photos/c-7706621727106682144-5-p0.jpg"
+        },
+        {
+          "image": "images/photos/c-7707724200571604256-5-p0.jpg"
+        }
+      ],
+      "es": {
+        "titre": "no es voluntad.",
+        "paragraphes": [
+          "crees que la gente disciplinada **se obliga cada día**. no es así.",
+          "en la universidad de pensilvania, **angela duckworth** vio que la autodisciplina de unos alumnos **predecía sus notas mejor que su ci**.",
+          "y los más disciplinados no luchan más: **tienen mejores hábitos**."
+        ]
+      },
+      "fr": {
+        "titre": "ce n'est pas la volonté.",
+        "paragraphes": [
+          "tu crois que les gens disciplinés **se forcent chaque jour**. ce n'est pas ça.",
+          "à l'université de pennsylvanie, **angela duckworth** a vu que l'autodiscipline d'élèves **prédisait leurs notes mieux que leur qi**.",
+          "et les plus disciplinés ne luttent pas plus: **ils ont de meilleures habitudes**."
+        ]
+      },
+      "it": {
+        "titre": "non è forza di volontà.",
+        "paragraphes": [
+          "pensi che chi è disciplinato **si sforzi ogni giorno**. non è così.",
+          "all'università della pennsylvania, **angela duckworth** vide che l'autodisciplina di alcuni studenti **prevedeva i loro voti meglio del qi**.",
+          "e i più disciplinati non lottano di più: **hanno abitudini migliori**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "não é vontade.",
+        "paragraphes": [
+          "você acha que gente disciplinada **se obriga todo dia**. não é assim.",
+          "na universidade da pensilvânia, **angela duckworth** viu que a autodisciplina de alunos **previa as notas melhor que o qi**.",
+          "e os mais disciplinados não lutam mais: **têm hábitos melhores**."
+        ]
+      },
+      "de": {
+        "titre": "kein willenskraft-ding.",
+        "paragraphes": [
+          "du glaubst, disziplinierte menschen **zwingen sich jeden tag**. so ist es nicht.",
+          "an der university of pennsylvania sah **angela duckworth**, dass die selbstdisziplin von schülern **ihre noten besser vorhersagte als ihr iq**.",
+          "und die diszipliniertesten kämpfen nicht mehr: **sie haben bessere gewohnheiten**."
+        ]
+      },
+      "ro": {
+        "titre": "nu e voință.",
+        "paragraphes": [
+          "crezi că oamenii disciplinați **se forțează în fiecare zi**. nu e așa.",
+          "la universitatea din pennsylvania, **angela duckworth** a văzut că autodisciplina unor elevi **le prezicea notele mai bine decât iq-ul**.",
+          "iar cei mai disciplinați nu se luptă mai mult: **au obiceiuri mai bune**."
+        ]
+      },
+      "hu": {
+        "titre": "ez nem akaraterő.",
+        "paragraphes": [
+          "azt hiszed, a fegyelmezett emberek **minden nap kényszerítik magukat**. nem így van.",
+          "a pennsylvaniai egyetemen **angela duckworth** azt látta, hogy diákok önfegyelme **jobban előre jelezte a jegyeiket, mint az iq-juk**.",
+          "és a legfegyelmezettebbek nem küzdenek többet: **jobb szokásaik vannak**."
+        ]
+      },
+      "es-419": {
+        "titre": "no es voluntad.",
+        "paragraphes": [
+          "crees que la gente disciplinada **se obliga cada día**. no es así.",
+          "en la universidad de pensilvania, **angela duckworth** vio que la autodisciplina de unos alumnos **predecía sus notas mejor que su ci**.",
+          "y los más disciplinados no luchan más: **tienen mejores hábitos**."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/photos/c-7708438221717294358-7-p0.jpg"
+        },
+        {
+          "image": "images/photos/c-7709180798422813974-5-p1.jpg"
+        }
+      ],
+      "es": {
+        "titre": "66 días",
+        "paragraphes": [
+          "en el university college de londres siguieron a 96 personas que querían crear **un hábito nuevo**.",
+          "de media tardaron **66 días** en hacerlo automático. algunos 18, otros más de 200.",
+          "y saltarse **un día suelto** no lo estropeaba. sigue."
+        ]
+      },
+      "fr": {
+        "titre": "66 jours",
+        "paragraphes": [
+          "à l'university college de londres, on a suivi 96 personnes qui voulaient créer **une nouvelle habitude**.",
+          "en moyenne, il leur a fallu **66 jours** pour qu'elle devienne automatique. certains 18, d'autres plus de 200.",
+          "et sauter **un jour de temps en temps** ne cassait rien. continue."
+        ]
+      },
+      "it": {
+        "titre": "66 giorni",
+        "paragraphes": [
+          "allo university college di londra hanno seguito 96 persone che volevano creare **un'abitudine nuova**.",
+          "in media ci hanno messo **66 giorni** a renderla automatica. alcuni 18, altri più di 200.",
+          "e saltare **un giorno ogni tanto** non rovinava niente. continua."
+        ]
+      },
+      "pt-BR": {
+        "titre": "66 dias",
+        "paragraphes": [
+          "na university college de londres acompanharam 96 pessoas que queriam criar **um hábito novo**.",
+          "em média levaram **66 dias** pra ficar automático. alguns 18, outros mais de 200.",
+          "e pular **um dia solto** não estragava nada. continua."
+        ]
+      },
+      "de": {
+        "titre": "66 tage",
+        "paragraphes": [
+          "am university college london begleitete man 96 menschen, die **eine neue gewohnheit** aufbauen wollten.",
+          "im schnitt dauerte es **66 tage**, bis sie automatisch lief. bei manchen 18, bei anderen über 200.",
+          "und **einen tag auszulassen** machte nichts kaputt. mach weiter."
+        ]
+      },
+      "ro": {
+        "titre": "66 de zile",
+        "paragraphes": [
+          "la university college din londra au urmărit 96 de oameni care voiau să-și facă **un obicei nou**.",
+          "în medie le-a luat **66 de zile** să devină automat. unora 18, altora peste 200.",
+          "iar să sari **o zi din când în când** nu strica nimic. continuă."
+        ]
+      },
+      "hu": {
+        "titre": "66 nap",
+        "paragraphes": [
+          "a londoni university college-ban 96 embert követtek, akik **új szokást** akartak kialakítani.",
+          "átlagosan **66 nap** kellett, hogy automatikus legyen. van, akinek 18, másnak több mint 200.",
+          "és ha **néha kihagytak egy napot**, az nem rontott el semmit. folytasd."
+        ]
+      },
+      "es-419": {
+        "titre": "66 días",
+        "paragraphes": [
+          "en el university college de londres siguieron a 96 personas que querían crear **un hábito nuevo**.",
+          "de media tardaron **66 días** en hacerlo automático. algunos 18, otros más de 200.",
+          "y saltarse **un día suelto** no lo estropeaba. sigue."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "photos": [
+        {
+          "image": "images/photos/c-7706621727106682144-4-p1.jpg"
+        }
+      ],
+      "es": {
+        "titre": "un hábito pequeño",
+        "paragraphes": [
+          "empieza con algo **tan pequeño que no puedas fallar**.",
+          "yo cambié el primer scroll del día por **una lección corta en Sophia**: 10 minutos y un quiz al final.",
+          "**cada mañana lo mismo**, a la misma hora. a los dos meses ya no lo pienso."
+        ]
+      },
+      "fr": {
+        "titre": "une petite habitude",
+        "paragraphes": [
+          "commence par quelque chose de **si petit que tu ne peux pas rater**.",
+          "j'ai remplacé le premier scroll de la journée par **une leçon courte sur Sophia**: 10 minutes et un quiz à la fin.",
+          "**chaque matin pareil**, à la même heure. au bout de deux mois, je n'y pense plus."
+        ]
+      },
+      "it": {
+        "titre": "un'abitudine piccola",
+        "paragraphes": [
+          "inizia con qualcosa di **così piccolo da non poter fallire**.",
+          "ho sostituito il primo scroll della giornata con **una lezione breve su Sophia**: 10 minuti e un quiz alla fine.",
+          "**ogni mattina uguale**, alla stessa ora. dopo due mesi non ci penso più."
+        ]
+      },
+      "pt-BR": {
+        "titre": "um hábito pequeno",
+        "paragraphes": [
+          "começa com algo **tão pequeno que não dá pra falhar**.",
+          "eu troquei o primeiro scroll do dia por **uma lição curta no Sophia**: 10 minutos e um quiz no final.",
+          "**toda manhã igual**, no mesmo horário. depois de dois meses, nem penso mais."
+        ]
+      },
+      "de": {
+        "titre": "eine kleine gewohnheit",
+        "paragraphes": [
+          "fang mit etwas an, das **so klein ist, dass du nicht scheitern kannst**.",
+          "ich habe das erste scrollen am tag gegen **eine kurze lektion in Sophia** getauscht: 10 minuten und ein quiz am ende.",
+          "**jeden morgen gleich**, zur selben zeit. nach zwei monaten denke ich nicht mehr drüber nach."
+        ]
+      },
+      "ro": {
+        "titre": "un obicei mic",
+        "paragraphes": [
+          "începe cu ceva **atât de mic încât să nu poți rata**.",
+          "am înlocuit primul scroll al zilei cu **o lecție scurtă în Sophia**: 10 minute și un quiz la final.",
+          "**în fiecare dimineață la fel**, la aceeași oră. după două luni nici nu mă mai gândesc."
+        ]
+      },
+      "hu": {
+        "titre": "egy kis szokás",
+        "paragraphes": [
+          "kezdj valamivel, ami **olyan kicsi, hogy nem tudod elrontani**.",
+          "én a nap első görgetését **egy rövid leckére cseréltem a Sophia appban**: 10 perc és egy kvíz a végén.",
+          "**minden reggel ugyanígy**, ugyanabban az időben. két hónap után már nem is gondolkodom rajta."
+        ]
+      },
+      "es-419": {
+        "titre": "un hábito pequeño",
+        "paragraphes": [
+          "empieza con algo **tan pequeño que no puedas fallar**.",
+          "yo cambié el primer scroll del día por **una lección corta en Sophia**: 10 minutos y un quiz al final.",
+          "**cada mañana lo mismo**, a la misma hora. a los dos meses ya no lo pienso."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        {
+          "image": "images/photos/c-7709180798422813974-5-p0.jpg"
+        },
+        {
+          "image": "images/photos/c-7708438221717294358-6-p1.jpg"
+        }
+      ],
+      "es": {
+        "titre": "quita la tentación.",
+        "paragraphes": [
+          "en un estudio de 2012, más de 200 adultos apuntaron sus tentaciones durante una semana.",
+          "los que tenían más autocontrol **no resistían más**: simplemente **tenían menos tentaciones**.",
+          "deja el móvil fuera de la habitación y **ponte fácil lo bueno**."
+        ]
+      },
+      "fr": {
+        "titre": "enlève la tentation.",
+        "paragraphes": [
+          "dans une étude de 2012, plus de 200 adultes ont noté leurs tentations pendant une semaine.",
+          "ceux qui avaient le plus d'autocontrôle **ne résistaient pas plus**: ils **avaient moins de tentations**.",
+          "laisse le téléphone hors de la chambre et **rends le bon facile**."
+        ]
+      },
+      "it": {
+        "titre": "togli la tentazione.",
+        "paragraphes": [
+          "in uno studio del 2012, più di 200 adulti hanno annotato le loro tentazioni per una settimana.",
+          "chi aveva più autocontrollo **non resisteva di più**: semplicemente **aveva meno tentazioni**.",
+          "lascia il telefono fuori dalla stanza e **renditi facile ciò che è buono**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "tira a tentação.",
+        "paragraphes": [
+          "num estudo de 2012, mais de 200 adultos anotaram suas tentações durante uma semana.",
+          "quem tinha mais autocontrole **não resistia mais**: simplesmente **tinha menos tentações**.",
+          "deixa o celular fora do quarto e **deixa o que é bom fácil**."
+        ]
+      },
+      "de": {
+        "titre": "weniger versuchung.",
+        "paragraphes": [
+          "in einer studie von 2012 notierten über 200 erwachsene eine woche lang ihre versuchungen.",
+          "die mit der meisten selbstkontrolle **widerstanden nicht mehr**: sie **hatten einfach weniger versuchungen**.",
+          "lass das handy außerhalb vom zimmer und **mach dir das gute leicht**."
+        ]
+      },
+      "ro": {
+        "titre": "scoate tentația.",
+        "paragraphes": [
+          "într-un studiu din 2012, peste 200 de adulți și-au notat tentațiile timp de o săptămână.",
+          "cei cu cel mai mult autocontrol **nu rezistau mai mult**: pur și simplu **aveau mai puține tentații**.",
+          "lasă telefonul în afara camerei și **fă-ți ușor ce e bun**."
+        ]
+      },
+      "hu": {
+        "titre": "vedd el a kísértést.",
+        "paragraphes": [
+          "egy 2012-es kutatásban több mint 200 felnőtt egy hétig feljegyezte a kísértéseit.",
+          "akiknek a legnagyobb volt az önkontrolljuk, **nem álltak ellen többet**: egyszerűen **kevesebb kísértésük volt**.",
+          "hagyd a telefont a szobán kívül, és **tedd könnyűvé a jót**."
+        ]
+      },
+      "es-419": {
+        "titre": "quita la tentación.",
+        "paragraphes": [
+          "en un estudio de 2012, más de 200 adultos apuntaron sus tentaciones durante una semana.",
+          "los que tenían más autocontrol **no resistían más**: simplemente **tenían menos tentaciones**.",
+          "deja el celular fuera de la habitación y **ponte fácil lo bueno**."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "photos": [
+        {
+          "image": "images/photos/c-7706621727106682144-5-p1.jpg"
+        }
+      ],
+      "es": {
+        "titre": "la disciplina se construye.",
+        "paragraphes": [
+          "no naces con ella: **la repites**.",
+          "un día pequeño detrás de otro, **hasta que sale solo**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo y **empieza mañana a la misma hora**."
+        ]
+      },
+      "fr": {
+        "titre": "la discipline se construit.",
+        "paragraphes": [
+          "on ne naît pas avec: **on la répète**.",
+          "un petit jour après l'autre, **jusqu'à ce que ça vienne tout seul**.",
+          "laquelle tu vas tester en premier? commente le numéro.",
+          "enregistre-le et **commence demain à la même heure**."
+        ]
+      },
+      "it": {
+        "titre": "la disciplina si costruisce.",
+        "paragraphes": [
+          "non ci nasci: **la ripeti**.",
+          "un piccolo giorno dopo l'altro, **finché viene da sola**.",
+          "quale provi per primo? scrivi il numero nei commenti.",
+          "salvalo e **inizia domani alla stessa ora**."
+        ]
+      },
+      "pt-BR": {
+        "titre": "disciplina se constrói.",
+        "paragraphes": [
+          "ninguém nasce com ela: **a gente repete**.",
+          "um dia pequeno depois do outro, **até sair sozinho**.",
+          "qual você vai testar primeiro? comenta o número.",
+          "salva e **começa amanhã no mesmo horário**."
+        ]
+      },
+      "de": {
+        "titre": "disziplin wird gebaut.",
+        "paragraphes": [
+          "man wird nicht damit geboren: **man wiederholt sie**.",
+          "ein kleiner tag nach dem anderen, **bis es von selbst geht**.",
+          "welchen probierst du zuerst? kommentier die nummer.",
+          "speicher es und **fang morgen zur selben zeit an**."
+        ]
+      },
+      "ro": {
+        "titre": "disciplina se construiește.",
+        "paragraphes": [
+          "nu te naști cu ea: **o repeți**.",
+          "o zi mică după alta, **până iese de la sine**.",
+          "pe care îl încerci primul? scrie numărul în comentarii.",
+          "salvează-l și **începe mâine la aceeași oră**."
+        ]
+      },
+      "hu": {
+        "titre": "a fegyelem felépíthető.",
+        "paragraphes": [
+          "nem születsz vele: **ismétled**.",
+          "egyik kis nap a másik után, **amíg magától nem megy**.",
+          "melyiket próbálod ki először? írd meg kommentben a számot.",
+          "mentsd el, és **kezdd holnap ugyanabban az időben**."
+        ]
+      },
+      "es-419": {
+        "titre": "la disciplina se construye.",
+        "paragraphes": [
+          "no naces con ella: **la repites**.",
+          "un día pequeño detrás de otro, **hasta que sale solo**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo y **empieza mañana a la misma hora**."
+        ]
+      }
+    }
+  ]
+}

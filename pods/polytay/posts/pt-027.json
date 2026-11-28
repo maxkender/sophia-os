@@ -1,0 +1,617 @@
+{
+ "id": "pt-027",
+ "titre": {
+  "en": "small hobbies that make you impossible to bore",
+  "fr": "petits hobbies pour ne plus jamais t'ennuyer",
+  "es": "pequeños hobbies para no aburrirte nunca",
+  "es-419": "pequeños hobbies para que nunca te aburras",
+  "it": "piccoli hobby per non annoiarti mai più",
+  "tr": "asla sıkılmamanı sağlayan küçük hobiler",
+  "pt-BR": "hobbies pequenos pra você nunca mais ficar entediada",
+  "sl": "majhni hobiji, zaradi katerih ti ni nikoli dolgčas",
+  "de": "kleine hobbys, mit denen dir nie langweilig wird",
+  "sk": "malé hobby, vďaka ktorým sa nikdy nenudíš",
+  "sv": "små hobbys som gör att du aldrig blir uttråkad"
+ },
+ "legendes": {
+  "en": "tiny hobbies, big brain. pick one for this winter <3 #girlblogger #hobbies #learning #cozy #thatgirl",
+  "fr": "petits hobbies, grand cerveau. choisis-en un pour cet hiver <3 #girlblogger #hobbies #apprendre #cozy #thatgirl",
+  "es": "hobbies pequeños, cerebro grande. elige uno para este invierno <3 #girlblogger #hobbies #aprender #cozy #thatgirl",
+  "es-419": "hobbies chiquitos, cerebro grande. elige uno para este invierno <3 #girlblogger #hobbies #aprender #cozy #thatgirl",
+  "it": "piccoli hobby, grande cervello. scegline uno per quest'inverno <3 #girlblogger #hobby #imparare #cozy #thatgirl",
+  "tr": "küçük hobiler, büyük beyin. bu kış için birini seç <3 #girlblogger #hobiler #öğrenmek #cozy #thatgirl",
+  "pt-BR": "hobbies pequenos, cérebro grande. escolhe um pra esse inverno <3 #girlblogger #hobbies #aprender #cozy #thatgirl",
+  "sl": "majhni hobiji, velika glava. izberi enega za to zimo <3 #girlblogger #hobiji #učenje #cozy #thatgirl",
+  "de": "kleine hobbys, großer kopf. such dir eins für diesen winter aus <3 #girlblogger #hobbys #lernen #cozy #thatgirl",
+  "sk": "malé hobby, veľká hlava. vyber si jedno na túto zimu <3 #girlblogger #hobby #ucenie #cozy #thatgirl",
+  "sv": "små hobbys, stor hjärna. välj en för den här vintern <3 #girlblogger #hobbys #lärande #cozy #thatgirl"
+ },
+ "musique": {
+  "titre": "Float in a Waking Dream",
+  "url": "https://www.tiktok.com/music/Float-in-a-Waking-Dream-7699850974151755812"
+ },
+ "notes": "Déclinaison G1 (BLEO, 28/11) de pt-002 « small hobbies that make you impossible to bore » (famille : en 3,1 k r 3,98 ; it 2,2 k ; fr 1,5 k ; 2e déclinaison après pt-020), titre du parent mot pour mot. Tout le reste change : autres éléments (une vieille recette ; les phases de la lune, il y en a huit, vrai ; Sophia ; le ciel à l'aquarelle ; un arbre par semaine : certains chênes vivent plus de mille ans, vrai), autres photos (neuves), cta C (pt-002 et pt-020 avaient cta B).",
+ "banque": {
+  "images/banque/couv-roses-chevet.jpg": "a6ad86fe-2cde-40a3-b326-153872b05347",
+  "images/banque/couv-matcha-napperon.jpg": "12c5d705-6d55-4f18-8c7a-0a3f1c7b3aa4",
+  "images/banque/cake-chocolat.jpg": "7d337982-396a-4564-a1e6-6cbc508ee619",
+  "images/banque/cake-planche.jpg": "9244ad90-30a1-47ce-9e63-c0a52c7e881e",
+  "images/banque/pleine-lune.jpg": "2686b53e-98e0-4167-a85e-ed141a5b432d",
+  "images/banque/lune-nuages.jpg": "542919fa-1fd9-4203-84b1-d10b491eee3c",
+  "images/banque/nuages-bleus.jpg": "ddc37072-abeb-4cfc-bbce-c5091c91408f",
+  "images/banque/aquarelle-ciel.jpg": "e76b2d61-e34d-4054-b868-46c6b0e7d420",
+  "images/banque/aquarelle-lys.jpg": "17e1548f-32d2-41eb-a636-839e03ceb93e",
+  "images/banque/grand-chene.jpg": "ca07b70f-e123-42ad-b201-d44ab549ee45",
+  "images/banque/passerelle-foret.jpg": "9e7e7240-ac89-4d66-98e4-31c7dca60b51"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-roses-chevet.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-matcha-napperon.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "small hobbies that\nmake you impossible\nto bore"
+   },
+   "fr": {
+    "titre": "petits hobbies pour\nne plus jamais\nt'ennuyer"
+   },
+   "es": {
+    "titre": "pequeños hobbies\npara no aburrirte\nnunca"
+   },
+   "es-419": {
+    "titre": "pequeños hobbies\npara que nunca\nte aburras"
+   },
+   "it": {
+    "titre": "piccoli hobby per\nnon annoiarti mai più"
+   },
+   "tr": {
+    "titre": "asla sıkılmamanı\nsağlayan\nküçük hobiler"
+   },
+   "pt-BR": {
+    "titre": "hobbies pequenos\npra você nunca\nmais ficar entediada"
+   },
+   "sl": {
+    "titre": "majhni hobiji, zaradi\nkaterih ti ni\nnikoli dolgčas"
+   },
+   "de": {
+    "titre": "kleine hobbys,\nmit denen dir nie\nlangweilig wird"
+   },
+   "sk": {
+    "titre": "malé hobby, vďaka\nktorým sa nikdy\nnenudíš"
+   },
+   "sv": {
+    "titre": "små hobbys som gör\natt du aldrig\nblir uttråkad"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/cake-chocolat.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/cake-planche.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. baking an old recipe",
+    "paragraphes": [
+     "Find a recipe your grandmother would know, bake it slowly, and look up where it comes from while it's in the oven.",
+     "Every old recipe has a story, and the kitchen smells like a history lesson"
+    ]
+   },
+   "fr": {
+    "titre": "1. une vieille recette",
+    "paragraphes": [
+     "Trouve une recette que ta grand-mère connaîtrait, prépare-la doucement, et cherche d'où elle vient pendant qu'elle cuit.",
+     "Chaque vieille recette a une histoire, et la cuisine sent la leçon d'histoire"
+    ]
+   },
+   "es": {
+    "titre": "1. una receta antigua",
+    "paragraphes": [
+     "Busca una receta que conocería tu abuela, prepárala con calma y lee de dónde viene mientras está en el horno.",
+     "Cada receta antigua tiene una historia, y la cocina huele a clase de historia"
+    ]
+   },
+   "es-419": {
+    "titre": "1. una receta antigua",
+    "paragraphes": [
+     "Busca una receta que conocería tu abuela, prepárala con calma y lee de dónde viene mientras está en el horno.",
+     "Cada receta antigua tiene una historia, y la cocina huele a clase de historia"
+    ]
+   },
+   "it": {
+    "titre": "1. una vecchia ricetta",
+    "paragraphes": [
+     "Trova una ricetta che tua nonna conoscerebbe, preparala con calma e cerca da dove viene mentre è in forno.",
+     "Ogni vecchia ricetta ha una storia, e la cucina profuma di lezione di storia"
+    ]
+   },
+   "tr": {
+    "titre": "1. eski bir tarif",
+    "paragraphes": [
+     "Büyükannenin bileceği bir tarif bul, yavaşça yap, ve fırındayken nereden geldiğine bak.",
+     "Her eski tarifin bir hikâyesi var, ve mutfak tarih dersi gibi kokar"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. uma receita antiga",
+    "paragraphes": [
+     "Acha uma receita que sua avó conheceria, faz com calma e pesquisa de onde ela vem enquanto está no forno.",
+     "Toda receita antiga tem uma história, e a cozinha fica com cheiro de aula de história"
+    ]
+   },
+   "sl": {
+    "titre": "1. star recept",
+    "paragraphes": [
+     "Poišči recept, ki bi ga poznala tvoja babica, ga počasi pripravi in med peko preberi, od kod prihaja.",
+     "Vsak star recept ima zgodbo, in kuhinja diši kot ura zgodovine"
+    ]
+   },
+   "de": {
+    "titre": "1. ein altes rezept",
+    "paragraphes": [
+     "Such ein rezept, das deine oma kennen würde, back es in ruhe und lies nach, woher es kommt, während es im ofen ist.",
+     "Jedes alte rezept hat eine geschichte, und die küche riecht nach geschichtsstunde"
+    ]
+   },
+   "sk": {
+    "titre": "1. starý recept",
+    "paragraphes": [
+     "Nájdi recept, ktorý by poznala tvoja babka, priprav ho pomaly a kým sa pečie, zisti, odkiaľ pochádza.",
+     "Každý starý recept má príbeh, a kuchyňa vonia ako hodina dejepisu"
+    ]
+   },
+   "sv": {
+    "titre": "1. ett gammalt recept",
+    "paragraphes": [
+     "Hitta ett recept din mormor skulle känna igen, baka det i lugn och ro och läs om var det kommer ifrån medan det är i ugnen.",
+     "Varje gammalt recept har en historia, och köket doftar historielektion"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/pleine-lune.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/lune-nuages.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. learning the moon's phases",
+    "paragraphes": [
+     "Learn the eight phases, then look up every night for a month and name the one you see.",
+     "It takes ten seconds a night, and you start noticing the sky everywhere"
+    ]
+   },
+   "fr": {
+    "titre": "2. les phases de la lune",
+    "paragraphes": [
+     "Apprends les huit phases, puis lève les yeux chaque soir pendant un mois et nomme celle que tu vois.",
+     "Dix secondes par soir, et tu remarques le ciel partout"
+    ]
+   },
+   "es": {
+    "titre": "2. las fases de la luna",
+    "paragraphes": [
+     "Aprende las ocho fases, y luego mira al cielo cada noche durante un mes y nombra la que ves.",
+     "Diez segundos por noche, y empiezas a fijarte en el cielo en todas partes"
+    ]
+   },
+   "es-419": {
+    "titre": "2. las fases de la luna",
+    "paragraphes": [
+     "Aprende las ocho fases, y luego mira al cielo cada noche durante un mes y nombra la que ves.",
+     "Diez segundos por noche, y empiezas a notar el cielo en todos lados"
+    ]
+   },
+   "it": {
+    "titre": "2. le fasi della luna",
+    "paragraphes": [
+     "Impara le otto fasi, poi guarda il cielo ogni sera per un mese e dai un nome a quella che vedi.",
+     "Dieci secondi a sera, e inizi a notare il cielo ovunque"
+    ]
+   },
+   "tr": {
+    "titre": "2. ayın evreleri",
+    "paragraphes": [
+     "Sekiz evreyi öğren, sonra bir ay boyunca her gece gökyüzüne bak ve gördüğünün adını koy.",
+     "Gecede on saniye sürer, ve gökyüzünü her yerde fark etmeye başlarsın"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. as fases da lua",
+    "paragraphes": [
+     "Aprende as oito fases, depois olha pro céu toda noite durante um mês e dá nome à que você vê.",
+     "Dez segundos por noite, e você começa a reparar no céu em todo lugar"
+    ]
+   },
+   "sl": {
+    "titre": "2. lunine mene",
+    "paragraphes": [
+     "Nauči se osem lun, nato vsak večer en mesec poglej v nebo in poimenuj tisto, ki jo vidiš.",
+     "Deset sekund na večer, in nebo začneš opažati povsod"
+    ]
+   },
+   "de": {
+    "titre": "2. die mondphasen",
+    "paragraphes": [
+     "Lern die acht phasen, dann schau einen monat lang jeden abend hoch und benenne die, die du siehst.",
+     "Zehn sekunden am abend, und du bemerkst den himmel überall"
+    ]
+   },
+   "sk": {
+    "titre": "2. fázy mesiaca",
+    "paragraphes": [
+     "Nauč sa osem fáz, potom sa mesiac každý večer pozri na oblohu a pomenuj tú, ktorú vidíš.",
+     "Desať sekúnd za večer a oblohu začneš vnímať všade"
+    ]
+   },
+   "sv": {
+    "titre": "2. månens faser",
+    "paragraphes": [
+     "Lär dig de åtta faserna, titta sedan upp varje kväll i en månad och säg vilken du ser.",
+     "Tio sekunder per kväll, och du börjar lägga märke till himlen överallt"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/nuages-bleus.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson with my tea",
+    "paragraphes": [
+     "One lesson a day on Sophia, like why we dream, with a little quiz after. I do it with my tea every evening.",
+     "It's the smallest hobby I have, and the one I end up talking about the most"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon avec mon thé",
+    "paragraphes": [
+     "Une leçon par jour sur Sophia, genre pourquoi on rêve, avec un petit quiz après. je la fais chaque soir avec mon thé.",
+     "C'est mon plus petit hobby, et celui dont je parle le plus"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección con mi té",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. la hago cada noche con mi té.",
+     "Es mi hobby más pequeño, y del que más acabo hablando"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección con mi té",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. la hago cada noche con mi té.",
+     "Es mi hobby más chiquito, y del que más termino platicando"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione con il mio tè",
+    "paragraphes": [
+     "Una lezione al giorno su Sophia, tipo perché sogniamo, con un piccolo quiz alla fine. la faccio ogni sera con il mio tè.",
+     "È il mio hobby più piccolo, e quello di cui finisco per parlare di più"
+    ]
+   },
+   "tr": {
+    "titre": "3. çayımla bir ders",
+    "paragraphes": [
+     "Her gün Sophia'da bir ders, mesela neden rüya görürüz, sonunda da küçük bir test. her akşam çayımla yapıyorum.",
+     "En küçük hobim bu, ve en çok bahsettiğim de bu"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula com meu chá",
+    "paragraphes": [
+     "Uma aula por dia no Sophia, tipo por que a gente sonha, com um quiz no final. eu faço toda noite com meu chá.",
+     "É o meu menor hobby, e o que eu mais acabo comentando"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija ob čaju",
+    "paragraphes": [
+     "Ena lekcija na dan v aplikaciji Sophia, recimo zakaj sanjamo, na koncu pa kratek kviz. delam jo vsak večer ob čaju.",
+     "To je moj najmanjši hobi, in o njem največ govorim"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion zum tee",
+    "paragraphes": [
+     "Eine lektion am tag auf Sophia, zum beispiel warum wir träumen, mit einem kleinen quiz danach. ich mache sie jeden abend zum tee.",
+     "Es ist mein kleinstes hobby, und das, von dem ich am meisten erzähle"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia pri čaji",
+    "paragraphes": [
+     "Jedna lekcia denne v aplikácii Sophia, napríklad prečo snívame, a na konci malý kvíz. robím ju každý večer pri čaji.",
+     "Je to moje najmenšie hobby, a to, o ktorom rozprávam najviac"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion till teet",
+    "paragraphes": [
+     "En lektion om dagen på Sophia, som varför vi drömmer, med ett litet quiz efteråt. jag gör den varje kväll till mitt te.",
+     "Det är min minsta hobby, och den jag pratar mest om"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/aquarelle-ciel.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/aquarelle-lys.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. painting the sky",
+    "paragraphes": [
+     "Once a week, paint only the sky from your window in watercolour. no lessons, just one small card.",
+     "You start seeing colours you never noticed, and a little stack of skies piles up"
+    ]
+   },
+   "fr": {
+    "titre": "4. peindre le ciel",
+    "paragraphes": [
+     "Une fois par semaine, peins seulement le ciel de ta fenêtre à l'aquarelle. pas de cours, juste une petite carte.",
+     "Tu commences à voir des couleurs que tu ne remarquais pas, et une petite pile de ciels s'accumule"
+    ]
+   },
+   "es": {
+    "titre": "4. pintar el cielo",
+    "paragraphes": [
+     "Una vez por semana, pinta solo el cielo de tu ventana en acuarela. sin clases, solo una tarjetita.",
+     "Empiezas a ver colores que nunca habías notado, y se te acumula un montoncito de cielos"
+    ]
+   },
+   "es-419": {
+    "titre": "4. pintar el cielo",
+    "paragraphes": [
+     "Una vez por semana, pinta solo el cielo de tu ventana en acuarela. sin clases, solo una tarjetita.",
+     "Empiezas a ver colores que nunca habías notado, y se te junta un montoncito de cielos"
+    ]
+   },
+   "it": {
+    "titre": "4. dipingere il cielo",
+    "paragraphes": [
+     "Una volta a settimana, dipingi solo il cielo dalla tua finestra ad acquerello. niente lezioni, solo un cartoncino.",
+     "Inizi a vedere colori che non avevi mai notato, e si accumula una pila di cieli"
+    ]
+   },
+   "tr": {
+    "titre": "4. gökyüzünü boyamak",
+    "paragraphes": [
+     "Haftada bir, pencerenden sadece gökyüzünü suluboyayla boya. ders yok, sadece küçük bir kart.",
+     "Hiç fark etmediğin renkleri görmeye başlarsın, ve küçük bir gökyüzü yığını birikir"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. pintar o céu",
+    "paragraphes": [
+     "Uma vez por semana, pinta só o céu da sua janela em aquarela. sem aula, só um cartãozinho.",
+     "Você começa a ver cores que nunca tinha notado, e junta uma pilha de céus"
+    ]
+   },
+   "sl": {
+    "titre": "4. slikanje neba",
+    "paragraphes": [
+     "Enkrat na teden z akvareli naslikaj samo nebo iz svojega okna. brez tečajev, samo majhna kartica.",
+     "Začneš opažati barve, ki jih prej nisi videla, in nabere se kupček neba"
+    ]
+   },
+   "de": {
+    "titre": "4. den himmel malen",
+    "paragraphes": [
+     "Mal einmal pro woche nur den himmel aus deinem fenster mit aquarell. kein kurs, nur eine kleine karte.",
+     "Du siehst farben, die dir nie aufgefallen sind, und ein kleiner stapel himmel wächst"
+    ]
+   },
+   "sk": {
+    "titre": "4. maľovanie oblohy",
+    "paragraphes": [
+     "Raz týždenne namaľuj akvarelom len oblohu zo svojho okna. žiadne kurzy, len malá kartička.",
+     "Začneš vidieť farby, ktoré si predtým nevnímala, a nazbiera sa ti kôpka oblôh"
+    ]
+   },
+   "sv": {
+    "titre": "4. måla himlen",
+    "paragraphes": [
+     "En gång i veckan, måla bara himlen från ditt fönster i akvarell. inga lektioner, bara ett litet kort.",
+     "Du börjar se färger du aldrig märkt, och en liten hög med himlar växer"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/grand-chene.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/passerelle-foret.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. one tree a week",
+    "paragraphes": [
+     "Pick one tree on your walk and find its name and how old it might be. some oaks live for more than a thousand years.",
+     "Your daily walk turns into a visit to very old friends"
+    ]
+   },
+   "fr": {
+    "titre": "5. un arbre par semaine",
+    "paragraphes": [
+     "Choisis un arbre sur ta balade et trouve son nom et son âge possible. certains chênes vivent plus de mille ans.",
+     "Ta balade devient une visite à de très vieux amis"
+    ]
+   },
+   "es": {
+    "titre": "5. un árbol por semana",
+    "paragraphes": [
+     "Elige un árbol en tu paseo y busca su nombre y cuántos años podría tener. algunos robles viven más de mil años.",
+     "Tu paseo se convierte en una visita a amigos muy viejos"
+    ]
+   },
+   "es-419": {
+    "titre": "5. un árbol por semana",
+    "paragraphes": [
+     "Elige un árbol en tu caminata y busca su nombre y cuántos años podría tener. algunos robles viven más de mil años.",
+     "Tu caminata se vuelve una visita a amigos muy viejos"
+    ]
+   },
+   "it": {
+    "titre": "5. un albero a settimana",
+    "paragraphes": [
+     "Scegli un albero durante la passeggiata e cerca il suo nome e quanti anni potrebbe avere. alcune querce vivono più di mille anni.",
+     "La passeggiata diventa una visita a vecchissimi amici"
+    ]
+   },
+   "tr": {
+    "titre": "5. haftada bir ağaç",
+    "paragraphes": [
+     "Yürüyüşünde bir ağaç seç, adını ve kaç yaşında olabileceğini bul. bazı meşeler bin yıldan fazla yaşar.",
+     "Günlük yürüyüşün çok eski dostlara bir ziyarete dönüşür"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. uma árvore por semana",
+    "paragraphes": [
+     "Escolhe uma árvore na sua caminhada e descobre o nome dela e quantos anos ela pode ter. alguns carvalhos vivem mais de mil anos.",
+     "Sua caminhada vira uma visita a amigos muito antigos"
+    ]
+   },
+   "sl": {
+    "titre": "5. eno drevo na teden",
+    "paragraphes": [
+     "Na sprehodu izberi eno drevo in poišči njegovo ime ter koliko je lahko staro. nekateri hrasti živijo več kot tisoč let.",
+     "Tvoj vsakdanji sprehod postane obisk zelo starih prijateljev"
+    ]
+   },
+   "de": {
+    "titre": "5. ein baum pro woche",
+    "paragraphes": [
+     "Such dir auf deinem spaziergang einen baum aus und finde seinen namen und wie alt er sein könnte. manche eichen werden über tausend jahre alt.",
+     "Dein spaziergang wird zum besuch bei sehr alten freunden"
+    ]
+   },
+   "sk": {
+    "titre": "5. jeden strom týždenne",
+    "paragraphes": [
+     "Na prechádzke si vyber jeden strom a zisti jeho meno a koľko rokov môže mať. niektoré duby žijú viac ako tisíc rokov.",
+     "Tvoja prechádzka sa zmení na návštevu veľmi starých priateľov"
+    ]
+   },
+   "sv": {
+    "titre": "5. ett träd i veckan",
+    "paragraphes": [
+     "Välj ett träd på din promenad och ta reda på vad det heter och hur gammalt det kan vara. vissa ekar blir över tusen år.",
+     "Din promenad blir ett besök hos väldigt gamla vänner"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5439b40b-9c1d-43db-8656-4c68a43c1923"
+}

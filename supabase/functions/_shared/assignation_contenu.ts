@@ -2955,6 +2955,28 @@ export type AssignationCompteResultat = {
   nonServable?: boolean;
 };
 
+/**
+ * Tous les comptes actifs (`select("*")`), paginés sur `id`.
+ *
+ * Une seule lecture non bornée suffisait tant que la flotte tenait sous le
+ * plafond PostgREST (max-rows = 1000) ; elle l'a passé le 27/11 et le garde-fou
+ * de complétude a arrêté l'assignation de la nuit. `compteId` cible un compte.
+ */
+// deno-lint-ignore no-explicit-any
+export async function lireComptesActifs(supabase: Supabase, compteId: string | null = null): Promise<any[]> {
+  // deno-lint-ignore no-explicit-any
+  return await lireTout<any>(
+    "Comptes actifs",
+    (curseur, taille) => {
+      let q = supabase.from("comptes").select("*").eq("is_active", true);
+      if (compteId) q = q.eq("id", compteId);
+      if (curseur) q = q.gt("id", curseur.id as string);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (c) => c.id as string },
+  );
+}
+
 /** Comptes en process (warmup OK, pas UGC video ni vidéos uniquement) encore sous leur quota du jour. */
 export async function listerComptesSousQuota(
   supabase: Supabase,
@@ -2962,28 +2984,14 @@ export async function listerComptesSousQuota(
   opts: { ignorerWarmup?: boolean } = {},
   // deno-lint-ignore no-explicit-any
 ): Promise<any[]> {
-  // Lecture non bornée, LAISSÉE TELLE QUELLE — et c'est un choix, pas un oubli.
-  //
-  // La flotte compte 131 comptes actifs, très loin des 1000 lignes du plafond
-  // PostgREST : la troncature n'est pas atteignable aujourd'hui. Et la paginer
-  // coûterait ce qu'on refuse de payer ici : `lireTout` exige un `.order(ancre)`,
-  // donc l'ordre de ce tableau passerait de l'ordre de tas à l'ordre des `id` —
-  // or c'est exactement ce tableau que `assignerDrainLot` tranche en
-  // `slice(0, DRAIN_BATCH)`. On changerait l'ordre dans lequel les créateurs
-  // sont servis, c'est-à-dire de la politique, pour corriger une troncature qui
-  // n'existe pas. Ce n'est pas le chantier.
-  //
-  // POUR LE PROCHAIN QUI PASSE, parce que l'échéance est réelle : à 1000 comptes
-  // actifs, le garde-fou de complétude lèvera ici — avant la boucle par compte,
-  // hors de son try/catch — et le drain entier s'arrêtera. La bonne sortie ce
-  // jour-là n'est pas un `.limit()` (il masquerait la troncature) mais une
-  // pagination keyset sur `id`, en vérifiant d'abord que l'ordre de service du
-  // drain peut devenir déterministe. Le repère utile : à ~500 comptes, s'y mettre.
-  const { data: comptesBruts, error } = await supabase
-    .from("comptes")
-    .select("*")
-    .eq("is_active", true);
-  if (error) throw error;
+  // 28/11 : la flotte a passé 1000 comptes actifs (1037) et la lecture non
+  // bornée d'ici a levé sur le garde-fou de complétude, comme annoncé : le drain
+  // de minuit s'est arrêté avant le premier compte et la journée est partie sans
+  // posts. Pagination keyset sur `id` (voir `lireComptesActifs`). L'ordre de
+  // service du drain devient celui des `id` : déterministe, et sans effet sur qui
+  // est servi — la chaîne écarte déjà les comptes en échec (`exclus`), donc la
+  // tête de file ne peut plus retenir le reste.
+  const comptesBruts = await lireComptesActifs(supabase);
 
   const maintenant = Date.now();
   // Une recrue en rouge pas encore décidée ne reçoit pas de posts (0392).
@@ -3181,13 +3189,8 @@ export async function assignerTousComptes(
 ): Promise<AssignationCompteResultat[]> {
   const o: AssignationOpts = typeof opts === "boolean" ? { forcer: opts } : (opts ?? {});
   const reglages = await chargerAssignationReglages(supabase);
-  // Non bornée, pour les mêmes raisons que dans `listerComptesSousQuota` (131
-  // comptes actifs, plafond à 1000, et paginer imposerait un ordre) — voir le
-  // commentaire là-bas, y compris le repère des ~500 comptes.
-  let query = supabase.from("comptes").select("*").eq("is_active", true);
-  if (compteId) query = query.eq("id", compteId);
-  const { data: comptesBruts, error } = await query;
-  if (error) throw error;
+  // Paginée comme `listerComptesSousQuota` (plus de 1000 comptes actifs depuis le 27/11).
+  const comptesBruts = await lireComptesActifs(supabase, compteId);
 
   // Warmup : uniquement les comptes dont warmup_ends_at est passé (en process).
   // Mode test : on peut cibler un compte hors process (ignorerWarmup).

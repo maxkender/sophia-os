@@ -1,0 +1,628 @@
+{
+ "id": "mc-008",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "How To Make People Feel Comfortable Around You",
+  "de": "So fühlen sich Menschen bei dir wohl",
+  "it": "Come mettere le persone a proprio agio con te",
+  "fr": "Comment mettre les gens à l'aise avec toi",
+  "pt-BR": "Como deixar as pessoas à vontade com você",
+  "es-419": "Cómo hacer que la gente se sienta cómoda contigo",
+  "pl": "Jak sprawić, żeby ludzie czuli się przy tobie swobodnie",
+  "cs": "Jak zařídit, aby se lidé s tebou cítili příjemně"
+ },
+ "legendes": {
+  "en": "People remember how relaxed they felt.\n\n#psychology #socialskills #charisma #confidence #socialanxiety",
+  "de": "Menschen erinnern sich daran, wie entspannt sie waren.\n\n#psychologie #socialskills #charisma #selbstbewusstsein #sozialeangst",
+  "it": "Le persone ricordano quanto si sentivano rilassate.\n\n#psicologia #socialskills #carisma #autostima #ansiasociale",
+  "fr": "On se souvient de combien on était détendu.\n\n#psychologie #confianceensoi #charisme #anxietesociale #comportementhumain",
+  "pt-BR": "As pessoas lembram de como se sentiram relaxadas.\n\n#psicologia #habilidadessociais #carisma #autoconfianca #ansiedadesocial",
+  "es-419": "La gente recuerda lo relajada que se sintió.\n\n#psicologia #habilidadessociales #carisma #confianza #ansiedadsocial",
+  "pl": "Ludzie pamiętają, jak bardzo byli zrelaksowani.\n\n#psychologia #umiejetnoscispoleczne #charyzma #pewnoscsiebie #lekspoleczny",
+  "cs": "Lidé si pamatují, jak uvolněně se cítili.\n\n#psychologie #socialniinteligence #charisma #sebevedomi #socialniuzkost"
+ },
+ "musique": {
+  "titre": "son original - L O R E N Z O",
+  "url": "https://www.tiktok.com/music/son-original-7297938537801272097"
+ },
+ "compte": {
+  "images/compte/ange.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7703262649676516611",
+   "slide": 5
+  },
+  "images/compte/phalene.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7700360923160104214",
+   "slide": 2
+  },
+  "images/compte/masque-brise.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7692894810088148246",
+   "slide": 2
+  },
+  "images/compte/lions.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7697369614828801302",
+   "slide": 6
+  },
+  "images/compte/regard.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7694645452783799574",
+   "slide": 6
+  },
+  "images/compte/statue-masque.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7697369614828801302",
+   "slide": 4
+  }
+ },
+ "notes": "Full test (accroche neuve) à son format exact : mettre les gens à l'aise (arrêter de jouer un rôle, leur laisser une porte de sortie, avouer de petites choses). Texte à nous, dans sa voix (l'idée de la porte de sortie vient de son post « Strangers relax the second they see an exit. », 10,7 k) ; ses images reprises, toutes déjà découpées. Slide Sophia (6) : « BRING EASY TOPICS » ; cta B. Musique : son original de L O R E N Z O (son post à 165 k).",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "How To Make People {Feel Comfortable} Around You"
+   },
+   "image": "images/compte/ange.jpg",
+   "de": {
+    "titre": "So fühlen sich Menschen {bei dir wohl}"
+   },
+   "it": {
+    "titre": "Come mettere le persone {a proprio agio} con te"
+   },
+   "fr": {
+    "titre": "Comment mettre les gens {à l'aise} avec toi"
+   },
+   "pt-BR": {
+    "titre": "Como deixar as pessoas {à vontade} com você"
+   },
+   "es-419": {
+    "titre": "Cómo hacer que la gente {se sienta cómoda} contigo"
+   },
+   "pl": {
+    "titre": "Jak sprawić, żeby ludzie {czuli się przy tobie swobodnie}"
+   },
+   "cs": {
+    "titre": "Jak zařídit, aby se lidé s tebou {cítili příjemně}"
+   }
+  },
+  {
+   "type": "avertissement",
+   "en": {
+    "surtitre": "DISCLAIMER",
+    "titre": "READ THIS BEFORE YOU TRY IT",
+    "avant": [
+     "Some people make a room tense without saying a word.",
+     "Others make strangers relax in minutes.",
+     "[The difference is never what they say. It is what they stop doing.]"
+    ]
+   },
+   "image": "images/compte/phalene.jpg",
+   "de": {
+    "surtitre": "ACHTUNG",
+    "titre": "LIES DAS, BEVOR DU ES AUSPROBIERST",
+    "avant": [
+     "Manche Menschen machen einen Raum angespannt, ohne ein Wort zu sagen.",
+     "Andere bringen Fremde in Minuten zum Entspannen.",
+     "[Der Unterschied ist nie, was sie sagen. Sondern was sie lassen.]"
+    ]
+   },
+   "it": {
+    "surtitre": "ATTENZIONE",
+    "titre": "LEGGI PRIMA DI PROVARLO",
+    "avant": [
+     "Certe persone rendono tesa una stanza senza dire una parola.",
+     "Altre fanno rilassare degli sconosciuti in pochi minuti.",
+     "[La differenza non è mai cosa dicono. È cosa smettono di fare.]"
+    ]
+   },
+   "fr": {
+    "surtitre": "ATTENTION",
+    "titre": "LIS ÇA AVANT D'ESSAYER",
+    "avant": [
+     "Certaines personnes rendent une pièce tendue sans dire un mot.",
+     "D'autres détendent des inconnus en quelques minutes.",
+     "[La différence n'est jamais ce qu'elles disent. C'est ce qu'elles arrêtent de faire.]"
+    ]
+   },
+   "pt-BR": {
+    "surtitre": "AVISO",
+    "titre": "LEIA ISSO ANTES DE TENTAR",
+    "avant": [
+     "Algumas pessoas deixam um ambiente tenso sem dizer uma palavra.",
+     "Outras fazem estranhos relaxarem em minutos.",
+     "[A diferença nunca é o que elas dizem. É o que elas param de fazer.]"
+    ]
+   },
+   "es-419": {
+    "surtitre": "AVISO",
+    "titre": "LEE ESTO ANTES DE PROBARLO",
+    "avant": [
+     "Algunas personas ponen tenso un lugar sin decir una palabra.",
+     "Otras hacen que unos desconocidos se relajen en minutos.",
+     "[La diferencia nunca es lo que dicen. Es lo que dejan de hacer.]"
+    ]
+   },
+   "pl": {
+    "surtitre": "UWAGA",
+    "titre": "PRZECZYTAJ, ZANIM SPRÓBUJESZ",
+    "avant": [
+     "Niektórzy robią w pokoju napiętą atmosferę, nie mówiąc ani słowa.",
+     "Inni sprawiają, że obcy rozluźniają się w kilka minut.",
+     "[Różnica nigdy nie leży w tym, co mówią. Tylko w tym, czego przestają robić.]"
+    ]
+   },
+   "cs": {
+    "surtitre": "UPOZORNĚNÍ",
+    "titre": "PŘEČTI SI TO, NEŽ TO ZKUSÍŠ",
+    "avant": [
+     "Někteří lidé udělají v místnosti napětí, aniž by řekli slovo.",
+     "Jiní dokážou cizí lidi uvolnit během pár minut.",
+     "[Rozdíl nikdy není v tom, co říkají. Je v tom, co přestanou dělat.]"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "{STOP} PERFORMING",
+    "avant": [
+     "When you try to look cool, people feel watched.",
+     "Every joke is a test. Every pause is a judgement.",
+     "So they start performing too."
+    ],
+    "apres": [
+     "{Relaxed people make other people relax.}"
+    ]
+   },
+   "image": "images/compte/masque-brise.jpg",
+   "de": {
+    "titre": "{HÖR AUF,} ZU PERFORMEN",
+    "avant": [
+     "Wenn du versuchst, cool zu wirken, fühlen sich andere beobachtet.",
+     "Jeder Witz ist ein Test. Jede Pause ein Urteil.",
+     "Also fangen sie auch an zu performen."
+    ],
+    "apres": [
+     "{Entspannte Menschen entspannen andere.}"
+    ]
+   },
+   "it": {
+    "titre": "{SMETTI} DI RECITARE",
+    "avant": [
+     "Quando cerchi di sembrare figo, gli altri si sentono osservati.",
+     "Ogni battuta è un esame. Ogni pausa è un giudizio.",
+     "Così iniziano a recitare anche loro."
+    ],
+    "apres": [
+     "{Le persone rilassate fanno rilassare gli altri.}"
+    ]
+   },
+   "fr": {
+    "titre": "{ARRÊTE} DE JOUER UN RÔLE",
+    "avant": [
+     "Quand tu essaies d'avoir l'air cool, les autres se sentent observés.",
+     "Chaque blague est un test. Chaque blanc, un jugement.",
+     "Alors eux aussi se mettent à jouer un rôle."
+    ],
+    "apres": [
+     "{Les gens détendus détendent les autres.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "{PARE} DE ATUAR",
+    "avant": [
+     "Quando você tenta parecer descolado, as pessoas se sentem observadas.",
+     "Cada piada vira um teste. Cada pausa, um julgamento.",
+     "Aí elas começam a atuar também."
+    ],
+    "apres": [
+     "{Gente relaxada faz os outros relaxarem.}"
+    ]
+   },
+   "es-419": {
+    "titre": "{DEJA} DE ACTUAR",
+    "avant": [
+     "Cuando intentas verte cool, la gente se siente observada.",
+     "Cada chiste es un examen. Cada pausa, un juicio.",
+     "Así que también empiezan a actuar."
+    ],
+    "apres": [
+     "{La gente relajada relaja a los demás.}"
+    ]
+   },
+   "pl": {
+    "titre": "{PRZESTAŃ} GRAĆ",
+    "avant": [
+     "Kiedy próbujesz wyglądać na wyluzowanego, inni czują się obserwowani.",
+     "Każdy żart to test. Każda pauza to ocena.",
+     "Więc oni też zaczynają grać."
+    ],
+    "apres": [
+     "{Wyluzowani ludzie wyluzowują innych.}"
+    ]
+   },
+   "cs": {
+    "titre": "{PŘESTAŇ} HRÁT DIVADLO",
+    "avant": [
+     "Když se snažíš působit cool, ostatní se cítí sledovaní.",
+     "Každý vtip je test. Každá pauza je soud.",
+     "Tak začnou hrát divadlo taky."
+    ],
+    "apres": [
+     "{Uvolnění lidé uvolňují ostatní.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "GIVE THEM {AN EXIT}",
+    "avant": [
+     "Nobody relaxes when they feel trapped in a conversation.",
+     "Say “I'll let you go in a sec” or “I'm only here for a bit.”",
+     "The second they know they can leave, they want to stay."
+    ],
+    "apres": [
+     "{Knowing they can leave makes people comfortable.}"
+    ]
+   },
+   "image": "images/compte/lions.jpg",
+   "de": {
+    "titre": "GIB IHNEN {EINEN AUSWEG}",
+    "avant": [
+     "Niemand entspannt sich, wenn er sich in einem Gespräch gefangen fühlt.",
+     "Sag „ich lass dich gleich weiter“ oder „ich bin eh nur kurz da“.",
+     "Sobald sie wissen, dass sie gehen können, wollen sie bleiben."
+    ],
+    "apres": [
+     "{Freiheit macht Menschen entspannt.}"
+    ]
+   },
+   "it": {
+    "titre": "DAGLI {UNA VIA D'USCITA}",
+    "avant": [
+     "Nessuno si rilassa se si sente intrappolato in una conversazione.",
+     "Di' “ti lascio andare tra un attimo” o “resto solo un po'”.",
+     "Appena sanno di poter andare via, vogliono restare."
+    ],
+    "apres": [
+     "{La libertà mette le persone a proprio agio.}"
+    ]
+   },
+   "fr": {
+    "titre": "LAISSE-LEUR {UNE SORTIE}",
+    "avant": [
+     "Personne ne se détend en se sentant coincé dans une conversation.",
+     "Dis « je te laisse dans deux secondes » ou « je ne reste pas longtemps ».",
+     "Dès qu'ils savent qu'ils peuvent partir, ils ont envie de rester."
+    ],
+    "apres": [
+     "{La liberté met les gens à l'aise.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "DÊ {UMA SAÍDA}",
+    "avant": [
+     "Ninguém relaxa quando se sente preso numa conversa.",
+     "Diga “já te libero” ou “só vou ficar um pouquinho”.",
+     "No segundo em que sabem que podem sair, querem ficar."
+    ],
+    "apres": [
+     "{Liberdade deixa as pessoas à vontade.}"
+    ]
+   },
+   "es-419": {
+    "titre": "DALES {UNA SALIDA}",
+    "avant": [
+     "Nadie se relaja si se siente atrapado en una plática.",
+     "Di “ya te dejo en un ratito” o “solo vengo un momento”.",
+     "En cuanto saben que pueden irse, quieren quedarse."
+    ],
+    "apres": [
+     "{La libertad hace que la gente se sienta cómoda.}"
+    ]
+   },
+   "pl": {
+    "titre": "DAJ IM {WYJŚCIE}",
+    "avant": [
+     "Nikt się nie rozluźnia, kiedy czuje się uwięziony w rozmowie.",
+     "Powiedz „zaraz cię puszczam” albo „jestem tylko na chwilę”.",
+     "Kiedy wiedzą, że mogą odejść, chcą zostać."
+    ],
+    "apres": [
+     "{Wolność sprawia, że ludzie czują się swobodnie.}"
+    ]
+   },
+   "cs": {
+    "titre": "DEJ JIM {ÚNIKOVOU CESTU}",
+    "avant": [
+     "Nikdo se neuvolní, když se cítí v rozhovoru uvězněný.",
+     "Řekni „za chvilku tě pustím“ nebo „jsem tu jen na chvíli“.",
+     "Jakmile vědí, že můžou odejít, chtějí zůstat."
+    ],
+    "apres": [
+     "{Svoboda dává lidem pocit pohody.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "ADMIT {SMALL THINGS}",
+    "avant": [
+     "Share one small, harmless mistake you made this week.",
+     "You sent the email to the wrong person. You waved at someone who was waving at someone else.",
+     "It tells them nobody here is being graded."
+    ],
+    "apres": [
+     "{Your small flaw gives them permission to be normal.}"
+    ]
+   },
+   "image": "images/compte/regard.jpg",
+   "de": {
+    "titre": "GIB {KLEINIGKEITEN} ZU",
+    "avant": [
+     "Erzähl von einem kleinen, harmlosen Fehler, den du diese Woche gemacht hast.",
+     "Du hast die Mail an die falsche Person geschickt. Du hast jemandem zurückgewunken, der gar nicht dich gemeint hat.",
+     "Das zeigt ihnen, dass hier niemand bewertet wird."
+    ],
+    "apres": [
+     "{Deine kleine Schwäche erlaubt ihnen, normal zu sein.}"
+    ]
+   },
+   "it": {
+    "titre": "AMMETTI {LE PICCOLE COSE}",
+    "avant": [
+     "Racconta un piccolo errore innocuo che hai fatto questa settimana.",
+     "Hai mandato la mail alla persona sbagliata. Hai salutato qualcuno che salutava un altro.",
+     "Gli dice che qui nessuno viene giudicato."
+    ],
+    "apres": [
+     "{Il tuo piccolo difetto gli dà il permesso di essere normali.}"
+    ]
+   },
+   "fr": {
+    "titre": "AVOUE {LES PETITS TRUCS}",
+    "avant": [
+     "Raconte une petite erreur sans gravité que tu as faite cette semaine.",
+     "Tu as envoyé le mail à la mauvaise personne. Tu as répondu au salut de quelqu'un qui saluait quelqu'un d'autre.",
+     "Ça leur dit que personne n'est noté ici."
+    ],
+    "apres": [
+     "{Ton petit défaut leur donne le droit d'être normaux.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "ADMITA {AS PEQUENAS COISAS}",
+    "avant": [
+     "Conte um errinho bobo que você cometeu essa semana.",
+     "Mandou o e-mail pra pessoa errada. Acenou pra alguém que estava acenando pra outra pessoa.",
+     "Isso mostra que ninguém está sendo avaliado ali."
+    ],
+    "apres": [
+     "{Seu pequeno defeito dá permissão pros outros serem normais.}"
+    ]
+   },
+   "es-419": {
+    "titre": "ADMITE {COSAS PEQUEÑAS}",
+    "avant": [
+     "Cuenta un error pequeño e inofensivo que cometiste esta semana.",
+     "Mandaste el correo a la persona equivocada. Saludaste a alguien que saludaba a otra persona.",
+     "Les dice que aquí nadie está siendo calificado."
+    ],
+    "apres": [
+     "{Tu pequeño defecto les da permiso de ser normales.}"
+    ]
+   },
+   "pl": {
+    "titre": "PRZYZNAJ SIĘ {DO DROBIAZGÓW}",
+    "avant": [
+     "Opowiedz o małym, niegroźnym błędzie z tego tygodnia.",
+     "Wysłałeś maila do złej osoby. Pomachałeś komuś, kto machał do kogoś innego.",
+     "To im mówi, że nikt tu nikogo nie ocenia."
+    ],
+    "apres": [
+     "{Twoja mała wada pozwala im być normalnymi.}"
+    ]
+   },
+   "cs": {
+    "titre": "PŘIZNEJ {MALIČKOSTI}",
+    "avant": [
+     "Řekni o malé, neškodné chybě, kterou jsi tento týden udělal.",
+     "Poslal jsi mail špatnému člověku. Zamával jsi někomu, kdo mával na někoho jiného.",
+     "Říká jim to, že tady nikdo nikoho nehodnotí."
+    ],
+    "apres": [
+     "{Tvoje malá chyba jim dovolí být normální.}"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "en": {
+    "titre": "{BRING} EASY TOPICS",
+    "avant": [
+     "Heavy questions make people freeze.",
+     "A weird fact or a light story gives them something easy to react to."
+    ],
+    "apres": [
+     "Ten minutes on {Sophia} every morning, and I never run out of things to talk about.",
+     "{Easy topics feel like an open door.}"
+    ]
+   },
+   "de": {
+    "titre": "{BRING} LEICHTE THEMEN MIT",
+    "avant": [
+     "Schwere Fragen lassen Menschen erstarren.",
+     "Ein schräger Fakt oder eine leichte Geschichte gibt ihnen etwas, worauf sie locker reagieren können."
+    ],
+    "apres": [
+     "Zehn Minuten auf {Sophia} jeden Morgen, und mir gehen nie die Gesprächsthemen aus.",
+     "{Leichte Themen fühlen sich an wie eine offene Tür.}"
+    ]
+   },
+   "it": {
+    "titre": "{PORTA} ARGOMENTI LEGGERI",
+    "avant": [
+     "Le domande pesanti fanno bloccare le persone.",
+     "Un fatto strano o una storia leggera gli danno qualcosa di facile a cui reagire."
+    ],
+    "apres": [
+     "Dieci minuti su {Sophia} ogni mattina, e non resto mai senza cose di cui parlare.",
+     "{Gli argomenti leggeri sembrano una porta aperta.}"
+    ]
+   },
+   "fr": {
+    "titre": "{APPORTE} DES SUJETS LÉGERS",
+    "avant": [
+     "Les questions lourdes font bloquer les gens.",
+     "Un fait bizarre ou une histoire légère leur donne un truc facile auquel réagir."
+    ],
+    "apres": [
+     "Dix minutes sur {Sophia} chaque matin, et je ne suis jamais à court de sujets.",
+     "{Un sujet léger, c'est une porte ouverte.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "{TRAGA} ASSUNTOS LEVES",
+    "avant": [
+     "Perguntas pesadas fazem as pessoas travarem.",
+     "Um fato curioso ou uma história leve dá algo fácil pra reagir."
+    ],
+    "apres": [
+     "Dez minutos no {Sophia} toda manhã, e nunca me faltam assuntos.",
+     "{Assunto leve parece uma porta aberta.}"
+    ]
+   },
+   "es-419": {
+    "titre": "{TRAE} TEMAS LIGEROS",
+    "avant": [
+     "Las preguntas pesadas hacen que la gente se congele.",
+     "Un dato raro o una historia ligera les da algo fácil a qué reaccionar."
+    ],
+    "apres": [
+     "Diez minutos en {Sophia} cada mañana, y nunca me quedo sin temas de conversación.",
+     "{Un tema ligero se siente como una puerta abierta.}"
+    ]
+   },
+   "pl": {
+    "titre": "{PRZYNIEŚ} LEKKIE TEMATY",
+    "avant": [
+     "Ciężkie pytania sprawiają, że ludzie się zacinają.",
+     "Dziwny fakt albo lekka historia daje im coś łatwego, na co mogą zareagować."
+    ],
+    "apres": [
+     "Dziesięć minut w {Sophia} każdego ranka i nigdy nie brakuje mi tematów do rozmowy.",
+     "{Lekki temat to jak otwarte drzwi.}"
+    ]
+   },
+   "cs": {
+    "titre": "{PŘINES} LEHKÁ TÉMATA",
+    "avant": [
+     "Těžké otázky lidi zablokují.",
+     "Zvláštní fakt nebo lehký příběh jim dá něco snadného, na co můžou reagovat."
+    ],
+    "apres": [
+     "Deset minut na {Sophia} každé ráno a nikdy mi nedojdou témata k hovoru.",
+     "{Lehké téma působí jako otevřené dveře.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "SAVE THIS {FOR LATER}",
+    "avant": [
+     "Stop performing.",
+     "Give them an exit.",
+     "Admit the small things.",
+     "Bring something easy to talk about."
+    ],
+    "apres": [
+     "{People don't remember how impressive you were. They remember how relaxed they felt.}"
+    ]
+   },
+   "image": "images/compte/statue-masque.jpg",
+   "de": {
+    "titre": "SPEICHER DAS {FÜR SPÄTER}",
+    "avant": [
+     "Hör auf zu performen.",
+     "Gib ihnen einen Ausweg.",
+     "Gib Kleinigkeiten zu.",
+     "Bring etwas Leichtes zum Reden mit."
+    ],
+    "apres": [
+     "{Menschen erinnern sich nicht daran, wie beeindruckend du warst. Sondern daran, wie entspannt sie waren.}"
+    ]
+   },
+   "it": {
+    "titre": "SALVALO {PER DOPO}",
+    "avant": [
+     "Smetti di recitare.",
+     "Dagli una via d'uscita.",
+     "Ammetti le piccole cose.",
+     "Porta qualcosa di leggero di cui parlare."
+    ],
+    "apres": [
+     "{Le persone non ricordano quanto eri impressionante. Ricordano quanto erano rilassate.}"
+    ]
+   },
+   "fr": {
+    "titre": "GARDE ÇA {POUR PLUS TARD}",
+    "avant": [
+     "Arrête de jouer un rôle.",
+     "Laisse-leur une sortie.",
+     "Avoue les petits trucs.",
+     "Apporte un sujet léger."
+    ],
+    "apres": [
+     "{On ne se souvient pas de combien tu étais impressionnant. On se souvient de combien on était détendu.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "SALVA ISSO {PRA DEPOIS}",
+    "avant": [
+     "Pare de atuar.",
+     "Dê uma saída.",
+     "Admita as pequenas coisas.",
+     "Traga algo leve pra conversar."
+    ],
+    "apres": [
+     "{As pessoas não lembram de como você foi impressionante. Lembram de como se sentiram relaxadas.}"
+    ]
+   },
+   "es-419": {
+    "titre": "GUARDA ESTO {PARA DESPUÉS}",
+    "avant": [
+     "Deja de actuar.",
+     "Dales una salida.",
+     "Admite cosas pequeñas.",
+     "Trae algo ligero de qué hablar."
+    ],
+    "apres": [
+     "{La gente no recuerda lo impresionante que fuiste. Recuerda lo relajada que se sintió.}"
+    ]
+   },
+   "pl": {
+    "titre": "ZAPISZ TO {NA PÓŹNIEJ}",
+    "avant": [
+     "Przestań grać.",
+     "Daj im wyjście.",
+     "Przyznaj się do drobiazgów.",
+     "Przynieś coś lekkiego do rozmowy."
+    ],
+    "apres": [
+     "{Ludzie nie pamiętają, jak bardzo imponowałeś. Pamiętają, jak bardzo byli zrelaksowani.}"
+    ]
+   },
+   "cs": {
+    "titre": "ULOŽ SI TO {NA POTOM}",
+    "avant": [
+     "Přestaň hrát divadlo.",
+     "Dej jim únikovou cestu.",
+     "Přiznej maličkosti.",
+     "Přines něco lehkého k hovoru."
+    ],
+    "apres": [
+     "{Lidé si nepamatují, jak působivý jsi byl. Pamatují si, jak uvolněně se cítili.}"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,612 @@
+{
+ "id": "mc-009",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "How To Be Funny Without Telling Jokes",
+  "de": "So bist du lustig, ohne Witze zu erzählen",
+  "it": "Come essere divertente senza raccontare barzellette",
+  "fr": "Comment être drôle sans raconter de blagues",
+  "pt-BR": "Como ser engraçado sem contar piadas",
+  "es-419": "Cómo ser chistoso sin contar chistes",
+  "pl": "Jak być zabawnym bez opowiadania żartów",
+  "cs": "Jak být vtipný bez vyprávění vtipů"
+ },
+ "legendes": {
+  "en": "Funny people are just paying closer attention.\n\n#psychology #socialskills #humor #confidence #charisma",
+  "de": "Lustige Menschen passen einfach genauer auf.\n\n#psychologie #socialskills #humor #selbstbewusstsein #charisma",
+  "it": "Le persone divertenti stanno solo più attente.\n\n#psicologia #socialskills #umorismo #autostima #carisma",
+  "fr": "Les gens drôles font juste plus attention.\n\n#psychologie #humour #confianceensoi #charisme #comportementhumain",
+  "pt-BR": "Gente engraçada só presta mais atenção.\n\n#psicologia #habilidadessociais #humor #autoconfianca #carisma",
+  "es-419": "La gente chistosa solo pone más atención.\n\n#psicologia #habilidadessociales #humor #confianza #carisma",
+  "pl": "Zabawni ludzie po prostu bardziej uważają.\n\n#psychologia #umiejetnoscispoleczne #humor #pewnoscsiebie #charyzma",
+  "cs": "Vtipní lidé jen víc dávají pozor.\n\n#psychologie #socialniinteligence #humor #sebevedomi #charisma"
+ },
+ "musique": {
+  "titre": "abandoned (Slowed) - ANGUISH & LMG & ily",
+  "url": "https://www.tiktok.com/music/abandoned-slowed-7375246696198260753"
+ },
+ "compte": {
+  "images/compte/mains-troisieme-oeil.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7692894810088148246",
+   "slide": 1
+  },
+  "images/compte/deux-visages.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7693190798992493846",
+   "slide": 3
+  },
+  "images/compte/tete-gribouillis.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7701103253655768342",
+   "slide": 6
+  },
+  "images/compte/mannequins.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7701103253655768342",
+   "slide": 3
+  },
+  "images/compte/serpent.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7701103253655768342",
+   "slide": 5
+  },
+  "images/compte/yeux-dessin.jpg": {
+   "post": "https://www.tiktok.com/@msclzz/photo/7701103253655768342",
+   "slide": 4
+  }
+ },
+ "notes": "Full test (accroche neuve chez nous ; l'idée vient de son post « Funny people barely tell jokes. », 13 k, pas encore refait) à son format exact : être drôle sans blagues (remarquer, dire l'évidence, sous-jouer). Texte à nous, dans sa voix ; faits vérifiés (la pieuvre a trois cœurs, le wombat fait des crottes cubiques) ; ses images reprises, toutes déjà découpées. Slide Sophia (5) : « KNOW WEIRD THINGS » ; cta C. Musique : abandoned (Slowed), celle de son tube à 203 k.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "How To Be {Funny} Without Telling Jokes"
+   },
+   "image": "images/compte/mains-troisieme-oeil.jpg",
+   "de": {
+    "titre": "So bist du {lustig,} ohne Witze zu erzählen"
+   },
+   "it": {
+    "titre": "Come essere {divertente} senza raccontare barzellette"
+   },
+   "fr": {
+    "titre": "Comment être {drôle} sans raconter de blagues"
+   },
+   "pt-BR": {
+    "titre": "Como ser {engraçado} sem contar piadas"
+   },
+   "es-419": {
+    "titre": "Cómo ser {chistoso} sin contar chistes"
+   },
+   "pl": {
+    "titre": "Jak być {zabawnym} bez opowiadania żartów"
+   },
+   "cs": {
+    "titre": "Jak být {vtipný} bez vyprávění vtipů"
+   }
+  },
+  {
+   "type": "avertissement",
+   "en": {
+    "surtitre": "DISCLAIMER",
+    "titre": "READ THIS BEFORE YOU TRY IT",
+    "avant": [
+     "The funniest person in the group is rarely the one with the most jokes.",
+     "They just notice things everyone else walks past.",
+     "[Forcing a joke is the fastest way to kill the room.]"
+    ]
+   },
+   "image": "images/compte/deux-visages.jpg",
+   "de": {
+    "surtitre": "ACHTUNG",
+    "titre": "LIES DAS, BEVOR DU ES AUSPROBIERST",
+    "avant": [
+     "Der Lustigste in der Gruppe ist selten der mit den meisten Witzen.",
+     "Er bemerkt nur Dinge, an denen alle anderen vorbeilaufen.",
+     "[Ein erzwungener Witz ist der schnellste Weg, die Stimmung zu killen.]"
+    ]
+   },
+   "it": {
+    "surtitre": "ATTENZIONE",
+    "titre": "LEGGI PRIMA DI PROVARLO",
+    "avant": [
+     "La persona più divertente del gruppo raramente è quella con più battute.",
+     "Nota solo le cose che tutti gli altri ignorano.",
+     "[Forzare una battuta è il modo più veloce per ammazzare l'atmosfera.]"
+    ]
+   },
+   "fr": {
+    "surtitre": "ATTENTION",
+    "titre": "LIS ÇA AVANT D'ESSAYER",
+    "avant": [
+     "Le plus drôle du groupe est rarement celui qui a le plus de blagues.",
+     "Il remarque juste les trucs devant lesquels tout le monde passe.",
+     "[Forcer une blague, c'est le moyen le plus rapide de plomber l'ambiance.]"
+    ]
+   },
+   "pt-BR": {
+    "surtitre": "AVISO",
+    "titre": "LEIA ISSO ANTES DE TENTAR",
+    "avant": [
+     "A pessoa mais engraçada do grupo raramente é a que tem mais piadas.",
+     "Ela só repara em coisas que todo mundo deixa passar.",
+     "[Forçar uma piada é o jeito mais rápido de matar o clima.]"
+    ]
+   },
+   "es-419": {
+    "surtitre": "AVISO",
+    "titre": "LEE ESTO ANTES DE PROBARLO",
+    "avant": [
+     "La persona más chistosa del grupo casi nunca es la que tiene más chistes.",
+     "Solo nota cosas que todos los demás pasan de largo.",
+     "[Forzar un chiste es la forma más rápida de matar el ambiente.]"
+    ]
+   },
+   "pl": {
+    "surtitre": "UWAGA",
+    "titre": "PRZECZYTAJ, ZANIM SPRÓBUJESZ",
+    "avant": [
+     "Najzabawniejsza osoba w grupie rzadko ma najwięcej żartów.",
+     "Po prostu zauważa rzeczy, obok których wszyscy przechodzą.",
+     "[Wymuszony żart to najszybszy sposób, żeby zabić atmosferę.]"
+    ]
+   },
+   "cs": {
+    "surtitre": "UPOZORNĚNÍ",
+    "titre": "PŘEČTI SI TO, NEŽ TO ZKUSÍŠ",
+    "avant": [
+     "Nejvtipnější člověk ve skupině je málokdy ten s nejvíc vtipy.",
+     "Jen si všímá věcí, kolem kterých ostatní projdou.",
+     "[Vynucený vtip je nejrychlejší způsob, jak zabít náladu.]"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "{STOP} PREPARING JOKES",
+    "avant": [
+     "A prepared joke sounds prepared.",
+     "People can feel you waiting for your moment.",
+     "Real humor comes from what is happening right now."
+    ],
+    "apres": [
+     "{Funny is noticing, not performing.}"
+    ]
+   },
+   "image": "images/compte/tete-gribouillis.jpg",
+   "de": {
+    "titre": "{HÖR AUF,} WITZE VORZUBEREITEN",
+    "avant": [
+     "Ein vorbereiteter Witz klingt vorbereitet.",
+     "Die Leute spüren, dass du auf deinen Moment wartest.",
+     "Echter Humor kommt aus dem, was gerade passiert."
+    ],
+    "apres": [
+     "{Lustig ist Bemerken, nicht Performen.}"
+    ]
+   },
+   "it": {
+    "titre": "{SMETTI} DI PREPARARE BATTUTE",
+    "avant": [
+     "Una battuta preparata suona preparata.",
+     "Le persone sentono che stai aspettando il tuo momento.",
+     "L'umorismo vero nasce da quello che sta succedendo adesso."
+    ],
+    "apres": [
+     "{Essere divertenti è notare, non recitare.}"
+    ]
+   },
+   "fr": {
+    "titre": "{ARRÊTE} DE PRÉPARER DES BLAGUES",
+    "avant": [
+     "Une blague préparée, ça s'entend.",
+     "Les gens sentent que tu attends ton moment.",
+     "Le vrai humour vient de ce qui se passe maintenant."
+    ],
+    "apres": [
+     "{Être drôle, c'est remarquer, pas jouer.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "{PARE} DE PREPARAR PIADAS",
+    "avant": [
+     "Piada preparada soa preparada.",
+     "As pessoas sentem que você está esperando sua vez.",
+     "O humor de verdade vem do que está acontecendo agora."
+    ],
+    "apres": [
+     "{Ser engraçado é reparar, não atuar.}"
+    ]
+   },
+   "es-419": {
+    "titre": "{DEJA} DE PREPARAR CHISTES",
+    "avant": [
+     "Un chiste preparado suena preparado.",
+     "La gente siente que estás esperando tu momento.",
+     "El humor real sale de lo que está pasando ahorita."
+    ],
+    "apres": [
+     "{Ser chistoso es notar, no actuar.}"
+    ]
+   },
+   "pl": {
+    "titre": "{PRZESTAŃ} PRZYGOTOWYWAĆ ŻARTY",
+    "avant": [
+     "Przygotowany żart brzmi jak przygotowany.",
+     "Ludzie czują, że czekasz na swój moment.",
+     "Prawdziwy humor bierze się z tego, co dzieje się teraz."
+    ],
+    "apres": [
+     "{Bycie zabawnym to zauważanie, nie występ.}"
+    ]
+   },
+   "cs": {
+    "titre": "{PŘESTAŇ} SI CHYSTAT VTIPY",
+    "avant": [
+     "Připravený vtip zní připraveně.",
+     "Lidé cítí, že čekáš na svou chvíli.",
+     "Skutečný humor vychází z toho, co se děje právě teď."
+    ],
+    "apres": [
+     "{Být vtipný znamená všímat si, ne hrát.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "SAY THE {OBVIOUS THING}",
+    "avant": [
+     "Everyone in the room is thinking it. Nobody says it.",
+     "The rain started the second you all walked out. The waiter forgot the same order twice.",
+     "Say it out loud, calmly."
+    ],
+    "apres": [
+     "{Shared truth gets the biggest laughs.}"
+    ]
+   },
+   "image": "images/compte/mannequins.jpg",
+   "de": {
+    "titre": "SAG {DAS OFFENSICHTLICHE}",
+    "avant": [
+     "Alle im Raum denken es. Keiner sagt es.",
+     "Der Regen fängt genau in der Sekunde an, in der ihr rausgeht. Der Kellner vergisst dieselbe Bestellung zweimal.",
+     "Sag es laut, ganz ruhig."
+    ],
+    "apres": [
+     "{Geteilte Wahrheit bringt die größten Lacher.}"
+    ]
+   },
+   "it": {
+    "titre": "DI' {LA COSA OVVIA}",
+    "avant": [
+     "Tutti nella stanza la pensano. Nessuno la dice.",
+     "Inizia a piovere nel secondo esatto in cui uscite. Il cameriere dimentica la stessa ordinazione due volte.",
+     "Dilla ad alta voce, con calma."
+    ],
+    "apres": [
+     "{La verità condivisa fa ridere di più.}"
+    ]
+   },
+   "fr": {
+    "titre": "DIS {LE TRUC ÉVIDENT}",
+    "avant": [
+     "Tout le monde y pense. Personne ne le dit.",
+     "La pluie commence pile au moment où vous sortez. Le serveur oublie deux fois la même commande.",
+     "Dis-le à voix haute, calmement."
+    ],
+    "apres": [
+     "{Une vérité partagée fait les plus gros rires.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "DIGA {O ÓBVIO}",
+    "avant": [
+     "Todo mundo na sala está pensando. Ninguém fala.",
+     "A chuva começa no segundo em que vocês saem. O garçom esquece o mesmo pedido duas vezes.",
+     "Fale em voz alta, com calma."
+    ],
+    "apres": [
+     "{Verdade compartilhada dá as maiores risadas.}"
+    ]
+   },
+   "es-419": {
+    "titre": "DI {LO OBVIO}",
+    "avant": [
+     "Todos en el lugar lo están pensando. Nadie lo dice.",
+     "La lluvia empieza justo cuando salen. El mesero olvida la misma orden dos veces.",
+     "Dilo en voz alta, con calma."
+    ],
+    "apres": [
+     "{La verdad compartida saca las risas más grandes.}"
+    ]
+   },
+   "pl": {
+    "titre": "POWIEDZ {OCZYWISTĄ RZECZ}",
+    "avant": [
+     "Wszyscy w pokoju o tym myślą. Nikt tego nie mówi.",
+     "Deszcz zaczyna padać dokładnie w chwili, gdy wychodzicie. Kelner dwa razy zapomina to samo zamówienie.",
+     "Powiedz to na głos, spokojnie."
+    ],
+    "apres": [
+     "{Wspólna prawda daje największy śmiech.}"
+    ]
+   },
+   "cs": {
+    "titre": "ŘEKNI {TO ZJEVNÉ}",
+    "avant": [
+     "Všichni v místnosti na to myslí. Nikdo to neřekne.",
+     "Začne pršet přesně ve chvíli, kdy vyjdete ven. Číšník dvakrát zapomene stejnou objednávku.",
+     "Řekni to nahlas a v klidu."
+    ],
+    "apres": [
+     "{Sdílená pravda vyvolá největší smích.}"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "en": {
+    "titre": "{KNOW} WEIRD THINGS",
+    "avant": [
+     "Strange facts are funny on their own.",
+     "An octopus has three hearts. Wombats make cube-shaped poop. Nobody expects that in a normal conversation."
+    ],
+    "apres": [
+     "I read one lesson a day on {Sophia.} Curious people are easy to remember.",
+     "{Surprise is half of every laugh.}"
+    ]
+   },
+   "de": {
+    "titre": "{WISSE} SELTSAME DINGE",
+    "avant": [
+     "Seltsame Fakten sind von selbst lustig.",
+     "Ein Oktopus hat drei Herzen. Wombats machen würfelförmige Köttel. Damit rechnet in einem normalen Gespräch niemand."
+    ],
+    "apres": [
+     "Ich lese jeden Tag eine Lektion auf {Sophia.} Neugierige Menschen bleiben im Kopf.",
+     "{Überraschung ist die Hälfte jedes Lachers.}"
+    ]
+   },
+   "it": {
+    "titre": "{SAPPI} COSE STRANE",
+    "avant": [
+     "I fatti strani fanno ridere da soli.",
+     "Il polpo ha tre cuori. Il vombato fa la cacca a forma di cubo. Nessuno se lo aspetta in una conversazione normale."
+    ],
+    "apres": [
+     "Leggo una lezione al giorno su {Sophia.} Le persone curiose si ricordano.",
+     "{La sorpresa è metà di ogni risata.}"
+    ]
+   },
+   "fr": {
+    "titre": "{CONNAIS} DES TRUCS BIZARRES",
+    "avant": [
+     "Les faits bizarres sont drôles tout seuls.",
+     "Une pieuvre a trois cœurs. Le wombat fait des crottes en forme de cube. Personne ne s'attend à ça dans une conversation normale."
+    ],
+    "apres": [
+     "Je lis une leçon par jour sur {Sophia.} Les gens curieux, on s'en souvient.",
+     "{La surprise, c'est la moitié de chaque rire.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "{SAIBA} COISAS ESTRANHAS",
+    "avant": [
+     "Fatos estranhos são engraçados por si só.",
+     "O polvo tem três corações. O vombate faz cocô em formato de cubo. Ninguém espera isso numa conversa normal."
+    ],
+    "apres": [
+     "Eu leio uma lição por dia no {Sophia.} Gente curiosa é fácil de lembrar.",
+     "{Surpresa é metade de toda risada.}"
+    ]
+   },
+   "es-419": {
+    "titre": "{SABE} COSAS RARAS",
+    "avant": [
+     "Los datos raros son chistosos por sí solos.",
+     "Un pulpo tiene tres corazones. El wómbat hace popó en forma de cubo. Nadie se espera eso en una plática normal."
+    ],
+    "apres": [
+     "Leo una lección al día en {Sophia.} La gente curiosa es fácil de recordar.",
+     "{La sorpresa es la mitad de cada risa.}"
+    ]
+   },
+   "pl": {
+    "titre": "{ZNAJ} DZIWNE RZECZY",
+    "avant": [
+     "Dziwne fakty same w sobie są zabawne.",
+     "Ośmiornica ma trzy serca. Wombat robi kupę w kształcie kostek. Nikt się tego nie spodziewa w zwykłej rozmowie."
+    ],
+    "apres": [
+     "Czytam jedną lekcję dziennie w {Sophia.} Ciekawskich ludzi łatwo zapamiętać.",
+     "{Zaskoczenie to połowa każdego śmiechu.}"
+    ]
+   },
+   "cs": {
+    "titre": "{VĚZ} ZVLÁŠTNÍ VĚCI",
+    "avant": [
+     "Zvláštní fakty jsou vtipné samy o sobě.",
+     "Chobotnice má tři srdce. Vombat dělá bobky ve tvaru kostek. To v normálním rozhovoru nikdo nečeká."
+    ],
+    "apres": [
+     "Každý den si přečtu jednu lekci na {Sophia.} Zvědaví lidé se snadno pamatují.",
+     "{Překvapení je polovina každého smíchu.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "{UNDERREACT}",
+    "avant": [
+     "The calmer you say something absurd, the funnier it lands.",
+     "Do not laugh before they do.",
+     "Let the silence do half the work."
+    ],
+    "apres": [
+     "{Deadpan beats volume every time.}"
+    ]
+   },
+   "image": "images/compte/serpent.jpg",
+   "de": {
+    "titre": "{REAGIER} UNTERKÜHLT",
+    "avant": [
+     "Je ruhiger du etwas Absurdes sagst, desto besser kommt es an.",
+     "Lach nicht vor den anderen.",
+     "Lass die Stille die halbe Arbeit machen."
+    ],
+    "apres": [
+     "{Trocken schlägt laut, jedes Mal.}"
+    ]
+   },
+   "it": {
+    "titre": "{REAGISCI} MENO",
+    "avant": [
+     "Più dici con calma una cosa assurda, più fa ridere.",
+     "Non ridere prima degli altri.",
+     "Lascia che il silenzio faccia metà del lavoro."
+    ],
+    "apres": [
+     "{La faccia seria batte il volume, sempre.}"
+    ]
+   },
+   "fr": {
+    "titre": "{RÉAGIS} MOINS",
+    "avant": [
+     "Plus tu dis un truc absurde calmement, plus ça marche.",
+     "Ne ris pas avant les autres.",
+     "Laisse le silence faire la moitié du travail."
+    ],
+    "apres": [
+     "{Le pince-sans-rire bat le volume, à chaque fois.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "{REAJA} MENOS",
+    "avant": [
+     "Quanto mais calmo você fala algo absurdo, mais engraçado fica.",
+     "Não ria antes dos outros.",
+     "Deixe o silêncio fazer metade do trabalho."
+    ],
+    "apres": [
+     "{Cara séria ganha de volume, sempre.}"
+    ]
+   },
+   "es-419": {
+    "titre": "{REACCIONA} MENOS",
+    "avant": [
+     "Mientras más calmado digas algo absurdo, más gracia da.",
+     "No te rías antes que los demás.",
+     "Deja que el silencio haga la mitad del trabajo."
+    ],
+    "apres": [
+     "{La cara seria le gana al volumen, siempre.}"
+    ]
+   },
+   "pl": {
+    "titre": "{REAGUJ} SPOKOJNIEJ",
+    "avant": [
+     "Im spokojniej mówisz coś absurdalnego, tym lepiej to działa.",
+     "Nie śmiej się przed innymi.",
+     "Pozwól, żeby cisza zrobiła połowę roboty."
+    ],
+    "apres": [
+     "{Kamienna twarz zawsze wygrywa z głośnością.}"
+    ]
+   },
+   "cs": {
+    "titre": "{REAGUJ} MÍŇ",
+    "avant": [
+     "Čím klidněji řekneš něco absurdního, tím líp to vyzní.",
+     "Nesměj se dřív než ostatní.",
+     "Nech ticho udělat půlku práce."
+    ],
+    "apres": [
+     "{Kamenná tvář vždycky porazí hlasitost.}"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": "WHY {THIS WORKS}",
+    "avant": [
+     "People do not laugh at jokes. They laugh at surprise and recognition.",
+     "Notice what everyone sees. Say it calmly. Bring something they did not expect."
+    ],
+    "apres": [
+     "{Funny people are just paying closer attention.}"
+    ]
+   },
+   "image": "images/compte/yeux-dessin.jpg",
+   "de": {
+    "titre": "WARUM {DAS FUNKTIONIERT}",
+    "avant": [
+     "Menschen lachen nicht über Witze. Sie lachen über Überraschung und Wiedererkennen.",
+     "Bemerk, was alle sehen. Sag es ruhig. Bring etwas mit, womit keiner rechnet."
+    ],
+    "apres": [
+     "{Lustige Menschen passen einfach genauer auf.}"
+    ]
+   },
+   "it": {
+    "titre": "PERCHÉ {FUNZIONA}",
+    "avant": [
+     "Le persone non ridono alle battute. Ridono alla sorpresa e al riconoscersi.",
+     "Nota quello che vedono tutti. Dillo con calma. Porta qualcosa che non si aspettano."
+    ],
+    "apres": [
+     "{Le persone divertenti stanno solo più attente.}"
+    ]
+   },
+   "fr": {
+    "titre": "POURQUOI {ÇA MARCHE}",
+    "avant": [
+     "Les gens ne rient pas aux blagues. Ils rient à la surprise et au « c'est trop vrai ».",
+     "Remarque ce que tout le monde voit. Dis-le calmement. Apporte un truc qu'ils n'attendaient pas."
+    ],
+    "apres": [
+     "{Les gens drôles font juste plus attention.}"
+    ]
+   },
+   "pt-BR": {
+    "titre": "POR QUE {ISSO FUNCIONA}",
+    "avant": [
+     "As pessoas não riem de piadas. Riem de surpresa e de se reconhecer.",
+     "Repare no que todo mundo vê. Fale com calma. Traga algo que ninguém espera."
+    ],
+    "apres": [
+     "{Gente engraçada só presta mais atenção.}"
+    ]
+   },
+   "es-419": {
+    "titre": "POR QUÉ {FUNCIONA}",
+    "avant": [
+     "La gente no se ríe de chistes. Se ríe de la sorpresa y de reconocerse.",
+     "Nota lo que todos ven. Dilo con calma. Trae algo que nadie espera."
+    ],
+    "apres": [
+     "{La gente chistosa solo pone más atención.}"
+    ]
+   },
+   "pl": {
+    "titre": "DLACZEGO {TO DZIAŁA}",
+    "avant": [
+     "Ludzie nie śmieją się z żartów. Śmieją się z zaskoczenia i rozpoznania.",
+     "Zauważ to, co wszyscy widzą. Powiedz to spokojnie. Przynieś coś, czego nikt się nie spodziewa."
+    ],
+    "apres": [
+     "{Zabawni ludzie po prostu bardziej uważają.}"
+    ]
+   },
+   "cs": {
+    "titre": "PROČ {TO FUNGUJE}",
+    "avant": [
+     "Lidé se nesmějí vtipům. Smějí se překvapení a tomu, že se v tom poznají.",
+     "Všimni si, co všichni vidí. Řekni to v klidu. Přines něco, co nikdo nečeká."
+    ],
+    "apres": [
+     "{Vtipní lidé jen víc dávají pozor.}"
+    ]
+   }
+  }
+ ]
+}

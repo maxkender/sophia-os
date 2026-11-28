@@ -1,0 +1,328 @@
+{
+  "id": "md-017",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Feel Like Golden Hour",
+    "el": "Πίνακες σαν τη χρυσή ώρα",
+    "es-419": "Pinturas que se sienten como la hora dorada",
+    "it": "Quadri che sembrano l'ora d'oro",
+    "fr": "Des tableaux comme l'heure dorée",
+    "hu": "Festmények, mint az aranyóra",
+    "sr": "Slike kao zlatni sat",
+    "hr": "Slike kao zlatni sat",
+    "lv": "Gleznas kā zelta stunda",
+    "ro": "Tablouri ca ora de aur"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #vangogh #claudelorrain #museum",
+    "el": "#ιστορίατέχνης #ζωγραφική #vangogh #claudelorrain #μουσείο",
+    "es-419": "#historiadelarte #pintura #vangogh #claudelorrain #museo",
+    "it": "#storiadellarte #pittura #vangogh #claudelorrain #museo",
+    "fr": "#histoiredelart #peinture #vangogh #claudelorrain #musée",
+    "hu": "#művészettörténet #festészet #vangogh #claudelorrain #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #vangogh #claudelorrain #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #vangogh #claudelorrain #muzej",
+    "lv": "#mākslasvēsture #glezniecība #vangogh #claudelorrain #muzejs",
+    "ro": "#istoriaartei #pictura #vangogh #claudelorrain #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/cuyp-bergers.jpg": {
+      "musee": "The Met",
+      "id": "436062",
+      "titre": "Piping Shepherds",
+      "artiste": "Aelbert Cuyp",
+      "date": "ca. 1643–44",
+      "url": "https://www.metmuseum.org/art/collection/search/436062"
+    },
+    "images/oeuvres/lorrain-crescenza.jpg": {
+      "musee": "The Met",
+      "id": "435909",
+      "titre": "View of La Crescenza",
+      "artiste": "Claude Lorrain (Claude Gellée)",
+      "date": "1648–50",
+      "url": "https://www.metmuseum.org/art/collection/search/435909"
+    },
+    "images/oeuvres/vangogh-oliviers.jpg": {
+      "musee": "The Met",
+      "id": "437998",
+      "titre": "Olive Trees",
+      "artiste": "Vincent van Gogh",
+      "date": "1889",
+      "url": "https://www.metmuseum.org/art/collection/search/437998"
+    },
+    "images/oeuvres/sisley-sahurs.jpg": {
+      "musee": "The Met",
+      "id": "437683",
+      "titre": "Sahurs Meadows in Morning Sun",
+      "artiste": "Alfred Sisley",
+      "date": "1894",
+      "url": "https://www.metmuseum.org/art/collection/search/437683"
+    }
+  },
+  "banque": {
+    "images/banque/c-banc-femme.jpg": "f6ebac3f-5f83-4e96-a1b3-4cbbc10498c7"
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Cuyp, Bergers jouant de la flûte (vers 1643-44) : lumière italianisante empruntée aux peintres hollandais d'Italie (Jan Both), Cuyp n'est jamais allé en Italie ; Dordrecht. Claude Lorrain, Vue de La Crescenza (1648-50) : villa près de Rome, une des rares vues topographiques de Claude (notice du Met). Van Gogh, Oliviers (1889) : une quinzaine de toiles d'oliveraies à Saint-Rémy en 1889 ; ombres bleues visibles sous les arbres. Sisley, Prairies de Sahurs au soleil du matin (1894) : sujet britannique, deux demandes de naturalisation (1888, 1899), mort en 1899. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA.",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/banque/c-banc-femme.jpg",
+      "en": {
+        "titre": "Paintings That Feel Like Golden Hour"
+      },
+      "el": {
+        "titre": "Πίνακες σαν τη χρυσή ώρα"
+      },
+      "es-419": {
+        "titre": "Pinturas que se sienten como la hora dorada"
+      },
+      "it": {
+        "titre": "Quadri che sembrano l'ora d'oro"
+      },
+      "fr": {
+        "titre": "Des tableaux comme l'heure dorée"
+      },
+      "hu": {
+        "titre": "Festmények, mint az aranyóra"
+      },
+      "sr": {
+        "titre": "Slike kao zlatni sat"
+      },
+      "hr": {
+        "titre": "Slike kao zlatni sat"
+      },
+      "lv": {
+        "titre": "Gleznas kā zelta stunda"
+      },
+      "ro": {
+        "titre": "Tablouri ca ora de aur"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/cuyp-bergers.jpg",
+      "en": {
+        "titre": "Piping Shepherds",
+        "texte": "bathes two Dutch shepherds in a warm, golden light that looks like Italy. Aelbert Cuyp never went to Italy: he borrowed that light from painters who had, and poured it over the fields around Dordrecht.",
+        "artiste": "Aelbert Cuyp"
+      },
+      "el": {
+        "titre": "Βοσκοί που παίζουν φλογέρα",
+        "texte": "λούζει δύο Ολλανδούς βοσκούς σε ένα ζεστό, χρυσό φως που μοιάζει με την Ιταλία. Ο Άλμπερτ Κόιπ δεν πήγε ποτέ στην Ιταλία: δανείστηκε αυτό το φως από ζωγράφους που είχαν πάει και το έχυσε στα χωράφια γύρω από το Ντόρντρεχτ.",
+        "artiste": "Άλμπερτ Κόιπ"
+      },
+      "es-419": {
+        "titre": "Pastores tocando la flauta",
+        "texte": "baña a dos pastores holandeses en una luz cálida y dorada que parece de Italia. Aelbert Cuyp nunca fue a Italia: tomó esa luz de pintores que sí habían ido y la derramó sobre los campos de Dordrecht.",
+        "artiste": "Aelbert Cuyp"
+      },
+      "it": {
+        "titre": "Pastori che suonano il flauto",
+        "texte": "avvolge due pastori olandesi in una luce calda e dorata che sembra italiana. Aelbert Cuyp non andò mai in Italia: prese quella luce dai pittori che c'erano stati e la versò sui campi intorno a Dordrecht.",
+        "artiste": "Aelbert Cuyp"
+      },
+      "fr": {
+        "titre": "Bergers jouant de la flûte",
+        "texte": "baigne deux bergers hollandais dans une lumière chaude et dorée qui ressemble à l'Italie. Aelbert Cuyp n'est jamais allé en Italie : il a emprunté cette lumière aux peintres qui y étaient allés, et l'a versée sur les champs autour de Dordrecht.",
+        "artiste": "Aelbert Cuyp"
+      },
+      "hu": {
+        "titre": "Furulyázó pásztorok",
+        "texte": "két holland pásztort fürdet meleg, aranyló fényben, amely Itáliára emlékeztet. Aelbert Cuyp sosem járt Itáliában: azoktól a festőktől kölcsönözte ezt a fényt, akik jártak ott, és Dordrecht környéki mezőkre öntötte.",
+        "artiste": "Aelbert Cuyp"
+      },
+      "sr": {
+        "titre": "Pastiri koji sviraju frulu",
+        "texte": "kupa dvojicu holandskih pastira u toploj, zlatnoj svetlosti koja liči na Italiju. Albert Kojp nikada nije bio u Italiji: tu svetlost je pozajmio od slikara koji jesu i prosuo je po poljima oko Dordrehta.",
+        "artiste": "Albert Kojp"
+      },
+      "hr": {
+        "titre": "Pastiri koji sviraju frulu",
+        "texte": "kupa dvojicu nizozemskih pastira u toploj, zlatnoj svjetlosti koja nalikuje Italiji. Aelbert Cuyp nikada nije bio u Italiji: tu je svjetlost posudio od slikara koji jesu i prolio je po poljima oko Dordrechta.",
+        "artiste": "Aelbert Cuyp"
+      },
+      "lv": {
+        "titre": "Ganiņi spēlē stabuli",
+        "texte": "apmirdz divus holandiešu ganus siltā, zeltainā gaismā, kas atgādina Itāliju. Alberts Keips Itālijā nekad nebija: viņš šo gaismu aizņēmās no gleznotājiem, kas tur bija, un izlēja to pār laukiem ap Dordrehtu.",
+        "artiste": "Alberts Keips"
+      },
+      "ro": {
+        "titre": "Păstori cântând din fluier",
+        "texte": "scaldă doi păstori olandezi într-o lumină caldă și aurie care seamănă cu Italia. Aelbert Cuyp n-a fost niciodată în Italia: a împrumutat lumina aceea de la pictorii care fuseseră și a turnat-o peste câmpurile din jurul Dordrechtului.",
+        "artiste": "Aelbert Cuyp"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/lorrain-crescenza.jpg",
+      "en": {
+        "titre": "View of La Crescenza",
+        "texte": "is a villa in the countryside outside Rome, painted around 1650. Claude spent his days drawing in the open air there, and this is one of the very few real places he painted exactly as he saw them.",
+        "artiste": "Claude Lorrain"
+      },
+      "el": {
+        "titre": "Θέα της Λα Κρεσέντσα",
+        "texte": "είναι μια έπαυλη στην ύπαιθρο έξω από τη Ρώμη, ζωγραφισμένη γύρω στο 1650. Ο Κλοντ περνούσε τις μέρες του σχεδιάζοντας εκεί στο ύπαιθρο, και είναι ένα από τα ελάχιστα πραγματικά μέρη που ζωγράφισε ακριβώς όπως τα είδε.",
+        "artiste": "Κλοντ Λορέν"
+      },
+      "es-419": {
+        "titre": "Vista de La Crescenza",
+        "texte": "es una villa en el campo a las afueras de Roma, pintada hacia 1650. Claudio pasaba sus días dibujando allí al aire libre, y es uno de los poquísimos lugares reales que pintó tal como los vio.",
+        "artiste": "Claudio de Lorena"
+      },
+      "it": {
+        "titre": "Veduta della Crescenza",
+        "texte": "è una villa nella campagna fuori Roma, dipinta verso il 1650. Claude passava le giornate a disegnare lì all'aperto, ed è uno dei pochissimi luoghi reali che dipinse esattamente come li vedeva.",
+        "artiste": "Claude Lorrain"
+      },
+      "fr": {
+        "titre": "Vue de La Crescenza",
+        "texte": "est une villa dans la campagne près de Rome, peinte vers 1650. Claude passait ses journées à dessiner là, en plein air, et c'est l'un des très rares lieux réels qu'il a peints exactement comme il les voyait.",
+        "artiste": "Claude Lorrain"
+      },
+      "hu": {
+        "titre": "Kilátás La Crescenzára",
+        "texte": "egy Róma melletti vidéki villa, 1650 körül festve. Claude a szabadban rajzolva töltötte ott a napjait, és ez egyike azon nagyon kevés valódi helynek, amelyet pontosan úgy festett meg, ahogy látta.",
+        "artiste": "Claude Lorrain"
+      },
+      "sr": {
+        "titre": "Pogled na La Krešencu",
+        "texte": "je vila na selu izvan Rima, naslikana oko 1650. Klod je tamo provodio dane crtajući napolju, i to je jedno od retkih stvarnih mesta koja je naslikao tačno onako kako ih je video.",
+        "artiste": "Klod Loren"
+      },
+      "hr": {
+        "titre": "Pogled na La Crescenzu",
+        "texte": "je vila na selu izvan Rima, naslikana oko 1650. Claude je ondje provodio dane crtajući na otvorenom, i to je jedno od rijetkih stvarnih mjesta koja je naslikao točno onako kako ih je vidio.",
+        "artiste": "Claude Lorrain"
+      },
+      "lv": {
+        "titre": "Skats uz La Krešencu",
+        "texte": "ir villa laukos ārpus Romas, gleznota ap 1650. gadu. Klods tur pavadīja dienas, zīmējot brīvā dabā, un šī ir viena no retajām īstajām vietām, ko viņš uzgleznoja tieši tā, kā to redzēja.",
+        "artiste": "Klods Lorēns"
+      },
+      "ro": {
+        "titre": "Vedere spre La Crescenza",
+        "texte": "este o vilă de la țară de lângă Roma, pictată pe la 1650. Claude își petrecea zilele desenând acolo, în aer liber, și este unul dintre foarte puținele locuri reale pe care le-a pictat exact cum le vedea.",
+        "artiste": "Claude Lorrain"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/vangogh-oliviers.jpg",
+      "en": {
+        "titre": "Olive Trees",
+        "texte": "is one of about fifteen olive groves Van Gogh painted in 1889, near the asylum at Saint-Rémy. The trunks twist like flames. I only noticed that the shadows under the trees are painted blue because of Artura, which zooms into the details you'd miss.",
+        "artiste": "Vincent van Gogh"
+      },
+      "el": {
+        "titre": "Ελαιόδεντρα",
+        "texte": "είναι ένας από τους περίπου δεκαπέντε ελαιώνες που ζωγράφισε ο Βαν Γκογκ το 1889, κοντά στο άσυλο του Σεν-Ρεμί. Οι κορμοί στρίβουν σαν φλόγες. Πρόσεξα ότι οι σκιές κάτω από τα δέντρα είναι μπλε μόνο χάρη στην Artura, που κάνει ζουμ στις λεπτομέρειες που θα σου ξέφευγαν.",
+        "artiste": "Βίνσεντ βαν Γκογκ"
+      },
+      "es-419": {
+        "titre": "Olivos",
+        "texte": "es uno de los unos quince olivares que Van Gogh pintó en 1889, cerca del asilo de Saint-Rémy. Los troncos se retuercen como llamas. Solo noté que las sombras bajo los árboles son azules gracias a Artura, que hace zoom en los detalles que se te escaparían.",
+        "artiste": "Vincent van Gogh"
+      },
+      "it": {
+        "titre": "Ulivi",
+        "texte": "è uno dei circa quindici uliveti che Van Gogh dipinse nel 1889, vicino al manicomio di Saint-Rémy. I tronchi si torcono come fiamme. Ho notato che le ombre sotto gli alberi sono blu solo grazie ad Artura, che zooma sui dettagli che ti sfuggirebbero.",
+        "artiste": "Vincent van Gogh"
+      },
+      "fr": {
+        "titre": "Oliviers",
+        "texte": "est l'une des quinze oliveraies environ que Van Gogh a peintes en 1889, près de l'asile de Saint-Rémy. Les troncs se tordent comme des flammes. Je n'avais remarqué que les ombres sous les arbres sont bleues que grâce à Artura, qui zoome sur les détails qu'on raterait.",
+        "artiste": "Vincent van Gogh"
+      },
+      "hu": {
+        "titre": "Olajfák",
+        "texte": "egyike annak a nagyjából tizenöt olajfaligetnek, amelyet Van Gogh 1889-ben festett a Saint-Rémy-i menhely közelében. A törzsek lángként csavarodnak. Csak az Artura appnak köszönhetően vettem észre, hogy a fák alatti árnyékok kékek, mert ráközelít a részletekre, amelyek elkerülnék a figyelmed.",
+        "artiste": "Vincent van Gogh"
+      },
+      "sr": {
+        "titre": "Masline",
+        "texte": "je jedan od petnaestak maslinjaka koje je Van Gog naslikao 1889, blizu azila u Sen Remiju. Stabla se uvijaju kao plamenovi. Tek zahvaljujući aplikaciji Artura primetila sam da su senke ispod drveća plave, jer zumira detalje koji bi ti promakli.",
+        "artiste": "Vinsent van Gog"
+      },
+      "hr": {
+        "titre": "Masline",
+        "texte": "je jedan od petnaestak maslinika koje je Van Gogh naslikao 1889., blizu azila u Saint-Rémyju. Debla se uvijaju poput plamenova. Tek zahvaljujući aplikaciji Artura primijetila sam da su sjene ispod stabala plave, jer zumira detalje koji bi ti promaknuli.",
+        "artiste": "Vincent van Gogh"
+      },
+      "lv": {
+        "titre": "Olīvkoki",
+        "texte": "ir viena no aptuveni piecpadsmit olīvu birzīm, ko Van Gogs uzgleznoja 1889. gadā pie Senremī patversmes. Stumbri vijas kā liesmas. Tikai pateicoties lietotnei Artura, pamanīju, ka ēnas zem kokiem ir zilas, jo tā pietuvina detaļas, kuras tu palaistu garām.",
+        "artiste": "Vinsents van Gogs"
+      },
+      "ro": {
+        "titre": "Măslini",
+        "texte": "este una dintre cele cam cincisprezece livezi de măslini pictate de Van Gogh în 1889, lângă azilul din Saint-Rémy. Trunchiurile se răsucesc ca flăcările. Am observat că umbrele de sub copaci sunt albastre doar datorită aplicației Artura, care face zoom pe detaliile pe care le-ai rata.",
+        "artiste": "Vincent van Gogh"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/sisley-sahurs.jpg",
+      "en": {
+        "titre": "Sahurs Meadows in Morning Sun",
+        "texte": "was painted in Normandy in 1894 by Alfred Sisley, an Englishman who spent his whole life painting France. He applied for French citizenship twice and died in 1899 without getting it.",
+        "artiste": "Alfred Sisley"
+      },
+      "el": {
+        "titre": "Λιβάδια του Σαΐρ στον πρωινό ήλιο",
+        "texte": "ζωγραφίστηκε στη Νορμανδία το 1894 από τον Αλφρέντ Σισλέ, έναν Άγγλο που πέρασε όλη του τη ζωή ζωγραφίζοντας τη Γαλλία. Ζήτησε δύο φορές τη γαλλική υπηκοότητα και πέθανε το 1899 χωρίς να την πάρει.",
+        "artiste": "Αλφρέντ Σισλέ"
+      },
+      "es-419": {
+        "titre": "Praderas de Sahurs al sol de la mañana",
+        "texte": "fue pintado en Normandía en 1894 por Alfred Sisley, un inglés que pasó toda su vida pintando Francia. Pidió dos veces la nacionalidad francesa y murió en 1899 sin obtenerla.",
+        "artiste": "Alfred Sisley"
+      },
+      "it": {
+        "titre": "Prati di Sahurs al sole del mattino",
+        "texte": "fu dipinto in Normandia nel 1894 da Alfred Sisley, un inglese che passò tutta la vita a dipingere la Francia. Chiese due volte la cittadinanza francese e morì nel 1899 senza ottenerla.",
+        "artiste": "Alfred Sisley"
+      },
+      "fr": {
+        "titre": "Prairies de Sahurs au soleil du matin",
+        "texte": "a été peint en Normandie en 1894 par Alfred Sisley, un Anglais qui a passé toute sa vie à peindre la France. Il a demandé deux fois la nationalité française et il est mort en 1899 sans l'obtenir.",
+        "artiste": "Alfred Sisley"
+      },
+      "hu": {
+        "titre": "Sahurs-i rétek reggeli napfényben",
+        "texte": "Normandiában készült 1894-ben, Alfred Sisley művéként, aki angol létére egész életében Franciaországot festette. Kétszer kérte a francia állampolgárságot, és 1899-ben úgy halt meg, hogy nem kapta meg.",
+        "artiste": "Alfred Sisley"
+      },
+      "sr": {
+        "titre": "Livade Sair na jutarnjem suncu",
+        "texte": "naslikao je u Normandiji 1894. Alfred Sisli, Englez koji je ceo život slikao Francusku. Dva puta je tražio francusko državljanstvo i umro je 1899. a da ga nije dobio.",
+        "artiste": "Alfred Sisli"
+      },
+      "hr": {
+        "titre": "Livade Sahurs na jutarnjem suncu",
+        "texte": "naslikao je u Normandiji 1894. Alfred Sisley, Englez koji je cijeli život slikao Francusku. Dvaput je tražio francusko državljanstvo i umro je 1899., a da ga nije dobio.",
+        "artiste": "Alfred Sisley"
+      },
+      "lv": {
+        "titre": "Sahiras pļavas rīta saulē",
+        "texte": "1894. gadā Normandijā uzgleznoja Alfrēds Sislejs, anglis, kurš visu mūžu gleznoja Franciju. Viņš divreiz lūdza Francijas pilsonību un nomira 1899. gadā, to nesaņēmis.",
+        "artiste": "Alfrēds Sislejs"
+      },
+      "ro": {
+        "titre": "Pajiștile de la Sahurs în soarele dimineții",
+        "texte": "a fost pictat în Normandia în 1894 de Alfred Sisley, un englez care și-a petrecut toată viața pictând Franța. A cerut de două ori cetățenia franceză și a murit în 1899 fără s-o primească.",
+        "artiste": "Alfred Sisley"
+      }
+    }
+  ]
+}

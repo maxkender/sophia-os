@@ -1,0 +1,488 @@
+{
+  "id": "hl-016",
+  "type_bleo": "full_test",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7686199268775939350",
+    "vues": 1400000,
+    "publie_le": "2026-09-16",
+    "accroche": "HOW TO GIVE A GIRL BUTTERFLIES."
+  },
+  "musique": {
+    "titre": "Les (Instrumental Slowed)",
+    "url": "https://www.tiktok.com/music/Les-Instrumental-Slowed-7601037808778708993"
+  },
+  "notes": "Preuve de format : « HOW TO GIVE A GIRL BUTTERFLIES. » (1,4 M), famille « HOW TO … », conseils titrés. Accroche neuve « HOW TO MAKE HER FEEL SAFE WITH YOU. ». Carte Artura (4) : « Share a quiet moment. », Pissarro, The Garden of the Tuileries on a Winter Afternoon (The Met 437314), LOGO d'Artura ; cta C. Fait vérifié : peint en 1899 depuis la fenêtre de son appartement de la rue de Rivoli (fiche du Met). Full test (accroche jamais faite chez nous), routine du 28/11. En en, el, es-419, it, hu, sr (latin), pt-BR, es.",
+  "oeuvres": {
+    "images/oeuvres/pissarro-tuileries.jpg": {
+      "musee": "The Met",
+      "id": "437314",
+      "titre": "The Garden of the Tuileries on a Winter Afternoon",
+      "artiste": "Camille Pissarro",
+      "date": "1899",
+      "url": "https://www.metmuseum.org/art/collection/search/437314"
+    }
+  },
+  "titre": {
+    "en": "How to make her feel safe with you.",
+    "el": "Πώς να νιώθει ασφαλής μαζί σου.",
+    "es-419": "Cómo hacer que se sienta segura contigo.",
+    "it": "Come farla sentire al sicuro con te.",
+    "hu": "Hogyan érezze magát biztonságban veled.",
+    "sr": "Kako da se oseća sigurno sa tobom.",
+    "pt-BR": "Como fazer ela se sentir segura com você.",
+    "es": "Cómo hacer que se sienta segura contigo."
+  },
+  "legendes": {
+    "en": "#datingadvice #relationshipadvice #tipsformen ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "sr": "#savetizamuškarce #veze #zavođenje ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
+  },
+  "slides": [
+    {
+      "type": "couverture",
+      "en": {
+        "titre": "HOW TO MAKE HER\nFEEL SAFE\nWITH YOU."
+      },
+      "el": {
+        "titre": "ΠΩΣ ΝΑ ΝΙΩΘΕΙ\nΑΣΦΑΛΗΣ\nΜΑΖΙ ΣΟΥ."
+      },
+      "es-419": {
+        "titre": "CÓMO HACER\nQUE SE SIENTA\nSEGURA CONTIGO."
+      },
+      "it": {
+        "titre": "COME FARLA\nSENTIRE AL SICURO\nCON TE."
+      },
+      "hu": {
+        "titre": "HOGYAN ÉREZZE\nMAGÁT\nBIZTONSÁGBAN\nVELED."
+      },
+      "sr": {
+        "titre": "KAKO DA SE\nOSEĆA SIGURNO\nSA TOBOM."
+      },
+      "pt-BR": {
+        "titre": "COMO FAZER\nELA SE SENTIR\nSEGURA COM VOCÊ."
+      },
+      "es": {
+        "titre": "CÓMO HACER\nQUE SE SIENTA\nSEGURA CONTIGO."
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Do what you said you'd do.",
+        "paragraphes": [
+          "If you say you'll call at 8,\ncall at 8.",
+          "Small promises kept build big trust."
+        ]
+      },
+      "el": {
+        "titre": "Κάνε ό,τι είπες.",
+        "paragraphes": [
+          "Αν πεις ότι θα πάρεις στις 8, πάρε στις 8.",
+          "Οι μικρές υποσχέσεις που τηρείς χτίζουν μεγάλη εμπιστοσύνη."
+        ]
+      },
+      "es-419": {
+        "titre": "Haz lo que dijiste.",
+        "paragraphes": [
+          "Si dices que llamas a las 8, llama a las 8.",
+          "Las pequeñas promesas cumplidas construyen mucha confianza."
+        ]
+      },
+      "it": {
+        "titre": "Fai quello che hai detto.",
+        "paragraphes": [
+          "Se dici che chiami alle 8, chiama alle 8.",
+          "Le piccole promesse mantenute costruiscono una grande fiducia."
+        ]
+      },
+      "hu": {
+        "titre": "Tedd meg, amit mondtál.",
+        "paragraphes": [
+          "Ha azt mondod, 8-kor hívod, hívd 8-kor.",
+          "A betartott apró ígéretekből lesz a nagy bizalom."
+        ]
+      },
+      "sr": {
+        "titre": "Uradi ono što si rekao.",
+        "paragraphes": [
+          "Ako kažeš da zoveš u 8, zovi u 8.",
+          "Mala ispunjena obećanja grade veliko poverenje."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Faça o que você disse.",
+        "paragraphes": [
+          "Se disse que liga às 8, ligue às 8.",
+          "Pequenas promessas cumpridas constroem muita confiança."
+        ]
+      },
+      "es": {
+        "titre": "Haz lo que dijiste.",
+        "paragraphes": [
+          "Si dices que llamas a las 8, llama a las 8.",
+          "Las pequeñas promesas cumplidas construyen mucha confianza."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Stay calm when she's not.",
+        "paragraphes": [
+          "When she's stressed,\ndon't match her energy.",
+          "Lower it. Be the calm in the room."
+        ]
+      },
+      "el": {
+        "titre": "Μείνε ήρεμος όταν εκείνη δεν είναι.",
+        "paragraphes": [
+          "Όταν είναι αγχωμένη, μην ανεβαίνεις κι εσύ.",
+          "Χαμήλωσε τους τόνους. Γίνε η ηρεμία στο δωμάτιο."
+        ]
+      },
+      "es-419": {
+        "titre": "Mantén la calma por los dos.",
+        "paragraphes": [
+          "Cuando esté estresada, no subas al mismo tono.",
+          "Bájalo. Sé la calma del lugar."
+        ]
+      },
+      "it": {
+        "titre": "Resta calmo anche per lei.",
+        "paragraphes": [
+          "Quando è stressata, non salire al suo livello.",
+          "Abbassa i toni. Sii la calma nella stanza."
+        ]
+      },
+      "hu": {
+        "titre": "Maradj nyugodt, amikor ő nem az.",
+        "paragraphes": [
+          "Ha stresszes, ne vedd át a feszültségét.",
+          "Csillapítsd. Légy te a nyugalom."
+        ]
+      },
+      "sr": {
+        "titre": "Ostani miran kad ona nije.",
+        "paragraphes": [
+          "Kad je pod stresom, ne preuzimaj njenu napetost.",
+          "Smiri je. Budi mir u prostoriji."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Fique calmo pelos dois.",
+        "paragraphes": [
+          "Quando ela estiver estressada, não entre na mesma energia.",
+          "Abaixe o tom. Seja a calma do lugar."
+        ]
+      },
+      "es": {
+        "titre": "Mantén la calma por los dos.",
+        "paragraphes": [
+          "Cuando esté estresada, no subas al mismo tono.",
+          "Bájalo. Sé la calma del lugar."
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/pissarro-tuileries.jpg",
+      "en": {
+        "titre": "Share a quiet moment.",
+        "avant": [
+          "Pissarro painted this garden in winter from his window in Paris.",
+          "Stand in front of it together.\nNo need to talk."
+        ],
+        "apres": [
+          "I didn't know anything about art.\nArtura fixed that, one painting a day."
+        ]
+      },
+      "el": {
+        "titre": "Μοιραστείτε μια ήσυχη στιγμή.",
+        "avant": [
+          "Ο Πισαρό ζωγράφισε αυτόν τον κήπο τον χειμώνα, από το παράθυρό του στο Παρίσι. Σταθείτε μαζί μπροστά του. Δεν χρειάζονται λόγια."
+        ],
+        "apres": [
+          "Δεν ήξερα τίποτα για την τέχνη. Το Artura το έφτιαξε αυτό, έναν πίνακα τη μέρα."
+        ]
+      },
+      "es-419": {
+        "titre": "Compartan un momento tranquilo.",
+        "avant": [
+          "Pissarro pintó este jardín en invierno desde su ventana en París. Párense juntos frente a él. No hace falta hablar."
+        ],
+        "apres": [
+          "No sabía nada de arte. Artura lo arregló, un cuadro al día."
+        ]
+      },
+      "it": {
+        "titre": "Condividete un momento di quiete.",
+        "avant": [
+          "Pissarro dipinse questo giardino d'inverno dalla sua finestra a Parigi. Fermatevi insieme davanti al quadro. Non serve parlare."
+        ],
+        "apres": [
+          "Non sapevo niente di arte. Artura ha sistemato tutto, un quadro al giorno."
+        ]
+      },
+      "hu": {
+        "titre": "Osszatok meg egy csendes percet.",
+        "avant": [
+          "Pissarro télen festette ezt a kertet a párizsi ablakából. Álljatok meg együtt előtte. Nem kell beszélni."
+        ],
+        "apres": [
+          "Semmit sem tudtam a művészetről. Az Artura ezt megoldotta, napi egy festménnyel."
+        ]
+      },
+      "sr": {
+        "titre": "Podelite jedan tih trenutak.",
+        "avant": [
+          "Pisaro je naslikao ovaj vrt zimi, sa svog prozora u Parizu. Stanite zajedno ispred slike. Ne morate da pričate."
+        ],
+        "apres": [
+          "Nisam znao ništa o umetnosti. Artura je to rešila, jedna slika dnevno."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Dividam um momento de calma.",
+        "avant": [
+          "Pissarro pintou este jardim no inverno, da janela dele em Paris. Fiquem juntos na frente dele. Não precisa falar."
+        ],
+        "apres": [
+          "Eu não sabia nada de arte. O Artura resolveu isso, um quadro por dia."
+        ]
+      },
+      "es": {
+        "titre": "Compartid un momento tranquilo.",
+        "avant": [
+          "Pissarro pintó este jardín en invierno desde su ventana en París. Poneos juntos frente a él. No hace falta hablar."
+        ],
+        "apres": [
+          "No sabía nada de arte. Artura lo arregló, un cuadro al día."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Keep her secrets safe.",
+        "paragraphes": [
+          "Her fears, her past, what she told you:\nnever use it against her.",
+          "Not even in a fight."
+        ]
+      },
+      "el": {
+        "titre": "Φύλαξε τα μυστικά της.",
+        "paragraphes": [
+          "Τους φόβους της, το παρελθόν της, όσα σου είπε: μην τα χρησιμοποιήσεις ποτέ εναντίον της.",
+          "Ούτε σε καβγά."
+        ]
+      },
+      "es-419": {
+        "titre": "Cuida sus secretos.",
+        "paragraphes": [
+          "Sus miedos, su pasado, lo que te contó: nunca lo uses en su contra.",
+          "Ni siquiera en una pelea."
+        ]
+      },
+      "it": {
+        "titre": "Custodisci i suoi segreti.",
+        "paragraphes": [
+          "Le sue paure, il suo passato, quello che ti ha detto: mai usarlo contro di lei.",
+          "Nemmeno in un litigio."
+        ]
+      },
+      "hu": {
+        "titre": "Őrizd meg a titkait.",
+        "paragraphes": [
+          "A félelmeit, a múltját, amit elmondott: soha ne fordítsd ellene.",
+          "Még veszekedésben sem."
+        ]
+      },
+      "sr": {
+        "titre": "Čuvaj njene tajne.",
+        "paragraphes": [
+          "Njene strahove, njenu prošlost, ono što ti je rekla: nikad to ne koristi protiv nje.",
+          "Čak ni u svađi."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Guarde os segredos dela.",
+        "paragraphes": [
+          "Os medos dela, o passado, o que ela te contou: nunca use contra ela.",
+          "Nem numa briga."
+        ]
+      },
+      "es": {
+        "titre": "Cuida sus secretos.",
+        "paragraphes": [
+          "Sus miedos, su pasado, lo que te contó: nunca lo uses en su contra.",
+          "Ni siquiera en una pelea."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Make sure she gets home safe.",
+        "paragraphes": [
+          "“Text me when you're home.”",
+          "A few words that say more\nthan any compliment."
+        ]
+      },
+      "el": {
+        "titre": "Βεβαιώσου ότι έφτασε σπίτι.",
+        "paragraphes": [
+          "«Στείλε μου όταν φτάσεις.»",
+          "Λίγες λέξεις που λένε περισσότερα από κάθε κομπλιμέντο."
+        ]
+      },
+      "es-419": {
+        "titre": "Asegúrate de que llegue bien.",
+        "paragraphes": [
+          "“Avísame cuando llegues.”",
+          "Pocas palabras que dicen más que cualquier halago."
+        ]
+      },
+      "it": {
+        "titre": "Assicurati che arrivi a casa.",
+        "paragraphes": [
+          "“Scrivimi quando sei a casa.”",
+          "Poche parole che dicono più di qualsiasi complimento."
+        ]
+      },
+      "hu": {
+        "titre": "Figyelj, hogy hazaérjen.",
+        "paragraphes": [
+          "„Írj, ha hazaértél.”",
+          "Pár szó, ami többet mond bármilyen bóknál."
+        ]
+      },
+      "sr": {
+        "titre": "Proveri da je stigla kući.",
+        "paragraphes": [
+          "„Javi mi kad stigneš.”",
+          "Par reči koje govore više od svakog komplimenta."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Garanta que ela chegou bem.",
+        "paragraphes": [
+          "“Me avisa quando chegar.”",
+          "Poucas palavras que dizem mais que qualquer elogio."
+        ]
+      },
+      "es": {
+        "titre": "Asegúrate de que llegue bien.",
+        "paragraphes": [
+          "“Avísame cuando llegues.”",
+          "Pocas palabras que dicen más que cualquier halago."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "Attraction gets her attention.\nSafety keeps her heart.",
+          "**A boy excites her.**\n**A man gives her peace.**"
+        ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Η έλξη τραβάει την προσοχή της. Η ασφάλεια κρατάει την καρδιά της.",
+          "**Το αγόρι την ενθουσιάζει.**\n**Ο άντρας της δίνει γαλήνη.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "La atracción capta su atención. La seguridad conserva su corazón.",
+          "**Un niño la emociona.**\n**Un hombre le da paz.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "L'attrazione cattura la sua attenzione. La sicurezza tiene il suo cuore.",
+          "**Un ragazzino la emoziona.**\n**Un uomo le dà pace.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "A vonzalom felkelti a figyelmét. A biztonság megtartja a szívét.",
+          "**A kisfiú elkápráztatja.**\n**A férfi nyugalmat ad neki.**"
+        ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Privlačnost joj privlači pažnju. Sigurnost joj čuva srce.",
+          "**Dečak je oduševljava.**\n**Muškarac joj donosi mir.**"
+        ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Atração chama a atenção dela. Segurança conquista o coração.",
+          "**O garoto empolga.**\n**O homem traz paz.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "La atracción capta su atención. La seguridad conserva su corazón.",
+          "**Un niño la emociona.**\n**Un hombre le da paz.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      }
+    }
+  ]
+}

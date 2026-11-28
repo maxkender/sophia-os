@@ -1,0 +1,103 @@
+{
+  "id": "md-023",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings Of Children That Break My Heart"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #goya #vangogh #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/goya-altamira.jpg": {
+      "musee": "The Met",
+      "id": "459090",
+      "titre": "Condesa de Altamira and Her Daughter, María Agustina",
+      "artiste": "Goya (Francisco de Goya y Lucientes)",
+      "date": "1787–88",
+      "url": "https://www.metmuseum.org/art/collection/search/459090"
+    },
+    "images/oeuvres/gainsborough-enfants.jpg": {
+      "musee": "The Met",
+      "id": "436440",
+      "titre": "Cottage Children (The Wood Gatherers)",
+      "artiste": "Thomas Gainsborough",
+      "date": "1787",
+      "url": "https://www.metmuseum.org/art/collection/search/436440"
+    },
+    "images/oeuvres/zurbaran-jeune-vierge.jpg": {
+      "musee": "The Met",
+      "id": "437971",
+      "titre": "The Young Virgin",
+      "artiste": "Francisco de Zurbarán",
+      "date": "ca. 1632–33",
+      "url": "https://www.metmuseum.org/art/collection/search/437971"
+    },
+    "images/oeuvres/vangogh-roulin.jpg": {
+      "musee": "The Met",
+      "id": "459123",
+      "titre": "Madame Roulin and Her Baby",
+      "artiste": "Vincent van Gogh",
+      "date": "1888",
+      "url": "https://www.metmuseum.org/art/collection/search/459123"
+    }
+  },
+  "banque": {
+    "images/banque/c-assise.jpg": "f6819a56-556b-44f6-999b-258ca7403abd"
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Goya, La Comtesse d'Altamira et sa fille (1787-88) : mère de Manuel Osorio ; Goya peint les Altamira en 1787-88. Gainsborough, Les Enfants de la chaumière / Les ramasseurs de bois (1787) : un des derniers « fancy pictures » ; mort le 2 août 1788. Zurbarán, La Jeune Vierge (vers 1632-33) : Marie enfant en prière, ouvrage de couture, lis et roses. Van Gogh, Madame Roulin et son bébé (1888) : Augustine et Marcelle Roulin ; portraits des cinq membres de la famille Roulin à Arles. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : une vraie photo de musée de la banque de l'OS (id dans `banque`), jamais d'image IA. EN ATTENTE (28/11) : couverture à remplacer, le titre ne se lit pas sur la photo actuelle ; ne pas livrer en l'état.",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/banque/c-assise.jpg",
+      "en": {
+        "titre": "Paintings Of Children That Break My Heart"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/goya-altamira.jpg",
+      "en": {
+        "titre": "Condesa de Altamira and Her Daughter",
+        "texte": "shows the mother of little Manuel Osorio, the boy Goya painted in red. Here she holds her baby daughter, María Agustina, in a cloud of pink silk. Goya painted the whole family in 1787 and 1788.",
+        "artiste": "Francisco Goya"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/gainsborough-enfants.jpg",
+      "en": {
+        "titre": "Cottage Children",
+        "texte": "is three poor children gathering wood at dusk, painted in 1787. It was one of the last pictures Gainsborough made: he died the following year.",
+        "artiste": "Thomas Gainsborough"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/zurbaran-jeune-vierge.jpg",
+      "en": {
+        "titre": "The Young Virgin",
+        "texte": "is Mary as a little girl, praying with her sewing left on her lap. Zurbarán painted her around 1632, in a room lit like a stage. I only noticed the little lilies and roses beside her because of Artura, which zooms into the details you'd miss.",
+        "artiste": "Francisco de Zurbarán"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/vangogh-roulin.jpg",
+      "en": {
+        "titre": "Madame Roulin and Her Baby",
+        "texte": "shows the wife of Van Gogh's friend the postman Joseph Roulin, holding their daughter Marcelle in Arles in 1888. Van Gogh painted every member of the family. They were among the few people who were kind to him there.",
+        "artiste": "Vincent van Gogh"
+      }
+    }
+  ]
+}

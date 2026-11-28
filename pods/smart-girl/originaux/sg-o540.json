@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o540",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5f06499b-bac1-47ff-97c6-4878267e0455",
+ "titre": "never do these things if you want to make a good first impression #firstimpression #socialskills #elegance #smartgirl #confidence",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "5f06499b-bac1-47ff-97c6-4878267e0455"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 29 de la boîte (parent 5f06499b, langue source en) : accroche du parent mot pour mot. Conseils du parent (ne pas forcer l'humour, ne pas être en retard, ne pas venir sans préparation, ne pas parler que de soi) et neufs. Sophia sur la préparation comme chez le parent (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e18ea898",
+   "texte_overlay": "never do these things if you want\nto make a good first impression",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634503961197792532/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2ad24f00",
+   "texte_overlay": "don't force jokes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634503961197792532/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a1193217",
+   "texte_overlay": "don't be late",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634503961197792532/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f8c00d26",
+   "texte_overlay": "don't come unprepared\n\nhave a few interesting topics\nin mind.",
+   "texte_sophia": "don't come unprepared\n\nfive minutes on an app like Sophia gives\nyou topics.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634503961197792532/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "80232be2",
+   "texte_overlay": "don't only talk about yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634503961197792532/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1dc21889",
+   "texte_overlay": "don't check your phone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634503961197792532/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a1ce1be4",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634503961197792532/4.jpg"
+  }
+ ]
+}
